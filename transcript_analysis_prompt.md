@@ -6,7 +6,15 @@ You are extracting stand-up **sets** from a YouTube transcript of an episode of 
 
 ## Input
 
-A JSONL transcript at `C:\Users\ethan\coding\jokescore\data\transcript_inbox\<video_id>.jsonl`. Each line is one caption segment:
+**Only process the first file in `data\transcript_inbox\`. Do not process multiple files in one run — one episode per invocation.**
+
+A JSONL transcript at `C:\Users\ethan\coding\jokescore\data\transcript_inbox\<video_id>.jsonl`. The **first line** is an episode metadata object:
+
+```json
+{"type": "episode_meta", "video_id": "CnjJPpr10vM", "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN", "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"}
+```
+
+All subsequent lines are caption segments:
 
 ```json
 {"video_id": "CnjJPpr10vM", "text": "Yeah, THOSE ARE MY TITS. MAKE SOME NOISE", "start": 715.8, "duration": 3.76}
@@ -112,18 +120,35 @@ Where:
 - `<NN>` is a two-digit, 1-indexed set number in show order (`01`, `02`, …).
 - `<comedian-slug>` is the comedian's name, lowercased, spaces→hyphens, non-alphanumerics removed (e.g., `martin-phillips`, `cameron-shepherd`, `frankie-gonzalez`). If the name is unclear, use `unknown`.
 
-**File contents:** the JSONL caption lines from the source transcript, in order, covering the set range. Copy each caption verbatim — do not rewrite, summarize, or re-tokenize the text, and do not add fields. The only edit you may make is **omitting captions you are confident are Tony or another panel member interjecting mid-set** (see the tiebreaker section above). If the set has no interjections (the common case), the output is a byte-for-byte slice of the source.
+**File contents:** a metadata line first, then the JSONL caption lines from the source transcript.
 
-Example: `CnjJPpr10vM_set02_cameron-shepherd.jsonl` would contain lines 327–358 from the source file.
+**Line 1 — set metadata** (write this yourself based on what you've identified):
+
+```json
+{"type": "set_meta", "video_id": "CnjJPpr10vM", "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN", "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM", "guests": ["Shane Gillis", "James McCann"], "comedian_name": "Cameron Shepherd", "comedian_type": "bucket_pull", "set_number": 2, "start_seconds": 715.8}
+```
+
+Fields:
+- `type`: always `"set_meta"`
+- `video_id`, `episode_title`, `episode_url`: copy from the transcript's `episode_meta` line
+- `guests`: list of guest names parsed from the episode title (the names after the dash)
+- `comedian_name`: the comedian's name as Tony introduces them (prefer Tony's intro spelling over auto-caption mangling)
+- `comedian_type`: `"bucket_pull"` (random draw), `"regular"` (recurring comedian doing a new minute), or `"golden_ticket"` (golden ticket winner returning)
+- `set_number`: 1-indexed position in the episode
+- `start_seconds`: the `start` value from the first caption line of the set
+
+**Lines 2+ — caption lines**: copy verbatim from the source. The only edit permitted is omitting captions you are confident are Tony or a panel member interjecting mid-set. If the set has no interjections (the common case), these lines are a byte-for-byte slice of the source.
+
+Example: `CnjJPpr10vM_set02_cameron-shepherd.jsonl` would have the `set_meta` line followed by source lines 327–358.
 
 ---
 
 ## Process checklist
 
-1. Read the full input JSONL.
-2. Skip past the intro block (cold open → format explainer).
-3. For each set in show order: find Tony's intro cue + comedian's name, mark the first caption of the comedian's monologue as the start, mark the last caption before the interview begins as the end, capture the name for the filename.
-4. Write one output JSONL per set to `data\set_inbox\` using the naming convention above. Expect 4–8 bucket pulls plus any "new minute" performances by regulars.
+1. Read the full input JSONL. Note the `episode_meta` on line 1 — you will need `video_id`, `episode_title`, and `episode_url` for every set's metadata. Parse the guest names from `episode_title` (they appear after the dash, separated by `+` or `&`).
+2. Skip past the intro block (cold open → format explainer). Caption lines start after the `episode_meta` line.
+3. For each set in show order: find Tony's intro cue + comedian's name, determine `comedian_type`, mark the first caption of the comedian's monologue as the start, mark the last caption before the interview begins as the end, capture the name for the filename.
+4. **As soon as you have identified the boundaries for a set, write its output file immediately** — do not mentally extract all sets first and then write them in bulk. Write each file the moment you have the start/end range and comedian name confirmed, then continue scanning for the next set. Expect 4–8 bucket pulls plus any "new minute" performances by regulars.
 5. **Once all sets are written, move the source transcript** from `data\transcript_inbox\<video_id>.jsonl` to `data\processed_transcripts\<video_id>.jsonl`. Don't delete the source — moving it marks the episode done.
 
 ## When in doubt
