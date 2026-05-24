@@ -4,8 +4,10 @@ __pycache__/
 *.pyo
 .env
 db.sqlite3
-data/processed_transcripts/
-data/set_inbox/
 data/transcript_inbox/
 data/transcript_todos.jsonl
 data/scrape_history.jsonl
+data/processed_transcripts/
+data/set_inbox/
+data/beat_inbox/
+data/processed_beats/
