@@ -7,6 +7,11 @@ import yt_dlp
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
+# YouTube video IDs are always 11 characters.
+# Audio files are named "{video_id} - {title}.{ext}" so the title can be
+# recovered offline without a network call.
+VIDEO_ID_LEN = 11
+
 
 def dump_episode(doc):
     """Pretty-print top-level fields, one compact line per segment."""
@@ -31,6 +36,17 @@ def fetch_episode_title(video_id):
     url = f"https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v={video_id}&format=json"
     with urllib.request.urlopen(url) as r:
         return json.loads(r.read())["title"]
+
+
+def find_audio(audio_dir, video_id):
+    """Return the audio Path for a video_id, or None if not cached."""
+    matches = list(audio_dir.glob(f"{video_id} - *.*"))
+    return matches[0] if matches else None
+
+
+def title_from_audio(audio_path):
+    """Parse the episode title from a '{video_id} - {title}.ext' filename."""
+    return audio_path.stem[VIDEO_ID_LEN + 3:]  # skip "{id} - "
 
 
 class Command(BaseCommand):
@@ -68,42 +84,39 @@ class Command(BaseCommand):
             self.stdout.write(f"Phase 1: downloading audio for {len(entries)} entries...")
             for entry in entries:
                 video_id = entry["video_id"]
-                existing = list(audio_dir.glob(f"{video_id}.*"))
-                if existing:
+                if find_audio(audio_dir, video_id):
                     self.stdout.write(f"  [{video_id}] already cached, skipping download")
                     continue
+                self.stdout.write(f"  [{video_id}] fetching title...")
+                title = fetch_episode_title(video_id)
                 episode_url = f"https://www.youtube.com/watch?v={video_id}"
                 ydl_opts = {
                     "format": "bestaudio/best",
-                    "outtmpl": str(audio_dir / f"{video_id}.%(ext)s"),
+                    "outtmpl": str(audio_dir / f"{video_id} - {title}.%(ext)s"),
                     "quiet": True,
                     "no_warnings": True,
                 }
-                self.stdout.write(f"  [{video_id}] downloading...")
+                self.stdout.write(f"  [{video_id}] downloading \"{title}\"...")
                 with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                     ydl.download([episode_url])
                 self.stdout.write(f"  [{video_id}] done")
             self.stdout.write("Phase 1 complete.\n")
 
         # --- Phase 2: transcribe one by one ---
-        to_process = [e for e in entries if list(audio_dir.glob(f"{e['video_id']}.*"))]
-        if local_only:
-            skipped = len(entries) - len(to_process)
-            if skipped:
-                self.stdout.write(f"Skipping {skipped} entries with no cached audio.")
+        to_process = [(e, find_audio(audio_dir, e["video_id"])) for e in entries]
+        to_process = [(e, p) for e, p in to_process if p is not None]
+        skipped = len(entries) - len(to_process)
+        if skipped:
+            self.stdout.write(f"Skipping {skipped} entries with no cached audio.")
         self.stdout.write(f"Phase 2: transcribing {len(to_process)} entries...")
         model = whisper.load_model("small.en")
 
-        for entry in to_process:
+        for entry, audio_path in to_process:
             video_id = entry["video_id"]
+            episode_title = title_from_audio(audio_path)
             episode_url = f"https://www.youtube.com/watch?v={video_id}"
 
-            self.stdout.write(f"\n[{video_id}] Fetching title...")
-            episode_title = fetch_episode_title(video_id)
-            self.stdout.write(f"[{video_id}] Title: {episode_title}")
-
-            audio_path = next(audio_dir.glob(f"{video_id}.*"))
-
+            self.stdout.write(f"\n[{video_id}] Title: {episode_title}")
             self.stdout.write(f"[{video_id}] Transcribing with Whisper small.en...")
             result = model.transcribe(
                 str(audio_path),
