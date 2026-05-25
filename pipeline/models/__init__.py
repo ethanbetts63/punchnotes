@@ -1,6 +1,6 @@
 from .comedian import Comedian
 from .episode import Episode
 from .set import Set
-from .beat import Beat
+from .line import Line
 
-__all__ = ['Comedian', 'Episode', 'Set', 'Beat']
+__all__ = ['Comedian', 'Episode', 'Set', 'Line']

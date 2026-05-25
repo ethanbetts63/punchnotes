@@ -102,7 +102,7 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name="Beat",
+            name="Line",
             fields=[
                 (
                     "id",
@@ -113,19 +113,28 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("beat_number", models.PositiveSmallIntegerField()),
+                ("line_number", models.PositiveSmallIntegerField()),
                 (
-                    "beat_type",
+                    "label",
                     models.CharField(
                         choices=[
-                            ("premise", "Premise"),
+                            ("setup", "Setup"),
                             ("punchline", "Punchline"),
                             ("tag", "Tag"),
-                            ("act_out", "Act Out"),
-                            ("crowd_work", "Crowd Work"),
-                            ("transition", "Transition"),
+                            ("fluff", "Fluff"),
                         ],
                         max_length=20,
+                    ),
+                ),
+                (
+                    "confidence",
+                    models.CharField(
+                        choices=[
+                            ("low", "Low"),
+                            ("medium", "Medium"),
+                            ("high", "High"),
+                        ],
+                        max_length=10,
                     ),
                 ),
                 ("text", models.TextField()),
@@ -134,14 +143,14 @@ class Migration(migrations.Migration):
                     "set",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        related_name="beats",
+                        related_name="lines",
                         to="pipeline.set",
                     ),
                 ),
             ],
             options={
-                "ordering": ["beat_number"],
-                "unique_together": {("set", "beat_number")},
+                "ordering": ["line_number"],
+                "unique_together": {("set", "line_number")},
             },
         ),
     ]
