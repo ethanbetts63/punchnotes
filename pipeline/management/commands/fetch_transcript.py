@@ -34,7 +34,7 @@ def fetch_episode_title(video_id):
 
 
 class Command(BaseCommand):
-    help = "Fetch transcript for the first entry in data/transcript_todos.jsonl"
+    help = "Download all audio in transcript_todos.jsonl, then transcribe each one"
 
     def handle(self, *args, **options):
         data_dir = settings.BASE_DIR / "data"
@@ -51,84 +51,98 @@ class Command(BaseCommand):
             self.stdout.write("No entries in todo file.")
             return
 
-        entry = json.loads(lines[0])
-        video_id = entry["video_id"]
+        entries = [json.loads(l) for l in lines]
 
-        self.stdout.write(f"Fetching transcript for {video_id}...")
-
-        episode_title = fetch_episode_title(video_id)
-        episode_url = f"https://www.youtube.com/watch?v={video_id}"
-        self.stdout.write(f"Title: {episode_title}")
-
-        existing = list(audio_dir.glob(f"{video_id}.*"))
-        if existing:
-            audio_path = existing[0]
-            self.stdout.write(f"Using cached audio: {audio_path.name}")
-        else:
+        # --- Phase 1: download all audio files that aren't cached yet ---
+        self.stdout.write(f"Phase 1: downloading audio for {len(entries)} entries...")
+        for entry in entries:
+            video_id = entry["video_id"]
+            existing = list(audio_dir.glob(f"{video_id}.*"))
+            if existing:
+                self.stdout.write(f"  [{video_id}] already cached, skipping download")
+                continue
+            episode_url = f"https://www.youtube.com/watch?v={video_id}"
             ydl_opts = {
                 "format": "bestaudio/best",
                 "outtmpl": str(audio_dir / f"{video_id}.%(ext)s"),
                 "quiet": True,
                 "no_warnings": True,
             }
-            self.stdout.write("Downloading audio...")
+            self.stdout.write(f"  [{video_id}] downloading...")
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([episode_url])
+            self.stdout.write(f"  [{video_id}] done")
+
+        self.stdout.write("Phase 1 complete.\n")
+
+        # --- Phase 2: transcribe one by one ---
+        self.stdout.write(f"Phase 2: transcribing {len(entries)} entries...")
+        model = whisper.load_model("small.en")
+
+        for entry in entries:
+            video_id = entry["video_id"]
+            episode_url = f"https://www.youtube.com/watch?v={video_id}"
+
+            self.stdout.write(f"\n[{video_id}] Fetching title...")
+            episode_title = fetch_episode_title(video_id)
+            self.stdout.write(f"[{video_id}] Title: {episode_title}")
+
             audio_path = next(audio_dir.glob(f"{video_id}.*"))
 
-        self.stdout.write("Transcribing with Whisper small.en (this may take a while)...")
-        model = whisper.load_model("small.en")
-        result = model.transcribe(
-            str(audio_path),
-            language="en",
-            fp16=False,
-            verbose=True,
-            condition_on_previous_text=False,
-            suppress_tokens=[],
-            beam_size=1,
-        )
+            self.stdout.write(f"[{video_id}] Transcribing with Whisper small.en...")
+            result = model.transcribe(
+                str(audio_path),
+                language="en",
+                fp16=False,
+                verbose=True,
+                condition_on_previous_text=False,
+                suppress_tokens=[],
+                beam_size=1,
+            )
 
-        segments = result["segments"]
-        meta = {
-            "type": "episode_meta",
-            "video_id": video_id,
-            "episode_title": episode_title,
-            "episode_url": episode_url,
-        }
+            segments = result["segments"]
+            meta = {
+                "type": "episode_meta",
+                "video_id": video_id,
+                "episode_title": episode_title,
+                "episode_url": episode_url,
+            }
 
-        # Full copy → archive (keeps duration and full-precision start)
-        archive_doc = {
-            **meta,
-            "segments": [
-                {
-                    "text": seg["text"].strip(),
-                    "start": seg["start"],
-                    "duration": seg["end"] - seg["start"],
-                }
-                for seg in segments
-            ],
-        }
-        archive_file = archive_path / f"{video_id}.json"
-        archive_file.write_text(dump_episode(archive_doc), encoding="utf-8")
-        self.stdout.write(f"Archived to {archive_file}")
+            archive_doc = {
+                **meta,
+                "segments": [
+                    {
+                        "text": seg["text"].strip(),
+                        "start": seg["start"],
+                        "duration": seg["end"] - seg["start"],
+                    }
+                    for seg in segments
+                ],
+            }
+            archive_file = archive_path / f"{video_id}.json"
+            archive_file.write_text(dump_episode(archive_doc), encoding="utf-8")
+            self.stdout.write(f"[{video_id}] Archived to {archive_file}")
 
-        # Simplified copy → inbox (no duration, start floored to whole second)
-        inbox_doc = {
-            **meta,
-            "segments": [
-                {
-                    "text": seg["text"].strip(),
-                    "start": int(seg["start"]),
-                }
-                for seg in segments
-            ],
-        }
-        inbox_file = inbox_path / f"{video_id}.json"
-        inbox_file.write_text(dump_episode(inbox_doc), encoding="utf-8")
-        self.stdout.write(self.style.SUCCESS(f"Saved {len(segments)} segments to {inbox_file}"))
+            inbox_doc = {
+                **meta,
+                "segments": [
+                    {
+                        "text": seg["text"].strip(),
+                        "start": int(seg["start"]),
+                    }
+                    for seg in segments
+                ],
+            }
+            inbox_file = inbox_path / f"{video_id}.json"
+            inbox_file.write_text(dump_episode(inbox_doc), encoding="utf-8")
+            self.stdout.write(self.style.SUCCESS(f"[{video_id}] Saved {len(segments)} segments to {inbox_file}"))
 
-        with open(history_path, "a", encoding="utf-8") as f:
-            f.write(json.dumps({**entry, "episode_title": episode_title}) + "\n")
+            with open(history_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps({**entry, "episode_title": episode_title}) + "\n")
 
-        remaining = lines[1:]
-        todo_path.write_text(("\n".join(remaining) + "\n") if remaining else "")
+            # Remove this entry from the todo file immediately after processing
+            remaining_lines = [l for l in todo_path.read_text().splitlines() if l.strip()]
+            remaining_lines = [l for l in remaining_lines if json.loads(l)["video_id"] != video_id]
+            todo_path.write_text(("\n".join(remaining_lines) + "\n") if remaining_lines else "")
+
+        self.stdout.write(self.style.SUCCESS("\nAll done."))
