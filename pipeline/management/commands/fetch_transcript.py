@@ -62,9 +62,15 @@ class Command(BaseCommand):
             action="store_true",
             help="Skip downloads; only transcribe entries whose audio is already cached",
         )
+        parser.add_argument(
+            "--download-only",
+            action="store_true",
+            help="Download audio for all todo entries but skip transcription",
+        )
 
     def handle(self, *args, **options):
         local_only = options["local_only"]
+        download_only = options["download_only"]
         data_dir = settings.BASE_DIR / "data"
         todo_path = data_dir / "transcript_todos.jsonl"
         history_path = data_dir / "scrape_history.jsonl"
@@ -93,7 +99,11 @@ class Command(BaseCommand):
                     self.stdout.write(f"  [{video_id}] already cached, skipping download")
                     continue
                 self.stdout.write(f"  [{video_id}] fetching metadata...")
-                title, publish_date = fetch_episode_meta(video_id)
+                try:
+                    title, publish_date = fetch_episode_meta(video_id)
+                except yt_dlp.utils.DownloadError as e:
+                    self.stdout.write(self.style.WARNING(f"  [{video_id}] skipped: {e}"))
+                    continue
                 publish_dates[video_id] = publish_date
                 episode_url = f"https://www.youtube.com/watch?v={video_id}"
                 ydl_opts = {
@@ -103,10 +113,18 @@ class Command(BaseCommand):
                     "no_warnings": True,
                 }
                 self.stdout.write(f"  [{video_id}] downloading \"{title}\" ({publish_date})...")
-                with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-                    ydl.download([episode_url])
+                try:
+                    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                        ydl.download([episode_url])
+                except yt_dlp.utils.DownloadError as e:
+                    self.stdout.write(self.style.WARNING(f"  [{video_id}] skipped: {e}"))
+                    continue
                 self.stdout.write(f"  [{video_id}] done")
             self.stdout.write("Phase 1 complete.\n")
+
+        if download_only:
+            self.stdout.write("--download-only: skipping transcription.")
+            return
 
         # --- Phase 2: transcribe one by one ---
         to_process = [(e, find_audio(audio_dir, e["video_id"])) for e in entries]
