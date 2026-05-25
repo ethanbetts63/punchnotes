@@ -8,6 +8,25 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 
 
+def dump_episode(doc):
+    """Pretty-print top-level fields, one compact line per segment."""
+    non_seg = [(k, v) for k, v in doc.items() if k != "segments"]
+    has_segs = "segments" in doc
+    parts = ["{"]
+    for i, (k, v) in enumerate(non_seg):
+        comma = "," if i < len(non_seg) - 1 or has_segs else ""
+        parts.append(f"  {json.dumps(k)}: {json.dumps(v, ensure_ascii=False)}{comma}")
+    if has_segs:
+        parts.append('  "segments": [')
+        segs = doc["segments"]
+        for i, s in enumerate(segs):
+            comma = "," if i < len(segs) - 1 else ""
+            parts.append(f"    {json.dumps(s, ensure_ascii=False)}{comma}")
+        parts.append("  ]")
+    parts.append("}")
+    return "\n".join(parts)
+
+
 def fetch_episode_title(video_id):
     url = f"https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v={video_id}&format=json"
     with urllib.request.urlopen(url) as r:
@@ -90,7 +109,7 @@ class Command(BaseCommand):
             ],
         }
         archive_file = archive_path / f"{video_id}.json"
-        archive_file.write_text(json.dumps(archive_doc, indent=2), encoding="utf-8")
+        archive_file.write_text(dump_episode(archive_doc), encoding="utf-8")
         self.stdout.write(f"Archived to {archive_file}")
 
         # Simplified copy → inbox (no duration, start floored to whole second)
@@ -105,7 +124,7 @@ class Command(BaseCommand):
             ],
         }
         inbox_file = inbox_path / f"{video_id}.json"
-        inbox_file.write_text(json.dumps(inbox_doc, indent=2), encoding="utf-8")
+        inbox_file.write_text(dump_episode(inbox_doc), encoding="utf-8")
         self.stdout.write(self.style.SUCCESS(f"Saved {len(segments)} segments to {inbox_file}"))
 
         with open(history_path, "a", encoding="utf-8") as f:
