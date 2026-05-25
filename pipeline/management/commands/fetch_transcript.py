@@ -1,5 +1,4 @@
 import json
-import urllib.request
 from pathlib import Path
 
 import whisper
@@ -32,10 +31,14 @@ def dump_episode(doc):
     return "\n".join(parts)
 
 
-def fetch_episode_title(video_id):
-    url = f"https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v={video_id}&format=json"
-    with urllib.request.urlopen(url) as r:
-        return json.loads(r.read())["title"]
+def fetch_episode_meta(video_id):
+    """Return (title, publish_date) for a YouTube video using yt_dlp (no download)."""
+    url = f"https://www.youtube.com/watch?v={video_id}"
+    with yt_dlp.YoutubeDL({"quiet": True, "no_warnings": True}) as ydl:
+        info = ydl.extract_info(url, download=False)
+    raw = info.get("upload_date", "")  # YYYYMMDD or empty
+    publish_date = f"{raw[:4]}-{raw[4:6]}-{raw[6:]}" if len(raw) == 8 else None
+    return info["title"], publish_date
 
 
 def find_audio(audio_dir, video_id):
@@ -76,6 +79,7 @@ class Command(BaseCommand):
             return
 
         entries = [json.loads(l) for l in lines]
+        publish_dates = {}  # video_id -> "YYYY-MM-DD" or None; populated in Phase 1
 
         # --- Phase 1: download all audio files that aren't cached yet ---
         if local_only:
@@ -87,8 +91,9 @@ class Command(BaseCommand):
                 if find_audio(audio_dir, video_id):
                     self.stdout.write(f"  [{video_id}] already cached, skipping download")
                     continue
-                self.stdout.write(f"  [{video_id}] fetching title...")
-                title = fetch_episode_title(video_id)
+                self.stdout.write(f"  [{video_id}] fetching metadata...")
+                title, publish_date = fetch_episode_meta(video_id)
+                publish_dates[video_id] = publish_date
                 episode_url = f"https://www.youtube.com/watch?v={video_id}"
                 ydl_opts = {
                     "format": "bestaudio/best",
@@ -96,7 +101,7 @@ class Command(BaseCommand):
                     "quiet": True,
                     "no_warnings": True,
                 }
-                self.stdout.write(f"  [{video_id}] downloading \"{title}\"...")
+                self.stdout.write(f"  [{video_id}] downloading \"{title}\" ({publish_date})...")
                 with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                     ydl.download([episode_url])
                 self.stdout.write(f"  [{video_id}] done")
@@ -116,6 +121,12 @@ class Command(BaseCommand):
             episode_title = title_from_audio(audio_path)
             episode_url = f"https://www.youtube.com/watch?v={video_id}"
 
+            if video_id not in publish_dates:
+                # Audio was already cached in Phase 1 (or --local-only); fetch metadata now.
+                self.stdout.write(f"  [{video_id}] fetching metadata for publish date...")
+                _, publish_dates[video_id] = fetch_episode_meta(video_id)
+            publish_date = publish_dates[video_id]
+
             self.stdout.write(f"\n[{video_id}] Title: {episode_title}")
             self.stdout.write(f"[{video_id}] Transcribing with Whisper small.en...")
             result = model.transcribe(
@@ -134,6 +145,7 @@ class Command(BaseCommand):
                 "video_id": video_id,
                 "episode_title": episode_title,
                 "episode_url": episode_url,
+                "publish_date": publish_date,
             }
 
             archive_doc = {

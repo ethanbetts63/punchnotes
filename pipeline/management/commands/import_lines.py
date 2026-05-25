@@ -45,6 +45,7 @@ class Command(BaseCommand):
             defaults={
                 "episode_title": meta["episode_title"],
                 "episode_url": meta["episode_url"],
+                "published_at": meta.get("publish_date"),
             },
         )
 
