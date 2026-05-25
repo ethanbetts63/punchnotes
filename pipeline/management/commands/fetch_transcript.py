@@ -36,7 +36,15 @@ def fetch_episode_title(video_id):
 class Command(BaseCommand):
     help = "Download all audio in transcript_todos.jsonl, then transcribe each one"
 
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "--local-only",
+            action="store_true",
+            help="Skip downloads; only transcribe entries whose audio is already cached",
+        )
+
     def handle(self, *args, **options):
+        local_only = options["local_only"]
         data_dir = settings.BASE_DIR / "data"
         todo_path = data_dir / "transcript_todos.jsonl"
         history_path = data_dir / "scrape_history.jsonl"
@@ -54,32 +62,39 @@ class Command(BaseCommand):
         entries = [json.loads(l) for l in lines]
 
         # --- Phase 1: download all audio files that aren't cached yet ---
-        self.stdout.write(f"Phase 1: downloading audio for {len(entries)} entries...")
-        for entry in entries:
-            video_id = entry["video_id"]
-            existing = list(audio_dir.glob(f"{video_id}.*"))
-            if existing:
-                self.stdout.write(f"  [{video_id}] already cached, skipping download")
-                continue
-            episode_url = f"https://www.youtube.com/watch?v={video_id}"
-            ydl_opts = {
-                "format": "bestaudio/best",
-                "outtmpl": str(audio_dir / f"{video_id}.%(ext)s"),
-                "quiet": True,
-                "no_warnings": True,
-            }
-            self.stdout.write(f"  [{video_id}] downloading...")
-            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-                ydl.download([episode_url])
-            self.stdout.write(f"  [{video_id}] done")
-
-        self.stdout.write("Phase 1 complete.\n")
+        if local_only:
+            self.stdout.write("--local-only: skipping downloads.")
+        else:
+            self.stdout.write(f"Phase 1: downloading audio for {len(entries)} entries...")
+            for entry in entries:
+                video_id = entry["video_id"]
+                existing = list(audio_dir.glob(f"{video_id}.*"))
+                if existing:
+                    self.stdout.write(f"  [{video_id}] already cached, skipping download")
+                    continue
+                episode_url = f"https://www.youtube.com/watch?v={video_id}"
+                ydl_opts = {
+                    "format": "bestaudio/best",
+                    "outtmpl": str(audio_dir / f"{video_id}.%(ext)s"),
+                    "quiet": True,
+                    "no_warnings": True,
+                }
+                self.stdout.write(f"  [{video_id}] downloading...")
+                with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                    ydl.download([episode_url])
+                self.stdout.write(f"  [{video_id}] done")
+            self.stdout.write("Phase 1 complete.\n")
 
         # --- Phase 2: transcribe one by one ---
-        self.stdout.write(f"Phase 2: transcribing {len(entries)} entries...")
+        to_process = [e for e in entries if list(audio_dir.glob(f"{e['video_id']}.*"))]
+        if local_only:
+            skipped = len(entries) - len(to_process)
+            if skipped:
+                self.stdout.write(f"Skipping {skipped} entries with no cached audio.")
+        self.stdout.write(f"Phase 2: transcribing {len(to_process)} entries...")
         model = whisper.load_model("small.en")
 
-        for entry in entries:
+        for entry in to_process:
             video_id = entry["video_id"]
             episode_url = f"https://www.youtube.com/watch?v={video_id}"
 
