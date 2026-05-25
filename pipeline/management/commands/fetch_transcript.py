@@ -10,22 +10,23 @@ from django.core.management.base import BaseCommand
 # Audio files are named "{video_id} - {title}.{ext}" so the title can be
 # recovered offline without a network call.
 VIDEO_ID_LEN = 11
+WHISPER_LINES_KEY = "segments"
 
 
 def dump_episode(doc):
-    """Pretty-print top-level fields, one compact line per segment."""
-    non_seg = [(k, v) for k, v in doc.items() if k != "segments"]
-    has_segs = "segments" in doc
+    """Pretty-print top-level fields, one compact transcript line per item."""
+    non_line = [(k, v) for k, v in doc.items() if k != "lines"]
+    has_lines = "lines" in doc
     parts = ["{"]
-    for i, (k, v) in enumerate(non_seg):
-        comma = "," if i < len(non_seg) - 1 or has_segs else ""
+    for i, (k, v) in enumerate(non_line):
+        comma = "," if i < len(non_line) - 1 or has_lines else ""
         parts.append(f"  {json.dumps(k)}: {json.dumps(v, ensure_ascii=False)}{comma}")
-    if has_segs:
-        parts.append('  "segments": [')
-        segs = doc["segments"]
-        for i, s in enumerate(segs):
-            comma = "," if i < len(segs) - 1 else ""
-            parts.append(f"    {json.dumps(s, ensure_ascii=False)}{comma}")
+    if has_lines:
+        parts.append('  "lines": [')
+        doc_lines = doc["lines"]
+        for i, line in enumerate(doc_lines):
+            comma = "," if i < len(doc_lines) - 1 else ""
+            parts.append(f"    {json.dumps(line, ensure_ascii=False)}{comma}")
         parts.append("  ]")
     parts.append("}")
     return "\n".join(parts)
@@ -139,7 +140,7 @@ class Command(BaseCommand):
                 beam_size=1,
             )
 
-            segments = result["segments"]
+            transcript_lines = result[WHISPER_LINES_KEY]
             meta = {
                 "type": "episode_meta",
                 "video_id": video_id,
@@ -150,13 +151,13 @@ class Command(BaseCommand):
 
             archive_doc = {
                 **meta,
-                "segments": [
+                "lines": [
                     {
-                        "text": seg["text"].strip(),
-                        "start": seg["start"],
-                        "duration": seg["end"] - seg["start"],
+                        "text": line["text"].strip(),
+                        "start": line["start"],
+                        "duration": line["end"] - line["start"],
                     }
-                    for seg in segments
+                    for line in transcript_lines
                 ],
             }
             archive_file = archive_path / f"{video_id}.json"
@@ -165,17 +166,17 @@ class Command(BaseCommand):
 
             inbox_doc = {
                 **meta,
-                "segments": [
+                "lines": [
                     {
-                        "text": seg["text"].strip(),
-                        "start": int(seg["start"]),
+                        "text": line["text"].strip(),
+                        "start": int(line["start"]),
                     }
-                    for seg in segments
+                    for line in transcript_lines
                 ],
             }
             inbox_file = inbox_path / f"{video_id}.json"
             inbox_file.write_text(dump_episode(inbox_doc), encoding="utf-8")
-            self.stdout.write(self.style.SUCCESS(f"[{video_id}] Saved {len(segments)} segments to {inbox_file}"))
+            self.stdout.write(self.style.SUCCESS(f"[{video_id}] Saved {len(transcript_lines)} lines to {inbox_file}"))
 
             with open(history_path, "a", encoding="utf-8") as f:
                 f.write(json.dumps({**entry, "episode_title": episode_title}) + "\n")

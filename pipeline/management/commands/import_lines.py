@@ -9,16 +9,16 @@ from pipeline.models import Comedian, Episode, Line, Set
 
 
 class Command(BaseCommand):
-    help = "Import annotated set JSON files from data/line_inbox/ into the database"
+    help = "Import annotated set JSON files from data/annotated_set_inbox/ into the database"
 
     def handle(self, *args, **options):
         data_dir = settings.BASE_DIR / "data"
-        line_inbox = data_dir / "line_inbox"
+        annotated_set_inbox = data_dir / "annotated_set_inbox"
         processed_lines = data_dir / "processed_lines"
 
-        annotated_files = sorted(line_inbox.glob("*.json"))
+        annotated_files = sorted(annotated_set_inbox.glob("*.json"))
         if not annotated_files:
-            self.stdout.write("No annotated set files found in line_inbox.")
+            self.stdout.write("No annotated set files found in annotated_set_inbox.")
             return
 
         for path in annotated_files:
@@ -80,14 +80,14 @@ class Command(BaseCommand):
             self.stdout.write(f"  Replaced {deleted} existing lines for set {set_number}")
 
         lines = []
-        for i, segment in enumerate(meta["segments"], start=1):
+        for i, line in enumerate(meta["lines"], start=1):
             lines.append(
                 Line(
                     set=set_obj,
                     line_number=i,
-                    label=segment["label"],
-                    text=segment["text"],
-                    start_seconds=segment["start"],
+                    label=line["label"],
+                    text=line["text"],
+                    start_seconds=line["start"],
                 )
             )
 

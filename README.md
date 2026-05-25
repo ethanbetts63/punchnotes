@@ -1,4 +1,4 @@
-jokescore
+﻿jokescore
 
 A system for measuring how funny stand-up comedy actually is.
 
@@ -29,13 +29,13 @@ Some products already cover parts of this idea:
 
 StandApp Comedy and Jokesmith provide automatic laughter detection, transcripts, LPM analytics, and audience-reaction heatmaps.
 LaughTrack experimented with joke-level laugh scoring.
-Gillick's laughter-detection library provides open-source laugh segmentation models.
+Gillick's laughter-detection library provides open-source laugh boundary models.
 
 Recent datasets are making this more feasible:
 
-StandUp4AI – 3,617 stand-up videos with transcripts and laugh labels
-TIC-TALK – multimodal dataset with transcripts, body pose, and laughter events
-SMILE – laughter-labeled clips with contextual annotations
+StandUp4AI â€“ 3,617 stand-up videos with transcripts and laugh labels
+TIC-TALK â€“ multimodal dataset with transcripts, body pose, and laughter events
+SMILE â€“ laughter-labeled clips with contextual annotations
 What Still Doesn't Exist
 
 Most current systems stop at audience reaction analytics. The bigger semantic layer is still mostly untouched.
@@ -76,22 +76,35 @@ Ideas for future expansion once the core pipeline is stable.
 
 Jokebook as a quality signal
 
-At the end of each bucket pull interview, Tony awards the comedian a jokebook — small, medium, or large — based on how well they did. Occasionally none is given, either because the set was poor or because the comedian already received one in a prior appearance. This is one of the few ground-truth quality labels available in the dataset: an in-the-moment assessment from Tony and the panel, with immediate audience context. Recording jokebook size (small / medium / large / none) and the likely reason per appearance would give jokescore a human-curated label to validate LPM-based scoring against.
+At the end of each bucket pull interview, Tony awards the comedian a jokebook â€” small, medium, or large â€” based on how well they did. Occasionally none is given, either because the set was poor or because the comedian already received one in a prior appearance. This is one of the few ground-truth quality labels available in the dataset: an in-the-moment assessment from Tony and the panel, with immediate audience context. Recording jokebook size (small / medium / large / none) and the likely reason per appearance would give jokescore a human-curated label to validate LPM-based scoring against.
 
 Interview preservation
 
-The set extraction pipeline already identifies where each set ends and the interview begins — that boundary is a byproduct of work already being done. Right now the interview window is simply discarded. Capturing it costs almost nothing extra and preserves all the qualitative signal that follows a set: Tony's reaction, panel feedback, the comedian's backstory, and the jokebook award. A dedicated interview extraction step (parallel to the existing set prompt) could record jokebook size, whether the comedian has appeared before, years doing comedy, home city, and any notable panel reactions. This data doesn't belong in the set pipeline but it would be valuable to have archived for later analysis.
+The set extraction pipeline already identifies where each set ends and the interview begins â€” that boundary is a byproduct of work already being done. Right now the interview window is simply discarded. Capturing it costs almost nothing extra and preserves all the qualitative signal that follows a set: Tony's reaction, panel feedback, the comedian's backstory, and the jokebook award. A dedicated interview extraction step (parallel to the existing set prompt) could record jokebook size, whether the comedian has appeared before, years doing comedy, home city, and any notable panel reactions. This data doesn't belong in the set pipeline but it would be valuable to have archived for later analysis.
 
 Audio-based laughter detection
 
-Whisper's non-speech tokens ([laughter], [applause], ♪) give a coarse signal, but purpose-built models like Gillick's laughter segmentation library could provide precise laughter timestamps and intensity scores. Layering that over the line-level transcript would enable true LPM calculation at the joke and line level rather than at the set level.
+Whisper's non-speech tokens ([laughter], [applause], â™ª) give a coarse signal, but purpose-built models like Gillick's laughter detection library could provide precise laughter timestamps and intensity scores. Layering that over the line-level transcript would enable true LPM calculation at the joke and line level rather than at the set level.
 
 Crowd-work detection at scale
 
-The line taxonomy already includes crowd_work as a type. Tracking the ratio of crowd_work lines to joke lines across a comedian's appearances over time would reveal how much of their performance depends on the room versus prepared material — a meaningful signal for separating delivery quality from joke quality, one of the major gaps identified above.
+The line taxonomy already includes crowd_work as a type. Tracking the ratio of crowd_work lines to joke lines across a comedian's appearances over time would reveal how much of their performance depends on the room versus prepared material â€” a meaningful signal for separating delivery quality from joke quality, one of the major gaps identified above.
 
 Premise originality scoring
 
-With a large corpus of Kill Tony sets, semantic similarity between premises across comedians and across time could be computed. This would surface originality signals and flag potential joke similarity between comics — useful both as a dataset feature and as a standalone tool.
+With a large corpus of Kill Tony sets, semantic similarity between premises across comedians and across time could be computed. This would surface originality signals and flag potential joke similarity between comics â€” useful both as a dataset feature and as a standalone tool.
 
 additional labeling depth. right now we are working with setup, punchline, tag and fluff. that covers everything. but theres more analysis you could do for instance a punchline or a tag could also be a callback. the fluff could be all sorts of things like a closing remark like thank you. the setup maybe could be thought of as a bridge in differnet contexts. 
+
+
+Joke hierarchy: 
+Top to bottom: 
+Set - the full recorded appearance of the comic doing standup
+Bit - a single beat or a sequence of beats that do not make sense without the context of a shared premise
+Beat - a sequence of setup + punchline + tag (if present). The start of a beat is the first setup line following a punchline or tag in a set. 
+Line - fluff, setup, punchline or tagline. 
+
+
+Topics are attributed at the beat level and are the salient topic / topics of the beat. 
+Premises are attributed at the bit level and are the smallest standalone â€œwhat this bit is aboutâ€ statement that the audience needs in order for the beats to make sense. 
+

@@ -1,12 +1,14 @@
-# Kill Tony Set Annotation Prompt
+﻿# Kill Tony Set Annotation Prompt
 
-You are labeling the comedic structure of stand-up **sets** from *Kill Tony*. For every set file in `C:\Users\ethan\coding\jokescore\data\set_inbox\`, add a `label` to every segment and write the annotated copy to `C:\Users\ethan\coding\jokescore\data\line_inbox\`.
+You are labeling the comedic structure of stand-up **sets** from *Kill Tony*. Only annotate all of the sets for **one video** at a time. Do not process every set in `C:\Users\ethan\coding\jokescore\data\set_inbox\` unless all of those files are from the same video; otherwise the work will be too large for your context.
+
+For each selected set file, add a `label` to every line and write the annotated copy to `C:\Users\ethan\coding\jokescore\data\annotated_set_inbox\`.
 
 ---
 
 ## Input
 
-Each set file is a JSON object with set metadata at the top level and a `segments` array of caption lines. Example:
+Each set file is a JSON object with set metadata at the top level and a `lines` array of caption lines. Example:
 
 ```json
 {
@@ -19,7 +21,7 @@ Each set file is a JSON object with set metadata at the top level and a `segment
   "comedian_type": "regular",
   "set_number": 14,
   "start_seconds": 7450,
-  "segments": [
+  "lines": [
     {"text": "- Folks, my ex-girlfriend,", "start": 7450},
     {"text": "she would love it when I spit in her mouth.", "start": 7453},
     ...
@@ -31,13 +33,13 @@ Each set file is a JSON object with set metadata at the top level and a `segment
 
 ## Your task
 
-For each set file in `set_inbox/`, add one new field to every segment:
+For each selected set file from `set_inbox/`, add one new field to every line:
 
 - `label`: one of `setup`, `punchline`, `tag`, `fluff`
 
-Write the result to `data/line_inbox/<same-filename>.json`. Preserve all original metadata and segment fields verbatim — only add the new key.
+Write the result to `data/annotated_set_inbox/<same-filename>.json`. Preserve all original metadata and line fields verbatim â€” only add the new key.
 
-**Process one set fully before moving to the next.** Read a file, label every segment, write the output, delete the source file, then move on. Do not batch.
+**Process one set fully before moving to the next.** Read a file, label every line, write the output, delete the source file, then move on. Do not batch.
 
 ---
 
@@ -56,7 +58,7 @@ The line where the laugh lands. The reveal, twist, or payoff the setup was build
 > "Robert Wadlow, world's tallest man, 15 inches soft, the fucking end."
 
 ### `tag`
-An additional punchline that builds off the previous punchline without needing new setup. A tag rides on the laugh already in the room — if it introduces fresh material, it is a new `setup`, not a tag.
+An additional punchline that builds off the previous punchline without needing new setup. A tag rides on the laugh already in the room â€” if it introduces fresh material, it is a new `setup`, not a tag.
 
 > "That's the end of the documentary." (after the Robert Wadlow punchline)
 > "Y'all don't know how to act at all." (escalation of "y'all don't know how to act")
@@ -73,7 +75,7 @@ Everything that is not setup, punchline, or tag. Greetings, sign-offs, name intr
 ## How to label
 
 1. Read the whole set first. Get the structure in your head before labeling line-by-line.
-2. Identify each joke's punchline first — that's the anchor.
+2. Identify each joke's punchline first â€” that's the anchor.
 3. Walk backwards from the punchline labeling setup.
 4. Walk forwards labeling any tags that ride the laugh.
 5. Mark everything else fluff.
@@ -83,7 +85,7 @@ Everything that is not setup, punchline, or tag. Greetings, sign-offs, name intr
 - **One punchline per joke.** If you find yourself labeling two adjacent lines as punchline, one of them is probably a tag (rides the previous laugh) or setup (sets up the real punchline).
 - **Tags require an immediately preceding punchline or tag.** A line cannot tag a fluff or a setup.
 - **Sound effects from the show (kitten, bear, music) are fluff.** They appear as `[squeals]`, `[music]`, etc.
-- **Verbal stumbles and filler are fluff.** `"Uh..."`, `"Hell yeah."`, `"Believe that."`, `"You know what I mean?"` — when they're not part of an actual joke.
+- **Verbal stumbles and filler are fluff.** `"Uh..."`, `"Hell yeah."`, `"Believe that."`, `"You know what I mean?"` â€” when they're not part of an actual joke.
 - **Self-introductions are fluff.** `"My name is Brandon."` is fluff unless the name itself is the punchline.
 - **Closers are fluff.** `"That's my time."`, `"Thank you guys."`, `"Okay, that's enough for me, thank you."`
 
@@ -91,7 +93,7 @@ Everything that is not setup, punchline, or tag. Greetings, sign-offs, name intr
 
 ## Output format
 
-For each input file `data/set_inbox/<name>.json`, write `data/line_inbox/<name>.json` with the same top-level metadata and each segment augmented:
+For each input file `data/set_inbox/<name>.json`, write `data/annotated_set_inbox/<name>.json` with the same top-level metadata and each line augmented:
 
 ```json
 {
@@ -101,13 +103,13 @@ For each input file `data/set_inbox/<name>.json`, write `data/line_inbox/<name>.
 }
 ```
 
-After writing, **delete the source file from `set_inbox/`**. The annotated file in `line_inbox/` is the source of truth from this point on.
+After writing, **delete the source file from `set_inbox/`**. The annotated file in `annotated_set_inbox/` is the source of truth from this point on.
 
 ---
 
-## Worked example 1 — High-quality set (Pat O'Neill, `set14`)
+## Worked example 1 â€” High-quality set (Pat O'Neill, `set14`)
 
-A clean, well-structured set. Four discrete setup→punchline jokes with a sign-off.
+A clean, well-structured set. Four discrete setupâ†’punchline jokes with a sign-off.
 
 ```json
 {"text": "- Folks, my ex-girlfriend,", "start": 7450, "label": "setup"}
@@ -125,13 +127,13 @@ A clean, well-structured set. Four discrete setup→punchline jokes with a sign-
 {"text": "Okay, that's enough for me, thank you.", "start": 7517, "label": "fluff"}
 ```
 
-Note on 7510: "I was telling that story last night" arguably tags joke #3 (he's still on the vomit story) but has its own full setup→punchline arc with a new premise (audience reaction), so it's labeled setup.
+Note on 7510: "I was telling that story last night" arguably tags joke #3 (he's still on the vomit story) but has its own full setupâ†’punchline arc with a new premise (audience reaction), so it's labeled setup.
 
 ---
 
-## Worked example 2 — Medium-quality set (Liv Taylor, `set03`)
+## Worked example 2 â€” Medium-quality set (Liv Taylor, `set03`)
 
-Some structure — two clear jokes land — but the set gets cut off by the kitten/bear and the third joke is interrupted.
+Some structure â€” two clear jokes land â€” but the set gets cut off by the kitten/bear and the third joke is interrupted.
 
 ```json
 {"text": "What's up, Austin?", "start": 1379, "label": "fluff"}
@@ -164,12 +166,12 @@ Some structure — two clear jokes land — but the set gets cut off by the kitt
 
 Notes:
 - "So I started listening to Negro Spirituals" lands as the shock-turn punchline of the smoke-detector joke, but the smoke-detector reveal is the *real* punchline (recontextualizes it). For the one-punchline-per-joke rule, the shock line is labeled punchline of its own mini-beat and the reveal is the main punchline.
-- "That's fucking crazy" (1411) is ambiguous — could be the comedian reading the room or part of the setup for the reveal. Labeled setup.
-- The interrupted Zip Recruiter joke (1447–1451) never lands — she gets cut off and finishes hurriedly.
+- "That's fucking crazy" (1411) is ambiguous â€” could be the comedian reading the room or part of the setup for the reveal. Labeled setup.
+- The interrupted Zip Recruiter joke (1447â€“1451) never lands â€” she gets cut off and finishes hurriedly.
 
 ---
 
-## Worked example 3 — Low-quality set (Brandon Fields, `set08`)
+## Worked example 3 â€” Low-quality set (Brandon Fields, `set08`)
 
 Very little structure. Brandon admits he's high, rambles, never lands a clean punchline, addresses an audience member at the end.
 
@@ -200,10 +202,10 @@ Very little structure. Brandon admits he's high, rambles, never lands a clean pu
 ```
 
 Notes:
-- "more than being black these days" is the structural punchline of the phone bit but it doesn't actually land — could also be read as setup leading nowhere. Call it punchline since it's the clearest candidate.
-- The whole Android section (3882–3895) is "setup, setup, setup, give up" — no real punchline arrives, so everything is setup and the "Maybe? Alright, fuck y'all" is fluff (giving up on the bit).
-- "Um, uh, white thing about me, uh, I could swim" is a tiny joke (swimming = white) buried in stumbles — labeled punchline.
-- The closer is crowd work calling out an audience member with an ankle monitor — labeled punchline since it's a real laugh.
+- "more than being black these days" is the structural punchline of the phone bit but it doesn't actually land â€” could also be read as setup leading nowhere. Call it punchline since it's the clearest candidate.
+- The whole Android section (3882â€“3895) is "setup, setup, setup, give up" â€” no real punchline arrives, so everything is setup and the "Maybe? Alright, fuck y'all" is fluff (giving up on the bit).
+- "Um, uh, white thing about me, uh, I could swim" is a tiny joke (swimming = white) buried in stumbles â€” labeled punchline.
+- The closer is crowd work calling out an audience member with an ankle monitor â€” labeled punchline since it's a real laugh.
 
 ---
 
@@ -213,8 +215,9 @@ Notes:
 2. For the first file:
    - Read it.
    - Read the whole set and form a mental model of joke structure.
-   - Label each segment with `label`.
-   - Write the annotated copy to `data/line_inbox/` with the same filename.
+   - Label each line with `label`.
+   - Write the annotated copy to `data/annotated_set_inbox/` with the same filename.
    - Delete the source file from `set_inbox/`.
 3. Move to the next file. Repeat.
 4. When `set_inbox/` is empty, stop.
+
