@@ -153,11 +153,12 @@ class Command(BaseCommand):
                 **meta,
                 "lines": [
                     {
+                        "line_number": i,
                         "text": line["text"].strip(),
                         "start": line["start"],
                         "duration": line["end"] - line["start"],
                     }
-                    for line in transcript_lines
+                    for i, line in enumerate(transcript_lines, start=1)
                 ],
             }
             archive_file = archive_path / f"{video_id}.json"
@@ -168,10 +169,11 @@ class Command(BaseCommand):
                 **meta,
                 "lines": [
                     {
+                        "line_number": i,
                         "text": line["text"].strip(),
                         "start": int(line["start"]),
                     }
-                    for line in transcript_lines
+                    for i, line in enumerate(transcript_lines, start=1)
                 ],
             }
             inbox_file = inbox_path / f"{video_id}.json"

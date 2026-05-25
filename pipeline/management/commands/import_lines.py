@@ -80,11 +80,11 @@ class Command(BaseCommand):
             self.stdout.write(f"  Replaced {deleted} existing lines for set {set_number}")
 
         lines = []
-        for i, line in enumerate(meta["lines"], start=1):
+        for line in meta["lines"]:
             lines.append(
                 Line(
                     set=set_obj,
-                    line_number=i,
+                    line_number=line["line_number"],
                     label=line["label"],
                     text=line["text"],
                     start_seconds=line["start"],

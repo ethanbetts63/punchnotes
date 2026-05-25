@@ -2,7 +2,7 @@
 
 You are labeling the comedic structure of stand-up **sets** from *Kill Tony*. Only annotate all of the sets for **one video** at a time. Do not process every set in `C:\Users\ethan\coding\jokescore\data\set_inbox\` unless all of those files are from the same video; otherwise the work will be too large for your context.
 
-For each selected set file, add a `label` to every line and write the annotated copy to `C:\Users\ethan\coding\jokescore\data\annotated_set_inbox\`.
+For each selected set file, fill in the empty `label` field on every line and write the annotated copy to `C:\Users\ethan\coding\jokescore\data\annotated_set_inbox\`.
 
 ---
 
@@ -22,8 +22,8 @@ Each set file is a JSON object with set metadata at the top level and a `lines` 
   "set_number": 14,
   "start_seconds": 7450,
   "lines": [
-    {"text": "- Folks, my ex-girlfriend,", "start": 7450},
-    {"text": "she would love it when I spit in her mouth.", "start": 7453},
+    {"line_number": 1042, "text": "- Folks, my ex-girlfriend,", "start": 7450, "label": ""},
+    {"line_number": 1043, "text": "she would love it when I spit in her mouth.", "start": 7453, "label": ""},
     ...
   ]
 }
@@ -33,11 +33,11 @@ Each set file is a JSON object with set metadata at the top level and a `lines` 
 
 ## Your task
 
-For each selected set file from `set_inbox/`, add one new field to every line:
+For each selected set file from `set_inbox/`, replace the empty `label` value on every line:
 
 - `label`: one of `setup`, `punchline`, `tag`, `fluff`
 
-Write the result to `data/annotated_set_inbox/<same-filename>.json`. Preserve all original metadata and line fields verbatim â€” only add the new key.
+Write the result to `data/annotated_set_inbox/<same-filename>.json`. Preserve all original metadata and line fields verbatim; only replace each empty `label` value with one of the allowed labels.
 
 **Process one set fully before moving to the next.** Read a file, label every line, write the output, delete the source file, then move on. Do not batch.
 
@@ -93,10 +93,11 @@ Everything that is not setup, punchline, or tag. Greetings, sign-offs, name intr
 
 ## Output format
 
-For each input file `data/set_inbox/<name>.json`, write `data/annotated_set_inbox/<name>.json` with the same top-level metadata and each line augmented:
+For each input file `data/set_inbox/<name>.json`, write `data/annotated_set_inbox/<name>.json` with the same top-level metadata and each line labeled:
 
 ```json
 {
+  "line_number": 1043,
   "text": "she would love it when I spit in her mouth.",
   "start": 7453,
   "label": "setup"
