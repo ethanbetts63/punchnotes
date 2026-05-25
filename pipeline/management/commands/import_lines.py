@@ -85,7 +85,6 @@ class Command(BaseCommand):
                     set=set_obj,
                     line_number=i,
                     label=segment["label"],
-                    confidence=segment["confidence"],
                     text=segment["text"],
                     start_seconds=segment["start"],
                 )

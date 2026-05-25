@@ -8,15 +8,9 @@ class Line(models.Model):
         ('tag', 'Tag'),
         ('fluff', 'Fluff'),
     ]
-    CONFIDENCE_CHOICES = [
-        ('low', 'Low'),
-        ('medium', 'Medium'),
-        ('high', 'High'),
-    ]
     set = models.ForeignKey('pipeline.Set', on_delete=models.CASCADE, related_name='lines')
     line_number = models.PositiveSmallIntegerField()
     label = models.CharField(max_length=20, choices=LABEL_CHOICES)
-    confidence = models.CharField(max_length=10, choices=CONFIDENCE_CHOICES)
     text = models.TextField()
     start_seconds = models.FloatField()
 

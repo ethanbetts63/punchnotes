@@ -1,6 +1,6 @@
 # Kill Tony Set Annotation Prompt
 
-You are labeling the comedic structure of stand-up **sets** from *Kill Tony*. For every set file in `C:\Users\ethan\coding\jokescore\data\set_inbox\`, add a `label` and a `confidence` value to every segment and write the annotated copy to `C:\Users\ethan\coding\jokescore\data\line_inbox\`.
+You are labeling the comedic structure of stand-up **sets** from *Kill Tony*. For every set file in `C:\Users\ethan\coding\jokescore\data\set_inbox\`, add a `label` to every segment and write the annotated copy to `C:\Users\ethan\coding\jokescore\data\line_inbox\`.
 
 ---
 
@@ -31,12 +31,11 @@ Each set file is a JSON object with set metadata at the top level and a `segment
 
 ## Your task
 
-For each set file in `set_inbox/`, add two new fields to every segment:
+For each set file in `set_inbox/`, add one new field to every segment:
 
 - `label`: one of `setup`, `punchline`, `tag`, `fluff`
-- `confidence`: one of `low`, `medium`, `high`
 
-Write the result to `data/line_inbox/<same-filename>.json`. Preserve all original metadata and segment fields verbatim — only add the two new keys.
+Write the result to `data/line_inbox/<same-filename>.json`. Preserve all original metadata and segment fields verbatim — only add the new key.
 
 **Process one set fully before moving to the next.** Read a file, label every segment, write the output, delete the source file, then move on. Do not batch.
 
@@ -71,18 +70,6 @@ Everything that is not setup, punchline, or tag. Greetings, sign-offs, name intr
 
 ---
 
-## Confidence
-
-Rate how sure you are of the label, not how funny the joke is.
-
-- `high` — the line clearly fits its label. A clean setup, an obvious punchline, an unambiguous greeting.
-- `medium` — defensible but debatable. A setup line that also has joke energy, a borderline tag-vs-new-setup, a transitional line that could be fluff.
-- `low` — genuinely unclear. Often happens in weak sets where the comedian never lands a clean punchline, where lines are interrupted, or where it's ambiguous which line is doing the joke work.
-
-Low-confidence annotations are flagged for later re-annotation with stronger models. Don't be afraid to use `low` — it's better than a confident wrong call.
-
----
-
 ## How to label
 
 1. Read the whole set first. Get the structure in your head before labeling line-by-line.
@@ -90,7 +77,6 @@ Low-confidence annotations are flagged for later re-annotation with stronger mod
 3. Walk backwards from the punchline labeling setup.
 4. Walk forwards labeling any tags that ride the laugh.
 5. Mark everything else fluff.
-6. Assign confidence per line based on how clean each call was.
 
 ### Rules of thumb
 
@@ -111,8 +97,7 @@ For each input file `data/set_inbox/<name>.json`, write `data/line_inbox/<name>.
 {
   "text": "she would love it when I spit in her mouth.",
   "start": 7453,
-  "label": "setup",
-  "confidence": "high"
+  "label": "setup"
 }
 ```
 
@@ -122,103 +107,103 @@ After writing, **delete the source file from `set_inbox/`**. The annotated file 
 
 ## Worked example 1 — High-quality set (Pat O'Neill, `set14`)
 
-A clean, well-structured set. Four discrete setup→punchline jokes with a sign-off. Confidence is mostly `high`.
+A clean, well-structured set. Four discrete setup→punchline jokes with a sign-off.
 
 ```json
-{"text": "- Folks, my ex-girlfriend,", "start": 7450, "label": "setup", "confidence": "high"}
-{"text": "she would love it when I spit in her mouth.", "start": 7453, "label": "setup", "confidence": "high"}
-{"text": "And my new girlfriend hates when I mention that.", "start": 7456, "label": "punchline", "confidence": "high"}
-{"text": "First time we hooked up, I didn't have a condom,", "start": 7468, "label": "setup", "confidence": "high"}
-{"text": "so I tells her, \"Hey, you better not have herpes,\"", "start": 7470, "label": "setup", "confidence": "high"}
-{"text": "\"because then I will have double herpes.\"", "start": 7475, "label": "punchline", "confidence": "high"}
-{"text": "Last weekend, she got so drunk, she threw up on my cock.", "start": 7486, "label": "setup", "confidence": "high"}
-{"text": "Yeah, so next time, I'm just going to let her sleep.", "start": 7490, "label": "punchline", "confidence": "high"}
-{"text": "- I was telling that story last night", "start": 7510, "label": "setup", "confidence": "medium"}
-{"text": "and this woman in the crowd called me toxic.", "start": 7511, "label": "setup", "confidence": "high"}
-{"text": "I was like, that's pretty rich coming from somebody", "start": 7514, "label": "setup", "confidence": "high"}
-{"text": "that bleeds out of their goddamn crotch.", "start": 7515, "label": "punchline", "confidence": "high"}
-{"text": "Okay, that's enough for me, thank you.", "start": 7517, "label": "fluff", "confidence": "high"}
+{"text": "- Folks, my ex-girlfriend,", "start": 7450, "label": "setup"}
+{"text": "she would love it when I spit in her mouth.", "start": 7453, "label": "setup"}
+{"text": "And my new girlfriend hates when I mention that.", "start": 7456, "label": "punchline"}
+{"text": "First time we hooked up, I didn't have a condom,", "start": 7468, "label": "setup"}
+{"text": "so I tells her, \"Hey, you better not have herpes,\"", "start": 7470, "label": "setup"}
+{"text": "\"because then I will have double herpes.\"", "start": 7475, "label": "punchline"}
+{"text": "Last weekend, she got so drunk, she threw up on my cock.", "start": 7486, "label": "setup"}
+{"text": "Yeah, so next time, I'm just going to let her sleep.", "start": 7490, "label": "punchline"}
+{"text": "- I was telling that story last night", "start": 7510, "label": "setup"}
+{"text": "and this woman in the crowd called me toxic.", "start": 7511, "label": "setup"}
+{"text": "I was like, that's pretty rich coming from somebody", "start": 7514, "label": "setup"}
+{"text": "that bleeds out of their goddamn crotch.", "start": 7515, "label": "punchline"}
+{"text": "Okay, that's enough for me, thank you.", "start": 7517, "label": "fluff"}
 ```
 
-Note on the `medium` at 7510: "I was telling that story last night" arguably tags joke #3 (he's still on the vomit story) but has its own full setup→punchline arc with a new premise (audience reaction), so I called it setup. That ambiguity is what `medium` is for.
+Note on 7510: "I was telling that story last night" arguably tags joke #3 (he's still on the vomit story) but has its own full setup→punchline arc with a new premise (audience reaction), so it's labeled setup.
 
 ---
 
 ## Worked example 2 — Medium-quality set (Liv Taylor, `set03`)
 
-Some structure — two clear jokes land — but the set gets cut off by the kitten/bear and the third joke is interrupted. Confidence mix of `high`/`medium`/`low`.
+Some structure — two clear jokes land — but the set gets cut off by the kitten/bear and the third joke is interrupted.
 
 ```json
-{"text": "What's up, Austin?", "start": 1379, "label": "fluff", "confidence": "high"}
-{"text": "I've been here for about a year now.", "start": 1381, "label": "setup", "confidence": "high"}
-{"text": "And there's one thing I knew about Texas", "start": 1384, "label": "setup", "confidence": "high"}
-{"text": "before I live in here.", "start": 1386, "label": "setup", "confidence": "high"}
-{"text": "It's hot, right?", "start": 1387, "label": "setup", "confidence": "high"}
-{"text": "But it gets pretty cold at night.", "start": 1389, "label": "setup", "confidence": "high"}
-{"text": "It got pretty cold during the winter.", "start": 1392, "label": "setup", "confidence": "high"}
-{"text": "So cold that I needed help to sleep at night.", "start": 1394, "label": "setup", "confidence": "high"}
-{"text": "So I started listening to Negro Spirituals.", "start": 1398, "label": "punchline", "confidence": "medium"}
-{"text": "Yeah, you're like, this crazy bitch has got like", "start": 1405, "label": "setup", "confidence": "medium"}
-{"text": "Wade in the water radio on Spotify.", "start": 1407, "label": "setup", "confidence": "medium"}
-{"text": "That's fucking crazy.", "start": 1411, "label": "setup", "confidence": "low"}
-{"text": "No, it was just me being too lazy to change the battery", "start": 1412, "label": "setup", "confidence": "high"}
-{"text": "in my smoke detector.", "start": 1417, "label": "punchline", "confidence": "high"}
-{"text": "Hell yeah.", "start": 1422, "label": "fluff", "confidence": "high"}
-{"text": "Uh...", "start": 1423, "label": "fluff", "confidence": "high"}
-{"text": "Uh, I like to think that my dad was somebody to look up to", "start": 1425, "label": "setup", "confidence": "high"}
-{"text": "as, like, an entrepreneur.", "start": 1430, "label": "setup", "confidence": "high"}
-{"text": "It was just a really nice way of saying", "start": 1432, "label": "setup", "confidence": "high"}
-{"text": "that he was a full-time crackhead.", "start": 1434, "label": "punchline", "confidence": "high"}
-{"text": "I don't know if you know this, but, uh, Zip Recruiter...", "start": 1437, "label": "setup", "confidence": "medium"}
-{"text": "[squeals]", "start": 1440, "label": "fluff", "confidence": "high"}
-{"text": "Uh, uh, uh...", "start": 1441, "label": "fluff", "confidence": "high"}
-{"text": "Excuse-- fuck.", "start": 1443, "label": "fluff", "confidence": "high"}
-{"text": "A sponsor of Kill Tony actually used to report", "start": 1447, "label": "setup", "confidence": "medium"}
-{"text": "the average salary.", "start": 1451, "label": "punchline", "confidence": "low"}
+{"text": "What's up, Austin?", "start": 1379, "label": "fluff"}
+{"text": "I've been here for about a year now.", "start": 1381, "label": "setup"}
+{"text": "And there's one thing I knew about Texas", "start": 1384, "label": "setup"}
+{"text": "before I live in here.", "start": 1386, "label": "setup"}
+{"text": "It's hot, right?", "start": 1387, "label": "setup"}
+{"text": "But it gets pretty cold at night.", "start": 1389, "label": "setup"}
+{"text": "It got pretty cold during the winter.", "start": 1392, "label": "setup"}
+{"text": "So cold that I needed help to sleep at night.", "start": 1394, "label": "setup"}
+{"text": "So I started listening to Negro Spirituals.", "start": 1398, "label": "punchline"}
+{"text": "Yeah, you're like, this crazy bitch has got like", "start": 1405, "label": "setup"}
+{"text": "Wade in the water radio on Spotify.", "start": 1407, "label": "setup"}
+{"text": "That's fucking crazy.", "start": 1411, "label": "setup"}
+{"text": "No, it was just me being too lazy to change the battery", "start": 1412, "label": "setup"}
+{"text": "in my smoke detector.", "start": 1417, "label": "punchline"}
+{"text": "Hell yeah.", "start": 1422, "label": "fluff"}
+{"text": "Uh...", "start": 1423, "label": "fluff"}
+{"text": "Uh, I like to think that my dad was somebody to look up to", "start": 1425, "label": "setup"}
+{"text": "as, like, an entrepreneur.", "start": 1430, "label": "setup"}
+{"text": "It was just a really nice way of saying", "start": 1432, "label": "setup"}
+{"text": "that he was a full-time crackhead.", "start": 1434, "label": "punchline"}
+{"text": "I don't know if you know this, but, uh, Zip Recruiter...", "start": 1437, "label": "setup"}
+{"text": "[squeals]", "start": 1440, "label": "fluff"}
+{"text": "Uh, uh, uh...", "start": 1441, "label": "fluff"}
+{"text": "Excuse-- fuck.", "start": 1443, "label": "fluff"}
+{"text": "A sponsor of Kill Tony actually used to report", "start": 1447, "label": "setup"}
+{"text": "the average salary.", "start": 1451, "label": "punchline"}
 ```
 
 Notes:
-- "So I started listening to Negro Spirituals" lands as the shock-turn punchline of the smoke-detector joke, but the smoke-detector reveal is the *real* punchline (recontextualizes it). I'd argue both are punchlines for two interlocking jokes, but for a one-punchline-per-joke rule the shock line is `medium` and the reveal is `high`.
-- "That's fucking crazy" (1411) is ambiguous — could be the comedian reading the room or part of the setup for the reveal. Labeled setup with `low`.
-- The interrupted Zip Recruiter joke (1447–1451) is `medium`/`low` because we never hear the intended punchline — she gets cut off and finishes hurriedly.
+- "So I started listening to Negro Spirituals" lands as the shock-turn punchline of the smoke-detector joke, but the smoke-detector reveal is the *real* punchline (recontextualizes it). For the one-punchline-per-joke rule, the shock line is labeled punchline of its own mini-beat and the reveal is the main punchline.
+- "That's fucking crazy" (1411) is ambiguous — could be the comedian reading the room or part of the setup for the reveal. Labeled setup.
+- The interrupted Zip Recruiter joke (1447–1451) never lands — she gets cut off and finishes hurriedly.
 
 ---
 
 ## Worked example 3 — Low-quality set (Brandon Fields, `set08`)
 
-Very little structure. Brandon admits he's high, rambles, never lands a clean punchline, addresses an audience member at the end. Lots of `low` confidence.
+Very little structure. Brandon admits he's high, rambles, never lands a clean punchline, addresses an audience member at the end.
 
 ```json
-{"text": "Oh, my God.", "start": 3857, "label": "fluff", "confidence": "high"}
-{"text": "I am high as alien pussy right now.", "start": 3859, "label": "setup", "confidence": "medium"}
-{"text": "Don't smoke weed before you do this.", "start": 3863, "label": "setup", "confidence": "medium"}
-{"text": "I'm telling you, it's not a good thing.", "start": 3865, "label": "setup", "confidence": "low"}
-{"text": "Anyway, my name is Brandon.", "start": 3867, "label": "fluff", "confidence": "high"}
-{"text": "Yeah, I'm a black guy with a white name, so, I mean.", "start": 3870, "label": "setup", "confidence": "medium"}
-{"text": "Believe it or not, I get judged more about what kind of phone I have", "start": 3873, "label": "setup", "confidence": "high"}
-{"text": "more than being black these days.", "start": 3877, "label": "punchline", "confidence": "low"}
-{"text": "Believe that.", "start": 3880, "label": "fluff", "confidence": "high"}
-{"text": "It's like, \"Oh, you got an Android?\"", "start": 3882, "label": "setup", "confidence": "high"}
-{"text": "\"Oh, this ugly nigga got an Android.", "start": 3884, "label": "setup", "confidence": "medium"}
-{"text": "I can't take it.\"", "start": 3888, "label": "setup", "confidence": "medium"}
-{"text": "Why y'all judge people off of their phones, man?", "start": 3890, "label": "setup", "confidence": "low"}
-{"text": "'Cause I got an iPhone, I'm not cool.", "start": 3893, "label": "setup", "confidence": "low"}
-{"text": "'Cause I don't have an iPhone, I'm not cool.", "start": 3895, "label": "setup", "confidence": "low"}
-{"text": "Maybe? Alright, fuck y'all.", "start": 3898, "label": "fluff", "confidence": "medium"}
-{"text": "That is--anyway, yep, I got another white name.", "start": 3901, "label": "fluff", "confidence": "medium"}
-{"text": "Um, uh, white thing about me, uh, I could swim.", "start": 3905, "label": "punchline", "confidence": "low"}
-{"text": "- I'm like that dude on House of Rest back there.", "start": 3912, "label": "setup", "confidence": "medium"}
-{"text": "That just left a stage.", "start": 3915, "label": "setup", "confidence": "high"}
-{"text": "He was actually on House of Rest.", "start": 3916, "label": "setup", "confidence": "high"}
-{"text": "I saw that ankle monitor and shit.", "start": 3918, "label": "punchline", "confidence": "medium"}
-{"text": "Thank you, I'm Brandon.", "start": 3920, "label": "fluff", "confidence": "high"}
+{"text": "Oh, my God.", "start": 3857, "label": "fluff"}
+{"text": "I am high as alien pussy right now.", "start": 3859, "label": "setup"}
+{"text": "Don't smoke weed before you do this.", "start": 3863, "label": "setup"}
+{"text": "I'm telling you, it's not a good thing.", "start": 3865, "label": "setup"}
+{"text": "Anyway, my name is Brandon.", "start": 3867, "label": "fluff"}
+{"text": "Yeah, I'm a black guy with a white name, so, I mean.", "start": 3870, "label": "setup"}
+{"text": "Believe it or not, I get judged more about what kind of phone I have", "start": 3873, "label": "setup"}
+{"text": "more than being black these days.", "start": 3877, "label": "punchline"}
+{"text": "Believe that.", "start": 3880, "label": "fluff"}
+{"text": "It's like, \"Oh, you got an Android?\"", "start": 3882, "label": "setup"}
+{"text": "\"Oh, this ugly nigga got an Android.", "start": 3884, "label": "setup"}
+{"text": "I can't take it.\"", "start": 3888, "label": "setup"}
+{"text": "Why y'all judge people off of their phones, man?", "start": 3890, "label": "setup"}
+{"text": "'Cause I got an iPhone, I'm not cool.", "start": 3893, "label": "setup"}
+{"text": "'Cause I don't have an iPhone, I'm not cool.", "start": 3895, "label": "setup"}
+{"text": "Maybe? Alright, fuck y'all.", "start": 3898, "label": "fluff"}
+{"text": "That is--anyway, yep, I got another white name.", "start": 3901, "label": "fluff"}
+{"text": "Um, uh, white thing about me, uh, I could swim.", "start": 3905, "label": "punchline"}
+{"text": "- I'm like that dude on House of Rest back there.", "start": 3912, "label": "setup"}
+{"text": "That just left a stage.", "start": 3915, "label": "setup"}
+{"text": "He was actually on House of Rest.", "start": 3916, "label": "setup"}
+{"text": "I saw that ankle monitor and shit.", "start": 3918, "label": "punchline"}
+{"text": "Thank you, I'm Brandon.", "start": 3920, "label": "fluff"}
 ```
 
 Notes:
-- "more than being black these days" is the structural punchline of the phone bit but it doesn't actually land — the audience reaction was thin. `low` confidence because it could also be read as setup leading nowhere.
-- The whole Android section (3882–3895) is "setup, setup, setup, give up" — no real punchline arrives, so I labeled everything setup with low confidence and the "Maybe? Alright, fuck y'all" as fluff (giving up on the bit).
-- "Um, uh, white thing about me, uh, I could swim" *is* a tiny joke (swimming = white) but it's so buried in stumbles that `low` confidence on punchline feels honest.
-- The closer is crowd work calling out an audience member with an ankle monitor — labeled punchline with `medium` confidence since it's a real laugh but improvised.
+- "more than being black these days" is the structural punchline of the phone bit but it doesn't actually land — could also be read as setup leading nowhere. Call it punchline since it's the clearest candidate.
+- The whole Android section (3882–3895) is "setup, setup, setup, give up" — no real punchline arrives, so everything is setup and the "Maybe? Alright, fuck y'all" is fluff (giving up on the bit).
+- "Um, uh, white thing about me, uh, I could swim" is a tiny joke (swimming = white) buried in stumbles — labeled punchline.
+- The closer is crowd work calling out an audience member with an ankle monitor — labeled punchline since it's a real laugh.
 
 ---
 
@@ -228,10 +213,8 @@ Notes:
 2. For the first file:
    - Read it.
    - Read the whole set and form a mental model of joke structure.
-   - Label each segment with `label` and `confidence`.
+   - Label each segment with `label`.
    - Write the annotated copy to `data/line_inbox/` with the same filename.
    - Delete the source file from `set_inbox/`.
 3. Move to the next file. Repeat.
 4. When `set_inbox/` is empty, stop.
-
-When in doubt, use `low` confidence. The pipeline is designed to re-annotate low-confidence calls later — a hedged label is more useful than a guessed one.
