@@ -58,7 +58,7 @@ class Command(BaseCommand):
 
         self.stdout.write("Transcribing with Whisper small.en (this may take a while)...")
         model = whisper.load_model("small.en")
-        result = model.transcribe(str(audio_path), language="en", fp16=False, verbose=True, condition_on_previous_text=False, suppress_tokens=[])
+        result = model.transcribe(str(audio_path), language="en", fp16=False, verbose=True, condition_on_previous_text=False, suppress_tokens=[], beam_size=1)
 
         segments = result["segments"]
 
