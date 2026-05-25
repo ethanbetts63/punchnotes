@@ -10,5 +10,6 @@ data/scrape_history.jsonl
 data/transcript_archive/
 data/set_inbox/
 data/annotated_set_inbox/
+data/bit_annotation_inbox/
 data/processed_lines/
 data/audio/
