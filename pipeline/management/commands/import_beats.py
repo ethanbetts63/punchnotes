@@ -42,11 +42,11 @@ class Command(BaseCommand):
         set_number = int(set_tag[3:])     # strip "set" prefix
 
         # Read set_meta from the corresponding set file
-        set_file = set_inbox / f"{video_id}_{set_tag}_{slug}.jsonl"
+        set_file = set_inbox / f"{video_id}_{set_tag}_{slug}.json"
         if not set_file.exists():
             raise FileNotFoundError(f"Set file not found: {set_file}")
 
-        meta = json.loads(set_file.read_text(encoding="utf-8").splitlines()[0])
+        meta = json.loads(set_file.read_text(encoding="utf-8"))
 
         # get_or_create Episode
         episode, _ = Episode.objects.get_or_create(

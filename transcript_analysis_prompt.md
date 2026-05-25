@@ -117,7 +117,7 @@ Ads contain product names, `/killtony` URLs, promo codes, and pitch language. Th
 For each set you identify, write a **new file** to:
 
 ```
-C:\Users\ethan\coding\jokescore\data\set_inbox\<video_id>_set<NN>_<comedian-slug>.jsonl
+C:\Users\ethan\coding\jokescore\data\set_inbox\<video_id>_set<NN>_<comedian-slug>.json
 ```
 
 Where:
@@ -125,26 +125,39 @@ Where:
 - `<NN>` is a two-digit, 1-indexed set number in show order (`01`, `02`, …).
 - `<comedian-slug>` is the comedian's name, lowercased, spaces→hyphens, non-alphanumerics removed (e.g., `martin-phillips`, `cameron-shepherd`, `frankie-gonzalez`). If the name is unclear, use `unknown`.
 
-**File contents:** a metadata line first, then the JSONL caption lines from the source transcript.
-
-**Line 1 — set metadata** (write this yourself based on what you've identified):
+**File contents:** a single JSON object with set metadata at the top level and the comedian's segments in a `segments` array — mirroring the input format:
 
 ```json
-{"type": "set_meta", "video_id": "CnjJPpr10vM", "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN", "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM", "guests": ["Shane Gillis", "James McCann"], "comedian_name": "Cameron Shepherd", "comedian_type": "bucket_pull", "set_number": 2, "start_seconds": 711}
+{
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "guests": ["Shane Gillis", "James McCann"],
+  "comedian_name": "Cameron Shepherd",
+  "comedian_type": "bucket_pull",
+  "set_number": 2,
+  "start_seconds": 711,
+  "segments": [
+    {"text": "Yeah, those are my tits, make some noise everybody!", "start": 711},
+    {"text": "I recently saw the worst documentary of my life everybody.", "start": 720},
+    ...
+  ]
+}
 ```
 
-Fields:
+**Metadata fields** (write these yourself based on what you've identified):
 - `type`: always `"set_meta"`
 - `video_id`, `episode_title`, `episode_url`: copy from the transcript's top-level metadata
 - `guests`: list of guest names parsed from the episode title (the names after the dash)
 - `comedian_name`: the comedian's name as Tony introduces them (prefer Tony's intro spelling over auto-caption mangling)
 - `comedian_type`: `"bucket_pull"` (random draw), `"regular"` (recurring comedian doing a new minute), or `"golden_ticket"` (golden ticket winner returning)
 - `set_number`: 1-indexed position in the episode
-- `start_seconds`: the `start` value from the first caption line of the set
+- `start_seconds`: the `start` value from the first segment of the set
 
-**Lines 2+ — caption lines**: one segment object per line, copied verbatim from the source `segments` array. Each line is `{"text": "...", "start": <integer>}`. Two types of omissions are permitted: (1) segments you are confident are Tony or a panel member interjecting mid-set; (2) audience reaction segments — `(audience laughing)`, `(laughing)`, `[cheers and applause]`, `(audience applauding)`, `(audience cheering)` and similar forms. Do not omit in-set sound effects or props. If neither applies (the common case), these lines are a verbatim slice of the source array.
+**`segments` array**: copy verbatim from the source `segments` array, sliced to the set's boundaries. Two types of omissions are permitted: (1) segments you are confident are Tony or a panel member interjecting mid-set; (2) audience reaction segments — `(audience laughing)`, `(laughing)`, `[cheers and applause]`, `(audience applauding)`, `(audience cheering)` and similar forms. Do not omit in-set sound effects or props.
 
-Example: `CnjJPpr10vM_set02_cameron-shepherd.jsonl` would have the `set_meta` line followed by segments with `start` 711 through 788, with any audience-reaction segments in that range dropped.
+Example: `CnjJPpr10vM_set02_cameron-shepherd.json` would contain the metadata above with a `segments` array covering `start` 711 through 788, with any audience-reaction segments in that range dropped.
 
 ---
 
@@ -153,11 +166,10 @@ Example: `CnjJPpr10vM_set02_cameron-shepherd.jsonl` would have the `set_meta` li
 1. Read the input JSON. Note the top-level `video_id`, `episode_title`, and `episode_url` — you will need these for every set's metadata. Parse the guest names from `episode_title` (they appear after the dash, separated by `+` or `&`). All caption segments are in the `segments` array.
 2. Skip past the intro block (cold open → format explainer). Work through `segments` in order.
 3. For each set in show order: find Tony's intro cue + comedian's name, determine `comedian_type`, mark the first caption of the comedian's monologue as the start, mark the last caption before the interview begins as the end, capture the name for the filename.
-4. **As soon as you have identified the boundaries for a set, write its output file immediately** — do not mentally extract all sets first and then write them in bulk. Write each file the moment you have the start/end range and comedian name confirmed, then continue scanning for the next set. Expect 4–8 bucket pulls plus any "new minute" performances by regulars.
+4. **As soon as you have identified the boundaries for a set, write its output file immediately** — do not mentally extract all sets first and then write them in bulk. Write each file the moment you have the start/end range and comedian name confirmed, then continue scanning for the next set. Expect 4–8 bucket pulls on average plus any "new minute" performances by regulars.
 5. **Once all sets are written, delete the inbox transcript** — a full copy has already been saved to the archive, so the inbox copy is no longer needed.
 
 ## When in doubt
 
 - **Err on the side of less, not more.** If a caption is ambiguous, leave it out rather than leak interview content.
-- **Names get mangled** by auto-captions ("Frankie Gonzales" vs "Frankie Gonzalez", "Adam Malayev" vs "Adam Malaeb"). Pick the spelling Tony uses on the intro line.
 - **If you can't confidently identify a set's boundaries, skip it** and note the uncertainty rather than emit a bad file.
