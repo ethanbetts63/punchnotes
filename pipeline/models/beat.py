@@ -2,11 +2,21 @@ from django.db import models
 
 
 class Beat(models.Model):
+    JOKE_TYPE_CHOICES = [
+        ('misdirect', 'Misdirect'),
+        ('reframe', 'Reframe'),
+        ('phonetic-match', 'Phonetic match'),
+        ('double-meaning', 'Double-meaning'),
+        ('what-if', 'What-if'),
+        ('elephant-in-the-room', 'Elephant-in-the-room'),
+        ('visual', 'Visual'),
+    ]
     bit = models.ForeignKey('pipeline.Bit', on_delete=models.CASCADE, related_name='beats')
     beat_id = models.CharField(max_length=50)
     line_start = models.PositiveSmallIntegerField()
     line_end = models.PositiveSmallIntegerField()
     premise = models.TextField(null=True, blank=True)
+    joke_type = models.CharField(max_length=30, choices=JOKE_TYPE_CHOICES, null=True, blank=True)
     topics = models.JSONField(default=list)
 
     class Meta:

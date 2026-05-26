@@ -130,6 +130,7 @@ class Command(BaseCommand):
                     line_start=min(blns),
                     line_end=max(blns),
                     premise=beat_data.get("premise"),
+                    joke_type=beat_data.get("joke_type") or None,
                     topics=beat_data.get("topics", []),
                 )
 

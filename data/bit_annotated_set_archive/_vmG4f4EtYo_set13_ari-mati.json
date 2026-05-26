@@ -13,6 +13,7 @@
       "beats": {
         "1": {
           "premise": "Earning citizenship right before a draft turns the milestone into a curse.",
+          "joke_type": "misdirect",
           "topics": ["war", "citizenship", "draft"]
         }
       }
@@ -21,6 +22,7 @@
       "beats": {
         "1": {
           "premise": "Expanding draft eligibility to older stoners produces a pathetic army.",
+          "joke_type": "reframe",
           "topics": ["draft age", "marijuana convictions", "army"]
         }
       }
@@ -30,18 +32,22 @@
       "beats": {
         "1": {
           "premise": "Wheelchair soldiers with a grenade could kamikaze role at the enemy",
+          "joke_type": "what-if",
           "topics": ["Estonia", "wheelchairs", "grenades"]
         },
         "2": {
           "premise": "'Special forces' fits literally when the soldiers are special-needs.",
+          "joke_type": "double-meaning",
           "topics": ["special forces", "down syndrome", "wordplay"]
         },
         "3": {
           "premise": "Telling a down syndrome person someone killed Santa would make them mad. ",
+          "joke_type": "reframe",
           "topics": ["Santa Claus", "down syndrome", "conscription"]
         },
         "4": {
           "premise": "Without women in the military straight soldiers would protect gay soldiers.",
+          "joke_type": "reframe",
           "topics": ["gay soldiers", "base life", "military"]
         }
       }
@@ -63,8 +69,8 @@
     {"text": "We're too small to pick.", "label": "setup", "bit": 3, "beat": 1, "line_number": 3350, "start": 7226},
     {"text": "Everyone goes.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 3351, "start": 7228},
     {"text": "Wheelchair people, we send them.", "label": "setup", "bit": 3, "beat": 1, "line_number": 3352, "start": 7231},
-    {"text": "Oh yeah, we put a grenade in your lap and...", "label": "punchline", "bit": 3, "beat": 1, "line_number": 3353, "start": 7234},
-    {"text": "Come on!", "label": "tag", "bit": null, "beat": null, "line_number": 3355, "start": 7239},
+    {"text": "Oh yeah, we put a grenade in your lap and...", "label": "setup", "bit": 3, "beat": 1, "line_number": 3353, "start": 7234},
+    {"text": "Come on!", "label": "punchline", "bit": null, "beat": null, "line_number": 3355, "start": 7239},
     {"text": "Down syndrome people, we send them.", "label": "setup", "bit": 3, "beat": 2, "line_number": 3356, "start": 7246},
     {"text": "Oh yeah, we have a whole squad.", "label": "setup", "bit": 3, "beat": 2, "line_number": 3357, "start": 7250},
     {"text": "Estonian special forces.", "label": "punchline", "bit": 3, "beat": 2, "line_number": 3358, "start": 7252},

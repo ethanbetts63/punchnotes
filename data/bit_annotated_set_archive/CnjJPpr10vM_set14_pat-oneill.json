@@ -11,27 +11,39 @@
   "start_seconds": 7450,
   "bit_meta": {
     "1": {
-      "premise": "New partners hate hearing about an ex's sexual preferences.",
       "beats": {
-        "1": {"topics": ["girlfriends", "exes", "spitting"]}
+        "1": {
+          "premise": "New partners hate hearing about an ex's sexual preferences.",
+          "joke_type": "reframe",
+          "topics": ["girlfriends", "exes", "spitting"]
+        }
       }
     },
     "2": {
-      "premise": "Unsafe sex can turn herpes into an additive risk.",
       "beats": {
-        "1": {"topics": ["condoms", "herpes", "hookups"]}
+        "1": {
+          "premise": "Unsafe sex can turn herpes into an additive risk.",
+          "joke_type": "what-if",
+          "topics": ["condoms", "herpes", "hookups"]
+        }
       }
     },
     "3": {
-      "premise": "Drunken vomiting during sex implies sex should have stopped earlier.",
       "beats": {
-        "1": {"topics": ["drinking", "vomit", "sex"]}
+        "1": {
+          "premise": "Drunken vomiting during sex implies sex should have stopped earlier.",
+          "joke_type": "misdirect",
+          "topics": ["drinking", "vomit", "sex"]
+        }
       }
     },
     "4": {
-      "premise": "Being called toxic can prompt a literal body-toxicity insult.",
       "beats": {
-        "1": {"topics": ["crowd reactions", "toxicity", "periods"]}
+        "1": {
+          "premise": "Being called toxic can prompt a literal body-toxicity insult.",
+          "joke_type": "double-meaning",
+          "topics": ["crowd reactions", "toxicity", "periods"]
+        }
       }
     }
   },

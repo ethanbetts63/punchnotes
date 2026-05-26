@@ -11,27 +11,39 @@
   "start_seconds": 1746,
   "bit_meta": {
     "1": {
-      "premise": "What if stealing a credit card meant you also stole the debt.",
       "beats": {
-        "1": {"topics": ["wallet theft", "credit card debt"]}
+        "1": {
+          "premise": "What if stealing a credit card meant you also stole the debt.",
+          "joke_type": "what-if",
+          "topics": ["wallet theft", "credit card debt"]
+        }
       }
     },
     "2": {
-      "premise": "Cheese costs more in Spanish.",
       "beats": {
-        "1": {"topics": ["burritos", "queso", "language"]}
+        "1": {
+          "premise": "Cheese costs more in Spanish.",
+          "joke_type": "reframe",
+          "topics": ["burritos", "queso", "language"]
+        }
       }
     },
     "3": {
-      "premise": "Vegans are isolated at meat-centered holidays.",
       "beats": {
-        "1": {"topics": ["vegans", "Thanksgiving", "family"]}
+        "1": {
+          "premise": "Vegans are isolated at meat-centered holidays.",
+          "joke_type": "reframe",
+          "topics": ["vegans", "Thanksgiving", "family"]
+        }
       }
     },
     "4": {
-      "premise": "Taken literally, 'In case of fire, use stairs' has two meanings.",
       "beats": {
-        "1": {"topics": ["fire safety", "stairs", "wordplay"]}
+        "1": {
+          "premise": "Taken literally, 'In case of fire, use stairs' has two meanings.",
+          "joke_type": "double-meaning",
+          "topics": ["fire safety", "stairs", "wordplay"]
+        }
       }
     }
   },
