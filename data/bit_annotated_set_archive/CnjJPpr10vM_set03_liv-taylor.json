@@ -1,63 +1,27 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "CnjJPpr10vM"
-,
-  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN"
-,
-  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"
-,
-  "publish_date": "2026-05-19"
-,
-  "guests": [
-    "Shane Gillis",
-    "James McCann"
-  ],
-  "comedian_name": "Liv Taylor"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 3
-,
-  "start_seconds": 1379
-,
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": ["Shane Gillis", "James McCann"],
+  "comedian_name": "Liv Taylor",
+  "comedian_type": "bucket_pull",
+  "set_number": 3,
+  "start_seconds": 1379,
   "bit_meta": {
     "1": {
       "premise": "A chirping smoke detector can sound like spirituals.",
       "beats": {
-        "1": {
-          "topics": [
-            "Texas",
-            "cold weather",
-            "Negro spirituals"
-          ]
-        },
-        "2": {
-          "topics": [
-            "smoke detectors",
-            "laziness",
-            "Spotify"
-          ]
-        }
+        "1": {"topics": ["Texas", "cold weather", "Negro spirituals"]},
+        "2": {"topics": ["smoke detectors", "laziness", "Spotify"]}
       }
     },
     "2": {
       "premise": "Entrepreneur can be polite code for full-time crackhead.",
       "beats": {
-        "1": {
-          "topics": [
-            "father",
-            "entrepreneurship",
-            "crackheads"
-          ]
-        },
-        "2": {
-          "topics": [
-            "ZipRecruiter",
-            "salary",
-            "crackheads"
-          ]
-        }
+        "1": {"topics": ["father", "entrepreneurship", "crackheads"]},
+        "2": {"topics": ["ZipRecruiter", "salary", "crackheads"]}
       }
     }
   },

@@ -1,72 +1,32 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lghpxPhVoPo"
-,
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
-,
-  "publish_date": "2026-03-24"
-,
-  "guests": [
-    "Adam Ray",
-    "Kim Congdon"
-  ],
-  "comedian_name": "Uncle Laser"
-,
-  "comedian_type": "regular"
-,
-  "set_number": 7
-,
-  "start_seconds": 3450
-,
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Uncle Laser",
+  "comedian_type": "regular",
+  "set_number": 7,
+  "start_seconds": 3450,
   "bit_meta": {
     "1": {
       "premise": "The Houston rodeo produces an unlikely erotic spectacle: Black women twerking in jean shorts to George Strait.",
       "beats": {
-        "1": {
-          "topics": [
-            "rodeo",
-            "race",
-            "country music",
-            "George Strait"
-          ]
-        }
+        "1": {"topics": ["rodeo", "race", "country music", "George Strait"]}
       }
     },
     "2": {
       "premise": "A tornado-like woman at the rodeo is identified by her airbrush memorial shirt and feral hunger for brisket.",
       "beats": {
-        "1": {
-          "topics": [
-            "rodeo",
-            "Houston",
-            "brisket",
-            "fashion"
-          ]
-        }
+        "1": {"topics": ["rodeo", "Houston", "brisket", "fashion"]}
       }
     },
     "3": {
       "premise": "A drunk rodeo hookup becomes a panic-inducing encounter when the woman's repeated request for a queef is incomprehensible.",
       "beats": {
-        "1": {
-          "topics": [
-            "rodeo",
-            "hookup",
-            "Houston",
-            "Louisiana"
-          ]
-        },
-        "2": {
-          "topics": [
-            "sex",
-            "queef",
-            "hookup",
-            "family"
-          ]
-        }
+        "1": {"topics": ["rodeo", "hookup", "Houston", "Louisiana"]},
+        "2": {"topics": ["sex", "queef", "hookup", "family"]}
       }
     }
   },

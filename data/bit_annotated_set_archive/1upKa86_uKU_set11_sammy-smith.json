@@ -1,55 +1,26 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "1upKa86_uKU"
-,
-  "episode_title": "KT #766 - SAM TALLENT"
-,
-  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU"
-,
-  "publish_date": "2026-05-05"
-,
-  "guests": [
-    "Sam Tallent"
-  ],
-  "comedian_name": "Sammy Smith"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 11
-,
-  "start_seconds": 5878
-,
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "Sammy Smith",
+  "comedian_type": "bucket_pull",
+  "set_number": 11,
+  "start_seconds": 5878,
   "bit_meta": {
     "1": {
       "premise": "Digital debt looks like wealth if the minus sign is hidden.",
       "beats": {
-        "1": {
-          "topics": [
-            "money",
-            "2026",
-            "financial decisions"
-          ]
-        },
-        "2": {
-          "topics": [
-            "bank account",
-            "debt",
-            "perspective"
-          ]
-        }
+        "1": {"topics": ["money", "2026", "financial decisions"]},
+        "2": {"topics": ["bank account", "debt", "perspective"]}
       }
     },
     "2": {
       "premise": "Being broke turns strip clubs into bargain hunting.",
       "beats": {
-        "1": {
-          "topics": [
-            "strip clubs",
-            "being broke",
-            "bargains"
-          ]
-        }
+        "1": {"topics": ["strip clubs", "being broke", "bargains"]}
       }
     }
   },

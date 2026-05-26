@@ -1,93 +1,44 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lwLnqeBKa-0"
-,
-  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0"
-,
-  "publish_date": "2026-04-28"
-,
-  "guests": [
-    "Dustin Poirier",
-    "Ari Matti"
-  ],
-  "comedian_name": "Karen Feehan"
-,
-  "comedian_type": "regular"
-,
-  "set_number": 6
-,
-  "start_seconds": 2886
-,
+  "type": "set_meta",
+  "video_id": "lwLnqeBKa-0",
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
+  "publish_date": "2026-04-28",
+  "guests": ["Dustin Poirier", "Ari Matti"],
+  "comedian_name": "Karen Feehan",
+  "comedian_type": "regular",
+  "set_number": 6,
+  "start_seconds": 2886,
   "bit_meta": {
     "1": {
       "premise": "Boston Ballet can explain racist anorexia.",
       "beats": {
-        "1": {
-          "topics": [
-            "Boston Ballet",
-            "anorexia",
-            "Massachusetts"
-          ]
-        }
+        "1": {"topics": ["Boston Ballet", "anorexia", "Massachusetts"]}
       }
     },
     "2": {
       "premise": "A sobriety tattoo fails if bartenders cannot read cursive.",
       "beats": {
-        "1": {
-          "topics": [
-            "alcoholism",
-            "tattoos",
-            "bartenders",
-            "cursive"
-          ]
-        }
+        "1": {"topics": ["alcoholism", "tattoos", "bartenders", "cursive"]}
       }
     },
     "3": {
       "premise": "Sleeping with MMA guys recreates the feeling of blacking out.",
       "beats": {
-        "1": {
-          "topics": [
-            "MMA fighters",
-            "blackouts",
-            "sex"
-          ]
-        }
+        "1": {"topics": ["MMA fighters", "blackouts", "sex"]}
       }
     },
     "4": {
       "premise": "Cauliflower ear can look like externalized brain damage.",
       "beats": {
-        "1": {
-          "topics": [
-            "MMA fighters",
-            "cauliflower ear",
-            "sex"
-          ]
-        },
-        "2": {
-          "topics": [
-            "MMA fighters",
-            "brain injuries",
-            "insults"
-          ]
-        }
+        "1": {"topics": ["MMA fighters", "cauliflower ear", "sex"]},
+        "2": {"topics": ["MMA fighters", "brain injuries", "insults"]}
       }
     },
     "5": {
       "premise": "Pregnancy can test whether a future kid is a fighter.",
       "beats": {
-        "1": {
-          "topics": [
-            "MMA fighters",
-            "pregnancy",
-            "fighting"
-          ]
-        }
+        "1": {"topics": ["MMA fighters", "pregnancy", "fighting"]}
       }
     }
   },

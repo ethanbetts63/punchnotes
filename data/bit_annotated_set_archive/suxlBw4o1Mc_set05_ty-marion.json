@@ -1,71 +1,28 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "suxlBw4o1Mc"
-,
-  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc"
-,
-  "publish_date": "2026-03-10"
-,
-  "guests": [
-    "Joe List",
-    "Steve Rannazzisi"
-  ],
-  "comedian_name": "Ty Marion"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 5
-,
-  "start_seconds": 2104
-,
+  "type": "set_meta",
+  "video_id": "suxlBw4o1Mc",
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI",
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc",
+  "publish_date": "2026-03-10",
+  "guests": ["Joe List", "Steve Rannazzisi"],
+  "comedian_name": "Ty Marion",
+  "comedian_type": "bucket_pull",
+  "set_number": 5,
+  "start_seconds": 2104,
   "bit_meta": {
     "1": {
       "premise": "A request for more talking during sex can be obeyed by calling someone else.",
       "beats": {
-        "1": {
-          "topics": [
-            "sex",
-            "phone calls",
-            "miscommunication"
-          ]
-        },
-        "2": {
-          "topics": [
-            "girlfriend's dad",
-            "age gap",
-            "phone calls"
-          ]
-        }
+        "1": {"topics": ["sex", "phone calls", "miscommunication"]},
+        "2": {"topics": ["girlfriend's dad", "age gap", "phone calls"]}
       }
     },
     "2": {
       "premise": "Sex with a motionless partner can be reframed as preparing a corpse for burial.",
       "beats": {
-        "1": {
-          "topics": [
-            "dating",
-            "church",
-            "corpse",
-            "burial coins"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Asian stereotypes",
-            "eye size",
-            "pennies"
-          ]
-        },
-        "3": {
-          "topics": [
-            "Jewish stereotypes",
-            "cheapness",
-            "burial coins"
-          ]
-        }
+        "1": {"topics": ["dating", "church", "corpse", "burial coins"]},
+        "2": {"topics": ["Asian stereotypes", "eye size", "pennies"]},
+        "3": {"topics": ["Jewish stereotypes", "cheapness", "burial coins"]}
       }
     }
   },

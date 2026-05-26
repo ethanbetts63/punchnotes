@@ -12,17 +12,47 @@ def format_line(line):
     return json.dumps(ordered, ensure_ascii=False)
 
 
-def indent_value(v_str):
-    lines = v_str.split("\n")
-    return lines[0] + "\n" + "\n".join("  " + l for l in lines[1:])
+def serialize(obj, depth=0):
+    """Serialize obj with indentation, collapsing compact values to one line."""
+    pad = "  " * depth
+    inner = "  " * (depth + 1)
+    if isinstance(obj, dict):
+        if not obj:
+            return "{}"
+        items = list(obj.items())
+        serialized = [(k, serialize(v, depth + 1)) for k, v in items]
+        if len(serialized) == 1:
+            (k0, v0), (_, v0_str) = items[0], serialized[0]
+            if not isinstance(v0, dict) and "\n" not in v0_str:
+                inline = "{" + f"{json.dumps(k0)}: {v0_str}" + "}"
+                if len(inline) <= 120:
+                    return inline
+        lines = ["{"]
+        for i, (k, v_str) in enumerate(serialized):
+            comma = "," if i < len(serialized) - 1 else ""
+            lines.append(f"{inner}{json.dumps(k)}: {v_str}{comma}")
+        lines.append(f"{pad}}}")
+        return "\n".join(lines)
+    elif isinstance(obj, list):
+        if not obj:
+            return "[]"
+        if all(not isinstance(item, (dict, list)) for item in obj):
+            return json.dumps(obj, ensure_ascii=False)
+        lines = ["["]
+        for i, item in enumerate(obj):
+            comma = "," if i < len(obj) - 1 else ""
+            lines.append(f"{inner}{serialize(item, depth + 1)}{comma}")
+        lines.append(f"{pad}]")
+        return "\n".join(lines)
+    else:
+        return json.dumps(obj, ensure_ascii=False)
 
 
 def dump(data):
     non_lines = [(k, v) for k, v in data.items() if k != "lines"]
     parts = ["{"]
     for i, (k, v) in enumerate(non_lines):
-        v_str = indent_value(json.dumps(v, ensure_ascii=False, indent=2))
-        parts.append(f"  {json.dumps(k)}: {v_str},")
+        parts.append(f"  {json.dumps(k)}: {serialize(v, depth=1)},")
     parts.append('  "lines": [')
     lines = data["lines"]
     for i, line in enumerate(lines):

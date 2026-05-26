@@ -1,80 +1,33 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "_vmG4f4EtYo"
-,
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
-,
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
-,
-  "guests": [
-    "Theo Von",
-    "Jelly Roll"
-  ],
-  "comedian_name": "Ari Mati"
-,
-  "comedian_type": "regular"
-,
-  "set_number": 13
-,
-  "start_seconds": 7160
-,
+  "type": "set_meta",
+  "video_id": "_vmG4f4EtYo",
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "guests": ["Theo Von", "Jelly Roll"],
+  "comedian_name": "Ari Mati",
+  "comedian_type": "regular",
+  "set_number": 13,
+  "start_seconds": 7160,
   "bit_meta": {
     "1": {
       "premise": "Citizenship gets less appealing when the draft expands.",
       "beats": {
-        "1": {
-          "topics": [
-            "war",
-            "citizenship",
-            "draft"
-          ]
-        },
-        "2": {
-          "topics": [
-            "draft age",
-            "marijuana convictions",
-            "army"
-          ]
-        }
+        "1": {"topics": ["war", "citizenship", "draft"]},
+        "2": {"topics": ["draft age", "marijuana convictions", "army"]}
       }
     },
     "2": {
       "premise": "Tiny countries draft everyone because there is no room for standards.",
       "beats": {
-        "1": {
-          "topics": [
-            "Estonia",
-            "compulsory service",
-            "wheelchairs"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Estonia",
-            "special forces",
-            "disability"
-          ]
-        },
-        "3": {
-          "topics": [
-            "military training",
-            "Santa Claus",
-            "conscription"
-          ]
-        }
+        "1": {"topics": ["Estonia", "compulsory service", "wheelchairs"]},
+        "2": {"topics": ["Estonia", "special forces", "disability"]},
+        "3": {"topics": ["military training", "Santa Claus", "conscription"]}
       }
     },
     "3": {
       "premise": "A gay squad mate can be more valuable than a medic.",
       "beats": {
-        "1": {
-          "topics": [
-            "gay soldiers",
-            "military",
-            "base life"
-          ]
-        }
+        "1": {"topics": ["gay soldiers", "military", "base life"]}
       }
     }
   },

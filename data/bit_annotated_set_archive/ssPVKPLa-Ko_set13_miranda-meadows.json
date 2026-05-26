@@ -1,74 +1,37 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "ssPVKPLa-Ko"
-,
-  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko"
-,
-  "publish_date": "2026-05-12"
-,
-  "guests": [
-    "Ari Shaffir",
-    "Luis J Gomez",
-    "Peyton Ruddy"
-  ],
-  "comedian_name": "Miranda Meadows"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 13
-,
-  "start_seconds": 6621
-,
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Miranda Meadows",
+  "comedian_type": "bucket_pull",
+  "set_number": 13,
+  "start_seconds": 6621,
   "bit_meta": {
     "1": {
       "premise": "Period fingering can turn a hand into a C-Walk shape.",
       "beats": {
-        "1": {
-          "topics": [
-            "period sex",
-            "fingering",
-            "C-Walk"
-          ]
-        }
+        "1": {"topics": ["period sex", "fingering", "C-Walk"]}
       }
     },
     "2": {
       "premise": "Bedwetting after nightmares can be reframed as abuse-induced squirting.",
       "beats": {
-        "1": {
-          "topics": [
-            "bedwetting",
-            "squirting",
-            "sexual abuse"
-          ]
-        }
+        "1": {"topics": ["bedwetting", "squirting", "sexual abuse"]}
       }
     },
     "3": {
       "premise": "Rolling R's can turn a language lesson into a rape setup.",
       "beats": {
-        "1": {
-          "topics": [
-            "sexual abuse",
-            "rolled R's",
-            "rape"
-          ]
-        }
+        "1": {"topics": ["sexual abuse", "rolled R's", "rape"]}
       }
     },
     "4": {
       "premise": "Michigan hand maps can turn molestation into a location pun.",
       "beats": {
-        "1": {
-          "topics": [
-            "Michigan",
-            "sexual abuse",
-            "map jokes"
-          ]
-        }
+        "1": {"topics": ["Michigan", "sexual abuse", "map jokes"]}
       }
     }
   },

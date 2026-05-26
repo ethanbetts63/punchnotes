@@ -1,76 +1,33 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "ssPVKPLa-Ko"
-,
-  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko"
-,
-  "publish_date": "2026-05-12"
-,
-  "guests": [
-    "Ari Shaffir",
-    "Luis J Gomez",
-    "Peyton Ruddy"
-  ],
-  "comedian_name": "Surjan"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 7
-,
-  "start_seconds": 3701
-,
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Surjan",
+  "comedian_type": "bucket_pull",
+  "set_number": 7,
+  "start_seconds": 3701,
   "bit_meta": {
     "1": {
       "premise": "Immigrant names can turn parental expectations into literal labels.",
       "beats": {
-        "1": {
-          "topics": [
-            "immigrant parents",
-            "doctors",
-            "names"
-          ]
-        },
-        "2": {
-          "topics": [
-            "siblings",
-            "engineers",
-            "names"
-          ]
-        },
-        "3": {
-          "topics": [
-            "siblings",
-            "abortion",
-            "parental expectations"
-          ]
-        }
+        "1": {"topics": ["immigrant parents", "doctors", "names"]},
+        "2": {"topics": ["siblings", "engineers", "names"]},
+        "3": {"topics": ["siblings", "abortion", "parental expectations"]}
       }
     },
     "2": {
       "premise": "Sobriety language can reframe slur restraint as addiction recovery.",
       "beats": {
-        "1": {
-          "topics": [
-            "sobriety",
-            "New Year's resolutions",
-            "slurs"
-          ]
-        }
+        "1": {"topics": ["sobriety", "New Year's resolutions", "slurs"]}
       }
     },
     "3": {
       "premise": "A knock-knock joke can fail before the payoff.",
       "beats": {
-        "1": {
-          "topics": [
-            "knock-knock jokes",
-            "cats",
-            "crowd work"
-          ]
-        }
+        "1": {"topics": ["knock-knock jokes", "cats", "crowd work"]}
       }
     }
   },

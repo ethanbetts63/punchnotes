@@ -1,50 +1,21 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "1upKa86_uKU"
-,
-  "episode_title": "KT #766 - SAM TALLENT"
-,
-  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU"
-,
-  "publish_date": "2026-05-05"
-,
-  "guests": [
-    "Sam Tallent"
-  ],
-  "comedian_name": "Akshay Bimbik"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 7
-,
-  "start_seconds": 3901
-,
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "Akshay Bimbik",
+  "comedian_type": "bucket_pull",
+  "set_number": 7,
+  "start_seconds": 3901,
   "bit_meta": {
     "1": {
       "premise": "Santa can seem more real than people because culture outlives biology.",
       "beats": {
-        "1": {
-          "topics": [
-            "mushrooms",
-            "trauma",
-            "Santa Claus"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Santa Claus",
-            "existence",
-            "psychedelics"
-          ]
-        },
-        "3": {
-          "topics": [
-            "Santa Claus",
-            "mall",
-            "trauma"
-          ]
-        }
+        "1": {"topics": ["mushrooms", "trauma", "Santa Claus"]},
+        "2": {"topics": ["Santa Claus", "existence", "psychedelics"]},
+        "3": {"topics": ["Santa Claus", "mall", "trauma"]}
       }
     }
   },

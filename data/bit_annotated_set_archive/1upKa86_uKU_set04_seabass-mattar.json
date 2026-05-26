@@ -1,62 +1,27 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "1upKa86_uKU"
-,
-  "episode_title": "KT #766 - SAM TALLENT"
-,
-  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU"
-,
-  "publish_date": "2026-05-05"
-,
-  "guests": [
-    "Sam Tallent"
-  ],
-  "comedian_name": "Seabass Mattar"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 4
-,
-  "start_seconds": 2562
-,
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "Seabass Mattar",
+  "comedian_type": "bucket_pull",
+  "set_number": 4,
+  "start_seconds": 2562,
   "bit_meta": {
     "1": {
       "premise": "Balding can look like stepdad car-owner energy.",
       "beats": {
-        "1": {
-          "topics": [
-            "gratitude",
-            "hair loss",
-            "stepdads"
-          ]
-        }
+        "1": {"topics": ["gratitude", "hair loss", "stepdads"]}
       }
     },
     "2": {
       "premise": "A memorial hand tattoo can make masturbation feel incestuous.",
       "beats": {
-        "1": {
-          "topics": [
-            "father",
-            "heart transplant",
-            "tattoos"
-          ]
-        },
-        "2": {
-          "topics": [
-            "tattoos",
-            "masturbation",
-            "grief"
-          ]
-        },
-        "3": {
-          "topics": [
-            "father",
-            "advice",
-            "double entendre"
-          ]
-        }
+        "1": {"topics": ["father", "heart transplant", "tattoos"]},
+        "2": {"topics": ["tattoos", "masturbation", "grief"]},
+        "3": {"topics": ["father", "advice", "double entendre"]}
       }
     }
   },

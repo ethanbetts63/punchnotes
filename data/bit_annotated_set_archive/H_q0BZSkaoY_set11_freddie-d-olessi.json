@@ -1,67 +1,27 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "H_q0BZSkaoY"
-,
-  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY"
-,
-  "publish_date": "2026-03-17"
-,
-  "guests": [
-    "Steve0",
-    "Tim Butterly"
-  ],
-  "comedian_name": "Freddie D'Olessi"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 11
-,
-  "start_seconds": 6690
-,
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Freddie D'Olessi",
+  "comedian_type": "bucket_pull",
+  "set_number": 11,
+  "start_seconds": 6690,
   "bit_meta": {
     "1": {
       "premise": "Tesla's brand shifted from environmental virtue to white nationalist association, which extends logically to the KKK adopting eco-friendly practices.",
       "beats": {
-        "1": {
-          "topics": [
-            "Tesla",
-            "Elon Musk",
-            "white supremacy",
-            "race"
-          ]
-        },
-        "2": {
-          "topics": [
-            "KKK",
-            "environmentalism",
-            "race",
-            "LED"
-          ]
-        }
+        "1": {"topics": ["Tesla", "Elon Musk", "white supremacy", "race"]},
+        "2": {"topics": ["KKK", "environmentalism", "race", "LED"]}
       }
     },
     "2": {
       "premise": "NFL team names that reference racial conflict, when scheduled against each other on historically charged dates, become unintentional historical reenactments.",
       "beats": {
-        "1": {
-          "topics": [
-            "Washington Redskins",
-            "Dallas Cowboys",
-            "Thanksgiving",
-            "Native Americans"
-          ]
-        },
-        "2": {
-          "topics": [
-            "police",
-            "race",
-            "Juneteenth",
-            "NFL"
-          ]
-        }
+        "1": {"topics": ["Washington Redskins", "Dallas Cowboys", "Thanksgiving", "Native Americans"]},
+        "2": {"topics": ["police", "race", "Juneteenth", "NFL"]}
       }
     }
   },

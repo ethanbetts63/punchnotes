@@ -1,81 +1,29 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "CnjJPpr10vM"
-,
-  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN"
-,
-  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"
-,
-  "publish_date": "2026-05-19"
-,
-  "guests": [
-    "Shane Gillis",
-    "James McCann"
-  ],
-  "comedian_name": "Dedrick Flynn"
-,
-  "comedian_type": "regular"
-,
-  "set_number": 7
-,
-  "start_seconds": 3525
-,
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": ["Shane Gillis", "James McCann"],
+  "comedian_name": "Dedrick Flynn",
+  "comedian_type": "regular",
+  "set_number": 7,
+  "start_seconds": 3525,
   "bit_meta": {
     "1": {
       "premise": "White friends are a seasonal luxury resource.",
       "beats": {
-        "1": {
-          "topics": [
-            "white friends",
-            "summer",
-            "jet skis",
-            "Black friends"
-          ]
-        },
-        "2": {
-          "topics": [
-            "white friends",
-            "WrestleMania",
-            "weekends"
-          ]
-        }
+        "1": {"topics": ["white friends", "summer", "jet skis", "Black friends"]},
+        "2": {"topics": ["white friends", "WrestleMania", "weekends"]}
       }
     },
     "2": {
       "premise": "Sandbar parties turn beach games into racial land conquest.",
       "beats": {
-        "1": {
-          "topics": [
-            "sandbars",
-            "boats",
-            "reparations",
-            "40 acres"
-          ]
-        },
-        "2": {
-          "topics": [
-            "beaches",
-            "Air Force Ones",
-            "toes",
-            "boundaries"
-          ]
-        },
-        "3": {
-          "topics": [
-            "sandbars",
-            "beer pong",
-            "islands",
-            "Black friends"
-          ]
-        },
-        "4": {
-          "topics": [
-            "white friends",
-            "islands",
-            "competition"
-          ]
-        }
+        "1": {"topics": ["sandbars", "boats", "reparations", "40 acres"]},
+        "2": {"topics": ["beaches", "Air Force Ones", "toes", "boundaries"]},
+        "3": {"topics": ["sandbars", "beer pong", "islands", "Black friends"]},
+        "4": {"topics": ["white friends", "islands", "competition"]}
       }
     }
   },

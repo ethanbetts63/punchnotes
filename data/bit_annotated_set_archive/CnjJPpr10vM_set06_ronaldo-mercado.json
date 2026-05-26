@@ -1,52 +1,21 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "CnjJPpr10vM"
-,
-  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN"
-,
-  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"
-,
-  "publish_date": "2026-05-19"
-,
-  "guests": [
-    "Shane Gillis",
-    "James McCann"
-  ],
-  "comedian_name": "Ronaldo Mercado"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 6
-,
-  "start_seconds": 3257
-,
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": ["Shane Gillis", "James McCann"],
+  "comedian_name": "Ronaldo Mercado",
+  "comedian_type": "bucket_pull",
+  "set_number": 6,
+  "start_seconds": 3257,
   "bit_meta": {
     "1": {
       "premise": "Single parents must perform the absent parent's racial stereotypes.",
       "beats": {
-        "1": {
-          "topics": [
-            "Mexican identity",
-            "mixed race",
-            "absent fathers"
-          ]
-        },
-        "2": {
-          "topics": [
-            "single mothers",
-            "Mexican dads",
-            "labor",
-            "baseball"
-          ]
-        },
-        "3": {
-          "topics": [
-            "mixed race",
-            "Black moms",
-            "white dads"
-          ]
-        }
+        "1": {"topics": ["Mexican identity", "mixed race", "absent fathers"]},
+        "2": {"topics": ["single mothers", "Mexican dads", "labor", "baseball"]},
+        "3": {"topics": ["mixed race", "Black moms", "white dads"]}
       }
     }
   },

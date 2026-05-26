@@ -1,65 +1,27 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "CnjJPpr10vM"
-,
-  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN"
-,
-  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"
-,
-  "publish_date": "2026-05-19"
-,
-  "guests": [
-    "Shane Gillis",
-    "James McCann"
-  ],
-  "comedian_name": "Dusty Carter"
-,
-  "comedian_type": "regular"
-,
-  "set_number": 11
-,
-  "start_seconds": 6021
-,
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": ["Shane Gillis", "James McCann"],
+  "comedian_name": "Dusty Carter",
+  "comedian_type": "regular",
+  "set_number": 11,
+  "start_seconds": 6021,
   "bit_meta": {
     "1": {
       "premise": "Racism can mean loyalty to the human race.",
       "beats": {
-        "1": {
-          "topics": [
-            "racism",
-            "AI",
-            "robots",
-            "human race"
-          ]
-        },
-        "2": {
-          "topics": [
-            "robots",
-            "meth",
-            "wired beings"
-          ]
-        }
+        "1": {"topics": ["racism", "AI", "robots", "human race"]},
+        "2": {"topics": ["robots", "meth", "wired beings"]}
       }
     },
     "2": {
       "premise": "Legal weed erases prohibition-era weed rituals.",
       "beats": {
-        "1": {
-          "topics": [
-            "marijuana legalization",
-            "prohibition",
-            "generations"
-          ]
-        },
-        "2": {
-          "topics": [
-            "brick weed",
-            "seeds",
-            "resin",
-            "dealers"
-          ]
-        }
+        "1": {"topics": ["marijuana legalization", "prohibition", "generations"]},
+        "2": {"topics": ["brick weed", "seeds", "resin", "dealers"]}
       }
     }
   },

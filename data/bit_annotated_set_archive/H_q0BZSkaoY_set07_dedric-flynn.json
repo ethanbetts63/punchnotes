@@ -1,64 +1,27 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "H_q0BZSkaoY"
-,
-  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY"
-,
-  "publish_date": "2026-03-17"
-,
-  "guests": [
-    "Steve0",
-    "Tim Butterly"
-  ],
-  "comedian_name": "Dedric Flynn"
-,
-  "comedian_type": "regular"
-,
-  "set_number": 7
-,
-  "start_seconds": 4478
-,
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Dedric Flynn",
+  "comedian_type": "regular",
+  "set_number": 7,
+  "start_seconds": 4478,
   "bit_meta": {
     "1": {
       "premise": "Armadillos classified as Mexican turtles opens a logical path to a Teenage Mutant Ninja Turtles crossover with Mexican characters.",
       "beats": {
-        "1": {
-          "topics": [
-            "armadillos",
-            "race",
-            "Mexico"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Teenage Mutant Ninja Turtles",
-            "Mexico",
-            "race"
-          ]
-        }
+        "1": {"topics": ["armadillos", "race", "Mexico"]},
+        "2": {"topics": ["Teenage Mutant Ninja Turtles", "Mexico", "race"]}
       }
     },
     "2": {
       "premise": "Smoke detector low-battery chirping is a racially targeted conspiracy: the battery never actually dies, it just torments Black households.",
       "beats": {
-        "1": {
-          "topics": [
-            "smoke detectors",
-            "race",
-            "batteries"
-          ]
-        },
-        "2": {
-          "topics": [
-            "smoke detectors",
-            "race",
-            "conspiracy",
-            "batteries"
-          ]
-        }
+        "1": {"topics": ["smoke detectors", "race", "batteries"]},
+        "2": {"topics": ["smoke detectors", "race", "conspiracy", "batteries"]}
       }
     }
   },

@@ -1,60 +1,31 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "CnjJPpr10vM"
-,
-  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN"
-,
-  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"
-,
-  "publish_date": "2026-05-19"
-,
-  "guests": [
-    "Shane Gillis",
-    "James McCann"
-  ],
-  "comedian_name": "Martin Phillips"
-,
-  "comedian_type": "golden_ticket"
-,
-  "set_number": 1
-,
-  "start_seconds": 387
-,
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": ["Shane Gillis", "James McCann"],
+  "comedian_name": "Martin Phillips",
+  "comedian_type": "golden_ticket",
+  "set_number": 1,
+  "start_seconds": 387,
   "bit_meta": {
     "1": {
       "premise": "Human trafficking sounds worse if regular traffic is miserable.",
       "beats": {
-        "1": {
-          "topics": [
-            "human trafficking",
-            "traffic"
-          ]
-        }
+        "1": {"topics": ["human trafficking", "traffic"]}
       }
     },
     "2": {
       "premise": "Tight clothes can fake muscles.",
       "beats": {
-        "1": {
-          "topics": [
-            "women's clothes",
-            "body image",
-            "dresses"
-          ]
-        }
+        "1": {"topics": ["women's clothes", "body image", "dresses"]}
       }
     },
     "3": {
       "premise": "Making room for Jesus can imply a threesome.",
       "beats": {
-        "1": {
-          "topics": [
-            "school",
-            "Jesus",
-            "sex"
-          ]
-        }
+        "1": {"topics": ["school", "Jesus", "sex"]}
       }
     }
   },

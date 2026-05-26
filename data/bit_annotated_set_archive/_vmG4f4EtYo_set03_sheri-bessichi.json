@@ -1,66 +1,31 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "_vmG4f4EtYo"
-,
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
-,
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
-,
-  "guests": [
-    "Theo Von",
-    "Jelly Roll"
-  ],
-  "comedian_name": "Sheri Bessichi"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 3
-,
-  "start_seconds": 1353
-,
+  "type": "set_meta",
+  "video_id": "_vmG4f4EtYo",
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "guests": ["Theo Von", "Jelly Roll"],
+  "comedian_name": "Sheri Bessichi",
+  "comedian_type": "bucket_pull",
+  "set_number": 3,
+  "start_seconds": 1353,
   "bit_meta": {
     "1": {
       "premise": "Covering a face but not exposed breasts suggests absurd COVID caution.",
       "beats": {
-        "1": {
-          "topics": [
-            "homelessness",
-            "masks",
-            "Democrats"
-          ]
-        }
+        "1": {"topics": ["homelessness", "masks", "Democrats"]}
       }
     },
     "2": {
       "premise": "Iran sounds foreign until it becomes a Nebraska town.",
       "beats": {
-        "1": {
-          "topics": [
-            "Iran",
-            "Nebraska",
-            "identity"
-          ]
-        }
+        "1": {"topics": ["Iran", "Nebraska", "identity"]}
       }
     },
     "3": {
       "premise": "Middle Eastern airport signs would ban stones instead of guns.",
       "beats": {
-        "1": {
-          "topics": [
-            "airport signs",
-            "Middle East",
-            "weapons"
-          ]
-        },
-        "2": {
-          "topics": [
-            "lost limbs",
-            "stones",
-            "airport signs"
-          ]
-        }
+        "1": {"topics": ["airport signs", "Middle East", "weapons"]},
+        "2": {"topics": ["lost limbs", "stones", "airport signs"]}
       }
     }
   },

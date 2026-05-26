@@ -1,57 +1,26 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "suxlBw4o1Mc"
-,
-  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc"
-,
-  "publish_date": "2026-03-10"
-,
-  "guests": [
-    "Joe List",
-    "Steve Rannazzisi"
-  ],
-  "comedian_name": "Rock Turner"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 2
-,
-  "start_seconds": 573
-,
+  "type": "set_meta",
+  "video_id": "suxlBw4o1Mc",
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI",
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc",
+  "publish_date": "2026-03-10",
+  "guests": ["Joe List", "Steve Rannazzisi"],
+  "comedian_name": "Rock Turner",
+  "comedian_type": "bucket_pull",
+  "set_number": 2,
+  "start_seconds": 573,
   "bit_meta": {
     "1": {
       "premise": "Parental nudity can make a father's penis an unavoidable family member.",
       "beats": {
-        "1": {
-          "topics": [
-            "father",
-            "nudity",
-            "childhood memory"
-          ]
-        },
-        "2": {
-          "topics": [
-            "penis size",
-            "personification",
-            "parental pride"
-          ]
-        }
+        "1": {"topics": ["father", "nudity", "childhood memory"]},
+        "2": {"topics": ["penis size", "personification", "parental pride"]}
       }
     },
     "2": {
       "premise": "A mother's exposed breast during a wake-up can turn parenting into unwanted infant intimacy.",
       "beats": {
-        "1": {
-          "topics": [
-            "mother",
-            "breasts",
-            "school mornings",
-            "breastfeeding"
-          ]
-        }
+        "1": {"topics": ["mother", "breasts", "school mornings", "breastfeeding"]}
       }
     }
   },

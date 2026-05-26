@@ -1,75 +1,37 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "suxlBw4o1Mc"
-,
-  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc"
-,
-  "publish_date": "2026-03-10"
-,
-  "guests": [
-    "Joe List",
-    "Steve Rannazzisi"
-  ],
-  "comedian_name": "Mark Fitman"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 3
-,
-  "start_seconds": 1247
-,
+  "type": "set_meta",
+  "video_id": "suxlBw4o1Mc",
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI",
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc",
+  "publish_date": "2026-03-10",
+  "guests": ["Joe List", "Steve Rannazzisi"],
+  "comedian_name": "Mark Fitman",
+  "comedian_type": "bucket_pull",
+  "set_number": 3,
+  "start_seconds": 1247,
   "bit_meta": {
     "1": {
       "premise": "A movie sex scene can make an Oscar screening feel like a public masturbation setup.",
       "beats": {
-        "1": {
-          "topics": [
-            "Oscars",
-            "movies",
-            "sex scenes",
-            "masturbation"
-          ]
-        }
+        "1": {"topics": ["Oscars", "movies", "sex scenes", "masturbation"]}
       }
     },
     "2": {
       "premise": "Avoiding streets named for civil rights heroes makes navigation sound racist.",
       "beats": {
-        "1": {
-          "topics": [
-            "GPS",
-            "Martin Luther King Boulevard",
-            "racism"
-          ]
-        }
+        "1": {"topics": ["GPS", "Martin Luther King Boulevard", "racism"]}
       }
     },
     "3": {
       "premise": "Racism seeming better can mean personal skill at racism improved.",
       "beats": {
-        "1": {
-          "topics": [
-            "racism",
-            "aging",
-            "self-improvement"
-          ]
-        }
+        "1": {"topics": ["racism", "aging", "self-improvement"]}
       }
     },
     "4": {
       "premise": "A racist pet name can make family history feel casually inherited.",
       "beats": {
-        "1": {
-          "topics": [
-            "grandfather",
-            "cat",
-            "racial slurs",
-            "family history"
-          ]
-        }
+        "1": {"topics": ["grandfather", "cat", "racial slurs", "family history"]}
       }
     }
   },

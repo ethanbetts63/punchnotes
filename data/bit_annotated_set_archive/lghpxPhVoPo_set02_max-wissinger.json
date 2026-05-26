@@ -1,74 +1,28 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lghpxPhVoPo"
-,
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
-,
-  "publish_date": "2026-03-24"
-,
-  "guests": [
-    "Adam Ray",
-    "Kim Congdon"
-  ],
-  "comedian_name": "Max Wissinger"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 2
-,
-  "start_seconds": 758
-,
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Max Wissinger",
+  "comedian_type": "bucket_pull",
+  "set_number": 2,
+  "start_seconds": 758,
   "bit_meta": {
     "1": {
       "premise": "A childlike appearance is mistaken for sexual excitement, then the entire romantic scenario is revealed to be fabricated.",
       "beats": {
-        "1": {
-          "topics": [
-            "dating",
-            "appearance",
-            "sex",
-            "girlfriend"
-          ]
-        },
-        "2": {
-          "topics": [
-            "dating",
-            "loneliness",
-            "girlfriend"
-          ]
-        }
+        "1": {"topics": ["dating", "appearance", "sex", "girlfriend"]},
+        "2": {"topics": ["dating", "loneliness", "girlfriend"]}
       }
     },
     "2": {
       "premise": "Gluten intolerance signals such physical weakness that it destroys romantic relationships and breeds suicidal despair.",
       "beats": {
-        "1": {
-          "topics": [
-            "gluten",
-            "dating",
-            "food",
-            "masculinity"
-          ]
-        },
-        "2": {
-          "topics": [
-            "gluten",
-            "donuts",
-            "food",
-            "workplace"
-          ]
-        },
-        "3": {
-          "topics": [
-            "gluten",
-            "depression",
-            "suicide",
-            "toaster"
-          ]
-        }
+        "1": {"topics": ["gluten", "dating", "food", "masculinity"]},
+        "2": {"topics": ["gluten", "donuts", "food", "workplace"]},
+        "3": {"topics": ["gluten", "depression", "suicide", "toaster"]}
       }
     }
   },

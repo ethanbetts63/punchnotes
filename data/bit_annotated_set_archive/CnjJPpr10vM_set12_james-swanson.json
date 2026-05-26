@@ -1,59 +1,22 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "CnjJPpr10vM"
-,
-  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN"
-,
-  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"
-,
-  "publish_date": "2026-05-19"
-,
-  "guests": [
-    "Shane Gillis",
-    "James McCann"
-  ],
-  "comedian_name": "James Swanson III"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 12
-,
-  "start_seconds": 6383
-,
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": ["Shane Gillis", "James McCann"],
+  "comedian_name": "James Swanson III",
+  "comedian_type": "bucket_pull",
+  "set_number": 12,
+  "start_seconds": 6383,
   "bit_meta": {
     "1": {
       "premise": "A very short partner turns romance and sex into scale jokes.",
       "beats": {
-        "1": {
-          "topics": [
-            "engagement",
-            "short women",
-            "love"
-          ]
-        },
-        "2": {
-          "topics": [
-            "dating",
-            "short women",
-            "discounts",
-            "penis size"
-          ]
-        },
-        "3": {
-          "topics": [
-            "height difference",
-            "sex",
-            "money shot"
-          ]
-        },
-        "4": {
-          "topics": [
-            "69 position",
-            "oral sex",
-            "kneecaps"
-          ]
-        }
+        "1": {"topics": ["engagement", "short women", "love"]},
+        "2": {"topics": ["dating", "short women", "discounts", "penis size"]},
+        "3": {"topics": ["height difference", "sex", "money shot"]},
+        "4": {"topics": ["69 position", "oral sex", "kneecaps"]}
       }
     }
   },

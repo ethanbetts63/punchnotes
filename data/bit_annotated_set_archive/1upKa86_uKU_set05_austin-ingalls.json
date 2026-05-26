@@ -1,79 +1,38 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "1upKa86_uKU"
-,
-  "episode_title": "KT #766 - SAM TALLENT"
-,
-  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU"
-,
-  "publish_date": "2026-05-05"
-,
-  "guests": [
-    "Sam Tallent"
-  ],
-  "comedian_name": "Austin Ingalls"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 5
-,
-  "start_seconds": 3089
-,
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "Austin Ingalls",
+  "comedian_type": "bucket_pull",
+  "set_number": 5,
+  "start_seconds": 3089,
   "bit_meta": {
     "1": {
       "premise": "Old-fashioned is polite code for racist.",
       "beats": {
-        "1": {
-          "topics": [
-            "Midwest",
-            "family",
-            "racism"
-          ]
-        }
+        "1": {"topics": ["Midwest", "family", "racism"]}
       }
     },
     "2": {
       "premise": "Diagnoses can become a mnemonic nickname.",
       "beats": {
-        "1": {
-          "topics": [
-            "friends",
-            "children",
-            "diagnoses"
-          ]
-        }
+        "1": {"topics": ["friends", "children", "diagnoses"]}
       }
     },
     "3": {
       "premise": "Prison coworkers can be worse than inmates.",
       "beats": {
-        "1": {
-          "topics": [
-            "prison",
-            "coworkers",
-            "dating"
-          ]
-        },
-        "2": {
-          "topics": [
-            "coworkers",
-            "laptop",
-            "crime"
-          ]
-        }
+        "1": {"topics": ["prison", "coworkers", "dating"]},
+        "2": {"topics": ["coworkers", "laptop", "crime"]}
       }
     },
     "4": {
       "premise": "Warning signs are only useful before sex.",
       "beats": {
-        "1": {
-          "topics": [
-            "homelessness",
-            "AIDS",
-            "sex"
-          ]
-        }
+        "1": {"topics": ["homelessness", "AIDS", "sex"]}
       }
     }
   },

@@ -1,52 +1,21 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "ssPVKPLa-Ko"
-,
-  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko"
-,
-  "publish_date": "2026-05-12"
-,
-  "guests": [
-    "Ari Shaffir",
-    "Luis J Gomez",
-    "Peyton Ruddy"
-  ],
-  "comedian_name": "Adam Beck-Ariowa"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 10
-,
-  "start_seconds": 5350
-,
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Adam Beck-Ariowa",
+  "comedian_type": "bucket_pull",
+  "set_number": 10,
+  "start_seconds": 5350,
   "bit_meta": {
     "1": {
       "premise": "Herpes can become dating leverage and niche-market access.",
       "beats": {
-        "1": {
-          "topics": [
-            "herpes",
-            "dating",
-            "aftermarket parts"
-          ]
-        },
-        "2": {
-          "topics": [
-            "relationships",
-            "arguments",
-            "herpes"
-          ]
-        },
-        "3": {
-          "topics": [
-            "herpes",
-            "sexual opportunity",
-            "fat white women"
-          ]
-        }
+        "1": {"topics": ["herpes", "dating", "aftermarket parts"]},
+        "2": {"topics": ["relationships", "arguments", "herpes"]},
+        "3": {"topics": ["herpes", "sexual opportunity", "fat white women"]}
       }
     }
   },

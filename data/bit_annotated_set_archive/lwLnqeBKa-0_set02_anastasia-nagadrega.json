@@ -1,92 +1,44 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lwLnqeBKa-0"
-,
-  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0"
-,
-  "publish_date": "2026-04-28"
-,
-  "guests": [
-    "Dustin Poirier",
-    "Ari Matti"
-  ],
-  "comedian_name": "Anastasia Nagadrega"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 2
-,
-  "start_seconds": 795
-,
+  "type": "set_meta",
+  "video_id": "lwLnqeBKa-0",
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
+  "publish_date": "2026-04-28",
+  "guests": ["Dustin Poirier", "Ari Matti"],
+  "comedian_name": "Anastasia Nagadrega",
+  "comedian_type": "bucket_pull",
+  "set_number": 2,
+  "start_seconds": 795,
   "bit_meta": {
     "1": {
       "premise": "Getting high can count as flying locally.",
       "beats": {
-        "1": {
-          "topics": [
-            "Austin",
-            "weed",
-            "travel"
-          ]
-        }
+        "1": {"topics": ["Austin", "weed", "travel"]}
       }
     },
     "2": {
       "premise": "Private funniness may not survive an audience.",
       "beats": {
-        "1": {
-          "topics": [
-            "friends",
-            "stage time",
-            "comedy"
-          ]
-        }
+        "1": {"topics": ["friends", "stage time", "comedy"]}
       }
     },
     "3": {
       "premise": "Crowd work fails when audiences think too slowly.",
       "beats": {
-        "1": {
-          "topics": [
-            "crowd work",
-            "audiences",
-            "time limits"
-          ]
-        }
+        "1": {"topics": ["crowd work", "audiences", "time limits"]}
       }
     },
     "4": {
       "premise": "Ignoring Epstein news makes comedy shows look like reality avoidance.",
       "beats": {
-        "1": {
-          "topics": [
-            "Epstein files",
-            "public apathy",
-            "politics"
-          ]
-        },
-        "2": {
-          "topics": [
-            "escapism",
-            "audience",
-            "reality"
-          ]
-        }
+        "1": {"topics": ["Epstein files", "public apathy", "politics"]},
+        "2": {"topics": ["escapism", "audience", "reality"]}
       }
     },
     "5": {
       "premise": "Self-belief in funniness may not reach the room.",
       "beats": {
-        "1": {
-          "topics": [
-            "self-deprecation",
-            "audience reaction",
-            "comedy"
-          ]
-        }
+        "1": {"topics": ["self-deprecation", "audience reaction", "comedy"]}
       }
     }
   },

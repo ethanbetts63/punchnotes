@@ -1,75 +1,33 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "ssPVKPLa-Ko"
-,
-  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko"
-,
-  "publish_date": "2026-05-12"
-,
-  "guests": [
-    "Ari Shaffir",
-    "Luis J Gomez",
-    "Peyton Ruddy"
-  ],
-  "comedian_name": "Dedric Flynn"
-,
-  "comedian_type": "regular"
-,
-  "set_number": 1
-,
-  "start_seconds": 429
-,
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Dedric Flynn",
+  "comedian_type": "regular",
+  "set_number": 1,
+  "start_seconds": 429,
   "bit_meta": {
     "1": {
       "premise": "Adults suppress silliness in favor of outrage and detachment.",
       "beats": {
-        "1": {
-          "topics": [
-            "silliness",
-            "audiences",
-            "outrage"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Jewish comedians",
-            "goofy laughter",
-            "silliness"
-          ]
-        },
-        "3": {
-          "topics": [
-            "set transitions",
-            "silly jokes"
-          ]
-        }
+        "1": {"topics": ["silliness", "audiences", "outrage"]},
+        "2": {"topics": ["Jewish comedians", "goofy laughter", "silliness"]},
+        "3": {"topics": ["set transitions", "silly jokes"]}
       }
     },
     "2": {
       "premise": "Sex can disappoint like reheated fries.",
       "beats": {
-        "1": {
-          "topics": [
-            "sex",
-            "french fries",
-            "comparison jokes"
-          ]
-        }
+        "1": {"topics": ["sex", "french fries", "comparison jokes"]}
       }
     },
     "3": {
       "premise": "Attraction can drop like a countdown as someone gets closer.",
       "beats": {
-        "1": {
-          "topics": [
-            "attraction",
-            "rating people",
-            "rocket countdowns"
-          ]
-        }
+        "1": {"topics": ["attraction", "rating people", "rocket countdowns"]}
       }
     }
   },

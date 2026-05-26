@@ -1,98 +1,49 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "ssPVKPLa-Ko"
-,
-  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko"
-,
-  "publish_date": "2026-05-12"
-,
-  "guests": [
-    "Ari Shaffir",
-    "Luis J Gomez",
-    "Peyton Ruddy"
-  ],
-  "comedian_name": "Pat O'Neill"
-,
-  "comedian_type": "regular"
-,
-  "set_number": 14
-,
-  "start_seconds": 7558
-,
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Pat O'Neill",
+  "comedian_type": "regular",
+  "set_number": 14,
+  "start_seconds": 7558,
   "bit_meta": {
     "1": {
       "premise": "Autoerotic choking can be mislabeled as the cinnamon challenge.",
       "beats": {
-        "1": {
-          "topics": [
-            "masturbation",
-            "choking",
-            "cinnamon challenge"
-          ]
-        }
+        "1": {"topics": ["masturbation", "choking", "cinnamon challenge"]}
       }
     },
     "2": {
       "premise": "Uncertain porn scale can imply accidental illegal porn.",
       "beats": {
-        "1": {
-          "topics": [
-            "porn",
-            "little people",
-            "uncertainty"
-          ]
-        }
+        "1": {"topics": ["porn", "little people", "uncertainty"]}
       }
     },
     "3": {
       "premise": "Porn denial implies innocence or lying.",
       "beats": {
-        "1": {
-          "topics": [
-            "porn",
-            "audiences",
-            "lying"
-          ]
-        }
+        "1": {"topics": ["porn", "audiences", "lying"]}
       }
     },
     "4": {
       "premise": "Porn creates unrealistic lesbian beauty standards.",
       "beats": {
-        "1": {
-          "topics": [
-            "porn",
-            "lesbians",
-            "beauty standards"
-          ]
-        }
+        "1": {"topics": ["porn", "lesbians", "beauty standards"]}
       }
     },
     "5": {
       "premise": "Jewish lesbian identity creates a double-slur pun.",
       "beats": {
-        "1": {
-          "topics": [
-            "Jewish women",
-            "lesbians",
-            "dating"
-          ]
-        }
+        "1": {"topics": ["Jewish women", "lesbians", "dating"]}
       }
     },
     "6": {
       "premise": "Buying dinner for twelve men seems godlike under Jewish stereotypes.",
       "beats": {
-        "1": {
-          "topics": [
-            "Jesus",
-            "Last Supper",
-            "Jewish stereotypes"
-          ]
-        }
+        "1": {"topics": ["Jesus", "Last Supper", "Jewish stereotypes"]}
       }
     }
   },

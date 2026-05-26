@@ -1,49 +1,20 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "_vmG4f4EtYo"
-,
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
-,
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
-,
-  "guests": [
-    "Theo Von",
-    "Jelly Roll"
-  ],
-  "comedian_name": "Luke Robinson"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 9
-,
-  "start_seconds": 4636
-,
+  "type": "set_meta",
+  "video_id": "_vmG4f4EtYo",
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "guests": ["Theo Von", "Jelly Roll"],
+  "comedian_name": "Luke Robinson",
+  "comedian_type": "bucket_pull",
+  "set_number": 9,
+  "start_seconds": 4636,
   "bit_meta": {
     "1": {
       "premise": "Humanized dogs would expose uncomfortable pet-owner choices.",
       "beats": {
-        "1": {
-          "topics": [
-            "Neuralink",
-            "pets",
-            "animal thoughts"
-          ]
-        },
-        "2": {
-          "topics": [
-            "dog owners",
-            "neutering",
-            "stray dogs"
-          ]
-        },
-        "3": {
-          "topics": [
-            "dogs",
-            "AOC",
-            "Democrats"
-          ]
-        }
+        "1": {"topics": ["Neuralink", "pets", "animal thoughts"]},
+        "2": {"topics": ["dog owners", "neutering", "stray dogs"]},
+        "3": {"topics": ["dogs", "AOC", "Democrats"]}
       }
     }
   },

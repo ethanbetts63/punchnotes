@@ -1,52 +1,21 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "ssPVKPLa-Ko"
-,
-  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko"
-,
-  "publish_date": "2026-05-12"
-,
-  "guests": [
-    "Ari Shaffir",
-    "Luis J Gomez",
-    "Peyton Ruddy"
-  ],
-  "comedian_name": "Royal Oats"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 6
-,
-  "start_seconds": 2927
-,
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Royal Oats",
+  "comedian_type": "bucket_pull",
+  "set_number": 6,
+  "start_seconds": 2927,
   "bit_meta": {
     "1": {
       "premise": "Small balls should not matter during sex but become gossip anyway.",
       "beats": {
-        "1": {
-          "topics": [
-            "muscles",
-            "steroids",
-            "small balls"
-          ]
-        },
-        "2": {
-          "topics": [
-            "sex gossip",
-            "small balls",
-            "Vegas dice"
-          ]
-        },
-        "3": {
-          "topics": [
-            "tea bagging",
-            "small balls",
-            "salt packets"
-          ]
-        }
+        "1": {"topics": ["muscles", "steroids", "small balls"]},
+        "2": {"topics": ["sex gossip", "small balls", "Vegas dice"]},
+        "3": {"topics": ["tea bagging", "small balls", "salt packets"]}
       }
     }
   },

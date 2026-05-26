@@ -1,59 +1,26 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lghpxPhVoPo"
-,
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
-,
-  "publish_date": "2026-03-24"
-,
-  "guests": [
-    "Adam Ray",
-    "Kim Congdon"
-  ],
-  "comedian_name": "Dedrick Flynn"
-,
-  "comedian_type": "regular"
-,
-  "set_number": 17
-,
-  "start_seconds": 8454
-,
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Dedrick Flynn",
+  "comedian_type": "regular",
+  "set_number": 17,
+  "start_seconds": 8454,
   "bit_meta": {
     "1": {
       "premise": "Houston's Southern identity is captured by calling it a supersized version of Atlanta.",
       "beats": {
-        "1": {
-          "topics": [
-            "Houston",
-            "Atlanta",
-            "South",
-            "cities"
-          ]
-        }
+        "1": {"topics": ["Houston", "Atlanta", "South", "cities"]}
       }
     },
     "2": {
       "premise": "Pimp C's cryptic lyric about shrimp and poison is revealed as autobiography: he nearly died from iodine poisoning caused by eating catastrophic quantities of shrimp, making the excess aspirational.",
       "beats": {
-        "1": {
-          "topics": [
-            "Pimp C",
-            "rap",
-            "shrimp",
-            "iodine"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Pimp C",
-            "shrimp",
-            "iodine poisoning",
-            "food"
-          ]
-        }
+        "1": {"topics": ["Pimp C", "rap", "shrimp", "iodine"]},
+        "2": {"topics": ["Pimp C", "shrimp", "iodine poisoning", "food"]}
       }
     }
   },

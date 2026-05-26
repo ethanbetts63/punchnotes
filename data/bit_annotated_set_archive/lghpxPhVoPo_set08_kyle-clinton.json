@@ -1,64 +1,31 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lghpxPhVoPo"
-,
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
-,
-  "publish_date": "2026-03-24"
-,
-  "guests": [
-    "Adam Ray",
-    "Kim Congdon"
-  ],
-  "comedian_name": "Kyle Clinton"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 8
-,
-  "start_seconds": 3994
-,
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Kyle Clinton",
+  "comedian_type": "bucket_pull",
+  "set_number": 8,
+  "start_seconds": 3994,
   "bit_meta": {
     "1": {
       "premise": "A vasectomy question is misdirected: the prerequisite is not readiness for fatherhood but having sex at all.",
       "beats": {
-        "1": {
-          "topics": [
-            "vasectomy",
-            "virginity",
-            "family",
-            "sex"
-          ]
-        }
+        "1": {"topics": ["vasectomy", "virginity", "family", "sex"]}
       }
     },
     "2": {
       "premise": "The Kentucky incest stereotype is subverted: the cousin was unattainable, and the family had already claimed her.",
       "beats": {
-        "1": {
-          "topics": [
-            "Kentucky",
-            "incest",
-            "family",
-            "homecoming"
-          ]
-        }
+        "1": {"topics": ["Kentucky", "incest", "family", "homecoming"]}
       }
     },
     "3": {
       "premise": "A religious denomination name is used as a pun to announce a meth addiction.",
       "beats": {
-        "1": {
-          "topics": [
-            "religion",
-            "meth",
-            "Kentucky",
-            "drugs"
-          ]
-        }
+        "1": {"topics": ["religion", "meth", "Kentucky", "drugs"]}
       }
     }
   },

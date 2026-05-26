@@ -1,84 +1,43 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "1upKa86_uKU"
-,
-  "episode_title": "KT #766 - SAM TALLENT"
-,
-  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU"
-,
-  "publish_date": "2026-05-05"
-,
-  "guests": [
-    "Sam Tallent"
-  ],
-  "comedian_name": "David Edwards"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 2
-,
-  "start_seconds": 1001
-,
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "David Edwards",
+  "comedian_type": "bucket_pull",
+  "set_number": 2,
+  "start_seconds": 1001,
   "bit_meta": {
     "1": {
       "premise": "Upright hair can look like static from sex with balloons.",
       "beats": {
-        "1": {
-          "topics": [
-            "appearance",
-            "static electricity",
-            "balloons"
-          ]
-        }
+        "1": {"topics": ["appearance", "static electricity", "balloons"]}
       }
     },
     "2": {
       "premise": "A hunched posture can look like a chicken pecking.",
       "beats": {
-        "1": {
-          "topics": [
-            "appearance",
-            "chickens",
-            "posture"
-          ]
-        }
+        "1": {"topics": ["appearance", "chickens", "posture"]}
       }
     },
     "3": {
       "premise": "Looking like two celebrities can imply unwanted celebrity parentage.",
       "beats": {
-        "1": {
-          "topics": [
-            "appearance",
-            "celebrity parents",
-            "Utah"
-          ]
-        }
+        "1": {"topics": ["appearance", "celebrity parents", "Utah"]}
       }
     },
     "4": {
       "premise": "A sexual animal comparison can be undercut by hemorrhoids.",
       "beats": {
-        "1": {
-          "topics": [
-            "Latina women",
-            "baboon",
-            "hemorrhoids"
-          ]
-        }
+        "1": {"topics": ["Latina women", "baboon", "hemorrhoids"]}
       }
     },
     "5": {
       "premise": "Hemorrhoids can make bathroom strain look like a horror-movie crawl.",
       "beats": {
-        "1": {
-          "topics": [
-            "The Ring",
-            "bathroom",
-            "hemorrhoids"
-          ]
-        }
+        "1": {"topics": ["The Ring", "bathroom", "hemorrhoids"]}
       }
     }
   },

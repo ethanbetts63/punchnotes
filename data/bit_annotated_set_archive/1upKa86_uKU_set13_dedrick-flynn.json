@@ -1,85 +1,26 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "1upKa86_uKU"
-,
-  "episode_title": "KT #766 - SAM TALLENT"
-,
-  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU"
-,
-  "publish_date": "2026-05-05"
-,
-  "guests": [
-    "Sam Tallent"
-  ],
-  "comedian_name": "Dedrick Flynn"
-,
-  "comedian_type": "regular"
-,
-  "set_number": 13
-,
-  "start_seconds": 7467
-,
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "Dedrick Flynn",
+  "comedian_type": "regular",
+  "set_number": 13,
+  "start_seconds": 7467,
   "bit_meta": {
     "1": {
       "premise": "Relationships improve men by upgrading bathroom products.",
       "beats": {
-        "1": {
-          "topics": [
-            "relationships",
-            "bathroom products",
-            "attraction"
-          ]
-        },
-        "2": {
-          "topics": [
-            "single men",
-            "hygiene",
-            "smell"
-          ]
-        },
-        "3": {
-          "topics": [
-            "roommates",
-            "body wash",
-            "single men"
-          ]
-        },
-        "4": {
-          "topics": [
-            "women's bathrooms",
-            "shampoo",
-            "seasoning"
-          ]
-        },
-        "5": {
-          "topics": [
-            "purple shampoo",
-            "shower products",
-            "masturbation"
-          ]
-        },
-        "6": {
-          "topics": [
-            "Taco Bell",
-            "soda",
-            "shower products"
-          ]
-        },
-        "7": {
-          "topics": [
-            "body glitter",
-            "Bring It On",
-            "beauty products"
-          ]
-        },
-        "8": {
-          "topics": [
-            "bath bombs",
-            "essential oils",
-            "being single"
-          ]
-        }
+        "1": {"topics": ["relationships", "bathroom products", "attraction"]},
+        "2": {"topics": ["single men", "hygiene", "smell"]},
+        "3": {"topics": ["roommates", "body wash", "single men"]},
+        "4": {"topics": ["women's bathrooms", "shampoo", "seasoning"]},
+        "5": {"topics": ["purple shampoo", "shower products", "masturbation"]},
+        "6": {"topics": ["Taco Bell", "soda", "shower products"]},
+        "7": {"topics": ["body glitter", "Bring It On", "beauty products"]},
+        "8": {"topics": ["bath bombs", "essential oils", "being single"]}
       }
     }
   },

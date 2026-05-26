@@ -1,77 +1,37 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lghpxPhVoPo"
-,
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
-,
-  "publish_date": "2026-03-24"
-,
-  "guests": [
-    "Adam Ray",
-    "Kim Congdon"
-  ],
-  "comedian_name": "Enrique Chacon"
-,
-  "comedian_type": "golden_ticket"
-,
-  "set_number": 1
-,
-  "start_seconds": 433
-,
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Enrique Chacon",
+  "comedian_type": "golden_ticket",
+  "set_number": 1,
+  "start_seconds": 433,
   "bit_meta": {
     "1": {
       "premise": "A predominantly white audience at a Houston comedy show resembles a segregated megachurch.",
       "beats": {
-        "1": {
-          "topics": [
-            "race",
-            "Houston",
-            "Lakewood Church",
-            "audience"
-          ]
-        }
+        "1": {"topics": ["race", "Houston", "Lakewood Church", "audience"]}
       }
     },
     "2": {
       "premise": "A Latino man's fear of ICE is undermined by the revelation that ICE now targets white people, collapsing his only safe hiding spot.",
       "beats": {
-        "1": {
-          "topics": [
-            "ICE",
-            "immigration",
-            "race",
-            "Lululemon"
-          ]
-        }
+        "1": {"topics": ["ICE", "immigration", "race", "Lululemon"]}
       }
     },
     "3": {
       "premise": "Performing an act of animal charity (rescuing cats) is reframed as a calculated seduction strategy.",
       "beats": {
-        "1": {
-          "topics": [
-            "dating",
-            "cats",
-            "animal rescue",
-            "sex"
-          ]
-        }
+        "1": {"topics": ["dating", "cats", "animal rescue", "sex"]}
       }
     },
     "4": {
       "premise": "A dog breed serves as a cross-racial bonding tool with older white men until their inherited racism abruptly ends the connection.",
       "beats": {
-        "1": {
-          "topics": [
-            "race",
-            "dogs",
-            "blue heeler",
-            "racism"
-          ]
-        }
+        "1": {"topics": ["race", "dogs", "blue heeler", "racism"]}
       }
     }
   },

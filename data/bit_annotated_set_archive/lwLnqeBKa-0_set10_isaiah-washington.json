@@ -1,81 +1,38 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lwLnqeBKa-0"
-,
-  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0"
-,
-  "publish_date": "2026-04-28"
-,
-  "guests": [
-    "Dustin Poirier",
-    "Ari Matti"
-  ],
-  "comedian_name": "Isaiah Washington"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 10
-,
-  "start_seconds": 4561
-,
+  "type": "set_meta",
+  "video_id": "lwLnqeBKa-0",
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
+  "publish_date": "2026-04-28",
+  "guests": ["Dustin Poirier", "Ari Matti"],
+  "comedian_name": "Isaiah Washington",
+  "comedian_type": "bucket_pull",
+  "set_number": 10,
+  "start_seconds": 4561,
   "bit_meta": {
     "1": {
       "premise": "Fatherlessness can be so normal that having a dad seems mockable.",
       "beats": {
-        "1": {
-          "topics": [
-            "absent fathers",
-            "elementary school",
-            "Disneyland"
-          ]
-        },
-        "2": {
-          "topics": [
-            "single mothers",
-            "childhood",
-            "masculinity"
-          ]
-        }
+        "1": {"topics": ["absent fathers", "elementary school", "Disneyland"]},
+        "2": {"topics": ["single mothers", "childhood", "masculinity"]}
       }
     },
     "2": {
       "premise": "Single-mother Saturdays can mean plus-size lingerie shopping.",
       "beats": {
-        "1": {
-          "topics": [
-            "single mothers",
-            "Lane Bryant",
-            "shopping"
-          ]
-        }
+        "1": {"topics": ["single mothers", "Lane Bryant", "shopping"]}
       }
     },
     "3": {
       "premise": "Religious shame can turn male puberty breasts into a crisis.",
       "beats": {
-        "1": {
-          "topics": [
-            "religion",
-            "body size",
-            "puberty",
-            "shame"
-          ]
-        }
+        "1": {"topics": ["religion", "body size", "puberty", "shame"]}
       }
     },
     "4": {
       "premise": "Body-positive dating claims can need audience validation.",
       "beats": {
-        "1": {
-          "topics": [
-            "bigger men",
-            "audience reaction",
-            "self-esteem"
-          ]
-        }
+        "1": {"topics": ["bigger men", "audience reaction", "self-esteem"]}
       }
     }
   },

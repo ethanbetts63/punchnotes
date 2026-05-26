@@ -1,56 +1,21 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "_vmG4f4EtYo"
-,
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
-,
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
-,
-  "guests": [
-    "Theo Von",
-    "Jelly Roll"
-  ],
-  "comedian_name": "Charles Haycock"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 5
-,
-  "start_seconds": 2489
-,
+  "type": "set_meta",
+  "video_id": "_vmG4f4EtYo",
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "guests": ["Theo Von", "Jelly Roll"],
+  "comedian_name": "Charles Haycock",
+  "comedian_type": "bucket_pull",
+  "set_number": 5,
+  "start_seconds": 2489,
   "bit_meta": {
     "1": {
       "premise": "Avoiding autism testing keeps the diagnosis from becoming real.",
       "beats": {
-        "1": {
-          "topics": [
-            "autism testing",
-            "dating",
-            "diagnosis"
-          ]
-        },
-        "2": {
-          "topics": [
-            "autism testing",
-            "brothers",
-            "diagnosis"
-          ]
-        },
-        "3": {
-          "topics": [
-            "autism",
-            "part-time work",
-            "puzzles"
-          ]
-        },
-        "4": {
-          "topics": [
-            "Canada",
-            "wait times",
-            "autism testing"
-          ]
-        }
+        "1": {"topics": ["autism testing", "dating", "diagnosis"]},
+        "2": {"topics": ["autism testing", "brothers", "diagnosis"]},
+        "3": {"topics": ["autism", "part-time work", "puzzles"]},
+        "4": {"topics": ["Canada", "wait times", "autism testing"]}
       }
     }
   },

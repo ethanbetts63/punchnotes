@@ -1,57 +1,26 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "CnjJPpr10vM"
-,
-  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN"
-,
-  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"
-,
-  "publish_date": "2026-05-19"
-,
-  "guests": [
-    "Shane Gillis",
-    "James McCann"
-  ],
-  "comedian_name": "Lucas Hinderlighter"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 9
-,
-  "start_seconds": 4438
-,
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": ["Shane Gillis", "James McCann"],
+  "comedian_name": "Lucas Hinderlighter",
+  "comedian_type": "bucket_pull",
+  "set_number": 9,
+  "start_seconds": 4438,
   "bit_meta": {
     "1": {
       "premise": "One remaining sock can imply genital cover instead of footwear.",
       "beats": {
-        "1": {
-          "topics": [
-            "porta potties",
-            "toilet paper",
-            "socks"
-          ]
-        },
-        "2": {
-          "topics": [
-            "porta potties",
-            "socks",
-            "genitals"
-          ]
-        }
+        "1": {"topics": ["porta potties", "toilet paper", "socks"]},
+        "2": {"topics": ["porta potties", "socks", "genitals"]}
       }
     },
     "2": {
       "premise": "Barely legal changes meaning across eras.",
       "beats": {
-        "1": {
-          "topics": [
-            "grandpa",
-            "porn",
-            "aging",
-            "interracial porn"
-          ]
-        }
+        "1": {"topics": ["grandpa", "porn", "aging", "interracial porn"]}
       }
     }
   },

@@ -1,54 +1,21 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lghpxPhVoPo"
-,
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
-,
-  "publish_date": "2026-03-24"
-,
-  "guests": [
-    "Adam Ray",
-    "Kim Congdon"
-  ],
-  "comedian_name": "Brandon Brown"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 5
-,
-  "start_seconds": 2268
-,
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Brandon Brown",
+  "comedian_type": "bucket_pull",
+  "set_number": 5,
+  "start_seconds": 2268,
   "bit_meta": {
     "1": {
       "premise": "A couple role-plays Kill Tony during sex, mapping the show's host persona and performer archetypes onto sexual acts and critiques.",
       "beats": {
-        "1": {
-          "topics": [
-            "sex",
-            "Kill Tony",
-            "marriage",
-            "roleplay"
-          ]
-        },
-        "2": {
-          "topics": [
-            "race",
-            "Kill Tony",
-            "sex",
-            "roleplay"
-          ]
-        },
-        "3": {
-          "topics": [
-            "oral sex",
-            "Kill Tony",
-            "Tony Hinchcliffe",
-            "marriage"
-          ]
-        }
+        "1": {"topics": ["sex", "Kill Tony", "marriage", "roleplay"]},
+        "2": {"topics": ["race", "Kill Tony", "sex", "roleplay"]},
+        "3": {"topics": ["oral sex", "Kill Tony", "Tony Hinchcliffe", "marriage"]}
       }
     }
   },

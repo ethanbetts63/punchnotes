@@ -1,74 +1,37 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "ssPVKPLa-Ko"
-,
-  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko"
-,
-  "publish_date": "2026-05-12"
-,
-  "guests": [
-    "Ari Shaffir",
-    "Luis J Gomez",
-    "Peyton Ruddy"
-  ],
-  "comedian_name": "Keaton Womack"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 11
-,
-  "start_seconds": 5838
-,
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Keaton Womack",
+  "comedian_type": "bucket_pull",
+  "set_number": 11,
+  "start_seconds": 5838,
   "bit_meta": {
     "1": {
       "premise": "Military-family pride flips when the overseas fighter joined the enemy.",
       "beats": {
-        "1": {
-          "topics": [
-            "military families",
-            "ISIS",
-            "viral videos"
-          ]
-        }
+        "1": {"topics": ["military families", "ISIS", "viral videos"]}
       }
     },
     "2": {
       "premise": "Student-teacher scandals can sound like missed desirability.",
       "beats": {
-        "1": {
-          "topics": [
-            "teachers",
-            "students",
-            "inappropriate relationships"
-          ]
-        }
+        "1": {"topics": ["teachers", "students", "inappropriate relationships"]}
       }
     },
     "3": {
       "premise": "Crazy Rich Asians invites a poverty-based Filipino sequel.",
       "beats": {
-        "1": {
-          "topics": [
-            "Crazy Rich Asians",
-            "Filipinos",
-            "movie sequels"
-          ]
-        }
+        "1": {"topics": ["Crazy Rich Asians", "Filipinos", "movie sequels"]}
       }
     },
     "4": {
       "premise": "White Lives Matter can become a cocaine slogan.",
       "beats": {
-        "1": {
-          "topics": [
-            "Hunter Biden",
-            "cocaine",
-            "movie titles"
-          ]
-        }
+        "1": {"topics": ["Hunter Biden", "cocaine", "movie titles"]}
       }
     }
   },

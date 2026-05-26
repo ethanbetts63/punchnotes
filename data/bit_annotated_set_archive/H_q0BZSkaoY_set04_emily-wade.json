@@ -1,53 +1,21 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "H_q0BZSkaoY"
-,
-  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY"
-,
-  "publish_date": "2026-03-17"
-,
-  "guests": [
-    "Steve0",
-    "Tim Butterly"
-  ],
-  "comedian_name": "Emily Wade"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 4
-,
-  "start_seconds": 2586
-,
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Emily Wade",
+  "comedian_type": "bucket_pull",
+  "set_number": 4,
+  "start_seconds": 2586,
   "bit_meta": {
     "1": {
       "premise": "A Boston accent is only detectable in aggressive or obscene phrases, making it incompatible with sex appeal no matter the context.",
       "beats": {
-        "1": {
-          "topics": [
-            "Boston accent",
-            "regional dialect",
-            "aggression"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Boston accent",
-            "sex",
-            "rap lyrics",
-            "Cardi B"
-          ]
-        },
-        "3": {
-          "topics": [
-            "Boston accent",
-            "sex",
-            "Mark Wahlberg",
-            "fleshlight"
-          ]
-        }
+        "1": {"topics": ["Boston accent", "regional dialect", "aggression"]},
+        "2": {"topics": ["Boston accent", "sex", "rap lyrics", "Cardi B"]},
+        "3": {"topics": ["Boston accent", "sex", "Mark Wahlberg", "fleshlight"]}
       }
     }
   },

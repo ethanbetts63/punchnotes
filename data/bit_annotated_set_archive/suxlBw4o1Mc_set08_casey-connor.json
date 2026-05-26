@@ -1,46 +1,20 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "suxlBw4o1Mc"
-,
-  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc"
-,
-  "publish_date": "2026-03-10"
-,
-  "guests": [
-    "Joe List",
-    "Steve Rannazzisi"
-  ],
-  "comedian_name": "Casey Connor"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 8
-,
-  "start_seconds": 4716
-,
+  "type": "set_meta",
+  "video_id": "suxlBw4o1Mc",
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI",
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc",
+  "publish_date": "2026-03-10",
+  "guests": ["Joe List", "Steve Rannazzisi"],
+  "comedian_name": "Casey Connor",
+  "comedian_type": "bucket_pull",
+  "set_number": 8,
+  "start_seconds": 4716,
   "bit_meta": {
     "1": {
       "premise": "Private shower music can make singing and washing feel racially and sexually incriminating.",
       "beats": {
-        "1": {
-          "topics": [
-            "hip hop",
-            "showers",
-            "self-censorship",
-            "Wu-Tang"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Kanye West",
-            "Diddy",
-            "shower",
-            "sexual anxiety"
-          ]
-        }
+        "1": {"topics": ["hip hop", "showers", "self-censorship", "Wu-Tang"]},
+        "2": {"topics": ["Kanye West", "Diddy", "shower", "sexual anxiety"]}
       }
     }
   },

@@ -1,63 +1,22 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "_vmG4f4EtYo"
-,
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
-,
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
-,
-  "guests": [
-    "Theo Von",
-    "Jelly Roll"
-  ],
-  "comedian_name": "Lil Mo Mozzarella"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 6
-,
-  "start_seconds": 3015
-,
+  "type": "set_meta",
+  "video_id": "_vmG4f4EtYo",
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "guests": ["Theo Von", "Jelly Roll"],
+  "comedian_name": "Lil Mo Mozzarella",
+  "comedian_type": "bucket_pull",
+  "set_number": 6,
+  "start_seconds": 3015,
   "bit_meta": {
     "1": {
       "premise": "Restaurant-order stereotypes become fake language skills.",
       "beats": {
-        "1": {
-          "topics": [
-            "New York",
-            "Spanish",
-            "bodega orders"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Italian Americans",
-            "deli orders",
-            "Norwegians"
-          ]
-        },
-        "3": {
-          "topics": [
-            "Chinese restaurants",
-            "shouting",
-            "food orders"
-          ]
-        },
-        "4": {
-          "topics": [
-            "Chinese restaurants",
-            "steak bones",
-            "audience risk"
-          ]
-        },
-        "5": {
-          "topics": [
-            "Asian audience",
-            "Kim Jong-un",
-            "height"
-          ]
-        }
+        "1": {"topics": ["New York", "Spanish", "bodega orders"]},
+        "2": {"topics": ["Italian Americans", "deli orders", "Norwegians"]},
+        "3": {"topics": ["Chinese restaurants", "shouting", "food orders"]},
+        "4": {"topics": ["Chinese restaurants", "steak bones", "audience risk"]},
+        "5": {"topics": ["Asian audience", "Kim Jong-un", "height"]}
       }
     }
   },

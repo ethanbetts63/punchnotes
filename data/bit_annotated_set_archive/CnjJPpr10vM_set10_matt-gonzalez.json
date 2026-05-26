@@ -1,69 +1,32 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "CnjJPpr10vM"
-,
-  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN"
-,
-  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"
-,
-  "publish_date": "2026-05-19"
-,
-  "guests": [
-    "Shane Gillis",
-    "James McCann"
-  ],
-  "comedian_name": "Matt Gonzalez"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 10
-,
-  "start_seconds": 4945
-,
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": ["Shane Gillis", "James McCann"],
+  "comedian_name": "Matt Gonzalez",
+  "comedian_type": "bucket_pull",
+  "set_number": 10,
+  "start_seconds": 4945,
   "bit_meta": {
     "1": {
       "premise": "Ozempic can become a Mexican fat nickname.",
       "beats": {
-        "1": {
-          "topics": [
-            "Mexican identity",
-            "weight",
-            "Ozempic"
-          ]
-        }
+        "1": {"topics": ["Mexican identity", "weight", "Ozempic"]}
       }
     },
     "2": {
       "premise": "Priesthood expectations imply child abuse instead of adult sex.",
       "beats": {
-        "1": {
-          "topics": [
-            "Catholicism",
-            "priests",
-            "child abuse",
-            "white women"
-          ]
-        },
-        "2": {
-          "topics": [
-            "dating",
-            "white women",
-            "God's plan"
-          ]
-        }
+        "1": {"topics": ["Catholicism", "priests", "child abuse", "white women"]},
+        "2": {"topics": ["dating", "white women", "God's plan"]}
       }
     },
     "3": {
       "premise": "Sex with a citizen can become immigration barter.",
       "beats": {
-        "1": {
-          "topics": [
-            "girlfriends",
-            "white women",
-            "green cards"
-          ]
-        }
+        "1": {"topics": ["girlfriends", "white women", "green cards"]}
       }
     }
   },

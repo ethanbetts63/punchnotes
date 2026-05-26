@@ -1,57 +1,26 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "H_q0BZSkaoY"
-,
-  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY"
-,
-  "publish_date": "2026-03-17"
-,
-  "guests": [
-    "Steve0",
-    "Tim Butterly"
-  ],
-  "comedian_name": "Jarrell Beeman"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 9
-,
-  "start_seconds": 5531
-,
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Jarrell Beeman",
+  "comedian_type": "bucket_pull",
+  "set_number": 9,
+  "start_seconds": 5531,
   "bit_meta": {
     "1": {
       "premise": "Dayton, Ohio's reputation is so bleak that the crowd's muted reaction to hearing you live there implies you must not be interested in heroin.",
       "beats": {
-        "1": {
-          "topics": [
-            "Dayton Ohio",
-            "heroin",
-            "regional identity"
-          ]
-        }
+        "1": {"topics": ["Dayton Ohio", "heroin", "regional identity"]}
       }
     },
     "2": {
       "premise": "Proximity to violent crime creates irrationally cheap rent, which in turn creates a financial incentive to commit even more murders.",
       "beats": {
-        "1": {
-          "topics": [
-            "Dayton Ohio",
-            "rent",
-            "murder",
-            "poverty"
-          ]
-        },
-        "2": {
-          "topics": [
-            "rent",
-            "murder",
-            "crime"
-          ]
-        }
+        "1": {"topics": ["Dayton Ohio", "rent", "murder", "poverty"]},
+        "2": {"topics": ["rent", "murder", "crime"]}
       }
     }
   },

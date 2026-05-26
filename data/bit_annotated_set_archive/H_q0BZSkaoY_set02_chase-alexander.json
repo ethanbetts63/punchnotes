@@ -1,58 +1,26 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "H_q0BZSkaoY"
-,
-  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY"
-,
-  "publish_date": "2026-03-17"
-,
-  "guests": [
-    "Steve0",
-    "Tim Butterly"
-  ],
-  "comedian_name": "Chase Alexander"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 2
-,
-  "start_seconds": 1059
-,
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Chase Alexander",
+  "comedian_type": "bucket_pull",
+  "set_number": 2,
+  "start_seconds": 1059,
   "bit_meta": {
     "1": {
       "premise": "A string of brutal appearance insults turns out to all originate from the same two-person group chat — the comedian's parents.",
       "beats": {
-        "1": {
-          "topics": [
-            "appearance",
-            "insults",
-            "parents",
-            "group chat"
-          ]
-        },
-        "2": {
-          "topics": [
-            "dating",
-            "weight gain",
-            "dating app",
-            "parents"
-          ]
-        }
+        "1": {"topics": ["appearance", "insults", "parents", "group chat"]},
+        "2": {"topics": ["dating", "weight gain", "dating app", "parents"]}
       }
     },
     "2": {
       "premise": "A woman having both a master's degree and a DUI is framed as the ideal combination of respectability and fun.",
       "beats": {
-        "1": {
-          "topics": [
-            "dating",
-            "DUI",
-            "education"
-          ]
-        }
+        "1": {"topics": ["dating", "DUI", "education"]}
       }
     }
   },

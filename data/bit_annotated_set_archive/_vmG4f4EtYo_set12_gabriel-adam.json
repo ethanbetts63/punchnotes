@@ -1,42 +1,19 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "_vmG4f4EtYo"
-,
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
-,
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
-,
-  "guests": [
-    "Theo Von",
-    "Jelly Roll"
-  ],
-  "comedian_name": "Gabriel Adam"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 12
-,
-  "start_seconds": 6437
-,
+  "type": "set_meta",
+  "video_id": "_vmG4f4EtYo",
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "guests": ["Theo Von", "Jelly Roll"],
+  "comedian_name": "Gabriel Adam",
+  "comedian_type": "bucket_pull",
+  "set_number": 12,
+  "start_seconds": 6437,
   "bit_meta": {
     "1": {
       "premise": "A domestic-abuse joke can accidentally help the victim escape.",
       "beats": {
-        "1": {
-          "topics": [
-            "stand-up taboos",
-            "girlfriend",
-            "domestic violence"
-          ]
-        },
-        "2": {
-          "topics": [
-            "girlfriend",
-            "escape",
-            "chains"
-          ]
-        }
+        "1": {"topics": ["stand-up taboos", "girlfriend", "domestic violence"]},
+        "2": {"topics": ["girlfriend", "escape", "chains"]}
       }
     }
   },

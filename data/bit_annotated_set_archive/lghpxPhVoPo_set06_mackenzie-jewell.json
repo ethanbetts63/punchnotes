@@ -1,67 +1,27 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lghpxPhVoPo"
-,
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
-,
-  "publish_date": "2026-03-24"
-,
-  "guests": [
-    "Adam Ray",
-    "Kim Congdon"
-  ],
-  "comedian_name": "Mackenzie Jewell"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 6
-,
-  "start_seconds": 2731
-,
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Mackenzie Jewell",
+  "comedian_type": "bucket_pull",
+  "set_number": 6,
+  "start_seconds": 2731,
   "bit_meta": {
     "1": {
       "premise": "Minority identity stacking is neutralized by whiteness, and bisexuality is ranked as gayer than homosexuality because choosing dick over pussy proves greater commitment.",
       "beats": {
-        "1": {
-          "topics": [
-            "autism",
-            "sexuality",
-            "race",
-            "privilege"
-          ]
-        },
-        "2": {
-          "topics": [
-            "bisexuality",
-            "gay",
-            "sex",
-            "sexuality"
-          ]
-        }
+        "1": {"topics": ["autism", "sexuality", "race", "privilege"]},
+        "2": {"topics": ["bisexuality", "gay", "sex", "sexuality"]}
       }
     },
     "2": {
       "premise": "Autism during sex hijacks the brain with hyperfocus on unrelated technical or intellectual topics.",
       "beats": {
-        "1": {
-          "topics": [
-            "autism",
-            "sex",
-            "sensory overload",
-            "technology"
-          ]
-        },
-        "2": {
-          "topics": [
-            "autism",
-            "Netflix",
-            "sex",
-            "movies"
-          ]
-        }
+        "1": {"topics": ["autism", "sex", "sensory overload", "technology"]},
+        "2": {"topics": ["autism", "Netflix", "sex", "movies"]}
       }
     }
   },

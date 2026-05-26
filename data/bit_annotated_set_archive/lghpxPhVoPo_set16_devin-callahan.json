@@ -1,64 +1,31 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lghpxPhVoPo"
-,
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
-,
-  "publish_date": "2026-03-24"
-,
-  "guests": [
-    "Adam Ray",
-    "Kim Congdon"
-  ],
-  "comedian_name": "Devin Callahan"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 16
-,
-  "start_seconds": 8015
-,
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Devin Callahan",
+  "comedian_type": "bucket_pull",
+  "set_number": 16,
+  "start_seconds": 8015,
   "bit_meta": {
     "1": {
       "premise": "Sharing a surname with a famously cool fictional cop highlights the gap between the name's prestige and one's own dirty appearance.",
       "beats": {
-        "1": {
-          "topics": [
-            "Dirty Harry",
-            "appearance",
-            "name",
-            "movies"
-          ]
-        }
+        "1": {"topics": ["Dirty Harry", "appearance", "name", "movies"]}
       }
     },
     "2": {
       "premise": "Two ghost archetypes are explained by cause of death: the footless ghost is a diabetes amputee who never gets their feet back in the afterlife.",
       "beats": {
-        "1": {
-          "topics": [
-            "ghosts",
-            "afterlife",
-            "diabetes",
-            "death"
-          ]
-        }
+        "1": {"topics": ["ghosts", "afterlife", "diabetes", "death"]}
       }
     },
     "3": {
       "premise": "A mispronounced hotel name is defended by insisting the hotel is named after a specific employee, not the chain brand.",
       "beats": {
-        "1": {
-          "topics": [
-            "La Quinta",
-            "road trip",
-            "language",
-            "hotels"
-          ]
-        }
+        "1": {"topics": ["La Quinta", "road trip", "language", "hotels"]}
       }
     }
   },

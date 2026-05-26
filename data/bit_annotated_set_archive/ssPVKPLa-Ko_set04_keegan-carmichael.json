@@ -1,73 +1,37 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "ssPVKPLa-Ko"
-,
-  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko"
-,
-  "publish_date": "2026-05-12"
-,
-  "guests": [
-    "Ari Shaffir",
-    "Luis J Gomez",
-    "Peyton Ruddy"
-  ],
-  "comedian_name": "Keegan Carmichael"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 4
-,
-  "start_seconds": 1746
-,
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Keegan Carmichael",
+  "comedian_type": "bucket_pull",
+  "set_number": 4,
+  "start_seconds": 1746,
   "bit_meta": {
     "1": {
       "premise": "Stolen wallets can transfer debt instead of value.",
       "beats": {
-        "1": {
-          "topics": [
-            "wallet theft",
-            "credit card debt"
-          ]
-        }
+        "1": {"topics": ["wallet theft", "credit card debt"]}
       }
     },
     "2": {
       "premise": "Cheese costs more in Spanish.",
       "beats": {
-        "1": {
-          "topics": [
-            "burritos",
-            "queso",
-            "language"
-          ]
-        }
+        "1": {"topics": ["burritos", "queso", "language"]}
       }
     },
     "3": {
       "premise": "Vegans are isolated at meat-centered holidays.",
       "beats": {
-        "1": {
-          "topics": [
-            "vegans",
-            "Thanksgiving",
-            "family"
-          ]
-        }
+        "1": {"topics": ["vegans", "Thanksgiving", "family"]}
       }
     },
     "4": {
       "premise": "Fire-exit instructions can sound like firefighting instructions.",
       "beats": {
-        "1": {
-          "topics": [
-            "fire safety",
-            "stairs",
-            "wordplay"
-          ]
-        }
+        "1": {"topics": ["fire safety", "stairs", "wordplay"]}
       }
     }
   },

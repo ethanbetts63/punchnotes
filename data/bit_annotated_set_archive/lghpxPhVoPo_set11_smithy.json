@@ -1,51 +1,25 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lghpxPhVoPo"
-,
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
-,
-  "publish_date": "2026-03-24"
-,
-  "guests": [
-    "Adam Ray",
-    "Kim Congdon"
-  ],
-  "comedian_name": "Smithy"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 11
-,
-  "start_seconds": 5482
-,
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Smithy",
+  "comedian_type": "bucket_pull",
+  "set_number": 11,
+  "start_seconds": 5482,
   "bit_meta": {
     "1": {
       "premise": "A gay friend exploits competitive masculinity by issuing a sexual challenge after getting a straight man drunk, forcing him to participate to avoid losing.",
       "beats": {
-        "1": {
-          "topics": [
-            "gay",
-            "competition",
-            "drinking",
-            "sexuality"
-          ]
-        }
+        "1": {"topics": ["gay", "competition", "drinking", "sexuality"]}
       }
     },
     "2": {
       "premise": "The archetype of the wise, church-going old Black man has been replaced by one chasing women, collapsing generational wisdom into debauchery.",
       "beats": {
-        "1": {
-          "topics": [
-            "Black culture",
-            "aging",
-            "church",
-            "generational change"
-          ]
-        }
+        "1": {"topics": ["Black culture", "aging", "church", "generational change"]}
       }
     }
   },

@@ -1,57 +1,26 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "suxlBw4o1Mc"
-,
-  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc"
-,
-  "publish_date": "2026-03-10"
-,
-  "guests": [
-    "Joe List",
-    "Steve Rannazzisi"
-  ],
-  "comedian_name": "Young"
-,
-  "comedian_type": "regular"
-,
-  "set_number": 1
-,
-  "start_seconds": 276
-,
+  "type": "set_meta",
+  "video_id": "suxlBw4o1Mc",
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI",
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc",
+  "publish_date": "2026-03-10",
+  "guests": ["Joe List", "Steve Rannazzisi"],
+  "comedian_name": "Young",
+  "comedian_type": "regular",
+  "set_number": 1,
+  "start_seconds": 276,
   "bit_meta": {
     "1": {
       "premise": "Fetishizing Arab men can turn modesty rules into horny street enforcement.",
       "beats": {
-        "1": {
-          "topics": [
-            "Arab men",
-            "modesty",
-            "lust",
-            "stoning"
-          ]
-        }
+        "1": {"topics": ["Arab men", "modesty", "lust", "stoning"]}
       }
     },
     "2": {
       "premise": "A luxury party with Arab male models can turn scat play into a culturally themed gift.",
       "beats": {
-        "1": {
-          "topics": [
-            "wealth",
-            "Arab models",
-            "scat play"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Arabic phrases",
-            "halal",
-            "scat play"
-          ]
-        }
+        "1": {"topics": ["wealth", "Arab models", "scat play"]},
+        "2": {"topics": ["Arabic phrases", "halal", "scat play"]}
       }
     }
   },

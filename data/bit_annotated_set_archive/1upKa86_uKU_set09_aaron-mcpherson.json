@@ -1,62 +1,27 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "1upKa86_uKU"
-,
-  "episode_title": "KT #766 - SAM TALLENT"
-,
-  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU"
-,
-  "publish_date": "2026-05-05"
-,
-  "guests": [
-    "Sam Tallent"
-  ],
-  "comedian_name": "Aaron McPherson"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 9
-,
-  "start_seconds": 5058
-,
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "Aaron McPherson",
+  "comedian_type": "bucket_pull",
+  "set_number": 9,
+  "start_seconds": 5058,
   "bit_meta": {
     "1": {
       "premise": "Unwanted women can become a profitable sex-work niche.",
       "beats": {
-        "1": {
-          "topics": [
-            "sexual preference",
-            "dating",
-            "persona"
-          ]
-        },
-        "2": {
-          "topics": [
-            "overweight women",
-            "money",
-            "dating"
-          ]
-        },
-        "3": {
-          "topics": [
-            "gigolo",
-            "sex work",
-            "fitness"
-          ]
-        }
+        "1": {"topics": ["sexual preference", "dating", "persona"]},
+        "2": {"topics": ["overweight women", "money", "dating"]},
+        "3": {"topics": ["gigolo", "sex work", "fitness"]}
       }
     },
     "2": {
       "premise": "Bluetooth can broadcast private porn to a car.",
       "beats": {
-        "1": {
-          "topics": [
-            "Bluetooth",
-            "porn",
-            "privacy"
-          ]
-        }
+        "1": {"topics": ["Bluetooth", "porn", "privacy"]}
       }
     }
   },

@@ -1,54 +1,21 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lghpxPhVoPo"
-,
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
-,
-  "publish_date": "2026-03-24"
-,
-  "guests": [
-    "Adam Ray",
-    "Kim Congdon"
-  ],
-  "comedian_name": "Jasmine Flowers"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 14
-,
-  "start_seconds": 6909
-,
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Jasmine Flowers",
+  "comedian_type": "bucket_pull",
+  "set_number": 14,
+  "start_seconds": 6909,
   "bit_meta": {
     "1": {
       "premise": "The Amish lifestyle is a long-running scam designed to confuse modern society, evidenced by their media ubiquity and the scammer logic of claiming their cameras don't work.",
       "beats": {
-        "1": {
-          "topics": [
-            "Amish",
-            "television",
-            "scam",
-            "media"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Amish",
-            "cell phones",
-            "scam",
-            "technology"
-          ]
-        },
-        "3": {
-          "topics": [
-            "Amish",
-            "conspiracy",
-            "butter churning",
-            "wifi"
-          ]
-        }
+        "1": {"topics": ["Amish", "television", "scam", "media"]},
+        "2": {"topics": ["Amish", "cell phones", "scam", "technology"]},
+        "3": {"topics": ["Amish", "conspiracy", "butter churning", "wifi"]}
       }
     }
   },

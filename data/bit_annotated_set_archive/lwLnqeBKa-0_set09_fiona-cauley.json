@@ -1,63 +1,27 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lwLnqeBKa-0"
-,
-  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0"
-,
-  "publish_date": "2026-04-28"
-,
-  "guests": [
-    "Dustin Poirier",
-    "Ari Matti"
-  ],
-  "comedian_name": "Fiona Cauley"
-,
-  "comedian_type": "golden_ticket"
-,
-  "set_number": 9
-,
-  "start_seconds": 4052
-,
+  "type": "set_meta",
+  "video_id": "lwLnqeBKa-0",
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
+  "publish_date": "2026-04-28",
+  "guests": ["Dustin Poirier", "Ari Matti"],
+  "comedian_name": "Fiona Cauley",
+  "comedian_type": "golden_ticket",
+  "set_number": 9,
+  "start_seconds": 4052,
   "bit_meta": {
     "1": {
       "premise": "A false death sentence can turn promiscuity into urgency.",
       "beats": {
-        "1": {
-          "topics": [
-            "diagnosis",
-            "promiscuity",
-            "disability"
-          ]
-        },
-        "2": {
-          "topics": [
-            "not dying",
-            "promiscuity",
-            "self-image"
-          ]
-        }
+        "1": {"topics": ["diagnosis", "promiscuity", "disability"]},
+        "2": {"topics": ["not dying", "promiscuity", "self-image"]}
       }
     },
     "2": {
       "premise": "A wheelchair makes post-hookup exits audible.",
       "beats": {
-        "1": {
-          "topics": [
-            "one-night stands",
-            "wheelchair",
-            "sneaking out"
-          ]
-        },
-        "2": {
-          "topics": [
-            "dating",
-            "black men",
-            "workarounds"
-          ]
-        }
+        "1": {"topics": ["one-night stands", "wheelchair", "sneaking out"]},
+        "2": {"topics": ["dating", "black men", "workarounds"]}
       }
     }
   },

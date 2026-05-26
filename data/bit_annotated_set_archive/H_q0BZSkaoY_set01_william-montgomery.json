@@ -1,101 +1,49 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "H_q0BZSkaoY"
-,
-  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY"
-,
-  "publish_date": "2026-03-17"
-,
-  "guests": [
-    "Steve0",
-    "Tim Butterly"
-  ],
-  "comedian_name": "William Montgomery"
-,
-  "comedian_type": "regular"
-,
-  "set_number": 1
-,
-  "start_seconds": 404
-,
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "William Montgomery",
+  "comedian_type": "regular",
+  "set_number": 1,
+  "start_seconds": 404,
   "bit_meta": {
     "1": {
       "premise": "Declaring violent intent toward a fellow comedian's mother lands as a come-on rather than a threat.",
       "beats": {
-        "1": {
-          "topics": [
-            "Red Band",
-            "crowd work",
-            "roast",
-            "mothers"
-          ]
-        }
+        "1": {"topics": ["Red Band", "crowd work", "roast", "mothers"]}
       }
     },
     "2": {
       "premise": "A cliché phrase about territorial conflict becomes literally true when the people involved are clinically obese.",
       "beats": {
-        "1": {
-          "topics": [
-            "obesity",
-            "western clichés"
-          ]
-        }
+        "1": {"topics": ["obesity", "western clichés"]}
       }
     },
     "3": {
       "premise": "A 'yo mama so fat' insult is updated by replacing the punchline with a current pharmaceutical shortage.",
       "beats": {
-        "1": {
-          "topics": [
-            "Red Band",
-            "obesity",
-            "Ozempic",
-            "roast"
-          ]
-        }
+        "1": {"topics": ["Red Band", "obesity", "Ozempic", "roast"]}
       }
     },
     "4": {
       "premise": "A public figure's death is reframed as the result of a political assassination by invoking an implausible suspect.",
       "beats": {
-        "1": {
-          "topics": [
-            "Jesse Jackson",
-            "Hillary Clinton",
-            "death",
-            "conspiracy"
-          ]
-        }
+        "1": {"topics": ["Jesse Jackson", "Hillary Clinton", "death", "conspiracy"]}
       }
     },
     "5": {
       "premise": "Asking AI to define God in the shortest terms possible yields an answer that treats a musician as a deity.",
       "beats": {
-        "1": {
-          "topics": [
-            "ChatGPT",
-            "God",
-            "Aphex Twin",
-            "religion"
-          ]
-        }
+        "1": {"topics": ["ChatGPT", "God", "Aphex Twin", "religion"]}
       }
     },
     "6": {
       "premise": "A legal system's failure to indict a father for killing his daughter over political speech is reframed as official validation.",
       "beats": {
-        "1": {
-          "topics": [
-            "Texas",
-            "Donald Trump",
-            "grand jury",
-            "justifiable homicide"
-          ]
-        }
+        "1": {"topics": ["Texas", "Donald Trump", "grand jury", "justifiable homicide"]}
       }
     }
   },

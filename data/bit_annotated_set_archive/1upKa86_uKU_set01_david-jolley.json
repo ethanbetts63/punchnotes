@@ -1,74 +1,33 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "1upKa86_uKU"
-,
-  "episode_title": "KT #766 - SAM TALLENT"
-,
-  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU"
-,
-  "publish_date": "2026-05-05"
-,
-  "guests": [
-    "Sam Tallent"
-  ],
-  "comedian_name": "David Jolley"
-,
-  "comedian_type": "golden_ticket"
-,
-  "set_number": 1
-,
-  "start_seconds": 485
-,
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "David Jolley",
+  "comedian_type": "golden_ticket",
+  "set_number": 1,
+  "start_seconds": 485,
   "bit_meta": {
     "1": {
       "premise": "Puerto Rico can still have a white crowd.",
       "beats": {
-        "1": {
-          "topics": [
-            "Puerto Rico",
-            "white people",
-            "crowd work"
-          ]
-        }
+        "1": {"topics": ["Puerto Rico", "white people", "crowd work"]}
       }
     },
     "2": {
       "premise": "Middle-aged men trying to become Twitch streamers are sad and unappealing.",
       "beats": {
-        "1": {
-          "topics": [
-            "streaming",
-            "Twitch",
-            "middle age"
-          ]
-        },
-        "2": {
-          "topics": [
-            "streaming",
-            "blood pressure",
-            "work"
-          ]
-        }
+        "1": {"topics": ["streaming", "Twitch", "middle age"]},
+        "2": {"topics": ["streaming", "blood pressure", "work"]}
       }
     },
     "3": {
       "premise": "Chaotic lives make crackheads ideal livestreamers.",
       "beats": {
-        "1": {
-          "topics": [
-            "crackheads",
-            "streaming",
-            "sex work"
-          ]
-        },
-        "2": {
-          "topics": [
-            "crackheads",
-            "livestreaming",
-            "theft"
-          ]
-        }
+        "1": {"topics": ["crackheads", "streaming", "sex work"]},
+        "2": {"topics": ["crackheads", "livestreaming", "theft"]}
       }
     }
   },

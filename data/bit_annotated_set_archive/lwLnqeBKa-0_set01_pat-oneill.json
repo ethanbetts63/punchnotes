@@ -1,97 +1,49 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lwLnqeBKa-0"
-,
-  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0"
-,
-  "publish_date": "2026-04-28"
-,
-  "guests": [
-    "Dustin Poirier",
-    "Ari Matti"
-  ],
-  "comedian_name": "Pat O'Neill"
-,
-  "comedian_type": "golden_ticket"
-,
-  "set_number": 1
-,
-  "start_seconds": 352
-,
+  "type": "set_meta",
+  "video_id": "lwLnqeBKa-0",
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
+  "publish_date": "2026-04-28",
+  "guests": ["Dustin Poirier", "Ari Matti"],
+  "comedian_name": "Pat O'Neill",
+  "comedian_type": "golden_ticket",
+  "set_number": 1,
+  "start_seconds": 352,
   "bit_meta": {
     "1": {
       "premise": "Tinder is harder than Grindr.",
       "beats": {
-        "1": {
-          "topics": [
-            "Tinder",
-            "Grindr",
-            "dating apps"
-          ]
-        }
+        "1": {"topics": ["Tinder", "Grindr", "dating apps"]}
       }
     },
     "2": {
       "premise": "Google Maps can work like a stalking app.",
       "beats": {
-        "1": {
-          "topics": [
-            "exes",
-            "Google Maps",
-            "stalking"
-          ]
-        }
+        "1": {"topics": ["exes", "Google Maps", "stalking"]}
       }
     },
     "3": {
       "premise": "Cheating can be sexual and academic at once.",
       "beats": {
-        "1": {
-          "topics": [
-            "cheating",
-            "college",
-            "math tests"
-          ]
-        }
+        "1": {"topics": ["cheating", "college", "math tests"]}
       }
     },
     "4": {
       "premise": "Menopause does not stop oral sex.",
       "beats": {
-        "1": {
-          "topics": [
-            "older women",
-            "menopause",
-            "oral sex"
-          ]
-        }
+        "1": {"topics": ["older women", "menopause", "oral sex"]}
       }
     },
     "5": {
       "premise": "Dating can create single mothers.",
       "beats": {
-        "1": {
-          "topics": [
-            "single moms",
-            "dating",
-            "pregnancy"
-          ]
-        }
+        "1": {"topics": ["single moms", "dating", "pregnancy"]}
       }
     },
     "6": {
       "premise": "Unfamiliar anatomy can confuse oral-sex navigation.",
       "beats": {
-        "1": {
-          "topics": [
-            "sex",
-            "black women",
-            "oral sex"
-          ]
-        }
+        "1": {"topics": ["sex", "black women", "oral sex"]}
       }
     }
   },

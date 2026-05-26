@@ -1,78 +1,29 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "ssPVKPLa-Ko"
-,
-  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko"
-,
-  "publish_date": "2026-05-12"
-,
-  "guests": [
-    "Ari Shaffir",
-    "Luis J Gomez",
-    "Peyton Ruddy"
-  ],
-  "comedian_name": "Tom Frank"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 2
-,
-  "start_seconds": 716
-,
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Tom Frank",
+  "comedian_type": "bucket_pull",
+  "set_number": 2,
+  "start_seconds": 716,
   "bit_meta": {
     "1": {
       "premise": "Stateless identity makes origin questions suspicious.",
       "beats": {
-        "1": {
-          "topics": [
-            "gypsies",
-            "identity",
-            "missing dogs"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Czechoslovakia",
-            "Jewish identity",
-            "documents"
-          ]
-        },
-        "3": {
-          "topics": [
-            "homelands",
-            "Israel",
-            "country names"
-          ]
-        },
-        "4": {
-          "topics": [
-            "Greenland",
-            "Turkey",
-            "Hungary",
-            "immigration"
-          ]
-        }
+        "1": {"topics": ["gypsies", "identity", "missing dogs"]},
+        "2": {"topics": ["Czechoslovakia", "Jewish identity", "documents"]},
+        "3": {"topics": ["homelands", "Israel", "country names"]},
+        "4": {"topics": ["Greenland", "Turkey", "Hungary", "immigration"]}
       }
     },
     "2": {
       "premise": "School bullying is free insult therapy.",
       "beats": {
-        "1": {
-          "topics": [
-            "immigrant parents",
-            "school bullying",
-            "therapy"
-          ]
-        },
-        "2": {
-          "topics": [
-            "school system",
-            "fat shaming"
-          ]
-        }
+        "1": {"topics": ["immigrant parents", "school bullying", "therapy"]},
+        "2": {"topics": ["school system", "fat shaming"]}
       }
     }
   },

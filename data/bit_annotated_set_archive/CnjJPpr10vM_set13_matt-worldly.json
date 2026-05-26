@@ -1,52 +1,21 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "CnjJPpr10vM"
-,
-  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN"
-,
-  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"
-,
-  "publish_date": "2026-05-19"
-,
-  "guests": [
-    "Shane Gillis",
-    "James McCann"
-  ],
-  "comedian_name": "Matt Worldly"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 13
-,
-  "start_seconds": 6872
-,
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": ["Shane Gillis", "James McCann"],
+  "comedian_name": "Matt Worldly",
+  "comedian_type": "bucket_pull",
+  "set_number": 13,
+  "start_seconds": 6872,
   "bit_meta": {
     "1": {
       "premise": "Fake Arabic can become real Arabic through video-game hostage phrases.",
       "beats": {
-        "1": {
-          "topics": [
-            "high school",
-            "Arabic",
-            "calligraphy",
-            "classroom jokes"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Arabic",
-            "teachers",
-            "insensitivity"
-          ]
-        },
-        "3": {
-          "topics": [
-            "Arabic",
-            "Call of Duty",
-            "hostages"
-          ]
-        }
+        "1": {"topics": ["high school", "Arabic", "calligraphy", "classroom jokes"]},
+        "2": {"topics": ["Arabic", "teachers", "insensitivity"]},
+        "3": {"topics": ["Arabic", "Call of Duty", "hostages"]}
       }
     }
   },

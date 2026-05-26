@@ -1,43 +1,20 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "1upKa86_uKU"
-,
-  "episode_title": "KT #766 - SAM TALLENT"
-,
-  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU"
-,
-  "publish_date": "2026-05-05"
-,
-  "guests": [
-    "Sam Tallent"
-  ],
-  "comedian_name": "Candace August"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 3
-,
-  "start_seconds": 1706
-,
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "Candace August",
+  "comedian_type": "bucket_pull",
+  "set_number": 3,
+  "start_seconds": 1706,
   "bit_meta": {
     "1": {
       "premise": "The only Black in-law becomes the family Black-culture expert.",
       "beats": {
-        "1": {
-          "topics": [
-            "interracial marriage",
-            "Juneteenth",
-            "in-laws"
-          ]
-        },
-        "2": {
-          "topics": [
-            "racial questions",
-            "fried chicken",
-            "superpowers"
-          ]
-        }
+        "1": {"topics": ["interracial marriage", "Juneteenth", "in-laws"]},
+        "2": {"topics": ["racial questions", "fried chicken", "superpowers"]}
       }
     }
   },

@@ -1,67 +1,32 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "1upKa86_uKU"
-,
-  "episode_title": "KT #766 - SAM TALLENT"
-,
-  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU"
-,
-  "publish_date": "2026-05-05"
-,
-  "guests": [
-    "Sam Tallent"
-  ],
-  "comedian_name": "Paul Mendoza"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 10
-,
-  "start_seconds": 5639
-,
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "Paul Mendoza",
+  "comedian_type": "bucket_pull",
+  "set_number": 10,
+  "start_seconds": 5639,
   "bit_meta": {
     "1": {
       "premise": "Sandwich requests seem minor compared with barbecue.",
       "beats": {
-        "1": {
-          "topics": [
-            "women",
-            "sandwiches",
-            "barbecue"
-          ]
-        }
+        "1": {"topics": ["women", "sandwiches", "barbecue"]}
       }
     },
     "2": {
       "premise": "Lice can become racial-purity parasites.",
       "beats": {
-        "1": {
-          "topics": [
-            "lice",
-            "parasites",
-            "race"
-          ]
-        }
+        "1": {"topics": ["lice", "parasites", "race"]}
       }
     },
     "3": {
       "premise": "Beautiful low-crime wine country can imply racist exclusion.",
       "beats": {
-        "1": {
-          "topics": [
-            "Napa",
-            "wine country",
-            "racism"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Napa",
-            "Mexican workers",
-            "grapes"
-          ]
-        }
+        "1": {"topics": ["Napa", "wine country", "racism"]},
+        "2": {"topics": ["Napa", "Mexican workers", "grapes"]}
       }
     }
   },

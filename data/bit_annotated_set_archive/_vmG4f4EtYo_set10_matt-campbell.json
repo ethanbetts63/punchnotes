@@ -1,56 +1,21 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "_vmG4f4EtYo"
-,
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
-,
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
-,
-  "guests": [
-    "Theo Von",
-    "Jelly Roll"
-  ],
-  "comedian_name": "Matt Campbell"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 10
-,
-  "start_seconds": 5158
-,
+  "type": "set_meta",
+  "video_id": "_vmG4f4EtYo",
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "guests": ["Theo Von", "Jelly Roll"],
+  "comedian_name": "Matt Campbell",
+  "comedian_type": "bucket_pull",
+  "set_number": 10,
+  "start_seconds": 5158,
   "bit_meta": {
     "1": {
       "premise": "Loved ones create the cruelest nicknames because they know the flaw.",
       "beats": {
-        "1": {
-          "topics": [
-            "nicknames",
-            "Jelly Roll",
-            "crowd work"
-          ]
-        },
-        "2": {
-          "topics": [
-            "grandfather",
-            "childhood obesity",
-            "nicknames"
-          ]
-        },
-        "3": {
-          "topics": [
-            "brothers",
-            "Hitler",
-            "Donald Trump"
-          ]
-        },
-        "4": {
-          "topics": [
-            "brothers",
-            "coming out",
-            "Benedict"
-          ]
-        }
+        "1": {"topics": ["nicknames", "Jelly Roll", "crowd work"]},
+        "2": {"topics": ["grandfather", "childhood obesity", "nicknames"]},
+        "3": {"topics": ["brothers", "Hitler", "Donald Trump"]},
+        "4": {"topics": ["brothers", "coming out", "Benedict"]}
       }
     }
   },

@@ -1,74 +1,37 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "suxlBw4o1Mc"
-,
-  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc"
-,
-  "publish_date": "2026-03-10"
-,
-  "guests": [
-    "Joe List",
-    "Steve Rannazzisi"
-  ],
-  "comedian_name": "Saul Wilson"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 4
-,
-  "start_seconds": 1747
-,
+  "type": "set_meta",
+  "video_id": "suxlBw4o1Mc",
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI",
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc",
+  "publish_date": "2026-03-10",
+  "guests": ["Joe List", "Steve Rannazzisi"],
+  "comedian_name": "Saul Wilson",
+  "comedian_type": "bucket_pull",
+  "set_number": 4,
+  "start_seconds": 1747,
   "bit_meta": {
     "1": {
       "premise": "Modern dating can redefine brownie points as sexual access.",
       "beats": {
-        "1": {
-          "topics": [
-            "dating",
-            "brownie points",
-            "anal sex"
-          ]
-        }
+        "1": {"topics": ["dating", "brownie points", "anal sex"]}
       }
     },
     "2": {
       "premise": "A band name can make a pilot shortage sound solvable by musicians.",
       "beats": {
-        "1": {
-          "topics": [
-            "pilot shortage",
-            "Twenty One Pilots",
-            "wordplay"
-          ]
-        }
+        "1": {"topics": ["pilot shortage", "Twenty One Pilots", "wordplay"]}
       }
     },
     "3": {
       "premise": "Naming hurricanes after people can make weather feel like revenge against exes.",
       "beats": {
-        "1": {
-          "topics": [
-            "hurricanes",
-            "exes",
-            "meteorology",
-            "revenge"
-          ]
-        }
+        "1": {"topics": ["hurricanes", "exes", "meteorology", "revenge"]}
       }
     },
     "4": {
       "premise": "Disease names can be misheard as people's names.",
       "beats": {
-        "1": {
-          "topics": [
-            "disease names",
-            "leukemia",
-            "names"
-          ]
-        }
+        "1": {"topics": ["disease names", "leukemia", "names"]}
       }
     }
   },

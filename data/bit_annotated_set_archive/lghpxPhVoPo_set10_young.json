@@ -1,46 +1,20 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lghpxPhVoPo"
-,
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
-,
-  "publish_date": "2026-03-24"
-,
-  "guests": [
-    "Adam Ray",
-    "Kim Congdon"
-  ],
-  "comedian_name": "Young"
-,
-  "comedian_type": "golden_ticket"
-,
-  "set_number": 10
-,
-  "start_seconds": 5036
-,
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Young",
+  "comedian_type": "golden_ticket",
+  "set_number": 10,
+  "start_seconds": 5036,
   "bit_meta": {
     "1": {
       "premise": "Mandatory racial categorization in America is contrasted with homogeneous societies that skip the question for racist reasons, then with Asian countries that sort everyone into \"Asian or intruders.\"",
       "beats": {
-        "1": {
-          "topics": [
-            "race",
-            "Black History Month",
-            "Asian Heritage Month",
-            "racism"
-          ]
-        },
-        "2": {
-          "topics": [
-            "race",
-            "Asia",
-            "categorization",
-            "xenophobia"
-          ]
-        }
+        "1": {"topics": ["race", "Black History Month", "Asian Heritage Month", "racism"]},
+        "2": {"topics": ["race", "Asia", "categorization", "xenophobia"]}
       }
     }
   },

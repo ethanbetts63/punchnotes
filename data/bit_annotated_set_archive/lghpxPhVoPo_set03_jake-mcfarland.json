@@ -1,59 +1,26 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lghpxPhVoPo"
-,
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
-,
-  "publish_date": "2026-03-24"
-,
-  "guests": [
-    "Adam Ray",
-    "Kim Congdon"
-  ],
-  "comedian_name": "Jake McFarland"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 3
-,
-  "start_seconds": 1346
-,
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Jake McFarland",
+  "comedian_type": "bucket_pull",
+  "set_number": 3,
+  "start_seconds": 1346,
   "bit_meta": {
     "1": {
       "premise": "A sobriety announcement is misdirected from substance addiction to a racial sexual preference.",
       "beats": {
-        "1": {
-          "topics": [
-            "sobriety",
-            "race",
-            "sex",
-            "dating"
-          ]
-        }
+        "1": {"topics": ["sobriety", "race", "sex", "dating"]}
       }
     },
     "2": {
       "premise": "Black History Month is reframed as a personal sexual obligation, and the demand for reparations is literalized as a sex act.",
       "beats": {
-        "1": {
-          "topics": [
-            "Black History Month",
-            "race",
-            "sex",
-            "oral sex"
-          ]
-        },
-        "2": {
-          "topics": [
-            "oral sex",
-            "reparations",
-            "race",
-            "sex"
-          ]
-        }
+        "1": {"topics": ["Black History Month", "race", "sex", "oral sex"]},
+        "2": {"topics": ["oral sex", "reparations", "race", "sex"]}
       }
     }
   },

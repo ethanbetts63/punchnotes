@@ -1,76 +1,33 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "ssPVKPLa-Ko"
-,
-  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko"
-,
-  "publish_date": "2026-05-12"
-,
-  "guests": [
-    "Ari Shaffir",
-    "Luis J Gomez",
-    "Peyton Ruddy"
-  ],
-  "comedian_name": "Chris Gerasimo"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 3
-,
-  "start_seconds": 1222
-,
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Chris Gerasimo",
+  "comedian_type": "bucket_pull",
+  "set_number": 3,
+  "start_seconds": 1222,
   "bit_meta": {
     "1": {
       "premise": "A dinosaur-sounding name is funnier with a long neck.",
       "beats": {
-        "1": {
-          "topics": [
-            "last names",
-            "Jurassic Park",
-            "dinosaurs"
-          ]
-        },
-        "2": {
-          "topics": [
-            "long neck",
-            "dinosaurs",
-            "sight lines"
-          ]
-        }
+        "1": {"topics": ["last names", "Jurassic Park", "dinosaurs"]},
+        "2": {"topics": ["long neck", "dinosaurs", "sight lines"]}
       }
     },
     "2": {
       "premise": "Greek pride can pair democracy with anal sex.",
       "beats": {
-        "1": {
-          "topics": [
-            "Greek heritage",
-            "democracy",
-            "anal sex"
-          ]
-        }
+        "1": {"topics": ["Greek heritage", "democracy", "anal sex"]}
       }
     },
     "3": {
       "premise": "Military sex turns teamwork into a questionable experiment.",
       "beats": {
-        "1": {
-          "topics": [
-            "Spartans",
-            "gay sex",
-            "team chemistry"
-          ]
-        },
-        "2": {
-          "topics": [
-            "military history",
-            "experiments",
-            "soldiers"
-          ]
-        }
+        "1": {"topics": ["Spartans", "gay sex", "team chemistry"]},
+        "2": {"topics": ["military history", "experiments", "soldiers"]}
       }
     }
   },

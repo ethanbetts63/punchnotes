@@ -1,204 +1,80 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "H_q0BZSkaoY"
-,
-  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY"
-,
-  "publish_date": "2026-03-17"
-,
-  "guests": [
-    "Steve0",
-    "Tim Butterly"
-  ],
-  "comedian_name": "Timmy No-Breaks"
-,
-  "comedian_type": "regular"
-,
-  "set_number": 13
-,
-  "start_seconds": 7647
-,
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Timmy No-Breaks",
+  "comedian_type": "regular",
+  "set_number": 13,
+  "start_seconds": 7647,
   "bit_meta": {
     "1": {
       "premise": "A Jackass-style stage persona can become a crude ass pun.",
       "beats": {
-        "1": {
-          "topics": [
-            "stage name",
-            "Jackass parody",
-            "wordplay"
-          ]
-        }
+        "1": {"topics": ["stage name", "Jackass parody", "wordplay"]}
       }
     },
     "2": {
       "premise": "A bad comedy set can be turned into a punishment stunt with a shock collar.",
       "beats": {
-        "1": {
-          "topics": [
-            "shock collar",
-            "bombing",
-            "audience participation",
-            "stunts"
-          ]
-        },
-        "2": {
-          "topics": [
-            "dog collar",
-            "lesbians",
-            "shock collar"
-          ]
-        }
+        "1": {"topics": ["shock collar", "bombing", "audience participation", "stunts"]},
+        "2": {"topics": ["dog collar", "lesbians", "shock collar"]}
       }
     },
     "3": {
       "premise": "Praise for women's sports can be undercut by sexist stereotypes.",
       "beats": {
-        "1": {
-          "topics": [
-            "Olympics",
-            "Lindsey Vonn",
-            "skiing",
-            "sexism"
-          ]
-        },
-        "2": {
-          "topics": [
-            "women's sports",
-            "Olympics",
-            "television"
-          ]
-        },
-        "3": {
-          "topics": [
-            "women's hockey",
-            "gold medal",
-            "cocaine",
-            "lesbians"
-          ]
-        },
-        "4": {
-          "topics": [
-            "WNBA",
-            "basketball",
-            "dunking",
-            "women's sports"
-          ]
-        }
+        "1": {"topics": ["Olympics", "Lindsey Vonn", "skiing", "sexism"]},
+        "2": {"topics": ["women's sports", "Olympics", "television"]},
+        "3": {"topics": ["women's hockey", "gold medal", "cocaine", "lesbians"]},
+        "4": {"topics": ["WNBA", "basketball", "dunking", "women's sports"]}
       }
     },
     "4": {
       "premise": "A forehead feature can look like a penis.",
       "beats": {
-        "1": {
-          "topics": [
-            "crowd work",
-            "visual roast",
-            "forehead",
-            "penis"
-          ]
-        }
+        "1": {"topics": ["crowd work", "visual roast", "forehead", "penis"]}
       }
     },
     "5": {
       "premise": "Giving someone a shock-collar remote can look like long-awaited control over men.",
       "beats": {
-        "1": {
-          "topics": [
-            "shock collar",
-            "control",
-            "gender resentment"
-          ]
-        },
-        "2": {
-          "topics": [
-            "blue-haired women",
-            "shock collar",
-            "power",
-            "men"
-          ]
-        }
+        "1": {"topics": ["shock collar", "control", "gender resentment"]},
+        "2": {"topics": ["blue-haired women", "shock collar", "power", "men"]}
       }
     },
     "6": {
       "premise": "Playing copyrighted music as a stunt can threaten an episode's monetization.",
       "beats": {
-        "1": {
-          "topics": [
-            "copyright",
-            "Limp Bizkit",
-            "demonetization",
-            "stunts"
-          ]
-        }
+        "1": {"topics": ["copyright", "Limp Bizkit", "demonetization", "stunts"]}
       }
     },
     "7": {
       "premise": "A self-imposed shock-collar stunt becomes terrifying when the setting gets turned too high.",
       "beats": {
-        "1": {
-          "topics": [
-            "shock collar",
-            "pain",
-            "stunt escalation"
-          ]
-        },
-        "2": {
-          "topics": [
-            "shock collar",
-            "loss of control",
-            "fear"
-          ]
-        }
+        "1": {"topics": ["shock collar", "pain", "stunt escalation"]},
+        "2": {"topics": ["shock collar", "loss of control", "fear"]}
       }
     },
     "8": {
       "premise": "A gross-out taste test can escalate by presenting animal semen as a real drink.",
       "beats": {
-        "1": {
-          "topics": [
-            "taste test",
-            "horse semen",
-            "gross-out",
-            "stunts"
-          ]
-        },
-        "2": {
-          "topics": [
-            "horse semen",
-            "pubic hair",
-            "gross-out"
-          ]
-        }
+        "1": {"topics": ["taste test", "horse semen", "gross-out", "stunts"]},
+        "2": {"topics": ["horse semen", "pubic hair", "gross-out"]}
       }
     },
     "9": {
       "premise": "Threatening to remove a penis also threatens its future sexual usefulness.",
       "beats": {
-        "1": {
-          "topics": [
-            "threats",
-            "genital injury",
-            "gay men",
-            "crowd work"
-          ]
-        }
+        "1": {"topics": ["threats", "genital injury", "gay men", "crowd work"]}
       }
     },
     "10": {
       "premise": "Trivia penalties can be made absurd by combining basic questions with disgusting drinks.",
       "beats": {
-        "1": {
-          "topics": [
-            "trivia",
-            "tap water",
-            "horse semen",
-            "penalties"
-          ]
-        }
+        "1": {"topics": ["trivia", "tap water", "horse semen", "penalties"]}
       }
     }
   },

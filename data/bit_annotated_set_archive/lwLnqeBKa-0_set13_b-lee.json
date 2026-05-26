@@ -1,82 +1,34 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lwLnqeBKa-0"
-,
-  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0"
-,
-  "publish_date": "2026-04-28"
-,
-  "guests": [
-    "Dustin Poirier",
-    "Ari Matti"
-  ],
-  "comedian_name": "B. Lee"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 13
-,
-  "start_seconds": 6505
-,
+  "type": "set_meta",
+  "video_id": "lwLnqeBKa-0",
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
+  "publish_date": "2026-04-28",
+  "guests": ["Dustin Poirier", "Ari Matti"],
+  "comedian_name": "B. Lee",
+  "comedian_type": "bucket_pull",
+  "set_number": 13,
+  "start_seconds": 6505,
   "bit_meta": {
     "1": {
       "premise": "A short microphone can feel like rare height accommodation.",
       "beats": {
-        "1": {
-          "topics": [
-            "microphone",
-            "height",
-            "self-deprecation"
-          ]
-        }
+        "1": {"topics": ["microphone", "height", "self-deprecation"]}
       }
     },
     "2": {
       "premise": "Backhanded celebrity comparisons can feel flattering when the baseline is worse.",
       "beats": {
-        "1": {
-          "topics": [
-            "haircuts",
-            "aging",
-            "comics"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Jason Momoa",
-            "Aquaman",
-            "insults"
-          ]
-        },
-        "3": {
-          "topics": [
-            "Mark Wahlberg",
-            "Donnie Wahlberg",
-            "celebrity comparisons"
-          ]
-        }
+        "1": {"topics": ["haircuts", "aging", "comics"]},
+        "2": {"topics": ["Jason Momoa", "Aquaman", "insults"]},
+        "3": {"topics": ["Mark Wahlberg", "Donnie Wahlberg", "celebrity comparisons"]}
       }
     },
     "3": {
       "premise": "An anti-autism celebrity crush makes sex self-defeating.",
       "beats": {
-        "1": {
-          "topics": [
-            "Donnie Wahlberg",
-            "performing",
-            "competition"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Jenny McCarthy",
-            "marriage",
-            "autism"
-          ]
-        }
+        "1": {"topics": ["Donnie Wahlberg", "performing", "competition"]},
+        "2": {"topics": ["Jenny McCarthy", "marriage", "autism"]}
       }
     }
   },

@@ -1,51 +1,25 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "CnjJPpr10vM"
-,
-  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN"
-,
-  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"
-,
-  "publish_date": "2026-05-19"
-,
-  "guests": [
-    "Shane Gillis",
-    "James McCann"
-  ],
-  "comedian_name": "Dicky"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 5
-,
-  "start_seconds": 2425
-,
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": ["Shane Gillis", "James McCann"],
+  "comedian_name": "Dicky",
+  "comedian_type": "bucket_pull",
+  "set_number": 5,
+  "start_seconds": 2425,
   "bit_meta": {
     "1": {
       "premise": "Hims sounds like hymns, making men's health seem Mormon.",
       "beats": {
-        "1": {
-          "topics": [
-            "Mormons",
-            "Hims",
-            "erectile dysfunction",
-            "hymns"
-          ]
-        }
+        "1": {"topics": ["Mormons", "Hims", "erectile dysfunction", "hymns"]}
       }
     },
     "2": {
       "premise": "Aging makes acid ambiguous between drugs and reflux.",
       "beats": {
-        "1": {
-          "topics": [
-            "aging",
-            "sobriety",
-            "acid",
-            "acid reflux"
-          ]
-        }
+        "1": {"topics": ["aging", "sobriety", "acid", "acid reflux"]}
       }
     }
   },

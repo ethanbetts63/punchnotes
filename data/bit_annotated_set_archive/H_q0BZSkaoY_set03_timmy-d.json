@@ -1,57 +1,26 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "H_q0BZSkaoY"
-,
-  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY"
-,
-  "publish_date": "2026-03-17"
-,
-  "guests": [
-    "Steve0",
-    "Tim Butterly"
-  ],
-  "comedian_name": "Timmy D"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 3
-,
-  "start_seconds": 1790
-,
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Timmy D",
+  "comedian_type": "bucket_pull",
+  "set_number": 3,
+  "start_seconds": 1790,
   "bit_meta": {
     "1": {
       "premise": "Accusations of racism are deflected by attributing the real racism to elephants, who exclusively trample people who aren't paying attention.",
       "beats": {
-        "1": {
-          "topics": [
-            "race",
-            "elephants",
-            "Africa"
-          ]
-        },
-        "2": {
-          "topics": [
-            "elephants",
-            "race",
-            "attention"
-          ]
-        }
+        "1": {"topics": ["race", "elephants", "Africa"]},
+        "2": {"topics": ["elephants", "race", "attention"]}
       }
     },
     "2": {
       "premise": "Dying by elephant trampling is darkly absurd because instead of a peaceful deathbed scene, the priest takes predatory advantage of the moment.",
       "beats": {
-        "1": {
-          "topics": [
-            "death",
-            "priests",
-            "sexual abuse",
-            "elephants"
-          ]
-        }
+        "1": {"topics": ["death", "priests", "sexual abuse", "elephants"]}
       }
     }
   },

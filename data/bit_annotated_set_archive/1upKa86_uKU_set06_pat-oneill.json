@@ -1,86 +1,39 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "1upKa86_uKU"
-,
-  "episode_title": "KT #766 - SAM TALLENT"
-,
-  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU"
-,
-  "publish_date": "2026-05-05"
-,
-  "guests": [
-    "Sam Tallent"
-  ],
-  "comedian_name": "Pat O'Neill"
-,
-  "comedian_type": "golden_ticket"
-,
-  "set_number": 6
-,
-  "start_seconds": 3595
-,
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "Pat O'Neill",
+  "comedian_type": "golden_ticket",
+  "set_number": 6,
+  "start_seconds": 3595,
   "bit_meta": {
     "1": {
       "premise": "Puberty blockers invite hostile preservation jokes.",
       "beats": {
-        "1": {
-          "topics": [
-            "trans children",
-            "family",
-            "rejection"
-          ]
-        },
-        "2": {
-          "topics": [
-            "puberty blockers",
-            "pedophiles",
-            "medicine"
-          ]
-        }
+        "1": {"topics": ["trans children", "family", "rejection"]},
+        "2": {"topics": ["puberty blockers", "pedophiles", "medicine"]}
       }
     },
     "2": {
       "premise": "A little person would resent chosen puberty blocking.",
       "beats": {
-        "1": {
-          "topics": [
-            "circus",
-            "little people",
-            "puberty blockers"
-          ]
-        }
+        "1": {"topics": ["circus", "little people", "puberty blockers"]}
       }
     },
     "3": {
       "premise": "A little person with ADHD sounds like a fidget.",
       "beats": {
-        "1": {
-          "topics": [
-            "little people",
-            "ADHD",
-            "wordplay"
-          ]
-        }
+        "1": {"topics": ["little people", "ADHD", "wordplay"]}
       }
     },
     "4": {
       "premise": "School shootings can be puberty blockers and after-school activities.",
       "beats": {
-        "1": {
-          "topics": [
-            "school shootings",
-            "puberty blockers",
-            "dark humor"
-          ]
-        },
-        "2": {
-          "topics": [
-            "school shootings",
-            "race",
-            "after school"
-          ]
-        }
+        "1": {"topics": ["school shootings", "puberty blockers", "dark humor"]},
+        "2": {"topics": ["school shootings", "race", "after school"]}
       }
     }
   },

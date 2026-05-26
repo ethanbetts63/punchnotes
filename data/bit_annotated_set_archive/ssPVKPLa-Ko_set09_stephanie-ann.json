@@ -1,69 +1,32 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "ssPVKPLa-Ko"
-,
-  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko"
-,
-  "publish_date": "2026-05-12"
-,
-  "guests": [
-    "Ari Shaffir",
-    "Luis J Gomez",
-    "Peyton Ruddy"
-  ],
-  "comedian_name": "Stephanie Ann"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 9
-,
-  "start_seconds": 4778
-,
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Stephanie Ann",
+  "comedian_type": "bucket_pull",
+  "set_number": 9,
+  "start_seconds": 4778,
   "bit_meta": {
     "1": {
       "premise": "Weak men can make straight relationships feel lesbian.",
       "beats": {
-        "1": {
-          "topics": [
-            "relationships",
-            "lesbians",
-            "weak men"
-          ]
-        }
+        "1": {"topics": ["relationships", "lesbians", "weak men"]}
       }
     },
     "2": {
       "premise": "Dirty-talk ownership sounds absurd when a body is old enough to be paid off.",
       "beats": {
-        "1": {
-          "topics": [
-            "sex talk",
-            "ownership",
-            "men"
-          ]
-        },
-        "2": {
-          "topics": [
-            "middle age",
-            "rent-to-own",
-            "loans"
-          ]
-        }
+        "1": {"topics": ["sex talk", "ownership", "men"]},
+        "2": {"topics": ["middle age", "rent-to-own", "loans"]}
       }
     },
     "3": {
       "premise": "Stomach capacity does not imply throat capacity.",
       "beats": {
-        "1": {
-          "topics": [
-            "gastric sleeve",
-            "weight loss",
-            "oral sex"
-          ]
-        }
+        "1": {"topics": ["gastric sleeve", "weight loss", "oral sex"]}
       }
     }
   },

@@ -1,85 +1,38 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lghpxPhVoPo"
-,
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
-,
-  "publish_date": "2026-03-24"
-,
-  "guests": [
-    "Adam Ray",
-    "Kim Congdon"
-  ],
-  "comedian_name": "Colin Sledge"
-,
-  "comedian_type": "golden_ticket"
-,
-  "set_number": 4
-,
-  "start_seconds": 1817
-,
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Colin Sledge",
+  "comedian_type": "golden_ticket",
+  "set_number": 4,
+  "start_seconds": 1817,
   "bit_meta": {
     "1": {
       "premise": "Biblical body-part ratios are extended to hands, making constant finger-blasting a divine commandment.",
       "beats": {
-        "1": {
-          "topics": [
-            "religion",
-            "sex",
-            "God",
-            "hands"
-          ]
-        }
+        "1": {"topics": ["religion", "sex", "God", "hands"]}
       }
     },
     "2": {
       "premise": "An empowering anti-faking-orgasm declaration is undercut by indifference rather than skill.",
       "beats": {
-        "1": {
-          "topics": [
-            "sex",
-            "orgasm",
-            "dating",
-            "girlfriend"
-          ]
-        }
+        "1": {"topics": ["sex", "orgasm", "dating", "girlfriend"]}
       }
     },
     "3": {
       "premise": "Medical advice about urinating after sex is reframed as an invitation for a golden shower fetish.",
       "beats": {
-        "1": {
-          "topics": [
-            "sex",
-            "UTI",
-            "urine",
-            "fetish"
-          ]
-        }
+        "1": {"topics": ["sex", "UTI", "urine", "fetish"]}
       }
     },
     "4": {
       "premise": "A claim of making eye contact during sex is true only because it is directed at one's own reflection, reframed as cuckold fantasy.",
       "beats": {
-        "1": {
-          "topics": [
-            "sex",
-            "eye contact",
-            "mirror",
-            "narcissism"
-          ]
-        },
-        "2": {
-          "topics": [
-            "sex",
-            "cuckold",
-            "fetish",
-            "mirror"
-          ]
-        }
+        "1": {"topics": ["sex", "eye contact", "mirror", "narcissism"]},
+        "2": {"topics": ["sex", "cuckold", "fetish", "mirror"]}
       }
     }
   },

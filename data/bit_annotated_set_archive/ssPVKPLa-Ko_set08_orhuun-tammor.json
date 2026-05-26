@@ -1,78 +1,29 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "ssPVKPLa-Ko"
-,
-  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko"
-,
-  "publish_date": "2026-05-12"
-,
-  "guests": [
-    "Ari Shaffir",
-    "Luis J Gomez",
-    "Peyton Ruddy"
-  ],
-  "comedian_name": "Orhuun Tammor"
-,
-  "comedian_type": "golden_ticket"
-,
-  "set_number": 8
-,
-  "start_seconds": 4355
-,
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Orhuun Tammor",
+  "comedian_type": "golden_ticket",
+  "set_number": 8,
+  "start_seconds": 4355,
   "bit_meta": {
     "1": {
       "premise": "Dating fat women can make love and beauty status the appeal.",
       "beats": {
-        "1": {
-          "topics": [
-            "fat women",
-            "love",
-            "oral sex"
-          ]
-        },
-        "2": {
-          "topics": [
-            "relationships",
-            "being pretty",
-            "aging"
-          ]
-        }
+        "1": {"topics": ["fat women", "love", "oral sex"]},
+        "2": {"topics": ["relationships", "being pretty", "aging"]}
       }
     },
     "2": {
       "premise": "Fear of suicide turns sadness into sexual leverage.",
       "beats": {
-        "1": {
-          "topics": [
-            "dating",
-            "suicide",
-            "ex-boyfriends"
-          ]
-        },
-        "2": {
-          "topics": [
-            "sadness",
-            "oral sex",
-            "suicide prevention"
-          ]
-        },
-        "3": {
-          "topics": [
-            "oral sex",
-            "sadness",
-            "endurance"
-          ]
-        },
-        "4": {
-          "topics": [
-            "horniness",
-            "sadness",
-            "conditioning"
-          ]
-        }
+        "1": {"topics": ["dating", "suicide", "ex-boyfriends"]},
+        "2": {"topics": ["sadness", "oral sex", "suicide prevention"]},
+        "3": {"topics": ["oral sex", "sadness", "endurance"]},
+        "4": {"topics": ["horniness", "sadness", "conditioning"]}
       }
     }
   },

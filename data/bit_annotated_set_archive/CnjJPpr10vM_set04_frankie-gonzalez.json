@@ -1,70 +1,32 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "CnjJPpr10vM"
-,
-  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN"
-,
-  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"
-,
-  "publish_date": "2026-05-19"
-,
-  "guests": [
-    "Shane Gillis",
-    "James McCann"
-  ],
-  "comedian_name": "Frankie Gonzalez"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 4
-,
-  "start_seconds": 1814
-,
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": ["Shane Gillis", "James McCann"],
+  "comedian_name": "Frankie Gonzalez",
+  "comedian_type": "bucket_pull",
+  "set_number": 4,
+  "start_seconds": 1814,
   "bit_meta": {
     "1": {
       "premise": "Gay denial can survive both violence and orgasm.",
       "beats": {
-        "1": {
-          "topics": [
-            "family",
-            "coming out",
-            "homophobia"
-          ]
-        },
-        "2": {
-          "topics": [
-            "sexuality",
-            "roommates",
-            "denial"
-          ]
-        }
+        "1": {"topics": ["family", "coming out", "homophobia"]},
+        "2": {"topics": ["sexuality", "roommates", "denial"]}
       }
     },
     "2": {
       "premise": "Acid can turn a Black hiking photo into Bigfoot evidence.",
       "beats": {
-        "1": {
-          "topics": [
-            "acid",
-            "hiking",
-            "Bigfoot",
-            "Black friends"
-          ]
-        }
+        "1": {"topics": ["acid", "hiking", "Bigfoot", "Black friends"]}
       }
     },
     "3": {
       "premise": "A DoorDash notification can sound like terrorist orders on acid.",
       "beats": {
-        "1": {
-          "topics": [
-            "acid",
-            "DoorDash",
-            "9/11",
-            "terrorism"
-          ]
-        }
+        "1": {"topics": ["acid", "DoorDash", "9/11", "terrorism"]}
       }
     }
   },

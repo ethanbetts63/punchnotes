@@ -1,66 +1,23 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lwLnqeBKa-0"
-,
-  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0"
-,
-  "publish_date": "2026-04-28"
-,
-  "guests": [
-    "Dustin Poirier",
-    "Ari Matti"
-  ],
-  "comedian_name": "Dedric Flynn"
-,
-  "comedian_type": "regular"
-,
-  "set_number": 14
-,
-  "start_seconds": 7119
-,
+  "type": "set_meta",
+  "video_id": "lwLnqeBKa-0",
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
+  "publish_date": "2026-04-28",
+  "guests": ["Dustin Poirier", "Ari Matti"],
+  "comedian_name": "Dedric Flynn",
+  "comedian_type": "regular",
+  "set_number": 14,
+  "start_seconds": 7119,
   "bit_meta": {
     "1": {
       "premise": "Tattoos can make workers seem tougher and more trustworthy.",
       "beats": {
-        "1": {
-          "topics": [
-            "car wash",
-            "tattoos",
-            "management"
-          ]
-        },
-        "2": {
-          "topics": [
-            "tattoos",
-            "car repair",
-            "trust"
-          ]
-        },
-        "3": {
-          "topics": [
-            "tattoos",
-            "nurses",
-            "doctors"
-          ]
-        },
-        "4": {
-          "topics": [
-            "nurses",
-            "hospitals",
-            "needles"
-          ]
-        },
-        "5": {
-          "topics": [
-            "tattoos",
-            "blue-collar work",
-            "drummers",
-            "audience roast"
-          ]
-        }
+        "1": {"topics": ["car wash", "tattoos", "management"]},
+        "2": {"topics": ["tattoos", "car repair", "trust"]},
+        "3": {"topics": ["tattoos", "nurses", "doctors"]},
+        "4": {"topics": ["nurses", "hospitals", "needles"]},
+        "5": {"topics": ["tattoos", "blue-collar work", "drummers", "audience roast"]}
       }
     }
   },

@@ -1,70 +1,32 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "suxlBw4o1Mc"
-,
-  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc"
-,
-  "publish_date": "2026-03-10"
-,
-  "guests": [
-    "Joe List",
-    "Steve Rannazzisi"
-  ],
-  "comedian_name": "Angel"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 6
-,
-  "start_seconds": 2705
-,
+  "type": "set_meta",
+  "video_id": "suxlBw4o1Mc",
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI",
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc",
+  "publish_date": "2026-03-10",
+  "guests": ["Joe List", "Steve Rannazzisi"],
+  "comedian_name": "Angel",
+  "comedian_type": "bucket_pull",
+  "set_number": 6,
+  "start_seconds": 2705,
   "bit_meta": {
     "1": {
       "premise": "Being labeled autistic by strangers can be defended by noting avoidance is also judgment.",
       "beats": {
-        "1": {
-          "topics": [
-            "autism",
-            "strangers",
-            "social avoidance"
-          ]
-        }
+        "1": {"topics": ["autism", "strangers", "social avoidance"]}
       }
     },
     "2": {
       "premise": "Repeated puppy deaths can make adult dogs seem impossible.",
       "beats": {
-        "1": {
-          "topics": [
-            "dogs",
-            "puppies",
-            "parvo",
-            "childhood"
-          ]
-        }
+        "1": {"topics": ["dogs", "puppies", "parvo", "childhood"]}
       }
     },
     "3": {
       "premise": "Racist language can be treated as situationally strategic instead of forbidden.",
       "beats": {
-        "1": {
-          "topics": [
-            "stepdad",
-            "racial slurs",
-            "Walmart",
-            "Home Depot"
-          ]
-        },
-        "2": {
-          "topics": [
-            "race riot",
-            "Latinos",
-            "work crews"
-          ]
-        }
+        "1": {"topics": ["stepdad", "racial slurs", "Walmart", "Home Depot"]},
+        "2": {"topics": ["race riot", "Latinos", "work crews"]}
       }
     }
   },

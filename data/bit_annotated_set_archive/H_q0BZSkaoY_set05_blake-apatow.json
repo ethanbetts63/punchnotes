@@ -1,66 +1,27 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "H_q0BZSkaoY"
-,
-  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY"
-,
-  "publish_date": "2026-03-17"
-,
-  "guests": [
-    "Steve0",
-    "Tim Butterly"
-  ],
-  "comedian_name": "Blake Apatow"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 5
-,
-  "start_seconds": 3179
-,
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Blake Apatow",
+  "comedian_type": "bucket_pull",
+  "set_number": 5,
+  "start_seconds": 3179,
   "bit_meta": {
     "1": {
       "premise": "Immigration policy is reframed as a personal sexual preference optimization system with a formal exchange rate.",
       "beats": {
-        "1": {
-          "topics": [
-            "immigration",
-            "border wall",
-            "Latinas"
-          ]
-        },
-        "2": {
-          "topics": [
-            "immigration",
-            "Latinas",
-            "obesity",
-            "deportation"
-          ]
-        }
+        "1": {"topics": ["immigration", "border wall", "Latinas"]},
+        "2": {"topics": ["immigration", "Latinas", "obesity", "deportation"]}
       }
     },
     "2": {
       "premise": "A friend's fentanyl overdose is treated as the ultimate fulfillment of his goal to be chill, with guilt redirected to the dealer rather than the witness.",
       "beats": {
-        "1": {
-          "topics": [
-            "fentanyl",
-            "Xanax",
-            "death",
-            "drugs"
-          ]
-        },
-        "2": {
-          "topics": [
-            "fentanyl",
-            "drug dealing",
-            "guilt",
-            "FaceTime"
-          ]
-        }
+        "1": {"topics": ["fentanyl", "Xanax", "death", "drugs"]},
+        "2": {"topics": ["fentanyl", "drug dealing", "guilt", "FaceTime"]}
       }
     }
   },

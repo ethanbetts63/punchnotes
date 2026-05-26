@@ -1,85 +1,34 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "suxlBw4o1Mc"
-,
-  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc"
-,
-  "publish_date": "2026-03-10"
-,
-  "guests": [
-    "Joe List",
-    "Steve Rannazzisi"
-  ],
-  "comedian_name": "Dedric Flynn"
-,
-  "comedian_type": "regular"
-,
-  "set_number": 10
-,
-  "start_seconds": 5504
-,
+  "type": "set_meta",
+  "video_id": "suxlBw4o1Mc",
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI",
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc",
+  "publish_date": "2026-03-10",
+  "guests": ["Joe List", "Steve Rannazzisi"],
+  "comedian_name": "Dedric Flynn",
+  "comedian_type": "regular",
+  "set_number": 10,
+  "start_seconds": 5504,
   "bit_meta": {
     "1": {
       "premise": "Real sibling energy requires enough children to create a household gang.",
       "beats": {
-        "1": {
-          "topics": [
-            "siblings",
-            "large families",
-            "family size"
-          ]
-        },
-        "2": {
-          "topics": [
-            "crowded housing",
-            "boogeyman",
-            "sibling defense"
-          ]
-        }
+        "1": {"topics": ["siblings", "large families", "family size"]},
+        "2": {"topics": ["crowded housing", "boogeyman", "sibling defense"]}
       }
     },
     "2": {
       "premise": "A shared 1990s CRT television could turn siblings into remote-control combatants.",
       "beats": {
-        "1": {
-          "topics": [
-            "1990s",
-            "CRT TV",
-            "siblings",
-            "SpongeBob"
-          ]
-        },
-        "2": {
-          "topics": [
-            "remote controls",
-            "batteries",
-            "petty revenge"
-          ]
-        }
+        "1": {"topics": ["1990s", "CRT TV", "siblings", "SpongeBob"]},
+        "2": {"topics": ["remote controls", "batteries", "petty revenge"]}
       }
     },
     "3": {
       "premise": "A bulky CRT television could function like furniture and a body that responds to being slapped.",
       "beats": {
-        "1": {
-          "topics": [
-            "CRT TV",
-            "furniture",
-            "family photos",
-            "houseplants"
-          ]
-        },
-        "2": {
-          "topics": [
-            "CRT TV",
-            "repair",
-            "slapping",
-            "sexism"
-          ]
-        }
+        "1": {"topics": ["CRT TV", "furniture", "family photos", "houseplants"]},
+        "2": {"topics": ["CRT TV", "repair", "slapping", "sexism"]}
       }
     }
   },

@@ -1,54 +1,25 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "_vmG4f4EtYo"
-,
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
-,
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
-,
-  "guests": [
-    "Theo Von",
-    "Jelly Roll"
-  ],
-  "comedian_name": "Anthony Martin"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 11
-,
-  "start_seconds": 5763
-,
+  "type": "set_meta",
+  "video_id": "_vmG4f4EtYo",
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "guests": ["Theo Von", "Jelly Roll"],
+  "comedian_name": "Anthony Martin",
+  "comedian_type": "bucket_pull",
+  "set_number": 11,
+  "start_seconds": 5763,
   "bit_meta": {
     "1": {
       "premise": "Predator-catching videos become uncomfortable when the targets seem vulnerable or elected.",
       "beats": {
-        "1": {
-          "topics": [
-            "YouTube",
-            "predator catchers",
-            "Walmart"
-          ]
-        },
-        "2": {
-          "topics": [
-            "guilt",
-            "disabilities",
-            "politicians"
-          ]
-        }
+        "1": {"topics": ["YouTube", "predator catchers", "Walmart"]},
+        "2": {"topics": ["guilt", "disabilities", "politicians"]}
       }
     },
     "2": {
       "premise": "Accidental sexts get worse when the wrong recipient is interested.",
       "beats": {
-        "1": {
-          "topics": [
-            "sexting",
-            "fiance",
-            "mother-in-law"
-          ]
-        }
+        "1": {"topics": ["sexting", "fiance", "mother-in-law"]}
       }
     }
   },

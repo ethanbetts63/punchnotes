@@ -1,80 +1,33 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "_vmG4f4EtYo"
-,
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
-,
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
-,
-  "guests": [
-    "Theo Von",
-    "Jelly Roll"
-  ],
-  "comedian_name": "Ethan Griggs"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 4
-,
-  "start_seconds": 1788
-,
+  "type": "set_meta",
+  "video_id": "_vmG4f4EtYo",
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "guests": ["Theo Von", "Jelly Roll"],
+  "comedian_name": "Ethan Griggs",
+  "comedian_type": "bucket_pull",
+  "set_number": 4,
+  "start_seconds": 1788,
   "bit_meta": {
     "1": {
       "premise": "A farm can fail from having only one useless child.",
       "beats": {
-        "1": {
-          "topics": [
-            "farming",
-            "only children",
-            "family labor"
-          ]
-        },
-        "2": {
-          "topics": [
-            "stand-up",
-            "failure",
-            "farm life"
-          ]
-        }
+        "1": {"topics": ["farming", "only children", "family labor"]},
+        "2": {"topics": ["stand-up", "failure", "farm life"]}
       }
     },
     "2": {
       "premise": "A broke inheritance can be an overwhelming porn collection.",
       "beats": {
-        "1": {
-          "topics": [
-            "inheritance",
-            "porn collection",
-            "father"
-          ]
-        },
-        "2": {
-          "topics": [
-            "masturbation",
-            "rehab",
-            "embarrassment"
-          ]
-        }
+        "1": {"topics": ["inheritance", "porn collection", "father"]},
+        "2": {"topics": ["masturbation", "rehab", "embarrassment"]}
       }
     },
     "3": {
       "premise": "An untraumatic childhood leaves comedy without useful damage.",
       "beats": {
-        "1": {
-          "topics": [
-            "stand-up",
-            "childhood",
-            "trauma"
-          ]
-        },
-        "2": {
-          "topics": [
-            "relatives",
-            "farm animals",
-            "sexual trauma"
-          ]
-        }
+        "1": {"topics": ["stand-up", "childhood", "trauma"]},
+        "2": {"topics": ["relatives", "farm animals", "sexual trauma"]}
       }
     }
   },

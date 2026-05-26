@@ -1,69 +1,32 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "H_q0BZSkaoY"
-,
-  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY"
-,
-  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY"
-,
-  "publish_date": "2026-03-17"
-,
-  "guests": [
-    "Steve0",
-    "Tim Butterly"
-  ],
-  "comedian_name": "Kendall Jr."
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 12
-,
-  "start_seconds": 7382
-,
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Kendall Jr.",
+  "comedian_type": "bucket_pull",
+  "set_number": 12,
+  "start_seconds": 7382,
   "bit_meta": {
     "1": {
       "premise": "A Black British accent violates the listener's racial expectations about how Black people are supposed to sound.",
       "beats": {
-        "1": {
-          "topics": [
-            "race",
-            "British accent",
-            "Black British"
-          ]
-        }
+        "1": {"topics": ["race", "British accent", "Black British"]}
       }
     },
     "2": {
       "premise": "Seeing a woman too affectionate with her dog triggers anxious hope that the relationship is not sexual.",
       "beats": {
-        "1": {
-          "topics": [
-            "dogs",
-            "bestiality",
-            "women"
-          ]
-        }
+        "1": {"topics": ["dogs", "bestiality", "women"]}
       }
     },
     "3": {
       "premise": "A meth addict's copper obsession collides fatally with a copper IUD, and the same destructive pattern applies to a woman whose abortion history has replaced grooming vocabulary with geopolitical terminology.",
       "beats": {
-        "1": {
-          "topics": [
-            "meth",
-            "IUD",
-            "copper",
-            "sex"
-          ]
-        },
-        "2": {
-          "topics": [
-            "abortion",
-            "Gaza",
-            "sex"
-          ]
-        }
+        "1": {"topics": ["meth", "IUD", "copper", "sex"]},
+        "2": {"topics": ["abortion", "Gaza", "sex"]}
       }
     }
   },

@@ -1,83 +1,42 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "_vmG4f4EtYo"
-,
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
-,
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
-,
-  "guests": [
-    "Theo Von",
-    "Jelly Roll"
-  ],
-  "comedian_name": "Michael A. Keaton"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 2
-,
-  "start_seconds": 768
-,
+  "type": "set_meta",
+  "video_id": "_vmG4f4EtYo",
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "guests": ["Theo Von", "Jelly Roll"],
+  "comedian_name": "Michael A. Keaton",
+  "comedian_type": "bucket_pull",
+  "set_number": 2,
+  "start_seconds": 768,
   "bit_meta": {
     "1": {
       "premise": "A Batman name is undercut by walking like the Penguin.",
       "beats": {
-        "1": {
-          "topics": [
-            "Michael Keaton",
-            "Batman",
-            "limping"
-          ]
-        }
+        "1": {"topics": ["Michael Keaton", "Batman", "limping"]}
       }
     },
     "2": {
       "premise": "A physical lean can look like a political leaning.",
       "beats": {
-        "1": {
-          "topics": [
-            "politics",
-            "appearance",
-            "leaning"
-          ]
-        }
+        "1": {"topics": ["politics", "appearance", "leaning"]}
       }
     },
     "3": {
       "premise": "Living in a car technically counts as homeownership.",
       "beats": {
-        "1": {
-          "topics": [
-            "homeownership",
-            "RAV4",
-            "car living"
-          ]
-        }
+        "1": {"topics": ["homeownership", "RAV4", "car living"]}
       }
     },
     "4": {
       "premise": "Getting older has made cough drops feel like candy.",
       "beats": {
-        "1": {
-          "topics": [
-            "aging",
-            "cough drops",
-            "candy"
-          ]
-        }
+        "1": {"topics": ["aging", "cough drops", "candy"]}
       }
     },
     "5": {
       "premise": "Aging has turned masturbation from desire into a prostate health chore.",
       "beats": {
-        "1": {
-          "topics": [
-            "aging",
-            "masturbation",
-            "prostate health"
-          ]
-        }
+        "1": {"topics": ["aging", "masturbation", "prostate health"]}
       }
     }
   },

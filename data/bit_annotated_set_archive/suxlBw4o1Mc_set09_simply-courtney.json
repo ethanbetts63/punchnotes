@@ -1,66 +1,27 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "suxlBw4o1Mc"
-,
-  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc"
-,
-  "publish_date": "2026-03-10"
-,
-  "guests": [
-    "Joe List",
-    "Steve Rannazzisi"
-  ],
-  "comedian_name": "Simply Courtney"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 9
-,
-  "start_seconds": 5014
-,
+  "type": "set_meta",
+  "video_id": "suxlBw4o1Mc",
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI",
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc",
+  "publish_date": "2026-03-10",
+  "guests": ["Joe List", "Steve Rannazzisi"],
+  "comedian_name": "Simply Courtney",
+  "comedian_type": "bucket_pull",
+  "set_number": 9,
+  "start_seconds": 5014,
   "bit_meta": {
     "1": {
       "premise": "A driver whose name conflicts with rider expectations can make Uber pickup suspicion sound racist.",
       "beats": {
-        "1": {
-          "topics": [
-            "Uber",
-            "names",
-            "race",
-            "rider suspicion"
-          ]
-        },
-        "2": {
-          "topics": [
-            "car theft",
-            "Black History Month",
-            "race"
-          ]
-        }
+        "1": {"topics": ["Uber", "names", "race", "rider suspicion"]},
+        "2": {"topics": ["car theft", "Black History Month", "race"]}
       }
     },
     "2": {
       "premise": "Being high can scramble parental and work responsibilities into wrong allegiances and captivity.",
       "beats": {
-        "1": {
-          "topics": [
-            "weed",
-            "tolerance break",
-            "basketball",
-            "parenting"
-          ]
-        },
-        "2": {
-          "topics": [
-            "weed",
-            "Uber",
-            "passengers",
-            "roommates"
-          ]
-        }
+        "1": {"topics": ["weed", "tolerance break", "basketball", "parenting"]},
+        "2": {"topics": ["weed", "Uber", "passengers", "roommates"]}
       }
     }
   },

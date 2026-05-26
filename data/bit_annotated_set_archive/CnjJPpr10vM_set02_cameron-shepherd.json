@@ -1,57 +1,26 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "CnjJPpr10vM"
-,
-  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN"
-,
-  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"
-,
-  "publish_date": "2026-05-19"
-,
-  "guests": [
-    "Shane Gillis",
-    "James McCann"
-  ],
-  "comedian_name": "Cameron Shepherd"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 2
-,
-  "start_seconds": 711
-,
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": ["Shane Gillis", "James McCann"],
+  "comedian_name": "Cameron Shepherd",
+  "comedian_type": "bucket_pull",
+  "set_number": 2,
+  "start_seconds": 711,
   "bit_meta": {
     "1": {
       "premise": "A tallest-man documentary should answer the penis-size question.",
       "beats": {
-        "1": {
-          "topics": [
-            "Robert Wadlow",
-            "documentaries",
-            "genitals"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Robert Wadlow",
-            "documentary endings",
-            "penis size"
-          ]
-        }
+        "1": {"topics": ["Robert Wadlow", "documentaries", "genitals"]},
+        "2": {"topics": ["Robert Wadlow", "documentary endings", "penis size"]}
       }
     },
     "2": {
       "premise": "Childhood games can seem normal when abuse defines the rules.",
       "beats": {
-        "1": {
-          "topics": [
-            "LeapFrog",
-            "childhood games",
-            "nudity",
-            "uncle"
-          ]
-        }
+        "1": {"topics": ["LeapFrog", "childhood games", "nudity", "uncle"]}
       }
     }
   },

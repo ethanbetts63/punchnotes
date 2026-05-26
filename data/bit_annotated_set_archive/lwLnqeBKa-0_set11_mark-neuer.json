@@ -1,44 +1,20 @@
 {
-  "type": "set_meta"
-,
-  "video_id": "lwLnqeBKa-0"
-,
-  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI"
-,
-  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0"
-,
-  "publish_date": "2026-04-28"
-,
-  "guests": [
-    "Dustin Poirier",
-    "Ari Matti"
-  ],
-  "comedian_name": "Mark Neuer"
-,
-  "comedian_type": "bucket_pull"
-,
-  "set_number": 11
-,
-  "start_seconds": 5229
-,
+  "type": "set_meta",
+  "video_id": "lwLnqeBKa-0",
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
+  "publish_date": "2026-04-28",
+  "guests": ["Dustin Poirier", "Ari Matti"],
+  "comedian_name": "Mark Neuer",
+  "comedian_type": "bucket_pull",
+  "set_number": 11,
+  "start_seconds": 5229,
   "bit_meta": {
     "1": {
       "premise": "Conspiracy claims can become true through literal reframing.",
       "beats": {
-        "1": {
-          "topics": [
-            "Alex Jones",
-            "9/11",
-            "conspiracies"
-          ]
-        },
-        "2": {
-          "topics": [
-            "Alex Jones",
-            "gay frogs",
-            "outing"
-          ]
-        }
+        "1": {"topics": ["Alex Jones", "9/11", "conspiracies"]},
+        "2": {"topics": ["Alex Jones", "gay frogs", "outing"]}
       }
     }
   },
