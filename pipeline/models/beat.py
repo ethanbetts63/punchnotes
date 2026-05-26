@@ -6,6 +6,7 @@ class Beat(models.Model):
     beat_id = models.CharField(max_length=50)
     line_start = models.PositiveSmallIntegerField()
     line_end = models.PositiveSmallIntegerField()
+    premise = models.TextField(null=True, blank=True)
     topics = models.JSONField(default=list)
 
     class Meta:

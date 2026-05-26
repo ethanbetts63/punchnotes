@@ -115,7 +115,7 @@ class Command(BaseCommand):
             bit = Bit.objects.create(
                 set=set_obj,
                 bit_id=f"bit_{bit_num:03d}",
-                premise=bit_data["premise"],
+                premise=bit_data.get("premise"),
                 line_start=min(lns),
                 line_end=max(lns),
             )
@@ -129,12 +129,13 @@ class Command(BaseCommand):
                     beat_id=f"bit_{bit_num:03d}_beat_{beat_num:03d}",
                     line_start=min(blns),
                     line_end=max(blns),
+                    premise=beat_data.get("premise"),
                     topics=beat_data.get("topics", []),
                 )
 
         self.stdout.write(
             self.style.SUCCESS(
                 f"  {video_id} set{set_number:02d} {meta['comedian_name']}: "
-                f"{len(lines)} lines, {len(meta.get('bits', []))} bits"
+                f"{len(lines)} lines, {len(meta.get('bit_meta', {}))} bits"
             )
         )
