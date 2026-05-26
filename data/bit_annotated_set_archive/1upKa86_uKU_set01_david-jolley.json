@@ -11,23 +11,22 @@
   "start_seconds": 485,
   "bit_meta": {
     "1": {
-      "premise": "Puerto Rico can still have a white crowd.",
       "beats": {
-        "1": {"topics": ["Puerto Rico", "white people", "crowd work"]}
+        "1": {"premise": "Puerto Rico crowds can still be predominantly white.", "joke_type": "elephant-in-the-room", "topics": ["Puerto Rico", "white people", "crowd work"]}
       }
     },
     "2": {
-      "premise": "Middle-aged men trying to become Twitch streamers are sad and unappealing.",
+      "premise": "Middle-aged men trying to become Twitch streamers are pathetic to watch.",
       "beats": {
-        "1": {"topics": ["streaming", "Twitch", "middle age"]},
-        "2": {"topics": ["streaming", "blood pressure", "work"]}
+        "1": {"premise": "Taken literally, 'twitch' describes an old man's involuntary body movement, not a streaming platform.", "joke_type": "double-meaning", "topics": ["streaming", "Twitch", "middle age"]},
+        "2": {"premise": "An elderly streamer's content would just be mundane medical routines.", "joke_type": "reframe", "topics": ["streaming", "blood pressure", "work"]}
       }
     },
     "3": {
-      "premise": "Chaotic lives make crackheads ideal livestreamers.",
+      "premise": "Crackheads accidentally produce better streaming content than anyone trying.",
       "beats": {
-        "1": {"topics": ["crackheads", "streaming", "sex work"]},
-        "2": {"topics": ["crackheads", "livestreaming", "theft"]}
+        "1": {"premise": "Genuinely chaotic lives make crackheads more watchable than intentional streamers.", "joke_type": "reframe", "topics": ["crackheads", "streaming", "sex work"]},
+        "2": {"premise": "Drug-fueled theft narrated as normal activity is more entertaining than any planned stream.", "joke_type": "reframe", "topics": ["crackheads", "livestreaming", "theft"]}
       }
     }
   },

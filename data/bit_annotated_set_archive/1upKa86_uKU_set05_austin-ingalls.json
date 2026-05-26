@@ -11,28 +11,25 @@
   "start_seconds": 3089,
   "bit_meta": {
     "1": {
-      "premise": "Old-fashioned is polite code for racist.",
       "beats": {
-        "1": {"topics": ["Midwest", "family", "racism"]}
+        "1": {"premise": "Taken literally, 'old-fashioned' has two meanings: traditional values and unrepentant racism.", "joke_type": "double-meaning", "topics": ["Midwest", "family", "racism"]}
       }
     },
     "2": {
-      "premise": "Diagnoses can become a mnemonic nickname.",
       "beats": {
-        "1": {"topics": ["friends", "children", "diagnoses"]}
+        "1": {"premise": "A child's multiple diagnoses make a more memorable identifier than their actual name.", "joke_type": "reframe", "topics": ["friends", "children", "diagnoses"]}
       }
     },
     "3": {
-      "premise": "Prison coworkers can be worse than inmates.",
+      "premise": "Prison staff can be more disturbing to encounter than the inmates.",
       "beats": {
-        "1": {"topics": ["prison", "coworkers", "dating"]},
-        "2": {"topics": ["coworkers", "laptop", "crime"]}
+        "1": {"premise": "Prison employees can be more dangerous and deranged than the inmates themselves.", "joke_type": "reframe", "topics": ["prison", "coworkers", "dating"]},
+        "2": {"premise": "A coworker's child porn conviction is reframed as a cautionary tale about laptop lending.", "joke_type": "misdirect", "topics": ["coworkers", "laptop", "crime"]}
       }
     },
     "4": {
-      "premise": "Warning signs are only useful before sex.",
       "beats": {
-        "1": {"topics": ["homelessness", "AIDS", "sex"]}
+        "1": {"premise": "A homeless person's AIDS warning sign implies public sympathy, not a warning to recent sex partners.", "joke_type": "misdirect", "topics": ["homelessness", "AIDS", "sex"]}
       }
     }
   },

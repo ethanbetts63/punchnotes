@@ -11,17 +11,16 @@
   "start_seconds": 2562,
   "bit_meta": {
     "1": {
-      "premise": "Balding can look like stepdad car-owner energy.",
       "beats": {
-        "1": {"topics": ["gratitude", "hair loss", "stepdads"]}
+        "1": {"premise": "Baldness signals the kind of defeated domesticity associated with stepdads.", "joke_type": "visual", "topics": ["gratitude", "hair loss", "stepdads"]}
       }
     },
     "2": {
-      "premise": "A memorial hand tattoo can make masturbation feel incestuous.",
+      "premise": "A dead father's memorial tattoo on the right hand makes every future use of that hand a parental violation.",
       "beats": {
-        "1": {"topics": ["father", "heart transplant", "tattoos"]},
-        "2": {"topics": ["tattoos", "masturbation", "grief"]},
-        "3": {"topics": ["father", "advice", "double entendre"]}
+        "1": {"premise": "A solemn memorial tattoo request turns into an accent-mark negotiation with a Cuban tattooist.", "joke_type": "reframe", "topics": ["father", "heart transplant", "tattoos"]},
+        "2": {"premise": "A father's memorial tattoo on the right hand makes masturbation feel like parental participation.", "joke_type": "reframe", "topics": ["tattoos", "masturbation", "grief"]},
+        "3": {"premise": "Taken literally, a dead father's promise to 'give you a hand' has two meanings.", "joke_type": "double-meaning", "topics": ["father", "advice", "double entendre"]}
       }
     }
   },

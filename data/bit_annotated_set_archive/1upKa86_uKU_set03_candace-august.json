@@ -11,10 +11,10 @@
   "start_seconds": 1706,
   "bit_meta": {
     "1": {
-      "premise": "The only Black in-law becomes the family Black-culture expert.",
+      "premise": "Being the sole Black family member makes you the unwilling authority on all things Black.",
       "beats": {
-        "1": {"topics": ["interracial marriage", "Juneteenth", "in-laws"]},
-        "2": {"topics": ["racial questions", "fried chicken", "superpowers"]}
+        "1": {"premise": "Being Black implies knowing Black cultural history, even when you don't.", "joke_type": "misdirect", "topics": ["interracial marriage", "Juneteenth", "in-laws"]},
+        "2": {"premise": "Answering racial stereotype questions with invented Black superpowers turns ignorance into an advantage.", "joke_type": "reframe", "topics": ["racial questions", "fried chicken", "superpowers"]}
       }
     }
   },

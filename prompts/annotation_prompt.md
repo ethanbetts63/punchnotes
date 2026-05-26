@@ -131,9 +131,9 @@ Every beat has `premise`, `joke_type`, and `topics`. A bit has its own `premise`
 For multi-beat bits, every beat must still have its own premise. The bit premise is the broad theme; each beat premise is the specific comedic mechanism of that beat.
 
 **Premise rules:**
+- **Be as succinct as possible.** A premise should be one short sentence. If it runs over ~15 words, you're describing the joke instead of stating it. Cut every word that isn't load-bearing.
 - State the abstract comedic logic — *why is this funny*, not a summary of what was said.
 - No pronouns tied to the comedian — no "he", "she", "they", "the comic".
-- As short as possible while keeping the meaning.
 - Use the most general form: `"Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."`
 
 **Joke type:** one of the seven labels defined in the next section: `misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `what-if`, `elephant-in-the-room`, `visual`. Pick the mechanism that best describes how the joke gets its laugh — the same mechanism the premise formula is built around.

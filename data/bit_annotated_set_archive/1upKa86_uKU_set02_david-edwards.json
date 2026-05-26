@@ -11,33 +11,28 @@
   "start_seconds": 1001,
   "bit_meta": {
     "1": {
-      "premise": "Upright hair can look like static from sex with balloons.",
       "beats": {
-        "1": {"topics": ["appearance", "static electricity", "balloons"]}
+        "1": {"premise": "Upright hair looks like static from sex with balloons.", "joke_type": "visual", "topics": ["appearance", "static electricity", "balloons"]}
       }
     },
     "2": {
-      "premise": "A hunched posture can look like a chicken pecking.",
       "beats": {
-        "1": {"topics": ["appearance", "chickens", "posture"]}
+        "1": {"premise": "A hunched posture makes someone look like a chicken pecking the ground.", "joke_type": "visual", "topics": ["appearance", "chickens", "posture"]}
       }
     },
     "3": {
-      "premise": "Looking like two celebrities can imply unwanted celebrity parentage.",
       "beats": {
-        "1": {"topics": ["appearance", "celebrity parents", "Utah"]}
+        "1": {"premise": "Resembling two celebrities implies being their unwanted illegitimate child.", "joke_type": "reframe", "topics": ["appearance", "celebrity parents", "Utah"]}
       }
     },
     "4": {
-      "premise": "A sexual animal comparison can be undercut by hemorrhoids.",
       "beats": {
-        "1": {"topics": ["Latina women", "baboon", "hemorrhoids"]}
+        "1": {"premise": "Describing oneself as 'like a baboon under the sheets' implies sexual prowess, not a medical condition.", "joke_type": "misdirect", "topics": ["Latina women", "baboon", "hemorrhoids"]}
       }
     },
     "5": {
-      "premise": "Hemorrhoids can make bathroom strain look like a horror-movie crawl.",
       "beats": {
-        "1": {"topics": ["The Ring", "bathroom", "hemorrhoids"]}
+        "1": {"premise": "Hemorrhoid-induced bathroom strain looks identical to a horror-movie ghost crawl.", "joke_type": "reframe", "topics": ["The Ring", "bathroom", "hemorrhoids"]}
       }
     }
   },
