@@ -12,13 +12,21 @@
     "1": {
       "premise": "A domestic-abuse joke can accidentally help the victim escape.",
       "beats": {
-        "1": {"topics": ["stand-up taboos", "girlfriend", "domestic violence"]},
-        "2": {"topics": ["girlfriend", "escape", "chains"]}
+        "1": {
+          "premise": "A joke about abuse implies backlash, not helping the victim escape.",
+          "joke_type": "misdirect",
+          "topics": ["stand-up taboos", "girlfriend", "domestic violence"]
+        },
+        "2": {
+          "premise": "What if leaving an abuser required chewing through chains.",
+          "joke_type": "what-if",
+          "topics": ["girlfriend", "escape", "chains"]
+        }
       }
     }
   },
   "lines": [
-    {"text": "I recently learned...", "label": "setup", "bit": null, "beat": null, "line_number": 3014, "start": 6437},
+    {"text": "I recently learned...", "label": "fluff", "bit": null, "beat": null, "line_number": 3014, "start": 6437},
     {"text": "Uh...", "label": "fluff", "bit": null, "beat": null, "line_number": 3015, "start": 6439},
     {"text": "So nice, sir!", "label": "fluff", "bit": null, "beat": null, "line_number": 3017, "start": 6448},
     {"text": "I don't think I just have to stand up here and make no jokes", "label": "fluff", "bit": null, "beat": null, "line_number": 3018, "start": 6452},
@@ -38,6 +46,6 @@
     {"text": "That beaver-toothed bitch, fucking.", "label": "tag", "bit": 1, "beat": 2, "line_number": 3036, "start": 6503},
     {"text": "She nibbled away to my heart.", "label": "tag", "bit": 1, "beat": 2, "line_number": 3038, "start": 6509},
     {"text": "I don't know what else to tell you.", "label": "fluff", "bit": 1, "beat": 2, "line_number": 3039, "start": 6510},
-    {"text": "Seriously though, if anybody sees her, tell her, come.", "label": "tag", "bit": 1, "beat": 2, "line_number": 3040, "start": 6512}
+    {"text": "Seriously though, if anybody sees her, tell her, come.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 3040, "start": 6512}
   ]
 }

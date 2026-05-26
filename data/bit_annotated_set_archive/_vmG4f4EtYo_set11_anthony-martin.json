@@ -12,14 +12,25 @@
     "1": {
       "premise": "Predator-catching videos become uncomfortable when the targets seem vulnerable or elected.",
       "beats": {
-        "1": {"topics": ["YouTube", "predator catchers", "Walmart"]},
-        "2": {"topics": ["guilt", "disabilities", "politicians"]}
+        "1": {
+          "premise": "Predator-catching videos become retail-store action scenes.",
+          "joke_type": "reframe",
+          "topics": ["YouTube", "predator catchers", "Walmart"]
+        },
+        "2": {
+          "premise": "Politicians fit naturally among predators who complicate vigilante punishment.",
+          "joke_type": "reframe",
+          "topics": ["guilt", "disabilities", "politicians"]
+        }
       }
     },
     "2": {
-      "premise": "Accidental sexts get worse when the wrong recipient is interested.",
       "beats": {
-        "1": {"topics": ["sexting", "fiance", "mother-in-law"]}
+        "1": {
+          "premise": "A wrong-recipient sext implies rejection, not reciprocated interest.",
+          "joke_type": "misdirect",
+          "topics": ["sexting", "fiance", "mother-in-law"]
+        }
       }
     }
   },
