@@ -2,7 +2,7 @@
 
 You are annotating stand-up **sets** from *Kill Tony* in a single pass: labeling every line and grouping lines into bits and beats simultaneously.
 
-Annotate only the files you are explicitly given — do not process any files beyond those listed.
+Annotate only the files you are explicitly given — do not process any files beyond those listed. Read and edit files one at a time, never in bulk.
 
 ---
 
