@@ -29,7 +29,7 @@
       }
     },
     "4": {
-      "premise": "Fire-exit instructions can sound like firefighting instructions.",
+      "premise": "Taken literally, 'In case of fire, use stairs' has two meanings.",
       "beats": {
         "1": {"topics": ["fire safety", "stairs", "wordplay"]}
       }

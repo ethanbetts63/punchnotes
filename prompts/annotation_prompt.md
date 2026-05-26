@@ -126,7 +126,7 @@ Every beat has `premise` and `topics`. A bit has its own `premise` **only when i
 For multi-beat bits, every beat must still have its own premise. The bit premise is the broad theme; each beat premise is the specific comedic mechanism of that beat.
 
 **Premise rules:**
-- State the abstract comedic logic — *why is this funny*, not what was said.
+- State the abstract comedic logic — *why is this funny*, not a summary of what was said.
 - No pronouns tied to the comedian — no "he", "she", "they", "the comic".
 - As short as possible while keeping the meaning.
 - Use the most general form: `"Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."`
@@ -139,22 +139,38 @@ Most jokes fall into one of four mechanisms. Each has its own premise shape:
 
 **Misdirect** — assumption planted, then subverted.
 > Formula: *X implies Y, not Z.*
-> Example: `"Talk of seeing tits implies a woman, not a man."`
+> Example:
+> - setup: `"My son just came out as trans."`
+> - setup: `"Well, shouldn't call him my son anymore."`
+> - punchline: `"Now that he's dead to me,"`
+> Premise: `"Refusing to call a transitioning child your son implies a new title, not their disownment."`
 
 **Reframe** — hidden implication of a known thing is surfaced. No prior assumption is planted; the audience just hadn't considered this angle.
 > Formula: state the hidden implication directly.
-> Example: `"Pedophiles benefit from puberty blockers."`
+> Example:
+> - setup: `"they got him on puberty blockers"`
+> - punchline: `"or as pedophiles call them preservatives."`
+> - tag: `"Fucking miracle medicine."`
+> Premise: `"Pedophiles benefit from puberty blockers."`
 
 **Wordplay** — a phrase fits two situations at once. Either through phonetic similarity or polysemy.
 > Formula: state the sonic/semantic match and why both sides independently fit.
-> Example: `"'Midget' and 'fidget' sound alike, and 'fidget' independently fits ADHD."`
+> Example:
+> - setup: `"what do you call a little person with ADHD?"`
+> - punchline: `"That's right, a fidget."`
+> Premise: `"'Midget' and 'fidget' sound alike, and 'fidget' independently fits ADHD."`
 
 **Elephant-in-the-room** — taboo observation said aloud. The audience already knows the conclusion; the laugh comes from breaking the silence.
 > Formula: *X is widely understood about Y but rarely said aloud.*
-> Example: `"School shootings are widely associated with white shooters but rarely said aloud."`
+> Example:
+> - setup: `"You know, these shootings are often done by the same race."`
+> - punchline: `"I'm looking at you, honkies."`
+> Premise: `"School shootings are widely associated with white shooters but rarely said aloud."`
 
 **Visual jokes** — if the punchline relies on the comedian's appearance (no verbal setup), infer the visual and state the connection as a universal truth.
-> Example: punchline `"I look like I just fucked a pair of balloons."` → premise `"Upright hair can look like static from sex with balloons."`
+> Example:
+> - punchline: `"I know I look like I just fucked a pair of balloons."`
+> Premise: `"Upright hair can look like static from sex with balloons."`
 
 ### Boundary rules
 
@@ -182,7 +198,7 @@ Most jokes fall into one of four mechanisms. Each has its own premise shape:
 
 ## Process checklist
 
-1. Process only the files you were given. If none were given, stop.
+1. Process only the files you were given. 
 2. For each file:
    - Read the whole set.
    - Annotate: label every line, assign bit/beat numbers, write bit_meta.
