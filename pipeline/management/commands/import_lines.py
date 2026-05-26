@@ -1,6 +1,7 @@
 import json
 import re
 import shutil
+from collections import defaultdict
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
@@ -95,20 +96,39 @@ class Command(BaseCommand):
         # Bits and beats — idempotent wipe before reimport
         set_obj.bits.all().delete()
 
-        for bit_data in meta.get("bits", []):
+        # Derive line ranges for each bit/beat from the flat lines array
+        bit_lines = defaultdict(list)
+        beat_lines = defaultdict(lambda: defaultdict(list))
+        for line in meta["lines"]:
+            b = line.get("bit")
+            bt = line.get("beat")
+            if b is not None:
+                bit_lines[b].append(line["line_number"])
+                if bt is not None:
+                    beat_lines[b][bt].append(line["line_number"])
+
+        for bit_num_str, bit_data in meta.get("bit_meta", {}).items():
+            bit_num = int(bit_num_str)
+            lns = bit_lines.get(bit_num, [])
+            if not lns:
+                continue
             bit = Bit.objects.create(
                 set=set_obj,
-                bit_id=bit_data["bit_id"],
+                bit_id=f"bit_{bit_num:03d}",
                 premise=bit_data["premise"],
-                line_start=bit_data["line_range"][0],
-                line_end=bit_data["line_range"][1],
+                line_start=min(lns),
+                line_end=max(lns),
             )
-            for beat_data in bit_data.get("beats", []):
+            for beat_num_str, beat_data in bit_data.get("beats", {}).items():
+                beat_num = int(beat_num_str)
+                blns = beat_lines[bit_num].get(beat_num, [])
+                if not blns:
+                    continue
                 Beat.objects.create(
                     bit=bit,
-                    beat_id=beat_data["beat_id"],
-                    line_start=beat_data["line_range"][0],
-                    line_end=beat_data["line_range"][1],
+                    beat_id=f"bit_{bit_num:03d}_beat_{beat_num:03d}",
+                    line_start=min(blns),
+                    line_end=max(blns),
                     topics=beat_data.get("topics", []),
                 )
 
