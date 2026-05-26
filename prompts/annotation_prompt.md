@@ -135,7 +135,7 @@ For multi-beat bits, every beat must still have its own premise. The bit premise
 
 ### Joke types and premise formulas
 
-Most jokes fall into one of four mechanisms. Each has its own premise shape:
+Most jokes fall into one of these mechanisms. Each has its own premise shape:
 
 **Misdirect** — assumption planted, then subverted.
 > Formula: *X implies Y, not Z.*
@@ -153,12 +153,27 @@ Most jokes fall into one of four mechanisms. Each has its own premise shape:
 > - tag: `"Fucking miracle medicine."`
 > Premise: `"Pedophiles benefit from puberty blockers."`
 
-**Wordplay** — a phrase fits two situations at once. Either through phonetic similarity or polysemy.
-> Formula: state the sonic/semantic match and why both sides independently fit.
+**Phonetic match** — two *different* words sound alike, and both independently fit the context.
+> Formula: state the sonic match and why both sides independently fit.
 > Example:
 > - setup: `"what do you call a little person with ADHD?"`
 > - punchline: `"That's right, a fidget."`
 > Premise: `"'Midget' and 'fidget' sound alike, and 'fidget' independently fits ADHD."`
+
+**Double-meaning** — the *same* words admit two readings, and the comedian deliberately picks the non-standard one. Hinges on semantic ambiguity, not phonetic similarity.
+> Formula: *Taken literally, [phrase] has two meanings.*
+> Example:
+> - setup: `"'In case of fire, use stairs.'"`
+> - punchline: `"Fuck that, let's use water."`
+> Premise: `"Taken literally, 'In case of fire, use stairs' has two meanings."`
+
+**What-if** — a counterfactual scenario is posed and the joke comes from taking it seriously. Distinct from reframe: a reframe surfaces a *real* implication; a what-if *invents* one and runs with it.
+> Formula: *What if [counterfactual]?* or state the hypothetical condition directly.
+> Example:
+> - setup: `"A guy stole my wallet."`
+> - setup: `"He's like, ha ha, I have your wallet."`
+> - punchline: `"I was like, ha ha, you have 8K of credit card debt."`
+> Premise: `"What if stealing a credit card meant you also stole the debt."`
 
 **Elephant-in-the-room** — taboo observation said aloud. The audience already knows the conclusion; the laugh comes from breaking the silence.
 > Formula: *X is widely understood about Y but rarely said aloud.*
@@ -189,7 +204,7 @@ Most jokes fall into one of four mechanisms. Each has its own premise shape:
 2. Identify each punchline — that's the anchor for each beat.
 3. Walk backwards from each punchline labeling setup; walk forwards labeling tags.
 4. Mark everything else fluff.
-5. For each beat, identify the joke type (misdirect / reframe / wordplay / elephant / visual) and write a premise using its formula.
+5. For each beat, identify the joke type (misdirect / reframe / phonetic match / double-meaning / what-if / elephant / visual) and write a premise using its formula.
 6. Group beats into bits by shared premise. Apply the extraction test: if a beat would survive standalone, it's its own bit.
 7. For multi-beat bits, write a bit premise that captures the umbrella the beats share.
 8. Write the output JSON with `bit_meta` and fully labeled lines.

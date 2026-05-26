@@ -11,7 +11,7 @@
   "start_seconds": 1746,
   "bit_meta": {
     "1": {
-      "premise": "Stolen wallets can transfer debt instead of value.",
+      "premise": "What if stealing a credit card meant you also stole the debt.",
       "beats": {
         "1": {"topics": ["wallet theft", "credit card debt"]}
       }
