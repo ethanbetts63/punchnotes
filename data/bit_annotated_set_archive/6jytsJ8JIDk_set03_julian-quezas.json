@@ -1,0 +1,44 @@
+{
+  "type": "set_meta",
+  "video_id": "6jytsJ8JIDk",
+  "episode_title": "KT #758 - DONNELL RAWLINGS + TREVOR WALLACE",
+  "episode_url": "https://www.youtube.com/watch?v=6jytsJ8JIDk",
+  "publish_date": "2026-03-03",
+  "guests": ["Donnell Rawlings", "Trevor Wallace"],
+  "comedian_name": "Julian Quezas",
+  "comedian_type": "bucket_pull",
+  "set_number": 3,
+  "start_seconds": 1318,
+  "bit_meta": {
+    "1": {
+      "premise": "Stephen Hawking accusations are filtered through wheelchair logistics.",
+      "beats": {
+        "1": {
+          "premise": "What if wheelchair speed were the only way Stephen Hawking could molest children.",
+          "joke_type": "what-if",
+          "topics": ["Stephen Hawking", "wheelchairs", "children"]
+        },
+        "2": {
+          "premise": "Extreme wheelchair speed explains Stephen Hawking's facial appearance.",
+          "joke_type": "what-if",
+          "topics": ["Stephen Hawking", "wind resistance", "wheelchairs"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "- So I don't think Stephen Hawking fucked any kids.", "label": "setup", "bit": 1, "beat": 1, "line_number": 570, "start": 1318},
+    {"text": "Because how?", "label": "punchline", "bit": 1, "beat": 1, "line_number": 571, "start": 1324},
+    {"text": "There's only one thing he could have done.", "label": "setup", "bit": 1, "beat": 1, "line_number": 573, "start": 1334},
+    {"text": "Only one thing that makes any sense.", "label": "setup", "bit": 1, "beat": 1, "line_number": 574, "start": 1336},
+    {"text": "He lined them up on the ground, put a ramp on either side, and turned his chair up to", "label": "setup", "bit": 1, "beat": 1, "line_number": 575, "start": 1339},
+    {"text": "full speed.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 576, "start": 1348},
+    {"text": "He has the science to make it happen.", "label": "tag", "bit": 1, "beat": 1, "line_number": 577, "start": 1353},
+    {"text": "I could just imagine his tires creating fire tracks.", "label": "setup", "bit": 1, "beat": 2, "line_number": 578, "start": 1360},
+    {"text": "And I'm pretty sure that's how his face got that way.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 579, "start": 1367},
+    {"text": "It's just the wind resistance.", "label": "tag", "bit": 1, "beat": 2, "line_number": 580, "start": 1369},
+    {"text": "You know what I mean?", "label": "fluff", "bit": 1, "beat": 2, "line_number": 581, "start": 1371},
+    {"text": "It was just like...", "label": "fluff", "bit": 1, "beat": 2, "line_number": 582, "start": 1372},
+    {"text": "All right, that's my set.", "label": "fluff", "bit": null, "beat": null, "line_number": 584, "start": 1377}
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "type": "set_meta",
+  "video_id": "6jytsJ8JIDk",
+  "episode_title": "KT #758 - DONNELL RAWLINGS + TREVOR WALLACE",
+  "episode_url": "https://www.youtube.com/watch?v=6jytsJ8JIDk",
+  "publish_date": "2026-03-03",
+  "guests": ["Donnell Rawlings", "Trevor Wallace"],
+  "comedian_name": "Dedrick Flynn",
+  "comedian_type": "regular",
+  "set_number": 9,
+  "start_seconds": 4514,
+  "bit_meta": {
+    "1": {
+      "premise": "Rural white danger is treated as scarier than wilderness danger.",
+      "beats": {
+        "1": {
+          "premise": "A rural Texas sunset implies a Black person should obey sundown-town rules.",
+          "joke_type": "reframe",
+          "topics": ["rural Texas", "sundown towns", "race"]
+        },
+        "2": {
+          "premise": "A mountain lion is preferable to encountering a rural white man.",
+          "joke_type": "misdirect",
+          "topics": ["mountain lions", "white men", "woods"]
+        },
+        "3": {
+          "premise": "White men are scarier than bears because bear defenses do not stop them.",
+          "joke_type": "analogy",
+          "topics": ["bears", "bear mace", "white men"]
+        },
+        "4": {
+          "premise": "A polar bear without the correct soda branding becomes sexually murderous.",
+          "joke_type": "what-if",
+          "topics": ["polar bears", "Coca-Cola", "Pepsi"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "Yeah!", "label": "fluff", "bit": null, "beat": null, "line_number": 2005, "start": 4514},
+    {"text": "Y'all me and my white roommate I had to go do a show in marble Falls, Texas", "label": "setup", "bit": 1, "beat": 1, "line_number": 2006, "start": 4518},
+    {"text": "It's not a real place even though I went there and", "label": "setup", "bit": 1, "beat": 1, "line_number": 2007, "start": 4525},
+    {"text": "When the Sun went down I looked at my roommate. I said I think it's time for us to go", "label": "setup", "bit": 1, "beat": 1, "line_number": 2008, "start": 4529},
+    {"text": "I think that's the rules out here", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2009, "start": 4533},
+    {"text": "And so we start driving back and the shit look on the way", "label": "tag", "bit": 1, "beat": 1, "line_number": 2010, "start": 4535},
+    {"text": "There's no like street lights", "label": "tag", "bit": 1, "beat": 1, "line_number": 2011, "start": 4539},
+    {"text": "It looked like where you meet the devil and that nigga charge like he challenged you to play guitar for your soul", "label": "tag", "bit": 1, "beat": 1, "line_number": 2012, "start": 4541},
+    {"text": "So while we driving, I looked at him and I said,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2013, "start": 4545},
+    {"text": "\"Yo, I got a pee. I'm about to pee in this Gatorade bottle.\"", "label": "setup", "bit": 1, "beat": 2, "line_number": 2014, "start": 4548},
+    {"text": "And then he looked at me, his white ass said,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2015, "start": 4551},
+    {"text": "\"I'll just pull over. No, nigga, you're not.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2016, "start": 4553},
+    {"text": "All right, we are not -- we're not stopping here.\"", "label": "setup", "bit": 1, "beat": 2, "line_number": 2017, "start": 4556},
+    {"text": "And then he was like, \"What, you scared?", "label": "setup", "bit": 1, "beat": 2, "line_number": 2018, "start": 4559},
+    {"text": "Like a mountain lion's gonna come get you?\"", "label": "setup", "bit": 1, "beat": 2, "line_number": 2019, "start": 4560},
+    {"text": "I said, \"Nigga, that's the best-case scenario.\"", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2020, "start": 4563},
+    {"text": "[ Laughter ]", "label": "fluff", "bit": 1, "beat": 2, "line_number": 2021, "start": 4565},
+    {"text": "Worst-case scenario, a white guy.", "label": "tag", "bit": 1, "beat": 2, "line_number": 2022, "start": 4567},
+    {"text": "You know what I'm saying? Like that?", "label": "fluff", "bit": 1, "beat": 2, "line_number": 2023, "start": 4569},
+    {"text": "\"Gee, gee, take -- I'm trying to take a piss", "label": "tag", "bit": 1, "beat": 2, "line_number": 2024, "start": 4571},
+    {"text": "and a nigga come out of the corner feeling", "label": "tag", "bit": 1, "beat": 2, "line_number": 2025, "start": 4573},
+    {"text": "I'm gonna come out of the cornfield, talk about you fellers lost.", "label": "tag", "bit": 1, "beat": 2, "line_number": 2026, "start": 4574},
+    {"text": "Wrong turn, now I'm getting raped and slowly eaten.", "label": "tag", "bit": 1, "beat": 2, "line_number": 2027, "start": 4579},
+    {"text": "Like, I don't care what you say, if y'all was in the woods,", "label": "setup", "bit": 1, "beat": 3, "line_number": 2028, "start": 4583},
+    {"text": "and you saw a white guy just appeared the whole time in your head,", "label": "setup", "bit": 1, "beat": 3, "line_number": 2029, "start": 4586},
+    {"text": "you're like, \"I wish this nigga was a grizzly bear.\"", "label": "punchline", "bit": 1, "beat": 3, "line_number": 2030, "start": 4589},
+    {"text": "'Cause you can--they have shit for bears.", "label": "tag", "bit": 1, "beat": 3, "line_number": 2031, "start": 4593},
+    {"text": "They got the shit called bear mace.", "label": "tag", "bit": 1, "beat": 3, "line_number": 2032, "start": 4595},
+    {"text": "You spray it on a bear, and the bear get the fuck away.", "label": "tag", "bit": 1, "beat": 3, "line_number": 2033, "start": 4597},
+    {"text": "There's a hundred videos that have been working.", "label": "tag", "bit": 1, "beat": 3, "line_number": 2034, "start": 4599},
+    {"text": "There's twice as many videos of a white guy", "label": "tag", "bit": 1, "beat": 3, "line_number": 2035, "start": 4601},
+    {"text": "walking through bear mace and getting tased,", "label": "tag", "bit": 1, "beat": 3, "line_number": 2036, "start": 4604},
+    {"text": "still trying to make a point.", "label": "tag", "bit": 1, "beat": 3, "line_number": 2037, "start": 4606},
+    {"text": "And I told that bitch to bring my soda over there.", "label": "tag", "bit": 1, "beat": 3, "line_number": 2038, "start": 4608},
+    {"text": "Nigga, I don't wanna do that.", "label": "fluff", "bit": 1, "beat": 3, "line_number": 2039, "start": 4611},
+    {"text": "That shit's scary.", "label": "tag", "bit": 1, "beat": 3, "line_number": 2040, "start": 4612},
+    {"text": "And if we be honest, nigga, the scariest bears are white.", "label": "setup", "bit": 1, "beat": 4, "line_number": 2041, "start": 4613},
+    {"text": "Polar bears don't, all they do is kill.", "label": "setup", "bit": 1, "beat": 4, "line_number": 2042, "start": 4619},
+    {"text": "Nigga, that's just my biggest fear", "label": "setup", "bit": 1, "beat": 4, "line_number": 2043, "start": 4621},
+    {"text": "is running to a polar bear with no Coca-Cola.", "label": "punchline", "bit": 1, "beat": 4, "line_number": 2044, "start": 4623},
+    {"text": "Actually, let me change that.", "label": "tag", "bit": 1, "beat": 4, "line_number": 2046, "start": 4630},
+    {"text": "My biggest fear is running to a polar bear with Pepsi, nigga,", "label": "tag", "bit": 1, "beat": 4, "line_number": 2047, "start": 4631},
+    {"text": "that.", "label": "fluff", "bit": 1, "beat": 4, "line_number": 2048, "start": 4634},
+    {"text": "Now I'm getting raped and slowly eaten by a goddamn polar bear.", "label": "tag", "bit": 1, "beat": 4, "line_number": 2049, "start": 4636},
+    {"text": "That's my time.", "label": "fluff", "bit": null, "beat": null, "line_number": 2050, "start": 4639},
+    {"text": "I love y'all.", "label": "fluff", "bit": null, "beat": null, "line_number": 2051, "start": 4639}
+  ]
+}

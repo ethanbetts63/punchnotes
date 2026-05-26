@@ -1,0 +1,69 @@
+{
+  "type": "set_meta",
+  "video_id": "6jytsJ8JIDk",
+  "episode_title": "KT #758 - DONNELL RAWLINGS + TREVOR WALLACE",
+  "episode_url": "https://www.youtube.com/watch?v=6jytsJ8JIDk",
+  "publish_date": "2026-03-03",
+  "guests": ["Donnell Rawlings", "Trevor Wallace"],
+  "comedian_name": "Vincenzo Maraschio",
+  "comedian_type": "bucket_pull",
+  "set_number": 10,
+  "start_seconds": 4934,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "LGBTQ+ is heard like ordering every burger topping and every anal option.",
+          "joke_type": "double-meaning",
+          "topics": ["LGBTQ", "burgers", "anal sex"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "'Grindr' and 'grinder' sound alike, and grinders independently fit sandwich cravings.",
+          "joke_type": "phonetic-match",
+          "topics": ["Grindr", "sandwiches", "foodies"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "Inviting someone to a Cowboys game reveals gayness more than oral sex does.",
+          "joke_type": "reframe",
+          "topics": ["Dallas Cowboys", "gay men", "football"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "-I got a confession to make, guys.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2201, "start": 4934},
+    {"text": "The first time I ever heard of LGBTQ+,", "label": "setup", "bit": 1, "beat": 1, "line_number": 2202, "start": 4942},
+    {"text": "I thought it was like a fancy way of saying,", "label": "setup", "bit": 1, "beat": 1, "line_number": 2203, "start": 4946},
+    {"text": "\"I want everything on my burger.\"", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2204, "start": 4949},
+    {"text": "[ Laughter ]", "label": "fluff", "bit": 1, "beat": 1, "line_number": 2205, "start": 4951},
+    {"text": "Turns out it's a fancy way of saying,", "label": "tag", "bit": 1, "beat": 1, "line_number": 2206, "start": 4954},
+    {"text": "\"You love everything up your ass.\"", "label": "tag", "bit": 1, "beat": 1, "line_number": 2207, "start": 4956},
+    {"text": "Yeah.", "label": "fluff", "bit": null, "beat": null, "line_number": 2208, "start": 4958},
+    {"text": "I'm from the East Coast, and I'm a foodie.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2209, "start": 4960},
+    {"text": "So the first time I heard of Grindr,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2210, "start": 4964},
+    {"text": "I thought it was an app for sandwiches.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2211, "start": 4967},
+    {"text": "Turns out it's for dicks.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2212, "start": 4971},
+    {"text": "Yeah.", "label": "fluff", "bit": null, "beat": null, "line_number": 2213, "start": 4973},
+    {"text": "So I came in the dude's mouth.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2214, "start": 4975},
+    {"text": "I was like, where's the sandwich?", "label": "tag", "bit": 2, "beat": 1, "line_number": 2215, "start": 4979},
+    {"text": "When does it show up?", "label": "tag", "bit": 2, "beat": 1, "line_number": 2216, "start": 4983},
+    {"text": "I'm way hungrier and a lot more yay now.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2217, "start": 4985},
+    {"text": "Yeah, I really didn't know that guy was gay", "label": "setup", "bit": 3, "beat": 1, "line_number": 2218, "start": 4990},
+    {"text": "till about a week later.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2219, "start": 4992},
+    {"text": "He texted me.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2220, "start": 4995},
+    {"text": "He was like, do you want to go to a Dallas Cowboys football", "label": "setup", "bit": 3, "beat": 1, "line_number": 2221, "start": 4996},
+    {"text": "game?", "label": "punchline", "bit": 3, "beat": 1, "line_number": 2222, "start": 4999},
+    {"text": "That was it.", "label": "tag", "bit": 3, "beat": 1, "line_number": 2223, "start": 5001},
+    {"text": "That did a minute.", "label": "fluff", "bit": null, "beat": null, "line_number": 2224, "start": 5001},
+    {"text": "All right, that's been my time.", "label": "fluff", "bit": null, "beat": null, "line_number": 2225, "start": 5002},
+    {"text": "Thank you, guys.", "label": "fluff", "bit": null, "beat": null, "line_number": 2226, "start": 5003}
+  ]
+}

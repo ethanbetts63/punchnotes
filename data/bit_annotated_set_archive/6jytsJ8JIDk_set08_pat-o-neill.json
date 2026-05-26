@@ -1,0 +1,98 @@
+{
+  "type": "set_meta",
+  "video_id": "6jytsJ8JIDk",
+  "episode_title": "KT #758 - DONNELL RAWLINGS + TREVOR WALLACE",
+  "episode_url": "https://www.youtube.com/watch?v=6jytsJ8JIDk",
+  "publish_date": "2026-03-03",
+  "guests": ["Donnell Rawlings", "Trevor Wallace"],
+  "comedian_name": "Pat O'Neill",
+  "comedian_type": "regular",
+  "set_number": 8,
+  "start_seconds": 4073,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "Batman naming logic would expose a white person's racial fear.",
+          "joke_type": "analogy",
+          "topics": ["Batman", "black men", "superheroes"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Radiation-based superhero origins imply Japan should produce more superheroes.",
+          "joke_type": "reframe",
+          "topics": ["superheroes", "radiation", "Japan"]
+        }
+      }
+    },
+    "3": {
+      "premise": "Japanese disaster references are converted into racial sex wordplay.",
+      "beats": {
+        "1": {
+          "premise": "Asian jokes being short-sighted uses a vision stereotype as self-defense.",
+          "joke_type": "double-meaning",
+          "topics": ["Asian jokes", "stereotypes", "vision"]
+        },
+        "2": {
+          "premise": "'Nagasaki' sounds like 'nigga sucky'.",
+          "joke_type": "phonetic-match",
+          "topics": ["Nagasaki", "Oppenheimer", "oral sex"]
+        }
+      }
+    },
+    "4": {
+      "beats": {
+        "1": {
+          "premise": "Hamas fighting Israel is like bringing a knife to a space-laser fight.",
+          "joke_type": "analogy",
+          "topics": ["Hamas", "Israel", "space lasers"]
+        }
+      }
+    },
+    "5": {
+      "beats": {
+        "1": {
+          "premise": "Prayer direction makes Muslims tactically vulnerable to sneak attacks.",
+          "joke_type": "what-if",
+          "topics": ["Middle East", "prayer", "war"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "Folks, I was watching \"Batman\" earlier,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1810, "start": 4073},
+    {"text": "and it really got me thinking, you know,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1811, "start": 4076},
+    {"text": "'cause Bruce Wayne, his alter ego, is Batman,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1812, "start": 4078},
+    {"text": "inspired by his paralyzing fear of bats.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1813, "start": 4082},
+    {"text": "So I guess then my superhero name would be...", "label": "setup", "bit": 1, "beat": 1, "line_number": 1814, "start": 4085},
+    {"text": "Black Man.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1815, "start": 4089},
+    {"text": "Uh...", "label": "fluff", "bit": null, "beat": null, "line_number": 1816, "start": 4090},
+    {"text": "[ Laughter ]", "label": "fluff", "bit": null, "beat": null, "line_number": 1817, "start": 4092},
+    {"text": "Man, okay.", "label": "fluff", "bit": null, "beat": null, "line_number": 1818, "start": 4094},
+    {"text": "And considering how many of these superheroes", "label": "setup", "bit": 2, "beat": 1, "line_number": 1819, "start": 4095},
+    {"text": "get their power from radiation,", "label": "setup", "bit": 2, "beat": 1, "line_number": 1820, "start": 4098},
+    {"text": "not nearly enough of them are Japanese.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1821, "start": 4100},
+    {"text": "Uh...", "label": "fluff", "bit": null, "beat": null, "line_number": 1822, "start": 4102},
+    {"text": "Come on, Asian jokes are short-sighted.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 1823, "start": 4105},
+    {"text": "And what do I know?", "label": "setup", "bit": 3, "beat": 2, "line_number": 1824, "start": 4107},
+    {"text": "Until Oppenheimer came out, I thought Nagasaki", "label": "setup", "bit": 3, "beat": 2, "line_number": 1825, "start": 4110},
+    {"text": "was about black blowjobs.", "label": "punchline", "bit": 3, "beat": 2, "line_number": 1826, "start": 4112},
+    {"text": "Uh...", "label": "fluff", "bit": null, "beat": null, "line_number": 1827, "start": 4114},
+    {"text": "Speaking of...", "label": "fluff", "bit": null, "beat": null, "line_number": 1829, "start": 4120},
+    {"text": "Speaking of overreactions,", "label": "setup", "bit": 4, "beat": 1, "line_number": 1830, "start": 4124},
+    {"text": "Hamas really brought a knife to a fucking space laser fight?", "label": "punchline", "bit": 4, "beat": 1, "line_number": 1831, "start": 4126},
+    {"text": "Oh, holy shit.", "label": "fluff", "bit": null, "beat": null, "line_number": 1832, "start": 4129},
+    {"text": "Out of control.", "label": "fluff", "bit": null, "beat": null, "line_number": 1833, "start": 4130},
+    {"text": "I'll never understand how conflict in the Middle East", "label": "setup", "bit": 5, "beat": 1, "line_number": 1834, "start": 4132},
+    {"text": "has lasted so long.", "label": "setup", "bit": 5, "beat": 1, "line_number": 1835, "start": 4134},
+    {"text": "Considering half of them face the same way", "label": "setup", "bit": 5, "beat": 1, "line_number": 1836, "start": 4137},
+    {"text": "five times a day,", "label": "setup", "bit": 5, "beat": 1, "line_number": 1837, "start": 4139},
+    {"text": "fucking sneak up behind them.", "label": "punchline", "bit": 5, "beat": 1, "line_number": 1838, "start": 4141},
+    {"text": "Problem solved.", "label": "tag", "bit": 5, "beat": 1, "line_number": 1839, "start": 4145},
+    {"text": "You are welcome, Jews.", "label": "tag", "bit": 5, "beat": 1, "line_number": 1840, "start": 4147},
+    {"text": "Okay, thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 1841, "start": 4149}
+  ]
+}
