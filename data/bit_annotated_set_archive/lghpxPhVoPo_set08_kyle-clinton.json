@@ -11,21 +11,30 @@
   "start_seconds": 3994,
   "bit_meta": {
     "1": {
-      "premise": "A vasectomy question is misdirected: the prerequisite is not readiness for fatherhood but having sex at all.",
       "beats": {
-        "1": {"topics": ["vasectomy", "virginity", "family", "sex"]}
+        "1": {
+          "premise": "A vasectomy question implies family planning, not needing sex first.",
+          "joke_type": "misdirect",
+          "topics": ["vasectomy", "virginity", "family", "sex"]
+        }
       }
     },
     "2": {
-      "premise": "The Kentucky incest stereotype is subverted: the cousin was unattainable, and the family had already claimed her.",
       "beats": {
-        "1": {"topics": ["Kentucky", "incest", "family", "homecoming"]}
+        "1": {
+          "premise": "Denying incest implies morality, not failing to compete for a cousin.",
+          "joke_type": "misdirect",
+          "topics": ["Kentucky", "incest", "family", "homecoming"]
+        }
       }
     },
     "3": {
-      "premise": "A religious denomination name is used as a pun to announce a meth addiction.",
       "beats": {
-        "1": {"topics": ["religion", "meth", "Kentucky", "drugs"]}
+        "1": {
+          "premise": "'Methodist' and 'meth' sound alike, and crystal meth fits drug use.",
+          "joke_type": "phonetic-match",
+          "topics": ["religion", "meth", "Kentucky", "drugs"]
+        }
       }
     }
   },

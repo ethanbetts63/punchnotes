@@ -11,28 +11,45 @@
   "start_seconds": 1817,
   "bit_meta": {
     "1": {
-      "premise": "Biblical body-part ratios are extended to hands, making constant finger-blasting a divine commandment.",
       "beats": {
-        "1": {"topics": ["religion", "sex", "God", "hands"]}
+        "1": {
+          "premise": "Body-part counts can imply divine sexual instructions.",
+          "joke_type": "analogy",
+          "topics": ["religion", "sex", "God", "hands"]
+        }
       }
     },
     "2": {
-      "premise": "An empowering anti-faking-orgasm declaration is undercut by indifference rather than skill.",
       "beats": {
-        "1": {"topics": ["sex", "orgasm", "dating", "girlfriend"]}
+        "1": {
+          "premise": "Telling women not to fake orgasms implies care, not indifference.",
+          "joke_type": "misdirect",
+          "topics": ["sex", "orgasm", "dating", "girlfriend"]
+        }
       }
     },
     "3": {
-      "premise": "Medical advice about urinating after sex is reframed as an invitation for a golden shower fetish.",
       "beats": {
-        "1": {"topics": ["sex", "UTI", "urine", "fetish"]}
+        "1": {
+          "premise": "Peeing after sex can justify peeing during sex.",
+          "joke_type": "reframe",
+          "topics": ["sex", "UTI", "urine", "fetish"]
+        }
       }
     },
     "4": {
-      "premise": "A claim of making eye contact during sex is true only because it is directed at one's own reflection, reframed as cuckold fantasy.",
+      "premise": "Mirror sex turns eye contact into fetish logic.",
       "beats": {
-        "1": {"topics": ["sex", "eye contact", "mirror", "narcissism"]},
-        "2": {"topics": ["sex", "cuckold", "fetish", "mirror"]}
+        "1": {
+          "premise": "Making eye contact during sex implies a partner, not a reflection.",
+          "joke_type": "misdirect",
+          "topics": ["sex", "eye contact", "mirror", "narcissism"]
+        },
+        "2": {
+          "premise": "Mirror sex can simulate being cucked by an evil twin.",
+          "joke_type": "reframe",
+          "topics": ["sex", "cuckold", "fetish", "mirror"]
+        }
       }
     }
   },
@@ -59,6 +76,6 @@
     {"text": "I make a lot of eye contact during sex.", "label": "setup", "bit": 4, "beat": 1, "line_number": 667, "start": 1897},
     {"text": "It's just with myself in the mirror.", "label": "punchline", "bit": 4, "beat": 1, "line_number": 668, "start": 1899},
     {"text": "Not in like a narcissistic way.", "label": "setup", "bit": 4, "beat": 2, "line_number": 669, "start": 1904},
-    {"text": "I just like to pretend I'm getting cucked by my evil twin.", "label": "tag", "bit": 4, "beat": 2, "line_number": 670, "start": 1906}
+    {"text": "I just like to pretend I'm getting cucked by my evil twin.", "label": "punchline", "bit": 4, "beat": 2, "line_number": 670, "start": 1906}
   ]
 }

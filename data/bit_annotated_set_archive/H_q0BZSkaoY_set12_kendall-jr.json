@@ -11,22 +11,39 @@
   "start_seconds": 7382,
   "bit_meta": {
     "1": {
-      "premise": "A Black British accent violates the listener's racial expectations about how Black people are supposed to sound.",
       "beats": {
-        "1": {"topics": ["race", "British accent", "Black British"]}
+        "1": {
+          "premise": "Black British accents violate unspoken racial expectations.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["race", "British accent", "Black British"]
+        }
       }
     },
     "2": {
-      "premise": "Seeing a woman too affectionate with her dog triggers anxious hope that the relationship is not sexual.",
       "beats": {
-        "1": {"topics": ["dogs", "bestiality", "women"]}
+        "1": {
+          "premise": "Excessive affection toward a dog implies possible bestiality.",
+          "joke_type": "reframe",
+          "topics": ["dogs", "bestiality", "women"]
+        }
       }
     },
     "3": {
-      "premise": "A meth addict's copper obsession collides fatally with a copper IUD, and the same destructive pattern applies to a woman whose abortion history has replaced grooming vocabulary with geopolitical terminology.",
       "beats": {
-        "1": {"topics": ["meth", "IUD", "copper", "sex"]},
-        "2": {"topics": ["abortion", "Gaza", "sex"]}
+        "1": {
+          "premise": "Taken literally, meth heads have pull-out game with copper.",
+          "joke_type": "double-meaning",
+          "topics": ["meth", "IUD", "copper", "sex"]
+        }
+      }
+    },
+    "4": {
+      "beats": {
+        "1": {
+          "premise": "Taken literally, a landing strip can become the Gaza Strip.",
+          "joke_type": "double-meaning",
+          "topics": ["abortion", "Gaza", "pubic hair"]
+        }
       }
     }
   },
@@ -42,7 +59,7 @@
     {"text": "I've been thinking they probably do have the best pull-out game because of all", "label": "setup", "bit": 3, "beat": 1, "line_number": 3267, "start": 7411},
     {"text": "that copper wiring. But when a meth head has found the one and she's got one of", "label": "punchline", "bit": 3, "beat": 1, "line_number": 3268, "start": 7417},
     {"text": "those copper IUDs, they cannot help themselves. And someone wants to be a", "label": "tag", "bit": 3, "beat": 1, "line_number": 3269, "start": 7425},
-    {"text": "father. I did know a girl once she had so many abortions she didn't even", "label": "setup", "bit": 3, "beat": 2, "line_number": 3270, "start": 7434},
-    {"text": "have a landing strip. There's just a Gaza strip. Kendall. Kendall Kendall. You've been", "label": "punchline", "bit": 3, "beat": 2, "line_number": 3271, "start": 7441}
+    {"text": "father. I did know a girl once she had so many abortions she didn't even", "label": "setup", "bit": 4, "beat": 1, "line_number": 3270, "start": 7434},
+    {"text": "have a landing strip. There's just a Gaza strip. Kendall. Kendall Kendall. You've been", "label": "punchline", "bit": 4, "beat": 1, "line_number": 3271, "start": 7441}
   ]
 }

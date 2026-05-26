@@ -11,18 +11,38 @@
   "start_seconds": 758,
   "bit_meta": {
     "1": {
-      "premise": "A childlike appearance is mistaken for sexual excitement, then the entire romantic scenario is revealed to be fabricated.",
+      "premise": "Romantic confidence collapses into childishness and loneliness.",
       "beats": {
-        "1": {"topics": ["dating", "appearance", "sex", "girlfriend"]},
-        "2": {"topics": ["dating", "loneliness", "girlfriend"]}
+        "1": {
+          "premise": "Looking excited during sex is really just looking like a child.",
+          "joke_type": "analogy",
+          "topics": ["dating", "appearance", "sex", "girlfriend"]
+        },
+        "2": {
+          "premise": "A girlfriend story implies dating success, not total loneliness.",
+          "joke_type": "misdirect",
+          "topics": ["dating", "loneliness", "girlfriend"]
+        }
       }
     },
     "2": {
-      "premise": "Gluten intolerance signals such physical weakness that it destroys romantic relationships and breeds suicidal despair.",
+      "premise": "Gluten intolerance makes ordinary life pathetic.",
       "beats": {
-        "1": {"topics": ["gluten", "dating", "food", "masculinity"]},
-        "2": {"topics": ["gluten", "donuts", "food", "workplace"]},
-        "3": {"topics": ["gluten", "depression", "suicide", "toaster"]}
+        "1": {
+          "premise": "A gluten-free man cannot fight off Little Debbie.",
+          "joke_type": "double-meaning",
+          "topics": ["gluten", "dating", "food", "masculinity"]
+        },
+        "2": {
+          "premise": "Gluten makes a harmless apple fritter cause bathroom disaster.",
+          "joke_type": "reframe",
+          "topics": ["gluten", "donuts", "food", "workplace"]
+        },
+        "3": {
+          "premise": "Thinking about a toaster implies breakfast, not suicide.",
+          "joke_type": "misdirect",
+          "topics": ["gluten", "depression", "suicide", "toaster"]
+        }
       }
     }
   },

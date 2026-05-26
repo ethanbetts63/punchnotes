@@ -11,27 +11,43 @@
   "start_seconds": 2731,
   "bit_meta": {
     "1": {
-      "premise": "Minority identity stacking is neutralized by whiteness, and bisexuality is ranked as gayer than homosexuality because choosing dick over pussy proves greater commitment.",
+      "premise": "Identity labels get ranked through privilege and sexual choice.",
       "beats": {
-        "1": {"topics": ["autism", "sexuality", "race", "privilege"]},
-        "2": {"topics": ["bisexuality", "gay", "sex", "sexuality"]}
+        "1": {
+          "premise": "White privilege cancels out minority identity stacking.",
+          "joke_type": "reframe",
+          "topics": ["autism", "sexuality", "race", "privilege"]
+        },
+        "2": {
+          "premise": "Bisexuality seems gayer because dick is chosen over pussy.",
+          "joke_type": "reframe",
+          "topics": ["bisexuality", "gay", "sex", "sexuality"]
+        }
       }
     },
     "2": {
-      "premise": "Autism during sex hijacks the brain with hyperfocus on unrelated technical or intellectual topics.",
+      "premise": "Autistic focus interrupts sex.",
       "beats": {
-        "1": {"topics": ["autism", "sex", "sensory overload", "technology"]},
-        "2": {"topics": ["autism", "Netflix", "sex", "movies"]}
+        "1": {
+          "premise": "Sexual sensory overload can trigger cloud-storage questions.",
+          "joke_type": "reframe",
+          "topics": ["autism", "sex", "sensory overload", "technology"]
+        },
+        "2": {
+          "premise": "Taken literally, Netflix and chill prioritizes the movie.",
+          "joke_type": "double-meaning",
+          "topics": ["autism", "Netflix", "sex", "movies"]
+        }
       }
     }
   },
   "lines": [
     {"text": "Hey, gang.", "label": "fluff", "bit": null, "beat": null, "line_number": 1045, "start": 2731},
     {"text": "Hell yeah. I'm gay and autistic so technically I'm a double minority, but because I'm white", "label": "setup", "bit": 1, "beat": 1, "line_number": 1046, "start": 2733},
-    {"text": "it just levels out. You know what I mean? I'm bisexual, that kind of sucks. You know", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1047, "start": 2742},
+    {"text": "it just levels out. You know what I mean? I'm bisexual, that kind of sucks. You know", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1047, "start": 2742},
     {"text": "what I mean? Because I feel like bisexual is gayer than being gay, you know? Because", "label": "setup", "bit": 1, "beat": 2, "line_number": 1048, "start": 2748},
     {"text": "when you're bi that means that you like dick and pussy, right? So if you choose some dick", "label": "setup", "bit": 1, "beat": 2, "line_number": 1049, "start": 2753},
-    {"text": "overpussy. That's gay. That's really gay. But I'm autistic and bitches love the tism", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1050, "start": 2758},
+    {"text": "overpussy. That's gay. That's really gay. But I'm autistic and bitches love the tism", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1050, "start": 2758},
     {"text": "dick. I be stimmin' in they shit, you know? I'm like, \"Damn, bitch, this pussy give me", "label": "setup", "bit": 2, "beat": 1, "line_number": 1051, "start": 2769},
     {"text": "a sensory overload right now.\" I'm in the hole. I'm like, \"So when you store your", "label": "setup", "bit": 2, "beat": 1, "line_number": 1052, "start": 2778},
     {"text": "Do you use Dropbox or OneDrive?", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1053, "start": 2783},

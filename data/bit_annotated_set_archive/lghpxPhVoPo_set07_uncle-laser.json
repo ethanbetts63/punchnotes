@@ -11,22 +11,36 @@
   "start_seconds": 3450,
   "bit_meta": {
     "1": {
-      "premise": "The Houston rodeo produces an unlikely erotic spectacle: Black women twerking in jean shorts to George Strait.",
       "beats": {
-        "1": {"topics": ["rodeo", "race", "country music", "George Strait"]}
+        "1": {
+          "premise": "The rodeo can turn country music into a twerking soundtrack.",
+          "joke_type": "reframe",
+          "topics": ["rodeo", "race", "country music", "George Strait"]
+        }
       }
     },
     "2": {
-      "premise": "A tornado-like woman at the rodeo is identified by her airbrush memorial shirt and feral hunger for brisket.",
       "beats": {
-        "1": {"topics": ["rodeo", "Houston", "brisket", "fashion"]}
+        "1": {
+          "premise": "A rodeo woman looks like a feral dog hunting brisket.",
+          "joke_type": "analogy",
+          "topics": ["rodeo", "Houston", "brisket", "fashion"]
+        }
       }
     },
     "3": {
-      "premise": "A drunk rodeo hookup becomes a panic-inducing encounter when the woman's repeated request for a queef is incomprehensible.",
+      "premise": "A rodeo hookup becomes a confusing bayou nightmare.",
       "beats": {
-        "1": {"topics": ["rodeo", "hookup", "Houston", "Louisiana"]},
-        "2": {"topics": ["sex", "queef", "hookup", "family"]}
+        "1": {
+          "premise": "A Louisiana bayou hookup is reduced to Buffalo Bayou.",
+          "joke_type": "reframe",
+          "topics": ["rodeo", "hookup", "Houston", "Louisiana"]
+        },
+        "2": {
+          "premise": "A sex request becomes so confusing it requires maternal rescue.",
+          "joke_type": "misdirect",
+          "topics": ["sex", "queef", "hookup", "family"]
+        }
       }
     }
   },

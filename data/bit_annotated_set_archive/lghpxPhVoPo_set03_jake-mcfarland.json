@@ -11,16 +11,27 @@
   "start_seconds": 1346,
   "bit_meta": {
     "1": {
-      "premise": "A sobriety announcement is misdirected from substance addiction to a racial sexual preference.",
       "beats": {
-        "1": {"topics": ["sobriety", "race", "sex", "dating"]}
+        "1": {
+          "premise": "Sobriety implies quitting drugs, not white women.",
+          "joke_type": "misdirect",
+          "topics": ["sobriety", "race", "sex", "dating"]
+        }
       }
     },
     "2": {
-      "premise": "Black History Month is reframed as a personal sexual obligation, and the demand for reparations is literalized as a sex act.",
+      "premise": "Racial obligation becomes sexual obligation.",
       "beats": {
-        "1": {"topics": ["Black History Month", "race", "sex", "oral sex"]},
-        "2": {"topics": ["oral sex", "reparations", "race", "sex"]}
+        "1": {
+          "premise": "Black History Month can require sexual participation.",
+          "joke_type": "reframe",
+          "topics": ["Black History Month", "race", "sex", "oral sex"]
+        },
+        "2": {
+          "premise": "Reparations can be demanded as extended oral sex.",
+          "joke_type": "reframe",
+          "topics": ["oral sex", "reparations", "race", "sex"]
+        }
       }
     }
   },
@@ -48,7 +59,7 @@
     {"text": "and I was down there in them thick thighs.", "label": "setup", "bit": 2, "beat": 2, "line_number": 515, "start": 1397},
     {"text": "You know how it is.", "label": "setup", "bit": 2, "beat": 2, "line_number": 516, "start": 1399},
     {"text": "And I was down there doing my thing.", "label": "setup", "bit": 2, "beat": 2, "line_number": 517, "start": 1400},
-    {"text": "[imitates a \"tat-tat-tat-tat\" sound]", "label": "setup", "bit": 2, "beat": 2, "line_number": 518, "start": 1402},
+    {"text": "[imitates a \"tat-tat-tat-tat\" sound]", "label": "fluff", "bit": 2, "beat": 2, "line_number": 518, "start": 1402},
     {"text": "You know?", "label": "fluff", "bit": 2, "beat": 2, "line_number": 519, "start": 1404},
     {"text": "Hey.", "label": "fluff", "bit": 2, "beat": 2, "line_number": 520, "start": 1406},
     {"text": "But I was running out of air quick, all right?", "label": "setup", "bit": 2, "beat": 2, "line_number": 521, "start": 1407},

@@ -11,21 +11,30 @@
   "start_seconds": 6256,
   "bit_meta": {
     "1": {
-      "premise": "A medication name implies a suppository version exists, making the oral route a deliberate and sensible choice.",
       "beats": {
-        "1": {"topics": ["medication", "baclofen", "anal", "drugs"]}
+        "1": {
+          "premise": "An oral medication label implies an anal version exists.",
+          "joke_type": "reframe",
+          "topics": ["medication", "baclofen", "anal", "drugs"]
+        }
       }
     },
     "2": {
-      "premise": "Smoking weed through a squash instead of an apple is an attempt to coin a new drug slang term.",
       "beats": {
-        "1": {"topics": ["weed", "drugs", "slang"]}
+        "1": {
+          "premise": "Taken as drug slang, smoking through squash makes someone squashed.",
+          "joke_type": "double-meaning",
+          "topics": ["weed", "squash", "drug slang"]
+        }
       }
     },
     "3": {
-      "premise": "A scientific finding permitting sex with second cousins is best explained by the researcher having a personally attractive second cousin.",
       "beats": {
-        "1": {"topics": ["incest", "cousins", "science", "sex"]}
+        "1": {
+          "premise": "Incest research can be reinterpreted as a scientist justifying attraction.",
+          "joke_type": "reframe",
+          "topics": ["incest", "cousins", "science", "sex"]
+        }
       }
     }
   },

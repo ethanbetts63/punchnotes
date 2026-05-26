@@ -11,17 +11,33 @@
   "start_seconds": 6690,
   "bit_meta": {
     "1": {
-      "premise": "Tesla's brand shifted from environmental virtue to white nationalist association, which extends logically to the KKK adopting eco-friendly practices.",
+      "premise": "Environmentalism and racism can overlap absurdly.",
       "beats": {
-        "1": {"topics": ["Tesla", "Elon Musk", "white supremacy", "race"]},
-        "2": {"topics": ["KKK", "environmentalism", "race", "LED"]}
+        "1": {
+          "premise": "Tesla power shifts from clean energy to white supremacy.",
+          "joke_type": "double-meaning",
+          "topics": ["Tesla", "Elon Musk", "white supremacy", "race"]
+        },
+        "2": {
+          "premise": "What if the KKK made cross burnings eco-friendly.",
+          "joke_type": "what-if",
+          "topics": ["KKK", "environmentalism", "race", "LED"]
+        }
       }
     },
     "2": {
-      "premise": "NFL team names that reference racial conflict, when scheduled against each other on historically charged dates, become unintentional historical reenactments.",
+      "premise": "Sports matchups can accidentally echo racial history.",
       "beats": {
-        "1": {"topics": ["Washington Redskins", "Dallas Cowboys", "Thanksgiving", "Native Americans"]},
-        "2": {"topics": ["police", "race", "Juneteenth", "NFL"]}
+        "1": {
+          "premise": "Cowboys versus Redskins on Thanksgiving resembles a reenactment.",
+          "joke_type": "reframe",
+          "topics": ["Washington Redskins", "Dallas Cowboys", "Thanksgiving", "Native Americans"]
+        },
+        "2": {
+          "premise": "What if a police team played a racial-slur team on Juneteenth.",
+          "joke_type": "what-if",
+          "topics": ["police", "race", "Juneteenth", "NFL"]
+        }
       }
     }
   },

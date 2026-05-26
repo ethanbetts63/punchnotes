@@ -11,27 +11,39 @@
   "start_seconds": 433,
   "bit_meta": {
     "1": {
-      "premise": "A predominantly white audience at a Houston comedy show resembles a segregated megachurch.",
       "beats": {
-        "1": {"topics": ["race", "Houston", "Lakewood Church", "audience"]}
+        "1": {
+          "premise": "A white Houston audience looks like a racist megachurch.",
+          "joke_type": "analogy",
+          "topics": ["race", "Houston", "Lakewood Church", "audience"]
+        }
       }
     },
     "2": {
-      "premise": "A Latino man's fear of ICE is undermined by the revelation that ICE now targets white people, collapsing his only safe hiding spot.",
       "beats": {
-        "1": {"topics": ["ICE", "immigration", "race", "Lululemon"]}
+        "1": {
+          "premise": "ICE targeting white people ruins Lululemon as a hiding spot.",
+          "joke_type": "misdirect",
+          "topics": ["ICE", "immigration", "race", "Lululemon"]
+        }
       }
     },
     "3": {
-      "premise": "Performing an act of animal charity (rescuing cats) is reframed as a calculated seduction strategy.",
       "beats": {
-        "1": {"topics": ["dating", "cats", "animal rescue", "sex"]}
+        "1": {
+          "premise": "Taken literally, saving the kitty can help eat the kitty.",
+          "joke_type": "double-meaning",
+          "topics": ["dating", "cats", "animal rescue", "sex"]
+        }
       }
     },
     "4": {
-      "premise": "A dog breed serves as a cross-racial bonding tool with older white men until their inherited racism abruptly ends the connection.",
       "beats": {
-        "1": {"topics": ["race", "dogs", "blue heeler", "racism"]}
+        "1": {
+          "premise": "Dog talk with white men collapses when inherited racism returns.",
+          "joke_type": "reframe",
+          "topics": ["race", "dogs", "blue heeler", "racism"]
+        }
       }
     }
   },
