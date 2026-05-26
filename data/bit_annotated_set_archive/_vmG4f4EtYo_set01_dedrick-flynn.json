@@ -1,0 +1,256 @@
+{
+  "type": "set_meta",
+  "video_id": "_vmG4f4EtYo",
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "guests": [
+    "Theo Von",
+    "Jelly Roll"
+  ],
+  "comedian_name": "Dedrick Flynn",
+  "comedian_type": "regular",
+  "set_number": 1,
+  "start_seconds": 425,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "A debt buyer should not demand money from him because choosing to buy the debt makes it their problem.",
+      "line_range": [
+        145,
+        178
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            145,
+            157
+          ],
+          "topics": [
+            "debt collection",
+            "Sprint",
+            "debt buyers"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            159,
+            163
+          ],
+          "topics": [
+            "Sprint",
+            "payment excuses",
+            "unknown companies"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_003",
+          "line_range": [
+            164,
+            173
+          ],
+          "topics": [
+            "debt buyers",
+            "performative charity",
+            "Sprint commercials"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_004",
+          "line_range": [
+            175,
+            178
+          ],
+          "topics": [
+            "debt collection",
+            "Jesus",
+            "sins"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "- What's up, y'all?",
+      "start": 425,
+      "label": "fluff",
+      "line_number": 144
+    },
+    {
+      "text": "Did y'all know that a company can buy your debt",
+      "start": 427,
+      "label": "setup",
+      "line_number": 145
+    },
+    {
+      "text": "from somebody else?",
+      "start": 431,
+      "label": "setup",
+      "line_number": 146
+    },
+    {
+      "text": "Jefferson Capital emailed me,",
+      "start": 433,
+      "label": "setup",
+      "line_number": 147
+    },
+    {
+      "text": "And they said, \"Hey, we bought your debt from Sprint.",
+      "start": 437,
+      "label": "setup",
+      "line_number": 148
+    },
+    {
+      "text": "You owe us money now.\"",
+      "start": 441,
+      "label": "setup",
+      "line_number": 149
+    },
+    {
+      "text": "No, nigga, you bought it.",
+      "start": 443,
+      "label": "punchline",
+      "line_number": 150
+    },
+    {
+      "text": "That's yours now.",
+      "start": 447,
+      "label": "tag",
+      "line_number": 152
+    },
+    {
+      "text": "If I leave a dog outside and you adopt the dog,",
+      "start": 451,
+      "label": "tag",
+      "line_number": 153
+    },
+    {
+      "text": "it's not on me to feed the dog, right?",
+      "start": 455,
+      "label": "tag",
+      "line_number": 154
+    },
+    {
+      "text": "That's not America.",
+      "start": 458,
+      "label": "tag",
+      "line_number": 155
+    },
+    {
+      "text": "That's your debt now.",
+      "start": 460,
+      "label": "tag",
+      "line_number": 156
+    },
+    {
+      "text": "I know Sprint, nigga, I don't know you.",
+      "start": 462,
+      "label": "tag",
+      "line_number": 157
+    },
+    {
+      "text": "I know Sarah has sprits.",
+      "start": 466,
+      "label": "setup",
+      "line_number": 159
+    },
+    {
+      "text": "Sarah know why I couldn't pay",
+      "start": 468,
+      "label": "setup",
+      "line_number": 160
+    },
+    {
+      "text": "and why I was putting something on it.",
+      "start": 470,
+      "label": "punchline",
+      "line_number": 161
+    },
+    {
+      "text": "Jefferson Capital, nigga, I can't even Google y'all.",
+      "start": 474,
+      "label": "tag",
+      "line_number": 163
+    },
+    {
+      "text": "I'm never gonna, what the,",
+      "start": 477,
+      "label": "fluff",
+      "line_number": 164
+    },
+    {
+      "text": "what kind of a stupid ass company",
+      "start": 479,
+      "label": "setup",
+      "line_number": 165
+    },
+    {
+      "text": "buy debt from other people?",
+      "start": 481,
+      "label": "setup",
+      "line_number": 166
+    },
+    {
+      "text": "That's the same niggas that go online",
+      "start": 484,
+      "label": "setup",
+      "line_number": 168
+    },
+    {
+      "text": "and they feed the homeless on HD cameras.",
+      "start": 486,
+      "label": "punchline",
+      "line_number": 169
+    },
+    {
+      "text": "What kind of shit?",
+      "start": 492,
+      "label": "tag",
+      "line_number": 171
+    },
+    {
+      "text": "You think I'm finna, nigga, I see sprint commercials",
+      "start": 493,
+      "label": "setup",
+      "line_number": 172
+    },
+    {
+      "text": "every day and I go, \"Oh, them niggas don't ever see it.\"",
+      "start": 496,
+      "label": "punchline",
+      "line_number": 173
+    },
+    {
+      "text": "I don't, how dare you come to me like Jesus.",
+      "start": 500,
+      "label": "setup",
+      "line_number": 175
+    },
+    {
+      "text": "Didn't even, when Jesus paid for our sins,",
+      "start": 505,
+      "label": "setup",
+      "line_number": 176
+    },
+    {
+      "text": "that nigga never sent me an email being like,",
+      "start": 508,
+      "label": "setup",
+      "line_number": 177
+    },
+    {
+      "text": "the adultery that you made last year.",
+      "start": 511,
+      "label": "punchline",
+      "line_number": 178
+    },
+    {
+      "text": "That's my time, I'm dead to bed.",
+      "start": 514,
+      "label": "fluff",
+      "line_number": 179
+    }
+  ]
+}

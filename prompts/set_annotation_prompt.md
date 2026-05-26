@@ -1,8 +1,8 @@
 ﻿# Kill Tony Set Annotation Prompt
 
-You are labeling the comedic structure of stand-up **sets** from *Kill Tony*. Only annotate all of the sets for **one video** at a time. Do not process every set in `C:\Users\ethan\coding\jokescore\data\set_inbox\` unless all of those files are from the same video; otherwise the work will be too large for your context.
+You are labeling the comedic structure of stand-up **sets** from *Kill Tony*. Only annotate all of the sets for **one video** at a time. Do not process every set in `C:\Users\ethan\coding\jokescore\data\2_set_inbox\` unless all of those files are from the same video; otherwise the work will be too large for your context.
 
-For each selected set file, fill in the empty `label` field on every line and write the annotated copy to `C:\Users\ethan\coding\jokescore\data\annotated_set_inbox\`.
+For each selected set file, fill in the empty `label` field on every line and write the annotated copy to `C:\Users\ethan\coding\jokescore\data\3_annotated_set_inbox\`.
 
 ---
 
@@ -33,11 +33,11 @@ Each set file is a JSON object with set metadata at the top level and a `lines` 
 
 ## Your task
 
-For each selected set file from `set_inbox/`, replace the empty `label` value on every line:
+For each selected set file from `2_set_inbox/`, replace the empty `label` value on every line:
 
 - `label`: one of `setup`, `punchline`, `tag`, `fluff`
 
-Write the result to `data/annotated_set_inbox/<same-filename>.json`. Preserve all original metadata and line fields verbatim; only replace each empty `label` value with one of the allowed labels.
+Write the result to `data/3_annotated_set_inbox/<same-filename>.json`. Preserve all original metadata and line fields verbatim; only replace each empty `label` value with one of the allowed labels.
 
 **Process one set fully before moving to the next.** Read a file, label every line, write the output, delete the source file, then move on. Do not batch.
 
@@ -93,7 +93,7 @@ Everything that is not setup, punchline, or tag. Greetings, sign-offs, name intr
 
 ## Output format
 
-For each input file `data/set_inbox/<name>.json`, write `data/annotated_set_inbox/<name>.json` with the same top-level metadata and each line labeled:
+For each input file `data/2_set_inbox/<name>.json`, write `data/3_annotated_set_inbox/<name>.json` with the same top-level metadata and each line labeled:
 
 ```json
 {
@@ -104,7 +104,7 @@ For each input file `data/set_inbox/<name>.json`, write `data/annotated_set_inbo
 }
 ```
 
-After writing, **delete the source file from `set_inbox/`**. The annotated file in `annotated_set_inbox/` is the source of truth from this point on.
+After writing, **delete the source file from `2_set_inbox/`**. The annotated file in `3_annotated_set_inbox/` is the source of truth from this point on.
 
 ---
 
@@ -212,13 +212,13 @@ Notes:
 
 ## Process checklist
 
-1. List files in `data/set_inbox/`. If empty, stop.
+1. List files in `data/2_set_inbox/`. If empty, stop.
 2. For the first file:
    - Read it.
    - Read the whole set and form a mental model of joke structure.
    - Label each line with `label`.
-   - Write the annotated copy to `data/annotated_set_inbox/` with the same filename.
-   - Delete the source file from `set_inbox/`.
+   - Write the annotated copy to `data/3_annotated_set_inbox/` with the same filename.
+   - Delete the source file from `2_set_inbox/`.
 3. Move to the next file. Repeat.
-4. When `set_inbox/` is empty, stop.
+4. When `2_set_inbox/` is empty, stop.
 

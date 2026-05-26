@@ -1,0 +1,180 @@
+{
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": [
+    "Ari Shaffir",
+    "Luis J Gomez",
+    "Peyton Ruddy"
+  ],
+  "comedian_name": "Adam Beck-Ariowa",
+  "comedian_type": "bucket_pull",
+  "set_number": 10,
+  "start_seconds": 5350,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "A woman having herpes seems like a dating advantage because it gives him leverage and access to an avoided pool of women.",
+      "line_range": [
+        2376,
+        2394
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            2376,
+            2379
+          ],
+          "topics": [
+            "herpes",
+            "dating",
+            "aftermarket parts"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            2380,
+            2385
+          ],
+          "topics": [
+            "relationships",
+            "arguments",
+            "herpes"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_003",
+          "line_range": [
+            2387,
+            2394
+          ],
+          "topics": [
+            "herpes",
+            "sexual opportunity",
+            "fat white women"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": ">> I recently met a girl with herpes and well, I think I'm in love.",
+      "start": 5350,
+      "label": "setup",
+      "line_number": 2376
+    },
+    {
+      "text": "I mean, one of the odds the first woman I talked to in months has after market",
+      "start": 5354,
+      "label": "setup",
+      "line_number": 2377
+    },
+    {
+      "text": "parts.",
+      "start": 5357,
+      "label": "punchline",
+      "line_number": 2378
+    },
+    {
+      "text": "It was kind of a surreal moment for me, talking to a woman.",
+      "start": 5358,
+      "label": "tag",
+      "line_number": 2379
+    },
+    {
+      "text": "But I really think she could be the one.",
+      "start": 5362,
+      "label": "setup",
+      "line_number": 2380
+    },
+    {
+      "text": "I mean, think about if I'm ever losing an argument,",
+      "start": 5364,
+      "label": "setup",
+      "line_number": 2381
+    },
+    {
+      "text": "I can just pull the herpes card.",
+      "start": 5366,
+      "label": "punchline",
+      "line_number": 2382
+    },
+    {
+      "text": "Sorry we couldn't afford groceries this month, honey.",
+      "start": 5368,
+      "label": "setup",
+      "line_number": 2383
+    },
+    {
+      "text": "Maybe if you didn't ruin my life by getting pregnant,",
+      "start": 5371,
+      "label": "setup",
+      "line_number": 2384
+    },
+    {
+      "text": "oh, and you have herpes, bitch.",
+      "start": 5373,
+      "label": "punchline",
+      "line_number": 2385
+    },
+    {
+      "text": "But you know, I'm really considering getting herpes.",
+      "start": 5380,
+      "label": "setup",
+      "line_number": 2387
+    },
+    {
+      "text": "Think about it, there's so many beautiful women",
+      "start": 5383,
+      "label": "setup",
+      "line_number": 2388
+    },
+    {
+      "text": "out there with herpes that no one wants to have sex with.",
+      "start": 5385,
+      "label": "setup",
+      "line_number": 2389
+    },
+    {
+      "text": "Well, almost no one, sorry, Red Band.",
+      "start": 5388,
+      "label": "punchline",
+      "line_number": 2390
+    },
+    {
+      "text": "Didn't wanna not include you.",
+      "start": 5390,
+      "label": "tag",
+      "line_number": 2391
+    },
+    {
+      "text": "And I was like, wow, this is what black men",
+      "start": 5392,
+      "label": "setup",
+      "line_number": 2392
+    },
+    {
+      "text": "must have felt like when they discovered fat white women.",
+      "start": 5394,
+      "label": "setup",
+      "line_number": 2393
+    },
+    {
+      "text": "You got a whole category for yourself.",
+      "start": 5397,
+      "label": "punchline",
+      "line_number": 2394
+    },
+    {
+      "text": "Thank you, that was my time.",
+      "start": 5399,
+      "label": "fluff",
+      "line_number": 2395
+    }
+  ]
+}

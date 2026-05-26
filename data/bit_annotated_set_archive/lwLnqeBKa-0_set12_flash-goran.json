@@ -1,0 +1,209 @@
+{
+  "type": "set_meta",
+  "video_id": "lwLnqeBKa-0",
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
+  "publish_date": "2026-04-28",
+  "guests": [
+    "Dustin Poirier",
+    "Ari Matti"
+  ],
+  "comedian_name": "Flash Goran",
+  "comedian_type": "bucket_pull",
+  "set_number": 12,
+  "start_seconds": 5634,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "He is Bosnian but does not know his own stereotypes, so he wants people to tell him more.",
+      "line_range": [
+        2438,
+        2455
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            2438,
+            2445
+          ],
+          "topics": [
+            "Bosnia",
+            "stereotypes",
+            "Europeans"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            2446,
+            2452
+          ],
+          "topics": [
+            "Bosnian stereotypes",
+            "Glock",
+            "note taking"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_003",
+          "line_range": [
+            2453,
+            2455
+          ],
+          "topics": [
+            "Bosnia",
+            "language",
+            "driving"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "How's it going, everybody?",
+      "start": 5634,
+      "label": "fluff",
+      "line_number": 2436
+    },
+    {
+      "text": "My name is Flash Goren.",
+      "start": 5637,
+      "label": "fluff",
+      "line_number": 2437
+    },
+    {
+      "text": "I'm Bosnian.",
+      "start": 5639,
+      "label": "setup",
+      "line_number": 2438
+    },
+    {
+      "text": "And I don't know what that means either.",
+      "start": 5640,
+      "label": "punchline",
+      "line_number": 2439
+    },
+    {
+      "text": "Yeah, I don't even know my own stereotypes,",
+      "start": 5644,
+      "label": "setup",
+      "line_number": 2440
+    },
+    {
+      "text": "which is kind of weird.",
+      "start": 5647,
+      "label": "setup",
+      "line_number": 2441
+    },
+    {
+      "text": "All I know is that other Europeans get very nervous",
+      "start": 5649,
+      "label": "setup",
+      "line_number": 2442
+    },
+    {
+      "text": "when I'm around them.",
+      "start": 5653,
+      "label": "punchline",
+      "line_number": 2443
+    },
+    {
+      "text": "And-- and you're welcome.",
+      "start": 5656,
+      "label": "tag",
+      "line_number": 2444
+    },
+    {
+      "text": "That's all I have to say about that.",
+      "start": 5663,
+      "label": "fluff",
+      "line_number": 2445
+    },
+    {
+      "text": "If somebody came up to me and said,",
+      "start": 5666,
+      "label": "setup",
+      "line_number": 2446
+    },
+    {
+      "text": "all Bosnians are bad drivers, my response",
+      "start": 5668,
+      "label": "setup",
+      "line_number": 2447
+    },
+    {
+      "text": "would be, what else?",
+      "start": 5670,
+      "label": "punchline",
+      "line_number": 2448
+    },
+    {
+      "text": "I want to know.",
+      "start": 5676,
+      "label": "tag",
+      "line_number": 2449
+    },
+    {
+      "text": "I'm going to get my Glock out and take some notes.",
+      "start": 5679,
+      "label": "tag",
+      "line_number": 2450
+    },
+    {
+      "text": "Glock also makes pens.",
+      "start": 5683,
+      "label": "tag",
+      "line_number": 2451
+    },
+    {
+      "text": "Not everyone knows that.",
+      "start": 5684,
+      "label": "tag",
+      "line_number": 2452
+    },
+    {
+      "text": "I'm not the best representative from Bosnians.",
+      "start": 5687,
+      "label": "setup",
+      "line_number": 2453
+    },
+    {
+      "text": "I know that I forgot most of the language.",
+      "start": 5691,
+      "label": "setup",
+      "line_number": 2454
+    },
+    {
+      "text": "And I'm a good driver.",
+      "start": 5694,
+      "label": "punchline",
+      "line_number": 2455
+    },
+    {
+      "text": "And also--",
+      "start": 5696,
+      "label": "fluff",
+      "line_number": 2456
+    },
+    {
+      "text": "[HORN HONKING]",
+      "start": 5698,
+      "label": "fluff",
+      "line_number": 2457
+    },
+    {
+      "text": "I think I just forgot the rest.",
+      "start": 5701,
+      "label": "fluff",
+      "line_number": 2458
+    },
+    {
+      "text": "Thanks, guys.",
+      "start": 5702,
+      "label": "fluff",
+      "line_number": 2459
+    }
+  ]
+}

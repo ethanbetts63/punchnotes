@@ -1,0 +1,206 @@
+{
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": [
+    "Shane Gillis",
+    "James McCann"
+  ],
+  "comedian_name": "Matt Gonzalez",
+  "comedian_type": "bucket_pull",
+  "set_number": 10,
+  "start_seconds": 4945,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Being fat and Mexican turns Ozempic into a nickname pun.",
+      "line_range": [
+        2245,
+        2246
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            2245,
+            2246
+          ],
+          "topics": [
+            "Mexican identity",
+            "weight",
+            "Ozempic"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Catholic women expected him to become a priest, but his sexual ambitions point in the opposite direction.",
+      "line_range": [
+        2247,
+        2257
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            2247,
+            2254
+          ],
+          "topics": [
+            "Catholicism",
+            "priests",
+            "child abuse",
+            "white women"
+          ]
+        },
+        {
+          "beat_id": "bit_002_beat_002",
+          "line_range": [
+            2255,
+            2257
+          ],
+          "topics": [
+            "dating",
+            "white women",
+            "God's plan"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "His white girlfriend turns sex into an immigration exchange.",
+      "line_range": [
+        2258,
+        2261
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [
+            2258,
+            2261
+          ],
+          "topics": [
+            "girlfriends",
+            "white women",
+            "green cards"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "What's up?",
+      "start": 4945,
+      "label": "fluff",
+      "line_number": 2244
+    },
+    {
+      "text": "I'm fat and I'm Mexican.",
+      "start": 4947,
+      "label": "setup",
+      "line_number": 2245
+    },
+    {
+      "text": "My friends call me \"Ozemspic.\"",
+      "start": 4950,
+      "label": "punchline",
+      "line_number": 2246
+    },
+    {
+      "text": "Now, being Mexican, obviously I grew up Catholic.",
+      "start": 4957,
+      "label": "setup",
+      "line_number": 2247
+    },
+    {
+      "text": "Growing up Catholic, I'd always have, like, the old ladies at church.",
+      "start": 4960,
+      "label": "setup",
+      "line_number": 2248
+    },
+    {
+      "text": "They'd be like, \"Mijo.\"",
+      "start": 4964,
+      "label": "setup",
+      "line_number": 2249
+    },
+    {
+      "text": "They'd pinch my cheek, \"Mijo.\"",
+      "start": 4966,
+      "label": "setup",
+      "line_number": 2250
+    },
+    {
+      "text": "One of these days, you're gonna grow up.",
+      "start": 4968,
+      "label": "setup",
+      "line_number": 2251
+    },
+    {
+      "text": "grow up and you're gonna be a priest. I don't know how to tell them. I don't want",
+      "start": 4972,
+      "label": "setup",
+      "line_number": 2252
+    },
+    {
+      "text": "to fuck kids. Like that's not my journey and that's definitely not my cross to",
+      "start": 4979,
+      "label": "punchline",
+      "line_number": 2253
+    },
+    {
+      "text": "bear. God's plan for me was to fuck of-age white women and it's going pretty",
+      "start": 4988,
+      "label": "tag",
+      "line_number": 2254
+    },
+    {
+      "text": "I can't lie.",
+      "start": 4997,
+      "label": "fluff",
+      "line_number": 2255
+    },
+    {
+      "text": "It's going pretty good.",
+      "start": 5000,
+      "label": "tag",
+      "line_number": 2257
+    },
+    {
+      "text": "I have a girlfriend, it's sick as fuck.",
+      "start": 5001,
+      "label": "setup",
+      "line_number": 2258
+    },
+    {
+      "text": "She's white as hell.",
+      "start": 5004,
+      "label": "setup",
+      "line_number": 2259
+    },
+    {
+      "text": "I give her a good dick.",
+      "start": 5006,
+      "label": "setup",
+      "line_number": 2260
+    },
+    {
+      "text": "She gives me a green card.",
+      "start": 5008,
+      "label": "punchline",
+      "line_number": 2261
+    },
+    {
+      "text": "Thank you, that's my time.",
+      "start": 5012,
+      "label": "fluff",
+      "line_number": 2262
+    }
+  ]
+}

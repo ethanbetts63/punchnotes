@@ -1,0 +1,156 @@
+{
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": [
+    "Ari Shaffir",
+    "Luis J Gomez",
+    "Peyton Ruddy"
+  ],
+  "comedian_name": "PHX 98",
+  "comedian_type": "bucket_pull",
+  "set_number": 12,
+  "start_seconds": 6247,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "A rhyming direct address to Tony turns gay jokes, rave talk, and body comments into a chant.",
+      "line_range": [
+        2784,
+        2797
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            2784,
+            2786
+          ],
+          "topics": [
+            "Tony Hinchcliffe",
+            "GTA",
+            "gay jokes"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            2787,
+            2793
+          ],
+          "topics": [
+            "raves",
+            "Tony Hinchcliffe",
+            "rhyming"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_003",
+          "line_range": [
+            2794,
+            2797
+          ],
+          "topics": [
+            "squats",
+            "body",
+            "raves"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "Hey Tony, I heard you were gay Tony",
+      "start": 6247,
+      "label": "setup",
+      "line_number": 2784
+    },
+    {
+      "text": "No GTA, Tony.",
+      "start": 6251,
+      "label": "punchline",
+      "line_number": 2785
+    },
+    {
+      "text": "I'm like, \"No way, Tony?\"",
+      "start": 6253,
+      "label": "tag",
+      "line_number": 2786
+    },
+    {
+      "text": "Anyways, Tony, you fuck with raves, Tony?",
+      "start": 6256,
+      "label": "setup",
+      "line_number": 2787
+    },
+    {
+      "text": "No, I feel you fuck with raves, Tony.",
+      "start": 6259,
+      "label": "setup",
+      "line_number": 2788
+    },
+    {
+      "text": "Shit, Tony.",
+      "start": 6263,
+      "label": "fluff",
+      "line_number": 2789
+    },
+    {
+      "text": "I think you my twin, Tony.",
+      "start": 6266,
+      "label": "setup",
+      "line_number": 2790
+    },
+    {
+      "text": "You looking kind of thin, Tony.",
+      "start": 6269,
+      "label": "punchline",
+      "line_number": 2791
+    },
+    {
+      "text": "Shit.",
+      "start": 6272,
+      "label": "fluff",
+      "line_number": 2792
+    },
+    {
+      "text": "Bring that shit in, Tony.",
+      "start": 6273,
+      "label": "tag",
+      "line_number": 2793
+    },
+    {
+      "text": "Damn.",
+      "start": 6275,
+      "label": "fluff",
+      "line_number": 2794
+    },
+    {
+      "text": "Damn, Tony.",
+      "start": 6277,
+      "label": "fluff",
+      "line_number": 2795
+    },
+    {
+      "text": "I've been here in Squat 50 times every time I wake up working on my ass, Tony.",
+      "start": 6279,
+      "label": "punchline",
+      "line_number": 2796
+    },
+    {
+      "text": "So let me ask Tony. You fuck with raves, Tony?",
+      "start": 6285,
+      "label": "fluff",
+      "line_number": 2797
+    },
+    {
+      "text": "Oh, that's my minute.",
+      "start": 6300,
+      "label": "fluff",
+      "line_number": 2798
+    }
+  ]
+}

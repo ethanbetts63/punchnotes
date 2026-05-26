@@ -1,0 +1,270 @@
+{
+  "type": "set_meta",
+  "video_id": "lwLnqeBKa-0",
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
+  "publish_date": "2026-04-28",
+  "guests": [
+    "Dustin Poirier",
+    "Ari Matti"
+  ],
+  "comedian_name": "Isaiah Washington",
+  "comedian_type": "bucket_pull",
+  "set_number": 10,
+  "start_seconds": 4561,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Fatherlessness was so normal in his neighborhood that kids mocked classmates who had dads.",
+      "line_range": [
+        1925,
+        1935
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            1925,
+            1930
+          ],
+          "topics": [
+            "absent fathers",
+            "elementary school",
+            "Disneyland"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            1932,
+            1935
+          ],
+          "topics": [
+            "single mothers",
+            "childhood",
+            "masculinity"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Being raised by a single mother meant spending Saturdays at Lane Bryant.",
+      "line_range": [
+        1936,
+        1939
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            1936,
+            1939
+          ],
+          "topics": [
+            "single mothers",
+            "Lane Bryant",
+            "shopping"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "His religious upbringing made him ashamed when puberty gave him breasts.",
+      "line_range": [
+        1941,
+        1948
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [
+            1941,
+            1948
+          ],
+          "topics": [
+            "religion",
+            "body size",
+            "puberty",
+            "shame"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_004",
+      "premise": "He expects applause for saying some women like bigger men and turns the silence on the crowd.",
+      "line_range": [
+        1949,
+        1954
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_004_beat_001",
+          "line_range": [
+            1949,
+            1954
+          ],
+          "topics": [
+            "bigger men",
+            "audience reaction",
+            "self-esteem"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "- My dad was in and out of my life,",
+      "start": 4561,
+      "label": "setup",
+      "line_number": 1925
+    },
+    {
+      "text": "but that was pretty normal in my neighborhood, y'all.",
+      "start": 4563,
+      "label": "setup",
+      "line_number": 1926
+    },
+    {
+      "text": "It was so bad at my elementary school",
+      "start": 4566,
+      "label": "setup",
+      "line_number": 1927
+    },
+    {
+      "text": "that if you had a dad, we would make fun of you.",
+      "start": 4568,
+      "label": "punchline",
+      "line_number": 1928
+    },
+    {
+      "text": "Oh, yo, dad took you to Disneyland?",
+      "start": 4572,
+      "label": "tag",
+      "line_number": 1929
+    },
+    {
+      "text": "\"Ha ha, you must be gay.\"",
+      "start": 4574,
+      "label": "tag",
+      "line_number": 1930
+    },
+    {
+      "text": "Out there sucking on Disney dick.",
+      "start": 4578,
+      "label": "tag",
+      "line_number": 1932
+    },
+    {
+      "text": "You know what was pretty gay?",
+      "start": 4582,
+      "label": "tag",
+      "line_number": 1934
+    },
+    {
+      "text": "Being raised by a single mother.",
+      "start": 4583,
+      "label": "tag",
+      "line_number": 1935
+    },
+    {
+      "text": "Every Saturday I had to go shopping with her at Lane Bryant.",
+      "start": 4586,
+      "label": "setup",
+      "line_number": 1936
+    },
+    {
+      "text": "If you don't know what that is,",
+      "start": 4590,
+      "label": "setup",
+      "line_number": 1938
+    },
+    {
+      "text": "that's a Vittoria secret for big bitches.",
+      "start": 4591,
+      "label": "punchline",
+      "line_number": 1939
+    },
+    {
+      "text": "I love my mom though, but she raised me super religious.",
+      "start": 4596,
+      "label": "setup",
+      "line_number": 1941
+    },
+    {
+      "text": "Like so religious, like to the point I used to feel shame",
+      "start": 4599,
+      "label": "setup",
+      "line_number": 1942
+    },
+    {
+      "text": "about certain things when I was becoming a man.",
+      "start": 4602,
+      "label": "setup",
+      "line_number": 1943
+    },
+    {
+      "text": "For example, the first time I seen titties, I cried.",
+      "start": 4605,
+      "label": "setup",
+      "line_number": 1944
+    },
+    {
+      "text": "I was looking in the mirror like,",
+      "start": 4609,
+      "label": "setup",
+      "line_number": 1945
+    },
+    {
+      "text": "yo, those not supposed to be there.",
+      "start": 4611,
+      "label": "punchline",
+      "line_number": 1946
+    },
+    {
+      "text": "Like, why God, why?",
+      "start": 4615,
+      "label": "tag",
+      "line_number": 1948
+    },
+    {
+      "text": "And I know I'm a bigger guy,",
+      "start": 4619,
+      "label": "setup",
+      "line_number": 1949
+    },
+    {
+      "text": "but there are some women out there that like bigger men.",
+      "start": 4620,
+      "label": "punchline",
+      "line_number": 1950
+    },
+    {
+      "text": "Fuck y'all, Austin.",
+      "start": 4625,
+      "label": "fluff",
+      "line_number": 1952
+    },
+    {
+      "text": "I was waiting for a fucking standing ovation, God damn it.",
+      "start": 4628,
+      "label": "fluff",
+      "line_number": 1954
+    },
+    {
+      "text": "Thank you. I've been Isaiah Washington",
+      "start": 4632,
+      "label": "fluff",
+      "line_number": 1955
+    },
+    {
+      "text": "from Fresno, California.",
+      "start": 4633,
+      "label": "fluff",
+      "line_number": 1956
+    }
+  ]
+}

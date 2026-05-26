@@ -1,0 +1,161 @@
+{
+  "type": "set_meta",
+  "video_id": "lwLnqeBKa-0",
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
+  "publish_date": "2026-04-28",
+  "guests": [
+    "Dustin Poirier",
+    "Ari Matti"
+  ],
+  "comedian_name": "Mark Neuer",
+  "comedian_type": "bucket_pull",
+  "set_number": 11,
+  "start_seconds": 5229,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Alex Jones is controversial, but some of his conspiracy claims can be reframed as true.",
+      "line_range": [
+        2255,
+        2275
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            2255,
+            2265
+          ],
+          "topics": [
+            "Alex Jones",
+            "9/11",
+            "conspiracies"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            2269,
+            2275
+          ],
+          "topics": [
+            "Alex Jones",
+            "gay frogs",
+            "outing"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "- I'm a huge fan of Alex Jones.",
+      "start": 5229,
+      "label": "setup",
+      "line_number": 2255
+    },
+    {
+      "text": "I like him a lot. I'm a big fan of Alex Jones.",
+      "start": 5233,
+      "label": "setup",
+      "line_number": 2257
+    },
+    {
+      "text": "The thing about him is he says some things that are true, right?",
+      "start": 5237,
+      "label": "setup",
+      "line_number": 2258
+    },
+    {
+      "text": "Because he's like a real controversial guy. He says some things that are true though.",
+      "start": 5241,
+      "label": "setup",
+      "line_number": 2259
+    },
+    {
+      "text": "For example, he said they're going to fly planes into the Twin Towers.",
+      "start": 5245,
+      "label": "punchline",
+      "line_number": 2260
+    },
+    {
+      "text": "That's not funny. It's just true.",
+      "start": 5249,
+      "label": "tag",
+      "line_number": 2261
+    },
+    {
+      "text": "He said that of June of 2001. He did. Right.",
+      "start": 5253,
+      "label": "setup",
+      "line_number": 2262
+    },
+    {
+      "text": "Right. Now I'm not a college-educated individual.",
+      "start": 5257,
+      "label": "setup",
+      "line_number": 2263
+    },
+    {
+      "text": "But I do know that June comes before September",
+      "start": 5261,
+      "label": "setup",
+      "line_number": 2264
+    },
+    {
+      "text": "every fucking year.",
+      "start": 5265,
+      "label": "punchline",
+      "line_number": 2265
+    },
+    {
+      "text": "Like I said, I didn't go to college.",
+      "start": 5272,
+      "label": "setup",
+      "line_number": 2269
+    },
+    {
+      "text": "I dropped out of high school, so I don't know",
+      "start": 5274,
+      "label": "setup",
+      "line_number": 2270
+    },
+    {
+      "text": "if they're putting chemicals in the water",
+      "start": 5277,
+      "label": "setup",
+      "line_number": 2271
+    },
+    {
+      "text": "that are turned the frickin' frogs gay.",
+      "start": 5279,
+      "label": "setup",
+      "line_number": 2272
+    },
+    {
+      "text": "I don't know.",
+      "start": 5282,
+      "label": "fluff",
+      "line_number": 2273
+    },
+    {
+      "text": "I don't know.",
+      "start": 5284,
+      "label": "fluff",
+      "line_number": 2274
+    },
+    {
+      "text": "But I do know that the frogs probably didn't want to be outed.",
+      "start": 5285,
+      "label": "punchline",
+      "line_number": 2275
+    },
+    {
+      "text": "Thank you.",
+      "start": 5292,
+      "label": "fluff",
+      "line_number": 2278
+    }
+  ]
+}

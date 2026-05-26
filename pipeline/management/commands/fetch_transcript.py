@@ -74,7 +74,7 @@ class Command(BaseCommand):
         data_dir = settings.BASE_DIR / "data"
         todo_path = data_dir / "transcript_todos.jsonl"
         history_path = data_dir / "scrape_history.jsonl"
-        inbox_path = data_dir / "transcript_inbox"
+        inbox_path = data_dir / "1_transcript_inbox"
         archive_path = data_dir / "transcript_archive"
         audio_dir = data_dir / "audio"
         audio_dir.mkdir(exist_ok=True)

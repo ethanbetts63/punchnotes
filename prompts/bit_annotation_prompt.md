@@ -4,15 +4,15 @@ You are adding the final semantic layer to annotated *Kill Tony* stand-up sets.
 
 Process **one annotated set file at a time** from:
 
-`C:\Users\ethan\coding\jokescore\data\annotated_set_inbox\`
+`C:\Users\ethan\coding\jokescore\data\3_annotated_set_inbox\`
 
-Only annotate all of the sets for **one episode/video** at a time. Do not process every set in `annotated_set_inbox/` unless all of those files are from the same `video_id`; otherwise the work will be too large for your context.
+Only annotate all of the sets for **one episode/video** at a time. Do not process every set in `3_annotated_set_inbox/` unless all of those files are from the same `video_id`; otherwise the work will be too large for your context.
 
-For each processed file, write one bit annotation file with the same filename to:
+For each processed file, write a merged output file with the same filename to:
 
-`C:\Users\ethan\coding\jokescore\data\bit_annotation_inbox\`
+`C:\Users\ethan\coding\jokescore\data\4_bit_annotated_set_inbox\`
 
-Do not modify or delete the source annotated set file, except that you may correct a line's `label` if it is clearly wrong and the correction is needed for accurate bit/beat annotation.
+The output is the full annotated set JSON with a `bits` field inserted between the top-level metadata and the `lines` array. After writing successfully, delete the source file from `3_annotated_set_inbox`.
 
 ---
 
@@ -73,15 +73,19 @@ For each beat:
 
 ## Output Format
 
-Write exactly one JSON object:
+Write the full annotated set JSON with `bits` inserted before `lines`:
 
 ```json
 {
-  "type": "set_bit_annotation",
-  "source_file": "CnjJPpr10vM_set14_pat-oneill.json",
+  "type": "set_meta",
   "video_id": "CnjJPpr10vM",
+  "episode_title": "...",
+  "episode_url": "...",
+  "guests": ["..."],
   "comedian_name": "Pat O'Neill",
+  "comedian_type": "regular",
   "set_number": 14,
+  "start_seconds": 1234,
   "bits": [
     {
       "bit_id": "bit_001",
@@ -95,7 +99,8 @@ Write exactly one JSON object:
         }
       ]
     }
-  ]
+  ],
+  "lines": [ ... ]
 }
 ```
 
@@ -153,11 +158,11 @@ Another strong premise on the same topic:
 
 ## Process Checklist
 
-1. List files in `data/annotated_set_inbox/`. If empty, stop.
+1. List files in `data/3_annotated_set_inbox/`. If empty, stop.
 2. Pick one file.
 3. Read the whole set before writing anything.
 4. Identify bit premises.
 5. Split each bit into beats.
-6. Write `data/bit_annotation_inbox/<same-filename>.json`.
-7. Leave the source annotated set file untouched.
+6. Write the merged file to `data/4_bit_annotated_set_inbox/<same-filename>.json`.
+7. Delete the source file from `data/3_annotated_set_inbox/`.
 8. Move to the next file only if explicitly asked.

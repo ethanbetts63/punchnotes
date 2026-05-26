@@ -1,0 +1,286 @@
+{
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": [
+    "Sam Tallent"
+  ],
+  "comedian_name": "Pat O'Neill",
+  "comedian_type": "golden_ticket",
+  "set_number": 6,
+  "start_seconds": 3595,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "His child's transition lets him frame puberty blockers through hostile family and predator jokes.",
+      "line_range": [
+        1662,
+        1669
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            1662,
+            1664
+          ],
+          "topics": [
+            "trans children",
+            "family",
+            "rejection"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            1665,
+            1669
+          ],
+          "topics": [
+            "puberty blockers",
+            "pedophiles",
+            "medicine"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "A little person at his circus job reacts with disbelief that people would choose puberty blockers.",
+      "line_range": [
+        1670,
+        1676
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            1670,
+            1676
+          ],
+          "topics": [
+            "circus",
+            "little people",
+            "puberty blockers"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "He turns little people with ADHD into a wordplay one-liner.",
+      "line_range": [
+        1678,
+        1681
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [
+            1678,
+            1681
+          ],
+          "topics": [
+            "little people",
+            "ADHD",
+            "wordplay"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_004",
+      "premise": "He pivots from little people and puberty blockers into school shooting jokes about race and timing.",
+      "line_range": [
+        1682,
+        1690
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_004_beat_001",
+          "line_range": [
+            1682,
+            1684
+          ],
+          "topics": [
+            "school shootings",
+            "puberty blockers",
+            "dark humor"
+          ]
+        },
+        {
+          "beat_id": "bit_004_beat_002",
+          "line_range": [
+            1686,
+            1690
+          ],
+          "topics": [
+            "school shootings",
+            "race",
+            "after school"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "Folks, thank you.",
+      "start": 3595,
+      "label": "fluff",
+      "line_number": 1661
+    },
+    {
+      "text": "My son just came out as trans.",
+      "start": 3599,
+      "label": "setup",
+      "line_number": 1662
+    },
+    {
+      "text": "Well, shouldn't call him my son anymore.",
+      "start": 3603,
+      "label": "setup",
+      "line_number": 1663
+    },
+    {
+      "text": "Now that he's dead to me,",
+      "start": 3608,
+      "label": "punchline",
+      "line_number": 1664
+    },
+    {
+      "text": "they got him on puberty blockers",
+      "start": 3611,
+      "label": "setup",
+      "line_number": 1665
+    },
+    {
+      "text": "or his pedophiles call him preservatives, fucking.",
+      "start": 3613,
+      "label": "punchline",
+      "line_number": 1666
+    },
+    {
+      "text": "Miracle medicine.",
+      "start": 3627,
+      "label": "tag",
+      "line_number": 1669
+    },
+    {
+      "text": "The other day at my job,",
+      "start": 3631,
+      "label": "setup",
+      "line_number": 1670
+    },
+    {
+      "text": "I was explaining puberty blockers to one of the midgets.",
+      "start": 3632,
+      "label": "setup",
+      "line_number": 1671
+    },
+    {
+      "text": "I work in a circus and...",
+      "start": 3634,
+      "label": "setup",
+      "line_number": 1672
+    },
+    {
+      "text": "He goes, \"There's people choosing to do this.\"",
+      "start": 3641,
+      "label": "setup",
+      "line_number": 1674
+    },
+    {
+      "text": "(imitates a \"chirping\" sound)",
+      "start": 3643,
+      "label": "setup",
+      "line_number": 1675
+    },
+    {
+      "text": "\"Fucking calm down, Tyrion, you bigot.\"",
+      "start": 3646,
+      "label": "punchline",
+      "line_number": 1676
+    },
+    {
+      "text": "You there, sir, let me ask you,",
+      "start": 3650,
+      "label": "setup",
+      "line_number": 1678
+    },
+    {
+      "text": "what do you call a little person with ADHD?",
+      "start": 3651,
+      "label": "setup",
+      "line_number": 1679
+    },
+    {
+      "text": "That's right, a fidget.",
+      "start": 3654,
+      "label": "punchline",
+      "line_number": 1680
+    },
+    {
+      "text": "Good answer.",
+      "start": 3656,
+      "label": "fluff",
+      "line_number": 1681
+    },
+    {
+      "text": "Speaking of little people,",
+      "start": 3658,
+      "label": "setup",
+      "line_number": 1682
+    },
+    {
+      "text": "I wanna switch topics to school shootings.",
+      "start": 3659,
+      "label": "setup",
+      "line_number": 1683
+    },
+    {
+      "text": "The ultimate puberty blocker and ...",
+      "start": 3662,
+      "label": "punchline",
+      "line_number": 1684
+    },
+    {
+      "text": "You know, these shootings are often done by the same race.",
+      "start": 3668,
+      "label": "setup",
+      "line_number": 1686
+    },
+    {
+      "text": "I'm looking at you, honkies.",
+      "start": 3670,
+      "label": "punchline",
+      "line_number": 1687
+    },
+    {
+      "text": "White kids need to learn from their black classmates",
+      "start": 3673,
+      "label": "setup",
+      "line_number": 1688
+    },
+    {
+      "text": "and save the shootings for after school.",
+      "start": 3676,
+      "label": "punchline",
+      "line_number": 1689
+    },
+    {
+      "text": "For them, it's an extracurricular activity.",
+      "start": 3678,
+      "label": "tag",
+      "line_number": 1690
+    },
+    {
+      "text": "Okay, thank you.",
+      "start": 3681,
+      "label": "fluff",
+      "line_number": 1691
+    }
+  ]
+}

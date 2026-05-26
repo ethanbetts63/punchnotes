@@ -1,0 +1,295 @@
+{
+  "type": "set_meta",
+  "video_id": "lwLnqeBKa-0",
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
+  "publish_date": "2026-04-28",
+  "guests": [
+    "Dustin Poirier",
+    "Ari Matti"
+  ],
+  "comedian_name": "Pat O'Neill",
+  "comedian_type": "golden_ticket",
+  "set_number": 1,
+  "start_seconds": 352,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Tinder is harder than Grindr, which was too easy for him.",
+      "line_range": [
+        119,
+        121
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            119,
+            121
+          ],
+          "topics": [
+            "Tinder",
+            "Grindr",
+            "dating apps"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "He treats Google Maps like a dating app for stalking his ex.",
+      "line_range": [
+        122,
+        125
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            122,
+            125
+          ],
+          "topics": [
+            "exes",
+            "Google Maps",
+            "stalking"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "He describes cheating in college like cheating on a math test.",
+      "line_range": [
+        126,
+        127
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [
+            126,
+            127
+          ],
+          "topics": [
+            "cheating",
+            "college",
+            "math tests"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_004",
+      "premise": "A date's menopause is not a problem for him if oral sex is still possible.",
+      "line_range": [
+        128,
+        132
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_004_beat_001",
+          "line_range": [
+            128,
+            132
+          ],
+          "topics": [
+            "older women",
+            "menopause",
+            "oral sex"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_005",
+      "premise": "The women he dates tend to become single mothers because of him.",
+      "line_range": [
+        133,
+        137
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_005_beat_001",
+          "line_range": [
+            133,
+            137
+          ],
+          "topics": [
+            "single moms",
+            "dating",
+            "pregnancy"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_006",
+      "premise": "He is confused by a black woman's anatomy during sex.",
+      "line_range": [
+        138,
+        144
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_006_beat_001",
+          "line_range": [
+            138,
+            144
+          ],
+          "topics": [
+            "sex",
+            "black women",
+            "oral sex"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "- Folks, I'm on Tinder now.",
+      "start": 352,
+      "label": "setup",
+      "line_number": 119
+    },
+    {
+      "text": "Grindr was too easy, I needed a challenge, you know?",
+      "start": 356,
+      "label": "punchline",
+      "line_number": 120
+    },
+    {
+      "text": "I don't settle for that easy shit.",
+      "start": 359,
+      "label": "tag",
+      "line_number": 121
+    },
+    {
+      "text": "Found my ex on that other app, Google Maps,",
+      "start": 361,
+      "label": "setup",
+      "line_number": 122
+    },
+    {
+      "text": "got you bitch, fucking try and run for me.",
+      "start": 365,
+      "label": "punchline",
+      "line_number": 123
+    },
+    {
+      "text": "Ugh.",
+      "start": 368,
+      "label": "fluff",
+      "line_number": 124
+    },
+    {
+      "text": "Dummy.",
+      "start": 370,
+      "label": "tag",
+      "line_number": 125
+    },
+    {
+      "text": "I cheated on her like she was a math test",
+      "start": 373,
+      "label": "setup",
+      "line_number": 126
+    },
+    {
+      "text": "with a Chinese boy, but you know, that's college for you.",
+      "start": 376,
+      "label": "punchline",
+      "line_number": 127
+    },
+    {
+      "text": "Went on a date with an older gal recently,",
+      "start": 381,
+      "label": "setup",
+      "line_number": 128
+    },
+    {
+      "text": "told me she was going through menopause.",
+      "start": 383,
+      "label": "setup",
+      "line_number": 129
+    },
+    {
+      "text": "I was like, \"Oh, well, your mouth still gets wet, right?",
+      "start": 385,
+      "label": "punchline",
+      "line_number": 130
+    },
+    {
+      "text": "\"Fucking, we can make this work.",
+      "start": 388,
+      "label": "tag",
+      "line_number": 131
+    },
+    {
+      "text": "\"It's not getting all hasty.\"",
+      "start": 392,
+      "label": "tag",
+      "line_number": 132
+    },
+    {
+      "text": "A lot of the women I've dated have been single moms",
+      "start": 395,
+      "label": "setup",
+      "line_number": 133
+    },
+    {
+      "text": "after I'm through with them, and...",
+      "start": 397,
+      "label": "punchline",
+      "line_number": 134
+    },
+    {
+      "text": "Little cause and effect.",
+      "start": 405,
+      "label": "tag",
+      "line_number": 137
+    },
+    {
+      "text": "Other night in bed,",
+      "start": 407,
+      "label": "setup",
+      "line_number": 138
+    },
+    {
+      "text": "this black girl told me to eat her ass.",
+      "start": 408,
+      "label": "setup",
+      "line_number": 139
+    },
+    {
+      "text": "I was like, I thought I already was.",
+      "start": 410,
+      "label": "punchline",
+      "line_number": 140
+    },
+    {
+      "text": "So what's this thing then?",
+      "start": 412,
+      "label": "tag",
+      "line_number": 141
+    },
+    {
+      "text": "There's so much going on down here.",
+      "start": 418,
+      "label": "tag",
+      "line_number": 143
+    },
+    {
+      "text": "This is all so new to me.",
+      "start": 420,
+      "label": "tag",
+      "line_number": 144
+    },
+    {
+      "text": "All right, thank you.",
+      "start": 422,
+      "label": "fluff",
+      "line_number": 145
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": [
+    "Shane Gillis",
+    "James McCann"
+  ],
+  "comedian_name": "Frankie Gonzalez",
+  "comedian_type": "bucket_pull",
+  "set_number": 4,
+  "start_seconds": 1814,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "His family handles homosexuality with violent denial while he insists his own gay experience did not make him gay.",
+      "line_range": [
+        752,
+        765
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            752,
+            759
+          ],
+          "topics": [
+            "family",
+            "coming out",
+            "homophobia"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            760,
+            765
+          ],
+          "topics": [
+            "sexuality",
+            "roommates",
+            "denial"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Taking acid in the forest made him mistake his Black friend for Bigfoot.",
+      "line_range": [
+        767,
+        779
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            767,
+            779
+          ],
+          "topics": [
+            "acid",
+            "hiking",
+            "Bigfoot",
+            "Black friends"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "Forgetting a DoorDash order while on acid made a delivery notification feel like he had planned 9/11.",
+      "line_range": [
+        780,
+        795
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [
+            780,
+            795
+          ],
+          "topics": [
+            "acid",
+            "DoorDash",
+            "9/11",
+            "terrorism"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "Hey Austin, how we doing?",
+      "start": 1814,
+      "label": "fluff",
+      "line_number": 750
+    },
+    {
+      "text": "I come from a pretty weird family.",
+      "start": 1818,
+      "label": "setup",
+      "line_number": 752
+    },
+    {
+      "text": "My brother, he just came out of the closet.",
+      "start": 1820,
+      "label": "setup",
+      "line_number": 753
+    },
+    {
+      "text": "I threw him in there for being fucking gay.",
+      "start": 1822,
+      "label": "punchline",
+      "line_number": 754
+    },
+    {
+      "text": "But I--",
+      "start": 1825,
+      "label": "fluff",
+      "line_number": 755
+    },
+    {
+      "text": "Now we love 'em, we love 'em.",
+      "start": 1830,
+      "label": "tag",
+      "line_number": 757
+    },
+    {
+      "text": "Not publicly, but we love 'em, you know?",
+      "start": 1832,
+      "label": "tag",
+      "line_number": 758
+    },
+    {
+      "text": "Just had to ask my dad, we'll see.",
+      "start": 1834,
+      "label": "tag",
+      "line_number": 759
+    },
+    {
+      "text": "Now I know I'm not gay 'cause I kissed a man once",
+      "start": 1838,
+      "label": "setup",
+      "line_number": 760
+    },
+    {
+      "text": "and I felt absolutely nothing after I came.",
+      "start": 1841,
+      "label": "punchline",
+      "line_number": 761
+    },
+    {
+      "text": "Like I was--",
+      "start": 1843,
+      "label": "fluff",
+      "line_number": 762
+    },
+    {
+      "text": "I was good.",
+      "start": 1845,
+      "label": "tag",
+      "line_number": 764
+    },
+    {
+      "text": "Yeah, we're roommates now, that's besides the point, you know?",
+      "start": 1846,
+      "label": "tag",
+      "line_number": 765
+    },
+    {
+      "text": "I've been doing a lot more acid lately.",
+      "start": 1851,
+      "label": "setup",
+      "line_number": 767
+    },
+    {
+      "text": "Anybody else, acid heads?",
+      "start": 1852,
+      "label": "fluff",
+      "line_number": 768
+    },
+    {
+      "text": "Yeah?",
+      "start": 1854,
+      "label": "fluff",
+      "line_number": 769
+    },
+    {
+      "text": "\"Pussies over here.\"",
+      "start": 1855,
+      "label": "fluff",
+      "line_number": 770
+    },
+    {
+      "text": "I love it, dude. I like taking a tab,",
+      "start": 1857,
+      "label": "setup",
+      "line_number": 771
+    },
+    {
+      "text": "going hiking, like, in the forest.",
+      "start": 1859,
+      "label": "setup",
+      "line_number": 772
+    },
+    {
+      "text": "I found Bigfoot once, dude.",
+      "start": 1861,
+      "label": "setup",
+      "line_number": 773
+    },
+    {
+      "text": "I checked my phone later.",
+      "start": 1863,
+      "label": "setup",
+      "line_number": 774
+    },
+    {
+      "text": "It was just a bunch of pictures of my black friend like this.",
+      "start": 1864,
+      "label": "punchline",
+      "line_number": 775
+    },
+    {
+      "text": "Can't use those. He's got a fresh-ass fade.",
+      "start": 1870,
+      "label": "tag",
+      "line_number": 777
+    },
+    {
+      "text": "You know what I mean?",
+      "start": 1872,
+      "label": "fluff",
+      "line_number": 778
+    },
+    {
+      "text": "He looks good.",
+      "start": 1874,
+      "label": "tag",
+      "line_number": 779
+    },
+    {
+      "text": "I've only had one bad experience on acid.",
+      "start": 1876,
+      "label": "setup",
+      "line_number": 780
+    },
+    {
+      "text": "It was this one time I forgot that I ordered DoorDash,",
+      "start": 1878,
+      "label": "setup",
+      "line_number": 781
+    },
+    {
+      "text": "and I got a notification on my phone",
+      "start": 1882,
+      "label": "setup",
+      "line_number": 782
+    },
+    {
+      "text": "that said, \"Mohamed Hazier orders.\"",
+      "start": 1884,
+      "label": "setup",
+      "line_number": 783
+    },
+    {
+      "text": "He's on.",
+      "start": 1889,
+      "label": "fluff",
+      "line_number": 784
+    },
+    {
+      "text": "- I was like 10 seconds more.",
+      "start": 1892,
+      "label": "fluff",
+      "line_number": 787
+    },
+    {
+      "text": "- I forgot that I ordered DoorDash",
+      "start": 1896,
+      "label": "setup",
+      "line_number": 789
+    },
+    {
+      "text": "and I got a notification on my phone",
+      "start": 1898,
+      "label": "setup",
+      "line_number": 790
+    },
+    {
+      "text": "that said, \"Mohamed Hazier orders.\"",
+      "start": 1900,
+      "label": "setup",
+      "line_number": 791
+    },
+    {
+      "text": "He's on the way.",
+      "start": 1902,
+      "label": "setup",
+      "line_number": 792
+    },
+    {
+      "text": "So for like six hours, I thought I planned 9/11.",
+      "start": 1904,
+      "label": "punchline",
+      "line_number": 793
+    },
+    {
+      "text": "I was like, \"What orders did I give out, dude?",
+      "start": 1907,
+      "label": "tag",
+      "line_number": 794
+    },
+    {
+      "text": "Popeyes, Pentagon, they're right next to each other, dog.",
+      "start": 1911,
+      "label": "tag",
+      "line_number": 795
+    }
+  ]
+}

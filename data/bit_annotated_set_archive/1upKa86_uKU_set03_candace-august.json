@@ -1,0 +1,190 @@
+{
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": [
+    "Sam Tallent"
+  ],
+  "comedian_name": "Candace August",
+  "comedian_type": "bucket_pull",
+  "set_number": 3,
+  "start_seconds": 1706,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Being the only Black person in her husband's family makes her the target of ignorant racial questions.",
+      "line_range": [
+        741,
+        766
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            741,
+            757
+          ],
+          "topics": [
+            "interracial marriage",
+            "Juneteenth",
+            "in-laws"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            759,
+            766
+          ],
+          "topics": [
+            "racial questions",
+            "fried chicken",
+            "superpowers"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "- Hey, I am in an interracial marriage",
+      "start": 1706,
+      "label": "setup",
+      "line_number": 741
+    },
+    {
+      "text": "And so I'm the only black person in my husband's family.",
+      "start": 1710,
+      "label": "setup",
+      "line_number": 742
+    },
+    {
+      "text": "And because of that,",
+      "start": 1714,
+      "label": "setup",
+      "line_number": 743
+    },
+    {
+      "text": "they always have annoying-ass questions for me.",
+      "start": 1715,
+      "label": "setup",
+      "line_number": 744
+    },
+    {
+      "text": "One time my sister-in-law was like,",
+      "start": 1719,
+      "label": "setup",
+      "line_number": 745
+    },
+    {
+      "text": "\"Hey, Candace, can you please talk to the kids",
+      "start": 1720,
+      "label": "setup",
+      "line_number": 746
+    },
+    {
+      "text": "\"about Juneteenth?\"",
+      "start": 1723,
+      "label": "setup",
+      "line_number": 747
+    },
+    {
+      "text": "And that shit pissed me to fuck off.",
+      "start": 1727,
+      "label": "setup",
+      "line_number": 748
+    },
+    {
+      "text": "'Cause then I had to go look up what Juneteenth was.",
+      "start": 1731,
+      "label": "punchline",
+      "line_number": 750
+    },
+    {
+      "text": "I had absolutely no idea.",
+      "start": 1740,
+      "label": "tag",
+      "line_number": 753
+    },
+    {
+      "text": "I snuck in the bathroom and searched that shit on Google.",
+      "start": 1743,
+      "label": "tag",
+      "line_number": 755
+    },
+    {
+      "text": "I was like, \"Oh, this why I was off work on Monday?",
+      "start": 1746,
+      "label": "tag",
+      "line_number": 756
+    },
+    {
+      "text": "\"Oh, okay.\"",
+      "start": 1749,
+      "label": "tag",
+      "line_number": 757
+    },
+    {
+      "text": "Since they always got questions for me,",
+      "start": 1754,
+      "label": "setup",
+      "line_number": 759
+    },
+    {
+      "text": "I decided to start making shit up,",
+      "start": 1755,
+      "label": "setup",
+      "line_number": 760
+    },
+    {
+      "text": "just giving us superpowers.",
+      "start": 1757,
+      "label": "setup",
+      "line_number": 761
+    },
+    {
+      "text": "They asked me a dumb question,",
+      "start": 1759,
+      "label": "setup",
+      "line_number": 762
+    },
+    {
+      "text": "I give them a dumb answer, like,",
+      "start": 1761,
+      "label": "setup",
+      "line_number": 763
+    },
+    {
+      "text": "\"Hey Candace, do black people like fried chicken?\"",
+      "start": 1762,
+      "label": "setup",
+      "line_number": 764
+    },
+    {
+      "text": "Of course we do, and we can see in the dark.",
+      "start": 1766,
+      "label": "punchline",
+      "line_number": 765
+    },
+    {
+      "text": "Did you know that?",
+      "start": 1769,
+      "label": "tag",
+      "line_number": 766
+    },
+    {
+      "text": "That's my time.",
+      "start": 1771,
+      "label": "fluff",
+      "line_number": 768
+    },
+    {
+      "text": "Y'all have a good night.",
+      "start": 1772,
+      "label": "fluff",
+      "line_number": 769
+    }
+  ]
+}

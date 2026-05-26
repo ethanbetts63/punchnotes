@@ -123,7 +123,7 @@ class Command(BaseCommand):
         set_number = options["set_number"]
         comedian_name = options["comedian_name"]
         output_name = f"{video_id}_set{set_number:02d}_{slugify(comedian_name)}.json"
-        output_dir = settings.BASE_DIR / "data" / "set_inbox"
+        output_dir = settings.BASE_DIR / "data" / "2_set_inbox"
         output_dir.mkdir(exist_ok=True)
         output_path = output_dir / output_name
 

@@ -2,7 +2,7 @@
 
 You are finding stand-up **set boundaries** in one *Kill Tony* episode transcript.
 
-Only process the first JSON file in `C:\Users\ethan\coding\jokescore\data\transcript_inbox\`. Do not process multiple episodes in one run.
+Only process the first JSON file in `C:\Users\ethan\coding\jokescore\data\1_transcript_inbox\`. Do not process multiple episodes in one run.
 
 Each transcript line has a stable `line_number`. Use those original line numbers as the source of truth.
 
@@ -24,7 +24,7 @@ If a line inside the range is clearly Tony, a panel member, or other non-comedia
 
 Audience reaction lines are filtered automatically by the command.
 
-After all sets in the episode are extracted successfully, delete the processed transcript file from `transcript_inbox`.
+After all sets in the episode are extracted successfully, delete the processed transcript file from `1_transcript_inbox`.
 
 ---
 

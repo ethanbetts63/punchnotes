@@ -5,31 +5,31 @@ import shutil
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from pipeline.models import Comedian, Episode, Line, Set
+from pipeline.models import Beat, Bit, Comedian, Episode, Line, Set
 
 
 class Command(BaseCommand):
-    help = "Import annotated set JSON files from data/annotated_set_inbox/ into the database"
+    help = "Import bit-annotated set JSON files from data/4_bit_annotated_set_inbox/ into the database"
 
     def handle(self, *args, **options):
         data_dir = settings.BASE_DIR / "data"
-        annotated_set_inbox = data_dir / "annotated_set_inbox"
-        processed_lines = data_dir / "processed_lines"
+        inbox = data_dir / "4_bit_annotated_set_inbox"
+        archive = data_dir / "bit_annotated_set_archive"
+        archive.mkdir(exist_ok=True)
 
-        annotated_files = sorted(annotated_set_inbox.glob("*.json"))
-        if not annotated_files:
-            self.stdout.write("No annotated set files found in annotated_set_inbox.")
+        files = sorted(inbox.glob("*.json"))
+        if not files:
+            self.stdout.write("No files in 4_bit_annotated_set_inbox.")
             return
 
-        for path in annotated_files:
+        for path in files:
             try:
                 self._import(path)
-                shutil.move(str(path), processed_lines / path.name)
+                shutil.move(str(path), archive / path.name)
             except Exception as e:
                 self.stdout.write(self.style.ERROR(f"  Failed {path.name}: {e}"))
 
     def _import(self, path):
-        # Filename: {video_id}_set{NN}_{slug}.json
         match = re.match(r"^(.+)_set(\d+)_(.+)$", path.stem)
         if not match:
             raise ValueError(f"Filename does not match expected pattern: {path.name}")
@@ -38,7 +38,7 @@ class Command(BaseCommand):
         set_number = int(match.group(2))
         slug = match.group(3)
 
-        meta = json.loads(path.read_text(encoding="utf-8"))
+        meta = json.loads(path.read_text(encoding="utf-8-sig"))
 
         episode, _ = Episode.objects.get_or_create(
             video_id=video_id,
@@ -74,7 +74,7 @@ class Command(BaseCommand):
             )
             episode.guests.add(guest)
 
-        # Idempotent: wipe existing lines for this set before reimporting
+        # Lines — idempotent wipe before reimport
         deleted, _ = set_obj.lines.all().delete()
         if deleted:
             self.stdout.write(f"  Replaced {deleted} existing lines for set {set_number}")
@@ -90,10 +90,31 @@ class Command(BaseCommand):
                     start_seconds=line["start"],
                 )
             )
-
         Line.objects.bulk_create(lines)
+
+        # Bits and beats — idempotent wipe before reimport
+        set_obj.bits.all().delete()
+
+        for bit_data in meta.get("bits", []):
+            bit = Bit.objects.create(
+                set=set_obj,
+                bit_id=bit_data["bit_id"],
+                premise=bit_data["premise"],
+                line_start=bit_data["line_range"][0],
+                line_end=bit_data["line_range"][1],
+            )
+            for beat_data in bit_data.get("beats", []):
+                Beat.objects.create(
+                    bit=bit,
+                    beat_id=beat_data["beat_id"],
+                    line_start=beat_data["line_range"][0],
+                    line_end=beat_data["line_range"][1],
+                    topics=beat_data.get("topics", []),
+                )
+
         self.stdout.write(
             self.style.SUCCESS(
-                f"  {video_id} set{set_number:02d} {meta['comedian_name']}: {len(lines)} lines"
+                f"  {video_id} set{set_number:02d} {meta['comedian_name']}: "
+                f"{len(lines)} lines, {len(meta.get('bits', []))} bits"
             )
         )

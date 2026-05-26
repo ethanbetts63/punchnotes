@@ -1,0 +1,460 @@
+{
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": [
+    "Sam Tallent"
+  ],
+  "comedian_name": "Dedrick Flynn",
+  "comedian_type": "regular",
+  "set_number": 13,
+  "start_seconds": 7467,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Men with girlfriends become more attractive because they secretly use women's bathroom products.",
+      "line_range": [
+        3396,
+        3455
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            3396,
+            3403
+          ],
+          "topics": [
+            "relationships",
+            "bathroom products",
+            "attraction"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            3404,
+            3410
+          ],
+          "topics": [
+            "single men",
+            "hygiene",
+            "smell"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_003",
+          "line_range": [
+            3412,
+            3419
+          ],
+          "topics": [
+            "roommates",
+            "body wash",
+            "single men"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_004",
+          "line_range": [
+            3421,
+            3427
+          ],
+          "topics": [
+            "women's bathrooms",
+            "shampoo",
+            "seasoning"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_005",
+          "line_range": [
+            3428,
+            3435
+          ],
+          "topics": [
+            "purple shampoo",
+            "shower products",
+            "masturbation"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_006",
+          "line_range": [
+            3436,
+            3441
+          ],
+          "topics": [
+            "Taco Bell",
+            "soda",
+            "shower products"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_007",
+          "line_range": [
+            3442,
+            3448
+          ],
+          "topics": [
+            "body glitter",
+            "Bring It On",
+            "beauty products"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_008",
+          "line_range": [
+            3450,
+            3455
+          ],
+          "topics": [
+            "bath bombs",
+            "essential oils",
+            "being single"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "You know, women are gonna tell you",
+      "start": 7467,
+      "label": "setup",
+      "line_number": 3396
+    },
+    {
+      "text": "that other women only want you",
+      "start": 7471,
+      "label": "setup",
+      "line_number": 3397
+    },
+    {
+      "text": "if you have a girlfriend",
+      "start": 7475,
+      "label": "setup",
+      "line_number": 3398
+    },
+    {
+      "text": "because women want something they can't have.",
+      "start": 7478,
+      "label": "setup",
+      "line_number": 3399
+    },
+    {
+      "text": "And I'm here to tell y'all that's not what's happening.",
+      "start": 7483,
+      "label": "setup",
+      "line_number": 3400
+    },
+    {
+      "text": "We just look better than single men",
+      "start": 7488,
+      "label": "setup",
+      "line_number": 3401
+    },
+    {
+      "text": "because we're using your healthcare products",
+      "start": 7492,
+      "label": "punchline",
+      "line_number": 3402
+    },
+    {
+      "text": "in and out the shower.",
+      "start": 7498,
+      "label": "tag",
+      "line_number": 3403
+    },
+    {
+      "text": "Like, single dudes look and smell",
+      "start": 7500,
+      "label": "setup",
+      "line_number": 3404
+    },
+    {
+      "text": "like what happens after years of kicking ice cubes",
+      "start": 7503,
+      "label": "setup",
+      "line_number": 3405
+    },
+    {
+      "text": "underneath the refrigerator.",
+      "start": 7506,
+      "label": "setup",
+      "line_number": 3406
+    },
+    {
+      "text": "And then the radiation from the refrigerator",
+      "start": 7512,
+      "label": "setup",
+      "line_number": 3407
+    },
+    {
+      "text": "melts the ice cubes, makes a certain mold,",
+      "start": 7515,
+      "label": "setup",
+      "line_number": 3408
+    },
+    {
+      "text": "it makes the human body, and it's like,",
+      "start": 7518,
+      "label": "setup",
+      "line_number": 3409
+    },
+    {
+      "text": "\"Hey, ma'am, you should smile more.\"",
+      "start": 7520,
+      "label": "punchline",
+      "line_number": 3410
+    },
+    {
+      "text": "'Cause when I moved here to Texas,",
+      "start": 7526,
+      "label": "setup",
+      "line_number": 3412
+    },
+    {
+      "text": "I only moved with, like, single dudes,",
+      "start": 7530,
+      "label": "setup",
+      "line_number": 3413
+    },
+    {
+      "text": "and my skin has been terrible.",
+      "start": 7532,
+      "label": "setup",
+      "line_number": 3414
+    },
+    {
+      "text": "It had--'cause we only got the seven-in-one body wash, right?",
+      "start": 7535,
+      "label": "setup",
+      "line_number": 3415
+    },
+    {
+      "text": "It's shampoo, conditioner, body wash,",
+      "start": 7541,
+      "label": "setup",
+      "line_number": 3417
+    },
+    {
+      "text": "Zen juice, four locos from 2009 with the caffeine,",
+      "start": 7544,
+      "label": "setup",
+      "line_number": 3418
+    },
+    {
+      "text": "and then a DUI and a domestic battery charge.",
+      "start": 7550,
+      "label": "punchline",
+      "line_number": 3419
+    },
+    {
+      "text": "Because when you go to a girl's bathroom,",
+      "start": 7556,
+      "label": "setup",
+      "line_number": 3421
+    },
+    {
+      "text": "that's like somebody you want to keep.",
+      "start": 7559,
+      "label": "setup",
+      "line_number": 3422
+    },
+    {
+      "text": "When you rip open that shower curtain,",
+      "start": 7561,
+      "label": "setup",
+      "line_number": 3423
+    },
+    {
+      "text": "the products that they got,",
+      "start": 7564,
+      "label": "setup",
+      "line_number": 3424
+    },
+    {
+      "text": "it looks like Gordon Ramsay's seasoning cabinet",
+      "start": 7567,
+      "label": "setup",
+      "line_number": 3425
+    },
+    {
+      "text": "mixed with two Southern black ladies.",
+      "start": 7571,
+      "label": "punchline",
+      "line_number": 3426
+    },
+    {
+      "text": "You can do whatever you -- They got all kinds of shampoos.",
+      "start": 7575,
+      "label": "tag",
+      "line_number": 3427
+    },
+    {
+      "text": "They got all kinds of--do you know they got a shampoo",
+      "start": 7579,
+      "label": "setup",
+      "line_number": 3428
+    },
+    {
+      "text": "in condition? It's called purple shampoo.",
+      "start": 7582,
+      "label": "setup",
+      "line_number": 3429
+    },
+    {
+      "text": "It's just for people with blonde hair",
+      "start": 7584,
+      "label": "setup",
+      "line_number": 3430
+    },
+    {
+      "text": "or a nigga that got free time.",
+      "start": 7587,
+      "label": "punchline",
+      "line_number": 3431
+    },
+    {
+      "text": "You know what I'm saying? Like, that's all it is.",
+      "start": 7589,
+      "label": "fluff",
+      "line_number": 3432
+    },
+    {
+      "text": "Every girl ever been with thought I was jacking off",
+      "start": 7592,
+      "label": "setup",
+      "line_number": 3433
+    },
+    {
+      "text": "in the shower. No, nigga, I was trying everything",
+      "start": 7595,
+      "label": "punchline",
+      "line_number": 3434
+    },
+    {
+      "text": "you had in there.",
+      "start": 7597,
+      "label": "tag",
+      "line_number": 3435
+    },
+    {
+      "text": "You know, you used to go to Taco Bell,",
+      "start": 7600,
+      "label": "setup",
+      "line_number": 3436
+    },
+    {
+      "text": "and you would suicide the sodas.",
+      "start": 7602,
+      "label": "setup",
+      "line_number": 3437
+    },
+    {
+      "text": "Like, you know what I'm saying?",
+      "start": 7604,
+      "label": "fluff",
+      "line_number": 3438
+    },
+    {
+      "text": "You would put every soda in there and see that.",
+      "start": 7605,
+      "label": "setup",
+      "line_number": 3439
+    },
+    {
+      "text": "That's me with every product you got, nigga.",
+      "start": 7607,
+      "label": "punchline",
+      "line_number": 3440
+    },
+    {
+      "text": "I used to look glorious.",
+      "start": 7610,
+      "label": "tag",
+      "line_number": 3441
+    },
+    {
+      "text": "You know what body wash gel is?",
+      "start": 7613,
+      "label": "setup",
+      "line_number": 3442
+    },
+    {
+      "text": "What is it? You don't know.",
+      "start": 7616,
+      "label": "fluff",
+      "line_number": 3443
+    },
+    {
+      "text": "You just try to fit in. This nigga's a liar.",
+      "start": 7618,
+      "label": "fluff",
+      "line_number": 3444
+    },
+    {
+      "text": "This nigga's a liar.",
+      "start": 7620,
+      "label": "fluff",
+      "line_number": 3445
+    },
+    {
+      "text": "They got a gel that just got glitter on it.",
+      "start": 7622,
+      "label": "setup",
+      "line_number": 3446
+    },
+    {
+      "text": "Nigga, I used to look like a cheerleader from \"Bring It On,\"",
+      "start": 7624,
+      "label": "punchline",
+      "line_number": 3447
+    },
+    {
+      "text": "nigga. I used to look like Gabrielle Union.",
+      "start": 7628,
+      "label": "tag",
+      "line_number": 3448
+    },
+    {
+      "text": "I used to put all kind of shit together,",
+      "start": 7633,
+      "label": "tag",
+      "line_number": 3450
+    },
+    {
+      "text": "Just make a smorgasbord of a pretty nigga when they used to leave ice is still they bath bombs and put it in the back",
+      "start": 7635,
+      "label": "tag",
+      "line_number": 3451
+    },
+    {
+      "text": "You know what a bath bomb is what's a bath bomb? This nigga want to fit into?",
+      "start": 7642,
+      "label": "fluff",
+      "line_number": 3452
+    },
+    {
+      "text": "And it's got colors and glitter and essential oils",
+      "start": 7653,
+      "label": "setup",
+      "line_number": 3454
+    },
+    {
+      "text": "Nigga, that is fucking fun as fuck. I don't ever want to be single again nigga. I hate being dry",
+      "start": 7657,
+      "label": "punchline",
+      "line_number": 3455
+    },
+    {
+      "text": "That's my time. I love y'all. Thank y'all so much.",
+      "start": 7665,
+      "label": "fluff",
+      "line_number": 3456
+    }
+  ]
+}
