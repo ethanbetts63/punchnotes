@@ -1,340 +1,108 @@
 {
-  "type": "set_meta",
-  "video_id": "_vmG4f4EtYo",
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "type": "set_meta"
+,
+  "video_id": "_vmG4f4EtYo"
+,
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
+,
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
+,
   "guests": [
     "Theo Von",
     "Jelly Roll"
   ],
-  "comedian_name": "Lil Mo Mozzarella",
-  "comedian_type": "bucket_pull",
-  "set_number": 6,
-  "start_seconds": 3015,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Lil Mo Mozzarella"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 6
+,
+  "start_seconds": 3015
+,
+  "bit_meta": {
+    "1": {
       "premise": "Restaurant-order stereotypes become fake language skills.",
-      "line_range": [
-        1413,
-        1454
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            1413,
-            1420
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "New York",
             "Spanish",
             "bodega orders"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [
-            1422,
-            1430
-          ],
+        "2": {
           "topics": [
             "Italian Americans",
             "deli orders",
             "Norwegians"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_003",
-          "line_range": [
-            1431,
-            1441
-          ],
+        "3": {
           "topics": [
             "Chinese restaurants",
             "shouting",
             "food orders"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_004",
-          "line_range": [
-            1443,
-            1451
-          ],
+        "4": {
           "topics": [
             "Chinese restaurants",
             "steak bones",
             "audience risk"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_005",
-          "line_range": [
-            1452,
-            1454
-          ],
+        "5": {
           "topics": [
             "Asian audience",
             "Kim Jong-un",
             "height"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "Watch your mouth.",
-      "start": 3015,
-      "label": "fluff",
-      "line_number": 1410
-    },
-    {
-      "text": "Shut the fuck up in the back.",
-      "start": 3016,
-      "label": "fluff",
-      "line_number": 1411
-    },
-    {
-      "text": "Stay put.",
-      "start": 3019,
-      "label": "fluff",
-      "line_number": 1412
-    },
-    {
-      "text": "I'm from New York City.",
-      "start": 3020,
-      "label": "setup",
-      "line_number": 1413
-    },
-    {
-      "text": "I don't know you guys act like you don't fucking understand me,",
-      "start": 3022,
-      "label": "setup",
-      "line_number": 1414
-    },
-    {
-      "text": "but I can speak any language.",
-      "start": 3024,
-      "label": "setup",
-      "line_number": 1415
-    },
-    {
-      "text": "I look at somebody who's Spanish.",
-      "start": 3026,
-      "label": "setup",
-      "line_number": 1416
-    },
-    {
-      "text": "Where are you?",
-      "start": 3027,
-      "label": "setup",
-      "line_number": 1417
-    },
-    {
-      "text": "I throw one word at you.",
-      "start": 3028,
-      "label": "setup",
-      "line_number": 1418
-    },
-    {
-      "text": "What's up?",
-      "start": 3028,
-      "label": "fluff",
-      "line_number": 1419
-    },
-    {
-      "text": "Let me get a bacon, egg, and cheese poppy.",
-      "start": 3029,
-      "label": "punchline",
-      "line_number": 1420
-    },
-    {
-      "text": "You know, people do it to Italians all the time.",
-      "start": 3033,
-      "label": "setup",
-      "line_number": 1422
-    },
-    {
-      "text": "They come to fuck a little lily",
-      "start": 3035,
-      "label": "setup",
-      "line_number": 1423
-    },
-    {
-      "text": "and they start acting Italian,",
-      "start": 3036,
-      "label": "setup",
-      "line_number": 1424
-    },
-    {
-      "text": "the guys got freckles and shit.",
-      "start": 3037,
-      "label": "setup",
-      "line_number": 1425
-    },
-    {
-      "text": "Let me get a chicken cutlet parmesan,",
-      "start": 3039,
-      "label": "setup",
-      "line_number": 1426
-    },
-    {
-      "text": "fresh butts in our red peppers,",
-      "start": 3041,
-      "label": "setup",
-      "line_number": 1427
-    },
-    {
-      "text": "tell your sister, \"G\" and I ain't say, \"How you doing?\"",
-      "start": 3042,
-      "label": "setup",
-      "line_number": 1428
-    },
-    {
-      "text": "This guy's fucking Norwegian.",
-      "start": 3045,
-      "label": "punchline",
-      "line_number": 1430
-    },
-    {
-      "text": "You know where you never do it though?",
-      "start": 3047,
-      "label": "setup",
-      "line_number": 1431
-    },
-    {
-      "text": "You never see nobody go to a Chinese restaurant",
-      "start": 3048,
-      "label": "setup",
-      "line_number": 1432
-    },
-    {
-      "text": "and say, \"I act the Chinese, no?\"",
-      "start": 3050,
-      "label": "setup",
-      "line_number": 1433
-    },
-    {
-      "text": "Lay home, man!",
-      "start": 3052,
-      "label": "punchline",
-      "line_number": 1434
-    },
-    {
-      "text": "Let me get a pork fried rice.",
-      "start": 3054,
-      "label": "tag",
-      "line_number": 1435
-    },
-    {
-      "text": "Don't forget the wonton soup.",
-      "start": 3056,
-      "label": "tag",
-      "line_number": 1436
-    },
-    {
-      "text": "They don't do it.",
-      "start": 3058,
-      "label": "fluff",
-      "line_number": 1437
-    },
-    {
-      "text": "They get disrespectful.",
-      "start": 3059,
-      "label": "setup",
-      "line_number": 1438
-    },
-    {
-      "text": "They start yelling.",
-      "start": 3060,
-      "label": "setup",
-      "line_number": 1439
-    },
-    {
-      "text": "\"Lays my pork fried rice!\"",
-      "start": 3061,
-      "label": "punchline",
-      "line_number": 1440
-    },
-    {
-      "text": "They think you can understand them if you talk loud, you know?",
-      "start": 3064,
-      "label": "tag",
-      "line_number": 1441
-    },
-    {
-      "text": "They're disrespectful.",
-      "start": 3066,
-      "label": "fluff",
-      "line_number": 1442
-    },
-    {
-      "text": "See, I always show them respect.",
-      "start": 3068,
-      "label": "setup",
-      "line_number": 1443
-    },
-    {
-      "text": "Like, let's say, for instance, I go for a steak,",
-      "start": 3069,
-      "label": "setup",
-      "line_number": 1444
-    },
-    {
-      "text": "I bring the bones home,",
-      "start": 3072,
-      "label": "setup",
-      "line_number": 1445
-    },
-    {
-      "text": "and I bring it to the restaurant for the dork,",
-      "start": 3073,
-      "label": "setup",
-      "line_number": 1446
-    },
-    {
-      "text": "the buried in the yard.",
-      "start": 3075,
-      "label": "punchline",
-      "line_number": 1447
-    },
-    {
-      "text": "How you doing?",
-      "start": 3077,
-      "label": "fluff",
-      "line_number": 1448
-    },
-    {
-      "text": "I was gonna say they ate the dork,",
-      "start": 3081,
-      "label": "tag",
-      "line_number": 1450
-    },
-    {
-      "text": "but then I said somebody might fuck me up out here.",
-      "start": 3082,
-      "label": "tag",
-      "line_number": 1451
-    },
-    {
-      "text": "I see a couple Asians.",
-      "start": 3085,
-      "label": "setup",
-      "line_number": 1452
-    },
-    {
-      "text": "Kim Jong-un's over there, what's up, Mo?",
-      "start": 3087,
-      "label": "punchline",
-      "line_number": 1453
-    },
-    {
-      "text": "How does it feel to never ride a roller coaster?",
-      "start": 3090,
-      "label": "tag",
-      "line_number": 1454
-    }
+    {"text": "Watch your mouth.", "label": "fluff", "bit": null, "beat": null, "line_number": 1410, "start": 3015},
+    {"text": "Shut the fuck up in the back.", "label": "fluff", "bit": null, "beat": null, "line_number": 1411, "start": 3016},
+    {"text": "Stay put.", "label": "fluff", "bit": null, "beat": null, "line_number": 1412, "start": 3019},
+    {"text": "I'm from New York City.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1413, "start": 3020},
+    {"text": "I don't know you guys act like you don't fucking understand me,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1414, "start": 3022},
+    {"text": "but I can speak any language.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1415, "start": 3024},
+    {"text": "I look at somebody who's Spanish.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1416, "start": 3026},
+    {"text": "Where are you?", "label": "setup", "bit": 1, "beat": 1, "line_number": 1417, "start": 3027},
+    {"text": "I throw one word at you.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1418, "start": 3028},
+    {"text": "What's up?", "label": "fluff", "bit": 1, "beat": 1, "line_number": 1419, "start": 3028},
+    {"text": "Let me get a bacon, egg, and cheese poppy.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1420, "start": 3029},
+    {"text": "You know, people do it to Italians all the time.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1422, "start": 3033},
+    {"text": "They come to fuck a little lily", "label": "setup", "bit": 1, "beat": 2, "line_number": 1423, "start": 3035},
+    {"text": "and they start acting Italian,", "label": "setup", "bit": 1, "beat": 2, "line_number": 1424, "start": 3036},
+    {"text": "the guys got freckles and shit.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1425, "start": 3037},
+    {"text": "Let me get a chicken cutlet parmesan,", "label": "setup", "bit": 1, "beat": 2, "line_number": 1426, "start": 3039},
+    {"text": "fresh butts in our red peppers,", "label": "setup", "bit": 1, "beat": 2, "line_number": 1427, "start": 3041},
+    {"text": "tell your sister, \"G\" and I ain't say, \"How you doing?\"", "label": "setup", "bit": 1, "beat": 2, "line_number": 1428, "start": 3042},
+    {"text": "This guy's fucking Norwegian.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1430, "start": 3045},
+    {"text": "You know where you never do it though?", "label": "setup", "bit": 1, "beat": 3, "line_number": 1431, "start": 3047},
+    {"text": "You never see nobody go to a Chinese restaurant", "label": "setup", "bit": 1, "beat": 3, "line_number": 1432, "start": 3048},
+    {"text": "and say, \"I act the Chinese, no?\"", "label": "setup", "bit": 1, "beat": 3, "line_number": 1433, "start": 3050},
+    {"text": "Lay home, man!", "label": "punchline", "bit": 1, "beat": 3, "line_number": 1434, "start": 3052},
+    {"text": "Let me get a pork fried rice.", "label": "tag", "bit": 1, "beat": 3, "line_number": 1435, "start": 3054},
+    {"text": "Don't forget the wonton soup.", "label": "tag", "bit": 1, "beat": 3, "line_number": 1436, "start": 3056},
+    {"text": "They don't do it.", "label": "fluff", "bit": 1, "beat": 3, "line_number": 1437, "start": 3058},
+    {"text": "They get disrespectful.", "label": "setup", "bit": 1, "beat": 3, "line_number": 1438, "start": 3059},
+    {"text": "They start yelling.", "label": "setup", "bit": 1, "beat": 3, "line_number": 1439, "start": 3060},
+    {"text": "\"Lays my pork fried rice!\"", "label": "punchline", "bit": 1, "beat": 3, "line_number": 1440, "start": 3061},
+    {"text": "They think you can understand them if you talk loud, you know?", "label": "tag", "bit": 1, "beat": 3, "line_number": 1441, "start": 3064},
+    {"text": "They're disrespectful.", "label": "fluff", "bit": null, "beat": null, "line_number": 1442, "start": 3066},
+    {"text": "See, I always show them respect.", "label": "setup", "bit": 1, "beat": 4, "line_number": 1443, "start": 3068},
+    {"text": "Like, let's say, for instance, I go for a steak,", "label": "setup", "bit": 1, "beat": 4, "line_number": 1444, "start": 3069},
+    {"text": "I bring the bones home,", "label": "setup", "bit": 1, "beat": 4, "line_number": 1445, "start": 3072},
+    {"text": "and I bring it to the restaurant for the dork,", "label": "setup", "bit": 1, "beat": 4, "line_number": 1446, "start": 3073},
+    {"text": "the buried in the yard.", "label": "punchline", "bit": 1, "beat": 4, "line_number": 1447, "start": 3075},
+    {"text": "How you doing?", "label": "fluff", "bit": 1, "beat": 4, "line_number": 1448, "start": 3077},
+    {"text": "I was gonna say they ate the dork,", "label": "tag", "bit": 1, "beat": 4, "line_number": 1450, "start": 3081},
+    {"text": "but then I said somebody might fuck me up out here.", "label": "tag", "bit": 1, "beat": 4, "line_number": 1451, "start": 3082},
+    {"text": "I see a couple Asians.", "label": "setup", "bit": 1, "beat": 5, "line_number": 1452, "start": 3085},
+    {"text": "Kim Jong-un's over there, what's up, Mo?", "label": "punchline", "bit": 1, "beat": 5, "line_number": 1453, "start": 3087},
+    {"text": "How does it feel to never ride a roller coaster?", "label": "tag", "bit": 1, "beat": 5, "line_number": 1454, "start": 3090}
   ]
 }

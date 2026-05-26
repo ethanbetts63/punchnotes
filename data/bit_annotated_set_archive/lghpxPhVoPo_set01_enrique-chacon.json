@@ -1,94 +1,110 @@
 {
-  "type": "set_meta",
-  "video_id": "lghpxPhVoPo",
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
-  "publish_date": "2026-03-24",
-  "guests": ["Adam Ray", "Kim Congdon"],
-  "comedian_name": "Enrique Chacon",
-  "comedian_type": "golden_ticket",
-  "set_number": 1,
-  "start_seconds": 433,
-  "bits": [
-    {
-      "bit_id": "bit_001",
-      "premise": "A predominantly white audience at a Houston comedy show resembles a segregated megachurch.",
-      "line_range": [101, 102],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [101, 102],
-          "topics": ["race", "Houston", "Lakewood Church", "audience"]
-        }
-      ]
-    },
-    {
-      "bit_id": "bit_002",
-      "premise": "A Latino man's fear of ICE is undermined by the revelation that ICE now targets white people, collapsing his only safe hiding spot.",
-      "line_range": [103, 106],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [103, 106],
-          "topics": ["ICE", "immigration", "race", "Lululemon"]
-        }
-      ]
-    },
-    {
-      "bit_id": "bit_003",
-      "premise": "Performing an act of animal charity (rescuing cats) is reframed as a calculated seduction strategy.",
-      "line_range": [107, 116],
-      "beats": [
-        {
-          "beat_id": "bit_003_beat_001",
-          "line_range": [107, 116],
-          "topics": ["dating", "cats", "animal rescue", "sex"]
-        }
-      ]
-    },
-    {
-      "bit_id": "bit_004",
-      "premise": "A dog breed serves as a cross-racial bonding tool with older white men until their inherited racism abruptly ends the connection.",
-      "line_range": [117, 128],
-      "beats": [
-        {
-          "beat_id": "bit_004_beat_001",
-          "line_range": [117, 128],
-          "topics": ["race", "dogs", "blue heeler", "racism"]
-        }
-      ]
-    }
+  "type": "set_meta"
+,
+  "video_id": "lghpxPhVoPo"
+,
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
+,
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
+,
+  "publish_date": "2026-03-24"
+,
+  "guests": [
+    "Adam Ray",
+    "Kim Congdon"
   ],
+  "comedian_name": "Enrique Chacon"
+,
+  "comedian_type": "golden_ticket"
+,
+  "set_number": 1
+,
+  "start_seconds": 433
+,
+  "bit_meta": {
+    "1": {
+      "premise": "A predominantly white audience at a Houston comedy show resembles a segregated megachurch.",
+      "beats": {
+        "1": {
+          "topics": [
+            "race",
+            "Houston",
+            "Lakewood Church",
+            "audience"
+          ]
+        }
+      }
+    },
+    "2": {
+      "premise": "A Latino man's fear of ICE is undermined by the revelation that ICE now targets white people, collapsing his only safe hiding spot.",
+      "beats": {
+        "1": {
+          "topics": [
+            "ICE",
+            "immigration",
+            "race",
+            "Lululemon"
+          ]
+        }
+      }
+    },
+    "3": {
+      "premise": "Performing an act of animal charity (rescuing cats) is reframed as a calculated seduction strategy.",
+      "beats": {
+        "1": {
+          "topics": [
+            "dating",
+            "cats",
+            "animal rescue",
+            "sex"
+          ]
+        }
+      }
+    },
+    "4": {
+      "premise": "A dog breed serves as a cross-racial bonding tool with older white men until their inherited racism abruptly ends the connection.",
+      "beats": {
+        "1": {
+          "topics": [
+            "race",
+            "dogs",
+            "blue heeler",
+            "racism"
+          ]
+        }
+      }
+    }
+  },
   "lines": [
-    {"line_number": 99, "text": "Houston, Texas, how the fuck we feeling tonight?", "start": 433, "label": "fluff"},
-    {"line_number": 101, "text": "This is looking like a racist Lakewood Church, bro.", "start": 439, "label": "punchline"},
-    {"line_number": 102, "text": "What the fuck?", "start": 441, "label": "tag"},
-    {"line_number": 103, "text": "I heard that ICE is killing white people now, man.", "start": 444, "label": "setup"},
-    {"line_number": 104, "text": "What's up with that?", "start": 446, "label": "setup"},
-    {"line_number": 105, "text": "You're telling me I can't even hide", "start": 447, "label": "setup"},
-    {"line_number": 106, "text": "inside a Lulu lemon anymore?", "start": 448, "label": "punchline"},
-    {"line_number": 107, "text": "My girlfriend, when I met her,", "start": 452, "label": "setup"},
-    {"line_number": 108, "text": "she was way out of my league,", "start": 454, "label": "setup"},
-    {"line_number": 109, "text": "so I found out everything I could about her, man.", "start": 455, "label": "setup"},
-    {"line_number": 110, "text": "I found out that she was really into animal rescue.", "start": 457, "label": "setup"},
-    {"line_number": 111, "text": "So 2019, fuck it, bro.", "start": 460, "label": "setup"},
-    {"line_number": 112, "text": "Rescue 34 cats, bro.", "start": 462, "label": "setup"},
-    {"line_number": 113, "text": "Fuck it.", "start": 464, "label": "fluff"},
-    {"line_number": 114, "text": "Sometimes you have to save the kitty to eat the kitty.", "start": 465, "label": "punchline"},
-    {"line_number": 115, "text": "That's what I was doing.", "start": 468, "label": "fluff"},
-    {"line_number": 116, "text": "You can say I was in heat too, man.", "start": 471, "label": "tag"},
-    {"line_number": 117, "text": "Anyways, I have an Australian cattle dog,", "start": 472, "label": "setup"},
-    {"line_number": 118, "text": "a blue healer at home.", "start": 476, "label": "setup"},
-    {"line_number": 119, "text": "I like to use that dog for small talk with older white guys.", "start": 478, "label": "setup"},
-    {"line_number": 120, "text": "I like a tractor supply.", "start": 481, "label": "setup"},
-    {"line_number": 121, "text": "I tell them I have a blue healer and they're like,", "start": 483, "label": "setup"},
-    {"line_number": 122, "text": "\"Oh, my granddaddy had a blue heeler.\"", "start": 485, "label": "setup"},
-    {"line_number": 123, "text": "That's a very intelligent dog.", "start": 489, "label": "setup"},
-    {"line_number": 124, "text": "That's a very hard-working dog.", "start": 490, "label": "setup"},
-    {"line_number": 125, "text": "- We have a beautiful moment,", "start": 493, "label": "setup"},
-    {"line_number": 126, "text": "and suddenly they remember that their granddaddy", "start": 495, "label": "setup"},
-    {"line_number": 127, "text": "wouldn't like him talking to me,", "start": 497, "label": "setup"},
-    {"line_number": 128, "text": "and that's the end of the conversation.", "start": 499, "label": "punchline"},
-    {"line_number": 129, "text": "Thank you.", "start": 502, "label": "fluff"}
+    {"text": "Houston, Texas, how the fuck we feeling tonight?", "label": "fluff", "bit": null, "beat": null, "line_number": 99, "start": 433},
+    {"text": "This is looking like a racist Lakewood Church, bro.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 101, "start": 439},
+    {"text": "What the fuck?", "label": "tag", "bit": 1, "beat": 1, "line_number": 102, "start": 441},
+    {"text": "I heard that ICE is killing white people now, man.", "label": "setup", "bit": 2, "beat": 1, "line_number": 103, "start": 444},
+    {"text": "What's up with that?", "label": "setup", "bit": 2, "beat": 1, "line_number": 104, "start": 446},
+    {"text": "You're telling me I can't even hide", "label": "setup", "bit": 2, "beat": 1, "line_number": 105, "start": 447},
+    {"text": "inside a Lulu lemon anymore?", "label": "punchline", "bit": 2, "beat": 1, "line_number": 106, "start": 448},
+    {"text": "My girlfriend, when I met her,", "label": "setup", "bit": 3, "beat": 1, "line_number": 107, "start": 452},
+    {"text": "she was way out of my league,", "label": "setup", "bit": 3, "beat": 1, "line_number": 108, "start": 454},
+    {"text": "so I found out everything I could about her, man.", "label": "setup", "bit": 3, "beat": 1, "line_number": 109, "start": 455},
+    {"text": "I found out that she was really into animal rescue.", "label": "setup", "bit": 3, "beat": 1, "line_number": 110, "start": 457},
+    {"text": "So 2019, fuck it, bro.", "label": "setup", "bit": 3, "beat": 1, "line_number": 111, "start": 460},
+    {"text": "Rescue 34 cats, bro.", "label": "setup", "bit": 3, "beat": 1, "line_number": 112, "start": 462},
+    {"text": "Fuck it.", "label": "fluff", "bit": 3, "beat": 1, "line_number": 113, "start": 464},
+    {"text": "Sometimes you have to save the kitty to eat the kitty.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 114, "start": 465},
+    {"text": "That's what I was doing.", "label": "fluff", "bit": 3, "beat": 1, "line_number": 115, "start": 468},
+    {"text": "You can say I was in heat too, man.", "label": "tag", "bit": 3, "beat": 1, "line_number": 116, "start": 471},
+    {"text": "Anyways, I have an Australian cattle dog,", "label": "setup", "bit": 4, "beat": 1, "line_number": 117, "start": 472},
+    {"text": "a blue healer at home.", "label": "setup", "bit": 4, "beat": 1, "line_number": 118, "start": 476},
+    {"text": "I like to use that dog for small talk with older white guys.", "label": "setup", "bit": 4, "beat": 1, "line_number": 119, "start": 478},
+    {"text": "I like a tractor supply.", "label": "setup", "bit": 4, "beat": 1, "line_number": 120, "start": 481},
+    {"text": "I tell them I have a blue healer and they're like,", "label": "setup", "bit": 4, "beat": 1, "line_number": 121, "start": 483},
+    {"text": "\"Oh, my granddaddy had a blue heeler.\"", "label": "setup", "bit": 4, "beat": 1, "line_number": 122, "start": 485},
+    {"text": "That's a very intelligent dog.", "label": "setup", "bit": 4, "beat": 1, "line_number": 123, "start": 489},
+    {"text": "That's a very hard-working dog.", "label": "setup", "bit": 4, "beat": 1, "line_number": 124, "start": 490},
+    {"text": "- We have a beautiful moment,", "label": "setup", "bit": 4, "beat": 1, "line_number": 125, "start": 493},
+    {"text": "and suddenly they remember that their granddaddy", "label": "setup", "bit": 4, "beat": 1, "line_number": 126, "start": 495},
+    {"text": "wouldn't like him talking to me,", "label": "setup", "bit": 4, "beat": 1, "line_number": 127, "start": 497},
+    {"text": "and that's the end of the conversation.", "label": "punchline", "bit": 4, "beat": 1, "line_number": 128, "start": 499},
+    {"text": "Thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 129, "start": 502}
   ]
 }

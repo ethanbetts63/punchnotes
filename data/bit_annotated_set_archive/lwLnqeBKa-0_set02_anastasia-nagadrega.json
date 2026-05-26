@@ -1,249 +1,113 @@
 {
-  "type": "set_meta",
-  "video_id": "lwLnqeBKa-0",
-  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
-  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
-  "publish_date": "2026-04-28",
+  "type": "set_meta"
+,
+  "video_id": "lwLnqeBKa-0"
+,
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI"
+,
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0"
+,
+  "publish_date": "2026-04-28"
+,
   "guests": [
     "Dustin Poirier",
     "Ari Matti"
   ],
-  "comedian_name": "Anastasia Nagadrega",
-  "comedian_type": "bucket_pull",
-  "set_number": 2,
-  "start_seconds": 795,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Anastasia Nagadrega"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 2
+,
+  "start_seconds": 795
+,
+  "bit_meta": {
+    "1": {
       "premise": "Getting high can count as flying locally.",
-      "line_range": [
-        331,
-        333
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            331,
-            333
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "Austin",
             "weed",
             "travel"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_002",
+    "2": {
       "premise": "Private funniness may not survive an audience.",
-      "line_range": [
-        334,
-        335
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [
-            334,
-            335
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "friends",
             "stage time",
             "comedy"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_003",
+    "3": {
       "premise": "Crowd work fails when audiences think too slowly.",
-      "line_range": [
-        336,
-        337
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_003_beat_001",
-          "line_range": [
-            336,
-            337
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "crowd work",
             "audiences",
             "time limits"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_004",
+    "4": {
       "premise": "Ignoring Epstein news makes comedy shows look like reality avoidance.",
-      "line_range": [
-        338,
-        346
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_004_beat_001",
-          "line_range": [
-            338,
-            344
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "Epstein files",
             "public apathy",
             "politics"
           ]
         },
-        {
-          "beat_id": "bit_004_beat_002",
-          "line_range": [
-            345,
-            346
-          ],
+        "2": {
           "topics": [
             "escapism",
             "audience",
             "reality"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_005",
+    "5": {
       "premise": "Self-belief in funniness may not reach the room.",
-      "line_range": [
-        347,
-        348
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_005_beat_001",
-          "line_range": [
-            347,
-            348
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "self-deprecation",
             "audience reaction",
             "comedy"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "- I flew here.",
-      "start": 795,
-      "label": "setup",
-      "line_number": 331
-    },
-    {
-      "text": "On a blunt, I'm from Austin, I'm in Austin.",
-      "start": 799,
-      "label": "punchline",
-      "line_number": 332
-    },
-    {
-      "text": "So basically what happened was I didn't plan to be here and then now I'm here.",
-      "start": 802,
-      "label": "fluff",
-      "line_number": 333
-    },
-    {
-      "text": "So this guy told me not to say his name on stage, Jimmy Prescott, and he invited me",
-      "start": 808,
-      "label": "setup",
-      "line_number": 334
-    },
-    {
-      "text": "because he said that sometimes I'm funny, but only when people aren't around.",
-      "start": 814,
-      "label": "punchline",
-      "line_number": 335
-    },
-    {
-      "text": "Usually I do crowd work, but that's found upon when there's only 60 seconds,",
-      "start": 819,
-      "label": "setup",
-      "line_number": 336
-    },
-    {
-      "text": "So, 'cause y'all take too long to think.",
-      "start": 827,
-      "label": "punchline",
-      "line_number": 337
-    },
-    {
-      "text": "But I think it's kind of crazy that the Epstein files dropped",
-      "start": 830,
-      "label": "setup",
-      "line_number": 338
-    },
-    {
-      "text": "and everybody just sort of like, cool, yeah.",
-      "start": 836,
-      "label": "setup",
-      "line_number": 339
-    },
-    {
-      "text": "That's what they're doing.",
-      "start": 838,
-      "label": "setup",
-      "line_number": 340
-    },
-    {
-      "text": "I approve of it.",
-      "start": 839,
-      "label": "setup",
-      "line_number": 341
-    },
-    {
-      "text": "We're not gonna do anything about it.",
-      "start": 842,
-      "label": "setup",
-      "line_number": 342
-    },
-    {
-      "text": "We all know what's going on and we're just gonna, woo.",
-      "start": 843,
-      "label": "setup",
-      "line_number": 343
-    },
-    {
-      "text": "So anyway, that's why y'all are here.",
-      "start": 847,
-      "label": "punchline",
-      "line_number": 344
-    },
-    {
-      "text": "You're avoiding reality and that's why I'm here.",
-      "start": 848,
-      "label": "tag",
-      "line_number": 345
-    },
-    {
-      "text": "I'm also avoiding reality.",
-      "start": 851,
-      "label": "tag",
-      "line_number": 346
-    },
-    {
-      "text": "I think I'm funny.",
-      "start": 854,
-      "label": "setup",
-      "line_number": 347
-    },
-    {
-      "text": "Clearly you guys don't know.",
-      "start": 855,
-      "label": "punchline",
-      "line_number": 348
-    }
+    {"text": "- I flew here.", "label": "setup", "bit": 1, "beat": 1, "line_number": 331, "start": 795},
+    {"text": "On a blunt, I'm from Austin, I'm in Austin.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 332, "start": 799},
+    {"text": "So basically what happened was I didn't plan to be here and then now I'm here.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 333, "start": 802},
+    {"text": "So this guy told me not to say his name on stage, Jimmy Prescott, and he invited me", "label": "setup", "bit": 2, "beat": 1, "line_number": 334, "start": 808},
+    {"text": "because he said that sometimes I'm funny, but only when people aren't around.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 335, "start": 814},
+    {"text": "Usually I do crowd work, but that's found upon when there's only 60 seconds,", "label": "setup", "bit": 3, "beat": 1, "line_number": 336, "start": 819},
+    {"text": "So, 'cause y'all take too long to think.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 337, "start": 827},
+    {"text": "But I think it's kind of crazy that the Epstein files dropped", "label": "setup", "bit": 4, "beat": 1, "line_number": 338, "start": 830},
+    {"text": "and everybody just sort of like, cool, yeah.", "label": "setup", "bit": 4, "beat": 1, "line_number": 339, "start": 836},
+    {"text": "That's what they're doing.", "label": "setup", "bit": 4, "beat": 1, "line_number": 340, "start": 838},
+    {"text": "I approve of it.", "label": "setup", "bit": 4, "beat": 1, "line_number": 341, "start": 839},
+    {"text": "We're not gonna do anything about it.", "label": "setup", "bit": 4, "beat": 1, "line_number": 342, "start": 842},
+    {"text": "We all know what's going on and we're just gonna, woo.", "label": "setup", "bit": 4, "beat": 1, "line_number": 343, "start": 843},
+    {"text": "So anyway, that's why y'all are here.", "label": "punchline", "bit": 4, "beat": 1, "line_number": 344, "start": 847},
+    {"text": "You're avoiding reality and that's why I'm here.", "label": "tag", "bit": 4, "beat": 2, "line_number": 345, "start": 848},
+    {"text": "I'm also avoiding reality.", "label": "tag", "bit": 4, "beat": 2, "line_number": 346, "start": 851},
+    {"text": "I think I'm funny.", "label": "setup", "bit": 5, "beat": 1, "line_number": 347, "start": 854},
+    {"text": "Clearly you guys don't know.", "label": "punchline", "bit": 5, "beat": 1, "line_number": 348, "start": 855}
   ]
 }

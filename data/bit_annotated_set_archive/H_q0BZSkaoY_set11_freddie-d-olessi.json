@@ -1,78 +1,98 @@
 {
-  "type": "set_meta",
-  "video_id": "H_q0BZSkaoY",
-  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
-  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
-  "publish_date": "2026-03-17",
-  "guests": ["Steve0", "Tim Butterly"],
-  "comedian_name": "Freddie D'Olessi",
-  "comedian_type": "bucket_pull",
-  "set_number": 11,
-  "start_seconds": 6690,
-  "bits": [
-    {
-      "bit_id": "bit_001",
-      "premise": "Tesla's brand shifted from environmental virtue to white nationalist association, which extends logically to the KKK adopting eco-friendly practices.",
-      "line_range": [2925, 2936],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [2925, 2928],
-          "topics": ["Tesla", "Elon Musk", "white supremacy", "race"]
-        },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [2929, 2936],
-          "topics": ["KKK", "environmentalism", "race", "LED"]
-        }
-      ]
-    },
-    {
-      "bit_id": "bit_002",
-      "premise": "NFL team names that reference racial conflict, when scheduled against each other on historically charged dates, become unintentional historical reenactments.",
-      "line_range": [2940, 2955],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [2940, 2950],
-          "topics": ["Washington Redskins", "Dallas Cowboys", "Thanksgiving", "Native Americans"]
-        },
-        {
-          "beat_id": "bit_002_beat_002",
-          "line_range": [2952, 2955],
-          "topics": ["police", "race", "Juneteenth", "NFL"]
-        }
-      ]
-    }
+  "type": "set_meta"
+,
+  "video_id": "H_q0BZSkaoY"
+,
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY"
+,
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY"
+,
+  "publish_date": "2026-03-17"
+,
+  "guests": [
+    "Steve0",
+    "Tim Butterly"
   ],
+  "comedian_name": "Freddie D'Olessi"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 11
+,
+  "start_seconds": 6690
+,
+  "bit_meta": {
+    "1": {
+      "premise": "Tesla's brand shifted from environmental virtue to white nationalist association, which extends logically to the KKK adopting eco-friendly practices.",
+      "beats": {
+        "1": {
+          "topics": [
+            "Tesla",
+            "Elon Musk",
+            "white supremacy",
+            "race"
+          ]
+        },
+        "2": {
+          "topics": [
+            "KKK",
+            "environmentalism",
+            "race",
+            "LED"
+          ]
+        }
+      }
+    },
+    "2": {
+      "premise": "NFL team names that reference racial conflict, when scheduled against each other on historically charged dates, become unintentional historical reenactments.",
+      "beats": {
+        "1": {
+          "topics": [
+            "Washington Redskins",
+            "Dallas Cowboys",
+            "Thanksgiving",
+            "Native Americans"
+          ]
+        },
+        "2": {
+          "topics": [
+            "police",
+            "race",
+            "Juneteenth",
+            "NFL"
+          ]
+        }
+      }
+    }
+  },
   "lines": [
-    {"line_number": 2925, "text": "I just realized I think everything is a little racist.", "start": 6690, "label": "setup"},
-    {"line_number": 2926, "text": "This is like my brother got a Tesla five years ago.", "start": 6694, "label": "setup"},
-    {"line_number": 2927, "text": "And in five years, Tesla went from clean power", "start": 6698, "label": "setup"},
-    {"line_number": 2928, "text": "to white power.", "start": 6701, "label": "punchline"},
-    {"line_number": 2929, "text": "Just like that. That's crazy.", "start": 6703, "label": "fluff"},
-    {"line_number": 2930, "text": "How do you hate people but love the environment?", "start": 6704, "label": "setup"},
-    {"line_number": 2931, "text": "That's like if the KKK was like,", "start": 6708, "label": "setup"},
-    {"line_number": 2932, "text": "\"Yo, we not burning no more crosses.", "start": 6710, "label": "setup"},
-    {"line_number": 2933, "text": "We LED light in them.\"", "start": 6713, "label": "punchline"},
-    {"line_number": 2935, "text": "Strobe effect. We ride at dawn.", "start": 6717, "label": "tag"},
-    {"line_number": 2936, "text": "We're solar powered.", "start": 6718, "label": "tag"},
-    {"line_number": 2937, "text": "Uh...", "start": 6720, "label": "fluff"},
-    {"line_number": 2938, "text": "I don't know, man.", "start": 6722, "label": "fluff"},
-    {"line_number": 2939, "text": "I don't know, man.", "start": 6723, "label": "fluff"},
-    {"line_number": 2940, "text": "I think everything in Little Races,", "start": 6724, "label": "setup"},
-    {"line_number": 2941, "text": "'cause I'm from Virginia.", "start": 6725, "label": "setup"},
-    {"line_number": 2942, "text": "You know, Virginia's race.", "start": 6727, "label": "setup"},
-    {"line_number": 2943, "text": "Like, we don't have sports teams.", "start": 6728, "label": "setup"},
-    {"line_number": 2944, "text": "We got to support the DC teams.", "start": 6728, "label": "setup"},
-    {"line_number": 2945, "text": "I didn't even know the football team's name was racist", "start": 6731, "label": "setup"},
-    {"line_number": 2946, "text": "until the first game I went to.", "start": 6733, "label": "setup"},
-    {"line_number": 2947, "text": "It was the Cowboys versus the Redskins on Thanksgiving.", "start": 6735, "label": "setup"},
-    {"line_number": 2949, "text": "That's not a game.", "start": 6745, "label": "setup"},
-    {"line_number": 2950, "text": "That's a reenactment, you know?", "start": 6746, "label": "punchline"},
-    {"line_number": 2952, "text": "That's like if they had a team called the Cops", "start": 6750, "label": "setup"},
-    {"line_number": 2953, "text": "and they play the niggas.", "start": 6752, "label": "setup"},
-    {"line_number": 2955, "text": "On Juneteenth.", "start": 6758, "label": "punchline"},
-    {"line_number": 2956, "text": "Like, oh.", "start": 6760, "label": "fluff"}
+    {"text": "I just realized I think everything is a little racist.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2925, "start": 6690},
+    {"text": "This is like my brother got a Tesla five years ago.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2926, "start": 6694},
+    {"text": "And in five years, Tesla went from clean power", "label": "setup", "bit": 1, "beat": 1, "line_number": 2927, "start": 6698},
+    {"text": "to white power.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2928, "start": 6701},
+    {"text": "Just like that. That's crazy.", "label": "fluff", "bit": 1, "beat": 2, "line_number": 2929, "start": 6703},
+    {"text": "How do you hate people but love the environment?", "label": "setup", "bit": 1, "beat": 2, "line_number": 2930, "start": 6704},
+    {"text": "That's like if the KKK was like,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2931, "start": 6708},
+    {"text": "\"Yo, we not burning no more crosses.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2932, "start": 6710},
+    {"text": "We LED light in them.\"", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2933, "start": 6713},
+    {"text": "Strobe effect. We ride at dawn.", "label": "tag", "bit": 1, "beat": 2, "line_number": 2935, "start": 6717},
+    {"text": "We're solar powered.", "label": "tag", "bit": 1, "beat": 2, "line_number": 2936, "start": 6718},
+    {"text": "Uh...", "label": "fluff", "bit": null, "beat": null, "line_number": 2937, "start": 6720},
+    {"text": "I don't know, man.", "label": "fluff", "bit": null, "beat": null, "line_number": 2938, "start": 6722},
+    {"text": "I don't know, man.", "label": "fluff", "bit": null, "beat": null, "line_number": 2939, "start": 6723},
+    {"text": "I think everything in Little Races,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2940, "start": 6724},
+    {"text": "'cause I'm from Virginia.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2941, "start": 6725},
+    {"text": "You know, Virginia's race.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2942, "start": 6727},
+    {"text": "Like, we don't have sports teams.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2943, "start": 6728},
+    {"text": "We got to support the DC teams.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2944, "start": 6728},
+    {"text": "I didn't even know the football team's name was racist", "label": "setup", "bit": 2, "beat": 1, "line_number": 2945, "start": 6731},
+    {"text": "until the first game I went to.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2946, "start": 6733},
+    {"text": "It was the Cowboys versus the Redskins on Thanksgiving.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2947, "start": 6735},
+    {"text": "That's not a game.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2949, "start": 6745},
+    {"text": "That's a reenactment, you know?", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2950, "start": 6746},
+    {"text": "That's like if they had a team called the Cops", "label": "setup", "bit": 2, "beat": 2, "line_number": 2952, "start": 6750},
+    {"text": "and they play the niggas.", "label": "setup", "bit": 2, "beat": 2, "line_number": 2953, "start": 6752},
+    {"text": "On Juneteenth.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 2955, "start": 6758},
+    {"text": "Like, oh.", "label": "fluff", "bit": null, "beat": null, "line_number": 2956, "start": 6760}
   ]
 }

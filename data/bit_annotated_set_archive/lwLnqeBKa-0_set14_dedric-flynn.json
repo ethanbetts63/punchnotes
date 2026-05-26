@@ -1,80 +1,59 @@
 {
-  "type": "set_meta",
-  "video_id": "lwLnqeBKa-0",
-  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
-  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
-  "publish_date": "2026-04-28",
+  "type": "set_meta"
+,
+  "video_id": "lwLnqeBKa-0"
+,
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI"
+,
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0"
+,
+  "publish_date": "2026-04-28"
+,
   "guests": [
     "Dustin Poirier",
     "Ari Matti"
   ],
-  "comedian_name": "Dedric Flynn",
-  "comedian_type": "regular",
-  "set_number": 14,
-  "start_seconds": 7119,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Dedric Flynn"
+,
+  "comedian_type": "regular"
+,
+  "set_number": 14
+,
+  "start_seconds": 7119
+,
+  "bit_meta": {
+    "1": {
       "premise": "Tattoos can make workers seem tougher and more trustworthy.",
-      "line_range": [
-        3088,
-        3126
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            3088,
-            3097
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "car wash",
             "tattoos",
             "management"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [
-            3098,
-            3106
-          ],
+        "2": {
           "topics": [
             "tattoos",
             "car repair",
             "trust"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_003",
-          "line_range": [
-            3107,
-            3113
-          ],
+        "3": {
           "topics": [
             "tattoos",
             "nurses",
             "doctors"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_004",
-          "line_range": [
-            3114,
-            3117
-          ],
+        "4": {
           "topics": [
             "nurses",
             "hospitals",
             "needles"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_005",
-          "line_range": [
-            3118,
-            3126
-          ],
+        "5": {
           "topics": [
             "tattoos",
             "blue-collar work",
@@ -82,255 +61,50 @@
             "audience roast"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "- Yeah!",
-      "start": 7119,
-      "label": "fluff",
-      "line_number": 3087
-    },
-    {
-      "text": "When I first moved to Austin,",
-      "start": 7121,
-      "label": "setup",
-      "line_number": 3088
-    },
-    {
-      "text": "I was working at his car wash called",
-      "start": 7123,
-      "label": "setup",
-      "line_number": 3089
-    },
-    {
-      "text": "Serve Through Car Wash,",
-      "start": 7126,
-      "label": "setup",
-      "line_number": 3090
-    },
-    {
-      "text": "and they hired me as a manager,",
-      "start": 7128,
-      "label": "setup",
-      "line_number": 3091
-    },
-    {
-      "text": "and then afterwards told me",
-      "start": 7130,
-      "label": "setup",
-      "line_number": 3092
-    },
-    {
-      "text": "that tattoos are not except like they can't be seen",
-      "start": 7133,
-      "label": "setup",
-      "line_number": 3093
-    },
-    {
-      "text": "at the car wash.",
-      "start": 7137,
-      "label": "setup",
-      "line_number": 3094
-    },
-    {
-      "text": "And that let me know these niggas aren't good with money",
-      "start": 7140,
-      "label": "setup",
-      "line_number": 3095
-    },
-    {
-      "text": "because the more tattoos you have,",
-      "start": 7145,
-      "label": "setup",
-      "line_number": 3096
-    },
-    {
-      "text": "the more people trust you with their car.",
-      "start": 7148,
-      "label": "punchline",
-      "line_number": 3097
-    },
-    {
-      "text": "You don't want a blank nigga telling you",
-      "start": 7152,
-      "label": "tag",
-      "line_number": 3098
-    },
-    {
-      "text": "your rims are dirty.",
-      "start": 7154,
-      "label": "tag",
-      "line_number": 3099
-    },
-    {
-      "text": "You don't want a blank nigga",
-      "start": 7158,
-      "label": "tag",
-      "line_number": 3101
-    },
-    {
-      "text": "looking at your transmission.",
-      "start": 7160,
-      "label": "tag",
-      "line_number": 3102
-    },
-    {
-      "text": "You want a fell in with a throat tattoo",
-      "start": 7163,
-      "label": "tag",
-      "line_number": 3103
-    },
-    {
-      "text": "being like your filter's dirty.",
-      "start": 7166,
-      "label": "tag",
-      "line_number": 3104
-    },
-    {
-      "text": "You're like, whatever you need, sir,",
-      "start": 7168,
-      "label": "tag",
-      "line_number": 3105
-    },
-    {
-      "text": "just don't go back to jail.",
-      "start": 7169,
-      "label": "tag",
-      "line_number": 3106
-    },
-    {
-      "text": "Tattoos lets you know a motherfucker",
-      "start": 7174,
-      "label": "setup",
-      "line_number": 3107
-    },
-    {
-      "text": "went through something to work here.",
-      "start": 7177,
-      "label": "setup",
-      "line_number": 3108
-    },
-    {
-      "text": "Like doctors don't have tattoos.",
-      "start": 7179,
-      "label": "setup",
-      "line_number": 3109
-    },
-    {
-      "text": "Surgeons don't have tattoos.",
-      "start": 7182,
-      "label": "setup",
-      "line_number": 3110
-    },
-    {
-      "text": "You know who do?",
-      "start": 7184,
-      "label": "setup",
-      "line_number": 3111
-    },
-    {
-      "text": "Nurses.",
-      "start": 7185,
-      "label": "punchline",
-      "line_number": 3112
-    },
-    {
-      "text": "Nurses are sexy as fuck.",
-      "start": 7188,
-      "label": "tag",
-      "line_number": 3113
-    },
-    {
-      "text": "If the hospitals just only had nurses,",
-      "start": 7190,
-      "label": "setup",
-      "line_number": 3114
-    },
-    {
-      "text": "everybody would be cured,",
-      "start": 7193,
-      "label": "setup",
-      "line_number": 3115
-    },
-    {
-      "text": "'cause them niggas can't wait to shove a needle in your neck",
-      "start": 7195,
-      "label": "punchline",
-      "line_number": 3116
-    },
-    {
-      "text": "and get you the fuck out of there.",
-      "start": 7198,
-      "label": "tag",
-      "line_number": 3117
-    },
-    {
-      "text": "All I'm saying is if you can't punch the drywall,",
-      "start": 7202,
-      "label": "setup",
-      "line_number": 3118
-    },
-    {
-      "text": "you shouldn't be hanging my drywall.",
-      "start": 7205,
-      "label": "punchline",
-      "line_number": 3119
-    },
-    {
-      "text": "Tattoos let me know that you're a blue collar worker.",
-      "start": 7210,
-      "label": "setup",
-      "line_number": 3120
-    },
-    {
-      "text": "Like you, you don't do anything.",
-      "start": 7214,
-      "label": "setup",
-      "line_number": 3121
-    },
-    {
-      "text": "You don't sweat for work.",
-      "start": 7220,
-      "label": "punchline",
-      "line_number": 3122
-    },
-    {
-      "text": "Not at all, but look at this motherfucker.",
-      "start": 7222,
-      "label": "setup",
-      "line_number": 3123
-    },
-    {
-      "text": "He's got his tattoos hitting,",
-      "start": 7226,
-      "label": "setup",
-      "line_number": 3124
-    },
-    {
-      "text": "he be drumming his fucking ass off.",
-      "start": 7228,
-      "label": "punchline",
-      "line_number": 3125
-    },
-    {
-      "text": "You sitting over here laid back like a bitch.",
-      "start": 7230,
-      "label": "tag",
-      "line_number": 3126
-    },
-    {
-      "text": "I--",
-      "start": 7233,
-      "label": "fluff",
-      "line_number": 3127
-    },
-    {
-      "text": "That's my time, I'm sorry.",
-      "start": 7235,
-      "label": "fluff",
-      "line_number": 3128
-    }
+    {"text": "- Yeah!", "label": "fluff", "bit": null, "beat": null, "line_number": 3087, "start": 7119},
+    {"text": "When I first moved to Austin,", "label": "setup", "bit": 1, "beat": 1, "line_number": 3088, "start": 7121},
+    {"text": "I was working at his car wash called", "label": "setup", "bit": 1, "beat": 1, "line_number": 3089, "start": 7123},
+    {"text": "Serve Through Car Wash,", "label": "setup", "bit": 1, "beat": 1, "line_number": 3090, "start": 7126},
+    {"text": "and they hired me as a manager,", "label": "setup", "bit": 1, "beat": 1, "line_number": 3091, "start": 7128},
+    {"text": "and then afterwards told me", "label": "setup", "bit": 1, "beat": 1, "line_number": 3092, "start": 7130},
+    {"text": "that tattoos are not except like they can't be seen", "label": "setup", "bit": 1, "beat": 1, "line_number": 3093, "start": 7133},
+    {"text": "at the car wash.", "label": "setup", "bit": 1, "beat": 1, "line_number": 3094, "start": 7137},
+    {"text": "And that let me know these niggas aren't good with money", "label": "setup", "bit": 1, "beat": 1, "line_number": 3095, "start": 7140},
+    {"text": "because the more tattoos you have,", "label": "setup", "bit": 1, "beat": 1, "line_number": 3096, "start": 7145},
+    {"text": "the more people trust you with their car.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 3097, "start": 7148},
+    {"text": "You don't want a blank nigga telling you", "label": "tag", "bit": 1, "beat": 2, "line_number": 3098, "start": 7152},
+    {"text": "your rims are dirty.", "label": "tag", "bit": 1, "beat": 2, "line_number": 3099, "start": 7154},
+    {"text": "You don't want a blank nigga", "label": "tag", "bit": 1, "beat": 2, "line_number": 3101, "start": 7158},
+    {"text": "looking at your transmission.", "label": "tag", "bit": 1, "beat": 2, "line_number": 3102, "start": 7160},
+    {"text": "You want a fell in with a throat tattoo", "label": "tag", "bit": 1, "beat": 2, "line_number": 3103, "start": 7163},
+    {"text": "being like your filter's dirty.", "label": "tag", "bit": 1, "beat": 2, "line_number": 3104, "start": 7166},
+    {"text": "You're like, whatever you need, sir,", "label": "tag", "bit": 1, "beat": 2, "line_number": 3105, "start": 7168},
+    {"text": "just don't go back to jail.", "label": "tag", "bit": 1, "beat": 2, "line_number": 3106, "start": 7169},
+    {"text": "Tattoos lets you know a motherfucker", "label": "setup", "bit": 1, "beat": 3, "line_number": 3107, "start": 7174},
+    {"text": "went through something to work here.", "label": "setup", "bit": 1, "beat": 3, "line_number": 3108, "start": 7177},
+    {"text": "Like doctors don't have tattoos.", "label": "setup", "bit": 1, "beat": 3, "line_number": 3109, "start": 7179},
+    {"text": "Surgeons don't have tattoos.", "label": "setup", "bit": 1, "beat": 3, "line_number": 3110, "start": 7182},
+    {"text": "You know who do?", "label": "setup", "bit": 1, "beat": 3, "line_number": 3111, "start": 7184},
+    {"text": "Nurses.", "label": "punchline", "bit": 1, "beat": 3, "line_number": 3112, "start": 7185},
+    {"text": "Nurses are sexy as fuck.", "label": "tag", "bit": 1, "beat": 3, "line_number": 3113, "start": 7188},
+    {"text": "If the hospitals just only had nurses,", "label": "setup", "bit": 1, "beat": 4, "line_number": 3114, "start": 7190},
+    {"text": "everybody would be cured,", "label": "setup", "bit": 1, "beat": 4, "line_number": 3115, "start": 7193},
+    {"text": "'cause them niggas can't wait to shove a needle in your neck", "label": "punchline", "bit": 1, "beat": 4, "line_number": 3116, "start": 7195},
+    {"text": "and get you the fuck out of there.", "label": "tag", "bit": 1, "beat": 4, "line_number": 3117, "start": 7198},
+    {"text": "All I'm saying is if you can't punch the drywall,", "label": "setup", "bit": 1, "beat": 5, "line_number": 3118, "start": 7202},
+    {"text": "you shouldn't be hanging my drywall.", "label": "punchline", "bit": 1, "beat": 5, "line_number": 3119, "start": 7205},
+    {"text": "Tattoos let me know that you're a blue collar worker.", "label": "setup", "bit": 1, "beat": 5, "line_number": 3120, "start": 7210},
+    {"text": "Like you, you don't do anything.", "label": "setup", "bit": 1, "beat": 5, "line_number": 3121, "start": 7214},
+    {"text": "You don't sweat for work.", "label": "punchline", "bit": 1, "beat": 5, "line_number": 3122, "start": 7220},
+    {"text": "Not at all, but look at this motherfucker.", "label": "setup", "bit": 1, "beat": 5, "line_number": 3123, "start": 7222},
+    {"text": "He's got his tattoos hitting,", "label": "setup", "bit": 1, "beat": 5, "line_number": 3124, "start": 7226},
+    {"text": "he be drumming his fucking ass off.", "label": "punchline", "bit": 1, "beat": 5, "line_number": 3125, "start": 7228},
+    {"text": "You sitting over here laid back like a bitch.", "label": "tag", "bit": 1, "beat": 5, "line_number": 3126, "start": 7230},
+    {"text": "I--", "label": "fluff", "bit": null, "beat": null, "line_number": 3127, "start": 7233},
+    {"text": "That's my time, I'm sorry.", "label": "fluff", "bit": null, "beat": null, "line_number": 3128, "start": 7235}
   ]
 }

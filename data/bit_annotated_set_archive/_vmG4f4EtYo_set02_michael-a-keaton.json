@@ -1,296 +1,114 @@
 {
-  "type": "set_meta",
-  "video_id": "_vmG4f4EtYo",
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "type": "set_meta"
+,
+  "video_id": "_vmG4f4EtYo"
+,
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
+,
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
+,
   "guests": [
     "Theo Von",
     "Jelly Roll"
   ],
-  "comedian_name": "Michael A. Keaton",
-  "comedian_type": "bucket_pull",
-  "set_number": 2,
-  "start_seconds": 768,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Michael A. Keaton"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 2
+,
+  "start_seconds": 768
+,
+  "bit_meta": {
+    "1": {
       "premise": "A Batman name is undercut by walking like the Penguin.",
-      "line_range": [
-        300,
-        301
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            300,
-            301
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "Michael Keaton",
             "Batman",
             "limping"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_002",
+    "2": {
       "premise": "A physical lean can look like a political leaning.",
-      "line_range": [
-        303,
-        307
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [
-            303,
-            307
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "politics",
             "appearance",
             "leaning"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_003",
+    "3": {
       "premise": "Living in a car technically counts as homeownership.",
-      "line_range": [
-        312,
-        317
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_003_beat_001",
-          "line_range": [
-            312,
-            317
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "homeownership",
             "RAV4",
             "car living"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_004",
+    "4": {
       "premise": "Getting older has made cough drops feel like candy.",
-      "line_range": [
-        318,
-        322
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_004_beat_001",
-          "line_range": [
-            318,
-            322
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "aging",
             "cough drops",
             "candy"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_005",
+    "5": {
       "premise": "Aging has turned masturbation from desire into a prostate health chore.",
-      "line_range": [
-        323,
-        328
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_005_beat_001",
-          "line_range": [
-            323,
-            328
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "aging",
             "masturbation",
             "prostate health"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "You know how embarrassing it is to be named after a Batman",
-      "start": 768,
-      "label": "setup",
-      "line_number": 300
-    },
-    {
-      "text": "and having a hobble out here like the penguin?",
-      "start": 771,
-      "label": "punchline",
-      "line_number": 301
-    },
-    {
-      "text": "Oh, man, it's...",
-      "start": 775,
-      "label": "fluff",
-      "line_number": 302
-    },
-    {
-      "text": "Like, it's an interesting life.",
-      "start": 777,
-      "label": "setup",
-      "line_number": 303
-    },
-    {
-      "text": "Like, so many people, like, they assume",
-      "start": 778,
-      "label": "setup",
-      "line_number": 304
-    },
-    {
-      "text": "that they don't know what my politics are gonna be.",
-      "start": 781,
-      "label": "setup",
-      "line_number": 305
-    },
-    {
-      "text": "Just, like, look at this guy.",
-      "start": 783,
-      "label": "setup",
-      "line_number": 306
-    },
-    {
-      "text": "It's like, he has to lean, right?",
-      "start": 784,
-      "label": "punchline",
-      "line_number": 307
-    },
-    {
-      "text": "Oh, man.",
-      "start": 789,
-      "label": "fluff",
-      "line_number": 309
-    },
-    {
-      "text": "You guys are fun.",
-      "start": 790,
-      "label": "fluff",
-      "line_number": 310
-    },
-    {
-      "text": "Oh.",
-      "start": 792,
-      "label": "fluff",
-      "line_number": 311
-    },
-    {
-      "text": "I became a homeowner recently.",
-      "start": 793,
-      "label": "setup",
-      "line_number": 312
-    },
-    {
-      "text": "Yeah, yeah, thank you, thank you.",
-      "start": 796,
-      "label": "fluff",
-      "line_number": 313
-    },
-    {
-      "text": "It's a RAV4.",
-      "start": 797,
-      "label": "punchline",
-      "line_number": 314
-    },
-    {
-      "text": "Oh, man.",
-      "start": 801,
-      "label": "fluff",
-      "line_number": 316
-    },
-    {
-      "text": "I live in it, so it's more of a RAV4, okay?",
-      "start": 802,
-      "label": "tag",
-      "line_number": 317
-    },
-    {
-      "text": "Oh, I'm getting older in my life.",
-      "start": 805,
-      "label": "setup",
-      "line_number": 318
-    },
-    {
-      "text": "Like, you know, I've gotten to the point--",
-      "start": 807,
-      "label": "setup",
-      "line_number": 319
-    },
-    {
-      "text": "I think, like, my favorite candy now or cough drops,",
-      "start": 809,
-      "label": "setup",
-      "line_number": 320
-    },
-    {
-      "text": "you know?",
-      "start": 812,
-      "label": "fluff",
-      "line_number": 321
-    },
-    {
-      "text": "They're just menthol flavored Jolly Ranchers, you know?",
-      "start": 813,
-      "label": "punchline",
-      "line_number": 322
-    },
-    {
-      "text": "I've hit the point in my life where it's like,",
-      "start": 816,
-      "label": "setup",
-      "line_number": 323
-    },
-    {
-      "text": "I'm pretty sure the only reason I masturbate",
-      "start": 818,
-      "label": "setup",
-      "line_number": 324
-    },
-    {
-      "text": "is for prostate health, you know?",
-      "start": 820,
-      "label": "punchline",
-      "line_number": 325
-    },
-    {
-      "text": "Like, my partner walks in on me and is like,",
-      "start": 823,
-      "label": "setup",
-      "line_number": 326
-    },
-    {
-      "text": "\"What are you thinking about?",
-      "start": 825,
-      "label": "setup",
-      "line_number": 327
-    },
-    {
-      "text": "I'm just sitting there like, can't through.\"",
-      "start": 826,
-      "label": "punchline",
-      "line_number": 328
-    },
-    {
-      "text": "All right, thank you.",
-      "start": 830,
-      "label": "fluff",
-      "line_number": 330
-    }
+    {"text": "You know how embarrassing it is to be named after a Batman", "label": "setup", "bit": 1, "beat": 1, "line_number": 300, "start": 768},
+    {"text": "and having a hobble out here like the penguin?", "label": "punchline", "bit": 1, "beat": 1, "line_number": 301, "start": 771},
+    {"text": "Oh, man, it's...", "label": "fluff", "bit": null, "beat": null, "line_number": 302, "start": 775},
+    {"text": "Like, it's an interesting life.", "label": "setup", "bit": 2, "beat": 1, "line_number": 303, "start": 777},
+    {"text": "Like, so many people, like, they assume", "label": "setup", "bit": 2, "beat": 1, "line_number": 304, "start": 778},
+    {"text": "that they don't know what my politics are gonna be.", "label": "setup", "bit": 2, "beat": 1, "line_number": 305, "start": 781},
+    {"text": "Just, like, look at this guy.", "label": "setup", "bit": 2, "beat": 1, "line_number": 306, "start": 783},
+    {"text": "It's like, he has to lean, right?", "label": "punchline", "bit": 2, "beat": 1, "line_number": 307, "start": 784},
+    {"text": "Oh, man.", "label": "fluff", "bit": null, "beat": null, "line_number": 309, "start": 789},
+    {"text": "You guys are fun.", "label": "fluff", "bit": null, "beat": null, "line_number": 310, "start": 790},
+    {"text": "Oh.", "label": "fluff", "bit": null, "beat": null, "line_number": 311, "start": 792},
+    {"text": "I became a homeowner recently.", "label": "setup", "bit": 3, "beat": 1, "line_number": 312, "start": 793},
+    {"text": "Yeah, yeah, thank you, thank you.", "label": "fluff", "bit": 3, "beat": 1, "line_number": 313, "start": 796},
+    {"text": "It's a RAV4.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 314, "start": 797},
+    {"text": "Oh, man.", "label": "fluff", "bit": 3, "beat": 1, "line_number": 316, "start": 801},
+    {"text": "I live in it, so it's more of a RAV4, okay?", "label": "tag", "bit": 3, "beat": 1, "line_number": 317, "start": 802},
+    {"text": "Oh, I'm getting older in my life.", "label": "setup", "bit": 4, "beat": 1, "line_number": 318, "start": 805},
+    {"text": "Like, you know, I've gotten to the point--", "label": "setup", "bit": 4, "beat": 1, "line_number": 319, "start": 807},
+    {"text": "I think, like, my favorite candy now or cough drops,", "label": "setup", "bit": 4, "beat": 1, "line_number": 320, "start": 809},
+    {"text": "you know?", "label": "fluff", "bit": 4, "beat": 1, "line_number": 321, "start": 812},
+    {"text": "They're just menthol flavored Jolly Ranchers, you know?", "label": "punchline", "bit": 4, "beat": 1, "line_number": 322, "start": 813},
+    {"text": "I've hit the point in my life where it's like,", "label": "setup", "bit": 5, "beat": 1, "line_number": 323, "start": 816},
+    {"text": "I'm pretty sure the only reason I masturbate", "label": "setup", "bit": 5, "beat": 1, "line_number": 324, "start": 818},
+    {"text": "is for prostate health, you know?", "label": "punchline", "bit": 5, "beat": 1, "line_number": 325, "start": 820},
+    {"text": "Like, my partner walks in on me and is like,", "label": "setup", "bit": 5, "beat": 1, "line_number": 326, "start": 823},
+    {"text": "\"What are you thinking about?", "label": "setup", "bit": 5, "beat": 1, "line_number": 327, "start": 825},
+    {"text": "I'm just sitting there like, can't through.\"", "label": "punchline", "bit": 5, "beat": 1, "line_number": 328, "start": 826},
+    {"text": "All right, thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 330, "start": 830}
   ]
 }

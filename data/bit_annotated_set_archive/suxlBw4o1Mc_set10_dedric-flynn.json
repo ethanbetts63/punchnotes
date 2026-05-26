@@ -1,364 +1,128 @@
-﻿{
-    "type":  "set_meta",
-    "video_id":  "suxlBw4o1Mc",
-    "episode_title":  "KT #759 - JOE LIST + STEVE RANNAZZISI",
-    "episode_url":  "https://www.youtube.com/watch?v=suxlBw4o1Mc",
-    "publish_date":  "2026-03-10",
-    "guests":  [
-                   "Joe List",
-                   "Steve Rannazzisi"
-               ],
-    "comedian_name":  "Dedric Flynn",
-    "comedian_type":  "regular",
-    "set_number":  10,
-    "start_seconds":  5504,
-    "bits":  [
-                 {
-                     "bit_id":  "bit_001",
-                     "premise":  "Real sibling energy requires enough children to create a household gang.",
-                     "line_range":  [
-                                        2425,
-                                        2440
-                                    ],
-                     "beats":  [
-                                   {
-                                       "beat_id":  "bit_001_beat_001",
-                                       "line_range":  [
-                                                          2425,
-                                                          2430
-                                                      ],
-                                       "topics":  [
-                                                      "siblings",
-                                                      "large families",
-                                                      "family size"
-                                                  ]
-                                   },
-                                   {
-                                       "beat_id":  "bit_001_beat_002",
-                                       "line_range":  [
-                                                          2431,
-                                                          2440
-                                                      ],
-                                       "topics":  [
-                                                      "crowded housing",
-                                                      "boogeyman",
-                                                      "sibling defense"
-                                                  ]
-                                   }
-                               ]
-                 },
-                 {
-                     "bit_id":  "bit_002",
-                     "premise":  "A shared 1990s CRT television could turn siblings into remote-control combatants.",
-                     "line_range":  [
-                                        2441,
-                                        2452
-                                    ],
-                     "beats":  [
-                                   {
-                                       "beat_id":  "bit_002_beat_001",
-                                       "line_range":  [
-                                                          2441,
-                                                          2447
-                                                      ],
-                                       "topics":  [
-                                                      "1990s",
-                                                      "CRT TV",
-                                                      "siblings",
-                                                      "SpongeBob"
-                                                  ]
-                                   },
-                                   {
-                                       "beat_id":  "bit_002_beat_002",
-                                       "line_range":  [
-                                                          2449,
-                                                          2452
-                                                      ],
-                                       "topics":  [
-                                                      "remote controls",
-                                                      "batteries",
-                                                      "petty revenge"
-                                                  ]
-                                   }
-                               ]
-                 },
-                 {
-                     "bit_id":  "bit_003",
-                     "premise":  "A bulky CRT television could function like furniture and a body that responds to being slapped.",
-                     "line_range":  [
-                                        2453,
-                                        2463
-                                    ],
-                     "beats":  [
-                                   {
-                                       "beat_id":  "bit_003_beat_001",
-                                       "line_range":  [
-                                                          2453,
-                                                          2458
-                                                      ],
-                                       "topics":  [
-                                                      "CRT TV",
-                                                      "furniture",
-                                                      "family photos",
-                                                      "houseplants"
-                                                  ]
-                                   },
-                                   {
-                                       "beat_id":  "bit_003_beat_002",
-                                       "line_range":  [
-                                                          2459,
-                                                          2463
-                                                      ],
-                                       "topics":  [
-                                                      "CRT TV",
-                                                      "repair",
-                                                      "slapping",
-                                                      "sexism"
-                                                  ]
-                                   }
-                               ]
-                 }
-             ],
-    "lines":  [
-                  {
-                      "line_number":  2424,
-                      "text":  "- Oh man.",
-                      "start":  5504,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  2425,
-                      "text":  "I hate when you talk to somebody",
-                      "start":  5506,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2426,
-                      "text":  "and they say they got siblings and you only find out",
-                      "start":  5508,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2427,
-                      "text":  "There\u0027s only one or two of them niggas.",
-                      "start":  5511,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2428,
-                      "text":  "That\u0027s not siblings.",
-                      "start":  5514,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  2429,
-                      "text":  "This is what\u0027s wrong with the country.",
-                      "start":  5515,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  2430,
-                      "text":  "We need big family energy back in the goddamn states.",
-                      "start":  5517,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  2431,
-                      "text":  "There\u0027s a certain thing you get when you get,",
-                      "start":  5522,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2432,
-                      "text":  "like we, I grew up in a townhouse.",
-                      "start":  5524,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2433,
-                      "text":  "We only grew up in a two bedroom town.",
-                      "start":  5526,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2434,
-                      "text":  "We all slept on one king size mattress, all six of us.",
-                      "start":  5528,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2435,
-                      "text":  "Nigga, wasn\u0027t no boogeyman.",
-                      "start":  5533,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  2436,
-                      "text":  "Nigga, they,",
-                      "start":  5535,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  2437,
-                      "text":  "we\u0027ll jump that nigga.",
-                      "start":  5537,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  2438,
-                      "text":  "You know what I\u0027m saying?",
-                      "start":  5539,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  2439,
-                      "text":  "I wish a nigga would come haunt my sister dreams, nigga.",
-                      "start":  5539,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  2440,
-                      "text":  "We\u0027ll jump that nigga.",
-                      "start":  5544,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  2441,
-                      "text":  "There is a different kind of attitude you get,",
-                      "start":  5545,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2442,
-                      "text":  "\u0027cause I grew up in the \u002790s with the big booty TV.",
-                      "start":  5548,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2444,
-                      "text":  "I survived the big booty TV remote wars of the \u002790s.",
-                      "start":  5554,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2445,
-                      "text":  "When we used to--when you get punched in the face",
-                      "start":  5560,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2446,
-                      "text":  "by a nigga that look just like you,",
-                      "start":  5562,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2447,
-                      "text":  "\u0027cause he want to watch SpongeBob.",
-                      "start":  5565,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  2448,
-                      "text":  "You know what I\u0027m saying?",
-                      "start":  5567,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  2449,
-                      "text":  "You didn\u0027t hear the remote.",
-                      "start":  5568,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  2450,
-                      "text":  "Or if you better like me, if you real petty,",
-                      "start":  5570,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2451,
-                      "text":  "I\u0027ll take the batteries out that motherfucker.",
-                      "start":  5572,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  2452,
-                      "text":  "You know what I\u0027m talking about?",
-                      "start":  5576,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  2453,
-                      "text":  "The big booty TVs.",
-                      "start":  5577,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2454,
-                      "text":  "You remember the big booty TV?",
-                      "start":  5578,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2455,
-                      "text":  "The ones that doubled up as furniture.",
-                      "start":  5579,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2456,
-                      "text":  "You can put pictures of your family on top of it",
-                      "start":  5582,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2457,
-                      "text":  "and have plants grow down the side.",
-                      "start":  5584,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2458,
-                      "text":  "You know what I\u0027m talking about?",
-                      "start":  5587,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  2459,
-                      "text":  "It\u0027s heard of big booty TVs.",
-                      "start":  5587,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2460,
-                      "text":  "The ones you can slap on the ass",
-                      "start":  5589,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2461,
-                      "text":  "to get them to work right like a good woman.",
-                      "start":  5591,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  2462,
-                      "text":  "You know what I\u0027m talking about?",
-                      "start":  5596,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  2463,
-                      "text":  "The big booty TV.",
-                      "start":  5597,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  2464,
-                      "text":  "That\u0027s my time. I\u0027m gone. Yeah.",
-                      "start":  5598,
-                      "label":  "fluff"
-                  }
-              ]
+{
+  "type": "set_meta"
+,
+  "video_id": "suxlBw4o1Mc"
+,
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI"
+,
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc"
+,
+  "publish_date": "2026-03-10"
+,
+  "guests": [
+    "Joe List",
+    "Steve Rannazzisi"
+  ],
+  "comedian_name": "Dedric Flynn"
+,
+  "comedian_type": "regular"
+,
+  "set_number": 10
+,
+  "start_seconds": 5504
+,
+  "bit_meta": {
+    "1": {
+      "premise": "Real sibling energy requires enough children to create a household gang.",
+      "beats": {
+        "1": {
+          "topics": [
+            "siblings",
+            "large families",
+            "family size"
+          ]
+        },
+        "2": {
+          "topics": [
+            "crowded housing",
+            "boogeyman",
+            "sibling defense"
+          ]
+        }
+      }
+    },
+    "2": {
+      "premise": "A shared 1990s CRT television could turn siblings into remote-control combatants.",
+      "beats": {
+        "1": {
+          "topics": [
+            "1990s",
+            "CRT TV",
+            "siblings",
+            "SpongeBob"
+          ]
+        },
+        "2": {
+          "topics": [
+            "remote controls",
+            "batteries",
+            "petty revenge"
+          ]
+        }
+      }
+    },
+    "3": {
+      "premise": "A bulky CRT television could function like furniture and a body that responds to being slapped.",
+      "beats": {
+        "1": {
+          "topics": [
+            "CRT TV",
+            "furniture",
+            "family photos",
+            "houseplants"
+          ]
+        },
+        "2": {
+          "topics": [
+            "CRT TV",
+            "repair",
+            "slapping",
+            "sexism"
+          ]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "- Oh man.", "label": "fluff", "bit": null, "beat": null, "line_number": 2424, "start": 5504},
+    {"text": "I hate when you talk to somebody", "label": "setup", "bit": 1, "beat": 1, "line_number": 2425, "start": 5506},
+    {"text": "and they say they got siblings and you only find out", "label": "setup", "bit": 1, "beat": 1, "line_number": 2426, "start": 5508},
+    {"text": "There's only one or two of them niggas.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2427, "start": 5511},
+    {"text": "That's not siblings.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2428, "start": 5514},
+    {"text": "This is what's wrong with the country.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2429, "start": 5515},
+    {"text": "We need big family energy back in the goddamn states.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2430, "start": 5517},
+    {"text": "There's a certain thing you get when you get,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2431, "start": 5522},
+    {"text": "like we, I grew up in a townhouse.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2432, "start": 5524},
+    {"text": "We only grew up in a two bedroom town.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2433, "start": 5526},
+    {"text": "We all slept on one king size mattress, all six of us.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2434, "start": 5528},
+    {"text": "Nigga, wasn't no boogeyman.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2435, "start": 5533},
+    {"text": "Nigga, they,", "label": "tag", "bit": 1, "beat": 2, "line_number": 2436, "start": 5535},
+    {"text": "we'll jump that nigga.", "label": "tag", "bit": 1, "beat": 2, "line_number": 2437, "start": 5537},
+    {"text": "You know what I'm saying?", "label": "fluff", "bit": 1, "beat": 2, "line_number": 2438, "start": 5539},
+    {"text": "I wish a nigga would come haunt my sister dreams, nigga.", "label": "tag", "bit": 1, "beat": 2, "line_number": 2439, "start": 5539},
+    {"text": "We'll jump that nigga.", "label": "tag", "bit": 1, "beat": 2, "line_number": 2440, "start": 5544},
+    {"text": "There is a different kind of attitude you get,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2441, "start": 5545},
+    {"text": "'cause I grew up in the '90s with the big booty TV.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2442, "start": 5548},
+    {"text": "I survived the big booty TV remote wars of the '90s.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2444, "start": 5554},
+    {"text": "When we used to--when you get punched in the face", "label": "setup", "bit": 2, "beat": 1, "line_number": 2445, "start": 5560},
+    {"text": "by a nigga that look just like you,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2446, "start": 5562},
+    {"text": "'cause he want to watch SpongeBob.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2447, "start": 5565},
+    {"text": "You know what I'm saying?", "label": "fluff", "bit": null, "beat": null, "line_number": 2448, "start": 5567},
+    {"text": "You didn't hear the remote.", "label": "tag", "bit": 2, "beat": 2, "line_number": 2449, "start": 5568},
+    {"text": "Or if you better like me, if you real petty,", "label": "setup", "bit": 2, "beat": 2, "line_number": 2450, "start": 5570},
+    {"text": "I'll take the batteries out that motherfucker.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 2451, "start": 5572},
+    {"text": "You know what I'm talking about?", "label": "fluff", "bit": 2, "beat": 2, "line_number": 2452, "start": 5576},
+    {"text": "The big booty TVs.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2453, "start": 5577},
+    {"text": "You remember the big booty TV?", "label": "setup", "bit": 3, "beat": 1, "line_number": 2454, "start": 5578},
+    {"text": "The ones that doubled up as furniture.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2455, "start": 5579},
+    {"text": "You can put pictures of your family on top of it", "label": "setup", "bit": 3, "beat": 1, "line_number": 2456, "start": 5582},
+    {"text": "and have plants grow down the side.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2457, "start": 5584},
+    {"text": "You know what I'm talking about?", "label": "fluff", "bit": 3, "beat": 1, "line_number": 2458, "start": 5587},
+    {"text": "It's heard of big booty TVs.", "label": "setup", "bit": 3, "beat": 2, "line_number": 2459, "start": 5587},
+    {"text": "The ones you can slap on the ass", "label": "setup", "bit": 3, "beat": 2, "line_number": 2460, "start": 5589},
+    {"text": "to get them to work right like a good woman.", "label": "punchline", "bit": 3, "beat": 2, "line_number": 2461, "start": 5591},
+    {"text": "You know what I'm talking about?", "label": "fluff", "bit": 3, "beat": 2, "line_number": 2462, "start": 5596},
+    {"text": "The big booty TV.", "label": "tag", "bit": 3, "beat": 2, "line_number": 2463, "start": 5597},
+    {"text": "That's my time. I'm gone. Yeah.", "label": "fluff", "bit": null, "beat": null, "line_number": 2464, "start": 5598}
+  ]
 }

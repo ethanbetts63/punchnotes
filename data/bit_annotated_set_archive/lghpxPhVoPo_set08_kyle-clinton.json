@@ -1,66 +1,81 @@
 {
-  "type": "set_meta",
-  "video_id": "lghpxPhVoPo",
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
-  "publish_date": "2026-03-24",
-  "guests": ["Adam Ray", "Kim Congdon"],
-  "comedian_name": "Kyle Clinton",
-  "comedian_type": "bucket_pull",
-  "set_number": 8,
-  "start_seconds": 3994,
-  "bits": [
-    {
-      "bit_id": "bit_001",
-      "premise": "A vasectomy question is misdirected: the prerequisite is not readiness for fatherhood but having sex at all.",
-      "line_range": [1487, 1489],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [1487, 1489],
-          "topics": ["vasectomy", "virginity", "family", "sex"]
-        }
-      ]
-    },
-    {
-      "bit_id": "bit_002",
-      "premise": "The Kentucky incest stereotype is subverted: the cousin was unattainable, and the family had already claimed her.",
-      "line_range": [1491, 1497],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [1491, 1497],
-          "topics": ["Kentucky", "incest", "family", "homecoming"]
-        }
-      ]
-    },
-    {
-      "bit_id": "bit_003",
-      "premise": "A religious denomination name is used as a pun to announce a meth addiction.",
-      "line_range": [1498, 1500],
-      "beats": [
-        {
-          "beat_id": "bit_003_beat_001",
-          "line_range": [1498, 1500],
-          "topics": ["religion", "meth", "Kentucky", "drugs"]
-        }
-      ]
-    }
+  "type": "set_meta"
+,
+  "video_id": "lghpxPhVoPo"
+,
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
+,
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
+,
+  "publish_date": "2026-03-24"
+,
+  "guests": [
+    "Adam Ray",
+    "Kim Congdon"
   ],
+  "comedian_name": "Kyle Clinton"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 8
+,
+  "start_seconds": 3994
+,
+  "bit_meta": {
+    "1": {
+      "premise": "A vasectomy question is misdirected: the prerequisite is not readiness for fatherhood but having sex at all.",
+      "beats": {
+        "1": {
+          "topics": [
+            "vasectomy",
+            "virginity",
+            "family",
+            "sex"
+          ]
+        }
+      }
+    },
+    "2": {
+      "premise": "The Kentucky incest stereotype is subverted: the cousin was unattainable, and the family had already claimed her.",
+      "beats": {
+        "1": {
+          "topics": [
+            "Kentucky",
+            "incest",
+            "family",
+            "homecoming"
+          ]
+        }
+      }
+    },
+    "3": {
+      "premise": "A religious denomination name is used as a pun to announce a meth addiction.",
+      "beats": {
+        "1": {
+          "topics": [
+            "religion",
+            "meth",
+            "Kentucky",
+            "drugs"
+          ]
+        }
+      }
+    }
+  },
   "lines": [
-    {"line_number": 1487, "text": "My big brother recently told me he got a vasectomy,", "start": 3994, "label": "setup"},
-    {"line_number": 1488, "text": "and then he asked me if I was gonna get a vasectomy.", "start": 3999, "label": "setup"},
-    {"line_number": 1489, "text": "I was like, \"I think I gotta be getting some pussy first.\"", "start": 4003, "label": "punchline"},
-    {"line_number": 1491, "text": "Being from Eastern Kentucky,", "start": 4013, "label": "setup"},
-    {"line_number": 1492, "text": "sometimes people ask me if I banged my cousin.", "start": 4015, "label": "setup"},
-    {"line_number": 1493, "text": "I'm like, \"No.\"", "start": 4018, "label": "setup"},
-    {"line_number": 1494, "text": "She was homecoming queen.", "start": 4023, "label": "punchline"},
-    {"line_number": 1495, "text": "She was way out of my league.", "start": 4025, "label": "tag"},
-    {"line_number": 1496, "text": "Plus, I had a big brother and like six cousins.", "start": 4027, "label": "tag"},
-    {"line_number": 1497, "text": "My family had some real stiff competition.", "start": 4032, "label": "tag"},
-    {"line_number": 1498, "text": "Growing up in Kentucky, sometimes people think I was brought up Baptists, but I was actually", "start": 4038, "label": "setup"},
-    {"line_number": 1499, "text": "raised Methodist.", "start": 4044, "label": "setup"},
-    {"line_number": 1500, "text": "And in my 20s I became a Crystal Methodist.", "start": 4046, "label": "punchline"},
-    {"line_number": 1502, "text": "Thank you everybody, I'm Kyle Clinton.", "start": 4051, "label": "fluff"}
+    {"text": "My big brother recently told me he got a vasectomy,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1487, "start": 3994},
+    {"text": "and then he asked me if I was gonna get a vasectomy.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1488, "start": 3999},
+    {"text": "I was like, \"I think I gotta be getting some pussy first.\"", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1489, "start": 4003},
+    {"text": "Being from Eastern Kentucky,", "label": "setup", "bit": 2, "beat": 1, "line_number": 1491, "start": 4013},
+    {"text": "sometimes people ask me if I banged my cousin.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1492, "start": 4015},
+    {"text": "I'm like, \"No.\"", "label": "setup", "bit": 2, "beat": 1, "line_number": 1493, "start": 4018},
+    {"text": "She was homecoming queen.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1494, "start": 4023},
+    {"text": "She was way out of my league.", "label": "tag", "bit": 2, "beat": 1, "line_number": 1495, "start": 4025},
+    {"text": "Plus, I had a big brother and like six cousins.", "label": "tag", "bit": 2, "beat": 1, "line_number": 1496, "start": 4027},
+    {"text": "My family had some real stiff competition.", "label": "tag", "bit": 2, "beat": 1, "line_number": 1497, "start": 4032},
+    {"text": "Growing up in Kentucky, sometimes people think I was brought up Baptists, but I was actually", "label": "setup", "bit": 3, "beat": 1, "line_number": 1498, "start": 4038},
+    {"text": "raised Methodist.", "label": "setup", "bit": 3, "beat": 1, "line_number": 1499, "start": 4044},
+    {"text": "And in my 20s I became a Crystal Methodist.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 1500, "start": 4046},
+    {"text": "Thank you everybody, I'm Kyle Clinton.", "label": "fluff", "bit": null, "beat": null, "line_number": 1502, "start": 4051}
   ]
 }

@@ -1,248 +1,102 @@
 {
-  "type": "set_meta",
-  "video_id": "ssPVKPLa-Ko",
-  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
-  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
-  "publish_date": "2026-05-12",
+  "type": "set_meta"
+,
+  "video_id": "ssPVKPLa-Ko"
+,
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY"
+,
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko"
+,
+  "publish_date": "2026-05-12"
+,
   "guests": [
     "Ari Shaffir",
     "Luis J Gomez",
     "Peyton Ruddy"
   ],
-  "comedian_name": "Chris Gerasimo",
-  "comedian_type": "bucket_pull",
-  "set_number": 3,
-  "start_seconds": 1222,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Chris Gerasimo"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 3
+,
+  "start_seconds": 1222
+,
+  "bit_meta": {
+    "1": {
       "premise": "A dinosaur-sounding name is funnier with a long neck.",
-      "line_range": [
-        480,
-        490
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            480,
-            482
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "last names",
             "Jurassic Park",
             "dinosaurs"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [
-            483,
-            490
-          ],
+        "2": {
           "topics": [
             "long neck",
             "dinosaurs",
             "sight lines"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_002",
+    "2": {
       "premise": "Greek pride can pair democracy with anal sex.",
-      "line_range": [
-        491,
-        494
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [
-            491,
-            494
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "Greek heritage",
             "democracy",
             "anal sex"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_003",
+    "3": {
       "premise": "Military sex turns teamwork into a questionable experiment.",
-      "line_range": [
-        498,
-        507
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_003_beat_001",
-          "line_range": [
-            498,
-            501
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "Spartans",
             "gay sex",
             "team chemistry"
           ]
         },
-        {
-          "beat_id": "bit_003_beat_002",
-          "line_range": [
-            502,
-            507
-          ],
+        "2": {
           "topics": [
             "military history",
             "experiments",
             "soldiers"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "Thank you.",
-      "start": 1222,
-      "label": "fluff",
-      "line_number": 479
-    },
-    {
-      "text": "You nailed my last name.",
-      "start": 1223,
-      "label": "setup",
-      "line_number": 480
-    },
-    {
-      "text": "Gerasimo.",
-      "start": 1225,
-      "label": "setup",
-      "line_number": 481
-    },
-    {
-      "text": "Sounds like my dinos are from Jurassic Park.",
-      "start": 1227,
-      "label": "punchline",
-      "line_number": 482
-    },
-    {
-      "text": "Unfortunately, I have a neck long enough",
-      "start": 1230,
-      "label": "setup",
-      "line_number": 483
-    },
-    {
-      "text": "to also be a dinos are from Jurassic Park.",
-      "start": 1233,
-      "label": "punchline",
-      "line_number": 484
-    },
-    {
-      "text": "Halfway that joke is where it depends",
-      "start": 1243,
-      "label": "setup",
-      "line_number": 486
-    },
-    {
-      "text": "on where you're sitting.",
-      "start": 1244,
-      "label": "punchline",
-      "line_number": 487
-    },
-    {
-      "text": "This guy had the perfect view over here.",
-      "start": 1247,
-      "label": "tag",
-      "line_number": 489
-    },
-    {
-      "text": "Careful, this is a splash zone,",
-      "start": 1250,
-      "label": "tag",
-      "line_number": 490
-    },
-    {
-      "text": "but it's a Greek name.",
-      "start": 1252,
-      "label": "setup",
-      "line_number": 491
-    },
-    {
-      "text": "You know, my people invented both democracy and anal.",
-      "start": 1253,
-      "label": "punchline",
-      "line_number": 492
-    },
-    {
-      "text": "Welcome Tony.",
-      "start": 1259,
-      "label": "tag",
-      "line_number": 494
-    },
-    {
-      "text": "But it's a stereotype 'cause in ancient Greece,",
-      "start": 1270,
-      "label": "setup",
-      "line_number": 498
-    },
-    {
-      "text": "the Spartans actually had gay sex",
-      "start": 1272,
-      "label": "setup",
-      "line_number": 499
-    },
-    {
-      "text": "to help the armies team chemistry.",
-      "start": 1274,
-      "label": "punchline",
-      "line_number": 500
-    },
-    {
-      "text": "That's pretty crazy, right?",
-      "start": 1279,
-      "label": "fluff",
-      "line_number": 501
-    },
-    {
-      "text": "Think that fucking your boys makes you fight better.",
-      "start": 1281,
-      "label": "setup",
-      "line_number": 502
-    },
-    {
-      "text": "How did they find that out?",
-      "start": 1286,
-      "label": "punchline",
-      "line_number": 503
-    },
-    {
-      "text": "And how embarrassing was it",
-      "start": 1290,
-      "label": "setup",
-      "line_number": 504
-    },
-    {
-      "text": "and they realized there's like no correlation",
-      "start": 1292,
-      "label": "setup",
-      "line_number": 505
-    },
-    {
-      "text": "between any of the boys being met or soldiers.",
-      "start": 1293,
-      "label": "punchline",
-      "line_number": 506
-    },
-    {
-      "text": "\"If it was gay, I don't know.\"",
-      "start": 1296,
-      "label": "tag",
-      "line_number": 507
-    }
+    {"text": "Thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 479, "start": 1222},
+    {"text": "You nailed my last name.", "label": "setup", "bit": 1, "beat": 1, "line_number": 480, "start": 1223},
+    {"text": "Gerasimo.", "label": "setup", "bit": 1, "beat": 1, "line_number": 481, "start": 1225},
+    {"text": "Sounds like my dinos are from Jurassic Park.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 482, "start": 1227},
+    {"text": "Unfortunately, I have a neck long enough", "label": "setup", "bit": 1, "beat": 2, "line_number": 483, "start": 1230},
+    {"text": "to also be a dinos are from Jurassic Park.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 484, "start": 1233},
+    {"text": "Halfway that joke is where it depends", "label": "setup", "bit": 1, "beat": 2, "line_number": 486, "start": 1243},
+    {"text": "on where you're sitting.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 487, "start": 1244},
+    {"text": "This guy had the perfect view over here.", "label": "tag", "bit": 1, "beat": 2, "line_number": 489, "start": 1247},
+    {"text": "Careful, this is a splash zone,", "label": "tag", "bit": 1, "beat": 2, "line_number": 490, "start": 1250},
+    {"text": "but it's a Greek name.", "label": "setup", "bit": 2, "beat": 1, "line_number": 491, "start": 1252},
+    {"text": "You know, my people invented both democracy and anal.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 492, "start": 1253},
+    {"text": "Welcome Tony.", "label": "tag", "bit": 2, "beat": 1, "line_number": 494, "start": 1259},
+    {"text": "But it's a stereotype 'cause in ancient Greece,", "label": "setup", "bit": 3, "beat": 1, "line_number": 498, "start": 1270},
+    {"text": "the Spartans actually had gay sex", "label": "setup", "bit": 3, "beat": 1, "line_number": 499, "start": 1272},
+    {"text": "to help the armies team chemistry.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 500, "start": 1274},
+    {"text": "That's pretty crazy, right?", "label": "fluff", "bit": 3, "beat": 1, "line_number": 501, "start": 1279},
+    {"text": "Think that fucking your boys makes you fight better.", "label": "setup", "bit": 3, "beat": 2, "line_number": 502, "start": 1281},
+    {"text": "How did they find that out?", "label": "punchline", "bit": 3, "beat": 2, "line_number": 503, "start": 1286},
+    {"text": "And how embarrassing was it", "label": "setup", "bit": 3, "beat": 2, "line_number": 504, "start": 1290},
+    {"text": "and they realized there's like no correlation", "label": "setup", "bit": 3, "beat": 2, "line_number": 505, "start": 1292},
+    {"text": "between any of the boys being met or soldiers.", "label": "punchline", "bit": 3, "beat": 2, "line_number": 506, "start": 1293},
+    {"text": "\"If it was gay, I don't know.\"", "label": "tag", "bit": 3, "beat": 2, "line_number": 507, "start": 1296}
   ]
 }

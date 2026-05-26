@@ -1,68 +1,82 @@
 {
-  "type": "set_meta",
-  "video_id": "lghpxPhVoPo",
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
-  "publish_date": "2026-03-24",
-  "guests": ["Adam Ray", "Kim Congdon"],
-  "comedian_name": "Chris Martinez",
-  "comedian_type": "bucket_pull",
-  "set_number": 12,
-  "start_seconds": 6200,
-  "bits": [
-    {
-      "bit_id": "bit_001",
-      "premise": "A comedian's overpriced novelty rocks are reframed as the biblically Promised Land, connecting Jewish heritage to modern grift.",
-      "line_range": [2342, 2349],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [2342, 2349],
-          "topics": ["Cam Patterson", "SNL", "Jews", "Kill Tony"]
-        }
-      ]
-    },
-    {
-      "bit_id": "bit_002",
-      "premise": "A Trump impression recycles presidential braggadocio and Biden-blaming to claim credit for local Texas infrastructure.",
-      "line_range": [2353, 2363],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [2353, 2363],
-          "topics": ["Donald Trump", "Corpus Christi", "Biden", "politics"]
-        }
-      ]
-    }
+  "type": "set_meta"
+,
+  "video_id": "lghpxPhVoPo"
+,
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
+,
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
+,
+  "publish_date": "2026-03-24"
+,
+  "guests": [
+    "Adam Ray",
+    "Kim Congdon"
   ],
+  "comedian_name": "Chris Martinez"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 12
+,
+  "start_seconds": 6200
+,
+  "bit_meta": {
+    "1": {
+      "premise": "A comedian's overpriced novelty rocks are reframed as the biblically Promised Land, connecting Jewish heritage to modern grift.",
+      "beats": {
+        "1": {
+          "topics": [
+            "Cam Patterson",
+            "SNL",
+            "Jews",
+            "Kill Tony"
+          ]
+        }
+      }
+    },
+    "2": {
+      "premise": "A Trump impression recycles presidential braggadocio and Biden-blaming to claim credit for local Texas infrastructure.",
+      "beats": {
+        "1": {
+          "topics": [
+            "Donald Trump",
+            "Corpus Christi",
+            "Biden",
+            "politics"
+          ]
+        }
+      }
+    }
+  },
   "lines": [
-    {"line_number": 2339, "text": "- Hell yeah, sorry for spilling that drink on you,", "start": 6200, "label": "fluff"},
-    {"line_number": 2340, "text": "by the way, that was rude of me.", "start": 6202, "label": "fluff"},
-    {"line_number": 2341, "text": "Appreciate you guys up there.", "start": 6204, "label": "fluff"},
-    {"line_number": 2342, "text": "Yeah, I'm not retarded,", "start": 6205, "label": "setup"},
-    {"line_number": 2343, "text": "but I spent $15 for rocks.", "start": 6208, "label": "setup"},
-    {"line_number": 2344, "text": "Anybody have that problem?", "start": 6211, "label": "fluff"},
-    {"line_number": 2345, "text": "I don't know.", "start": 6214, "label": "fluff"},
-    {"line_number": 2346, "text": "I'm starting to think that Cam Patterson sold out.", "start": 6215, "label": "setup"},
-    {"line_number": 2347, "text": "He jumped off the Kill Tony show, went straight to SNL.", "start": 6219, "label": "setup"},
-    {"line_number": 2348, "text": "And all of a sudden he's selling rocks for $15.", "start": 6225, "label": "setup"},
-    {"line_number": 2349, "text": "It's like they were promised to him 3,000 years ago.", "start": 6229, "label": "punchline"},
-    {"line_number": 2350, "text": "Isn't that right?", "start": 6231, "label": "fluff"},
-    {"line_number": 2352, "text": "All right, all right, well enough about the Jews.", "start": 6234, "label": "fluff"},
-    {"line_number": 2353, "text": "Let's talk about Corpus Christi, Texas, where I'm from.", "start": 6235, "label": "setup"},
-    {"line_number": 2354, "text": "Donald Trump was just there yesterday.", "start": 6239, "label": "setup"},
-    {"line_number": 2355, "text": "Everybody give a hand for Donald Trump.", "start": 6240, "label": "setup"},
-    {"line_number": 2357, "text": "The greatest president to ever live.", "start": 6243, "label": "setup"},
-    {"line_number": 2358, "text": "You see this beautiful bridge.", "start": 6245, "label": "setup"},
-    {"line_number": 2359, "text": "I built that bridge.", "start": 6246, "label": "punchline"},
-    {"line_number": 2360, "text": "My administration, we built it in 2017.", "start": 6248, "label": "tag"},
-    {"line_number": 2361, "text": "Sleepy Joe Biden, Sleepy Joe Biden.", "start": 6251, "label": "tag"},
-    {"line_number": 2362, "text": "He cut the port, he cut the funding,", "start": 6254, "label": "tag"},
-    {"line_number": 2363, "text": "and then we brought it back in 2020.", "start": 6257, "label": "tag"},
-    {"line_number": 2364, "text": "You can move all you want, but he's the greatest president.", "start": 6261, "label": "fluff"},
-    {"line_number": 2365, "text": "Am I right, Tony?", "start": 6263, "label": "fluff"},
-    {"line_number": 2366, "text": "You're my right.", "start": 6264, "label": "fluff"},
-    {"line_number": 2367, "text": "Let's not get you political, though.", "start": 6266, "label": "fluff"},
-    {"line_number": 2368, "text": "OK.", "start": 6268, "label": "fluff"}
+    {"text": "- Hell yeah, sorry for spilling that drink on you,", "label": "fluff", "bit": null, "beat": null, "line_number": 2339, "start": 6200},
+    {"text": "by the way, that was rude of me.", "label": "fluff", "bit": null, "beat": null, "line_number": 2340, "start": 6202},
+    {"text": "Appreciate you guys up there.", "label": "fluff", "bit": null, "beat": null, "line_number": 2341, "start": 6204},
+    {"text": "Yeah, I'm not retarded,", "label": "setup", "bit": 1, "beat": 1, "line_number": 2342, "start": 6205},
+    {"text": "but I spent $15 for rocks.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2343, "start": 6208},
+    {"text": "Anybody have that problem?", "label": "fluff", "bit": 1, "beat": 1, "line_number": 2344, "start": 6211},
+    {"text": "I don't know.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 2345, "start": 6214},
+    {"text": "I'm starting to think that Cam Patterson sold out.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2346, "start": 6215},
+    {"text": "He jumped off the Kill Tony show, went straight to SNL.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2347, "start": 6219},
+    {"text": "And all of a sudden he's selling rocks for $15.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2348, "start": 6225},
+    {"text": "It's like they were promised to him 3,000 years ago.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2349, "start": 6229},
+    {"text": "Isn't that right?", "label": "fluff", "bit": null, "beat": null, "line_number": 2350, "start": 6231},
+    {"text": "All right, all right, well enough about the Jews.", "label": "fluff", "bit": null, "beat": null, "line_number": 2352, "start": 6234},
+    {"text": "Let's talk about Corpus Christi, Texas, where I'm from.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2353, "start": 6235},
+    {"text": "Donald Trump was just there yesterday.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2354, "start": 6239},
+    {"text": "Everybody give a hand for Donald Trump.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2355, "start": 6240},
+    {"text": "The greatest president to ever live.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2357, "start": 6243},
+    {"text": "You see this beautiful bridge.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2358, "start": 6245},
+    {"text": "I built that bridge.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2359, "start": 6246},
+    {"text": "My administration, we built it in 2017.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2360, "start": 6248},
+    {"text": "Sleepy Joe Biden, Sleepy Joe Biden.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2361, "start": 6251},
+    {"text": "He cut the port, he cut the funding,", "label": "tag", "bit": 2, "beat": 1, "line_number": 2362, "start": 6254},
+    {"text": "and then we brought it back in 2020.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2363, "start": 6257},
+    {"text": "You can move all you want, but he's the greatest president.", "label": "fluff", "bit": null, "beat": null, "line_number": 2364, "start": 6261},
+    {"text": "Am I right, Tony?", "label": "fluff", "bit": null, "beat": null, "line_number": 2365, "start": 6263},
+    {"text": "You're my right.", "label": "fluff", "bit": null, "beat": null, "line_number": 2366, "start": 6264},
+    {"text": "Let's not get you political, though.", "label": "fluff", "bit": null, "beat": null, "line_number": 2367, "start": 6266},
+    {"text": "OK.", "label": "fluff", "bit": null, "beat": null, "line_number": 2368, "start": 6268}
   ]
 }

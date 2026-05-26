@@ -1,202 +1,81 @@
-﻿{
-    "type":  "set_meta",
-    "video_id":  "suxlBw4o1Mc",
-    "episode_title":  "KT #759 - JOE LIST + STEVE RANNAZZISI",
-    "episode_url":  "https://www.youtube.com/watch?v=suxlBw4o1Mc",
-    "publish_date":  "2026-03-10",
-    "guests":  [
-                   "Joe List",
-                   "Steve Rannazzisi"
-               ],
-    "comedian_name":  "Young",
-    "comedian_type":  "regular",
-    "set_number":  1,
-    "start_seconds":  276,
-    "bits":  [
-                 {
-                     "bit_id":  "bit_001",
-                     "premise":  "Fetishizing Arab men can turn modesty rules into horny street enforcement.",
-                     "line_range":  [
-                                        85,
-                                        95
-                                    ],
-                     "beats":  [
-                                   {
-                                       "beat_id":  "bit_001_beat_001",
-                                       "line_range":  [
-                                                          85,
-                                                          95
-                                                      ],
-                                       "topics":  [
-                                                      "Arab men",
-                                                      "modesty",
-                                                      "lust",
-                                                      "stoning"
-                                                  ]
-                                   }
-                               ]
-                 },
-                 {
-                     "bit_id":  "bit_002",
-                     "premise":  "A luxury party with Arab male models can turn scat play into a culturally themed gift.",
-                     "line_range":  [
-                                        97,
-                                        106
-                                    ],
-                     "beats":  [
-                                   {
-                                       "beat_id":  "bit_002_beat_001",
-                                       "line_range":  [
-                                                          97,
-                                                          100
-                                                      ],
-                                       "topics":  [
-                                                      "wealth",
-                                                      "Arab models",
-                                                      "scat play"
-                                                  ]
-                                   },
-                                   {
-                                       "beat_id":  "bit_002_beat_002",
-                                       "line_range":  [
-                                                          102,
-                                                          106
-                                                      ],
-                                       "topics":  [
-                                                      "Arabic phrases",
-                                                      "halal",
-                                                      "scat play"
-                                                  ]
-                                   }
-                               ]
-                 }
-             ],
-    "lines":  [
-                  {
-                      "line_number":  85,
-                      "text":  "- People be asking what my type is.",
-                      "start":  276,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  86,
-                      "text":  "I\u0027m really into Arabic, guys.",
-                      "start":  278,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  87,
-                      "text":  "I find them very attractive.",
-                      "start":  282,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  88,
-                      "text":  "I like their steak hair, sharp facial features.",
-                      "start":  283,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  89,
-                      "text":  "Every time I see one on the street,",
-                      "start":  286,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  90,
-                      "text":  "I go up to the night and say, \"Sir,",
-                      "start":  287,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  91,
-                      "text":  "can you please cover your hair and your skin?",
-                      "start":  289,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  92,
-                      "text":  "you make me feel very lustful.",
-                      "start":  292,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  94,
-                      "text":  "I can\u0027t help but wanna touch you right now.",
-                      "start":  299,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  95,
-                      "text":  "When they don\u0027t comply, I throw rocks at them.",
-                      "start":  302,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  97,
-                      "text":  "See, when I\u0027m rich, I\u0027m gonna throw big parties",
-                      "start":  308,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  98,
-                      "text":  "and I\u0027m gonna invite a whole bunch",
-                      "start":  310,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  99,
-                      "text":  "of very attractive Arabic male models.",
-                      "start":  312,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  100,
-                      "text":  "So I\u0027ll pay you shit in their mouth.",
-                      "start":  316,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  102,
-                      "text":  "And I\u0027ll be really good at it, you know, I just tell the maid, \"Ha bibi, ha bibi.\"",
-                      "start":  322,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  103,
-                      "text":  "Lay down.",
-                      "start":  329,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  104,
-                      "text":  "Open your mouth.",
-                      "start":  330,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  105,
-                      "text":  "This is my gift for you.",
-                      "start":  332,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  106,
-                      "text":  "It\u0027s very halal.",
-                      "start":  335,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  107,
-                      "text":  "Let me show you the Asian squat.",
-                      "start":  338,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  108,
-                      "text":  "And if the...",
-                      "start":  341,
-                      "label":  "fluff"
-                  }
-              ]
+{
+  "type": "set_meta"
+,
+  "video_id": "suxlBw4o1Mc"
+,
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI"
+,
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc"
+,
+  "publish_date": "2026-03-10"
+,
+  "guests": [
+    "Joe List",
+    "Steve Rannazzisi"
+  ],
+  "comedian_name": "Young"
+,
+  "comedian_type": "regular"
+,
+  "set_number": 1
+,
+  "start_seconds": 276
+,
+  "bit_meta": {
+    "1": {
+      "premise": "Fetishizing Arab men can turn modesty rules into horny street enforcement.",
+      "beats": {
+        "1": {
+          "topics": [
+            "Arab men",
+            "modesty",
+            "lust",
+            "stoning"
+          ]
+        }
+      }
+    },
+    "2": {
+      "premise": "A luxury party with Arab male models can turn scat play into a culturally themed gift.",
+      "beats": {
+        "1": {
+          "topics": [
+            "wealth",
+            "Arab models",
+            "scat play"
+          ]
+        },
+        "2": {
+          "topics": [
+            "Arabic phrases",
+            "halal",
+            "scat play"
+          ]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "- People be asking what my type is.", "label": "setup", "bit": 1, "beat": 1, "line_number": 85, "start": 276},
+    {"text": "I'm really into Arabic, guys.", "label": "setup", "bit": 1, "beat": 1, "line_number": 86, "start": 278},
+    {"text": "I find them very attractive.", "label": "setup", "bit": 1, "beat": 1, "line_number": 87, "start": 282},
+    {"text": "I like their steak hair, sharp facial features.", "label": "setup", "bit": 1, "beat": 1, "line_number": 88, "start": 283},
+    {"text": "Every time I see one on the street,", "label": "setup", "bit": 1, "beat": 1, "line_number": 89, "start": 286},
+    {"text": "I go up to the night and say, \"Sir,", "label": "setup", "bit": 1, "beat": 1, "line_number": 90, "start": 287},
+    {"text": "can you please cover your hair and your skin?", "label": "setup", "bit": 1, "beat": 1, "line_number": 91, "start": 289},
+    {"text": "you make me feel very lustful.", "label": "setup", "bit": 1, "beat": 1, "line_number": 92, "start": 292},
+    {"text": "I can't help but wanna touch you right now.", "label": "setup", "bit": 1, "beat": 1, "line_number": 94, "start": 299},
+    {"text": "When they don't comply, I throw rocks at them.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 95, "start": 302},
+    {"text": "See, when I'm rich, I'm gonna throw big parties", "label": "setup", "bit": 2, "beat": 1, "line_number": 97, "start": 308},
+    {"text": "and I'm gonna invite a whole bunch", "label": "setup", "bit": 2, "beat": 1, "line_number": 98, "start": 310},
+    {"text": "of very attractive Arabic male models.", "label": "setup", "bit": 2, "beat": 1, "line_number": 99, "start": 312},
+    {"text": "So I'll pay you shit in their mouth.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 100, "start": 316},
+    {"text": "And I'll be really good at it, you know, I just tell the maid, \"Ha bibi, ha bibi.\"", "label": "tag", "bit": 2, "beat": 2, "line_number": 102, "start": 322},
+    {"text": "Lay down.", "label": "tag", "bit": 2, "beat": 2, "line_number": 103, "start": 329},
+    {"text": "Open your mouth.", "label": "tag", "bit": 2, "beat": 2, "line_number": 104, "start": 330},
+    {"text": "This is my gift for you.", "label": "tag", "bit": 2, "beat": 2, "line_number": 105, "start": 332},
+    {"text": "It's very halal.", "label": "tag", "bit": 2, "beat": 2, "line_number": 106, "start": 335},
+    {"text": "Let me show you the Asian squat.", "label": "setup", "bit": null, "beat": null, "line_number": 107, "start": 338},
+    {"text": "And if the...", "label": "fluff", "bit": null, "beat": null, "line_number": 108, "start": 341}
+  ]
 }

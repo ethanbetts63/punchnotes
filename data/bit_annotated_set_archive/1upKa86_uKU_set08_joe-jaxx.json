@@ -1,196 +1,75 @@
 {
-  "type": "set_meta",
-  "video_id": "1upKa86_uKU",
-  "episode_title": "KT #766 - SAM TALLENT",
-  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
-  "publish_date": "2026-05-05",
+  "type": "set_meta"
+,
+  "video_id": "1upKa86_uKU"
+,
+  "episode_title": "KT #766 - SAM TALLENT"
+,
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU"
+,
+  "publish_date": "2026-05-05"
+,
   "guests": [
     "Sam Tallent"
   ],
-  "comedian_name": "Joe Jaxx",
-  "comedian_type": "bucket_pull",
-  "set_number": 8,
-  "start_seconds": 4533,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Joe Jaxx"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 8
+,
+  "start_seconds": 4533
+,
+  "bit_meta": {
+    "1": {
       "premise": "Forrest Gump's innocence would misread racist and violent history.",
-      "line_range": [
-        2050,
-        2073
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            2050,
-            2060
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "Forrest Gump",
             "movies",
             "racism"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [
-            2061,
-            2065
-          ],
+        "2": {
           "topics": [
             "Forrest Gump",
             "KKK",
             "racism"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_003",
-          "line_range": [
-            2067,
-            2073
-          ],
+        "3": {
           "topics": [
             "Forrest Gump",
             "Vietnam",
             "torture"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "Uh, what's up, dogs?",
-      "start": 4533,
-      "label": "fluff",
-      "line_number": 2046
-    },
-    {
-      "text": "Chill.",
-      "start": 4538,
-      "label": "fluff",
-      "line_number": 2048
-    },
-    {
-      "text": "I was watching Forrest Gump the other day.",
-      "start": 4542,
-      "label": "setup",
-      "line_number": 2050
-    },
-    {
-      "text": "Where my gump heads at?",
-      "start": 4545,
-      "label": "fluff",
-      "line_number": 2051
-    },
-    {
-      "text": "I don't know.",
-      "start": 4549,
-      "label": "fluff",
-      "line_number": 2053
-    },
-    {
-      "text": "I just had this thought when I was watching the movie.",
-      "start": 4550,
-      "label": "setup",
-      "line_number": 2054
-    },
-    {
-      "text": "You know the part of the movie, it's like a guy",
-      "start": 4552,
-      "label": "setup",
-      "line_number": 2055
-    },
-    {
-      "text": "goes through history, and he's like slow.",
-      "start": 4554,
-      "label": "setup",
-      "line_number": 2056
-    },
-    {
-      "text": "He doesn't know what's going on.",
-      "start": 4556,
-      "label": "setup",
-      "line_number": 2057
-    },
-    {
-      "text": "I thought it would be really funny if Forrest Gump was",
-      "start": 4558,
-      "label": "setup",
-      "line_number": 2058
-    },
-    {
-      "text": "involved with a bunch of really racist shit and had no idea.",
-      "start": 4560,
-      "label": "setup",
-      "line_number": 2059
-    },
-    {
-      "text": "You know?",
-      "start": 4563,
-      "label": "fluff",
-      "line_number": 2060
-    },
-    {
-      "text": "It's like, I went to the woods with my new friends.",
-      "start": 4564,
-      "label": "setup",
-      "line_number": 2061
-    },
-    {
-      "text": "All of a sudden, we was dressed as ghosts.",
-      "start": 4568,
-      "label": "setup",
-      "line_number": 2062
-    },
-    {
-      "text": "They started burning a big tea,",
-      "start": 4576,
-      "label": "setup",
-      "line_number": 2064
-    },
-    {
-      "text": "and I left 'cause I got hot.",
-      "start": 4577,
-      "label": "punchline",
-      "line_number": 2065
-    },
-    {
-      "text": "It's fucking Vietnam.",
-      "start": 4585,
-      "label": "setup",
-      "line_number": 2067
-    },
-    {
-      "text": "Lieutenant Dan's just like waterboarding",
-      "start": 4587,
-      "label": "setup",
-      "line_number": 2068
-    },
-    {
-      "text": "Vietnamese villagers.",
-      "start": 4588,
-      "label": "setup",
-      "line_number": 2069
-    },
-    {
-      "text": "Forest in the corner like,",
-      "start": 4591,
-      "label": "setup",
-      "line_number": 2070
-    },
-    {
-      "text": "\"I guess they was thirsty.\"",
-      "start": 4592,
-      "label": "punchline",
-      "line_number": 2071
-    },
-    {
-      "text": "Mama said, \"Bubba wasn't.\"",
-      "start": 4597,
-      "label": "tag",
-      "line_number": 2073
-    }
+    {"text": "Uh, what's up, dogs?", "label": "fluff", "bit": null, "beat": null, "line_number": 2046, "start": 4533},
+    {"text": "Chill.", "label": "fluff", "bit": null, "beat": null, "line_number": 2048, "start": 4538},
+    {"text": "I was watching Forrest Gump the other day.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2050, "start": 4542},
+    {"text": "Where my gump heads at?", "label": "fluff", "bit": 1, "beat": 1, "line_number": 2051, "start": 4545},
+    {"text": "I don't know.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 2053, "start": 4549},
+    {"text": "I just had this thought when I was watching the movie.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2054, "start": 4550},
+    {"text": "You know the part of the movie, it's like a guy", "label": "setup", "bit": 1, "beat": 1, "line_number": 2055, "start": 4552},
+    {"text": "goes through history, and he's like slow.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2056, "start": 4554},
+    {"text": "He doesn't know what's going on.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2057, "start": 4556},
+    {"text": "I thought it would be really funny if Forrest Gump was", "label": "setup", "bit": 1, "beat": 1, "line_number": 2058, "start": 4558},
+    {"text": "involved with a bunch of really racist shit and had no idea.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2059, "start": 4560},
+    {"text": "You know?", "label": "fluff", "bit": 1, "beat": 1, "line_number": 2060, "start": 4563},
+    {"text": "It's like, I went to the woods with my new friends.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2061, "start": 4564},
+    {"text": "All of a sudden, we was dressed as ghosts.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2062, "start": 4568},
+    {"text": "They started burning a big tea,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2064, "start": 4576},
+    {"text": "and I left 'cause I got hot.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2065, "start": 4577},
+    {"text": "It's fucking Vietnam.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2067, "start": 4585},
+    {"text": "Lieutenant Dan's just like waterboarding", "label": "setup", "bit": 1, "beat": 3, "line_number": 2068, "start": 4587},
+    {"text": "Vietnamese villagers.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2069, "start": 4588},
+    {"text": "Forest in the corner like,", "label": "setup", "bit": 1, "beat": 3, "line_number": 2070, "start": 4591},
+    {"text": "\"I guess they was thirsty.\"", "label": "punchline", "bit": 1, "beat": 3, "line_number": 2071, "start": 4592},
+    {"text": "Mama said, \"Bubba wasn't.\"", "label": "tag", "bit": 1, "beat": 3, "line_number": 2073, "start": 4597}
   ]
 }

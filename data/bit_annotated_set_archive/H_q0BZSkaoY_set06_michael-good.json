@@ -1,62 +1,77 @@
 {
-  "type": "set_meta",
-  "video_id": "H_q0BZSkaoY",
-  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
-  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
-  "publish_date": "2026-03-17",
-  "guests": ["Steve0", "Tim Butterly"],
-  "comedian_name": "Michael Good",
-  "comedian_type": "bucket_pull",
-  "set_number": 6,
-  "start_seconds": 3916,
-  "bits": [
-    {
-      "bit_id": "bit_001",
-      "premise": "Baby funerals expose absurd contradictions: expecting infant guests who never had social lives, and being unable to address the coffin in the only voice the deceased ever knew.",
-      "line_range": [1725, 1736],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [1725, 1729],
-          "topics": ["baby funeral", "death", "babies"]
-        },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [1731, 1736],
-          "topics": ["baby funeral", "baby talk", "eulogy", "death"]
-        }
-      ]
-    },
-    {
-      "bit_id": "bit_002",
-      "premise": "A woman's rhetorical challenge against using the word 'retarded' inadvertently proves the comedian's point by revealing her own disorientation.",
-      "line_range": [1737, 1743],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [1737, 1743],
-          "topics": ["political correctness", "language policing", "disability"]
-        }
-      ]
-    }
+  "type": "set_meta"
+,
+  "video_id": "H_q0BZSkaoY"
+,
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY"
+,
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY"
+,
+  "publish_date": "2026-03-17"
+,
+  "guests": [
+    "Steve0",
+    "Tim Butterly"
   ],
+  "comedian_name": "Michael Good"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 6
+,
+  "start_seconds": 3916
+,
+  "bit_meta": {
+    "1": {
+      "premise": "Baby funerals expose absurd contradictions: expecting infant guests who never had social lives, and being unable to address the coffin in the only voice the deceased ever knew.",
+      "beats": {
+        "1": {
+          "topics": [
+            "baby funeral",
+            "death",
+            "babies"
+          ]
+        },
+        "2": {
+          "topics": [
+            "baby funeral",
+            "baby talk",
+            "eulogy",
+            "death"
+          ]
+        }
+      }
+    },
+    "2": {
+      "premise": "A woman's rhetorical challenge against using the word 'retarded' inadvertently proves the comedian's point by revealing her own disorientation.",
+      "beats": {
+        "1": {
+          "topics": [
+            "political correctness",
+            "language policing",
+            "disability"
+          ]
+        }
+      }
+    }
+  },
   "lines": [
-    {"line_number": 1725, "text": "I had to go to a baby funeral, and I'll make it silly.", "start": 3916, "label": "setup"},
-    {"line_number": 1726, "text": "But I don't know why I thought I was going to see other babies at the funeral.", "start": 3924, "label": "punchline"},
-    {"line_number": 1728, "text": "I'm just looking around like,", "start": 3939, "label": "setup"},
-    {"line_number": 1729, "text": "I guess this wasn't one of the popular ones.", "start": 3940, "label": "tag"},
-    {"line_number": 1730, "text": "Wow.", "start": 3942, "label": "fluff"},
-    {"line_number": 1731, "text": "That's the only funeral where you can't talk to the coffin", "start": 3946, "label": "setup"},
-    {"line_number": 1732, "text": "with the same voice that you talked to the person", "start": 3949, "label": "setup"},
-    {"line_number": 1733, "text": "when they were alive.", "start": 3951, "label": "setup"},
-    {"line_number": 1734, "text": "You can't just go up like,", "start": 3952, "label": "setup"},
-    {"line_number": 1735, "text": "you mind if I say a few words?", "start": 3953, "label": "setup"},
-    {"line_number": 1736, "text": "(imitates piano)", "start": 3955, "label": "punchline"},
-    {"line_number": 1737, "text": "A lady got mad at me recently for saying the word retarded.", "start": 3962, "label": "setup"},
-    {"line_number": 1738, "text": "This woman's like, \"You're saying the R word?", "start": 3968, "label": "setup"},
-    {"line_number": 1739, "text": "\"What year is it?\"", "start": 3970, "label": "setup"},
-    {"line_number": 1740, "text": "And I was like, \"Huh, this retard doesn't even know", "start": 3971, "label": "setup"},
-    {"line_number": 1741, "text": "\"what year it is.\"", "start": 3973, "label": "punchline"},
-    {"line_number": 1743, "text": "Bless her heart.", "start": 3977, "label": "tag"}
+    {"text": "I had to go to a baby funeral, and I'll make it silly.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1725, "start": 3916},
+    {"text": "But I don't know why I thought I was going to see other babies at the funeral.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1726, "start": 3924},
+    {"text": "I'm just looking around like,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1728, "start": 3939},
+    {"text": "I guess this wasn't one of the popular ones.", "label": "tag", "bit": 1, "beat": 1, "line_number": 1729, "start": 3940},
+    {"text": "Wow.", "label": "fluff", "bit": null, "beat": null, "line_number": 1730, "start": 3942},
+    {"text": "That's the only funeral where you can't talk to the coffin", "label": "setup", "bit": 1, "beat": 2, "line_number": 1731, "start": 3946},
+    {"text": "with the same voice that you talked to the person", "label": "setup", "bit": 1, "beat": 2, "line_number": 1732, "start": 3949},
+    {"text": "when they were alive.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1733, "start": 3951},
+    {"text": "You can't just go up like,", "label": "setup", "bit": 1, "beat": 2, "line_number": 1734, "start": 3952},
+    {"text": "you mind if I say a few words?", "label": "setup", "bit": 1, "beat": 2, "line_number": 1735, "start": 3953},
+    {"text": "(imitates piano)", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1736, "start": 3955},
+    {"text": "A lady got mad at me recently for saying the word retarded.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1737, "start": 3962},
+    {"text": "This woman's like, \"You're saying the R word?", "label": "setup", "bit": 2, "beat": 1, "line_number": 1738, "start": 3968},
+    {"text": "\"What year is it?\"", "label": "setup", "bit": 2, "beat": 1, "line_number": 1739, "start": 3970},
+    {"text": "And I was like, \"Huh, this retard doesn't even know", "label": "setup", "bit": 2, "beat": 1, "line_number": 1740, "start": 3971},
+    {"text": "\"what year it is.\"", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1741, "start": 3973},
+    {"text": "Bless her heart.", "label": "tag", "bit": 2, "beat": 1, "line_number": 1743, "start": 3977}
   ]
 }

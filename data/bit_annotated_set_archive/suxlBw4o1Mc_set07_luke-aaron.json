@@ -1,244 +1,88 @@
-﻿{
-    "type":  "set_meta",
-    "video_id":  "suxlBw4o1Mc",
-    "episode_title":  "KT #759 - JOE LIST + STEVE RANNAZZISI",
-    "episode_url":  "https://www.youtube.com/watch?v=suxlBw4o1Mc",
-    "publish_date":  "2026-03-10",
-    "guests":  [
-                   "Joe List",
-                   "Steve Rannazzisi"
-               ],
-    "comedian_name":  "Luke Aaron",
-    "comedian_type":  "bucket_pull",
-    "set_number":  7,
-    "start_seconds":  4138,
-    "bits":  [
-                 {
-                     "bit_id":  "bit_001",
-                     "premise":  "A cheese factory job can turn Swiss cheese holes into a sexual labor image.",
-                     "line_range":  [
-                                        1749,
-                                        1757
-                                    ],
-                     "beats":  [
-                                   {
-                                       "beat_id":  "bit_001_beat_001",
-                                       "line_range":  [
-                                                          1749,
-                                                          1757
-                                                      ],
-                                       "topics":  [
-                                                      "Wisconsin",
-                                                      "cheese factory",
-                                                      "Swiss cheese",
-                                                      "sexual innuendo"
-                                                  ]
-                                   }
-                               ]
-                 },
-                 {
-                     "bit_id":  "bit_002",
-                     "premise":  "Adult responsibility checks can include body insecurity like a necessary item.",
-                     "line_range":  [
-                                        1760,
-                                        1773
-                                    ],
-                     "beats":  [
-                                   {
-                                       "beat_id":  "bit_002_beat_001",
-                                       "line_range":  [
-                                                          1760,
-                                                          1767
-                                                      ],
-                                       "topics":  [
-                                                      "adulthood",
-                                                      "responsibility",
-                                                      "micro penis"
-                                                  ]
-                                   },
-                                   {
-                                       "beat_id":  "bit_002_beat_002",
-                                       "line_range":  [
-                                                          1768,
-                                                          1773
-                                                      ],
-                                       "topics":  [
-                                                      "penis size",
-                                                      "sex",
-                                                      "squirrel"
-                                                  ]
-                                   }
-                               ]
-                 }
-             ],
-    "lines":  [
-                  {
-                      "line_number":  1747,
-                      "text":  "\u003e\u003e Good morning tonight.",
-                      "start":  4138,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  1748,
-                      "text":  "\u003e\u003e [APPLAUSE]",
-                      "start":  4139,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  1749,
-                      "text":  "\u003e\u003e All right, I\u0027m from Wisconsin.",
-                      "start":  4141,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1750,
-                      "text":  "And most people don\u0027t know much about Wisconsin,",
-                      "start":  4144,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1751,
-                      "text":  "other than that we have cheese.",
-                      "start":  4147,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1752,
-                      "text":  "And believe it or not, I did work at a cheese factory.",
-                      "start":  4150,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1753,
-                      "text":  "I was one of the guys that made sure",
-                      "start":  4153,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1754,
-                      "text":  "all the Swiss cheese had holes in it.",
-                      "start":  4155,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1755,
-                      "text":  "No, just kidding.",
-                      "start":  4158,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1756,
-                      "text":  "I wish that was my job.",
-                      "start":  4159,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1757,
-                      "text":  "My job was actually making sure those guys stayed hard.",
-                      "start":  4160,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  1759,
-                      "text":  "Thank you.",
-                      "start":  4166,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  1760,
-                      "text":  "Speaking of hard, being an adult is hard.",
-                      "start":  4168,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1761,
-                      "text":  "Like as a kid, everything felt like an adventure",
-                      "start":  4171,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1762,
-                      "text":  "and now everything just kind of feels like a responsibility.",
-                      "start":  4174,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1763,
-                      "text":  "Like I get stressed out even just leaving my house.",
-                      "start":  4177,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1764,
-                      "text":  "I\u0027m like, am I on time?",
-                      "start":  4180,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1765,
-                      "text":  "Did I turn off the oven?",
-                      "start":  4182,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1766,
-                      "text":  "Did I pay rent, phone, wallet, keys, micro penis?",
-                      "start":  4183,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  1767,
-                      "text":  "All right, I\u0027m good to go.",
-                      "start":  4187,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  1768,
-                      "text":  "No, but I\u0027m just kidding.",
-                      "start":  4188,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1769,
-                      "text":  "It\u0027s actually not that small.",
-                      "start":  4189,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1770,
-                      "text":  "The last time I had sex,",
-                      "start":  4191,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1771,
-                      "text":  "she said that it was perfect size.",
-                      "start":  4192,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1772,
-                      "text":  "At least I think that\u0027s what she would have said,",
-                      "start":  4194,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1773,
-                      "text":  "but I don\u0027t speak squirrel.",
-                      "start":  4196,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  1774,
-                      "text":  "All right, thank you.",
-                      "start":  4199,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  1775,
-                      "text":  "That\u0027s all I got.",
-                      "start":  4201,
-                      "label":  "fluff"
-                  }
-              ]
+{
+  "type": "set_meta"
+,
+  "video_id": "suxlBw4o1Mc"
+,
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI"
+,
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc"
+,
+  "publish_date": "2026-03-10"
+,
+  "guests": [
+    "Joe List",
+    "Steve Rannazzisi"
+  ],
+  "comedian_name": "Luke Aaron"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 7
+,
+  "start_seconds": 4138
+,
+  "bit_meta": {
+    "1": {
+      "premise": "A cheese factory job can turn Swiss cheese holes into a sexual labor image.",
+      "beats": {
+        "1": {
+          "topics": [
+            "Wisconsin",
+            "cheese factory",
+            "Swiss cheese",
+            "sexual innuendo"
+          ]
+        }
+      }
+    },
+    "2": {
+      "premise": "Adult responsibility checks can include body insecurity like a necessary item.",
+      "beats": {
+        "1": {
+          "topics": [
+            "adulthood",
+            "responsibility",
+            "micro penis"
+          ]
+        },
+        "2": {
+          "topics": [
+            "penis size",
+            "sex",
+            "squirrel"
+          ]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": ">> Good morning tonight.", "label": "fluff", "bit": null, "beat": null, "line_number": 1747, "start": 4138},
+    {"text": ">> [APPLAUSE]", "label": "fluff", "bit": null, "beat": null, "line_number": 1748, "start": 4139},
+    {"text": ">> All right, I'm from Wisconsin.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1749, "start": 4141},
+    {"text": "And most people don't know much about Wisconsin,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1750, "start": 4144},
+    {"text": "other than that we have cheese.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1751, "start": 4147},
+    {"text": "And believe it or not, I did work at a cheese factory.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1752, "start": 4150},
+    {"text": "I was one of the guys that made sure", "label": "setup", "bit": 1, "beat": 1, "line_number": 1753, "start": 4153},
+    {"text": "all the Swiss cheese had holes in it.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1754, "start": 4155},
+    {"text": "No, just kidding.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1755, "start": 4158},
+    {"text": "I wish that was my job.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1756, "start": 4159},
+    {"text": "My job was actually making sure those guys stayed hard.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1757, "start": 4160},
+    {"text": "Thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 1759, "start": 4166},
+    {"text": "Speaking of hard, being an adult is hard.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1760, "start": 4168},
+    {"text": "Like as a kid, everything felt like an adventure", "label": "setup", "bit": 2, "beat": 1, "line_number": 1761, "start": 4171},
+    {"text": "and now everything just kind of feels like a responsibility.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1762, "start": 4174},
+    {"text": "Like I get stressed out even just leaving my house.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1763, "start": 4177},
+    {"text": "I'm like, am I on time?", "label": "setup", "bit": 2, "beat": 1, "line_number": 1764, "start": 4180},
+    {"text": "Did I turn off the oven?", "label": "setup", "bit": 2, "beat": 1, "line_number": 1765, "start": 4182},
+    {"text": "Did I pay rent, phone, wallet, keys, micro penis?", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1766, "start": 4183},
+    {"text": "All right, I'm good to go.", "label": "tag", "bit": 2, "beat": 1, "line_number": 1767, "start": 4187},
+    {"text": "No, but I'm just kidding.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1768, "start": 4188},
+    {"text": "It's actually not that small.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1769, "start": 4189},
+    {"text": "The last time I had sex,", "label": "setup", "bit": 2, "beat": 2, "line_number": 1770, "start": 4191},
+    {"text": "she said that it was perfect size.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1771, "start": 4192},
+    {"text": "At least I think that's what she would have said,", "label": "setup", "bit": 2, "beat": 2, "line_number": 1772, "start": 4194},
+    {"text": "but I don't speak squirrel.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 1773, "start": 4196},
+    {"text": "All right, thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 1774, "start": 4199},
+    {"text": "That's all I got.", "label": "fluff", "bit": null, "beat": null, "line_number": 1775, "start": 4201}
+  ]
 }

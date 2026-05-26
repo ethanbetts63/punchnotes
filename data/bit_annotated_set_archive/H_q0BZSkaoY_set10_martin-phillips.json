@@ -1,66 +1,80 @@
 {
-  "type": "set_meta",
-  "video_id": "H_q0BZSkaoY",
-  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
-  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
-  "publish_date": "2026-03-17",
-  "guests": ["Steve0", "Tim Butterly"],
-  "comedian_name": "Martin Phillips",
-  "comedian_type": "golden_ticket",
-  "set_number": 10,
-  "start_seconds": 6256,
-  "bits": [
-    {
-      "bit_id": "bit_001",
-      "premise": "A medication name implies a suppository version exists, making the oral route a deliberate and sensible choice.",
-      "line_range": [2767, 2769],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [2767, 2769],
-          "topics": ["medication", "baclofen", "anal", "drugs"]
-        }
-      ]
-    },
-    {
-      "bit_id": "bit_002",
-      "premise": "Smoking weed through a squash instead of an apple is an attempt to coin a new drug slang term.",
-      "line_range": [2770, 2774],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [2770, 2774],
-          "topics": ["weed", "drugs", "slang"]
-        }
-      ]
-    },
-    {
-      "bit_id": "bit_003",
-      "premise": "A scientific finding permitting sex with second cousins is best explained by the researcher having a personally attractive second cousin.",
-      "line_range": [2776, 2780],
-      "beats": [
-        {
-          "beat_id": "bit_003_beat_001",
-          "line_range": [2776, 2780],
-          "topics": ["incest", "cousins", "science", "sex"]
-        }
-      ]
-    }
+  "type": "set_meta"
+,
+  "video_id": "H_q0BZSkaoY"
+,
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY"
+,
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY"
+,
+  "publish_date": "2026-03-17"
+,
+  "guests": [
+    "Steve0",
+    "Tim Butterly"
   ],
+  "comedian_name": "Martin Phillips"
+,
+  "comedian_type": "golden_ticket"
+,
+  "set_number": 10
+,
+  "start_seconds": 6256
+,
+  "bit_meta": {
+    "1": {
+      "premise": "A medication name implies a suppository version exists, making the oral route a deliberate and sensible choice.",
+      "beats": {
+        "1": {
+          "topics": [
+            "medication",
+            "baclofen",
+            "anal",
+            "drugs"
+          ]
+        }
+      }
+    },
+    "2": {
+      "premise": "Smoking weed through a squash instead of an apple is an attempt to coin a new drug slang term.",
+      "beats": {
+        "1": {
+          "topics": [
+            "weed",
+            "drugs",
+            "slang"
+          ]
+        }
+      }
+    },
+    "3": {
+      "premise": "A scientific finding permitting sex with second cousins is best explained by the researcher having a personally attractive second cousin.",
+      "beats": {
+        "1": {
+          "topics": [
+            "incest",
+            "cousins",
+            "science",
+            "sex"
+          ]
+        }
+      }
+    }
+  },
   "lines": [
-    {"line_number": 2767, "text": "What's up? Hey, the medication I take is called oral backlifen.", "start": 6256, "label": "setup"},
-    {"line_number": 2768, "text": "I take oral backlifen because I don't want to take anal backlifen, you know?", "start": 6264, "label": "punchline"},
-    {"line_number": 2769, "text": "It could fall out, you know?", "start": 6270, "label": "tag"},
-    {"line_number": 2770, "text": "Some people smoke weed through an apple.", "start": 6274, "label": "setup"},
-    {"line_number": 2771, "text": "I smoke through a squash.", "start": 6278, "label": "punchline"},
-    {"line_number": 2772, "text": "I'm like, \"Oh, I'm so squashed right now.", "start": 6281, "label": "tag"},
-    {"line_number": 2773, "text": "Let's get squashed.\"", "start": 6285, "label": "tag"},
-    {"line_number": 2774, "text": "I'm trying to make it a thing.", "start": 6288, "label": "tag"},
-    {"line_number": 2775, "text": "Okay, um...", "start": 6290, "label": "fluff"},
-    {"line_number": 2776, "text": "Uh, scientists say, scientifically speaking,", "start": 6292, "label": "setup"},
-    {"line_number": 2777, "text": "you can sleep with your second cousin.", "start": 6296, "label": "setup"},
-    {"line_number": 2778, "text": "And I don't know, it sounds like that scientist", "start": 6300, "label": "setup"},
-    {"line_number": 2779, "text": "just had a really hot cousin, you know?", "start": 6303, "label": "punchline"},
-    {"line_number": 2780, "text": "Like, \"I did the research. It's cool.\"", "start": 6306, "label": "tag"}
+    {"text": "What's up? Hey, the medication I take is called oral backlifen.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2767, "start": 6256},
+    {"text": "I take oral backlifen because I don't want to take anal backlifen, you know?", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2768, "start": 6264},
+    {"text": "It could fall out, you know?", "label": "tag", "bit": 1, "beat": 1, "line_number": 2769, "start": 6270},
+    {"text": "Some people smoke weed through an apple.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2770, "start": 6274},
+    {"text": "I smoke through a squash.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2771, "start": 6278},
+    {"text": "I'm like, \"Oh, I'm so squashed right now.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2772, "start": 6281},
+    {"text": "Let's get squashed.\"", "label": "tag", "bit": 2, "beat": 1, "line_number": 2773, "start": 6285},
+    {"text": "I'm trying to make it a thing.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2774, "start": 6288},
+    {"text": "Okay, um...", "label": "fluff", "bit": null, "beat": null, "line_number": 2775, "start": 6290},
+    {"text": "Uh, scientists say, scientifically speaking,", "label": "setup", "bit": 3, "beat": 1, "line_number": 2776, "start": 6292},
+    {"text": "you can sleep with your second cousin.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2777, "start": 6296},
+    {"text": "And I don't know, it sounds like that scientist", "label": "setup", "bit": 3, "beat": 1, "line_number": 2778, "start": 6300},
+    {"text": "just had a really hot cousin, you know?", "label": "punchline", "bit": 3, "beat": 1, "line_number": 2779, "start": 6303},
+    {"text": "Like, \"I did the research. It's cool.\"", "label": "tag", "bit": 3, "beat": 1, "line_number": 2780, "start": 6306}
   ]
 }

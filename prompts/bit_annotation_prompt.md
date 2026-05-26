@@ -2,11 +2,7 @@
 
 You are adding the final semantic layer to annotated *Kill Tony* stand-up sets.
 
-Process **one annotated set file at a time** from:
-
-`C:\Users\ethan\coding\jokescore\data\3_annotated_set_inbox\`
-
-Only annotate all of the sets for **one episode/video** at a time. Do not process every set in `3_annotated_set_inbox/` unless all of those files are from the same `video_id`; otherwise the work will be too large for your context.
+Annotate only the files you are explicitly given — do not process any files beyond those listed.
 
 For each processed file, write a merged output file with the same filename to:
 
@@ -197,11 +193,11 @@ In this example, the punchline turn is the mirror line because that is where the
 
 ## Process Checklist
 
-1. List files in `data/3_annotated_set_inbox/`. If empty, stop.
-2. Pick one file.
+1. Process only the files you were given. If none were given, stop.
+2. Pick the first file.
 3. Read the whole set before writing anything.
 4. Identify bit premises.
 5. Split each bit into beats.
 6. Write the merged file to `data/4_bit_annotated_set_inbox/<same-filename>.json`.
 7. Delete the source file from `data/3_annotated_set_inbox/`.
-8. Move to the next file only if explicitly asked.
+8. Move to the next file in your list. Repeat until all given files are done.

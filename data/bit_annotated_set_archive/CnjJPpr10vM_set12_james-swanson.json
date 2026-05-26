@@ -1,44 +1,38 @@
 {
-  "type": "set_meta",
-  "video_id": "CnjJPpr10vM",
-  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
-  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
-  "publish_date": "2026-05-19",
+  "type": "set_meta"
+,
+  "video_id": "CnjJPpr10vM"
+,
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN"
+,
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"
+,
+  "publish_date": "2026-05-19"
+,
   "guests": [
     "Shane Gillis",
     "James McCann"
   ],
-  "comedian_name": "James Swanson III",
-  "comedian_type": "bucket_pull",
-  "set_number": 12,
-  "start_seconds": 6383,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "James Swanson III"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 12
+,
+  "start_seconds": 6383
+,
+  "bit_meta": {
+    "1": {
       "premise": "A very short partner turns romance and sex into scale jokes.",
-      "line_range": [
-        2883,
-        2907
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            2883,
-            2886
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "engagement",
             "short women",
             "love"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [
-            2887,
-            2891
-          ],
+        "2": {
           "topics": [
             "dating",
             "short women",
@@ -46,165 +40,45 @@
             "penis size"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_003",
-          "line_range": [
-            2893,
-            2898
-          ],
+        "3": {
           "topics": [
             "height difference",
             "sex",
             "money shot"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_004",
-          "line_range": [
-            2899,
-            2907
-          ],
+        "4": {
           "topics": [
             "69 position",
             "oral sex",
             "kneecaps"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "I recently got engaged to the woman of my dreams.",
-      "start": 6383,
-      "label": "setup",
-      "line_number": 2883
-    },
-    {
-      "text": "Love is blind and it is also three feet six inches.",
-      "start": 6388,
-      "label": "punchline",
-      "line_number": 2884
-    },
-    {
-      "text": "I fell in love with the midget.",
-      "start": 6392,
-      "label": "tag",
-      "line_number": 2885
-    },
-    {
-      "text": "I can only handle half of a woman's problems.",
-      "start": 6395,
-      "label": "tag",
-      "line_number": 2886
-    },
-    {
-      "text": "When we go out on dates, I carry her in a front pack",
-      "start": 6399,
-      "label": "setup",
-      "line_number": 2887
-    },
-    {
-      "text": "like a little baby kangaroo.",
-      "start": 6401,
-      "label": "punchline",
-      "line_number": 2888
-    },
-    {
-      "text": "We always get our 50% off discount",
-      "start": 6404,
-      "label": "tag",
-      "line_number": 2889
-    },
-    {
-      "text": "and we only have short arguments.",
-      "start": 6407,
-      "label": "tag",
-      "line_number": 2890
-    },
-    {
-      "text": "But the best part is my dick looks huge next to a midget.",
-      "start": 6411,
-      "label": "punchline",
-      "line_number": 2891
-    },
-    {
-      "text": "First time I've ever been in two hands at the same time.",
-      "start": 6415,
-      "label": "tag",
-      "line_number": 2893
-    },
-    {
-      "text": "And I feel like a giant,",
-      "start": 6420,
-      "label": "setup",
-      "line_number": 2895
-    },
-    {
-      "text": "'cause when I'm standing up,",
-      "start": 6421,
-      "label": "setup",
-      "line_number": 2896
-    },
-    {
-      "text": "give her the money shot.",
-      "start": 6422,
-      "label": "setup",
-      "line_number": 2897
-    },
-    {
-      "text": "She's standing up too, like she's in the shower.",
-      "start": 6423,
-      "label": "punchline",
-      "line_number": 2898
-    },
-    {
-      "text": "We only got one problem, Austin.",
-      "start": 6427,
-      "label": "setup",
-      "line_number": 2899
-    },
-    {
-      "text": "She's always trying to 69,",
-      "start": 6429,
-      "label": "setup",
-      "line_number": 2900
-    },
-    {
-      "text": "but she can only 34.5.",
-      "start": 6431,
-      "label": "punchline",
-      "line_number": 2901
-    },
-    {
-      "text": "So while she's sucking my dick,",
-      "start": 6436,
-      "label": "tag",
-      "line_number": 2903
-    },
-    {
-      "text": "I'm licking her kneecaps.",
-      "start": 6437,
-      "label": "tag",
-      "line_number": 2904
-    },
-    {
-      "text": "Don't laugh, like kneecaps is delicious.",
-      "start": 6441,
-      "label": "tag",
-      "line_number": 2906
-    },
-    {
-      "text": "I just put a little honey on 'em.",
-      "start": 6443,
-      "label": "tag",
-      "line_number": 2907
-    },
-    {
-      "text": "That's my time.",
-      "start": 6444,
-      "label": "fluff",
-      "line_number": 2908
-    }
+    {"text": "I recently got engaged to the woman of my dreams.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2883, "start": 6383},
+    {"text": "Love is blind and it is also three feet six inches.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2884, "start": 6388},
+    {"text": "I fell in love with the midget.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2885, "start": 6392},
+    {"text": "I can only handle half of a woman's problems.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2886, "start": 6395},
+    {"text": "When we go out on dates, I carry her in a front pack", "label": "setup", "bit": 1, "beat": 2, "line_number": 2887, "start": 6399},
+    {"text": "like a little baby kangaroo.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2888, "start": 6401},
+    {"text": "We always get our 50% off discount", "label": "tag", "bit": 1, "beat": 2, "line_number": 2889, "start": 6404},
+    {"text": "and we only have short arguments.", "label": "tag", "bit": 1, "beat": 2, "line_number": 2890, "start": 6407},
+    {"text": "But the best part is my dick looks huge next to a midget.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2891, "start": 6411},
+    {"text": "First time I've ever been in two hands at the same time.", "label": "tag", "bit": 1, "beat": 3, "line_number": 2893, "start": 6415},
+    {"text": "And I feel like a giant,", "label": "setup", "bit": 1, "beat": 3, "line_number": 2895, "start": 6420},
+    {"text": "'cause when I'm standing up,", "label": "setup", "bit": 1, "beat": 3, "line_number": 2896, "start": 6421},
+    {"text": "give her the money shot.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2897, "start": 6422},
+    {"text": "She's standing up too, like she's in the shower.", "label": "punchline", "bit": 1, "beat": 3, "line_number": 2898, "start": 6423},
+    {"text": "We only got one problem, Austin.", "label": "setup", "bit": 1, "beat": 4, "line_number": 2899, "start": 6427},
+    {"text": "She's always trying to 69,", "label": "setup", "bit": 1, "beat": 4, "line_number": 2900, "start": 6429},
+    {"text": "but she can only 34.5.", "label": "punchline", "bit": 1, "beat": 4, "line_number": 2901, "start": 6431},
+    {"text": "So while she's sucking my dick,", "label": "tag", "bit": 1, "beat": 4, "line_number": 2903, "start": 6436},
+    {"text": "I'm licking her kneecaps.", "label": "tag", "bit": 1, "beat": 4, "line_number": 2904, "start": 6437},
+    {"text": "Don't laugh, like kneecaps is delicious.", "label": "tag", "bit": 1, "beat": 4, "line_number": 2906, "start": 6441},
+    {"text": "I just put a little honey on 'em.", "label": "tag", "bit": 1, "beat": 4, "line_number": 2907, "start": 6443},
+    {"text": "That's my time.", "label": "fluff", "bit": null, "beat": null, "line_number": 2908, "start": 6444}
   ]
 }

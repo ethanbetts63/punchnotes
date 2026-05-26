@@ -1,268 +1,107 @@
 {
-  "type": "set_meta",
-  "video_id": "1upKa86_uKU",
-  "episode_title": "KT #766 - SAM TALLENT",
-  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
-  "publish_date": "2026-05-05",
+  "type": "set_meta"
+,
+  "video_id": "1upKa86_uKU"
+,
+  "episode_title": "KT #766 - SAM TALLENT"
+,
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU"
+,
+  "publish_date": "2026-05-05"
+,
   "guests": [
     "Sam Tallent"
   ],
-  "comedian_name": "Austin Ingalls",
-  "comedian_type": "bucket_pull",
-  "set_number": 5,
-  "start_seconds": 3089,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Austin Ingalls"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 5
+,
+  "start_seconds": 3089
+,
+  "bit_meta": {
+    "1": {
       "premise": "Old-fashioned is polite code for racist.",
-      "line_range": [
-        1408,
-        1410
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            1408,
-            1410
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "Midwest",
             "family",
             "racism"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_002",
+    "2": {
       "premise": "Diagnoses can become a mnemonic nickname.",
-      "line_range": [
-        1411,
-        1414
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [
-            1411,
-            1414
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "friends",
             "children",
             "diagnoses"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_003",
+    "3": {
       "premise": "Prison coworkers can be worse than inmates.",
-      "line_range": [
-        1416,
-        1426
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_003_beat_001",
-          "line_range": [
-            1416,
-            1422
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "prison",
             "coworkers",
             "dating"
           ]
         },
-        {
-          "beat_id": "bit_003_beat_002",
-          "line_range": [
-            1423,
-            1426
-          ],
+        "2": {
           "topics": [
             "coworkers",
             "laptop",
             "crime"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_004",
+    "4": {
       "premise": "Warning signs are only useful before sex.",
-      "line_range": [
-        1429,
-        1432
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_004_beat_001",
-          "line_range": [
-            1429,
-            1432
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "homelessness",
             "AIDS",
             "sex"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "How we doing, everybody?",
-      "start": 3089,
-      "label": "fluff",
-      "line_number": 1406
-    },
-    {
-      "text": "-How we doing? Thank you so much.",
-      "start": 3091,
-      "label": "fluff",
-      "line_number": 1407
-    },
-    {
-      "text": "I'm from the Midwest.",
-      "start": 3093,
-      "label": "setup",
-      "line_number": 1408
-    },
-    {
-      "text": "My family's old-fashioned is what you say",
-      "start": 3094,
-      "label": "setup",
-      "line_number": 1409
-    },
-    {
-      "text": "when your family's still racist.",
-      "start": 3097,
-      "label": "punchline",
-      "line_number": 1410
-    },
-    {
-      "text": "And all my friends are starting families of their own,",
-      "start": 3100,
-      "label": "setup",
-      "line_number": 1411
-    },
-    {
-      "text": "and one of my friends, his kid, has Asperger's ADHD",
-      "start": 3103,
-      "label": "setup",
-      "line_number": 1412
-    },
-    {
-      "text": "I can never remember a little fucker's name,",
-      "start": 3106,
-      "label": "setup",
-      "line_number": 1413
-    },
-    {
-      "text": "so I just call him \"AAA.\"",
-      "start": 3108,
-      "label": "punchline",
-      "line_number": 1414
-    },
-    {
-      "text": "I used to work at a prison for like three years,",
-      "start": 3113,
-      "label": "setup",
-      "line_number": 1416
-    },
-    {
-      "text": "and you meet a lot of interesting people",
-      "start": 3115,
-      "label": "setup",
-      "line_number": 1417
-    },
-    {
-      "text": "when you work at a prison, employees as well.",
-      "start": 3117,
-      "label": "punchline",
-      "line_number": 1418
-    },
-    {
-      "text": "We worked with this one guy who would eat his own hair,",
-      "start": 3120,
-      "label": "setup",
-      "line_number": 1419
-    },
-    {
-      "text": "and if you can believe it, he didn't crush it with the women.",
-      "start": 3123,
-      "label": "punchline",
-      "line_number": 1420
-    },
-    {
-      "text": "There was reason for that.",
-      "start": 3127,
-      "label": "tag",
-      "line_number": 1421
-    },
-    {
-      "text": "He was into child porn.",
-      "start": 3128,
-      "label": "tag",
-      "line_number": 1422
-    },
-    {
-      "text": "Yeah, he got busted at his house",
-      "start": 3131,
-      "label": "setup",
-      "line_number": 1423
-    },
-    {
-      "text": "with a computer full of child pornography.",
-      "start": 3133,
-      "label": "setup",
-      "line_number": 1424
-    },
-    {
-      "text": "That was the last time I trusted a coworker",
-      "start": 3136,
-      "label": "setup",
-      "line_number": 1425
-    },
-    {
-      "text": "with my laptop.",
-      "start": 3139,
-      "label": "punchline",
-      "line_number": 1426
-    },
-    {
-      "text": "Thank you.",
-      "start": 3143,
-      "label": "fluff",
-      "line_number": 1428
-    },
-    {
-      "text": "I saw a homeless person outside holding a sign that said,",
-      "start": 3144,
-      "label": "setup",
-      "line_number": 1429
-    },
-    {
-      "text": "\"Dying of AIDS.\"",
-      "start": 3148,
-      "label": "setup",
-      "line_number": 1430
-    },
-    {
-      "text": "Could've used that sign before the blowjob.",
-      "start": 3150,
-      "label": "punchline",
-      "line_number": 1432
-    },
-    {
-      "text": "Thank you, guys. I'm Austin Ingalls.",
-      "start": 3155,
-      "label": "fluff",
-      "line_number": 1434
-    }
+    {"text": "How we doing, everybody?", "label": "fluff", "bit": null, "beat": null, "line_number": 1406, "start": 3089},
+    {"text": "-How we doing? Thank you so much.", "label": "fluff", "bit": null, "beat": null, "line_number": 1407, "start": 3091},
+    {"text": "I'm from the Midwest.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1408, "start": 3093},
+    {"text": "My family's old-fashioned is what you say", "label": "setup", "bit": 1, "beat": 1, "line_number": 1409, "start": 3094},
+    {"text": "when your family's still racist.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1410, "start": 3097},
+    {"text": "And all my friends are starting families of their own,", "label": "setup", "bit": 2, "beat": 1, "line_number": 1411, "start": 3100},
+    {"text": "and one of my friends, his kid, has Asperger's ADHD", "label": "setup", "bit": 2, "beat": 1, "line_number": 1412, "start": 3103},
+    {"text": "I can never remember a little fucker's name,", "label": "setup", "bit": 2, "beat": 1, "line_number": 1413, "start": 3106},
+    {"text": "so I just call him \"AAA.\"", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1414, "start": 3108},
+    {"text": "I used to work at a prison for like three years,", "label": "setup", "bit": 3, "beat": 1, "line_number": 1416, "start": 3113},
+    {"text": "and you meet a lot of interesting people", "label": "setup", "bit": 3, "beat": 1, "line_number": 1417, "start": 3115},
+    {"text": "when you work at a prison, employees as well.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 1418, "start": 3117},
+    {"text": "We worked with this one guy who would eat his own hair,", "label": "setup", "bit": 3, "beat": 1, "line_number": 1419, "start": 3120},
+    {"text": "and if you can believe it, he didn't crush it with the women.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 1420, "start": 3123},
+    {"text": "There was reason for that.", "label": "tag", "bit": 3, "beat": 1, "line_number": 1421, "start": 3127},
+    {"text": "He was into child porn.", "label": "tag", "bit": 3, "beat": 1, "line_number": 1422, "start": 3128},
+    {"text": "Yeah, he got busted at his house", "label": "setup", "bit": 3, "beat": 2, "line_number": 1423, "start": 3131},
+    {"text": "with a computer full of child pornography.", "label": "setup", "bit": 3, "beat": 2, "line_number": 1424, "start": 3133},
+    {"text": "That was the last time I trusted a coworker", "label": "setup", "bit": 3, "beat": 2, "line_number": 1425, "start": 3136},
+    {"text": "with my laptop.", "label": "punchline", "bit": 3, "beat": 2, "line_number": 1426, "start": 3139},
+    {"text": "Thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 1428, "start": 3143},
+    {"text": "I saw a homeless person outside holding a sign that said,", "label": "setup", "bit": 4, "beat": 1, "line_number": 1429, "start": 3144},
+    {"text": "\"Dying of AIDS.\"", "label": "setup", "bit": 4, "beat": 1, "line_number": 1430, "start": 3148},
+    {"text": "Could've used that sign before the blowjob.", "label": "punchline", "bit": 4, "beat": 1, "line_number": 1432, "start": 3150},
+    {"text": "Thank you, guys. I'm Austin Ingalls.", "label": "fluff", "bit": null, "beat": null, "line_number": 1434, "start": 3155}
   ]
 }

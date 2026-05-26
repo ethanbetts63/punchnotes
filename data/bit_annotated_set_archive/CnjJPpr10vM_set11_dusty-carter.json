@@ -1,32 +1,31 @@
 {
-  "type": "set_meta",
-  "video_id": "CnjJPpr10vM",
-  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
-  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
-  "publish_date": "2026-05-19",
+  "type": "set_meta"
+,
+  "video_id": "CnjJPpr10vM"
+,
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN"
+,
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"
+,
+  "publish_date": "2026-05-19"
+,
   "guests": [
     "Shane Gillis",
     "James McCann"
   ],
-  "comedian_name": "Dusty Carter",
-  "comedian_type": "regular",
-  "set_number": 11,
-  "start_seconds": 6021,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Dusty Carter"
+,
+  "comedian_type": "regular"
+,
+  "set_number": 11
+,
+  "start_seconds": 6021
+,
+  "bit_meta": {
+    "1": {
       "premise": "Racism can mean loyalty to the human race.",
-      "line_range": [
-        2710,
-        2717
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            2710,
-            2714
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "racism",
             "AI",
@@ -34,46 +33,26 @@
             "human race"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [
-            2715,
-            2717
-          ],
+        "2": {
           "topics": [
             "robots",
             "meth",
             "wired beings"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_002",
+    "2": {
       "premise": "Legal weed erases prohibition-era weed rituals.",
-      "line_range": [
-        2719,
-        2730
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [
-            2719,
-            2723
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "marijuana legalization",
             "prohibition",
             "generations"
           ]
         },
-        {
-          "beat_id": "bit_002_beat_002",
-          "line_range": [
-            2725,
-            2730
-          ],
+        "2": {
           "topics": [
             "brick weed",
             "seeds",
@@ -81,129 +60,29 @@
             "dealers"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "After a bit of self-reflection, turns out I too am racist.",
-      "start": 6021,
-      "label": "setup",
-      "line_number": 2710
-    },
-    {
-      "text": "Because if you're not the human race, I don't like you.",
-      "start": 6026,
-      "label": "punchline",
-      "line_number": 2711
-    },
-    {
-      "text": "I don't like AI. I don't like robots. I don't like humanoids.",
-      "start": 6030,
-      "label": "tag",
-      "line_number": 2712
-    },
-    {
-      "text": "I don't like cyborgs, waymos, or Roombas.",
-      "start": 6034,
-      "label": "tag",
-      "line_number": 2713
-    },
-    {
-      "text": "Basically, if you ain't got blood vessels, we ain't friends.",
-      "start": 6038,
-      "label": "tag",
-      "line_number": 2714
-    },
-    {
-      "text": "What do I look like hanging out with a bunch of wired beans?",
-      "start": 6043,
-      "label": "setup",
-      "line_number": 2715
-    },
-    {
-      "text": "If I want to be around a bunch of wired beans,",
-      "start": 6046,
-      "label": "setup",
-      "line_number": 2716
-    },
-    {
-      "text": "I'd have kept cooking meth.",
-      "start": 6048,
-      "label": "punchline",
-      "line_number": 2717
-    },
-    {
-      "text": "Speaking of drugs, they've been talking about",
-      "start": 6052,
-      "label": "setup",
-      "line_number": 2719
-    },
-    {
-      "text": "legalizing marijuana in America,",
-      "start": 6054,
-      "label": "setup",
-      "line_number": 2720
-    },
-    {
-      "text": "and I've got one problem with that.",
-      "start": 6056,
-      "label": "setup",
-      "line_number": 2721
-    },
-    {
-      "text": "This new generation will never understand the prohibition.",
-      "start": 6059,
-      "label": "setup",
-      "line_number": 2722
-    },
-    {
-      "text": "They will never remember peeling apart Mexican brick weed.",
-      "start": 6063,
-      "label": "setup",
-      "line_number": 2723
-    },
-    {
-      "text": "They won't know the frustration of sifting seeds",
-      "start": 6068,
-      "label": "setup",
-      "line_number": 2725
-    },
-    {
-      "text": "for five minutes to roll a joint.",
-      "start": 6071,
-      "label": "setup",
-      "line_number": 2726
-    },
-    {
-      "text": "They won't even know what it tastes like",
-      "start": 6074,
-      "label": "setup",
-      "line_number": 2727
-    },
-    {
-      "text": "to smoke the resin out of your bong,",
-      "start": 6076,
-      "label": "setup",
-      "line_number": 2728
-    },
-    {
-      "text": "'cause that asshole won't answer his phone.",
-      "start": 6078,
-      "label": "punchline",
-      "line_number": 2729
-    },
-    {
-      "text": "Other than that, I'm okay with it.",
-      "start": 6082,
-      "label": "tag",
-      "line_number": 2730
-    },
-    {
-      "text": "That's my time.",
-      "start": 6084,
-      "label": "fluff",
-      "line_number": 2731
-    }
+    {"text": "After a bit of self-reflection, turns out I too am racist.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2710, "start": 6021},
+    {"text": "Because if you're not the human race, I don't like you.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2711, "start": 6026},
+    {"text": "I don't like AI. I don't like robots. I don't like humanoids.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2712, "start": 6030},
+    {"text": "I don't like cyborgs, waymos, or Roombas.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2713, "start": 6034},
+    {"text": "Basically, if you ain't got blood vessels, we ain't friends.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2714, "start": 6038},
+    {"text": "What do I look like hanging out with a bunch of wired beans?", "label": "setup", "bit": 1, "beat": 2, "line_number": 2715, "start": 6043},
+    {"text": "If I want to be around a bunch of wired beans,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2716, "start": 6046},
+    {"text": "I'd have kept cooking meth.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2717, "start": 6048},
+    {"text": "Speaking of drugs, they've been talking about", "label": "setup", "bit": 2, "beat": 1, "line_number": 2719, "start": 6052},
+    {"text": "legalizing marijuana in America,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2720, "start": 6054},
+    {"text": "and I've got one problem with that.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2721, "start": 6056},
+    {"text": "This new generation will never understand the prohibition.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2722, "start": 6059},
+    {"text": "They will never remember peeling apart Mexican brick weed.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2723, "start": 6063},
+    {"text": "They won't know the frustration of sifting seeds", "label": "setup", "bit": 2, "beat": 2, "line_number": 2725, "start": 6068},
+    {"text": "for five minutes to roll a joint.", "label": "setup", "bit": 2, "beat": 2, "line_number": 2726, "start": 6071},
+    {"text": "They won't even know what it tastes like", "label": "setup", "bit": 2, "beat": 2, "line_number": 2727, "start": 6074},
+    {"text": "to smoke the resin out of your bong,", "label": "setup", "bit": 2, "beat": 2, "line_number": 2728, "start": 6076},
+    {"text": "'cause that asshole won't answer his phone.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 2729, "start": 6078},
+    {"text": "Other than that, I'm okay with it.", "label": "tag", "bit": 2, "beat": 2, "line_number": 2730, "start": 6082},
+    {"text": "That's my time.", "label": "fluff", "bit": null, "beat": null, "line_number": 2731, "start": 6084}
   ]
 }

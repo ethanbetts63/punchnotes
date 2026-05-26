@@ -1,279 +1,103 @@
-﻿{
-    "type":  "set_meta",
-    "video_id":  "suxlBw4o1Mc",
-    "episode_title":  "KT #759 - JOE LIST + STEVE RANNAZZISI",
-    "episode_url":  "https://www.youtube.com/watch?v=suxlBw4o1Mc",
-    "publish_date":  "2026-03-10",
-    "guests":  [
-                   "Joe List",
-                   "Steve Rannazzisi"
-               ],
-    "comedian_name":  "Angel",
-    "comedian_type":  "bucket_pull",
-    "set_number":  6,
-    "start_seconds":  2705,
-    "bits":  [
-                 {
-                     "bit_id":  "bit_001",
-                     "premise":  "Being labeled autistic by strangers can be defended by noting avoidance is also judgment.",
-                     "line_range":  [
-                                        1117,
-                                        1121
-                                    ],
-                     "beats":  [
-                                   {
-                                       "beat_id":  "bit_001_beat_001",
-                                       "line_range":  [
-                                                          1117,
-                                                          1121
-                                                      ],
-                                       "topics":  [
-                                                      "autism",
-                                                      "strangers",
-                                                      "social avoidance"
-                                                  ]
-                                   }
-                               ]
-                 },
-                 {
-                     "bit_id":  "bit_002",
-                     "premise":  "Repeated puppy deaths can make adult dogs seem impossible.",
-                     "line_range":  [
-                                        1130,
-                                        1132
-                                    ],
-                     "beats":  [
-                                   {
-                                       "beat_id":  "bit_002_beat_001",
-                                       "line_range":  [
-                                                          1130,
-                                                          1132
-                                                      ],
-                                       "topics":  [
-                                                      "dogs",
-                                                      "puppies",
-                                                      "parvo",
-                                                      "childhood"
-                                                  ]
-                                   }
-                               ]
-                 },
-                 {
-                     "bit_id":  "bit_003",
-                     "premise":  "Racist language can be treated as situationally strategic instead of forbidden.",
-                     "line_range":  [
-                                        1134,
-                                        1145
-                                    ],
-                     "beats":  [
-                                   {
-                                       "beat_id":  "bit_003_beat_001",
-                                       "line_range":  [
-                                                          1134,
-                                                          1141
-                                                      ],
-                                       "topics":  [
-                                                      "stepdad",
-                                                      "racial slurs",
-                                                      "Walmart",
-                                                      "Home Depot"
-                                                  ]
-                                   },
-                                   {
-                                       "beat_id":  "bit_003_beat_002",
-                                       "line_range":  [
-                                                          1142,
-                                                          1145
-                                                      ],
-                                       "topics":  [
-                                                      "race riot",
-                                                      "Latinos",
-                                                      "work crews"
-                                                  ]
-                                   }
-                               ]
-                 }
-             ],
-    "lines":  [
-                  {
-                      "line_number":  1115,
-                      "text":  "Hi there, folks.",
-                      "start":  2705,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  1116,
-                      "text":  "My name\u0027s Angel.",
-                      "start":  2707,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  1117,
-                      "text":  "People in the street approach me, and they call me",
-                      "start":  2708,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1118,
-                      "text":  "autistic.",
-                      "start":  2710,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1119,
-                      "text":  "And I don\u0027t think it\u0027s very nice.",
-                      "start":  2711,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1120,
-                      "text":  "90% of the people I meet think I\u0027m autistic.",
-                      "start":  2713,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1121,
-                      "text":  "The other 10% just don\u0027t talk to me.",
-                      "start":  2716,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  1122,
-                      "text":  "I\u0027m very scared to be here tonight, but I\u0027m very proud to be Latino.",
-                      "start":  2719,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  1123,
-                      "text":  "How many of you here in the audience?",
-                      "start":  2722,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  1124,
-                      "text":  "It\u0027s fucking Texas.",
-                      "start":  2723,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  1125,
-                      "text":  "Let me hear it.",
-                      "start":  2724,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  1127,
-                      "text":  "Arriba!",
-                      "start":  2726,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  1128,
-                      "text":  "Yeah, gracias.",
-                      "start":  2727,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  1130,
-                      "text":  "I grew up for the longest time not knowing dogs got bigger than puppies.",
-                      "start":  2729,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1131,
-                      "text":  "I thought all dogs naturally died of parvo.",
-                      "start":  2734,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  1132,
-                      "text":  "I just didn\u0027t know.",
-                      "start":  2736,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  1134,
-                      "text":  "I grew up with the Latino stepdad and he was great until, you know, occasionally we just",
-                      "start":  2742,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1135,
-                      "text":  "dropped the N-bomb at Walmart, like out of nowhere.",
-                      "start":  2746,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1136,
-                      "text":  "\"What\u0027s going on my aunt?\"",
-                      "start":  2749,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1137,
-                      "text":  "I\u0027m like, \"You can\u0027t be saying that",
-                      "start":  2750,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1138,
-                      "text":  "\"in this Walmart specifically.",
-                      "start":  2751,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1139,
-                      "text":  "\"Where\u0027d you fucking learn that word, dad?\"",
-                      "start":  2753,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1140,
-                      "text":  "He goes, \"At work, well you shouldn\u0027t be using it.",
-                      "start":  2755,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1141,
-                      "text":  "\"Unless we\u0027re at Home Depot",
-                      "start":  2757,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  1142,
-                      "text":  "\"when we got people behind our back.",
-                      "start":  2758,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  1143,
-                      "text":  "\"We got the WebBacks helping us out",
-                      "start":  2759,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  1144,
-                      "text":  "\"in case of a race riot, right?\"",
-                      "start":  2761,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  1145,
-                      "text":  "Oh God.",
-                      "start":  2763,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  1146,
-                      "text":  "I\u0027m bad at dating guys.",
-                      "start":  2768,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  1147,
-                      "text":  "Thank God, let\u0027s fucking get this over with.",
-                      "start":  2770,
-                      "label":  "fluff"
-                  }
-              ]
+{
+  "type": "set_meta"
+,
+  "video_id": "suxlBw4o1Mc"
+,
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI"
+,
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc"
+,
+  "publish_date": "2026-03-10"
+,
+  "guests": [
+    "Joe List",
+    "Steve Rannazzisi"
+  ],
+  "comedian_name": "Angel"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 6
+,
+  "start_seconds": 2705
+,
+  "bit_meta": {
+    "1": {
+      "premise": "Being labeled autistic by strangers can be defended by noting avoidance is also judgment.",
+      "beats": {
+        "1": {
+          "topics": [
+            "autism",
+            "strangers",
+            "social avoidance"
+          ]
+        }
+      }
+    },
+    "2": {
+      "premise": "Repeated puppy deaths can make adult dogs seem impossible.",
+      "beats": {
+        "1": {
+          "topics": [
+            "dogs",
+            "puppies",
+            "parvo",
+            "childhood"
+          ]
+        }
+      }
+    },
+    "3": {
+      "premise": "Racist language can be treated as situationally strategic instead of forbidden.",
+      "beats": {
+        "1": {
+          "topics": [
+            "stepdad",
+            "racial slurs",
+            "Walmart",
+            "Home Depot"
+          ]
+        },
+        "2": {
+          "topics": [
+            "race riot",
+            "Latinos",
+            "work crews"
+          ]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "Hi there, folks.", "label": "fluff", "bit": null, "beat": null, "line_number": 1115, "start": 2705},
+    {"text": "My name's Angel.", "label": "fluff", "bit": null, "beat": null, "line_number": 1116, "start": 2707},
+    {"text": "People in the street approach me, and they call me", "label": "setup", "bit": 1, "beat": 1, "line_number": 1117, "start": 2708},
+    {"text": "autistic.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1118, "start": 2710},
+    {"text": "And I don't think it's very nice.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1119, "start": 2711},
+    {"text": "90% of the people I meet think I'm autistic.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1120, "start": 2713},
+    {"text": "The other 10% just don't talk to me.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1121, "start": 2716},
+    {"text": "I'm very scared to be here tonight, but I'm very proud to be Latino.", "label": "fluff", "bit": null, "beat": null, "line_number": 1122, "start": 2719},
+    {"text": "How many of you here in the audience?", "label": "fluff", "bit": null, "beat": null, "line_number": 1123, "start": 2722},
+    {"text": "It's fucking Texas.", "label": "fluff", "bit": null, "beat": null, "line_number": 1124, "start": 2723},
+    {"text": "Let me hear it.", "label": "fluff", "bit": null, "beat": null, "line_number": 1125, "start": 2724},
+    {"text": "Arriba!", "label": "fluff", "bit": null, "beat": null, "line_number": 1127, "start": 2726},
+    {"text": "Yeah, gracias.", "label": "fluff", "bit": null, "beat": null, "line_number": 1128, "start": 2727},
+    {"text": "I grew up for the longest time not knowing dogs got bigger than puppies.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1130, "start": 2729},
+    {"text": "I thought all dogs naturally died of parvo.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1131, "start": 2734},
+    {"text": "I just didn't know.", "label": "fluff", "bit": 2, "beat": 1, "line_number": 1132, "start": 2736},
+    {"text": "I grew up with the Latino stepdad and he was great until, you know, occasionally we just", "label": "setup", "bit": 3, "beat": 1, "line_number": 1134, "start": 2742},
+    {"text": "dropped the N-bomb at Walmart, like out of nowhere.", "label": "setup", "bit": 3, "beat": 1, "line_number": 1135, "start": 2746},
+    {"text": "\"What's going on my aunt?\"", "label": "setup", "bit": 3, "beat": 1, "line_number": 1136, "start": 2749},
+    {"text": "I'm like, \"You can't be saying that", "label": "setup", "bit": 3, "beat": 1, "line_number": 1137, "start": 2750},
+    {"text": "\"in this Walmart specifically.", "label": "setup", "bit": 3, "beat": 1, "line_number": 1138, "start": 2751},
+    {"text": "\"Where'd you fucking learn that word, dad?\"", "label": "setup", "bit": 3, "beat": 1, "line_number": 1139, "start": 2753},
+    {"text": "He goes, \"At work, well you shouldn't be using it.", "label": "setup", "bit": 3, "beat": 1, "line_number": 1140, "start": 2755},
+    {"text": "\"Unless we're at Home Depot", "label": "punchline", "bit": 3, "beat": 1, "line_number": 1141, "start": 2757},
+    {"text": "\"when we got people behind our back.", "label": "tag", "bit": 3, "beat": 2, "line_number": 1142, "start": 2758},
+    {"text": "\"We got the WebBacks helping us out", "label": "tag", "bit": 3, "beat": 2, "line_number": 1143, "start": 2759},
+    {"text": "\"in case of a race riot, right?\"", "label": "tag", "bit": 3, "beat": 2, "line_number": 1144, "start": 2761},
+    {"text": "Oh God.", "label": "fluff", "bit": 3, "beat": 2, "line_number": 1145, "start": 2763},
+    {"text": "I'm bad at dating guys.", "label": "setup", "bit": null, "beat": null, "line_number": 1146, "start": 2768},
+    {"text": "Thank God, let's fucking get this over with.", "label": "fluff", "bit": null, "beat": null, "line_number": 1147, "start": 2770}
+  ]
 }

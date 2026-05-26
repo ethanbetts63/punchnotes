@@ -1,255 +1,104 @@
 {
-  "type": "set_meta",
-  "video_id": "lwLnqeBKa-0",
-  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
-  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
-  "publish_date": "2026-04-28",
+  "type": "set_meta"
+,
+  "video_id": "lwLnqeBKa-0"
+,
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI"
+,
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0"
+,
+  "publish_date": "2026-04-28"
+,
   "guests": [
     "Dustin Poirier",
     "Ari Matti"
   ],
-  "comedian_name": "Chase Standen",
-  "comedian_type": "bucket_pull",
-  "set_number": 8,
-  "start_seconds": 3483,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Chase Standen"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 8
+,
+  "start_seconds": 3483
+,
+  "bit_meta": {
+    "1": {
       "premise": "Oral sex instructions can feel like Bop It.",
-      "line_range": [
-        1490,
-        1510
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            1490,
-            1494
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "girlfriend",
             "oral sex",
             "Bop It"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [
-            1495,
-            1500
-          ],
+        "2": {
           "topics": [
             "sex instructions",
             "Bop It",
             "oral sex"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_003",
-          "line_range": [
-            1502,
-            1505
-          ],
+        "3": {
           "topics": [
             "Bop It",
             "high scores",
             "sex"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_004",
-          "line_range": [
-            1508,
-            1510
-          ],
+        "4": {
           "topics": [
             "landing strip",
             "Bop It",
             "girlfriend"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_002",
+    "2": {
       "premise": "A landing strip can become the Gaza Strip through sex and death imagery.",
-      "line_range": [
-        1512,
-        1516
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [
-            1512,
-            1513
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "Gaza Strip",
             "landing strip",
             "wordplay"
           ]
         },
-        {
-          "beat_id": "bit_002_beat_002",
-          "line_range": [
-            1514,
-            1516
-          ],
+        "2": {
           "topics": [
             "Gaza",
             "ejaculation",
             "dead children"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "I've got a new girlfriend.",
-      "start": 3483,
-      "label": "setup",
-      "line_number": 1490
-    },
-    {
-      "text": "She's kind of pushy in the bedroom.",
-      "start": 3485,
-      "label": "setup",
-      "line_number": 1491
-    },
-    {
-      "text": "Like, she's very instructional.",
-      "start": 3487,
-      "label": "setup",
-      "line_number": 1492
-    },
-    {
-      "text": "Like, God, every time I go down on my girl,",
-      "start": 3489,
-      "label": "setup",
-      "line_number": 1493
-    },
-    {
-      "text": "I feel like I'm playing a fucked-up game of bop it.",
-      "start": 3492,
-      "label": "punchline",
-      "line_number": 1494
-    },
-    {
-      "text": "'Cause I'm down there with my A game.",
-      "start": 3497,
-      "label": "tag",
-      "line_number": 1495
-    },
-    {
-      "text": "I'm doing my best, and she's just giving me instructions.",
-      "start": 3499,
-      "label": "tag",
-      "line_number": 1496
-    },
-    {
-      "text": "Like, flick it.",
-      "start": 3502,
-      "label": "tag",
-      "line_number": 1497
-    },
-    {
-      "text": "\"Lick it.",
-      "start": 3504,
-      "label": "tag",
-      "line_number": 1498
-    },
-    {
-      "text": "Kiss it, suck it, push it, pull it, lick it,",
-      "start": 3506,
-      "label": "tag",
-      "line_number": 1499
-    },
-    {
-      "text": "suck it, suck it, suck it, bop it.\"",
-      "start": 3508,
-      "label": "tag",
-      "line_number": 1500
-    },
-    {
-      "text": "Also, can we be real?",
-      "start": 3512,
-      "label": "tag",
-      "line_number": 1502
-    },
-    {
-      "text": "That's like an impossible game to beat.",
-      "start": 3514,
-      "label": "tag",
-      "line_number": 1503
-    },
-    {
-      "text": "My high score is like three.",
-      "start": 3516,
-      "label": "tag",
-      "line_number": 1504
-    },
-    {
-      "text": "Pass it to a friend.",
-      "start": 3519,
-      "label": "tag",
-      "line_number": 1505
-    },
-    {
-      "text": "My girlfriend's got a landing strip.",
-      "start": 3528,
-      "label": "setup",
-      "line_number": 1508
-    },
-    {
-      "text": "Pull it.",
-      "start": 3532,
-      "label": "punchline",
-      "line_number": 1510
-    },
-    {
-      "text": "My girlfriend's got a landing strip.",
-      "start": 3536,
-      "label": "setup",
-      "line_number": 1512
-    },
-    {
-      "text": "I call that shit the Gaza Strip.",
-      "start": 3538,
-      "label": "punchline",
-      "line_number": 1513
-    },
-    {
-      "text": "I, uh, I call my girlfriend's vagina Gaza",
-      "start": 3541,
-      "label": "setup",
-      "line_number": 1514
-    },
-    {
-      "text": "because I shoot loads at it,",
-      "start": 3544,
-      "label": "setup",
-      "line_number": 1515
-    },
-    {
-      "text": "and children are dying in there.",
-      "start": 3546,
-      "label": "punchline",
-      "line_number": 1516
-    },
-    {
-      "text": "That's good.",
-      "start": 3551,
-      "label": "fluff",
-      "line_number": 1518
-    },
-    {
-      "text": "Check us out with me, Chase Sandin.",
-      "start": 3553,
-      "label": "fluff",
-      "line_number": 1519
-    }
+    {"text": "I've got a new girlfriend.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1490, "start": 3483},
+    {"text": "She's kind of pushy in the bedroom.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1491, "start": 3485},
+    {"text": "Like, she's very instructional.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1492, "start": 3487},
+    {"text": "Like, God, every time I go down on my girl,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1493, "start": 3489},
+    {"text": "I feel like I'm playing a fucked-up game of bop it.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1494, "start": 3492},
+    {"text": "'Cause I'm down there with my A game.", "label": "tag", "bit": 1, "beat": 2, "line_number": 1495, "start": 3497},
+    {"text": "I'm doing my best, and she's just giving me instructions.", "label": "tag", "bit": 1, "beat": 2, "line_number": 1496, "start": 3499},
+    {"text": "Like, flick it.", "label": "tag", "bit": 1, "beat": 2, "line_number": 1497, "start": 3502},
+    {"text": "\"Lick it.", "label": "tag", "bit": 1, "beat": 2, "line_number": 1498, "start": 3504},
+    {"text": "Kiss it, suck it, push it, pull it, lick it,", "label": "tag", "bit": 1, "beat": 2, "line_number": 1499, "start": 3506},
+    {"text": "suck it, suck it, suck it, bop it.\"", "label": "tag", "bit": 1, "beat": 2, "line_number": 1500, "start": 3508},
+    {"text": "Also, can we be real?", "label": "tag", "bit": 1, "beat": 3, "line_number": 1502, "start": 3512},
+    {"text": "That's like an impossible game to beat.", "label": "tag", "bit": 1, "beat": 3, "line_number": 1503, "start": 3514},
+    {"text": "My high score is like three.", "label": "tag", "bit": 1, "beat": 3, "line_number": 1504, "start": 3516},
+    {"text": "Pass it to a friend.", "label": "tag", "bit": 1, "beat": 3, "line_number": 1505, "start": 3519},
+    {"text": "My girlfriend's got a landing strip.", "label": "setup", "bit": 1, "beat": 4, "line_number": 1508, "start": 3528},
+    {"text": "Pull it.", "label": "punchline", "bit": 1, "beat": 4, "line_number": 1510, "start": 3532},
+    {"text": "My girlfriend's got a landing strip.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1512, "start": 3536},
+    {"text": "I call that shit the Gaza Strip.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1513, "start": 3538},
+    {"text": "I, uh, I call my girlfriend's vagina Gaza", "label": "setup", "bit": 2, "beat": 2, "line_number": 1514, "start": 3541},
+    {"text": "because I shoot loads at it,", "label": "setup", "bit": 2, "beat": 2, "line_number": 1515, "start": 3544},
+    {"text": "and children are dying in there.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 1516, "start": 3546},
+    {"text": "That's good.", "label": "fluff", "bit": null, "beat": null, "line_number": 1518, "start": 3551},
+    {"text": "Check us out with me, Chase Sandin.", "label": "fluff", "bit": null, "beat": null, "line_number": 1519, "start": 3553}
   ]
 }

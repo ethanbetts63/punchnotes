@@ -1,178 +1,71 @@
 {
-  "type": "set_meta",
-  "video_id": "_vmG4f4EtYo",
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "type": "set_meta"
+,
+  "video_id": "_vmG4f4EtYo"
+,
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
+,
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
+,
   "guests": [
     "Theo Von",
     "Jelly Roll"
   ],
-  "comedian_name": "Luke Robinson",
-  "comedian_type": "bucket_pull",
-  "set_number": 9,
-  "start_seconds": 4636,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Luke Robinson"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 9
+,
+  "start_seconds": 4636
+,
+  "bit_meta": {
+    "1": {
       "premise": "Humanized dogs would expose uncomfortable pet-owner choices.",
-      "line_range": [
-        2200,
-        2216
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            2200,
-            2203
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "Neuralink",
             "pets",
             "animal thoughts"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [
-            2204,
-            2210
-          ],
+        "2": {
           "topics": [
             "dog owners",
             "neutering",
             "stray dogs"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_003",
-          "line_range": [
-            2211,
-            2216
-          ],
+        "3": {
           "topics": [
             "dogs",
             "AOC",
             "Democrats"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "-Elon Musk is making Neurolink",
-      "start": 4636,
-      "label": "setup",
-      "line_number": 2200
-    },
-    {
-      "text": "so people can talk to their pets.",
-      "start": 4639,
-      "label": "setup",
-      "line_number": 2201
-    },
-    {
-      "text": "\"Aww, now they can tell us just how much they love us.\"",
-      "start": 4642,
-      "label": "setup",
-      "line_number": 2202
-    },
-    {
-      "text": "\"I don't know, but I've thought about it fucking a lot.\"",
-      "start": 4647,
-      "label": "punchline",
-      "line_number": 2203
-    },
-    {
-      "text": "Imagine dog dads having the neuter talk.",
-      "start": 4650,
-      "label": "setup",
-      "line_number": 2204
-    },
-    {
-      "text": "After a painful conversation about cutting their balls off,",
-      "start": 4654,
-      "label": "setup",
-      "line_number": 2205
-    },
-    {
-      "text": "they'd be like, \"Please, Poppy,",
-      "start": 4657,
-      "label": "setup",
-      "line_number": 2206
-    },
-    {
-      "text": "I promise to keep my pecker in my pants.\"",
-      "start": 4660,
-      "label": "punchline",
-      "line_number": 2207
-    },
-    {
-      "text": "Dudes would be so traumatized,",
-      "start": 4663,
-      "label": "setup",
-      "line_number": 2208
-    },
-    {
-      "text": "they'd never neuter dogs ever again.",
-      "start": 4665,
-      "label": "setup",
-      "line_number": 2209
-    },
-    {
-      "text": "And the straight population would go way out of control.",
-      "start": 4667,
-      "label": "punchline",
-      "line_number": 2210
-    },
-    {
-      "text": "And if dogs didn't talk, they could understand TV.",
-      "start": 4671,
-      "label": "setup",
-      "line_number": 2211
-    },
-    {
-      "text": "Imagine coming home to find your dog",
-      "start": 4674,
-      "label": "setup",
-      "line_number": 2212
-    },
-    {
-      "text": "watching AOC on C-SPAN.",
-      "start": 4676,
-      "label": "setup",
-      "line_number": 2213
-    },
-    {
-      "text": "Poppy, she's so smart.",
-      "start": 4680,
-      "label": "setup",
-      "line_number": 2214
-    },
-    {
-      "text": "Next day, dog's on the doorstep of a shelter with a note.",
-      "start": 4684,
-      "label": "setup",
-      "line_number": 2215
-    },
-    {
-      "text": "Good dog, but he's a fucking Democrat.",
-      "start": 4688,
-      "label": "punchline",
-      "line_number": 2216
-    },
-    {
-      "text": "Thank you. I'm Luke Robinson.",
-      "start": 4692,
-      "label": "fluff",
-      "line_number": 2217
-    },
-    {
-      "text": "They call me your big dog. Thank you.",
-      "start": 4694,
-      "label": "fluff",
-      "line_number": 2218
-    }
+    {"text": "-Elon Musk is making Neurolink", "label": "setup", "bit": 1, "beat": 1, "line_number": 2200, "start": 4636},
+    {"text": "so people can talk to their pets.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2201, "start": 4639},
+    {"text": "\"Aww, now they can tell us just how much they love us.\"", "label": "setup", "bit": 1, "beat": 1, "line_number": 2202, "start": 4642},
+    {"text": "\"I don't know, but I've thought about it fucking a lot.\"", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2203, "start": 4647},
+    {"text": "Imagine dog dads having the neuter talk.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2204, "start": 4650},
+    {"text": "After a painful conversation about cutting their balls off,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2205, "start": 4654},
+    {"text": "they'd be like, \"Please, Poppy,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2206, "start": 4657},
+    {"text": "I promise to keep my pecker in my pants.\"", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2207, "start": 4660},
+    {"text": "Dudes would be so traumatized,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2208, "start": 4663},
+    {"text": "they'd never neuter dogs ever again.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2209, "start": 4665},
+    {"text": "And the straight population would go way out of control.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2210, "start": 4667},
+    {"text": "And if dogs didn't talk, they could understand TV.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2211, "start": 4671},
+    {"text": "Imagine coming home to find your dog", "label": "setup", "bit": 1, "beat": 3, "line_number": 2212, "start": 4674},
+    {"text": "watching AOC on C-SPAN.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2213, "start": 4676},
+    {"text": "Poppy, she's so smart.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2214, "start": 4680},
+    {"text": "Next day, dog's on the doorstep of a shelter with a note.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2215, "start": 4684},
+    {"text": "Good dog, but he's a fucking Democrat.", "label": "punchline", "bit": 1, "beat": 3, "line_number": 2216, "start": 4688},
+    {"text": "Thank you. I'm Luke Robinson.", "label": "fluff", "bit": null, "beat": null, "line_number": 2217, "start": 4692},
+    {"text": "They call me your big dog. Thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 2218, "start": 4694}
   ]
 }

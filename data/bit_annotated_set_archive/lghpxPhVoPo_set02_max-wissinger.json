@@ -1,78 +1,100 @@
 {
-  "type": "set_meta",
-  "video_id": "lghpxPhVoPo",
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
-  "publish_date": "2026-03-24",
-  "guests": ["Adam Ray", "Kim Congdon"],
-  "comedian_name": "Max Wissinger",
-  "comedian_type": "bucket_pull",
-  "set_number": 2,
-  "start_seconds": 758,
-  "bits": [
-    {
-      "bit_id": "bit_001",
-      "premise": "A childlike appearance is mistaken for sexual excitement, then the entire romantic scenario is revealed to be fabricated.",
-      "line_range": [252, 263],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [252, 259],
-          "topics": ["dating", "appearance", "sex", "girlfriend"]
-        },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [261, 263],
-          "topics": ["dating", "loneliness", "girlfriend"]
-        }
-      ]
-    },
-    {
-      "bit_id": "bit_002",
-      "premise": "Gluten intolerance signals such physical weakness that it destroys romantic relationships and breeds suicidal despair.",
-      "line_range": [266, 278],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [266, 269],
-          "topics": ["gluten", "dating", "food", "masculinity"]
-        },
-        {
-          "beat_id": "bit_002_beat_002",
-          "line_range": [271, 273],
-          "topics": ["gluten", "donuts", "food", "workplace"]
-        },
-        {
-          "beat_id": "bit_002_beat_003",
-          "line_range": [274, 278],
-          "topics": ["gluten", "depression", "suicide", "toaster"]
-        }
-      ]
-    }
+  "type": "set_meta"
+,
+  "video_id": "lghpxPhVoPo"
+,
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
+,
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
+,
+  "publish_date": "2026-03-24"
+,
+  "guests": [
+    "Adam Ray",
+    "Kim Congdon"
   ],
+  "comedian_name": "Max Wissinger"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 2
+,
+  "start_seconds": 758
+,
+  "bit_meta": {
+    "1": {
+      "premise": "A childlike appearance is mistaken for sexual excitement, then the entire romantic scenario is revealed to be fabricated.",
+      "beats": {
+        "1": {
+          "topics": [
+            "dating",
+            "appearance",
+            "sex",
+            "girlfriend"
+          ]
+        },
+        "2": {
+          "topics": [
+            "dating",
+            "loneliness",
+            "girlfriend"
+          ]
+        }
+      }
+    },
+    "2": {
+      "premise": "Gluten intolerance signals such physical weakness that it destroys romantic relationships and breeds suicidal despair.",
+      "beats": {
+        "1": {
+          "topics": [
+            "gluten",
+            "dating",
+            "food",
+            "masculinity"
+          ]
+        },
+        "2": {
+          "topics": [
+            "gluten",
+            "donuts",
+            "food",
+            "workplace"
+          ]
+        },
+        "3": {
+          "topics": [
+            "gluten",
+            "depression",
+            "suicide",
+            "toaster"
+          ]
+        }
+      }
+    }
+  },
   "lines": [
-    {"line_number": 252, "text": "- So I was making out with my girlfriend last week.", "start": 758, "label": "setup"},
-    {"line_number": 254, "text": "- Things were heating up.", "start": 762, "label": "setup"},
-    {"line_number": 255, "text": "She started taking her clothes off.", "start": 764, "label": "setup"},
-    {"line_number": 257, "text": "She was like, \"Max, you look like a kid in a candy store.\"", "start": 767, "label": "setup"},
-    {"line_number": 258, "text": "I said, \"Babe, it's not you.", "start": 771, "label": "setup"},
-    {"line_number": 259, "text": "I look like a kid in any store.\"", "start": 774, "label": "punchline"},
-    {"line_number": 261, "text": "Yeah.", "start": 778, "label": "fluff"},
-    {"line_number": 262, "text": "Just kidding.", "start": 779, "label": "setup"},
-    {"line_number": 263, "text": "I don't have a girlfriend.", "start": 780, "label": "punchline"},
-    {"line_number": 265, "text": "Yeah.", "start": 783, "label": "fluff"},
-    {"line_number": 266, "text": "I can't keep a girlfriend, all right?", "start": 785, "label": "setup"},
-    {"line_number": 267, "text": "'Cause they don't feel safe with me.", "start": 786, "label": "setup"},
-    {"line_number": 268, "text": "Because I'm gluten-free.", "start": 789, "label": "setup"},
-    {"line_number": 269, "text": "I mean, I can't even fight off a little Debbie.", "start": 791, "label": "punchline"},
-    {"line_number": 271, "text": "It sucks, right? Like someone brings donuts to work.", "start": 796, "label": "setup"},
-    {"line_number": 272, "text": "I can't have any.", "start": 799, "label": "setup"},
-    {"line_number": 273, "text": "Apple fritter, straight to the shitter.", "start": 801, "label": "punchline"},
-    {"line_number": 274, "text": "Being gluten-free is so depressing.", "start": 806, "label": "setup"},
-    {"line_number": 275, "text": "The only time I even think about using a toaster", "start": 809, "label": "setup"},
-    {"line_number": 276, "text": "is when I'm taking a bath.", "start": 813, "label": "punchline"},
-    {"line_number": 277, "text": "Guys, come on.", "start": 820, "label": "fluff"},
-    {"line_number": 278, "text": "My therapist said I need an outlet.", "start": 822, "label": "tag"},
-    {"line_number": 280, "text": "- Thank you.", "start": 829, "label": "fluff"}
+    {"text": "- So I was making out with my girlfriend last week.", "label": "setup", "bit": 1, "beat": 1, "line_number": 252, "start": 758},
+    {"text": "- Things were heating up.", "label": "setup", "bit": 1, "beat": 1, "line_number": 254, "start": 762},
+    {"text": "She started taking her clothes off.", "label": "setup", "bit": 1, "beat": 1, "line_number": 255, "start": 764},
+    {"text": "She was like, \"Max, you look like a kid in a candy store.\"", "label": "setup", "bit": 1, "beat": 1, "line_number": 257, "start": 767},
+    {"text": "I said, \"Babe, it's not you.", "label": "setup", "bit": 1, "beat": 1, "line_number": 258, "start": 771},
+    {"text": "I look like a kid in any store.\"", "label": "punchline", "bit": 1, "beat": 1, "line_number": 259, "start": 774},
+    {"text": "Yeah.", "label": "fluff", "bit": 1, "beat": 2, "line_number": 261, "start": 778},
+    {"text": "Just kidding.", "label": "setup", "bit": 1, "beat": 2, "line_number": 262, "start": 779},
+    {"text": "I don't have a girlfriend.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 263, "start": 780},
+    {"text": "Yeah.", "label": "fluff", "bit": null, "beat": null, "line_number": 265, "start": 783},
+    {"text": "I can't keep a girlfriend, all right?", "label": "setup", "bit": 2, "beat": 1, "line_number": 266, "start": 785},
+    {"text": "'Cause they don't feel safe with me.", "label": "setup", "bit": 2, "beat": 1, "line_number": 267, "start": 786},
+    {"text": "Because I'm gluten-free.", "label": "setup", "bit": 2, "beat": 1, "line_number": 268, "start": 789},
+    {"text": "I mean, I can't even fight off a little Debbie.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 269, "start": 791},
+    {"text": "It sucks, right? Like someone brings donuts to work.", "label": "setup", "bit": 2, "beat": 2, "line_number": 271, "start": 796},
+    {"text": "I can't have any.", "label": "setup", "bit": 2, "beat": 2, "line_number": 272, "start": 799},
+    {"text": "Apple fritter, straight to the shitter.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 273, "start": 801},
+    {"text": "Being gluten-free is so depressing.", "label": "setup", "bit": 2, "beat": 3, "line_number": 274, "start": 806},
+    {"text": "The only time I even think about using a toaster", "label": "setup", "bit": 2, "beat": 3, "line_number": 275, "start": 809},
+    {"text": "is when I'm taking a bath.", "label": "punchline", "bit": 2, "beat": 3, "line_number": 276, "start": 813},
+    {"text": "Guys, come on.", "label": "fluff", "bit": 2, "beat": 3, "line_number": 277, "start": 820},
+    {"text": "My therapist said I need an outlet.", "label": "tag", "bit": 2, "beat": 3, "line_number": 278, "start": 822},
+    {"text": "- Thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 280, "start": 829}
   ]
 }

@@ -1,71 +1,86 @@
 {
-  "type": "set_meta",
-  "video_id": "H_q0BZSkaoY",
-  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
-  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
-  "publish_date": "2026-03-17",
-  "guests": ["Steve0", "Tim Butterly"],
-  "comedian_name": "Jarrell Beeman",
-  "comedian_type": "bucket_pull",
-  "set_number": 9,
-  "start_seconds": 5531,
-  "bits": [
-    {
-      "bit_id": "bit_001",
-      "premise": "Dayton, Ohio's reputation is so bleak that the crowd's muted reaction to hearing you live there implies you must not be interested in heroin.",
-      "line_range": [2445, 2453],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [2445, 2453],
-          "topics": ["Dayton Ohio", "heroin", "regional identity"]
-        }
-      ]
-    },
-    {
-      "bit_id": "bit_002",
-      "premise": "Proximity to violent crime creates irrationally cheap rent, which in turn creates a financial incentive to commit even more murders.",
-      "line_range": [2460, 2468],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [2460, 2466],
-          "topics": ["Dayton Ohio", "rent", "murder", "poverty"]
-        },
-        {
-          "beat_id": "bit_002_beat_002",
-          "line_range": [2467, 2468],
-          "topics": ["rent", "murder", "crime"]
-        }
-      ]
-    }
+  "type": "set_meta"
+,
+  "video_id": "H_q0BZSkaoY"
+,
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY"
+,
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY"
+,
+  "publish_date": "2026-03-17"
+,
+  "guests": [
+    "Steve0",
+    "Tim Butterly"
   ],
+  "comedian_name": "Jarrell Beeman"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 9
+,
+  "start_seconds": 5531
+,
+  "bit_meta": {
+    "1": {
+      "premise": "Dayton, Ohio's reputation is so bleak that the crowd's muted reaction to hearing you live there implies you must not be interested in heroin.",
+      "beats": {
+        "1": {
+          "topics": [
+            "Dayton Ohio",
+            "heroin",
+            "regional identity"
+          ]
+        }
+      }
+    },
+    "2": {
+      "premise": "Proximity to violent crime creates irrationally cheap rent, which in turn creates a financial incentive to commit even more murders.",
+      "beats": {
+        "1": {
+          "topics": [
+            "Dayton Ohio",
+            "rent",
+            "murder",
+            "poverty"
+          ]
+        },
+        "2": {
+          "topics": [
+            "rent",
+            "murder",
+            "crime"
+          ]
+        }
+      }
+    }
+  },
   "lines": [
-    {"line_number": 2443, "text": "- What's up? What's up, man?", "start": 5531, "label": "fluff"},
-    {"line_number": 2444, "text": "I'm happy to be here in Texas, man.", "start": 5532, "label": "fluff"},
-    {"line_number": 2445, "text": "I actually live in a spot called Dayton, Ohio.", "start": 5534, "label": "setup"},
-    {"line_number": 2446, "text": "Yup, yup, and that's all it gets right there.", "start": 5539, "label": "setup"},
-    {"line_number": 2447, "text": "That's it. That's it now for real, man.", "start": 5542, "label": "setup"},
-    {"line_number": 2448, "text": "People don't get too hype when I say I live in Dayton,", "start": 5544, "label": "setup"},
-    {"line_number": 2449, "text": "man, it always gets real weird and awkward and quiet, you know?", "start": 5546, "label": "setup"},
-    {"line_number": 2450, "text": "And I get it, man.", "start": 5550, "label": "setup"},
-    {"line_number": 2451, "text": "I must not be a big fan of a heroin, I see.", "start": 5551, "label": "punchline"},
-    {"line_number": 2452, "text": "'Cause that's all we got in Southern Ohio, baby.", "start": 5554, "label": "tag"},
-    {"line_number": 2453, "text": "All we got is heroin and fat white women.", "start": 5557, "label": "tag"},
-    {"line_number": 2454, "text": "That's it, that's it.", "start": 5560, "label": "fluff"},
-    {"line_number": 2455, "text": "Hey, hey, but hold on.", "start": 5561, "label": "fluff"},
-    {"line_number": 2456, "text": "I'ma dip it to both.", "start": 5562, "label": "fluff"},
-    {"line_number": 2457, "text": "Okay, no, stop it, stop.", "start": 5563, "label": "fluff"},
-    {"line_number": 2459, "text": "You laughing at the truth, stop it, stop it.", "start": 5568, "label": "fluff"},
-    {"line_number": 2460, "text": "People are like, \"Drel, why don't you move outta Dayton?", "start": 5571, "label": "setup"},
-    {"line_number": 2461, "text": "\"You so talented, man, you should move,", "start": 5573, "label": "setup"},
-    {"line_number": 2462, "text": "\"but I won't 'cause the rent's too low, man, so cheap.", "start": 5575, "label": "setup"},
-    {"line_number": 2463, "text": "My crib right now is $217 per month.", "start": 5579, "label": "setup"},
-    {"line_number": 2464, "text": "Now, the week before I got it, I found out", "start": 5584, "label": "setup"},
-    {"line_number": 2465, "text": "that a triple homicide happened right around the corner,", "start": 5586, "label": "setup"},
-    {"line_number": 2466, "text": "which explained a lot.", "start": 5590, "label": "punchline"},
-    {"line_number": 2467, "text": "But when I found that out, that shit had me thinking about", "start": 5592, "label": "setup"},
-    {"line_number": 2468, "text": "killing four people just to get that rent down to $150.", "start": 5595, "label": "punchline"},
-    {"line_number": 2470, "text": "[cheers and applause]", "start": 5600, "label": "fluff"}
+    {"text": "- What's up? What's up, man?", "label": "fluff", "bit": null, "beat": null, "line_number": 2443, "start": 5531},
+    {"text": "I'm happy to be here in Texas, man.", "label": "fluff", "bit": null, "beat": null, "line_number": 2444, "start": 5532},
+    {"text": "I actually live in a spot called Dayton, Ohio.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2445, "start": 5534},
+    {"text": "Yup, yup, and that's all it gets right there.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2446, "start": 5539},
+    {"text": "That's it. That's it now for real, man.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2447, "start": 5542},
+    {"text": "People don't get too hype when I say I live in Dayton,", "label": "setup", "bit": 1, "beat": 1, "line_number": 2448, "start": 5544},
+    {"text": "man, it always gets real weird and awkward and quiet, you know?", "label": "setup", "bit": 1, "beat": 1, "line_number": 2449, "start": 5546},
+    {"text": "And I get it, man.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2450, "start": 5550},
+    {"text": "I must not be a big fan of a heroin, I see.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2451, "start": 5551},
+    {"text": "'Cause that's all we got in Southern Ohio, baby.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2452, "start": 5554},
+    {"text": "All we got is heroin and fat white women.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2453, "start": 5557},
+    {"text": "That's it, that's it.", "label": "fluff", "bit": null, "beat": null, "line_number": 2454, "start": 5560},
+    {"text": "Hey, hey, but hold on.", "label": "fluff", "bit": null, "beat": null, "line_number": 2455, "start": 5561},
+    {"text": "I'ma dip it to both.", "label": "fluff", "bit": null, "beat": null, "line_number": 2456, "start": 5562},
+    {"text": "Okay, no, stop it, stop.", "label": "fluff", "bit": null, "beat": null, "line_number": 2457, "start": 5563},
+    {"text": "You laughing at the truth, stop it, stop it.", "label": "fluff", "bit": null, "beat": null, "line_number": 2459, "start": 5568},
+    {"text": "People are like, \"Drel, why don't you move outta Dayton?", "label": "setup", "bit": 2, "beat": 1, "line_number": 2460, "start": 5571},
+    {"text": "\"You so talented, man, you should move,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2461, "start": 5573},
+    {"text": "\"but I won't 'cause the rent's too low, man, so cheap.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2462, "start": 5575},
+    {"text": "My crib right now is $217 per month.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2463, "start": 5579},
+    {"text": "Now, the week before I got it, I found out", "label": "setup", "bit": 2, "beat": 1, "line_number": 2464, "start": 5584},
+    {"text": "that a triple homicide happened right around the corner,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2465, "start": 5586},
+    {"text": "which explained a lot.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2466, "start": 5590},
+    {"text": "But when I found that out, that shit had me thinking about", "label": "setup", "bit": 2, "beat": 2, "line_number": 2467, "start": 5592},
+    {"text": "killing four people just to get that rent down to $150.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 2468, "start": 5595},
+    {"text": "[cheers and applause]", "label": "fluff", "bit": null, "beat": null, "line_number": 2470, "start": 5600}
   ]
 }

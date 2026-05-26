@@ -1,266 +1,110 @@
 {
-  "type": "set_meta",
-  "video_id": "1upKa86_uKU",
-  "episode_title": "KT #766 - SAM TALLENT",
-  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
-  "publish_date": "2026-05-05",
+  "type": "set_meta"
+,
+  "video_id": "1upKa86_uKU"
+,
+  "episode_title": "KT #766 - SAM TALLENT"
+,
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU"
+,
+  "publish_date": "2026-05-05"
+,
   "guests": [
     "Sam Tallent"
   ],
-  "comedian_name": "David Edwards",
-  "comedian_type": "bucket_pull",
-  "set_number": 2,
-  "start_seconds": 1001,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "David Edwards"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 2
+,
+  "start_seconds": 1001
+,
+  "bit_meta": {
+    "1": {
       "premise": "Upright hair can look like static from sex with balloons.",
-      "line_range": [
-        433,
-        433
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            433,
-            433
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "appearance",
             "static electricity",
             "balloons"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_002",
+    "2": {
       "premise": "A hunched posture can look like a chicken pecking.",
-      "line_range": [
-        435,
-        437
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [
-            435,
-            437
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "appearance",
             "chickens",
             "posture"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_003",
+    "3": {
       "premise": "Looking like two celebrities can imply unwanted celebrity parentage.",
-      "line_range": [
-        438,
-        444
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_003_beat_001",
-          "line_range": [
-            438,
-            444
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "appearance",
             "celebrity parents",
             "Utah"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_004",
+    "4": {
       "premise": "A sexual animal comparison can be undercut by hemorrhoids.",
-      "line_range": [
-        445,
-        449
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_004_beat_001",
-          "line_range": [
-            445,
-            449
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "Latina women",
             "baboon",
             "hemorrhoids"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_005",
+    "5": {
       "premise": "Hemorrhoids can make bathroom strain look like a horror-movie crawl.",
-      "line_range": [
-        450,
-        456
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_005_beat_001",
-          "line_range": [
-            450,
-            456
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "The Ring",
             "bathroom",
             "hemorrhoids"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "Hello, I know I look like I just fucked a pair of balloons.",
-      "start": 1001,
-      "label": "punchline",
-      "line_number": 433
-    },
-    {
-      "text": "I've also been known to look like a chicken",
-      "start": 1006,
-      "label": "setup",
-      "line_number": 435
-    },
-    {
-      "text": "that just got done pecking the ground,",
-      "start": 1008,
-      "label": "punchline",
-      "line_number": 436
-    },
-    {
-      "text": "is what it is, man.",
-      "start": 1011,
-      "label": "fluff",
-      "line_number": 437
-    },
-    {
-      "text": "No guys, really, I just wanted to come out here",
-      "start": 1013,
-      "label": "setup",
-      "line_number": 438
-    },
-    {
-      "text": "and acknowledge the fact that I am the unwanted love child",
-      "start": 1015,
-      "label": "setup",
-      "line_number": 439
-    },
-    {
-      "text": "of Uncle Laser and Ellen DeGeneres.",
-      "start": 1019,
-      "label": "punchline",
-      "line_number": 440
-    },
-    {
-      "text": "Just the ultimate gay baby.",
-      "start": 1022,
-      "label": "tag",
-      "line_number": 442
-    },
-    {
-      "text": "It's been years, they refuse to contact me.",
-      "start": 1025,
-      "label": "tag",
-      "line_number": 443
-    },
-    {
-      "text": "So I actually moved down here from Utah to get in touch.",
-      "start": 1028,
-      "label": "setup",
-      "line_number": 444
-    },
-    {
-      "text": "But I kinda got distracted guys.",
-      "start": 1032,
-      "label": "setup",
-      "line_number": 445
-    },
-    {
-      "text": "A lot of just amazing Latina women here.",
-      "start": 1034,
-      "label": "setup",
-      "line_number": 446
-    },
-    {
-      "text": "To all my Latina women, I am like a baboon under the sheets.",
-      "start": 1037,
-      "label": "setup",
-      "line_number": 447
-    },
-    {
-      "text": "Brutal hemorrhoids guys.",
-      "start": 1043,
-      "label": "punchline",
-      "line_number": 448
-    },
-    {
-      "text": "It's, it's.",
-      "start": 1044,
-      "label": "fluff",
-      "line_number": 449
-    },
-    {
-      "text": "Have you guys ever seen the ring?",
-      "start": 1046,
-      "label": "setup",
-      "line_number": 450
-    },
-    {
-      "text": "Specifically the scene where the ghost lady",
-      "start": 1048,
-      "label": "setup",
-      "line_number": 451
-    },
-    {
-      "text": "is like crawling out of the TV?",
-      "start": 1051,
-      "label": "setup",
-      "line_number": 452
-    },
-    {
-      "text": "That's me on the share dude.",
-      "start": 1053,
-      "label": "punchline",
-      "line_number": 453
-    },
-    {
-      "text": "I am just grunting, sweating.",
-      "start": 1054,
-      "label": "tag",
-      "line_number": 454
-    },
-    {
-      "text": "Like an NFL linebacker, dude.",
-      "start": 1056,
-      "label": "tag",
-      "line_number": 455
-    },
-    {
-      "text": "It is, it's quite the sight.",
-      "start": 1059,
-      "label": "tag",
-      "line_number": 456
-    },
-    {
-      "text": "Thank you guys.",
-      "start": 1064,
-      "label": "fluff",
-      "line_number": 457
-    }
+    {"text": "Hello, I know I look like I just fucked a pair of balloons.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 433, "start": 1001},
+    {"text": "I've also been known to look like a chicken", "label": "setup", "bit": 2, "beat": 1, "line_number": 435, "start": 1006},
+    {"text": "that just got done pecking the ground,", "label": "punchline", "bit": 2, "beat": 1, "line_number": 436, "start": 1008},
+    {"text": "is what it is, man.", "label": "fluff", "bit": 2, "beat": 1, "line_number": 437, "start": 1011},
+    {"text": "No guys, really, I just wanted to come out here", "label": "setup", "bit": 3, "beat": 1, "line_number": 438, "start": 1013},
+    {"text": "and acknowledge the fact that I am the unwanted love child", "label": "setup", "bit": 3, "beat": 1, "line_number": 439, "start": 1015},
+    {"text": "of Uncle Laser and Ellen DeGeneres.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 440, "start": 1019},
+    {"text": "Just the ultimate gay baby.", "label": "tag", "bit": 3, "beat": 1, "line_number": 442, "start": 1022},
+    {"text": "It's been years, they refuse to contact me.", "label": "tag", "bit": 3, "beat": 1, "line_number": 443, "start": 1025},
+    {"text": "So I actually moved down here from Utah to get in touch.", "label": "setup", "bit": 3, "beat": 1, "line_number": 444, "start": 1028},
+    {"text": "But I kinda got distracted guys.", "label": "setup", "bit": 4, "beat": 1, "line_number": 445, "start": 1032},
+    {"text": "A lot of just amazing Latina women here.", "label": "setup", "bit": 4, "beat": 1, "line_number": 446, "start": 1034},
+    {"text": "To all my Latina women, I am like a baboon under the sheets.", "label": "setup", "bit": 4, "beat": 1, "line_number": 447, "start": 1037},
+    {"text": "Brutal hemorrhoids guys.", "label": "punchline", "bit": 4, "beat": 1, "line_number": 448, "start": 1043},
+    {"text": "It's, it's.", "label": "fluff", "bit": 4, "beat": 1, "line_number": 449, "start": 1044},
+    {"text": "Have you guys ever seen the ring?", "label": "setup", "bit": 5, "beat": 1, "line_number": 450, "start": 1046},
+    {"text": "Specifically the scene where the ghost lady", "label": "setup", "bit": 5, "beat": 1, "line_number": 451, "start": 1048},
+    {"text": "is like crawling out of the TV?", "label": "setup", "bit": 5, "beat": 1, "line_number": 452, "start": 1051},
+    {"text": "That's me on the share dude.", "label": "punchline", "bit": 5, "beat": 1, "line_number": 453, "start": 1053},
+    {"text": "I am just grunting, sweating.", "label": "tag", "bit": 5, "beat": 1, "line_number": 454, "start": 1054},
+    {"text": "Like an NFL linebacker, dude.", "label": "tag", "bit": 5, "beat": 1, "line_number": 455, "start": 1056},
+    {"text": "It is, it's quite the sight.", "label": "tag", "bit": 5, "beat": 1, "line_number": 456, "start": 1059},
+    {"text": "Thank you guys.", "label": "fluff", "bit": null, "beat": null, "line_number": 457, "start": 1064}
   ]
 }

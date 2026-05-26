@@ -1,213 +1,87 @@
 {
-  "type": "set_meta",
-  "video_id": "lwLnqeBKa-0",
-  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
-  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
-  "publish_date": "2026-04-28",
+  "type": "set_meta"
+,
+  "video_id": "lwLnqeBKa-0"
+,
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI"
+,
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0"
+,
+  "publish_date": "2026-04-28"
+,
   "guests": [
     "Dustin Poirier",
     "Ari Matti"
   ],
-  "comedian_name": "Fiona Cauley",
-  "comedian_type": "golden_ticket",
-  "set_number": 9,
-  "start_seconds": 4052,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Fiona Cauley"
+,
+  "comedian_type": "golden_ticket"
+,
+  "set_number": 9
+,
+  "start_seconds": 4052
+,
+  "bit_meta": {
+    "1": {
       "premise": "A false death sentence can turn promiscuity into urgency.",
-      "line_range": [
-        1746,
-        1759
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            1746,
-            1753
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "diagnosis",
             "promiscuity",
             "disability"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [
-            1755,
-            1759
-          ],
+        "2": {
           "topics": [
             "not dying",
             "promiscuity",
             "self-image"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_002",
+    "2": {
       "premise": "A wheelchair makes post-hookup exits audible.",
-      "line_range": [
-        1761,
-        1773
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [
-            1761,
-            1770
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "one-night stands",
             "wheelchair",
             "sneaking out"
           ]
         },
-        {
-          "beat_id": "bit_002_beat_002",
-          "line_range": [
-            1772,
-            1773
-          ],
+        "2": {
           "topics": [
             "dating",
             "black men",
             "workarounds"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "I know I've talked a lot about being married,",
-      "start": 4052,
-      "label": "setup",
-      "line_number": 1746
-    },
-    {
-      "text": "but I used to be, like, a real big whore.",
-      "start": 4058,
-      "label": "setup",
-      "line_number": 1747
-    },
-    {
-      "text": "Okay, and I don't feel bad about it.",
-      "start": 4065,
-      "label": "setup",
-      "line_number": 1748
-    },
-    {
-      "text": "I think anyone in my situation would have done the same.",
-      "start": 4069,
-      "label": "setup",
-      "line_number": 1749
-    },
-    {
-      "text": "Okay.",
-      "start": 4073,
-      "label": "fluff",
-      "line_number": 1750
-    },
-    {
-      "text": "You know, I was 18, I was single,",
-      "start": 4075,
-      "label": "setup",
-      "line_number": 1751
-    },
-    {
-      "text": "diagnosed with this shit, I thought I was dying.",
-      "start": 4078,
-      "label": "setup",
-      "line_number": 1752
-    },
-    {
-      "text": "You know, I wanted to roll into as much dick as possible.",
-      "start": 4082,
-      "label": "punchline",
-      "line_number": 1753
-    },
-    {
-      "text": "You know, and then you find out you're not really dying,",
-      "start": 4089,
-      "label": "setup",
-      "line_number": 1755
-    },
-    {
-      "text": "and now you're like, just a whore.",
-      "start": 4096,
-      "label": "punchline",
-      "line_number": 1756
-    },
-    {
-      "text": "And that is her truth to live with.",
-      "start": 4104,
-      "label": "tag",
-      "line_number": 1759
-    },
-    {
-      "text": "But back in my day, I had a good amount",
-      "start": 4112,
-      "label": "setup",
-      "line_number": 1761
-    },
-    {
-      "text": "of one night stands, okay?",
-      "start": 4117,
-      "label": "setup",
-      "line_number": 1762
-    },
-    {
-      "text": "But I'm a normal lady.",
-      "start": 4121,
-      "label": "setup",
-      "line_number": 1763
-    },
-    {
-      "text": "Sometimes I wanted to like sneak out.",
-      "start": 4125,
-      "label": "setup",
-      "line_number": 1764
-    },
-    {
-      "text": "This shit (laughs)",
-      "start": 4133,
-      "label": "setup",
-      "line_number": 1766
-    },
-    {
-      "text": "made it impossible.",
-      "start": 4135,
-      "label": "setup",
-      "line_number": 1767
-    },
-    {
-      "text": "Every time I back up.",
-      "start": 4138,
-      "label": "setup",
-      "line_number": 1769
-    },
-    {
-      "text": "(beep)",
-      "start": 4140,
-      "label": "punchline",
-      "line_number": 1770
-    },
-    {
-      "text": "Okay, so I did figure out like a work around for it.",
-      "start": 4143,
-      "label": "setup",
-      "line_number": 1772
-    },
-    {
-      "text": "I started only fucking black guys.",
-      "start": 4149,
-      "label": "punchline",
-      "line_number": 1773
-    }
+    {"text": "I know I've talked a lot about being married,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1746, "start": 4052},
+    {"text": "but I used to be, like, a real big whore.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1747, "start": 4058},
+    {"text": "Okay, and I don't feel bad about it.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1748, "start": 4065},
+    {"text": "I think anyone in my situation would have done the same.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1749, "start": 4069},
+    {"text": "Okay.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 1750, "start": 4073},
+    {"text": "You know, I was 18, I was single,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1751, "start": 4075},
+    {"text": "diagnosed with this shit, I thought I was dying.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1752, "start": 4078},
+    {"text": "You know, I wanted to roll into as much dick as possible.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1753, "start": 4082},
+    {"text": "You know, and then you find out you're not really dying,", "label": "setup", "bit": 1, "beat": 2, "line_number": 1755, "start": 4089},
+    {"text": "and now you're like, just a whore.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1756, "start": 4096},
+    {"text": "And that is her truth to live with.", "label": "tag", "bit": 1, "beat": 2, "line_number": 1759, "start": 4104},
+    {"text": "But back in my day, I had a good amount", "label": "setup", "bit": 2, "beat": 1, "line_number": 1761, "start": 4112},
+    {"text": "of one night stands, okay?", "label": "setup", "bit": 2, "beat": 1, "line_number": 1762, "start": 4117},
+    {"text": "But I'm a normal lady.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1763, "start": 4121},
+    {"text": "Sometimes I wanted to like sneak out.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1764, "start": 4125},
+    {"text": "This shit (laughs)", "label": "setup", "bit": 2, "beat": 1, "line_number": 1766, "start": 4133},
+    {"text": "made it impossible.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1767, "start": 4135},
+    {"text": "Every time I back up.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1769, "start": 4138},
+    {"text": "(beep)", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1770, "start": 4140},
+    {"text": "Okay, so I did figure out like a work around for it.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1772, "start": 4143},
+    {"text": "I started only fucking black guys.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 1773, "start": 4149}
   ]
 }

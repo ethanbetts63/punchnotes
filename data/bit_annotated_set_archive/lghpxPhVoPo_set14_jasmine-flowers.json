@@ -1,60 +1,79 @@
 {
-  "type": "set_meta",
-  "video_id": "lghpxPhVoPo",
-  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
-  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
-  "publish_date": "2026-03-24",
-  "guests": ["Adam Ray", "Kim Congdon"],
-  "comedian_name": "Jasmine Flowers",
-  "comedian_type": "bucket_pull",
-  "set_number": 14,
-  "start_seconds": 6909,
-  "bits": [
-    {
-      "bit_id": "bit_001",
-      "premise": "The Amish lifestyle is a long-running scam designed to confuse modern society, evidenced by their media ubiquity and the scammer logic of claiming their cameras don't work.",
-      "line_range": [2607, 2625],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [2607, 2611],
-          "topics": ["Amish", "television", "scam", "media"]
-        },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [2613, 2616],
-          "topics": ["Amish", "cell phones", "scam", "technology"]
-        },
-        {
-          "beat_id": "bit_001_beat_003",
-          "line_range": [2617, 2625],
-          "topics": ["Amish", "conspiracy", "butter churning", "wifi"]
-        }
-      ]
-    }
+  "type": "set_meta"
+,
+  "video_id": "lghpxPhVoPo"
+,
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON"
+,
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo"
+,
+  "publish_date": "2026-03-24"
+,
+  "guests": [
+    "Adam Ray",
+    "Kim Congdon"
   ],
+  "comedian_name": "Jasmine Flowers"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 14
+,
+  "start_seconds": 6909
+,
+  "bit_meta": {
+    "1": {
+      "premise": "The Amish lifestyle is a long-running scam designed to confuse modern society, evidenced by their media ubiquity and the scammer logic of claiming their cameras don't work.",
+      "beats": {
+        "1": {
+          "topics": [
+            "Amish",
+            "television",
+            "scam",
+            "media"
+          ]
+        },
+        "2": {
+          "topics": [
+            "Amish",
+            "cell phones",
+            "scam",
+            "technology"
+          ]
+        },
+        "3": {
+          "topics": [
+            "Amish",
+            "conspiracy",
+            "butter churning",
+            "wifi"
+          ]
+        }
+      }
+    }
+  },
   "lines": [
-    {"line_number": 2606, "text": "- Hello.", "start": 6909, "label": "fluff"},
-    {"line_number": 2607, "text": "I noticed patterns for a living,", "start": 6911, "label": "setup"},
-    {"line_number": 2608, "text": "And I noticed something, the Amish.", "start": 6913, "label": "setup"},
-    {"line_number": 2609, "text": "They used to be elusive, but now they're everywhere.", "start": 6917, "label": "setup"},
-    {"line_number": 2610, "text": "TLC, HBO, I don't even have cable, but I see them every day.", "start": 6921, "label": "setup"},
-    {"line_number": 2611, "text": "I'm starting to think that maybe there's a scam going on here.", "start": 6927, "label": "punchline"},
-    {"line_number": 2612, "text": "I'm not sure.", "start": 6932, "label": "fluff"},
-    {"line_number": 2613, "text": "I'm at that age now where everything, I think, is a scam.", "start": 6933, "label": "setup"},
-    {"line_number": 2614, "text": "But they pretend they can't have cell phones,", "start": 6935, "label": "setup"},
-    {"line_number": 2615, "text": "But then, but then that's scamming 101.", "start": 6942, "label": "punchline"},
-    {"line_number": 2616, "text": "No, my camera doesn't work.", "start": 6949, "label": "tag"},
-    {"line_number": 2617, "text": "But anyway, so I feel like they had a meeting sometime.", "start": 6950, "label": "setup"},
-    {"line_number": 2618, "text": "They had, they said,", "start": 6955, "label": "setup"},
-    {"line_number": 2619, "text": "let's, there was no electricity candles.", "start": 6958, "label": "setup"},
-    {"line_number": 2620, "text": "Let's build barns, churn butter and", "start": 6962, "label": "setup"},
-    {"line_number": 2621, "text": "confuse the hell out of the society.", "start": 6966, "label": "punchline"},
-    {"line_number": 2622, "text": "That's what it's like basically.", "start": 6968, "label": "fluff"},
-    {"line_number": 2623, "text": "And I know one person at a meeting said,", "start": 6969, "label": "setup"},
-    {"line_number": 2624, "text": "This could have been an email.", "start": 6972, "label": "punchline"},
-    {"line_number": 2625, "text": "But anyway, I'm just saying, check the barns for wifi.", "start": 6974, "label": "tag"},
-    {"line_number": 2626, "text": "This has really changed.", "start": 6979, "label": "fluff"},
-    {"line_number": 2627, "text": "Anyway, I tried.", "start": 6982, "label": "fluff"}
+    {"text": "- Hello.", "label": "fluff", "bit": null, "beat": null, "line_number": 2606, "start": 6909},
+    {"text": "I noticed patterns for a living,", "label": "setup", "bit": 1, "beat": 1, "line_number": 2607, "start": 6911},
+    {"text": "And I noticed something, the Amish.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2608, "start": 6913},
+    {"text": "They used to be elusive, but now they're everywhere.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2609, "start": 6917},
+    {"text": "TLC, HBO, I don't even have cable, but I see them every day.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2610, "start": 6921},
+    {"text": "I'm starting to think that maybe there's a scam going on here.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2611, "start": 6927},
+    {"text": "I'm not sure.", "label": "fluff", "bit": null, "beat": null, "line_number": 2612, "start": 6932},
+    {"text": "I'm at that age now where everything, I think, is a scam.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2613, "start": 6933},
+    {"text": "But they pretend they can't have cell phones,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2614, "start": 6935},
+    {"text": "But then, but then that's scamming 101.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2615, "start": 6942},
+    {"text": "No, my camera doesn't work.", "label": "tag", "bit": 1, "beat": 2, "line_number": 2616, "start": 6949},
+    {"text": "But anyway, so I feel like they had a meeting sometime.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2617, "start": 6950},
+    {"text": "They had, they said,", "label": "setup", "bit": 1, "beat": 3, "line_number": 2618, "start": 6955},
+    {"text": "let's, there was no electricity candles.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2619, "start": 6958},
+    {"text": "Let's build barns, churn butter and", "label": "setup", "bit": 1, "beat": 3, "line_number": 2620, "start": 6962},
+    {"text": "confuse the hell out of the society.", "label": "punchline", "bit": 1, "beat": 3, "line_number": 2621, "start": 6966},
+    {"text": "That's what it's like basically.", "label": "fluff", "bit": 1, "beat": 3, "line_number": 2622, "start": 6968},
+    {"text": "And I know one person at a meeting said,", "label": "setup", "bit": 1, "beat": 3, "line_number": 2623, "start": 6969},
+    {"text": "This could have been an email.", "label": "punchline", "bit": 1, "beat": 3, "line_number": 2624, "start": 6972},
+    {"text": "But anyway, I'm just saying, check the barns for wifi.", "label": "tag", "bit": 1, "beat": 3, "line_number": 2625, "start": 6974},
+    {"text": "This has really changed.", "label": "fluff", "bit": null, "beat": null, "line_number": 2626, "start": 6979},
+    {"text": "Anyway, I tried.", "label": "fluff", "bit": null, "beat": null, "line_number": 2627, "start": 6982}
   ]
 }

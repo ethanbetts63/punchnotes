@@ -1,66 +1,50 @@
 {
-  "type": "set_meta",
-  "video_id": "lwLnqeBKa-0",
-  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
-  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
-  "publish_date": "2026-04-28",
+  "type": "set_meta"
+,
+  "video_id": "lwLnqeBKa-0"
+,
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI"
+,
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0"
+,
+  "publish_date": "2026-04-28"
+,
   "guests": [
     "Dustin Poirier",
     "Ari Matti"
   ],
-  "comedian_name": "Eddie Adams",
-  "comedian_type": "bucket_pull",
-  "set_number": 5,
-  "start_seconds": 2400,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Eddie Adams"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 5
+,
+  "start_seconds": 2400
+,
+  "bit_meta": {
+    "1": {
       "premise": "World-running claims collapse when money is at stake.",
-      "line_range": [
-        1026,
-        1028
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            1026,
-            1028
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "women",
             "power",
             "betting"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_002",
+    "2": {
       "premise": "A scandal book is funnier when nearby people are named.",
-      "line_range": [
-        1032,
-        1050
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [
-            1032,
-            1039
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "Epstein",
             "Trump",
             "black book"
           ]
         },
-        {
-          "beat_id": "bit_002_beat_002",
-          "line_range": [
-            1041,
-            1050
-          ],
+        "2": {
           "topics": [
             "audience roast",
             "Brian",
@@ -68,117 +52,27 @@
             "black book"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "Ladies, who runs the world?",
-      "start": 2400,
-      "label": "setup",
-      "line_number": 1026
-    },
-    {
-      "text": "Ladies, who runs the world?",
-      "start": 2406,
-      "label": "setup",
-      "line_number": 1027
-    },
-    {
-      "text": "Y'all wanna put some money on that?",
-      "start": 2413,
-      "label": "punchline",
-      "line_number": 1028
-    },
-    {
-      "text": "Shalom everybody, how the fuck we doing?",
-      "start": 2424,
-      "label": "fluff",
-      "line_number": 1030
-    },
-    {
-      "text": "My uncle, he's been in the news a lot lately.",
-      "start": 2431,
-      "label": "setup",
-      "line_number": 1032
-    },
-    {
-      "text": "You may have seen him.",
-      "start": 2435,
-      "label": "setup",
-      "line_number": 1034
-    },
-    {
-      "text": "I just inherited this book.",
-      "start": 2437,
-      "label": "setup",
-      "line_number": 1035
-    },
-    {
-      "text": "Everybody keeps asking me, is Trump's name in this book?",
-      "start": 2445,
-      "label": "setup",
-      "line_number": 1037
-    },
-    {
-      "text": "Guys, his name is not in this book.",
-      "start": 2454,
-      "label": "punchline",
-      "line_number": 1039
-    },
-    {
-      "text": "Oh, but that's weird.",
-      "start": 2458,
-      "label": "tag",
-      "line_number": 1041
-    },
-    {
-      "text": "Brian, your name's in this book.",
-      "start": 2460,
-      "label": "tag",
-      "line_number": 1042
-    },
-    {
-      "text": "Oh, fuck my gold.",
-      "start": 2462,
-      "label": "fluff",
-      "line_number": 1043
-    },
-    {
-      "text": "Uh.",
-      "start": 2463,
-      "label": "fluff",
-      "line_number": 1044
-    },
-    {
-      "text": "Okay, everybody stay calm, don't move.",
-      "start": 2466,
-      "label": "fluff",
-      "line_number": 1046
-    },
-    {
-      "text": "I gotta get that.",
-      "start": 2467,
-      "label": "fluff",
-      "line_number": 1047
-    },
-    {
-      "text": "Brian, your name's in this book.",
-      "start": 2472,
-      "label": "tag",
-      "line_number": 1048
-    },
-    {
-      "text": "That's crazy.",
-      "start": 2474,
-      "label": "tag",
-      "line_number": 1049
-    },
-    {
-      "text": "Tony, you're safe though.",
-      "start": 2475,
-      "label": "tag",
-      "line_number": 1050
-    }
+    {"text": "Ladies, who runs the world?", "label": "setup", "bit": 1, "beat": 1, "line_number": 1026, "start": 2400},
+    {"text": "Ladies, who runs the world?", "label": "setup", "bit": 1, "beat": 1, "line_number": 1027, "start": 2406},
+    {"text": "Y'all wanna put some money on that?", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1028, "start": 2413},
+    {"text": "Shalom everybody, how the fuck we doing?", "label": "fluff", "bit": null, "beat": null, "line_number": 1030, "start": 2424},
+    {"text": "My uncle, he's been in the news a lot lately.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1032, "start": 2431},
+    {"text": "You may have seen him.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1034, "start": 2435},
+    {"text": "I just inherited this book.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1035, "start": 2437},
+    {"text": "Everybody keeps asking me, is Trump's name in this book?", "label": "setup", "bit": 2, "beat": 1, "line_number": 1037, "start": 2445},
+    {"text": "Guys, his name is not in this book.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1039, "start": 2454},
+    {"text": "Oh, but that's weird.", "label": "tag", "bit": 2, "beat": 2, "line_number": 1041, "start": 2458},
+    {"text": "Brian, your name's in this book.", "label": "tag", "bit": 2, "beat": 2, "line_number": 1042, "start": 2460},
+    {"text": "Oh, fuck my gold.", "label": "fluff", "bit": 2, "beat": 2, "line_number": 1043, "start": 2462},
+    {"text": "Uh.", "label": "fluff", "bit": 2, "beat": 2, "line_number": 1044, "start": 2463},
+    {"text": "Okay, everybody stay calm, don't move.", "label": "fluff", "bit": 2, "beat": 2, "line_number": 1046, "start": 2466},
+    {"text": "I gotta get that.", "label": "fluff", "bit": 2, "beat": 2, "line_number": 1047, "start": 2467},
+    {"text": "Brian, your name's in this book.", "label": "tag", "bit": 2, "beat": 2, "line_number": 1048, "start": 2472},
+    {"text": "That's crazy.", "label": "tag", "bit": 2, "beat": 2, "line_number": 1049, "start": 2474},
+    {"text": "Tony, you're safe though.", "label": "tag", "bit": 2, "beat": 2, "line_number": 1050, "start": 2475}
   ]
 }

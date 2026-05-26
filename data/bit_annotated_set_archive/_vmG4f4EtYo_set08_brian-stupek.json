@@ -1,194 +1,72 @@
 {
-  "type": "set_meta",
-  "video_id": "_vmG4f4EtYo",
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "type": "set_meta"
+,
+  "video_id": "_vmG4f4EtYo"
+,
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
+,
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
+,
   "guests": [
     "Theo Von",
     "Jelly Roll"
   ],
-  "comedian_name": "Brian Stupek",
-  "comedian_type": "bucket_pull",
-  "set_number": 8,
-  "start_seconds": 4122,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Brian Stupek"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 8
+,
+  "start_seconds": 4122
+,
+  "bit_meta": {
+    "1": {
       "premise": "A creepy comment can masquerade as an online double-standard complaint.",
-      "line_range": [
-        1989,
-        2001
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            1989,
-            2001
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "social media",
             "bikini photos",
             "double standards"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_002",
+    "2": {
       "premise": "An impression of an ideal woman can become a breakup reenactment.",
-      "line_range": [
-        2002,
-        2010
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [
-            2002,
-            2010
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "impressions",
             "Latina",
             "breakups"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "Hey everybody.",
-      "start": 4122,
-      "label": "fluff",
-      "line_number": 1988
-    },
-    {
-      "text": "So I'm a man, so I get a",
-      "start": 4124,
-      "label": "setup",
-      "line_number": 1989
-    },
-    {
-      "text": "little discouraged about the double",
-      "start": 4126,
-      "label": "setup",
-      "line_number": 1990
-    },
-    {
-      "text": "standard that exists online between men and women.",
-      "start": 4128,
-      "label": "setup",
-      "line_number": 1991
-    },
-    {
-      "text": "For example, a girl can post",
-      "start": 4130,
-      "label": "setup",
-      "line_number": 1992
-    },
-    {
-      "text": "herself at the beach wearing a bikini.",
-      "start": 4132,
-      "label": "setup",
-      "line_number": 1993
-    },
-    {
-      "text": "Gets thousands of likes,",
-      "start": 4134,
-      "label": "setup",
-      "line_number": 1994
-    },
-    {
-      "text": "hundreds of comments from other girls.",
-      "start": 4136,
-      "label": "setup",
-      "line_number": 1995
-    },
-    {
-      "text": "Same things like yes queen.",
-      "start": 4138,
-      "label": "setup",
-      "line_number": 1996
-    },
-    {
-      "text": "Slay girl.",
-      "start": 4140,
-      "label": "setup",
-      "line_number": 1997
-    },
-    {
-      "text": "Pop off diva.",
-      "start": 4142,
-      "label": "setup",
-      "line_number": 1998
-    },
-    {
-      "text": "I say one innocent comment like, \"Wow, what a babe,\" and I get blasted.",
-      "start": 4144,
-      "label": "setup",
-      "line_number": 1999
-    },
-    {
-      "text": "They say creep. They say loser.",
-      "start": 4148,
-      "label": "setup",
-      "line_number": 2000
-    },
-    {
-      "text": "Or most often they say, \"Wow, dude, she's only 11. Can you believe this people?\"",
-      "start": 4151,
-      "label": "punchline",
-      "line_number": 2001
-    },
-    {
-      "text": "So I don't do many impressions.",
-      "start": 4159,
-      "label": "setup",
-      "line_number": 2002
-    },
-    {
-      "text": "I do one.",
-      "start": 4161,
-      "label": "setup",
-      "line_number": 2003
-    },
-    {
-      "text": "This is my impression of a Latina, but not just any Latina.",
-      "start": 4163,
-      "label": "setup",
-      "line_number": 2004
-    },
-    {
-      "text": "This is one that is both brilliant and gorgeous.",
-      "start": 4167,
-      "label": "setup",
-      "line_number": 2005
-    },
-    {
-      "text": "So give me a second while I get into character.",
-      "start": 4169,
-      "label": "setup",
-      "line_number": 2006
-    },
-    {
-      "text": "Okay. Soy mejicana, soy mejicana, soy mejicana.",
-      "start": 4172,
-      "label": "setup",
-      "line_number": 2007
-    },
-    {
-      "text": "No, no, no. CCC, okay, listo.",
-      "start": 4175,
-      "label": "setup",
-      "line_number": 2008
-    },
-    {
-      "text": "I'm breaking up with you, Brian.",
-      "start": 4180,
-      "label": "punchline",
-      "line_number": 2010
-    }
+    {"text": "Hey everybody.", "label": "fluff", "bit": null, "beat": null, "line_number": 1988, "start": 4122},
+    {"text": "So I'm a man, so I get a", "label": "setup", "bit": 1, "beat": 1, "line_number": 1989, "start": 4124},
+    {"text": "little discouraged about the double", "label": "setup", "bit": 1, "beat": 1, "line_number": 1990, "start": 4126},
+    {"text": "standard that exists online between men and women.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1991, "start": 4128},
+    {"text": "For example, a girl can post", "label": "setup", "bit": 1, "beat": 1, "line_number": 1992, "start": 4130},
+    {"text": "herself at the beach wearing a bikini.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1993, "start": 4132},
+    {"text": "Gets thousands of likes,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1994, "start": 4134},
+    {"text": "hundreds of comments from other girls.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1995, "start": 4136},
+    {"text": "Same things like yes queen.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1996, "start": 4138},
+    {"text": "Slay girl.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1997, "start": 4140},
+    {"text": "Pop off diva.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1998, "start": 4142},
+    {"text": "I say one innocent comment like, \"Wow, what a babe,\" and I get blasted.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1999, "start": 4144},
+    {"text": "They say creep. They say loser.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2000, "start": 4148},
+    {"text": "Or most often they say, \"Wow, dude, she's only 11. Can you believe this people?\"", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2001, "start": 4151},
+    {"text": "So I don't do many impressions.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2002, "start": 4159},
+    {"text": "I do one.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2003, "start": 4161},
+    {"text": "This is my impression of a Latina, but not just any Latina.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2004, "start": 4163},
+    {"text": "This is one that is both brilliant and gorgeous.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2005, "start": 4167},
+    {"text": "So give me a second while I get into character.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2006, "start": 4169},
+    {"text": "Okay. Soy mejicana, soy mejicana, soy mejicana.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2007, "start": 4172},
+    {"text": "No, no, no. CCC, okay, listo.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2008, "start": 4175},
+    {"text": "I'm breaking up with you, Brian.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2010, "start": 4180}
   ]
 }

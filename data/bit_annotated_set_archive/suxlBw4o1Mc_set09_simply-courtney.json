@@ -1,210 +1,89 @@
-﻿{
-    "type":  "set_meta",
-    "video_id":  "suxlBw4o1Mc",
-    "episode_title":  "KT #759 - JOE LIST + STEVE RANNAZZISI",
-    "episode_url":  "https://www.youtube.com/watch?v=suxlBw4o1Mc",
-    "publish_date":  "2026-03-10",
-    "guests":  [
-                   "Joe List",
-                   "Steve Rannazzisi"
-               ],
-    "comedian_name":  "Simply Courtney",
-    "comedian_type":  "bucket_pull",
-    "set_number":  9,
-    "start_seconds":  5014,
-    "bits":  [
-                 {
-                     "bit_id":  "bit_001",
-                     "premise":  "A driver whose name conflicts with rider expectations can make Uber pickup suspicion sound racist.",
-                     "line_range":  [
-                                        2123,
-                                        2135
-                                    ],
-                     "beats":  [
-                                   {
-                                       "beat_id":  "bit_001_beat_001",
-                                       "line_range":  [
-                                                          2123,
-                                                          2127
-                                                      ],
-                                       "topics":  [
-                                                      "Uber",
-                                                      "names",
-                                                      "race",
-                                                      "rider suspicion"
-                                                  ]
-                                   },
-                                   {
-                                       "beat_id":  "bit_001_beat_002",
-                                       "line_range":  [
-                                                          2129,
-                                                          2135
-                                                      ],
-                                       "topics":  [
-                                                      "car theft",
-                                                      "Black History Month",
-                                                      "race"
-                                                  ]
-                                   }
-                               ]
-                 },
-                 {
-                     "bit_id":  "bit_002",
-                     "premise":  "Being high can scramble parental and work responsibilities into wrong allegiances and captivity.",
-                     "line_range":  [
-                                        2137,
-                                        2147
-                                    ],
-                     "beats":  [
-                                   {
-                                       "beat_id":  "bit_002_beat_001",
-                                       "line_range":  [
-                                                          2137,
-                                                          2142
-                                                      ],
-                                       "topics":  [
-                                                      "weed",
-                                                      "tolerance break",
-                                                      "basketball",
-                                                      "parenting"
-                                                  ]
-                                   },
-                                   {
-                                       "beat_id":  "bit_002_beat_002",
-                                       "line_range":  [
-                                                          2144,
-                                                          2147
-                                                      ],
-                                       "topics":  [
-                                                      "weed",
-                                                      "Uber",
-                                                      "passengers",
-                                                      "roommates"
-                                                  ]
-                                   }
-                               ]
-                 }
-             ],
-    "lines":  [
-                  {
-                      "line_number":  2122,
-                      "text":  "- Oh man.",
-                      "start":  5014,
-                      "label":  "fluff"
-                  },
-                  {
-                      "line_number":  2123,
-                      "text":  "Y\u0027all know how hard it is to drive Uber",
-                      "start":  5015,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2124,
-                      "text":  "when you\u0027re a big black dude named Courtney?",
-                      "start":  5017,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2126,
-                      "text":  "People don\u0027t believe it\u0027s my car.",
-                      "start":  5022,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2127,
-                      "text":  "I had a lady once go, are you sure this is your car?",
-                      "start":  5023,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2129,
-                      "text":  "You know, you hear a joke and you think she\u0027s playing,",
-                      "start":  5028,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2130,
-                      "text":  "but she\u0027s like.",
-                      "start":  5030,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2132,
-                      "text":  "And because I\u0027m a comic, I\u0027m all like,",
-                      "start":  5032,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2133,
-                      "text":  "no, we stole this motherfucker together, let\u0027s go!",
-                      "start":  5034,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  2135,
-                      "text":  "Happy Black History Month, by the way.",
-                      "start":  5040,
-                      "label":  "tag"
-                  },
-                  {
-                      "line_number":  2137,
-                      "text":  "All right, so anyways, I\u0027m recently",
-                      "start":  5044,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2138,
-                      "text":  "taking a tolerance break from weed.",
-                      "start":  5046,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2139,
-                      "text":  "I don\u0027t hate weed.",
-                      "start":  5050,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2140,
-                      "text":  "I just don\u0027t like the things that I do when I\u0027m on it.",
-                      "start":  5051,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2141,
-                      "text":  "Like I\u0027ll go to my son\u0027s basketball game",
-                      "start":  5053,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2142,
-                      "text":  "and cheer for the wrong team.",
-                      "start":  5054,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  2144,
-                      "text":  "I also do stupid things like forget I\u0027m driving Uber.",
-                      "start":  5063,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2146,
-                      "text":  "Have a passenger in the backseat just terrified.",
-                      "start":  5070,
-                      "label":  "setup"
-                  },
-                  {
-                      "line_number":  2147,
-                      "text":  "I\u0027m like, I\u0027m about to have a roommate.",
-                      "start":  5074,
-                      "label":  "punchline"
-                  },
-                  {
-                      "line_number":  2149,
-                      "text":  "I think that\u0027s about it y\u0027all, thank you.",
-                      "start":  5078,
-                      "label":  "fluff"
-                  }
-              ]
+{
+  "type": "set_meta"
+,
+  "video_id": "suxlBw4o1Mc"
+,
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI"
+,
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc"
+,
+  "publish_date": "2026-03-10"
+,
+  "guests": [
+    "Joe List",
+    "Steve Rannazzisi"
+  ],
+  "comedian_name": "Simply Courtney"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 9
+,
+  "start_seconds": 5014
+,
+  "bit_meta": {
+    "1": {
+      "premise": "A driver whose name conflicts with rider expectations can make Uber pickup suspicion sound racist.",
+      "beats": {
+        "1": {
+          "topics": [
+            "Uber",
+            "names",
+            "race",
+            "rider suspicion"
+          ]
+        },
+        "2": {
+          "topics": [
+            "car theft",
+            "Black History Month",
+            "race"
+          ]
+        }
+      }
+    },
+    "2": {
+      "premise": "Being high can scramble parental and work responsibilities into wrong allegiances and captivity.",
+      "beats": {
+        "1": {
+          "topics": [
+            "weed",
+            "tolerance break",
+            "basketball",
+            "parenting"
+          ]
+        },
+        "2": {
+          "topics": [
+            "weed",
+            "Uber",
+            "passengers",
+            "roommates"
+          ]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "- Oh man.", "label": "fluff", "bit": null, "beat": null, "line_number": 2122, "start": 5014},
+    {"text": "Y'all know how hard it is to drive Uber", "label": "setup", "bit": 1, "beat": 1, "line_number": 2123, "start": 5015},
+    {"text": "when you're a big black dude named Courtney?", "label": "setup", "bit": 1, "beat": 1, "line_number": 2124, "start": 5017},
+    {"text": "People don't believe it's my car.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2126, "start": 5022},
+    {"text": "I had a lady once go, are you sure this is your car?", "label": "setup", "bit": 1, "beat": 1, "line_number": 2127, "start": 5023},
+    {"text": "You know, you hear a joke and you think she's playing,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2129, "start": 5028},
+    {"text": "but she's like.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2130, "start": 5030},
+    {"text": "And because I'm a comic, I'm all like,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2132, "start": 5032},
+    {"text": "no, we stole this motherfucker together, let's go!", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2133, "start": 5034},
+    {"text": "Happy Black History Month, by the way.", "label": "tag", "bit": 1, "beat": 2, "line_number": 2135, "start": 5040},
+    {"text": "All right, so anyways, I'm recently", "label": "setup", "bit": 2, "beat": 1, "line_number": 2137, "start": 5044},
+    {"text": "taking a tolerance break from weed.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2138, "start": 5046},
+    {"text": "I don't hate weed.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2139, "start": 5050},
+    {"text": "I just don't like the things that I do when I'm on it.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2140, "start": 5051},
+    {"text": "Like I'll go to my son's basketball game", "label": "setup", "bit": 2, "beat": 1, "line_number": 2141, "start": 5053},
+    {"text": "and cheer for the wrong team.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2142, "start": 5054},
+    {"text": "I also do stupid things like forget I'm driving Uber.", "label": "setup", "bit": 2, "beat": 2, "line_number": 2144, "start": 5063},
+    {"text": "Have a passenger in the backseat just terrified.", "label": "setup", "bit": 2, "beat": 2, "line_number": 2146, "start": 5070},
+    {"text": "I'm like, I'm about to have a roommate.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 2147, "start": 5074},
+    {"text": "I think that's about it y'all, thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 2149, "start": 5078}
+  ]
 }

@@ -1,354 +1,122 @@
 {
-  "type": "set_meta",
-  "video_id": "_vmG4f4EtYo",
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "type": "set_meta"
+,
+  "video_id": "_vmG4f4EtYo"
+,
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
+,
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
+,
   "guests": [
     "Theo Von",
     "Jelly Roll"
   ],
-  "comedian_name": "Ari Mati",
-  "comedian_type": "regular",
-  "set_number": 13,
-  "start_seconds": 7160,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Ari Mati"
+,
+  "comedian_type": "regular"
+,
+  "set_number": 13
+,
+  "start_seconds": 7160
+,
+  "bit_meta": {
+    "1": {
       "premise": "Citizenship gets less appealing when the draft expands.",
-      "line_range": [
-        3336,
-        3348
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            3336,
-            3344
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "war",
             "citizenship",
             "draft"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [
-            3345,
-            3348
-          ],
+        "2": {
           "topics": [
             "draft age",
             "marijuana convictions",
             "army"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_002",
+    "2": {
       "premise": "Tiny countries draft everyone because there is no room for standards.",
-      "line_range": [
-        3349,
-        3372
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [
-            3349,
-            3353
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "Estonia",
             "compulsory service",
             "wheelchairs"
           ]
         },
-        {
-          "beat_id": "bit_002_beat_002",
-          "line_range": [
-            3356,
-            3364
-          ],
+        "2": {
           "topics": [
             "Estonia",
             "special forces",
             "disability"
           ]
         },
-        {
-          "beat_id": "bit_002_beat_003",
-          "line_range": [
-            3365,
-            3372
-          ],
+        "3": {
           "topics": [
             "military training",
             "Santa Claus",
             "conscription"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_003",
+    "3": {
       "premise": "A gay squad mate can be more valuable than a medic.",
-      "line_range": [
-        3374,
-        3381
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_003_beat_001",
-          "line_range": [
-            3374,
-            3381
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "gay soldiers",
             "military",
             "base life"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "Are we doing good?",
-      "start": 7160,
-      "label": "setup",
-      "line_number": 3336
-    },
-    {
-      "text": "You shouldn't.",
-      "start": 7164,
-      "label": "punchline",
-      "line_number": 3338
-    },
-    {
-      "text": "The war is coming!",
-      "start": 7168,
-      "label": "tag",
-      "line_number": 3340
-    },
-    {
-      "text": "Fuck!",
-      "start": 7173,
-      "label": "fluff",
-      "line_number": 3341
-    },
-    {
-      "text": "Just my luck.",
-      "start": 7175,
-      "label": "setup",
-      "line_number": 3342
-    },
-    {
-      "text": "As soon as I get citizenship,",
-      "start": 7178,
-      "label": "setup",
-      "line_number": 3343
-    },
-    {
-      "text": "drafted.",
-      "start": 7180,
-      "label": "punchline",
-      "line_number": 3344
-    },
-    {
-      "text": "Just yesterday you guys know that America raised its age limit",
-      "start": 7193,
-      "label": "setup",
-      "line_number": 3345
-    },
-    {
-      "text": "to 42 for the draft and prior marijuana convictions don't matter.",
-      "start": 7197,
-      "label": "setup",
-      "line_number": 3346
-    },
-    {
-      "text": "Wow what an army you're building.",
-      "start": 7205,
-      "label": "punchline",
-      "line_number": 3347
-    },
-    {
-      "text": "So four-year-old losers.",
-      "start": 7208,
-      "label": "tag",
-      "line_number": 3348
-    },
-    {
-      "text": "You know in Estonia we don't have any limits. We have compulsory military service.",
-      "start": 7215,
-      "label": "setup",
-      "line_number": 3349
-    },
-    {
-      "text": "We're too small to pick.",
-      "start": 7226,
-      "label": "setup",
-      "line_number": 3350
-    },
-    {
-      "text": "Everyone goes.",
-      "start": 7228,
-      "label": "punchline",
-      "line_number": 3351
-    },
-    {
-      "text": "Wheelchair people, we send them.",
-      "start": 7231,
-      "label": "setup",
-      "line_number": 3352
-    },
-    {
-      "text": "Oh yeah, we put a grenade in your lap and...",
-      "start": 7234,
-      "label": "punchline",
-      "line_number": 3353
-    },
-    {
-      "text": "Come on!",
-      "start": 7239,
-      "label": "fluff",
-      "line_number": 3355
-    },
-    {
-      "text": "Down syndrome people, we send them.",
-      "start": 7246,
-      "label": "setup",
-      "line_number": 3356
-    },
-    {
-      "text": "Oh yeah, we have a whole squad.",
-      "start": 7250,
-      "label": "punchline",
-      "line_number": 3357
-    },
-    {
-      "text": "Estonian special forces.",
-      "start": 7252,
-      "label": "tag",
-      "line_number": 3358
-    },
-    {
-      "text": "You think special forces mean somebody repels down",
-      "start": 7261,
-      "label": "setup",
-      "line_number": 3360
-    },
-    {
-      "text": "and has night vision knives,",
-      "start": 7263,
-      "label": "setup",
-      "line_number": 3361
-    },
-    {
-      "text": "nickel us with a soft serve ice cream?",
-      "start": 7266,
-      "label": "punchline",
-      "line_number": 3362
-    },
-    {
-      "text": "We send them!",
-      "start": 7274,
-      "label": "tag",
-      "line_number": 3364
-    },
-    {
-      "text": "We get them all together in a parking lot,",
-      "start": 7276,
-      "label": "setup",
-      "line_number": 3365
-    },
-    {
-      "text": "we connect them with a rope.",
-      "start": 7278,
-      "label": "setup",
-      "line_number": 3366
-    },
-    {
-      "text": "We look them in the eyes and we tell them,",
-      "start": 7283,
-      "label": "setup",
-      "line_number": 3368
-    },
-    {
-      "text": "Listen, they killed Santa Claus.",
-      "start": 7284,
-      "label": "punchline",
-      "line_number": 3369
-    },
-    {
-      "text": "Everybody goes!",
-      "start": 7296,
-      "label": "tag",
-      "line_number": 3371
-    },
-    {
-      "text": "Cripples, mentally challenged, even women.",
-      "start": 7298,
-      "label": "tag",
-      "line_number": 3372
-    },
-    {
-      "text": "Gay people, we send them.",
-      "start": 7308,
-      "label": "setup",
-      "line_number": 3374
-    },
-    {
-      "text": "I know you guys don't do that.",
-      "start": 7311,
-      "label": "setup",
-      "line_number": 3375
-    },
-    {
-      "text": "By the way, the only way I'm going to war is if I have a gay squad mate.",
-      "start": 7313,
-      "label": "setup",
-      "line_number": 3376
-    },
-    {
-      "text": "I'm protecting that motherfucker more than the medic.",
-      "start": 7320,
-      "label": "setup",
-      "line_number": 3377
-    },
-    {
-      "text": "He's the only one sucking dick back at the base.",
-      "start": 7324,
-      "label": "punchline",
-      "line_number": 3378
-    },
-    {
-      "text": "Didn't you get behind me?",
-      "start": 7328,
-      "label": "tag",
-      "line_number": 3379
-    },
-    {
-      "text": "I'm saving Dylan's life.",
-      "start": 7331,
-      "label": "tag",
-      "line_number": 3380
-    },
-    {
-      "text": "No f*** left behind.",
-      "start": 7334,
-      "label": "tag",
-      "line_number": 3381
-    },
-    {
-      "text": "Thank you so much. That's my time.",
-      "start": 7339,
-      "label": "fluff",
-      "line_number": 3382
-    }
+    {"text": "Are we doing good?", "label": "setup", "bit": 1, "beat": 1, "line_number": 3336, "start": 7160},
+    {"text": "You shouldn't.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 3338, "start": 7164},
+    {"text": "The war is coming!", "label": "tag", "bit": 1, "beat": 1, "line_number": 3340, "start": 7168},
+    {"text": "Fuck!", "label": "fluff", "bit": 1, "beat": 1, "line_number": 3341, "start": 7173},
+    {"text": "Just my luck.", "label": "setup", "bit": 1, "beat": 1, "line_number": 3342, "start": 7175},
+    {"text": "As soon as I get citizenship,", "label": "setup", "bit": 1, "beat": 1, "line_number": 3343, "start": 7178},
+    {"text": "drafted.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 3344, "start": 7180},
+    {"text": "Just yesterday you guys know that America raised its age limit", "label": "setup", "bit": 1, "beat": 2, "line_number": 3345, "start": 7193},
+    {"text": "to 42 for the draft and prior marijuana convictions don't matter.", "label": "setup", "bit": 1, "beat": 2, "line_number": 3346, "start": 7197},
+    {"text": "Wow what an army you're building.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 3347, "start": 7205},
+    {"text": "So four-year-old losers.", "label": "tag", "bit": 1, "beat": 2, "line_number": 3348, "start": 7208},
+    {"text": "You know in Estonia we don't have any limits. We have compulsory military service.", "label": "setup", "bit": 2, "beat": 1, "line_number": 3349, "start": 7215},
+    {"text": "We're too small to pick.", "label": "setup", "bit": 2, "beat": 1, "line_number": 3350, "start": 7226},
+    {"text": "Everyone goes.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 3351, "start": 7228},
+    {"text": "Wheelchair people, we send them.", "label": "setup", "bit": 2, "beat": 1, "line_number": 3352, "start": 7231},
+    {"text": "Oh yeah, we put a grenade in your lap and...", "label": "punchline", "bit": 2, "beat": 1, "line_number": 3353, "start": 7234},
+    {"text": "Come on!", "label": "fluff", "bit": null, "beat": null, "line_number": 3355, "start": 7239},
+    {"text": "Down syndrome people, we send them.", "label": "setup", "bit": 2, "beat": 2, "line_number": 3356, "start": 7246},
+    {"text": "Oh yeah, we have a whole squad.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 3357, "start": 7250},
+    {"text": "Estonian special forces.", "label": "tag", "bit": 2, "beat": 2, "line_number": 3358, "start": 7252},
+    {"text": "You think special forces mean somebody repels down", "label": "setup", "bit": 2, "beat": 2, "line_number": 3360, "start": 7261},
+    {"text": "and has night vision knives,", "label": "setup", "bit": 2, "beat": 2, "line_number": 3361, "start": 7263},
+    {"text": "nickel us with a soft serve ice cream?", "label": "punchline", "bit": 2, "beat": 2, "line_number": 3362, "start": 7266},
+    {"text": "We send them!", "label": "tag", "bit": 2, "beat": 2, "line_number": 3364, "start": 7274},
+    {"text": "We get them all together in a parking lot,", "label": "setup", "bit": 2, "beat": 3, "line_number": 3365, "start": 7276},
+    {"text": "we connect them with a rope.", "label": "setup", "bit": 2, "beat": 3, "line_number": 3366, "start": 7278},
+    {"text": "We look them in the eyes and we tell them,", "label": "setup", "bit": 2, "beat": 3, "line_number": 3368, "start": 7283},
+    {"text": "Listen, they killed Santa Claus.", "label": "punchline", "bit": 2, "beat": 3, "line_number": 3369, "start": 7284},
+    {"text": "Everybody goes!", "label": "tag", "bit": 2, "beat": 3, "line_number": 3371, "start": 7296},
+    {"text": "Cripples, mentally challenged, even women.", "label": "tag", "bit": 2, "beat": 3, "line_number": 3372, "start": 7298},
+    {"text": "Gay people, we send them.", "label": "setup", "bit": 3, "beat": 1, "line_number": 3374, "start": 7308},
+    {"text": "I know you guys don't do that.", "label": "setup", "bit": 3, "beat": 1, "line_number": 3375, "start": 7311},
+    {"text": "By the way, the only way I'm going to war is if I have a gay squad mate.", "label": "setup", "bit": 3, "beat": 1, "line_number": 3376, "start": 7313},
+    {"text": "I'm protecting that motherfucker more than the medic.", "label": "setup", "bit": 3, "beat": 1, "line_number": 3377, "start": 7320},
+    {"text": "He's the only one sucking dick back at the base.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 3378, "start": 7324},
+    {"text": "Didn't you get behind me?", "label": "tag", "bit": 3, "beat": 1, "line_number": 3379, "start": 7328},
+    {"text": "I'm saving Dylan's life.", "label": "tag", "bit": 3, "beat": 1, "line_number": 3380, "start": 7331},
+    {"text": "No f*** left behind.", "label": "tag", "bit": 3, "beat": 1, "line_number": 3381, "start": 7334},
+    {"text": "Thank you so much. That's my time.", "label": "fluff", "bit": null, "beat": null, "line_number": 3382, "start": 7339}
   ]
 }

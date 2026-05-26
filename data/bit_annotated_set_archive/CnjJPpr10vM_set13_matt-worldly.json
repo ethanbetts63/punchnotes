@@ -1,32 +1,31 @@
 {
-  "type": "set_meta",
-  "video_id": "CnjJPpr10vM",
-  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
-  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
-  "publish_date": "2026-05-19",
+  "type": "set_meta"
+,
+  "video_id": "CnjJPpr10vM"
+,
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN"
+,
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM"
+,
+  "publish_date": "2026-05-19"
+,
   "guests": [
     "Shane Gillis",
     "James McCann"
   ],
-  "comedian_name": "Matt Worldly",
-  "comedian_type": "bucket_pull",
-  "set_number": 13,
-  "start_seconds": 6872,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Matt Worldly"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 13
+,
+  "start_seconds": 6872
+,
+  "bit_meta": {
+    "1": {
       "premise": "Fake Arabic can become real Arabic through video-game hostage phrases.",
-      "line_range": [
-        3086,
-        3112
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            3086,
-            3093
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "high school",
             "Arabic",
@@ -34,201 +33,51 @@
             "classroom jokes"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [
-            3094,
-            3103
-          ],
+        "2": {
           "topics": [
             "Arabic",
             "teachers",
             "insensitivity"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_003",
-          "line_range": [
-            3104,
-            3112
-          ],
+        "3": {
           "topics": [
             "Arabic",
             "Call of Duty",
             "hostages"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "In high school, my art teacher was like,",
-      "start": 6872,
-      "label": "setup",
-      "line_number": 3086
-    },
-    {
-      "text": "\"Hey, does anybody in here know how to speak Arabic?\"",
-      "start": 6875,
-      "label": "setup",
-      "line_number": 3087
-    },
-    {
-      "text": "And she was getting ready to train us for, like, a calligraphy lesson.",
-      "start": 6878,
-      "label": "setup",
-      "line_number": 3088
-    },
-    {
-      "text": "And I was like, \"Fuck it.\"",
-      "start": 6884,
-      "label": "setup",
-      "line_number": 3089
-    },
-    {
-      "text": "I'm like, \"Yeah, I speak Arabic.\"",
-      "start": 6885,
-      "label": "setup",
-      "line_number": 3090
-    },
-    {
-      "text": "She goes, \"Go ahead, Matt. Speak some Arabic for us.\"",
-      "start": 6886,
-      "label": "setup",
-      "line_number": 3091
-    },
-    {
-      "text": "Arabic for us and I said, \"La la la la la la la.\"",
-      "start": 6888,
-      "label": "punchline",
-      "line_number": 3092
-    },
-    {
-      "text": "And everybody laughed in the classroom except for her.",
-      "start": 6895,
-      "label": "tag",
-      "line_number": 3093
-    },
-    {
-      "text": "She was like, \"Matt, that's rude.",
-      "start": 6898,
-      "label": "setup",
-      "line_number": 3094
-    },
-    {
-      "text": "That's insensitive.",
-      "start": 6899,
-      "label": "setup",
-      "line_number": 3095
-    },
-    {
-      "text": "Does anybody here actually know how to speak some Arabic?\"",
-      "start": 6900,
-      "label": "setup",
-      "line_number": 3096
-    },
-    {
-      "text": "And I was like, \"Well, yeah.",
-      "start": 6904,
-      "label": "setup",
-      "line_number": 3097
-    },
-    {
-      "text": "I do.\"",
-      "start": 6906,
-      "label": "setup",
-      "line_number": 3098
-    },
-    {
-      "text": "And she was like, \"Are you actually going to say something in Arabic this time?\"",
-      "start": 6907,
-      "label": "setup",
-      "line_number": 3099
-    },
-    {
-      "text": "And I'm like, \"For sure.\"",
-      "start": 6912,
-      "label": "setup",
-      "line_number": 3100
-    },
-    {
-      "text": "I said, \"But I just did.\"",
-      "start": 6913,
-      "label": "punchline",
-      "line_number": 3101
-    },
-    {
-      "text": "It wasn't cool.",
-      "start": 6914,
-      "label": "tag",
-      "line_number": 3102
-    },
-    {
-      "text": "I'm like, \"I'm not going to do it again.\"",
-      "start": 6915,
-      "label": "tag",
-      "line_number": 3103
-    },
-    {
-      "text": "She goes, \"Go ahead.\"",
-      "start": 6917,
-      "label": "setup",
-      "line_number": 3104
-    },
-    {
-      "text": "And I said, in perfect Arabic, I said, \"Lakadam secto benachina.\"",
-      "start": 6918,
-      "label": "setup",
-      "line_number": 3105
-    },
-    {
-      "text": "And she gasped.",
-      "start": 6925,
-      "label": "setup",
-      "line_number": 3106
-    },
-    {
-      "text": "She was like, \"Oh my God.\"",
-      "start": 6926,
-      "label": "setup",
-      "line_number": 3107
-    },
-    {
-      "text": "She's like, \"That was beautiful.",
-      "start": 6927,
-      "label": "setup",
-      "line_number": 3108
-    },
-    {
-      "text": "Do you know what it translates to?\"",
-      "start": 6928,
-      "label": "setup",
-      "line_number": 3109
-    },
-    {
-      "text": "I said, \"Hell yeah, I learned it from Call of Duty.",
-      "start": 6931,
-      "label": "setup",
-      "line_number": 3110
-    },
-    {
-      "text": "It means we've got control of a hostage.\"",
-      "start": 6933,
-      "label": "punchline",
-      "line_number": 3111
-    },
-    {
-      "text": "That's just true story, you guys.",
-      "start": 6944,
-      "label": "fluff",
-      "line_number": 3112
-    },
-    {
-      "text": "Thank you so much.",
-      "start": 6945,
-      "label": "fluff",
-      "line_number": 3113
-    }
+    {"text": "In high school, my art teacher was like,", "label": "setup", "bit": 1, "beat": 1, "line_number": 3086, "start": 6872},
+    {"text": "\"Hey, does anybody in here know how to speak Arabic?\"", "label": "setup", "bit": 1, "beat": 1, "line_number": 3087, "start": 6875},
+    {"text": "And she was getting ready to train us for, like, a calligraphy lesson.", "label": "setup", "bit": 1, "beat": 1, "line_number": 3088, "start": 6878},
+    {"text": "And I was like, \"Fuck it.\"", "label": "setup", "bit": 1, "beat": 1, "line_number": 3089, "start": 6884},
+    {"text": "I'm like, \"Yeah, I speak Arabic.\"", "label": "setup", "bit": 1, "beat": 1, "line_number": 3090, "start": 6885},
+    {"text": "She goes, \"Go ahead, Matt. Speak some Arabic for us.\"", "label": "setup", "bit": 1, "beat": 1, "line_number": 3091, "start": 6886},
+    {"text": "Arabic for us and I said, \"La la la la la la la.\"", "label": "punchline", "bit": 1, "beat": 1, "line_number": 3092, "start": 6888},
+    {"text": "And everybody laughed in the classroom except for her.", "label": "tag", "bit": 1, "beat": 1, "line_number": 3093, "start": 6895},
+    {"text": "She was like, \"Matt, that's rude.", "label": "setup", "bit": 1, "beat": 2, "line_number": 3094, "start": 6898},
+    {"text": "That's insensitive.", "label": "setup", "bit": 1, "beat": 2, "line_number": 3095, "start": 6899},
+    {"text": "Does anybody here actually know how to speak some Arabic?\"", "label": "setup", "bit": 1, "beat": 2, "line_number": 3096, "start": 6900},
+    {"text": "And I was like, \"Well, yeah.", "label": "setup", "bit": 1, "beat": 2, "line_number": 3097, "start": 6904},
+    {"text": "I do.\"", "label": "setup", "bit": 1, "beat": 2, "line_number": 3098, "start": 6906},
+    {"text": "And she was like, \"Are you actually going to say something in Arabic this time?\"", "label": "setup", "bit": 1, "beat": 2, "line_number": 3099, "start": 6907},
+    {"text": "And I'm like, \"For sure.\"", "label": "setup", "bit": 1, "beat": 2, "line_number": 3100, "start": 6912},
+    {"text": "I said, \"But I just did.\"", "label": "punchline", "bit": 1, "beat": 2, "line_number": 3101, "start": 6913},
+    {"text": "It wasn't cool.", "label": "tag", "bit": 1, "beat": 2, "line_number": 3102, "start": 6914},
+    {"text": "I'm like, \"I'm not going to do it again.\"", "label": "tag", "bit": 1, "beat": 2, "line_number": 3103, "start": 6915},
+    {"text": "She goes, \"Go ahead.\"", "label": "setup", "bit": 1, "beat": 3, "line_number": 3104, "start": 6917},
+    {"text": "And I said, in perfect Arabic, I said, \"Lakadam secto benachina.\"", "label": "setup", "bit": 1, "beat": 3, "line_number": 3105, "start": 6918},
+    {"text": "And she gasped.", "label": "setup", "bit": 1, "beat": 3, "line_number": 3106, "start": 6925},
+    {"text": "She was like, \"Oh my God.\"", "label": "setup", "bit": 1, "beat": 3, "line_number": 3107, "start": 6926},
+    {"text": "She's like, \"That was beautiful.", "label": "setup", "bit": 1, "beat": 3, "line_number": 3108, "start": 6927},
+    {"text": "Do you know what it translates to?\"", "label": "setup", "bit": 1, "beat": 3, "line_number": 3109, "start": 6928},
+    {"text": "I said, \"Hell yeah, I learned it from Call of Duty.", "label": "setup", "bit": 1, "beat": 3, "line_number": 3110, "start": 6931},
+    {"text": "It means we've got control of a hostage.\"", "label": "punchline", "bit": 1, "beat": 3, "line_number": 3111, "start": 6933},
+    {"text": "That's just true story, you guys.", "label": "fluff", "bit": 1, "beat": 3, "line_number": 3112, "start": 6944},
+    {"text": "Thank you so much.", "label": "fluff", "bit": null, "beat": null, "line_number": 3113, "start": 6945}
   ]
 }

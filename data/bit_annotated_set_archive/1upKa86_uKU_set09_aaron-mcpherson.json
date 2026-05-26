@@ -1,242 +1,91 @@
 {
-  "type": "set_meta",
-  "video_id": "1upKa86_uKU",
-  "episode_title": "KT #766 - SAM TALLENT",
-  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
-  "publish_date": "2026-05-05",
+  "type": "set_meta"
+,
+  "video_id": "1upKa86_uKU"
+,
+  "episode_title": "KT #766 - SAM TALLENT"
+,
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU"
+,
+  "publish_date": "2026-05-05"
+,
   "guests": [
     "Sam Tallent"
   ],
-  "comedian_name": "Aaron McPherson",
-  "comedian_type": "bucket_pull",
-  "set_number": 9,
-  "start_seconds": 5058,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Aaron McPherson"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 9
+,
+  "start_seconds": 5058
+,
+  "bit_meta": {
+    "1": {
       "premise": "Unwanted women can become a profitable sex-work niche.",
-      "line_range": [
-        2281,
-        2294
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            2281,
-            2284
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "sexual preference",
             "dating",
             "persona"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [
-            2285,
-            2289
-          ],
+        "2": {
           "topics": [
             "overweight women",
             "money",
             "dating"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_003",
-          "line_range": [
-            2290,
-            2294
-          ],
+        "3": {
           "topics": [
             "gigolo",
             "sex work",
             "fitness"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_002",
+    "2": {
       "premise": "Bluetooth can broadcast private porn to a car.",
-      "line_range": [
-        2295,
-        2301
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [
-            2295,
-            2301
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "Bluetooth",
             "porn",
             "privacy"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "Alright, it's your boy, the pipe layer,",
-      "start": 5058,
-      "label": "fluff",
-      "line_number": 2278
-    },
-    {
-      "text": "the motherfucking throat slayer.",
-      "start": 5060,
-      "label": "fluff",
-      "line_number": 2279
-    },
-    {
-      "text": "It's the immaculate pimp, no drones, man.",
-      "start": 5061,
-      "label": "fluff",
-      "line_number": 2280
-    },
-    {
-      "text": "And I'm here to fuck.",
-      "start": 5065,
-      "label": "setup",
-      "line_number": 2281
-    },
-    {
-      "text": "But not just anybody in particular.",
-      "start": 5067,
-      "label": "setup",
-      "line_number": 2282
-    },
-    {
-      "text": "I got a thing in particular for disgusting bitches.",
-      "start": 5069,
-      "label": "punchline",
-      "line_number": 2283
-    },
-    {
-      "text": "Yeah. The nastier, the better.",
-      "start": 5072,
-      "label": "tag",
-      "line_number": 2284
-    },
-    {
-      "text": "Like a bitch, if you go to the gym, I don't want it.",
-      "start": 5074,
-      "label": "setup",
-      "line_number": 2285
-    },
-    {
-      "text": "But if you could be on my 600-pound life,",
-      "start": 5079,
-      "label": "setup",
-      "line_number": 2286
-    },
-    {
-      "text": "now that's my kind of bitch.",
-      "start": 5082,
-      "label": "setup",
-      "line_number": 2287
-    },
-    {
-      "text": "And you know why, dude?",
-      "start": 5085,
-      "label": "setup",
-      "line_number": 2288
-    },
-    {
-      "text": "They give you money, man. That's why.",
-      "start": 5086,
-      "label": "punchline",
-      "line_number": 2289
-    },
-    {
-      "text": "I'm also known as Deuce Bigelow,",
-      "start": 5089,
-      "label": "setup",
-      "line_number": 2290
-    },
-    {
-      "text": "the American Negro Jig-a-lode.",
-      "start": 5091,
-      "label": "punchline",
-      "line_number": 2291
-    },
-    {
-      "text": "I'll be charging $250 a pump.",
-      "start": 5094,
-      "label": "setup",
-      "line_number": 2292
-    },
-    {
-      "text": "I got lifting big-ass legs up and shit.",
-      "start": 5096,
-      "label": "setup",
-      "line_number": 2293
-    },
-    {
-      "text": "I'm trying to get swole.",
-      "start": 5098,
-      "label": "punchline",
-      "line_number": 2294
-    },
-    {
-      "text": "But, see, when you like these disgusting things,",
-      "start": 5100,
-      "label": "setup",
-      "line_number": 2295
-    },
-    {
-      "text": "sometimes you forget to turn off your Bluetooth, you know?",
-      "start": 5102,
-      "label": "setup",
-      "line_number": 2296
-    },
-    {
-      "text": "And then you'd be, you know, doing your thing,",
-      "start": 5106,
-      "label": "setup",
-      "line_number": 2297
-    },
-    {
-      "text": "You know, doing your thing 30 seconds into the video,",
-      "start": 5108,
-      "label": "setup",
-      "line_number": 2298
-    },
-    {
-      "text": "you're like, \"Fuck, ain't no sound.\"",
-      "start": 5110,
-      "label": "setup",
-      "line_number": 2299
-    },
-    {
-      "text": "Then you hear a car door slam.",
-      "start": 5112,
-      "label": "punchline",
-      "line_number": 2300
-    },
-    {
-      "text": "You're like, \"Oh shit.\"",
-      "start": 5114,
-      "label": "tag",
-      "line_number": 2301
-    },
-    {
-      "text": "One of the way, more of the story is,",
-      "start": 5116,
-      "label": "fluff",
-      "line_number": 2302
-    },
-    {
-      "text": "fuck it, I'm Aaron McPherson, thank you.",
-      "start": 5119,
-      "label": "fluff",
-      "line_number": 2303
-    }
+    {"text": "Alright, it's your boy, the pipe layer,", "label": "fluff", "bit": null, "beat": null, "line_number": 2278, "start": 5058},
+    {"text": "the motherfucking throat slayer.", "label": "fluff", "bit": null, "beat": null, "line_number": 2279, "start": 5060},
+    {"text": "It's the immaculate pimp, no drones, man.", "label": "fluff", "bit": null, "beat": null, "line_number": 2280, "start": 5061},
+    {"text": "And I'm here to fuck.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2281, "start": 5065},
+    {"text": "But not just anybody in particular.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2282, "start": 5067},
+    {"text": "I got a thing in particular for disgusting bitches.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2283, "start": 5069},
+    {"text": "Yeah. The nastier, the better.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2284, "start": 5072},
+    {"text": "Like a bitch, if you go to the gym, I don't want it.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2285, "start": 5074},
+    {"text": "But if you could be on my 600-pound life,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2286, "start": 5079},
+    {"text": "now that's my kind of bitch.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2287, "start": 5082},
+    {"text": "And you know why, dude?", "label": "setup", "bit": 1, "beat": 2, "line_number": 2288, "start": 5085},
+    {"text": "They give you money, man. That's why.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2289, "start": 5086},
+    {"text": "I'm also known as Deuce Bigelow,", "label": "setup", "bit": 1, "beat": 3, "line_number": 2290, "start": 5089},
+    {"text": "the American Negro Jig-a-lode.", "label": "punchline", "bit": 1, "beat": 3, "line_number": 2291, "start": 5091},
+    {"text": "I'll be charging $250 a pump.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2292, "start": 5094},
+    {"text": "I got lifting big-ass legs up and shit.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2293, "start": 5096},
+    {"text": "I'm trying to get swole.", "label": "punchline", "bit": 1, "beat": 3, "line_number": 2294, "start": 5098},
+    {"text": "But, see, when you like these disgusting things,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2295, "start": 5100},
+    {"text": "sometimes you forget to turn off your Bluetooth, you know?", "label": "setup", "bit": 2, "beat": 1, "line_number": 2296, "start": 5102},
+    {"text": "And then you'd be, you know, doing your thing,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2297, "start": 5106},
+    {"text": "You know, doing your thing 30 seconds into the video,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2298, "start": 5108},
+    {"text": "you're like, \"Fuck, ain't no sound.\"", "label": "setup", "bit": 2, "beat": 1, "line_number": 2299, "start": 5110},
+    {"text": "Then you hear a car door slam.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2300, "start": 5112},
+    {"text": "You're like, \"Oh shit.\"", "label": "tag", "bit": 2, "beat": 1, "line_number": 2301, "start": 5114},
+    {"text": "One of the way, more of the story is,", "label": "fluff", "bit": null, "beat": null, "line_number": 2302, "start": 5116},
+    {"text": "fuck it, I'm Aaron McPherson, thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 2303, "start": 5119}
   ]
 }

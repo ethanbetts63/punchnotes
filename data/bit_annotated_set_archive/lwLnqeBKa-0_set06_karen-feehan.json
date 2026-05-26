@@ -1,54 +1,43 @@
 {
-  "type": "set_meta",
-  "video_id": "lwLnqeBKa-0",
-  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
-  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
-  "publish_date": "2026-04-28",
+  "type": "set_meta"
+,
+  "video_id": "lwLnqeBKa-0"
+,
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI"
+,
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0"
+,
+  "publish_date": "2026-04-28"
+,
   "guests": [
     "Dustin Poirier",
     "Ari Matti"
   ],
-  "comedian_name": "Karen Feehan",
-  "comedian_type": "regular",
-  "set_number": 6,
-  "start_seconds": 2886,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "Karen Feehan"
+,
+  "comedian_type": "regular"
+,
+  "set_number": 6
+,
+  "start_seconds": 2886
+,
+  "bit_meta": {
+    "1": {
       "premise": "Boston Ballet can explain racist anorexia.",
-      "line_range": [
-        1259,
-        1260
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            1259,
-            1260
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "Boston Ballet",
             "anorexia",
             "Massachusetts"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_002",
+    "2": {
       "premise": "A sobriety tattoo fails if bartenders cannot read cursive.",
-      "line_range": [
-        1261,
-        1263
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [
-            1261,
-            1263
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "alcoholism",
             "tattoos",
@@ -56,207 +45,72 @@
             "cursive"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_003",
+    "3": {
       "premise": "Sleeping with MMA guys recreates the feeling of blacking out.",
-      "line_range": [
-        1264,
-        1265
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_003_beat_001",
-          "line_range": [
-            1264,
-            1265
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "MMA fighters",
             "blackouts",
             "sex"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_004",
+    "4": {
       "premise": "Cauliflower ear can look like externalized brain damage.",
-      "line_range": [
-        1268,
-        1276
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_004_beat_001",
-          "line_range": [
-            1268,
-            1271
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "MMA fighters",
             "cauliflower ear",
             "sex"
           ]
         },
-        {
-          "beat_id": "bit_004_beat_002",
-          "line_range": [
-            1272,
-            1276
-          ],
+        "2": {
           "topics": [
             "MMA fighters",
             "brain injuries",
             "insults"
           ]
         }
-      ]
+      }
     },
-    {
-      "bit_id": "bit_005",
+    "5": {
       "premise": "Pregnancy can test whether a future kid is a fighter.",
-      "line_range": [
-        1278,
-        1280
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_005_beat_001",
-          "line_range": [
-            1278,
-            1280
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "MMA fighters",
             "pregnancy",
             "fighting"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "God, this is so exciting. Hi, hi, hi Dustin. Hi. How are we? I know some of you guys might",
-      "start": 2886,
-      "label": "fluff",
-      "line_number": 1258
-    },
-    {
-      "text": "not know it. My name is Karen. I'm from Massachusetts. I was in the Boston Ballet",
-      "start": 2896,
-      "label": "setup",
-      "line_number": 1259
-    },
-    {
-      "text": "for about 10 years. That's why I'm a racist anorexic. I'm kidding, I'm kidding.",
-      "start": 2900,
-      "label": "punchline",
-      "line_number": 1260
-    },
-    {
-      "text": "I eat. I'm also an alcoholic. I have a very helpful tattoo. It says don't serve",
-      "start": 2906,
-      "label": "setup",
-      "line_number": 1261
-    },
-    {
-      "text": "on my arm.",
-      "start": 2915,
-      "label": "setup",
-      "line_number": 1262
-    },
-    {
-      "text": "It's okay, bartenders can't read cursive.",
-      "start": 2916,
-      "label": "punchline",
-      "line_number": 1263
-    },
-    {
-      "text": "Whenever I miss blacking out,",
-      "start": 2920,
-      "label": "setup",
-      "line_number": 1264
-    },
-    {
-      "text": "I just sleep with an MMA guy.",
-      "start": 2921,
-      "label": "punchline",
-      "line_number": 1265
-    },
-    {
-      "text": "Um...",
-      "start": 2923,
-      "label": "fluff",
-      "line_number": 1266
-    },
-    {
-      "text": "You know, when I see a cauliflower here--",
-      "start": 2927,
-      "label": "setup",
-      "line_number": 1268
-    },
-    {
-      "text": "Flood. It's not--",
-      "start": 2930,
-      "label": "fluff",
-      "line_number": 1270
-    },
-    {
-      "text": "It's not good.",
-      "start": 2932,
-      "label": "fluff",
-      "line_number": 1271
-    },
-    {
-      "text": "People are so mean about MMA guys.",
-      "start": 2934,
-      "label": "setup",
-      "line_number": 1272
-    },
-    {
-      "text": "They're like, \"They're so dumb.\"",
-      "start": 2936,
-      "label": "setup",
-      "line_number": 1273
-    },
-    {
-      "text": "I'm like, \"No, their brains are just on the outside now.\"",
-      "start": 2937,
-      "label": "punchline",
-      "line_number": 1274
-    },
-    {
-      "text": "I'm just kidding, they're pretty dumb.",
-      "start": 2944,
-      "label": "tag",
-      "line_number": 1276
-    },
-    {
-      "text": "I do this thing last week, I do this thing,",
-      "start": 2949,
-      "label": "setup",
-      "line_number": 1278
-    },
-    {
-      "text": "I let him come at me, and then I go,",
-      "start": 2951,
-      "label": "setup",
-      "line_number": 1279
-    },
-    {
-      "text": "\"Hey, let's see if this kid's a fighter.\"",
-      "start": 2953,
-      "label": "punchline",
-      "line_number": 1280
-    },
-    {
-      "text": "What?",
-      "start": 2957,
-      "label": "fluff",
-      "line_number": 1282
-    }
+    {"text": "God, this is so exciting. Hi, hi, hi Dustin. Hi. How are we? I know some of you guys might", "label": "fluff", "bit": null, "beat": null, "line_number": 1258, "start": 2886},
+    {"text": "not know it. My name is Karen. I'm from Massachusetts. I was in the Boston Ballet", "label": "setup", "bit": 1, "beat": 1, "line_number": 1259, "start": 2896},
+    {"text": "for about 10 years. That's why I'm a racist anorexic. I'm kidding, I'm kidding.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1260, "start": 2900},
+    {"text": "I eat. I'm also an alcoholic. I have a very helpful tattoo. It says don't serve", "label": "setup", "bit": 2, "beat": 1, "line_number": 1261, "start": 2906},
+    {"text": "on my arm.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1262, "start": 2915},
+    {"text": "It's okay, bartenders can't read cursive.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1263, "start": 2916},
+    {"text": "Whenever I miss blacking out,", "label": "setup", "bit": 3, "beat": 1, "line_number": 1264, "start": 2920},
+    {"text": "I just sleep with an MMA guy.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 1265, "start": 2921},
+    {"text": "Um...", "label": "fluff", "bit": null, "beat": null, "line_number": 1266, "start": 2923},
+    {"text": "You know, when I see a cauliflower here--", "label": "setup", "bit": 4, "beat": 1, "line_number": 1268, "start": 2927},
+    {"text": "Flood. It's not--", "label": "fluff", "bit": 4, "beat": 1, "line_number": 1270, "start": 2930},
+    {"text": "It's not good.", "label": "fluff", "bit": 4, "beat": 1, "line_number": 1271, "start": 2932},
+    {"text": "People are so mean about MMA guys.", "label": "setup", "bit": 4, "beat": 2, "line_number": 1272, "start": 2934},
+    {"text": "They're like, \"They're so dumb.\"", "label": "setup", "bit": 4, "beat": 2, "line_number": 1273, "start": 2936},
+    {"text": "I'm like, \"No, their brains are just on the outside now.\"", "label": "punchline", "bit": 4, "beat": 2, "line_number": 1274, "start": 2937},
+    {"text": "I'm just kidding, they're pretty dumb.", "label": "tag", "bit": 4, "beat": 2, "line_number": 1276, "start": 2944},
+    {"text": "I do this thing last week, I do this thing,", "label": "setup", "bit": 5, "beat": 1, "line_number": 1278, "start": 2949},
+    {"text": "I let him come at me, and then I go,", "label": "setup", "bit": 5, "beat": 1, "line_number": 1279, "start": 2951},
+    {"text": "\"Hey, let's see if this kid's a fighter.\"", "label": "punchline", "bit": 5, "beat": 1, "line_number": 1280, "start": 2953},
+    {"text": "What?", "label": "fluff", "bit": null, "beat": null, "line_number": 1282, "start": 2957}
   ]
 }

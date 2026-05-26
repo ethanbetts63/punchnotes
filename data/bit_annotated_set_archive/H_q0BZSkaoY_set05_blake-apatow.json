@@ -1,73 +1,92 @@
 {
-  "type": "set_meta",
-  "video_id": "H_q0BZSkaoY",
-  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
-  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
-  "publish_date": "2026-03-17",
-  "guests": ["Steve0", "Tim Butterly"],
-  "comedian_name": "Blake Apatow",
-  "comedian_type": "bucket_pull",
-  "set_number": 5,
-  "start_seconds": 3179,
-  "bits": [
-    {
-      "bit_id": "bit_001",
-      "premise": "Immigration policy is reframed as a personal sexual preference optimization system with a formal exchange rate.",
-      "line_range": [1345, 1354],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [1345, 1348],
-          "topics": ["immigration", "border wall", "Latinas"]
-        },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [1349, 1354],
-          "topics": ["immigration", "Latinas", "obesity", "deportation"]
-        }
-      ]
-    },
-    {
-      "bit_id": "bit_002",
-      "premise": "A friend's fentanyl overdose is treated as the ultimate fulfillment of his goal to be chill, with guilt redirected to the dealer rather than the witness.",
-      "line_range": [1355, 1367],
-      "beats": [
-        {
-          "beat_id": "bit_002_beat_001",
-          "line_range": [1355, 1360],
-          "topics": ["fentanyl", "Xanax", "death", "drugs"]
-        },
-        {
-          "beat_id": "bit_002_beat_002",
-          "line_range": [1362, 1367],
-          "topics": ["fentanyl", "drug dealing", "guilt", "FaceTime"]
-        }
-      ]
-    }
+  "type": "set_meta"
+,
+  "video_id": "H_q0BZSkaoY"
+,
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY"
+,
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY"
+,
+  "publish_date": "2026-03-17"
+,
+  "guests": [
+    "Steve0",
+    "Tim Butterly"
   ],
+  "comedian_name": "Blake Apatow"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 5
+,
+  "start_seconds": 3179
+,
+  "bit_meta": {
+    "1": {
+      "premise": "Immigration policy is reframed as a personal sexual preference optimization system with a formal exchange rate.",
+      "beats": {
+        "1": {
+          "topics": [
+            "immigration",
+            "border wall",
+            "Latinas"
+          ]
+        },
+        "2": {
+          "topics": [
+            "immigration",
+            "Latinas",
+            "obesity",
+            "deportation"
+          ]
+        }
+      }
+    },
+    "2": {
+      "premise": "A friend's fentanyl overdose is treated as the ultimate fulfillment of his goal to be chill, with guilt redirected to the dealer rather than the witness.",
+      "beats": {
+        "1": {
+          "topics": [
+            "fentanyl",
+            "Xanax",
+            "death",
+            "drugs"
+          ]
+        },
+        "2": {
+          "topics": [
+            "fentanyl",
+            "drug dealing",
+            "guilt",
+            "FaceTime"
+          ]
+        }
+      }
+    }
+  },
   "lines": [
-    {"line_number": 1344, "text": "Great to be here. What's up, folks?", "start": 3179, "label": "fluff"},
-    {"line_number": 1345, "text": "I don't know how y'all feel about immigration, but I feel like all things, we need some balance.", "start": 3183, "label": "setup"},
-    {"line_number": 1346, "text": "Like, I think we should build a wall.", "start": 3187, "label": "setup"},
-    {"line_number": 1347, "text": "We should also install a doggy door for hot Latinas.", "start": 3189, "label": "punchline"},
-    {"line_number": 1348, "text": "We need them desperately.", "start": 3195, "label": "tag"},
-    {"line_number": 1349, "text": "I think we should import millions of gorgeous Latinas.", "start": 3197, "label": "setup"},
-    {"line_number": 1350, "text": "And for every Latina we import, we can deport one obese white chick.", "start": 3202, "label": "punchline"},
-    {"line_number": 1352, "text": "Maybe two to one or three to one.", "start": 3211, "label": "tag"},
-    {"line_number": 1353, "text": "I don't know what the exchange rate is.", "start": 3214, "label": "tag"},
-    {"line_number": 1354, "text": "And a big white gal.", "start": 3216, "label": "tag"},
-    {"line_number": 1355, "text": "It's been a tough year.", "start": 3219, "label": "setup"},
-    {"line_number": 1356, "text": "My best friend died from a fake Xanax that had fentanyl in it.", "start": 3221, "label": "setup"},
-    {"line_number": 1357, "text": "Yeah, he would take Xanax to help him chill out.", "start": 3225, "label": "setup"},
-    {"line_number": 1358, "text": "Now he's about as chill as you can possibly get.", "start": 3228, "label": "punchline"},
-    {"line_number": 1360, "text": "Eternally chill.", "start": 3232, "label": "tag"},
-    {"line_number": 1361, "text": "Yeah.", "start": 3234, "label": "fluff"},
-    {"line_number": 1362, "text": "And my other friend FaceTimed him the night he died.", "start": 3235, "label": "setup"},
-    {"line_number": 1363, "text": "He still feels horrible.", "start": 3238, "label": "setup"},
-    {"line_number": 1364, "text": "[squeak]", "start": 3240, "label": "fluff"},
-    {"line_number": 1365, "text": "Feels like he could have saved him somehow.", "start": 3241, "label": "setup"},
-    {"line_number": 1366, "text": "Imagine how I feel.", "start": 3244, "label": "setup"},
-    {"line_number": 1367, "text": "I sold him that Xanax.", "start": 3245, "label": "punchline"},
-    {"line_number": 1369, "text": "Thank you, folks.", "start": 3248, "label": "fluff"}
+    {"text": "Great to be here. What's up, folks?", "label": "fluff", "bit": null, "beat": null, "line_number": 1344, "start": 3179},
+    {"text": "I don't know how y'all feel about immigration, but I feel like all things, we need some balance.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1345, "start": 3183},
+    {"text": "Like, I think we should build a wall.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1346, "start": 3187},
+    {"text": "We should also install a doggy door for hot Latinas.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1347, "start": 3189},
+    {"text": "We need them desperately.", "label": "tag", "bit": 1, "beat": 1, "line_number": 1348, "start": 3195},
+    {"text": "I think we should import millions of gorgeous Latinas.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1349, "start": 3197},
+    {"text": "And for every Latina we import, we can deport one obese white chick.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1350, "start": 3202},
+    {"text": "Maybe two to one or three to one.", "label": "tag", "bit": 1, "beat": 2, "line_number": 1352, "start": 3211},
+    {"text": "I don't know what the exchange rate is.", "label": "tag", "bit": 1, "beat": 2, "line_number": 1353, "start": 3214},
+    {"text": "And a big white gal.", "label": "tag", "bit": 1, "beat": 2, "line_number": 1354, "start": 3216},
+    {"text": "It's been a tough year.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1355, "start": 3219},
+    {"text": "My best friend died from a fake Xanax that had fentanyl in it.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1356, "start": 3221},
+    {"text": "Yeah, he would take Xanax to help him chill out.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1357, "start": 3225},
+    {"text": "Now he's about as chill as you can possibly get.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1358, "start": 3228},
+    {"text": "Eternally chill.", "label": "tag", "bit": 2, "beat": 1, "line_number": 1360, "start": 3232},
+    {"text": "Yeah.", "label": "fluff", "bit": null, "beat": null, "line_number": 1361, "start": 3234},
+    {"text": "And my other friend FaceTimed him the night he died.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1362, "start": 3235},
+    {"text": "He still feels horrible.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1363, "start": 3238},
+    {"text": "[squeak]", "label": "fluff", "bit": 2, "beat": 2, "line_number": 1364, "start": 3240},
+    {"text": "Feels like he could have saved him somehow.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1365, "start": 3241},
+    {"text": "Imagine how I feel.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1366, "start": 3244},
+    {"text": "I sold him that Xanax.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 1367, "start": 3245},
+    {"text": "Thank you, folks.", "label": "fluff", "bit": null, "beat": null, "line_number": 1369, "start": 3248}
   ]
 }

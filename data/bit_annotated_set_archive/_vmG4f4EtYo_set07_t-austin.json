@@ -1,292 +1,100 @@
 {
-  "type": "set_meta",
-  "video_id": "_vmG4f4EtYo",
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "type": "set_meta"
+,
+  "video_id": "_vmG4f4EtYo"
+,
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL"
+,
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo"
+,
   "guests": [
     "Theo Von",
     "Jelly Roll"
   ],
-  "comedian_name": "T. Austin",
-  "comedian_type": "bucket_pull",
-  "set_number": 7,
-  "start_seconds": 3754,
-  "bits": [
-    {
-      "bit_id": "bit_001",
+  "comedian_name": "T. Austin"
+,
+  "comedian_type": "bucket_pull"
+,
+  "set_number": 7
+,
+  "start_seconds": 3754
+,
+  "bit_meta": {
+    "1": {
       "premise": "Apocalypse scenarios can be ranked like personal preferences.",
-      "line_range": [
-        1800,
-        1829
-      ],
-      "beats": [
-        {
-          "beat_id": "bit_001_beat_001",
-          "line_range": [
-            1800,
-            1809
-          ],
+      "beats": {
+        "1": {
           "topics": [
             "apocalypse",
             "religion",
             "God"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_002",
-          "line_range": [
-            1810,
-            1814
-          ],
+        "2": {
           "topics": [
             "Donald Trump",
             "Israel",
             "bombs"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_003",
-          "line_range": [
-            1815,
-            1821
-          ],
+        "3": {
           "topics": [
             "zombies",
             "Thriller",
             "The Walking Dead"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_004",
-          "line_range": [
-            1822,
-            1825
-          ],
+        "4": {
           "topics": [
             "peanuts",
             "allergies",
             "mass death"
           ]
         },
-        {
-          "beat_id": "bit_001_beat_005",
-          "line_range": [
-            1826,
-            1829
-          ],
+        "5": {
           "topics": [
             "aliens",
             "Donald Trump",
             "apocalypse"
           ]
         }
-      ]
+      }
     }
-  ],
+  },
   "lines": [
-    {
-      "text": "What's up?",
-      "start": 3754,
-      "label": "fluff",
-      "line_number": 1797
-    },
-    {
-      "text": "What's up?",
-      "start": 3754,
-      "label": "fluff",
-      "line_number": 1798
-    },
-    {
-      "text": "What's up?",
-      "start": 3755,
-      "label": "fluff",
-      "line_number": 1799
-    },
-    {
-      "text": "Now, I came out here.",
-      "start": 3757,
-      "label": "setup",
-      "line_number": 1800
-    },
-    {
-      "text": "I'm a little angry, but I'm not angry with y'all.",
-      "start": 3758,
-      "label": "setup",
-      "line_number": 1801
-    },
-    {
-      "text": "I don't like the motherfuckers that's outside, so I came up",
-      "start": 3761,
-      "label": "setup",
-      "line_number": 1802
-    },
-    {
-      "text": "with a few ways to destroy the world, and I only got a",
-      "start": 3764,
-      "label": "setup",
-      "line_number": 1803
-    },
-    {
-      "text": "minute to do so.",
-      "start": 3766,
-      "label": "setup",
-      "line_number": 1804
-    },
-    {
-      "text": "The first one would be for you religious motherfuckers.",
-      "start": 3768,
-      "label": "setup",
-      "line_number": 1805
-    },
-    {
-      "text": "I want whoever you believe in, Jesus, Muhammad, whoever.",
-      "start": 3771,
-      "label": "setup",
-      "line_number": 1806
-    },
-    {
-      "text": "I hope you come so that way the rest of us",
-      "start": 3775,
-      "label": "setup",
-      "line_number": 1807
-    },
-    {
-      "text": "can be out here screaming like, holy shit.",
-      "start": 3777,
-      "label": "setup",
-      "line_number": 1808
-    },
-    {
-      "text": "You can't say that shit because God is here.",
-      "start": 3779,
-      "label": "punchline",
-      "line_number": 1809
-    },
-    {
-      "text": "The second way, you already got Donald Trump in there",
-      "start": 3782,
-      "label": "setup",
-      "line_number": 1810
-    },
-    {
-      "text": "doing this thing, working on Israel.",
-      "start": 3784,
-      "label": "setup",
-      "line_number": 1811
-    },
-    {
-      "text": "We working on them bombs.",
-      "start": 3786,
-      "label": "setup",
-      "line_number": 1812
-    },
-    {
-      "text": "That would be funny, but fuck that.",
-      "start": 3787,
-      "label": "setup",
-      "line_number": 1813
-    },
-    {
-      "text": "We're living that one.",
-      "start": 3789,
-      "label": "punchline",
-      "line_number": 1814
-    },
-    {
-      "text": "Now, the third way, fucking Thriller.",
-      "start": 3790,
-      "label": "punchline",
-      "line_number": 1815
-    },
-    {
-      "text": "I want my goddamn zombies.",
-      "start": 3795,
-      "label": "tag",
-      "line_number": 1816
-    },
-    {
-      "text": "I've been watching The Walking Dead,",
-      "start": 3797,
-      "label": "tag",
-      "line_number": 1817
-    },
-    {
-      "text": "I've been practicing my motherfucker shit.",
-      "start": 3799,
-      "label": "tag",
-      "line_number": 1818
-    },
-    {
-      "text": "Michael getting ready to come out.",
-      "start": 3801,
-      "label": "tag",
-      "line_number": 1819
-    },
-    {
-      "text": "I'm going to see that shit.",
-      "start": 3803,
-      "label": "tag",
-      "line_number": 1820
-    },
-    {
-      "text": "I want to live it.",
-      "start": 3804,
-      "label": "tag",
-      "line_number": 1821
-    },
-    {
-      "text": "The fourth way that I,",
-      "start": 3805,
-      "label": "setup",
-      "line_number": 1822
-    },
-    {
-      "text": "because it could be anything,",
-      "start": 3808,
-      "label": "setup",
-      "line_number": 1823
-    },
-    {
-      "text": "you guys, I could drop a bomb of peanuts in here",
-      "start": 3810,
-      "label": "setup",
-      "line_number": 1824
-    },
-    {
-      "text": "and drop half of you motherfuckers.",
-      "start": 3812,
-      "label": "punchline",
-      "line_number": 1825
-    },
-    {
-      "text": "The fourth way that I believe that we deserve it,",
-      "start": 3813,
-      "label": "setup",
-      "line_number": 1826
-    },
-    {
-      "text": "'cause Donald Trump said it's true,",
-      "start": 3816,
-      "label": "setup",
-      "line_number": 1827
-    },
-    {
-      "text": "he's goddamn aliens.",
-      "start": 3817,
-      "label": "punchline",
-      "line_number": 1828
-    },
-    {
-      "text": "We're already here.",
-      "start": 3820,
-      "label": "tag",
-      "line_number": 1829
-    },
-    {
-      "text": "Thank y'all, I'm T. Austin.",
-      "start": 3822,
-      "label": "fluff",
-      "line_number": 1830
-    }
+    {"text": "What's up?", "label": "fluff", "bit": null, "beat": null, "line_number": 1797, "start": 3754},
+    {"text": "What's up?", "label": "fluff", "bit": null, "beat": null, "line_number": 1798, "start": 3754},
+    {"text": "What's up?", "label": "fluff", "bit": null, "beat": null, "line_number": 1799, "start": 3755},
+    {"text": "Now, I came out here.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1800, "start": 3757},
+    {"text": "I'm a little angry, but I'm not angry with y'all.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1801, "start": 3758},
+    {"text": "I don't like the motherfuckers that's outside, so I came up", "label": "setup", "bit": 1, "beat": 1, "line_number": 1802, "start": 3761},
+    {"text": "with a few ways to destroy the world, and I only got a", "label": "setup", "bit": 1, "beat": 1, "line_number": 1803, "start": 3764},
+    {"text": "minute to do so.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1804, "start": 3766},
+    {"text": "The first one would be for you religious motherfuckers.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1805, "start": 3768},
+    {"text": "I want whoever you believe in, Jesus, Muhammad, whoever.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1806, "start": 3771},
+    {"text": "I hope you come so that way the rest of us", "label": "setup", "bit": 1, "beat": 1, "line_number": 1807, "start": 3775},
+    {"text": "can be out here screaming like, holy shit.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1808, "start": 3777},
+    {"text": "You can't say that shit because God is here.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1809, "start": 3779},
+    {"text": "The second way, you already got Donald Trump in there", "label": "setup", "bit": 1, "beat": 2, "line_number": 1810, "start": 3782},
+    {"text": "doing this thing, working on Israel.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1811, "start": 3784},
+    {"text": "We working on them bombs.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1812, "start": 3786},
+    {"text": "That would be funny, but fuck that.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1813, "start": 3787},
+    {"text": "We're living that one.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1814, "start": 3789},
+    {"text": "Now, the third way, fucking Thriller.", "label": "punchline", "bit": 1, "beat": 3, "line_number": 1815, "start": 3790},
+    {"text": "I want my goddamn zombies.", "label": "tag", "bit": 1, "beat": 3, "line_number": 1816, "start": 3795},
+    {"text": "I've been watching The Walking Dead,", "label": "tag", "bit": 1, "beat": 3, "line_number": 1817, "start": 3797},
+    {"text": "I've been practicing my motherfucker shit.", "label": "tag", "bit": 1, "beat": 3, "line_number": 1818, "start": 3799},
+    {"text": "Michael getting ready to come out.", "label": "tag", "bit": 1, "beat": 3, "line_number": 1819, "start": 3801},
+    {"text": "I'm going to see that shit.", "label": "tag", "bit": 1, "beat": 3, "line_number": 1820, "start": 3803},
+    {"text": "I want to live it.", "label": "tag", "bit": 1, "beat": 3, "line_number": 1821, "start": 3804},
+    {"text": "The fourth way that I,", "label": "setup", "bit": 1, "beat": 4, "line_number": 1822, "start": 3805},
+    {"text": "because it could be anything,", "label": "setup", "bit": 1, "beat": 4, "line_number": 1823, "start": 3808},
+    {"text": "you guys, I could drop a bomb of peanuts in here", "label": "setup", "bit": 1, "beat": 4, "line_number": 1824, "start": 3810},
+    {"text": "and drop half of you motherfuckers.", "label": "punchline", "bit": 1, "beat": 4, "line_number": 1825, "start": 3812},
+    {"text": "The fourth way that I believe that we deserve it,", "label": "setup", "bit": 1, "beat": 5, "line_number": 1826, "start": 3813},
+    {"text": "'cause Donald Trump said it's true,", "label": "setup", "bit": 1, "beat": 5, "line_number": 1827, "start": 3816},
+    {"text": "he's goddamn aliens.", "label": "punchline", "bit": 1, "beat": 5, "line_number": 1828, "start": 3817},
+    {"text": "We're already here.", "label": "tag", "bit": 1, "beat": 5, "line_number": 1829, "start": 3820},
+    {"text": "Thank y'all, I'm T. Austin.", "label": "fluff", "bit": null, "beat": null, "line_number": 1830, "start": 3822}
   ]
 }

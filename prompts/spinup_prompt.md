@@ -25,10 +25,9 @@ Check `C:\Users\ethan\coding\jokescore\data\2_set_inbox\`.
 
 If there are any `.json` files there:
 
-- Group the files by video. Files belonging to the same video share the same video ID prefix in their filename (e.g. `CnjJPpr10vM_set01_...`, `CnjJPpr10vM_set02_...` are all from the same video).
-- Pick one video's worth of files (all sets sharing the same video ID).
-- Spin up one agent, tell it which video's sets to process, and give it the prompt at `C:\Users\ethan\coding\jokescore\prompts\set_annotation_prompt.md`.
-- Wait for it to finish, then repeat for the next video.
+- Pick the first 10 files (sorted by filename). If fewer than 10 remain, take all of them.
+- Spin up one agent, tell it which files to process, and give it the prompt at `C:\Users\ethan\coding\jokescore\prompts\set_annotation_prompt.md`.
+- Wait for it to finish, then repeat for the next batch of 10.
 - Continue until `2_set_inbox` is empty.
 
 ---
@@ -39,10 +38,9 @@ Check `C:\Users\ethan\coding\jokescore\data\3_annotated_set_inbox\`.
 
 If there are any `.json` files there:
 
-- Group the files by video using the same video ID prefix logic as Phase 2.
-- Pick one video's worth of files (all sets sharing the same video ID).
-- Spin up one agent, tell it which video's sets to process, and give it the prompt at `C:\Users\ethan\coding\jokescore\prompts\bit_annotation_prompt.md`.
-- Wait for it to finish, then repeat for the next video.
+- Pick the first 10 files (sorted by filename). If fewer than 10 remain, take all of them.
+- Spin up one agent, tell it which files to process, and give it the prompt at `C:\Users\ethan\coding\jokescore\prompts\bit_annotation_prompt.md`.
+- Wait for it to finish, then repeat for the next batch of 10.
 - Continue until `3_annotated_set_inbox` is empty.
 
 ---

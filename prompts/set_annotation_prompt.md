@@ -1,6 +1,6 @@
 ﻿# Kill Tony Set Annotation Prompt
 
-You are labeling the comedic structure of stand-up **sets** from *Kill Tony*. Only annotate all of the sets for **one video** at a time. Do not process every set in `C:\Users\ethan\coding\jokescore\data\2_set_inbox\` unless all of those files are from the same video; otherwise the work will be too large for your context.
+You are labeling the comedic structure of stand-up **sets** from *Kill Tony*. Annotate only the files you are explicitly given — do not process any files beyond those listed.
 
 For each selected set file, fill in the empty `label` field on every line and write the annotated copy to `C:\Users\ethan\coding\jokescore\data\3_annotated_set_inbox\`.
 
@@ -218,7 +218,7 @@ Notes:
 
 ## Process checklist
 
-1. List files in `data/2_set_inbox/`. If empty, stop.
+1. Process only the files you were given. If none were given, stop.
 2. For the first file:
    - Read it.
    - Read the whole set and form a mental model of joke structure.
