@@ -11,45 +11,66 @@
   "start_seconds": 3595,
   "bit_meta": {
     "1": {
-      "premise": "Refusing to call transitioning child son implies a new title, not their disownerment",
       "beats": {
-        "1": {"topics": ["trans children", "family", "rejection"]}
+        "1": {
+          "premise": "Refusing to call a transitioning child son implies a new title, not disownment.",
+          "joke_type": "misdirect",
+          "topics": ["trans children", "family", "rejection"]
+        }
       }
     },
     "2": {
-      "premise": "Pedophiles benefit from puberty blockers.",
       "beats": {
-        "1": {"topics": ["puberty blockers", "pedophiles", "medicine"]}
+        "1": {
+          "premise": "Pedophiles benefit from puberty blockers.",
+          "joke_type": "reframe",
+          "topics": ["puberty blockers", "pedophiles", "medicine"]
+        }
       }
     },
     "3": {
-      "premise": "A midget would resent chosen puberty blocking.",
       "beats": {
-        "1": {"topics": ["circus", "midgets", "puberty blockers"]}
+        "1": {
+          "premise": "Little people would resent voluntary puberty blockers.",
+          "joke_type": "reframe",
+          "topics": ["circus", "midgets", "puberty blockers"]
+        }
       }
     },
     "4": {
-      "premise": "'Midget' and 'fidget' sound alike, and 'fidget' independently fits ADHD.",
       "beats": {
-        "1": {"topics": ["midgets", "ADHD", "wordplay"]}
+        "1": {
+          "premise": "'Midget' and 'fidget' sound alike, and 'fidget' independently fits ADHD.",
+          "joke_type": "phonetic-match",
+          "topics": ["midgets", "ADHD", "wordplay"]
+        }
       }
     },
     "5": {
-      "premise": "School shootings are the ultimate puberty blocker.",
       "beats": {
-        "1": {"topics": ["school shootings", "puberty blockers", "dark humor"]}
+        "1": {
+          "premise": "School shootings block puberty by killing students.",
+          "joke_type": "reframe",
+          "topics": ["school shootings", "puberty blockers", "dark humor"]
+        }
       }
     },
     "6": {
-      "premise": "School shootings are widely associated with white shooters but rarely said aloud.",
       "beats": {
-        "1": {"topics": ["school shootings", "white people", "race"]}
+        "1": {
+          "premise": "School shootings are widely associated with white shooters but rarely said aloud.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["school shootings", "white people", "race"]
+        }
       }
     },
     "7": {
-      "premise": "After-school violence is technically an extracurricular activity.",
       "beats": {
-        "1": {"topics": ["school shootings", "race", "after school", "extracurricular"]}
+        "1": {
+          "premise": "Unlike white gun violence, black gun violence is outside of school.",
+          "joke_type": "reframe",
+          "topics": ["school shootings", "race", "after school", "extracurricular"]
+        }
       }
     }
   },

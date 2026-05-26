@@ -12,12 +12,12 @@
   "bit_meta": {
     "1": {
       "beats": {
-        "1": {"premise": "Upright hair looks like static from sex with balloons.", "joke_type": "visual", "topics": ["appearance", "static electricity", "balloons"]}
+        "1": {"premise": "Upright hair is like static from sex with balloons.", "joke_type": "analogy", "topics": ["appearance", "static electricity", "balloons"]}
       }
     },
     "2": {
       "beats": {
-        "1": {"premise": "A hunched posture makes someone look like a chicken pecking the ground.", "joke_type": "visual", "topics": ["appearance", "chickens", "posture"]}
+        "1": {"premise": "A hunched posture is like a chicken pecking the ground.", "joke_type": "analogy", "topics": ["appearance", "chickens", "posture"]}
       }
     },
     "3": {

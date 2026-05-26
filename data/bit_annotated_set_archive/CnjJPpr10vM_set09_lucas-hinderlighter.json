@@ -13,14 +13,25 @@
     "1": {
       "premise": "One remaining sock can imply genital cover instead of footwear.",
       "beats": {
-        "1": {"topics": ["porta potties", "toilet paper", "socks"]},
-        "2": {"topics": ["porta potties", "socks", "genitals"]}
+        "1": {
+          "premise": "No toilet paper can turn clothing into emergency wipes.",
+          "joke_type": "what-if",
+          "topics": ["porta potties", "toilet paper", "socks"]
+        },
+        "2": {
+          "premise": "One remaining sock implies footwear, not genital cover.",
+          "joke_type": "misdirect",
+          "topics": ["porta potties", "socks", "genitals"]
+        }
       }
     },
     "2": {
-      "premise": "Barely legal changes meaning across eras.",
       "beats": {
-        "1": {"topics": ["grandpa", "porn", "aging", "interracial porn"]}
+        "1": {
+          "premise": "Taken literally, barely legal porn changes meaning across eras.",
+          "joke_type": "double-meaning",
+          "topics": ["grandpa", "porn", "aging", "interracial porn"]
+        }
       }
     }
   },
@@ -32,8 +43,8 @@
     {"text": "Yeah.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 1992, "start": 4449},
     {"text": "So I walked out of that porta potty wearing only one sock.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1993, "start": 4450},
     {"text": "Yeah, yeah, because I had to wipe with the rest of my clothes.", "label": "tag", "bit": 1, "beat": 1, "line_number": 1994, "start": 4455},
-    {"text": "Y'all ever do that?", "label": "fluff", "bit": 1, "beat": 2, "line_number": 1996, "start": 4464},
-    {"text": "Y'all ever walk out of a porta potty with a sock on your dick?", "label": "tag", "bit": 1, "beat": 2, "line_number": 1997, "start": 4467},
+    {"text": "Y'all ever do that?", "label": "setup", "bit": 1, "beat": 2, "line_number": 1996, "start": 4464},
+    {"text": "Y'all ever walk out of a porta potty with a sock on your dick?", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1997, "start": 4467},
     {"text": "Oh, you thought it was on my foot? Oh, no, it was...", "label": "tag", "bit": 1, "beat": 2, "line_number": 1998, "start": 4472},
     {"text": "It was on my dick.", "label": "tag", "bit": 1, "beat": 2, "line_number": 1999, "start": 4475},
     {"text": "It's good to be here.", "label": "fluff", "bit": null, "beat": null, "line_number": 2000, "start": 4478},

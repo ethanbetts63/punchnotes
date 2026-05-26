@@ -11,11 +11,12 @@
   "start_seconds": 3901,
   "bit_meta": {
     "1": {
-      "premise": "Santa can seem more real than people because culture outlives biology.",
       "beats": {
-        "1": {"topics": ["mushrooms", "trauma", "Santa Claus"]},
-        "2": {"topics": ["Santa Claus", "existence", "psychedelics"]},
-        "3": {"topics": ["Santa Claus", "mall", "trauma"]}
+        "1": {
+          "premise": "Santa feeling real implies cultural immortality, not mall molestation.",
+          "joke_type": "misdirect",
+          "topics": ["Santa Claus", "mushrooms", "mall", "trauma"]
+        }
       }
     }
   },
@@ -24,18 +25,18 @@
     {"text": "been doing a lot of drugs and dwelling on my traumas.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1795, "start": 3903},
     {"text": "And mushrooms showed me that my biggest trauma", "label": "setup", "bit": 1, "beat": 1, "line_number": 1796, "start": 3909},
     {"text": "was learning that Santa Claus was not real.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1797, "start": 3913},
-    {"text": "But here's the thing.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1798, "start": 3917},
-    {"text": "When you think about Santa, when you're on mushrooms,", "label": "setup", "bit": 1, "beat": 2, "line_number": 1799, "start": 3918},
-    {"text": "you realize they've been talking about Santa", "label": "setup", "bit": 1, "beat": 2, "line_number": 1800, "start": 3921},
-    {"text": "for thousands of years.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1801, "start": 3923},
-    {"text": "And they're going to keep talking about Santa", "label": "setup", "bit": 1, "beat": 2, "line_number": 1802, "start": 3926},
-    {"text": "for thousands of years.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1803, "start": 3929},
-    {"text": "Yet I'm only going to live for like 80 years.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1804, "start": 3930},
-    {"text": "So in a way, isn't Santa more real than me?", "label": "setup", "bit": 1, "beat": 2, "line_number": 1805, "start": 3932},
-    {"text": "So here's my question.", "label": "setup", "bit": 1, "beat": 3, "line_number": 1806, "start": 3942},
-    {"text": "If Santa's not real, and I'm less real than Santa,", "label": "setup", "bit": 1, "beat": 3, "line_number": 1807, "start": 3945},
-    {"text": "then why did it feel real when he molested me at the mall?", "label": "punchline", "bit": 1, "beat": 3, "line_number": 1808, "start": 3951},
-    {"text": "Our traumas ground us in the physical reality.", "label": "tag", "bit": 1, "beat": 3, "line_number": 1810, "start": 3959},
+    {"text": "But here's the thing.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1798, "start": 3917},
+    {"text": "When you think about Santa, when you're on mushrooms,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1799, "start": 3918},
+    {"text": "you realize they've been talking about Santa", "label": "setup", "bit": 1, "beat": 1, "line_number": 1800, "start": 3921},
+    {"text": "for thousands of years.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1801, "start": 3923},
+    {"text": "And they're going to keep talking about Santa", "label": "setup", "bit": 1, "beat": 1, "line_number": 1802, "start": 3926},
+    {"text": "for thousands of years.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1803, "start": 3929},
+    {"text": "Yet I'm only going to live for like 80 years.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1804, "start": 3930},
+    {"text": "So in a way, isn't Santa more real than me?", "label": "setup", "bit": 1, "beat": 1, "line_number": 1805, "start": 3932},
+    {"text": "So here's my question.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1806, "start": 3942},
+    {"text": "If Santa's not real, and I'm less real than Santa,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1807, "start": 3945},
+    {"text": "then why did it feel real when he molested me at the mall?", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1808, "start": 3951},
+    {"text": "Our traumas ground us in the physical reality.", "label": "tag", "bit": 1, "beat": 1, "line_number": 1810, "start": 3959},
     {"text": "Thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 1812, "start": 3964}
   ]
 }

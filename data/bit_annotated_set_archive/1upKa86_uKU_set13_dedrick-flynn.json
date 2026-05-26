@@ -13,14 +13,46 @@
     "1": {
       "premise": "Relationships improve men by upgrading bathroom products.",
       "beats": {
-        "1": {"topics": ["relationships", "bathroom products", "attraction"]},
-        "2": {"topics": ["single men", "hygiene", "smell"]},
-        "3": {"topics": ["roommates", "body wash", "single men"]},
-        "4": {"topics": ["women's bathrooms", "shampoo", "seasoning"]},
-        "5": {"topics": ["purple shampoo", "shower products", "masturbation"]},
-        "6": {"topics": ["Taco Bell", "soda", "shower products"]},
-        "7": {"topics": ["body glitter", "Bring It On", "beauty products"]},
-        "8": {"topics": ["bath bombs", "essential oils", "being single"]}
+        "1": {
+          "premise": "Taken men look better because they borrow women's bathroom products.",
+          "joke_type": "reframe",
+          "topics": ["relationships", "bathroom products", "attraction"]
+        },
+        "2": {
+          "premise": "Single men can resemble refrigerator mold that learned misogyny.",
+          "joke_type": "what-if",
+          "topics": ["single men", "hygiene", "smell"]
+        },
+        "3": {
+          "premise": "Men's all-in-one body wash implies alcohol and criminal charges.",
+          "joke_type": "reframe",
+          "topics": ["roommates", "body wash", "single men"]
+        },
+        "4": {
+          "premise": "Women's shower products are like an overstocked seasoning cabinet.",
+          "joke_type": "analogy",
+          "topics": ["women's bathrooms", "shampoo", "seasoning"]
+        },
+        "5": {
+          "premise": "Trying every shower product can look like masturbating.",
+          "joke_type": "misdirect",
+          "topics": ["purple shampoo", "shower products", "masturbation"]
+        },
+        "6": {
+          "premise": "Mixing shower products can become a bathroom version of suicide soda.",
+          "joke_type": "reframe",
+          "topics": ["Taco Bell", "soda", "shower products"]
+        },
+        "7": {
+          "premise": "Body glitter can make a man look like a cheerleader.",
+          "joke_type": "analogy",
+          "topics": ["body glitter", "Bring It On", "beauty products"]
+        },
+        "8": {
+          "premise": "Bath bombs make being partnered more fun than being dry.",
+          "joke_type": "reframe",
+          "topics": ["bath bombs", "essential oils", "being single"]
+        }
       }
     }
   },
@@ -75,8 +107,8 @@
     {"text": "They got a gel that just got glitter on it.", "label": "setup", "bit": 1, "beat": 7, "line_number": 3446, "start": 7622},
     {"text": "Nigga, I used to look like a cheerleader from \"Bring It On,\"", "label": "punchline", "bit": 1, "beat": 7, "line_number": 3447, "start": 7624},
     {"text": "nigga. I used to look like Gabrielle Union.", "label": "tag", "bit": 1, "beat": 7, "line_number": 3448, "start": 7628},
-    {"text": "I used to put all kind of shit together,", "label": "tag", "bit": 1, "beat": 8, "line_number": 3450, "start": 7633},
-    {"text": "Just make a smorgasbord of a pretty nigga when they used to leave ice is still they bath bombs and put it in the back", "label": "tag", "bit": 1, "beat": 8, "line_number": 3451, "start": 7635},
+    {"text": "I used to put all kind of shit together,", "label": "setup", "bit": 1, "beat": 8, "line_number": 3450, "start": 7633},
+    {"text": "Just make a smorgasbord of a pretty nigga when they used to leave ice is still they bath bombs and put it in the back", "label": "setup", "bit": 1, "beat": 8, "line_number": 3451, "start": 7635},
     {"text": "You know what a bath bomb is what's a bath bomb? This nigga want to fit into?", "label": "fluff", "bit": 1, "beat": 8, "line_number": 3452, "start": 7642},
     {"text": "And it's got colors and glitter and essential oils", "label": "setup", "bit": 1, "beat": 8, "line_number": 3454, "start": 7653},
     {"text": "Nigga, that is fucking fun as fuck. I don't ever want to be single again nigga. I hate being dry", "label": "punchline", "bit": 1, "beat": 8, "line_number": 3455, "start": 7657},

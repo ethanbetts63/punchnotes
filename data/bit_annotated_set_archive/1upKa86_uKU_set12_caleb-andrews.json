@@ -11,28 +11,45 @@
   "start_seconds": 6525,
   "bit_meta": {
     "1": {
-      "premise": "A disappointing upbringing prepares for audience silence.",
       "beats": {
-        "1": {"topics": ["Mississippi", "single mothers", "disappointment"]}
+        "1": {
+          "premise": "A disappointing upbringing prepares for audience silence.",
+          "joke_type": "reframe",
+          "topics": ["Mississippi", "single mothers", "disappointment"]
+        }
       }
     },
     "2": {
-      "premise": "Loan denials feel humbling when applicants own nicer trucks.",
       "beats": {
-        "1": {"topics": ["banking", "loans", "trucks"]}
+        "1": {
+          "premise": "Loan denials feel humbling when applicants own nicer trucks.",
+          "joke_type": "reframe",
+          "topics": ["banking", "loans", "trucks"]
+        }
       }
     },
     "3": {
-      "premise": "In a small town, a grandmother's reputation can matter as much as a credit score.",
       "beats": {
-        "1": {"topics": ["small towns", "credit scores", "grandmothers"]}
+        "1": {
+          "premise": "Small-town grandmothers can matter as much as credit scores.",
+          "joke_type": "reframe",
+          "topics": ["small towns", "credit scores", "grandmothers"]
+        }
       }
     },
     "4": {
       "premise": "Golf and marriage are expensive commitments to being bad at something.",
       "beats": {
-        "1": {"topics": ["marriage", "bachelor trips", "golf"]},
-        "2": {"topics": ["marriage", "golf", "money"]}
+        "1": {
+          "premise": "Golf celebrates love by making people silently hate themselves.",
+          "joke_type": "reframe",
+          "topics": ["marriage", "bachelor trips", "golf"]
+        },
+        "2": {
+          "premise": "Golf prepares for marriage by making failure expensive and repeatable.",
+          "joke_type": "analogy",
+          "topics": ["marriage", "golf", "money"]
+        }
       }
     }
   },

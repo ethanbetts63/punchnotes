@@ -13,10 +13,26 @@
     "1": {
       "premise": "A long-term expat returns to America and discovers a series of everyday words that have become forbidden, each with absurd consequences.",
       "beats": {
-        "1": {"topics": ["homelessness", "political correctness", "language policing"]},
-        "2": {"topics": ["political correctness", "Democrats", "disability"]},
-        "3": {"topics": ["cars", "transgender", "political correctness", "homophobia"]},
-        "4": {"topics": ["political correctness", "slurs", "language policing"]}
+        "1": {
+          "premise": "Asking preferred homelessness terminology implies sensitivity, not triggering paranoid violence.",
+          "joke_type": "misdirect",
+          "topics": ["homelessness", "political correctness", "language policing"]
+        },
+        "2": {
+          "premise": "A political label can be treated as a replacement disability slur.",
+          "joke_type": "reframe",
+          "topics": ["political correctness", "Democrats", "disability"]
+        },
+        "3": {
+          "premise": "Taken literally, 'blew a tranny' can mean a damaged transmission.",
+          "joke_type": "double-meaning",
+          "topics": ["cars", "transgender", "political correctness", "homophobia"]
+        },
+        "4": {
+          "premise": "Taken literally, a slur can mean a bundle of sticks.",
+          "joke_type": "double-meaning",
+          "topics": ["political correctness", "slurs", "language policing"]
+        }
       }
     }
   },

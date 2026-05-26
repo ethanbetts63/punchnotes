@@ -13,9 +13,26 @@
     "1": {
       "premise": "Single parents must perform the absent parent's racial stereotypes.",
       "beats": {
-        "1": {"topics": ["Mexican identity", "mixed race", "absent fathers"]},
-        "2": {"topics": ["single mothers", "Mexican dads", "labor", "baseball"]},
-        "3": {"topics": ["mixed race", "Black moms", "white dads"]}
+        "1": {
+          "premise": "A missing father can stand in for Mexican identity.",
+          "joke_type": "reframe",
+          "topics": ["Mexican identity", "mixed race", "absent fathers"]
+        },
+        "2": {
+          "premise": "A Mexican dad at baseball practice is expected to maintain the field.",
+          "joke_type": "reframe",
+          "topics": ["single mothers", "Mexican dads", "labor", "baseball"]
+        },
+        "3": {
+          "premise": "Taken literally, putting a roof over a child means building it.",
+          "joke_type": "double-meaning",
+          "topics": ["single mothers", "Mexican dads", "roofing"]
+        },
+        "4": {
+          "premise": "A Black mother acting as a white dad would use corny white catchphrases.",
+          "joke_type": "reframe",
+          "topics": ["mixed race", "Black moms", "white dads"]
+        }
       }
     }
   },
@@ -36,13 +53,13 @@
     {"text": "Do you know how hard that is?", "label": "setup", "bit": 1, "beat": 2, "line_number": 1447, "start": 3278},
     {"text": "My mom had to take me to baseball practice", "label": "setup", "bit": 1, "beat": 2, "line_number": 1448, "start": 3280},
     {"text": "and then she had to mow the outfield afterwards, okay?", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1449, "start": 3282},
-    {"text": "I'm serious, my mom had to put a roof over my head, literally.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1450, "start": 3284},
-    {"text": "She built it, she shingled it, okay?", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1451, "start": 3289},
-    {"text": "My mom had to build a table so she could get paid underneath it, okay?", "label": "tag", "bit": 1, "beat": 2, "line_number": 1452, "start": 3291},
-    {"text": "Alright, and I think if it was like that for me growing up, that means it's like that for", "label": "setup", "bit": 1, "beat": 3, "line_number": 1453, "start": 3295},
-    {"text": "other kids who also have mixed-race parents but only have one parent in the house, right?", "label": "setup", "bit": 1, "beat": 3, "line_number": 1454, "start": 3300},
-    {"text": "So that means that somewhere out there, there is a black mom who has to be a white dad.", "label": "setup", "bit": 1, "beat": 3, "line_number": 1455, "start": 3305},
-    {"text": "And every day she has to go up to her kid and go,", "label": "setup", "bit": 1, "beat": 3, "line_number": 1457, "start": 3316},
-    {"text": "\"Hey, you ready, Freddy?\"", "label": "punchline", "bit": 1, "beat": 3, "line_number": 1459, "start": 3321}
+    {"text": "I'm serious, my mom had to put a roof over my head, literally.", "label": "setup", "bit": 1, "beat": 3, "line_number": 1450, "start": 3284},
+    {"text": "She built it, she shingled it, okay?", "label": "punchline", "bit": 1, "beat": 3, "line_number": 1451, "start": 3289},
+    {"text": "My mom had to build a table so she could get paid underneath it, okay?", "label": "tag", "bit": 1, "beat": 3, "line_number": 1452, "start": 3291},
+    {"text": "Alright, and I think if it was like that for me growing up, that means it's like that for", "label": "setup", "bit": 1, "beat": 4, "line_number": 1453, "start": 3295},
+    {"text": "other kids who also have mixed-race parents but only have one parent in the house, right?", "label": "setup", "bit": 1, "beat": 4, "line_number": 1454, "start": 3300},
+    {"text": "So that means that somewhere out there, there is a black mom who has to be a white dad.", "label": "setup", "bit": 1, "beat": 4, "line_number": 1455, "start": 3305},
+    {"text": "And every day she has to go up to her kid and go,", "label": "setup", "bit": 1, "beat": 4, "line_number": 1457, "start": 3316},
+    {"text": "\"Hey, you ready, Freddy?\"", "label": "punchline", "bit": 1, "beat": 4, "line_number": 1459, "start": 3321}
   ]
 }

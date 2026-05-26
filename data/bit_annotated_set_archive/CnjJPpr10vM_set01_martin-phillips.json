@@ -11,21 +11,30 @@
   "start_seconds": 387,
   "bit_meta": {
     "1": {
-      "premise": "Human trafficking sounds worse if regular traffic is miserable.",
       "beats": {
-        "1": {"topics": ["human trafficking", "traffic"]}
+        "1": {
+          "premise": "Taken literally, human trafficking includes regular traffic.",
+          "joke_type": "double-meaning",
+          "topics": ["human trafficking", "traffic"]
+        }
       }
     },
     "2": {
-      "premise": "Tight clothes can fake muscles.",
       "beats": {
-        "1": {"topics": ["women's clothes", "body image", "dresses"]}
+        "1": {
+          "premise": "Tight dresses can make a body look muscular.",
+          "joke_type": "reframe",
+          "topics": ["women's clothes", "body image", "dresses"]
+        }
       }
     },
     "3": {
-      "premise": "Making room for Jesus can imply a threesome.",
       "beats": {
-        "1": {"topics": ["school", "Jesus", "sex"]}
+        "1": {
+          "premise": "What if Jesus joined the sex he is supposed to prevent.",
+          "joke_type": "what-if",
+          "topics": ["school", "Jesus", "sex"]
+        }
       }
     }
   },

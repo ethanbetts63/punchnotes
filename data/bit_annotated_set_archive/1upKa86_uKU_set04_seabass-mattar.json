@@ -12,7 +12,7 @@
   "bit_meta": {
     "1": {
       "beats": {
-        "1": {"premise": "Baldness signals the kind of defeated domesticity associated with stepdads.", "joke_type": "visual", "topics": ["gratitude", "hair loss", "stepdads"]}
+        "1": {"premise": "Baldness is like the defeated domesticity associated with stepdads.", "joke_type": "analogy", "topics": ["gratitude", "hair loss", "stepdads"]}
       }
     },
     "2": {

@@ -11,22 +11,36 @@
   "start_seconds": 5639,
   "bit_meta": {
     "1": {
-      "premise": "Sandwich requests seem minor compared with barbecue.",
       "beats": {
-        "1": {"topics": ["women", "sandwiches", "barbecue"]}
+        "1": {
+          "premise": "Making sandwiches seems easy compared with smoking brisket.",
+          "joke_type": "reframe",
+          "topics": ["women", "sandwiches", "barbecue"]
+        }
       }
     },
     "2": {
-      "premise": "Lice can become racial-purity parasites.",
       "beats": {
-        "1": {"topics": ["lice", "parasites", "race"]}
+        "1": {
+          "premise": "Lice avoiding Black people implies racial purity, not biology.",
+          "joke_type": "reframe",
+          "topics": ["lice", "parasites", "race"]
+        }
       }
     },
     "3": {
       "premise": "Beautiful low-crime wine country can imply racist exclusion.",
       "beats": {
-        "1": {"topics": ["Napa", "wine country", "racism"]},
-        "2": {"topics": ["Napa", "Mexican workers", "grapes"]}
+        "1": {
+          "premise": "Taken as an acronym, Napa can mean racial exclusion.",
+          "joke_type": "double-meaning",
+          "topics": ["Napa", "wine country", "racism"]
+        },
+        "2": {
+          "premise": "Allowing Mexican residents implies labor exploitation, not inclusion.",
+          "joke_type": "misdirect",
+          "topics": ["Napa", "Mexican workers", "grapes"]
+        }
       }
     }
   },

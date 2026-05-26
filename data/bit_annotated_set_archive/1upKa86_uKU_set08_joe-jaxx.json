@@ -13,9 +13,16 @@
     "1": {
       "premise": "Forrest Gump's innocence would misread racist and violent history.",
       "beats": {
-        "1": {"topics": ["Forrest Gump", "movies", "racism"]},
-        "2": {"topics": ["Forrest Gump", "KKK", "racism"]},
-        "3": {"topics": ["Forrest Gump", "Vietnam", "torture"]}
+        "1": {
+          "premise": "Forrest Gump would mistake a KKK rally for ghosts and heat.",
+          "joke_type": "what-if",
+          "topics": ["Forrest Gump", "KKK", "racism"]
+        },
+        "2": {
+          "premise": "Forrest Gump would mistake waterboarding for helping thirsty people.",
+          "joke_type": "what-if",
+          "topics": ["Forrest Gump", "Vietnam", "torture"]
+        }
       }
     }
   },
@@ -32,15 +39,15 @@
     {"text": "I thought it would be really funny if Forrest Gump was", "label": "setup", "bit": 1, "beat": 1, "line_number": 2058, "start": 4558},
     {"text": "involved with a bunch of really racist shit and had no idea.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2059, "start": 4560},
     {"text": "You know?", "label": "fluff", "bit": 1, "beat": 1, "line_number": 2060, "start": 4563},
-    {"text": "It's like, I went to the woods with my new friends.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2061, "start": 4564},
-    {"text": "All of a sudden, we was dressed as ghosts.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2062, "start": 4568},
-    {"text": "They started burning a big tea,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2064, "start": 4576},
-    {"text": "and I left 'cause I got hot.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2065, "start": 4577},
-    {"text": "It's fucking Vietnam.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2067, "start": 4585},
-    {"text": "Lieutenant Dan's just like waterboarding", "label": "setup", "bit": 1, "beat": 3, "line_number": 2068, "start": 4587},
-    {"text": "Vietnamese villagers.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2069, "start": 4588},
-    {"text": "Forest in the corner like,", "label": "setup", "bit": 1, "beat": 3, "line_number": 2070, "start": 4591},
-    {"text": "\"I guess they was thirsty.\"", "label": "punchline", "bit": 1, "beat": 3, "line_number": 2071, "start": 4592},
-    {"text": "Mama said, \"Bubba wasn't.\"", "label": "tag", "bit": 1, "beat": 3, "line_number": 2073, "start": 4597}
+    {"text": "It's like, I went to the woods with my new friends.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2061, "start": 4564},
+    {"text": "All of a sudden, we was dressed as ghosts.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2062, "start": 4568},
+    {"text": "They started burning a big tea,", "label": "setup", "bit": 1, "beat": 1, "line_number": 2064, "start": 4576},
+    {"text": "and I left 'cause I got hot.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2065, "start": 4577},
+    {"text": "It's fucking Vietnam.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2067, "start": 4585},
+    {"text": "Lieutenant Dan's just like waterboarding", "label": "setup", "bit": 1, "beat": 2, "line_number": 2068, "start": 4587},
+    {"text": "Vietnamese villagers.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2069, "start": 4588},
+    {"text": "Forest in the corner like,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2070, "start": 4591},
+    {"text": "\"I guess they was thirsty.\"", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2071, "start": 4592},
+    {"text": "Mama said, \"Bubba wasn't.\"", "label": "tag", "bit": 1, "beat": 2, "line_number": 2073, "start": 4597}
   ]
 }

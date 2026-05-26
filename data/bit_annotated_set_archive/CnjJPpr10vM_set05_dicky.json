@@ -11,15 +11,21 @@
   "start_seconds": 2425,
   "bit_meta": {
     "1": {
-      "premise": "Hims sounds like hymns, making men's health seem Mormon.",
       "beats": {
-        "1": {"topics": ["Mormons", "Hims", "erectile dysfunction", "hymns"]}
+        "1": {
+          "premise": "'Hims' and 'hymns' sound alike, and hymns independently fit Mormons.",
+          "joke_type": "phonetic-match",
+          "topics": ["Mormons", "Hims", "erectile dysfunction", "hymns"]
+        }
       }
     },
     "2": {
-      "premise": "Aging makes acid ambiguous between drugs and reflux.",
       "beats": {
-        "1": {"topics": ["aging", "sobriety", "acid", "acid reflux"]}
+        "1": {
+          "premise": "Taken literally, having acid has two meanings.",
+          "joke_type": "double-meaning",
+          "topics": ["aging", "sobriety", "acid", "acid reflux"]
+        }
       }
     }
   },

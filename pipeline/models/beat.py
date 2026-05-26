@@ -8,8 +8,9 @@ class Beat(models.Model):
         ('phonetic-match', 'Phonetic match'),
         ('double-meaning', 'Double-meaning'),
         ('what-if', 'What-if'),
+        ('analogy', 'Analogy'),
         ('elephant-in-the-room', 'Elephant-in-the-room'),
-        ('visual', 'Visual'),
+        ('prop', 'Prop'),
     ]
     bit = models.ForeignKey('pipeline.Bit', on_delete=models.CASCADE, related_name='beats')
     beat_id = models.CharField(max_length=50)

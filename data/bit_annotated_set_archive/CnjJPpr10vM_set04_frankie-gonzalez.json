@@ -13,20 +13,34 @@
     "1": {
       "premise": "Gay denial can survive both violence and orgasm.",
       "beats": {
-        "1": {"topics": ["family", "coming out", "homophobia"]},
-        "2": {"topics": ["sexuality", "roommates", "denial"]}
+        "1": {
+          "premise": "Taken literally, coming out of the closet has two meanings.",
+          "joke_type": "double-meaning",
+          "topics": ["family", "coming out", "homophobia"]
+        },
+        "2": {
+          "premise": "Feeling nothing after kissing a man implies no attraction, not post-orgasm emptiness.",
+          "joke_type": "misdirect",
+          "topics": ["sexuality", "roommates", "denial"]
+        }
       }
     },
     "2": {
-      "premise": "Acid can turn a Black hiking photo into Bigfoot evidence.",
       "beats": {
-        "1": {"topics": ["acid", "hiking", "Bigfoot", "Black friends"]}
+        "1": {
+          "premise": "Acid can turn a Black hiking photo into Bigfoot evidence.",
+          "joke_type": "reframe",
+          "topics": ["acid", "hiking", "Bigfoot", "Black friends"]
+        }
       }
     },
     "3": {
-      "premise": "A DoorDash notification can sound like terrorist orders on acid.",
       "beats": {
-        "1": {"topics": ["acid", "DoorDash", "9/11", "terrorism"]}
+        "1": {
+          "premise": "Taken literally, DoorDash orders can sound like terrorist commands.",
+          "joke_type": "double-meaning",
+          "topics": ["acid", "DoorDash", "9/11", "terrorism"]
+        }
       }
     }
   },

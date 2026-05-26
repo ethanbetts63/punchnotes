@@ -13,15 +13,25 @@
     "1": {
       "premise": "Racism can mean loyalty to the human race.",
       "beats": {
-        "1": {"topics": ["racism", "AI", "robots", "human race"]},
-        "2": {"topics": ["robots", "meth", "wired beings"]}
+        "1": {
+          "premise": "Taken literally, racism can mean loyalty to the human race.",
+          "joke_type": "double-meaning",
+          "topics": ["racism", "AI", "robots", "human race"]
+        },
+        "2": {
+          "premise": "Taken literally, wired beings can mean robots or meth users.",
+          "joke_type": "double-meaning",
+          "topics": ["robots", "meth", "wired beings"]
+        }
       }
     },
     "2": {
-      "premise": "Legal weed erases prohibition-era weed rituals.",
       "beats": {
-        "1": {"topics": ["marijuana legalization", "prohibition", "generations"]},
-        "2": {"topics": ["brick weed", "seeds", "resin", "dealers"]}
+        "1": {
+          "premise": "Legal weed erases the hardship rituals of illegal buying.",
+          "joke_type": "reframe",
+          "topics": ["marijuana legalization", "brick weed", "resin", "dealers"]
+        }
       }
     }
   },
@@ -39,12 +49,12 @@
     {"text": "and I've got one problem with that.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2721, "start": 6056},
     {"text": "This new generation will never understand the prohibition.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2722, "start": 6059},
     {"text": "They will never remember peeling apart Mexican brick weed.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2723, "start": 6063},
-    {"text": "They won't know the frustration of sifting seeds", "label": "setup", "bit": 2, "beat": 2, "line_number": 2725, "start": 6068},
-    {"text": "for five minutes to roll a joint.", "label": "setup", "bit": 2, "beat": 2, "line_number": 2726, "start": 6071},
-    {"text": "They won't even know what it tastes like", "label": "setup", "bit": 2, "beat": 2, "line_number": 2727, "start": 6074},
-    {"text": "to smoke the resin out of your bong,", "label": "setup", "bit": 2, "beat": 2, "line_number": 2728, "start": 6076},
-    {"text": "'cause that asshole won't answer his phone.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 2729, "start": 6078},
-    {"text": "Other than that, I'm okay with it.", "label": "tag", "bit": 2, "beat": 2, "line_number": 2730, "start": 6082},
+    {"text": "They won't know the frustration of sifting seeds", "label": "setup", "bit": 2, "beat": 1, "line_number": 2725, "start": 6068},
+    {"text": "for five minutes to roll a joint.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2726, "start": 6071},
+    {"text": "They won't even know what it tastes like", "label": "setup", "bit": 2, "beat": 1, "line_number": 2727, "start": 6074},
+    {"text": "to smoke the resin out of your bong,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2728, "start": 6076},
+    {"text": "'cause that asshole won't answer his phone.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2729, "start": 6078},
+    {"text": "Other than that, I'm okay with it.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2730, "start": 6082},
     {"text": "That's my time.", "label": "fluff", "bit": null, "beat": null, "line_number": 2731, "start": 6084}
   ]
 }

@@ -11,11 +11,23 @@
   "start_seconds": 2586,
   "bit_meta": {
     "1": {
-      "premise": "A Boston accent is only detectable in aggressive or obscene phrases, making it incompatible with sex appeal no matter the context.",
+      "premise": "A Boston accent turns sexual talk into aggressive local parody.",
       "beats": {
-        "1": {"topics": ["Boston accent", "regional dialect", "aggression"]},
-        "2": {"topics": ["Boston accent", "sex", "rap lyrics", "Cardi B"]},
-        "3": {"topics": ["Boston accent", "sex", "Mark Wahlberg", "fleshlight"]}
+        "1": {
+          "premise": "Accent examples imply regional words, not obscene threats.",
+          "joke_type": "misdirect",
+          "topics": ["Boston accent", "regional dialect", "aggression"]
+        },
+        "2": {
+          "premise": "Boston bedroom talk is like rap lyrics because both become explicit commands.",
+          "joke_type": "analogy",
+          "topics": ["Boston accent", "sex", "rap lyrics", "Cardi B"]
+        },
+        "3": {
+          "premise": "A Boston accent during sex is like Mark Wahlberg dubbing the moment.",
+          "joke_type": "analogy",
+          "topics": ["Boston accent", "sex", "Mark Wahlberg", "fleshlight"]
+        }
       }
     }
   },

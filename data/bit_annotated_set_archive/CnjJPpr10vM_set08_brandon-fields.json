@@ -11,35 +11,47 @@
   "start_seconds": 3857,
   "bit_meta": {
     "1": {
-      "premise": "Performing high turns weed into a live warning.",
       "beats": {
-        "1": {"topics": ["weed", "being high", "performing"]}
+        "1": {
+          "premise": "Being visibly high during a set proves the anti-weed warning.",
+          "joke_type": "reframe",
+          "topics": ["weed", "being high", "performing"]
+        }
       }
     },
     "2": {
-      "premise": "Phone choice can outrank race as social judgment.",
       "beats": {
-        "1": {"topics": ["Black identity", "white names", "Android", "iPhone"]}
+        "1": {
+          "premise": "Phone choice can draw harsher judgment than race.",
+          "joke_type": "reframe",
+          "topics": ["Black identity", "white names", "Android", "iPhone"]
+        }
       }
     },
     "3": {
-      "premise": "Knowing how to swim reads as white.",
       "beats": {
-        "1": {"topics": ["white names", "swimming", "race"]}
+        "1": {
+          "premise": "Knowing how to swim is racially coded as white.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["white names", "swimming", "race"]
+        }
       }
     },
     "4": {
-      "premise": "An ankle monitor makes house arrest visible.",
       "beats": {
-        "1": {"topics": ["house arrest", "ankle monitors", "previous performers"]}
+        "1": {
+          "premise": "An ankle monitor proves house arrest was literal.",
+          "joke_type": "reframe",
+          "topics": ["house arrest", "ankle monitors", "previous performers"]
+        }
       }
     }
   },
   "lines": [
     {"text": "Oh, my God.", "label": "fluff", "bit": null, "beat": null, "line_number": 1697, "start": 3857},
-    {"text": "I am high as alien pussy right now.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1698, "start": 3859},
-    {"text": "Don't smoke weed before you do this.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1700, "start": 3863},
-    {"text": "I'm telling you, it's not a good thing.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1701, "start": 3865},
+    {"text": "I am high as alien pussy right now.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1698, "start": 3859},
+    {"text": "Don't smoke weed before you do this.", "label": "tag", "bit": 1, "beat": 1, "line_number": 1700, "start": 3863},
+    {"text": "I'm telling you, it's not a good thing.", "label": "tag", "bit": 1, "beat": 1, "line_number": 1701, "start": 3865},
     {"text": "Anyway, my name is Brandon.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 1702, "start": 3867},
     {"text": "Yeah, I'm a black guy with a white name, so, I mean.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1703, "start": 3870},
     {"text": "Believe it or not, I get judged more about what kind of phone I have", "label": "setup", "bit": 2, "beat": 1, "line_number": 1704, "start": 3873},

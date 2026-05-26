@@ -11,16 +11,27 @@
   "start_seconds": 1790,
   "bit_meta": {
     "1": {
-      "premise": "Accusations of racism are deflected by attributing the real racism to elephants, who exclusively trample people who aren't paying attention.",
+      "premise": "Elephants are blamed for racially selective deaths.",
       "beats": {
-        "1": {"topics": ["race", "elephants", "Africa"]},
-        "2": {"topics": ["elephants", "race", "attention"]}
+        "1": {
+          "premise": "Elephants killing only nonwhite people would make elephants racist.",
+          "joke_type": "reframe",
+          "topics": ["race", "elephants", "Africa"]
+        },
+        "2": {
+          "premise": "Being killed by an elephant implies impossible inattentiveness.",
+          "joke_type": "reframe",
+          "topics": ["elephants", "race", "attention"]
+        }
       }
     },
     "2": {
-      "premise": "Dying by elephant trampling is darkly absurd because instead of a peaceful deathbed scene, the priest takes predatory advantage of the moment.",
       "beats": {
-        "1": {"topics": ["death", "priests", "sexual abuse", "elephants"]}
+        "1": {
+          "premise": "Priest abuse at deathbeds is a taboo fear rarely said aloud.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["death", "priests", "sexual abuse", "elephants"]
+        }
       }
     }
   },

@@ -11,70 +11,159 @@
   "start_seconds": 7647,
   "bit_meta": {
     "1": {
-      "premise": "A Jackass-style stage persona can become a crude ass pun.",
       "beats": {
-        "1": {"topics": ["stage name", "Jackass parody", "wordplay"]}
+        "1": {
+          "premise": "Taken literally, a Jackass-style name can become a crude ass pun.",
+          "joke_type": "double-meaning",
+          "topics": ["stage name", "Jackass parody", "wordplay"]
+        }
       }
     },
     "2": {
       "premise": "A bad comedy set can be turned into a punishment stunt with a shock collar.",
       "beats": {
-        "1": {"topics": ["shock collar", "bombing", "audience participation", "stunts"]},
-        "2": {"topics": ["dog collar", "lesbians", "shock collar"]}
+        "1": {
+          "premise": "A shock collar can turn bombing into a self-punishing stunt.",
+          "joke_type": "prop",
+          "topics": ["shock collar", "bombing", "audience participation", "stunts"]
+        },
+        "2": {
+          "premise": "A dog collar implies handing control to someone stereotyped as doglike.",
+          "joke_type": "reframe",
+          "topics": ["dog collar", "lesbians", "shock collar"]
+        }
       }
     },
     "3": {
       "premise": "Praise for women's sports can be undercut by sexist stereotypes.",
       "beats": {
-        "1": {"topics": ["Olympics", "Lindsey Vonn", "skiing", "sexism"]},
-        "2": {"topics": ["women's sports", "Olympics", "television"]},
-        "3": {"topics": ["women's hockey", "gold medal", "cocaine", "lesbians"]},
-        "4": {"topics": ["WNBA", "basketball", "dunking", "women's sports"]}
+        "1": {
+          "premise": "A female skier's injury implies athletic danger, not sexist domestic safety.",
+          "joke_type": "misdirect",
+          "topics": ["Olympics", "Lindsey Vonn", "skiing", "sexism"]
+        },
+        "2": {
+          "premise": "Praising women's sports only every four years disguises dismissiveness as support.",
+          "joke_type": "misdirect",
+          "topics": ["women's sports", "Olympics", "television"]
+        },
+        "3": {
+          "premise": "White women on ice implies sports achievement, not cocaine.",
+          "joke_type": "misdirect",
+          "topics": ["women's hockey", "gold medal", "cocaine", "lesbians"]
+        },
+        "4": {
+          "premise": "Criticizing the WNBA for missed dunks masks a cruder insult.",
+          "joke_type": "misdirect",
+          "topics": ["WNBA", "basketball", "dunking", "women's sports"]
+        }
       }
     },
     "4": {
-      "premise": "A forehead feature can look like a penis.",
       "beats": {
-        "1": {"topics": ["crowd work", "visual roast", "forehead", "penis"]}
+        "1": {
+          "premise": "A forehead feature can look like a penis.",
+          "joke_type": "analogy",
+          "topics": ["crowd work", "appearance roast", "forehead", "penis"]
+        }
       }
     },
     "5": {
       "premise": "Giving someone a shock-collar remote can look like long-awaited control over men.",
       "beats": {
-        "1": {"topics": ["shock collar", "control", "gender resentment"]},
-        "2": {"topics": ["blue-haired women", "shock collar", "power", "men"]}
+        "1": {
+          "premise": "A woman enjoying a shock remote reveals long-withheld control over men.",
+          "joke_type": "reframe",
+          "topics": ["shock collar", "control", "gender resentment"]
+        },
+        "2": {
+          "premise": "Blue-haired women could be placated by temporary power over men.",
+          "joke_type": "what-if",
+          "topics": ["blue-haired women", "shock collar", "power", "men"]
+        }
       }
     },
     "6": {
-      "premise": "Playing copyrighted music as a stunt can threaten an episode's monetization.",
       "beats": {
-        "1": {"topics": ["copyright", "Limp Bizkit", "demonetization", "stunts"]}
+        "1": {
+          "premise": "Playing copyrighted music can turn a stunt into demonetization.",
+          "joke_type": "prop",
+          "topics": ["copyright", "Limp Bizkit", "demonetization", "stunts"]
+        }
       }
     },
     "7": {
       "premise": "A self-imposed shock-collar stunt becomes terrifying when the setting gets turned too high.",
       "beats": {
-        "1": {"topics": ["shock collar", "pain", "stunt escalation"]},
-        "2": {"topics": ["shock collar", "loss of control", "fear"]}
+        "1": {
+          "premise": "A shock-collar stunt stops being funny when the voltage gets raised.",
+          "joke_type": "prop",
+          "topics": ["shock collar", "pain", "stunt escalation"]
+        },
+        "2": {
+          "premise": "Promising safety collapses when a stranger controls the shock collar.",
+          "joke_type": "misdirect",
+          "topics": ["shock collar", "loss of control", "fear"]
+        }
       }
     },
     "8": {
       "premise": "A gross-out taste test can escalate by presenting animal semen as a real drink.",
       "beats": {
-        "1": {"topics": ["taste test", "horse semen", "gross-out", "stunts"]},
-        "2": {"topics": ["horse semen", "pubic hair", "gross-out"]}
+        "1": {
+          "premise": "A taste-test cup can reveal real animal semen as the punishment.",
+          "joke_type": "prop",
+          "topics": ["taste test", "horse semen", "gross-out", "stunts"]
+        },
+        "2": {
+          "premise": "A pubic hair makes the disgusting drink more physically credible.",
+          "joke_type": "prop",
+          "topics": ["horse semen", "pubic hair", "gross-out"]
+        }
       }
     },
     "9": {
-      "premise": "Threatening to remove a penis also threatens its future sexual usefulness.",
       "beats": {
-        "1": {"topics": ["threats", "genital injury", "gay men", "crowd work"]}
+        "1": {
+          "premise": "Threatening to remove a penis also threatens its future sexual usefulness.",
+          "joke_type": "reframe",
+          "topics": ["threats", "genital injury", "gay men", "crowd work"]
+        }
       }
     },
     "10": {
       "premise": "Trivia penalties can be made absurd by combining basic questions with disgusting drinks.",
       "beats": {
-        "1": {"topics": ["trivia", "tap water", "horse semen", "penalties"]}
+        "1": {
+          "premise": "Trivia makes tap water seem like the punishment beside horse semen.",
+          "joke_type": "prop",
+          "topics": ["trivia", "tap water", "horse semen", "penalties"]
+        },
+        "2": {
+          "premise": "A guest's presence makes resisting horse semen seem impossible.",
+          "joke_type": "reframe",
+          "topics": ["horse semen", "Heidi", "temptation"]
+        },
+        "3": {
+          "premise": "A fake brand quiz treats tap water like a real sponsor product.",
+          "joke_type": "reframe",
+          "topics": ["tap water", "brand quiz", "Steve-O"]
+        },
+        "4": {
+          "premise": "Tap water can be framed as containing every possible contaminant.",
+          "joke_type": "reframe",
+          "topics": ["tap water", "contaminants", "trivia"]
+        },
+        "5": {
+          "premise": "A water source question can make Flint the least absurd answer.",
+          "joke_type": "reframe",
+          "topics": ["tap water", "Flint", "Redban"]
+        },
+        "6": {
+          "premise": "An Epstein trivia question turns a game-show bit into an exit.",
+          "joke_type": "misdirect",
+          "topics": ["Epstein", "private jets", "exit"]
+        }
       }
     }
   },
@@ -232,13 +321,41 @@
     {"text": "If you get the question wrong,", "label": "setup", "bit": 10, "beat": 1, "line_number": 3513, "start": 8142},
     {"text": "and these are fifth grade level questions,", "label": "setup", "bit": 10, "beat": 1, "line_number": 3514, "start": 8145},
     {"text": "you have to take a sip of Tones tap water.", "label": "setup", "bit": 10, "beat": 1, "line_number": 3515, "start": 8147},
-    {"text": "Tone, you have to continue to not drink the horse gum", "label": "setup", "bit": 10, "beat": 1, "line_number": 3516, "start": 8151},
+    {"text": "Tone, you have to continue to not drink the horse cum", "label": "setup", "bit": 10, "beat": 1, "line_number": 3516, "start": 8151},
     {"text": "if you get it wrong. - Okay.", "label": "punchline", "bit": 10, "beat": 1, "line_number": 3517, "start": 8154},
     {"text": "- But we're gonna up the stakes.", "label": "fluff", "bit": null, "beat": null, "line_number": 3518, "start": 8156},
     {"text": "Heidi.", "label": "fluff", "bit": null, "beat": null, "line_number": 3519, "start": 8157},
     {"text": "Give it up for Heidi, everybody.", "label": "fluff", "bit": null, "beat": null, "line_number": 3521, "start": 8162},
     {"text": "- That's--all right.", "label": "fluff", "bit": null, "beat": null, "line_number": 3522, "start": 8163},
+    {"text": "There's no way Tone is going to be able to resist that horse cum now.", "label": "setup", "bit": 10, "beat": 2, "line_number": 3523, "start": 8165},
+    {"text": "I know he's gonna reach over and do it.", "label": "punchline", "bit": 10, "beat": 2, "line_number": 3524, "start": 8169},
+    {"text": "Wait a second.", "label": "tag", "bit": 10, "beat": 2, "line_number": 3525, "start": 8171},
     {"text": "First, shut the fuck up Tone. I'm moving on to the questions, okay?", "label": "fluff", "bit": null, "beat": null, "line_number": 3526, "start": 8172},
-    {"text": "All right.", "label": "fluff", "bit": null, "beat": null, "line_number": 3527, "start": 8175}
+    {"text": "All right.", "label": "fluff", "bit": null, "beat": null, "line_number": 3527, "start": 8175},
+    {"text": "Steve-O, let's start with you.", "label": "setup", "bit": 10, "beat": 3, "line_number": 3528, "start": 8176},
+    {"text": "Tone's tap water was created by A, Tone Hinge Cliff,", "label": "setup", "bit": 10, "beat": 3, "line_number": 3529, "start": 8178},
+    {"text": "B, Tone the Tiger, or C, Liquid Death.", "label": "setup", "bit": 10, "beat": 3, "line_number": 3530, "start": 8183},
+    {"text": "I'm gonna go with A.", "label": "fluff", "bit": 10, "beat": 3, "line_number": 3531, "start": 8190},
+    {"text": "You do not have to drink that water.", "label": "punchline", "bit": 10, "beat": 3, "line_number": 3532, "start": 8191},
+    {"text": "Um, next question is for you, Tim.", "label": "setup", "bit": 10, "beat": 4, "line_number": 3533, "start": 8194},
+    {"text": "In a 2025 double-blind peer-reviewed study", "label": "setup", "bit": 10, "beat": 4, "line_number": 3534, "start": 8198},
+    {"text": "conducted by independent researchers,", "label": "setup", "bit": 10, "beat": 4, "line_number": 3535, "start": 8201},
+    {"text": "what was found in Tohms tap water?", "label": "setup", "bit": 10, "beat": 4, "line_number": 3536, "start": 8204},
+    {"text": "Was it A, mercury, B, lead, C, arsenic,", "label": "setup", "bit": 10, "beat": 4, "line_number": 3537, "start": 8206},
+    {"text": "B, Teflon, E, Zyklon B, F, zyrtec, G, MSG,", "label": "setup", "bit": 10, "beat": 4, "line_number": 3538, "start": 8210},
+    {"text": "H, bluechew, I, horse cum, or J, all the above?", "label": "punchline", "bit": 10, "beat": 4, "line_number": 3539, "start": 8216},
+    {"text": "-Cheers! Cheers!", "label": "fluff", "bit": 10, "beat": 4, "line_number": 3541, "start": 8224},
+    {"text": "Cheers!", "label": "fluff", "bit": 10, "beat": 4, "line_number": 3542, "start": 8226},
+    {"text": "-J, all of the above. -Nailed it.", "label": "tag", "bit": 10, "beat": 4, "line_number": 3544, "start": 8230},
+    {"text": "And you didn't have to drink that fucking piece of shit.", "label": "tag", "bit": 10, "beat": 4, "line_number": 3545, "start": 8232},
+    {"text": "Okay. Red band for you.", "label": "setup", "bit": 10, "beat": 5, "line_number": 3546, "start": 8235},
+    {"text": "Where is Tones tap water sourced?", "label": "setup", "bit": 10, "beat": 5, "line_number": 3547, "start": 8239},
+    {"text": "Is it A, Flint, Michigan, or...", "label": "setup", "bit": 10, "beat": 5, "line_number": 3548, "start": 8241},
+    {"text": "Or B, all of the above?", "label": "punchline", "bit": 10, "beat": 5, "line_number": 3550, "start": 8246},
+    {"text": "-All of the above. -You don't have to drink", "label": "tag", "bit": 10, "beat": 5, "line_number": 3551, "start": 8249},
+    {"text": "don't have to drink Tone's tap water. Last question, Tone. This is for you. Who flew", "label": "setup", "bit": 10, "beat": 6, "line_number": 3552, "start": 8251},
+    {"text": "on Epstein's private jet eight times? Was it A) Barack Obama, B) George Bush, or C)", "label": "setup", "bit": 10, "beat": 6, "line_number": 3553, "start": 8258},
+    {"text": "Donald Trump? I have to buzz in for the answer. Okay, all right. This, I'm gonna leave right here, and I'm", "label": "setup", "bit": 10, "beat": 6, "line_number": 3554, "start": 8264},
+    {"text": "I'm leaving right now. Fuck you. Fuck...", "label": "punchline", "bit": 10, "beat": 6, "line_number": 3555, "start": 8277}
   ]
 }

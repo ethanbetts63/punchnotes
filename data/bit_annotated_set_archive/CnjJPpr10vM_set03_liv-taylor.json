@@ -11,17 +11,33 @@
   "start_seconds": 1379,
   "bit_meta": {
     "1": {
-      "premise": "A chirping smoke detector can sound like spirituals.",
+      "premise": "Sleep aids can be misread through a strange musical frame.",
       "beats": {
-        "1": {"topics": ["Texas", "cold weather", "Negro spirituals"]},
-        "2": {"topics": ["smoke detectors", "laziness", "Spotify"]}
+        "1": {
+          "premise": "Cold weather makes slave spirituals seem like appropriate comfort music.",
+          "joke_type": "reframe",
+          "topics": ["Texas", "cold weather", "Negro spirituals"]
+        },
+        "2": {
+          "premise": "Listening to spirituals implies Spotify, not a smoke detector chirp.",
+          "joke_type": "misdirect",
+          "topics": ["smoke detectors", "laziness", "Spotify"]
+        }
       }
     },
     "2": {
       "premise": "Entrepreneur can be polite code for full-time crackhead.",
       "beats": {
-        "1": {"topics": ["father", "entrepreneurship", "crackheads"]},
-        "2": {"topics": ["ZipRecruiter", "salary", "crackheads"]}
+        "1": {
+          "premise": "Entrepreneurship can politely describe a crackhead's self-employment.",
+          "joke_type": "reframe",
+          "topics": ["father", "entrepreneurship", "crackheads"]
+        },
+        "2": {
+          "premise": "A crackhead being full-time makes addiction sound salaried.",
+          "joke_type": "reframe",
+          "topics": ["ZipRecruiter", "salary", "crackheads"]
+        }
       }
     }
   },

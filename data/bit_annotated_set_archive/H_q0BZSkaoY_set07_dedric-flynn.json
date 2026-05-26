@@ -11,17 +11,33 @@
   "start_seconds": 4478,
   "bit_meta": {
     "1": {
-      "premise": "Armadillos classified as Mexican turtles opens a logical path to a Teenage Mutant Ninja Turtles crossover with Mexican characters.",
+      "premise": "Armadillos are treated as Mexican turtles.",
       "beats": {
-        "1": {"topics": ["armadillos", "race", "Mexico"]},
-        "2": {"topics": ["Teenage Mutant Ninja Turtles", "Mexico", "race"]}
+        "1": {
+          "premise": "Armadillos are like turtles because both are armored animals.",
+          "joke_type": "analogy",
+          "topics": ["armadillos", "race", "Mexico"]
+        },
+        "2": {
+          "premise": "What if Mexican turtles became Teenage Mutant Ninja Turtles.",
+          "joke_type": "what-if",
+          "topics": ["Teenage Mutant Ninja Turtles", "Mexico", "race"]
+        }
       }
     },
     "2": {
-      "premise": "Smoke detector low-battery chirping is a racially targeted conspiracy: the battery never actually dies, it just torments Black households.",
+      "premise": "Smoke detector chirps are framed as racially targeted torment.",
       "beats": {
-        "1": {"topics": ["smoke detectors", "race", "batteries"]},
-        "2": {"topics": ["smoke detectors", "race", "conspiracy", "batteries"]}
+        "1": {
+          "premise": "Low-battery chirps seem to follow Black families, not white neighbors.",
+          "joke_type": "reframe",
+          "topics": ["smoke detectors", "race", "batteries"]
+        },
+        "2": {
+          "premise": "What if full batteries chirped to psychologically condition Black households.",
+          "joke_type": "what-if",
+          "topics": ["smoke detectors", "race", "conspiracy", "batteries"]
+        }
       }
     }
   },
@@ -30,9 +46,9 @@
     {"text": "[ Laughter ]", "label": "fluff", "bit": 1, "beat": 1, "line_number": 1962, "start": 4483},
     {"text": "[ Laughter ]", "label": "fluff", "bit": 1, "beat": 1, "line_number": 1963, "start": 4486},
     {"text": "I thought that's what the word \"armadillo\" means.", "label": "tag", "bit": 1, "beat": 1, "line_number": 1964, "start": 4490},
-    {"text": "'Cause I've been trying to create some secret ooze", "label": "tag", "bit": 1, "beat": 2, "line_number": 1966, "start": 4496},
-    {"text": "to turn these niggas into", "label": "tag", "bit": 1, "beat": 2, "line_number": 1967, "start": 4498},
-    {"text": "teenage mutant ninja Mexican turtles.", "label": "tag", "bit": 1, "beat": 2, "line_number": 1968, "start": 4500},
+    {"text": "'Cause I've been trying to create some secret ooze", "label": "setup", "bit": 1, "beat": 2, "line_number": 1966, "start": 4496},
+    {"text": "to turn these niggas into", "label": "setup", "bit": 1, "beat": 2, "line_number": 1967, "start": 4498},
+    {"text": "teenage mutant ninja Mexican turtles.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1968, "start": 4500},
     {"text": "You don't even gotta change the name.", "label": "tag", "bit": 1, "beat": 2, "line_number": 1970, "start": 4505},
     {"text": "You know what I'm saying?", "label": "fluff", "bit": 1, "beat": 2, "line_number": 1971, "start": 4507},
     {"text": "It's just Rafael Leonardo, Michael,", "label": "tag", "bit": 1, "beat": 2, "line_number": 1972, "start": 4508},

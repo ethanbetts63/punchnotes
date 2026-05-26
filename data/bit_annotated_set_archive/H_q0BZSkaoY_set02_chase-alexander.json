@@ -13,14 +13,25 @@
     "1": {
       "premise": "A string of brutal appearance insults turns out to all originate from the same two-person group chat — the comedian's parents.",
       "beats": {
-        "1": {"topics": ["appearance", "insults", "parents", "group chat"]},
-        "2": {"topics": ["dating", "weight gain", "dating app", "parents"]}
+        "1": {
+          "premise": "Cruel appearance insults imply strangers, not parents in a group chat.",
+          "joke_type": "misdirect",
+          "topics": ["appearance", "insults", "parents", "group chat"]
+        },
+        "2": {
+          "premise": "Weight gain is like Russian dolls because each larger body contains prior versions.",
+          "joke_type": "analogy",
+          "topics": ["dating", "weight gain", "dating app", "parents"]
+        }
       }
     },
     "2": {
-      "premise": "A woman having both a master's degree and a DUI is framed as the ideal combination of respectability and fun.",
       "beats": {
-        "1": {"topics": ["dating", "DUI", "education"]}
+        "1": {
+          "premise": "A DUI can complement a master's degree as fun credentials.",
+          "joke_type": "reframe",
+          "topics": ["dating", "DUI", "education"]
+        }
       }
     }
   },
@@ -49,8 +60,8 @@
     {"text": "looking at me, and she's like,", "label": "setup", "bit": 1, "beat": 2, "line_number": 436, "start": 1101},
     {"text": "\"You look like a Russian doll that ate", "label": "setup", "bit": 1, "beat": 2, "line_number": 437, "start": 1103},
     {"text": "all the other versions of yourself.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 438, "start": 1105},
-    {"text": "And I'm like, are you in that fucking group chat", "label": "setup", "bit": 1, "beat": 2, "line_number": 440, "start": 1108},
-    {"text": "with my parents?", "label": "punchline", "bit": 1, "beat": 2, "line_number": 441, "start": 1110},
+    {"text": "And I'm like, are you in that fucking group chat", "label": "tag", "bit": 1, "beat": 2, "line_number": 440, "start": 1108},
+    {"text": "with my parents?", "label": "tag", "bit": 1, "beat": 2, "line_number": 441, "start": 1110},
     {"text": "'Cause like, that is just too fucking good.", "label": "fluff", "bit": null, "beat": null, "line_number": 442, "start": 1111},
     {"text": "But I am seeing a chick right now, believe it or not.", "label": "setup", "bit": 2, "beat": 1, "line_number": 443, "start": 1113},
     {"text": "And I feel like I could really get the best", "label": "setup", "bit": 2, "beat": 1, "line_number": 444, "start": 1116},

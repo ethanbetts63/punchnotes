@@ -11,39 +11,57 @@
   "start_seconds": 404,
   "bit_meta": {
     "1": {
-      "premise": "Declaring violent intent toward a fellow comedian's mother lands as a come-on rather than a threat.",
       "beats": {
-        "1": {"topics": ["Red Band", "crowd work", "roast", "mothers"]}
+        "1": {
+          "premise": "Threatening violence against a mother implies harm, not sex.",
+          "joke_type": "misdirect",
+          "topics": ["Red Band", "crowd work", "roast", "mothers"]
+        }
       }
     },
     "2": {
-      "premise": "A cliché phrase about territorial conflict becomes literally true when the people involved are clinically obese.",
       "beats": {
-        "1": {"topics": ["obesity", "western clichés"]}
+        "1": {
+          "premise": "Taken literally, a town can be too small for two obese people.",
+          "joke_type": "double-meaning",
+          "topics": ["obesity", "western clichés"]
+        }
       }
     },
     "3": {
-      "premise": "A 'yo mama so fat' insult is updated by replacing the punchline with a current pharmaceutical shortage.",
       "beats": {
-        "1": {"topics": ["Red Band", "obesity", "Ozempic", "roast"]}
+        "1": {
+          "premise": "One fat mother could cause an Ozempic shortage.",
+          "joke_type": "what-if",
+          "topics": ["Red Band", "obesity", "Ozempic", "roast"]
+        }
       }
     },
     "4": {
-      "premise": "A public figure's death is reframed as the result of a political assassination by invoking an implausible suspect.",
       "beats": {
-        "1": {"topics": ["Jesse Jackson", "Hillary Clinton", "death", "conspiracy"]}
+        "1": {
+          "premise": "A reverend's death implies natural causes, not Clinton retaliation.",
+          "joke_type": "misdirect",
+          "topics": ["Jesse Jackson", "Hillary Clinton", "death", "conspiracy"]
+        }
       }
     },
     "5": {
-      "premise": "Asking AI to define God in the shortest terms possible yields an answer that treats a musician as a deity.",
       "beats": {
-        "1": {"topics": ["ChatGPT", "God", "Aphex Twin", "religion"]}
+        "1": {
+          "premise": "Artificial intelligence can define God as Aphex Twin.",
+          "joke_type": "reframe",
+          "topics": ["ChatGPT", "God", "Aphex Twin", "religion"]
+        }
       }
     },
     "6": {
-      "premise": "A legal system's failure to indict a father for killing his daughter over political speech is reframed as official validation.",
       "beats": {
-        "1": {"topics": ["Texas", "Donald Trump", "grand jury", "justifiable homicide"]}
+        "1": {
+          "premise": "A failed indictment can make political murder sound legally justified.",
+          "joke_type": "reframe",
+          "topics": ["Texas", "Donald Trump", "grand jury", "justifiable homicide"]
+        }
       }
     }
   },

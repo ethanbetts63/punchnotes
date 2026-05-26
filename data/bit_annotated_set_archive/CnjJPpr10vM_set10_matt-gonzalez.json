@@ -11,22 +11,30 @@
   "start_seconds": 4945,
   "bit_meta": {
     "1": {
-      "premise": "Ozempic can become a Mexican fat nickname.",
       "beats": {
-        "1": {"topics": ["Mexican identity", "weight", "Ozempic"]}
+        "1": {
+          "premise": "'Ozempic' can absorb 'spic' to fit a fat Mexican nickname.",
+          "joke_type": "phonetic-match",
+          "topics": ["Mexican identity", "weight", "Ozempic"]
+        }
       }
     },
     "2": {
-      "premise": "Priesthood expectations imply child abuse instead of adult sex.",
       "beats": {
-        "1": {"topics": ["Catholicism", "priests", "child abuse", "white women"]},
-        "2": {"topics": ["dating", "white women", "God's plan"]}
+        "1": {
+          "premise": "Catholic priesthood is widely associated with child abuse but rarely said aloud.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["Catholicism", "priests", "child abuse", "white women"]
+        }
       }
     },
     "3": {
-      "premise": "Sex with a citizen can become immigration barter.",
       "beats": {
-        "1": {"topics": ["girlfriends", "white women", "green cards"]}
+        "1": {
+          "premise": "Dating a citizen can make sex feel like immigration barter.",
+          "joke_type": "reframe",
+          "topics": ["girlfriends", "white women", "green cards"]
+        }
       }
     }
   },
@@ -42,8 +50,8 @@
     {"text": "grow up and you're gonna be a priest. I don't know how to tell them. I don't want", "label": "setup", "bit": 2, "beat": 1, "line_number": 2252, "start": 4972},
     {"text": "to fuck kids. Like that's not my journey and that's definitely not my cross to", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2253, "start": 4979},
     {"text": "bear. God's plan for me was to fuck of-age white women and it's going pretty", "label": "tag", "bit": 2, "beat": 1, "line_number": 2254, "start": 4988},
-    {"text": "I can't lie.", "label": "fluff", "bit": 2, "beat": 2, "line_number": 2255, "start": 4997},
-    {"text": "It's going pretty good.", "label": "tag", "bit": 2, "beat": 2, "line_number": 2257, "start": 5000},
+    {"text": "I can't lie.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2255, "start": 4997},
+    {"text": "It's going pretty good.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2257, "start": 5000},
     {"text": "I have a girlfriend, it's sick as fuck.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2258, "start": 5001},
     {"text": "She's white as hell.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2259, "start": 5004},
     {"text": "I give her a good dick.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2260, "start": 5006},

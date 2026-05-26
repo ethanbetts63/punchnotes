@@ -13,10 +13,31 @@
     "1": {
       "premise": "A very short partner turns romance and sex into scale jokes.",
       "beats": {
-        "1": {"topics": ["engagement", "short women", "love"]},
-        "2": {"topics": ["dating", "short women", "discounts", "penis size"]},
-        "3": {"topics": ["height difference", "sex", "money shot"]},
-        "4": {"topics": ["69 position", "oral sex", "kneecaps"]}
+        "1": {
+          "premise": "Love being blind also implies ignoring extreme shortness.",
+          "joke_type": "reframe",
+          "topics": ["engagement", "short women", "love"]
+        },
+        "2": {
+          "premise": "A short partner can be treated like a child-sized date.",
+          "joke_type": "reframe",
+          "topics": ["dating", "short women", "discounts"]
+        },
+        "3": {
+          "premise": "A small partner makes normal anatomy seem huge by comparison.",
+          "joke_type": "reframe",
+          "topics": ["short women", "penis size", "scale"]
+        },
+        "4": {
+          "premise": "A large height gap makes standing ejaculation like a shower.",
+          "joke_type": "analogy",
+          "topics": ["height difference", "sex", "money shot"]
+        },
+        "5": {
+          "premise": "Taken literally, 69 with a half-size partner becomes 34.5.",
+          "joke_type": "double-meaning",
+          "topics": ["69 position", "oral sex", "kneecaps"]
+        }
       }
     }
   },
@@ -29,19 +50,19 @@
     {"text": "like a little baby kangaroo.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2888, "start": 6401},
     {"text": "We always get our 50% off discount", "label": "tag", "bit": 1, "beat": 2, "line_number": 2889, "start": 6404},
     {"text": "and we only have short arguments.", "label": "tag", "bit": 1, "beat": 2, "line_number": 2890, "start": 6407},
-    {"text": "But the best part is my dick looks huge next to a midget.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2891, "start": 6411},
+    {"text": "But the best part is my dick looks huge next to a midget.", "label": "punchline", "bit": 1, "beat": 3, "line_number": 2891, "start": 6411},
     {"text": "First time I've ever been in two hands at the same time.", "label": "tag", "bit": 1, "beat": 3, "line_number": 2893, "start": 6415},
-    {"text": "And I feel like a giant,", "label": "setup", "bit": 1, "beat": 3, "line_number": 2895, "start": 6420},
-    {"text": "'cause when I'm standing up,", "label": "setup", "bit": 1, "beat": 3, "line_number": 2896, "start": 6421},
-    {"text": "give her the money shot.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2897, "start": 6422},
-    {"text": "She's standing up too, like she's in the shower.", "label": "punchline", "bit": 1, "beat": 3, "line_number": 2898, "start": 6423},
-    {"text": "We only got one problem, Austin.", "label": "setup", "bit": 1, "beat": 4, "line_number": 2899, "start": 6427},
-    {"text": "She's always trying to 69,", "label": "setup", "bit": 1, "beat": 4, "line_number": 2900, "start": 6429},
-    {"text": "but she can only 34.5.", "label": "punchline", "bit": 1, "beat": 4, "line_number": 2901, "start": 6431},
-    {"text": "So while she's sucking my dick,", "label": "tag", "bit": 1, "beat": 4, "line_number": 2903, "start": 6436},
-    {"text": "I'm licking her kneecaps.", "label": "tag", "bit": 1, "beat": 4, "line_number": 2904, "start": 6437},
-    {"text": "Don't laugh, like kneecaps is delicious.", "label": "tag", "bit": 1, "beat": 4, "line_number": 2906, "start": 6441},
-    {"text": "I just put a little honey on 'em.", "label": "tag", "bit": 1, "beat": 4, "line_number": 2907, "start": 6443},
+    {"text": "And I feel like a giant,", "label": "setup", "bit": 1, "beat": 4, "line_number": 2895, "start": 6420},
+    {"text": "'cause when I'm standing up,", "label": "setup", "bit": 1, "beat": 4, "line_number": 2896, "start": 6421},
+    {"text": "give her the money shot.", "label": "setup", "bit": 1, "beat": 4, "line_number": 2897, "start": 6422},
+    {"text": "She's standing up too, like she's in the shower.", "label": "punchline", "bit": 1, "beat": 4, "line_number": 2898, "start": 6423},
+    {"text": "We only got one problem, Austin.", "label": "setup", "bit": 1, "beat": 5, "line_number": 2899, "start": 6427},
+    {"text": "She's always trying to 69,", "label": "setup", "bit": 1, "beat": 5, "line_number": 2900, "start": 6429},
+    {"text": "but she can only 34.5.", "label": "punchline", "bit": 1, "beat": 5, "line_number": 2901, "start": 6431},
+    {"text": "So while she's sucking my dick,", "label": "tag", "bit": 1, "beat": 5, "line_number": 2903, "start": 6436},
+    {"text": "I'm licking her kneecaps.", "label": "tag", "bit": 1, "beat": 5, "line_number": 2904, "start": 6437},
+    {"text": "Don't laugh, like kneecaps is delicious.", "label": "tag", "bit": 1, "beat": 5, "line_number": 2906, "start": 6441},
+    {"text": "I just put a little honey on 'em.", "label": "tag", "bit": 1, "beat": 5, "line_number": 2907, "start": 6443},
     {"text": "That's my time.", "label": "fluff", "bit": null, "beat": null, "line_number": 2908, "start": 6444}
   ]
 }

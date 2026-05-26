@@ -11,16 +11,27 @@
   "start_seconds": 3916,
   "bit_meta": {
     "1": {
-      "premise": "Baby funerals expose absurd contradictions: expecting infant guests who never had social lives, and being unable to address the coffin in the only voice the deceased ever knew.",
+      "premise": "Baby funerals expose absurd contradictions in normal funeral customs.",
       "beats": {
-        "1": {"topics": ["baby funeral", "death", "babies"]},
-        "2": {"topics": ["baby funeral", "baby talk", "eulogy", "death"]}
+        "1": {
+          "premise": "A baby funeral can be judged by infant attendance like popularity.",
+          "joke_type": "reframe",
+          "topics": ["baby funeral", "death", "babies"]
+        },
+        "2": {
+          "premise": "Baby talk cannot serve as a respectful funeral voice.",
+          "joke_type": "reframe",
+          "topics": ["baby funeral", "baby talk", "eulogy", "death"]
+        }
       }
     },
     "2": {
-      "premise": "A woman's rhetorical challenge against using the word 'retarded' inadvertently proves the comedian's point by revealing her own disorientation.",
       "beats": {
-        "1": {"topics": ["political correctness", "language policing", "disability"]}
+        "1": {
+          "premise": "Taken literally, 'What year is it?' can signal disorientation instead of criticism.",
+          "joke_type": "double-meaning",
+          "topics": ["political correctness", "language policing", "disability"]
+        }
       }
     }
   },

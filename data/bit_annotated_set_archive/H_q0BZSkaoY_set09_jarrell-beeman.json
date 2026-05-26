@@ -11,16 +11,27 @@
   "start_seconds": 5531,
   "bit_meta": {
     "1": {
-      "premise": "Dayton, Ohio's reputation is so bleak that the crowd's muted reaction to hearing you live there implies you must not be interested in heroin.",
       "beats": {
-        "1": {"topics": ["Dayton Ohio", "heroin", "regional identity"]}
+        "1": {
+          "premise": "A muted reaction to Dayton implies disappointment over heroin, not civic judgment.",
+          "joke_type": "misdirect",
+          "topics": ["Dayton Ohio", "heroin", "regional identity"]
+        }
       }
     },
     "2": {
       "premise": "Proximity to violent crime creates irrationally cheap rent, which in turn creates a financial incentive to commit even more murders.",
       "beats": {
-        "1": {"topics": ["Dayton Ohio", "rent", "murder", "poverty"]},
-        "2": {"topics": ["rent", "murder", "crime"]}
+        "1": {
+          "premise": "Nearby murders can explain rent as a bargain rather than a red flag.",
+          "joke_type": "reframe",
+          "topics": ["Dayton Ohio", "rent", "murder", "poverty"]
+        },
+        "2": {
+          "premise": "What if committing more murders could lower rent further.",
+          "joke_type": "what-if",
+          "topics": ["rent", "murder", "crime"]
+        }
       }
     }
   },

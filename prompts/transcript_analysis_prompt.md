@@ -32,6 +32,8 @@ After all sets in the episode are extracted successfully, delete the processed t
 
 A set is the comedian's stand-up monologue after Tony introduces them. Include bucket pulls, regulars doing a new minute, and golden ticket winners. Skip the intro block, sponsor reads, transition banter, and post-set interview.
 
+One exception: if the comic is Timmy No-Breaks, the set starts when he comes on stage and finishes when he leaves; the interview portion is included. This is not true for any other comic.
+
 Real set lengths are usually around 60 seconds, but can be roughly 30-180 seconds.
 
 ---
@@ -74,4 +76,3 @@ Do not end a set just because the kitten sound or one-minute mark appears. If To
 - Use `bucket_pull`, `regular`, or `golden_ticket` for `--comedian-type`.
 - `--set-number` is 1-indexed in show order.
 - If a boundary is uncertain, skip that set instead of extracting a bad range.
-

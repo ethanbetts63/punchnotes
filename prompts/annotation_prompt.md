@@ -98,7 +98,7 @@ Everything that is not setup, punchline, or tag: greetings, sign-offs, name intr
 - **Sound effects are fluff.** `[squeals]`, `[music]`, etc.
 - **Self-introductions are fluff** unless the name itself is the punchline.
 - **Closers are fluff.** `"That's my time."`, `"Thank you guys."`
-- **Visual jokes can have implicit setup.** If the audience can see the setup, the first spoken comparison or reveal may be the punchline even without a verbal setup.
+- **Sight-dependent jokes can have implicit setup.** If the audience can see the setup, the first spoken comparison or reveal may be the punchline even without a verbal setup.
 - **Misdirects turn on the frame-flip line.** Label the line where the audience realizes its assumption was wrong as the punchline.
 
 ---
@@ -136,7 +136,9 @@ For multi-beat bits, every beat must still have its own premise. The bit premise
 - No pronouns tied to the comedian — no "he", "she", "they", "the comic".
 - Use the most general form: `"Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."`
 
-**Joke type:** one of the seven labels defined in the next section: `misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `what-if`, `elephant-in-the-room`, `visual`. Pick the mechanism that best describes how the joke gets its laugh — the same mechanism the premise formula is built around.
+**Joke type:** one of the eight labels defined in the next section: `misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `what-if`, `analogy`, `elephant-in-the-room`, `prop`. Pick the mechanism that best describes how the joke gets its laugh — the same mechanism the premise formula is built around.
+
+Do not use joke types outside this list. If a joke seems to need a type that is not allowed, choose the closest allowed type and mention the uncertainty in your closing comments.
 
 **Topics:** 1–4 short, specific, searchable nouns per beat. Prefer `"crackheads"` over `"people doing drugs"`.
 
@@ -182,17 +184,29 @@ Most jokes fall into one of these mechanisms. Each has its own premise shape. Th
 > - punchline: `"I was like, ha ha, you have 8K of credit card debt."`
 > Premise: `"What if stealing a credit card meant you also stole the debt."`
 
+**Analogy** (`analogy`) — two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
+> Formula: *X is like Y because both share Z.*
+> Example:
+> - setup: `"But golfing prepared me for marriage,"`
+> - setup: `"cause both involved me spending a lot of money"`
+> - punchline: `"at something I'm not really good at."`
+> - tag: `"And then waking up the next morning"`
+> - tag: `"and deciding to try again, 'cause I like the challenge."`
+> Premise: `"Golf is like marriage because both make failure expensive and repeatable."`
+
+**Prop** (`prop`) — the joke depends on a literal object the comedian is using or presenting onstage. The object itself supplies essential setup or payoff, and the joke would not work from spoken text alone. This is rare: if you are unsure whether an object is truly being used as a prop, assume it is not and choose the closest other joke type.
+> Formula: *This object reveals or creates [comic meaning].*
+> Example:
+> - setup: `"[comedian holds up a strange object]"`
+> - punchline: `"This is what my dating life has come to."`
+> Premise: `"A physical object can stand in for a failed dating life."`
+
 **Elephant-in-the-room** (`elephant-in-the-room`) — taboo observation said aloud. The audience already knows the conclusion; the laugh comes from breaking the silence.
 > Formula: *X is widely understood about Y but rarely said aloud.*
 > Example:
 > - setup: `"You know, these shootings are often done by the same race."`
 > - punchline: `"I'm looking at you, honkies."`
 > Premise: `"School shootings are widely associated with white shooters but rarely said aloud."`
-
-**Visual jokes** (`visual`) — if the punchline relies on the comedian's appearance (no verbal setup), infer the visual and state the connection as a universal truth.
-> Example:
-> - punchline: `"I know I look like I just fucked a pair of balloons."`
-> Premise: `"Upright hair can look like static from sex with balloons."`
 
 ### Boundary rules
 
@@ -202,6 +216,7 @@ Most jokes fall into one of these mechanisms. Each has its own premise shape. Th
 - Do not merge separate bits just because they share a broad topic.
 - Do not split a bit just because a new setup line appears after a punchline — decide whether it depends on the existing premise.
 - Fluff that sits inside a bit's flow can receive that bit's number.
+- Stage context can supply setup, but choose the joke type by mechanism. Most "I look like..." jokes are `analogy`, not `prop`.
 
 ---
 
@@ -211,7 +226,7 @@ Most jokes fall into one of these mechanisms. Each has its own premise shape. Th
 2. Identify each punchline — that's the anchor for each beat.
 3. Walk backwards from each punchline labeling setup; walk forwards labeling tags.
 4. Mark everything else fluff.
-5. For each beat, identify the joke type (`misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `what-if`, `elephant-in-the-room`, `visual`) and write a premise using its formula. Record the type in the beat's `joke_type` field.
+5. For each beat, identify the joke type (`misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `what-if`, `analogy`, `elephant-in-the-room`, `prop`) and write a premise using its formula. Record the type in the beat's `joke_type` field. Do not invent other `joke_type` values.
 6. Group beats into bits by shared premise. Apply the extraction test: if a beat would survive standalone, it's its own bit.
 7. For multi-beat bits, write a bit premise that captures the umbrella the beats share.
 8. Write the output JSON with `bit_meta` and fully labeled lines.
