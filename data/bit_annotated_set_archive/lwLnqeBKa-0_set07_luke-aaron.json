@@ -11,16 +11,27 @@
   "start_seconds": 3091,
   "bit_meta": {
     "1": {
-      "premise": "A perfect girlfriend can turn out to be a corpse.",
       "beats": {
-        "1": {"topics": ["dating", "dead bodies", "relationships"]}
+        "1": {
+          "premise": "Loving an unresponsive partner implies romance, not necrophilia.",
+          "joke_type": "misdirect",
+          "topics": ["dating", "dead bodies", "relationships"]
+        }
       }
     },
     "2": {
       "premise": "Porn pop-ups are a modern generation's war trauma.",
       "beats": {
-        "1": {"topics": ["generational trauma", "porn ads", "childhood"]},
-        "2": {"topics": ["war veterans", "Purple Heart", "sexual embarrassment"]}
+        "1": {
+          "premise": "Porn pop-ups are like war because both traumatize young people.",
+          "joke_type": "analogy",
+          "topics": ["generational trauma", "porn ads", "childhood"]
+        },
+        "2": {
+          "premise": "War trauma earns medals while porn trauma earns sexual shame.",
+          "joke_type": "analogy",
+          "topics": ["war veterans", "Purple Heart", "sexual embarrassment"]
+        }
       }
     }
   },

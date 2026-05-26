@@ -11,19 +11,43 @@
   "start_seconds": 716,
   "bit_meta": {
     "1": {
-      "premise": "Stateless identity makes origin questions suspicious.",
+      "premise": "Stateless identity turns national origin into suspicion.",
       "beats": {
-        "1": {"topics": ["gypsies", "identity", "missing dogs"]},
-        "2": {"topics": ["Czechoslovakia", "Jewish identity", "documents"]},
-        "3": {"topics": ["homelands", "Israel", "country names"]},
-        "4": {"topics": ["Greenland", "Turkey", "Hungary", "immigration"]}
+        "1": {
+          "premise": "Asking where a gypsy is from implies suspicion, not geography.",
+          "joke_type": "misdirect",
+          "topics": ["gypsies", "identity", "missing dogs"]
+        },
+        "2": {
+          "premise": "Gypsy identity is Jewish identity without paperwork.",
+          "joke_type": "reframe",
+          "topics": ["Czechoslovakia", "Jewish identity", "documents"]
+        },
+        "3": {
+          "premise": "A vanished homeland makes geography correction sound like homelessness.",
+          "joke_type": "reframe",
+          "topics": ["homelands", "Israel", "country names"]
+        },
+        "4": {
+          "premise": "Country names can be read as literal immigration excuses.",
+          "joke_type": "double-meaning",
+          "topics": ["Greenland", "Turkey", "Hungary", "immigration"]
+        }
       }
     },
     "2": {
       "premise": "School bullying is free insult therapy.",
       "beats": {
-        "1": {"topics": ["immigrant parents", "school bullying", "therapy"]},
-        "2": {"topics": ["school system", "fat shaming"]}
+        "1": {
+          "premise": "School bullies make paid insult therapy redundant.",
+          "joke_type": "reframe",
+          "topics": ["immigrant parents", "school bullying", "therapy"]
+        },
+        "2": {
+          "premise": "Fat shaming working makes a broken school system useful.",
+          "joke_type": "reframe",
+          "topics": ["school system", "fat shaming"]
+        }
       }
     }
   },

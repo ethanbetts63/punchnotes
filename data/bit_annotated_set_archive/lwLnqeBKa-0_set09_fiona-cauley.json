@@ -13,15 +13,31 @@
     "1": {
       "premise": "A false death sentence can turn promiscuity into urgency.",
       "beats": {
-        "1": {"topics": ["diagnosis", "promiscuity", "disability"]},
-        "2": {"topics": ["not dying", "promiscuity", "self-image"]}
+        "1": {
+          "premise": "A death sentence makes promiscuity feel like urgent life planning.",
+          "joke_type": "reframe",
+          "topics": ["diagnosis", "promiscuity", "disability"]
+        },
+        "2": {
+          "premise": "Surviving removes the noble excuse for promiscuity.",
+          "joke_type": "reframe",
+          "topics": ["not dying", "promiscuity", "self-image"]
+        }
       }
     },
     "2": {
       "premise": "A wheelchair makes post-hookup exits audible.",
       "beats": {
-        "1": {"topics": ["one-night stands", "wheelchair", "sneaking out"]},
-        "2": {"topics": ["dating", "black men", "workarounds"]}
+        "1": {
+          "premise": "A wheelchair makes sneaking out like backing up a truck.",
+          "joke_type": "analogy",
+          "topics": ["one-night stands", "wheelchair", "sneaking out"]
+        },
+        "2": {
+          "premise": "Dating black men becomes a workaround for failed sneaking out.",
+          "joke_type": "reframe",
+          "topics": ["dating", "black men", "workarounds"]
+        }
       }
     }
   },

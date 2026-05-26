@@ -13,22 +13,46 @@
     "1": {
       "premise": "Real sibling energy requires enough children to create a household gang.",
       "beats": {
-        "1": {"topics": ["siblings", "large families", "family size"]},
-        "2": {"topics": ["crowded housing", "boogeyman", "sibling defense"]}
+        "1": {
+          "premise": "Having only one or two siblings fails the real-siblings threshold.",
+          "joke_type": "reframe",
+          "topics": ["siblings", "large families", "family size"]
+        },
+        "2": {
+          "premise": "A crowded sibling bed turns the boogeyman into an outnumbered intruder.",
+          "joke_type": "what-if",
+          "topics": ["crowded housing", "boogeyman", "sibling defense"]
+        }
       }
     },
     "2": {
       "premise": "A shared 1990s CRT television could turn siblings into remote-control combatants.",
       "beats": {
-        "1": {"topics": ["1990s", "CRT TV", "siblings", "SpongeBob"]},
-        "2": {"topics": ["remote controls", "batteries", "petty revenge"]}
+        "1": {
+          "premise": "A shared TV remote turns siblings into wartime enemies.",
+          "joke_type": "analogy",
+          "topics": ["1990s", "CRT TV", "siblings", "SpongeBob"]
+        },
+        "2": {
+          "premise": "Removing remote batteries turns channel control into covert revenge.",
+          "joke_type": "reframe",
+          "topics": ["remote controls", "batteries", "petty revenge"]
+        }
       }
     },
     "3": {
       "premise": "A bulky CRT television could function like furniture and a body that responds to being slapped.",
       "beats": {
-        "1": {"topics": ["CRT TV", "furniture", "family photos", "houseplants"]},
-        "2": {"topics": ["CRT TV", "repair", "slapping", "sexism"]}
+        "1": {
+          "premise": "A bulky CRT TV is like furniture because both hold household decor.",
+          "joke_type": "analogy",
+          "topics": ["CRT TV", "furniture", "family photos", "houseplants"]
+        },
+        "2": {
+          "premise": "A faulty CRT TV is like a sexist caricature because slapping fixes it.",
+          "joke_type": "analogy",
+          "topics": ["CRT TV", "repair", "slapping", "sexism"]
+        }
       }
     }
   },
@@ -57,15 +81,15 @@
     {"text": "by a nigga that look just like you,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2446, "start": 5562},
     {"text": "'cause he want to watch SpongeBob.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2447, "start": 5565},
     {"text": "You know what I'm saying?", "label": "fluff", "bit": null, "beat": null, "line_number": 2448, "start": 5567},
-    {"text": "You didn't hear the remote.", "label": "tag", "bit": 2, "beat": 2, "line_number": 2449, "start": 5568},
+    {"text": "You didn't hear the remote.", "label": "setup", "bit": 2, "beat": 2, "line_number": 2449, "start": 5568},
     {"text": "Or if you better like me, if you real petty,", "label": "setup", "bit": 2, "beat": 2, "line_number": 2450, "start": 5570},
     {"text": "I'll take the batteries out that motherfucker.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 2451, "start": 5572},
     {"text": "You know what I'm talking about?", "label": "fluff", "bit": 2, "beat": 2, "line_number": 2452, "start": 5576},
     {"text": "The big booty TVs.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2453, "start": 5577},
     {"text": "You remember the big booty TV?", "label": "setup", "bit": 3, "beat": 1, "line_number": 2454, "start": 5578},
-    {"text": "The ones that doubled up as furniture.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2455, "start": 5579},
-    {"text": "You can put pictures of your family on top of it", "label": "setup", "bit": 3, "beat": 1, "line_number": 2456, "start": 5582},
-    {"text": "and have plants grow down the side.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2457, "start": 5584},
+    {"text": "The ones that doubled up as furniture.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 2455, "start": 5579},
+    {"text": "You can put pictures of your family on top of it", "label": "tag", "bit": 3, "beat": 1, "line_number": 2456, "start": 5582},
+    {"text": "and have plants grow down the side.", "label": "tag", "bit": 3, "beat": 1, "line_number": 2457, "start": 5584},
     {"text": "You know what I'm talking about?", "label": "fluff", "bit": 3, "beat": 1, "line_number": 2458, "start": 5587},
     {"text": "It's heard of big booty TVs.", "label": "setup", "bit": 3, "beat": 2, "line_number": 2459, "start": 5587},
     {"text": "The ones you can slap on the ass", "label": "setup", "bit": 3, "beat": 2, "line_number": 2460, "start": 5589},

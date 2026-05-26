@@ -11,39 +11,57 @@
   "start_seconds": 7558,
   "bit_meta": {
     "1": {
-      "premise": "Autoerotic choking can be mislabeled as the cinnamon challenge.",
       "beats": {
-        "1": {"topics": ["masturbation", "choking", "cinnamon challenge"]}
+        "1": {
+          "premise": "Autoerotic choking can be reframed as the cinnamon challenge.",
+          "joke_type": "reframe",
+          "topics": ["masturbation", "choking", "cinnamon challenge"]
+        }
       }
     },
     "2": {
-      "premise": "Uncertain porn scale can imply accidental illegal porn.",
       "beats": {
-        "1": {"topics": ["porn", "little people", "uncertainty"]}
+        "1": {
+          "premise": "Watching little-person porn implies dwarf actors, not possible children.",
+          "joke_type": "misdirect",
+          "topics": ["porn", "little people", "uncertainty"]
+        }
       }
     },
     "3": {
-      "premise": "Porn denial implies innocence or lying.",
       "beats": {
-        "1": {"topics": ["porn", "audiences", "lying"]}
+        "1": {
+          "premise": "Denying porn use implies religious innocence or lying.",
+          "joke_type": "reframe",
+          "topics": ["porn", "audiences", "lying"]
+        }
       }
     },
     "4": {
-      "premise": "Porn creates unrealistic lesbian beauty standards.",
       "beats": {
-        "1": {"topics": ["porn", "lesbians", "beauty standards"]}
+        "1": {
+          "premise": "Porn creates unrealistic expectations that lesbians are attractive.",
+          "joke_type": "reframe",
+          "topics": ["porn", "lesbians", "beauty standards"]
+        }
       }
     },
     "5": {
-      "premise": "Jewish lesbian identity creates a double-slur pun.",
       "beats": {
-        "1": {"topics": ["Jewish women", "lesbians", "dating"]}
+        "1": {
+          "premise": "Two slurs can be blended into one dating disappointment.",
+          "joke_type": "phonetic-match",
+          "topics": ["Jewish women", "lesbians", "dating"]
+        }
       }
     },
     "6": {
-      "premise": "Buying dinner for twelve men seems godlike under Jewish stereotypes.",
       "beats": {
-        "1": {"topics": ["Jesus", "Last Supper", "Jewish stereotypes"]}
+        "1": {
+          "premise": "Buying dinner for twelve men seems godlike under Jewish stereotypes.",
+          "joke_type": "reframe",
+          "topics": ["Jesus", "Last Supper", "Jewish stereotypes"]
+        }
       }
     }
   },

@@ -11,15 +11,21 @@
   "start_seconds": 5482,
   "bit_meta": {
     "1": {
-      "premise": "A gay friend exploits competitive masculinity by issuing a sexual challenge after getting a straight man drunk, forcing him to participate to avoid losing.",
       "beats": {
-        "1": {"topics": ["gay", "competition", "drinking", "sexuality"]}
+        "1": {
+          "premise": "Competitive masculinity can make gay sex feel like a contest.",
+          "joke_type": "reframe",
+          "topics": ["gay", "competition", "drinking", "sexuality"]
+        }
       }
     },
     "2": {
-      "premise": "The archetype of the wise, church-going old Black man has been replaced by one chasing women, collapsing generational wisdom into debauchery.",
       "beats": {
-        "1": {"topics": ["Black culture", "aging", "church", "generational change"]}
+        "1": {
+          "premise": "Old Black men now chase women instead of giving wisdom.",
+          "joke_type": "reframe",
+          "topics": ["Black culture", "aging", "church", "generational change"]
+        }
       }
     }
   },

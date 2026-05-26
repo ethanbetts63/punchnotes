@@ -11,15 +11,21 @@
   "start_seconds": 6200,
   "bit_meta": {
     "1": {
-      "premise": "A comedian's overpriced novelty rocks are reframed as the biblically Promised Land, connecting Jewish heritage to modern grift.",
       "beats": {
-        "1": {"topics": ["Cam Patterson", "SNL", "Jews", "Kill Tony"]}
+        "1": {
+          "premise": "Overpriced rocks can sound like the biblical Promised Land.",
+          "joke_type": "reframe",
+          "topics": ["Cam Patterson", "SNL", "Jews", "Kill Tony"]
+        }
       }
     },
     "2": {
-      "premise": "A Trump impression recycles presidential braggadocio and Biden-blaming to claim credit for local Texas infrastructure.",
       "beats": {
-        "1": {"topics": ["Donald Trump", "Corpus Christi", "Biden", "politics"]}
+        "1": {
+          "premise": "What if Trump claimed local infrastructure as a personal achievement.",
+          "joke_type": "what-if",
+          "topics": ["Donald Trump", "Corpus Christi", "Biden", "politics"]
+        }
       }
     }
   },

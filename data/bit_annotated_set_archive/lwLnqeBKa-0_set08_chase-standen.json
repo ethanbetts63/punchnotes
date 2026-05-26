@@ -13,17 +13,41 @@
     "1": {
       "premise": "Oral sex instructions can feel like Bop It.",
       "beats": {
-        "1": {"topics": ["girlfriend", "oral sex", "Bop It"]},
-        "2": {"topics": ["sex instructions", "Bop It", "oral sex"]},
-        "3": {"topics": ["Bop It", "high scores", "sex"]},
-        "4": {"topics": ["landing strip", "Bop It", "girlfriend"]}
+        "1": {
+          "premise": "Oral sex is like Bop It because both involve frantic commands.",
+          "joke_type": "analogy",
+          "topics": ["girlfriend", "oral sex", "Bop It"]
+        },
+        "2": {
+          "premise": "Sex instructions are like Bop It commands because both escalate rhythmically.",
+          "joke_type": "analogy",
+          "topics": ["sex instructions", "Bop It", "oral sex"]
+        },
+        "3": {
+          "premise": "Taken sexually, Bop It scoring and passing instructions have two meanings.",
+          "joke_type": "double-meaning",
+          "topics": ["Bop It", "high scores", "sex"]
+        },
+        "4": {
+          "premise": "Taken sexually, 'pull it' can mean yanking a landing strip.",
+          "joke_type": "double-meaning",
+          "topics": ["landing strip", "Bop It", "girlfriend"]
+        }
       }
     },
     "2": {
       "premise": "A landing strip can become the Gaza Strip through sex and death imagery.",
       "beats": {
-        "1": {"topics": ["Gaza Strip", "landing strip", "wordplay"]},
-        "2": {"topics": ["Gaza", "ejaculation", "dead children"]}
+        "1": {
+          "premise": "'Landing strip' and 'Gaza Strip' share phrasing and both fit contested territory.",
+          "joke_type": "phonetic-match",
+          "topics": ["Gaza Strip", "landing strip", "wordplay"]
+        },
+        "2": {
+          "premise": "A vagina is like Gaza because both receive loads and contain dying children.",
+          "joke_type": "analogy",
+          "topics": ["Gaza", "ejaculation", "dead children"]
+        }
       }
     }
   },

@@ -11,16 +11,21 @@
   "start_seconds": 1204,
   "bit_meta": {
     "1": {
-      "premise": "Dominoes are suspenseful because patterns can become swastikas.",
       "beats": {
-        "1": {"topics": ["dominoes", "swastikas", "games"]}
+        "1": {
+          "premise": "What if domino patterns could accidentally become swastikas.",
+          "joke_type": "what-if",
+          "topics": ["dominoes", "swastikas", "games"]
+        }
       }
     },
     "2": {
-      "premise": "Spanish can be mistaken for dirty talk.",
       "beats": {
-        "1": {"topics": ["Texas", "Latinas", "hookups"]},
-        "2": {"topics": ["Spanish", "dirty talk", "sex"]}
+        "1": {
+          "premise": "Spanish during sex can be mistaken for dirty talk.",
+          "joke_type": "misdirect",
+          "topics": ["Spanish", "dirty talk", "sex", "Latinas"]
+        }
       }
     }
   },
@@ -33,11 +38,11 @@
     {"text": "Hooked up with my first Latina.", "label": "setup", "bit": 2, "beat": 1, "line_number": 461, "start": 1234},
     {"text": "Those, right?", "label": "fluff", "bit": 2, "beat": 1, "line_number": 462, "start": 1237},
     {"text": "Yeah, that was pretty cool.", "label": "fluff", "bit": 2, "beat": 1, "line_number": 463, "start": 1238},
-    {"text": "Other than like, I'm not really into dirty talk.", "label": "setup", "bit": 2, "beat": 2, "line_number": 464, "start": 1242},
-    {"text": "I started going down on her and she's like, \"Sike rico, puppy.\"", "label": "setup", "bit": 2, "beat": 2, "line_number": 465, "start": 1245},
-    {"text": "I put my finger over her lips.", "label": "setup", "bit": 2, "beat": 2, "line_number": 466, "start": 1252},
-    {"text": "I was like, \"Shh, I don't like dirty talk.", "label": "setup", "bit": 2, "beat": 2, "line_number": 467, "start": 1253},
-    {"text": "Speak English.\"", "label": "punchline", "bit": 2, "beat": 2, "line_number": 468, "start": 1256},
+    {"text": "Other than like, I'm not really into dirty talk.", "label": "setup", "bit": 2, "beat": 1, "line_number": 464, "start": 1242},
+    {"text": "I started going down on her and she's like, \"Sike rico, puppy.\"", "label": "setup", "bit": 2, "beat": 1, "line_number": 465, "start": 1245},
+    {"text": "I put my finger over her lips.", "label": "setup", "bit": 2, "beat": 1, "line_number": 466, "start": 1252},
+    {"text": "I was like, \"Shh, I don't like dirty talk.", "label": "setup", "bit": 2, "beat": 1, "line_number": 467, "start": 1253},
+    {"text": "Speak English.\"", "label": "punchline", "bit": 2, "beat": 1, "line_number": 468, "start": 1256},
     {"text": "Fuck yeah, buddy.", "label": "fluff", "bit": null, "beat": null, "line_number": 470, "start": 1268}
   ]
 }

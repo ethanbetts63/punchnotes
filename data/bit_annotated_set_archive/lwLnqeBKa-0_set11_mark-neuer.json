@@ -13,8 +13,16 @@
     "1": {
       "premise": "Conspiracy claims can become true through literal reframing.",
       "beats": {
-        "1": {"topics": ["Alex Jones", "9/11", "conspiracies"]},
-        "2": {"topics": ["Alex Jones", "gay frogs", "outing"]}
+        "1": {
+          "premise": "Alex Jones saying true things implies facts, not accurate 9/11 warnings.",
+          "joke_type": "misdirect",
+          "topics": ["Alex Jones", "9/11", "conspiracies"]
+        },
+        "2": {
+          "premise": "Calling frogs gay reframes conspiracy harm as outing them.",
+          "joke_type": "reframe",
+          "topics": ["Alex Jones", "gay frogs", "outing"]
+        }
       }
     }
   },

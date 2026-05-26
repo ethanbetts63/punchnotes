@@ -13,21 +13,39 @@
     "1": {
       "premise": "Immigrant names can turn parental expectations into literal labels.",
       "beats": {
-        "1": {"topics": ["immigrant parents", "doctors", "names"]},
-        "2": {"topics": ["siblings", "engineers", "names"]},
-        "3": {"topics": ["siblings", "abortion", "parental expectations"]}
+        "1": {
+          "premise": "'Surjan' sounds like 'surgeon,' matching a parent's career demand.",
+          "joke_type": "phonetic-match",
+          "topics": ["immigrant parents", "doctors", "names"]
+        },
+        "2": {
+          "premise": "A sibling named Engineer makes career pressure literal.",
+          "joke_type": "reframe",
+          "topics": ["siblings", "engineers", "names"]
+        },
+        "3": {
+          "premise": "A sibling named Abortion makes low expectations literal.",
+          "joke_type": "reframe",
+          "topics": ["siblings", "abortion", "parental expectations"]
+        }
       }
     },
     "2": {
-      "premise": "Sobriety language can reframe slur restraint as addiction recovery.",
       "beats": {
-        "1": {"topics": ["sobriety", "New Year's resolutions", "slurs"]}
+        "1": {
+          "premise": "Sobriety language implies addiction recovery, not slur restraint.",
+          "joke_type": "misdirect",
+          "topics": ["sobriety", "New Year's resolutions", "slurs"]
+        }
       }
     },
     "3": {
-      "premise": "A knock-knock joke can fail before the payoff.",
       "beats": {
-        "1": {"topics": ["knock-knock jokes", "cats", "crowd work"]}
+        "1": {
+          "premise": "A knock-knock joke implies a payoff, not deliberate stalling.",
+          "joke_type": "misdirect",
+          "topics": ["knock-knock jokes", "cats", "crowd work"]
+        }
       }
     }
   },

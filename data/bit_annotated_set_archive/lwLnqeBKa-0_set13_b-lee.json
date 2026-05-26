@@ -11,24 +11,47 @@
   "start_seconds": 6505,
   "bit_meta": {
     "1": {
-      "premise": "A short microphone can feel like rare height accommodation.",
       "beats": {
-        "1": {"topics": ["microphone", "height", "self-deprecation"]}
+        "1": {
+          "premise": "A lowered microphone reveals rare height accommodation.",
+          "joke_type": "prop",
+          "topics": ["microphone", "height", "self-deprecation"]
+        }
       }
     },
     "2": {
       "premise": "Backhanded celebrity comparisons can feel flattering when the baseline is worse.",
       "beats": {
-        "1": {"topics": ["haircuts", "aging", "comics"]},
-        "2": {"topics": ["Jason Momoa", "Aquaman", "insults"]},
-        "3": {"topics": ["Mark Wahlberg", "Donnie Wahlberg", "celebrity comparisons"]}
+        "1": {
+          "premise": "A haircut makes someone look young and old simultaneously.",
+          "joke_type": "analogy",
+          "topics": ["haircuts", "aging", "comics"]
+        },
+        "2": {
+          "premise": "A short man is like discount Jason Momoa because both imply diminished Aquaman.",
+          "joke_type": "analogy",
+          "topics": ["Jason Momoa", "Aquaman", "insults"]
+        },
+        "3": {
+          "premise": "Walmart Mark Wahlberg reframes Donnie Wahlberg as the cheaper version.",
+          "joke_type": "reframe",
+          "topics": ["Mark Wahlberg", "Donnie Wahlberg", "celebrity comparisons"]
+        }
       }
     },
     "3": {
-      "premise": "An anti-autism celebrity crush makes sex self-defeating.",
+      "premise": "Donnie Wahlberg is unbeatable for reasons other than talent.",
       "beats": {
-        "1": {"topics": ["Donnie Wahlberg", "performing", "competition"]},
-        "2": {"topics": ["Jenny McCarthy", "marriage", "autism"]}
+        "1": {
+          "premise": "Donnie Wahlberg being unbeatable implies talent, not marrying well.",
+          "joke_type": "misdirect",
+          "topics": ["Donnie Wahlberg", "performing", "competition"]
+        },
+        "2": {
+          "premise": "An anti-autism celebrity crush makes sex self-defeating.",
+          "joke_type": "reframe",
+          "topics": ["Jenny McCarthy", "marriage", "autism"]
+        }
       }
     }
   },

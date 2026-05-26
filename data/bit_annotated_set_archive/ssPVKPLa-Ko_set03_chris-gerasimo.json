@@ -13,21 +13,40 @@
     "1": {
       "premise": "A dinosaur-sounding name is funnier with a long neck.",
       "beats": {
-        "1": {"topics": ["last names", "Jurassic Park", "dinosaurs"]},
-        "2": {"topics": ["long neck", "dinosaurs", "sight lines"]}
+        "1": {
+          "premise": "A long Greek surname sounds like a dinosaur name.",
+          "joke_type": "phonetic-match",
+          "topics": ["last names", "Jurassic Park", "dinosaurs"]
+        },
+        "2": {
+          "premise": "A long neck is like a dinosaur feature from the right angle.",
+          "joke_type": "analogy",
+          "topics": ["long neck", "dinosaurs", "sight lines"]
+        }
       }
     },
     "2": {
-      "premise": "Greek pride can pair democracy with anal sex.",
       "beats": {
-        "1": {"topics": ["Greek heritage", "democracy", "anal sex"]}
+        "1": {
+          "premise": "Greek heritage pairs democracy with anal sex.",
+          "joke_type": "reframe",
+          "topics": ["Greek heritage", "democracy", "anal sex"]
+        }
       }
     },
     "3": {
       "premise": "Military sex turns teamwork into a questionable experiment.",
       "beats": {
-        "1": {"topics": ["Spartans", "gay sex", "team chemistry"]},
-        "2": {"topics": ["military history", "experiments", "soldiers"]}
+        "1": {
+          "premise": "Spartan gay sex can be read as team chemistry.",
+          "joke_type": "reframe",
+          "topics": ["Spartans", "gay sex", "team chemistry"]
+        },
+        "2": {
+          "premise": "What if battlefield sex was tested like military research.",
+          "joke_type": "what-if",
+          "topics": ["military history", "experiments", "soldiers"]
+        }
       }
     }
   },

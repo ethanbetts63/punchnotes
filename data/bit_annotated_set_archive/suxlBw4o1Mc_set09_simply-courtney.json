@@ -13,15 +13,31 @@
     "1": {
       "premise": "A driver whose name conflicts with rider expectations can make Uber pickup suspicion sound racist.",
       "beats": {
-        "1": {"topics": ["Uber", "names", "race", "rider suspicion"]},
-        "2": {"topics": ["car theft", "Black History Month", "race"]}
+        "1": {
+          "premise": "A masculine driver with a feminine name makes Uber suspicion sound racist.",
+          "joke_type": "reframe",
+          "topics": ["Uber", "names", "race", "rider suspicion"]
+        },
+        "2": {
+          "premise": "Questioning car ownership implies shared theft, not rider caution.",
+          "joke_type": "misdirect",
+          "topics": ["car theft", "Black History Month", "race"]
+        }
       }
     },
     "2": {
       "premise": "Being high can scramble parental and work responsibilities into wrong allegiances and captivity.",
       "beats": {
-        "1": {"topics": ["weed", "tolerance break", "basketball", "parenting"]},
-        "2": {"topics": ["weed", "Uber", "passengers", "roommates"]}
+        "1": {
+          "premise": "Being high can make parental support go to the opponent.",
+          "joke_type": "reframe",
+          "topics": ["weed", "tolerance break", "basketball", "parenting"]
+        },
+        "2": {
+          "premise": "What if forgetting an Uber passenger turned them into a roommate.",
+          "joke_type": "what-if",
+          "topics": ["weed", "Uber", "passengers", "roommates"]
+        }
       }
     }
   },

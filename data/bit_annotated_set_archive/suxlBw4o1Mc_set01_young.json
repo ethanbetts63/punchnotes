@@ -11,16 +11,21 @@
   "start_seconds": 276,
   "bit_meta": {
     "1": {
-      "premise": "Fetishizing Arab men can turn modesty rules into horny street enforcement.",
       "beats": {
-        "1": {"topics": ["Arab men", "modesty", "lust", "stoning"]}
+        "1": {
+          "premise": "Fetishizing Arab men is like modesty policing because lust becomes their fault.",
+          "joke_type": "analogy",
+          "topics": ["Arab men", "modesty", "lust", "stoning"]
+        }
       }
     },
     "2": {
-      "premise": "A luxury party with Arab male models can turn scat play into a culturally themed gift.",
       "beats": {
-        "1": {"topics": ["wealth", "Arab models", "scat play"]},
-        "2": {"topics": ["Arabic phrases", "halal", "scat play"]}
+        "1": {
+          "premise": "What if wealth made scat play a culturally themed gift.",
+          "joke_type": "what-if",
+          "topics": ["wealth", "Arab models", "scat play", "halal"]
+        }
       }
     }
   },
@@ -39,11 +44,11 @@
     {"text": "and I'm gonna invite a whole bunch", "label": "setup", "bit": 2, "beat": 1, "line_number": 98, "start": 310},
     {"text": "of very attractive Arabic male models.", "label": "setup", "bit": 2, "beat": 1, "line_number": 99, "start": 312},
     {"text": "So I'll pay you shit in their mouth.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 100, "start": 316},
-    {"text": "And I'll be really good at it, you know, I just tell the maid, \"Ha bibi, ha bibi.\"", "label": "tag", "bit": 2, "beat": 2, "line_number": 102, "start": 322},
-    {"text": "Lay down.", "label": "tag", "bit": 2, "beat": 2, "line_number": 103, "start": 329},
-    {"text": "Open your mouth.", "label": "tag", "bit": 2, "beat": 2, "line_number": 104, "start": 330},
-    {"text": "This is my gift for you.", "label": "tag", "bit": 2, "beat": 2, "line_number": 105, "start": 332},
-    {"text": "It's very halal.", "label": "tag", "bit": 2, "beat": 2, "line_number": 106, "start": 335},
+    {"text": "And I'll be really good at it, you know, I just tell the maid, \"Ha bibi, ha bibi.\"", "label": "tag", "bit": 2, "beat": 1, "line_number": 102, "start": 322},
+    {"text": "Lay down.", "label": "tag", "bit": 2, "beat": 1, "line_number": 103, "start": 329},
+    {"text": "Open your mouth.", "label": "tag", "bit": 2, "beat": 1, "line_number": 104, "start": 330},
+    {"text": "This is my gift for you.", "label": "tag", "bit": 2, "beat": 1, "line_number": 105, "start": 332},
+    {"text": "It's very halal.", "label": "tag", "bit": 2, "beat": 1, "line_number": 106, "start": 335},
     {"text": "Let me show you the Asian squat.", "label": "setup", "bit": null, "beat": null, "line_number": 107, "start": 338},
     {"text": "And if the...", "label": "fluff", "bit": null, "beat": null, "line_number": 108, "start": 341}
   ]

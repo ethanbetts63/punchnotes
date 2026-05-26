@@ -11,27 +11,39 @@
   "start_seconds": 6621,
   "bit_meta": {
     "1": {
-      "premise": "Period fingering can turn a hand into a C-Walk shape.",
       "beats": {
-        "1": {"topics": ["period sex", "fingering", "C-Walk"]}
+        "1": {
+          "premise": "Period fingering is like dancing because both can leave a hand gang-signing.",
+          "joke_type": "analogy",
+          "topics": ["period sex", "fingering", "C-Walk"]
+        }
       }
     },
     "2": {
-      "premise": "Bedwetting after nightmares can be reframed as abuse-induced squirting.",
       "beats": {
-        "1": {"topics": ["bedwetting", "squirting", "sexual abuse"]}
+        "1": {
+          "premise": "Bedwetting after nightmares can be reframed as abuse-induced squirting.",
+          "joke_type": "reframe",
+          "topics": ["bedwetting", "squirting", "sexual abuse"]
+        }
       }
     },
     "3": {
-      "premise": "Rolling R's can turn a language lesson into a rape setup.",
       "beats": {
-        "1": {"topics": ["sexual abuse", "rolled R's", "rape"]}
+        "1": {
+          "premise": "Rolled R's and rape both fit an abuse-flavored language lesson.",
+          "joke_type": "phonetic-match",
+          "topics": ["sexual abuse", "rolled R's", "rape"]
+        }
       }
     },
     "4": {
-      "premise": "Michigan hand maps can turn molestation into a location pun.",
       "beats": {
-        "1": {"topics": ["Michigan", "sexual abuse", "map jokes"]}
+        "1": {
+          "premise": "Taken literally, touching someone here can mean a body part or Michigan.",
+          "joke_type": "double-meaning",
+          "topics": ["Michigan", "sexual abuse", "map jokes"]
+        }
       }
     }
   },

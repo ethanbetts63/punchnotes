@@ -11,22 +11,36 @@
   "start_seconds": 4778,
   "bit_meta": {
     "1": {
-      "premise": "Weak men can make straight relationships feel lesbian.",
       "beats": {
-        "1": {"topics": ["relationships", "lesbians", "weak men"]}
+        "1": {
+          "premise": "A lesbian relationship implies a woman partner, not a weak man.",
+          "joke_type": "misdirect",
+          "topics": ["relationships", "lesbians", "weak men"]
+        }
       }
     },
     "2": {
       "premise": "Dirty-talk ownership sounds absurd when a body is old enough to be paid off.",
       "beats": {
-        "1": {"topics": ["sex talk", "ownership", "men"]},
-        "2": {"topics": ["middle age", "rent-to-own", "loans"]}
+        "1": {
+          "premise": "Taken literally, dirty-talk ownership has two meanings.",
+          "joke_type": "double-meaning",
+          "topics": ["sex talk", "ownership", "men"]
+        },
+        "2": {
+          "premise": "An unpaid body part is like financed property.",
+          "joke_type": "analogy",
+          "topics": ["middle age", "rent-to-own", "loans"]
+        }
       }
     },
     "3": {
-      "premise": "Stomach capacity does not imply throat capacity.",
       "beats": {
-        "1": {"topics": ["gastric sleeve", "weight loss", "oral sex"]}
+        "1": {
+          "premise": "Reduced stomach capacity does not imply reduced throat capacity.",
+          "joke_type": "reframe",
+          "topics": ["gastric sleeve", "weight loss", "oral sex"]
+        }
       }
     }
   },

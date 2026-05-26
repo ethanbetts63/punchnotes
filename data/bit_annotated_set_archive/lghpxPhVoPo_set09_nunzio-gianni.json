@@ -13,14 +13,25 @@
     "1": {
       "premise": "Growing up in Miami meant skipping conventional dating and going straight to strippers and sex workers.",
       "beats": {
-        "1": {"topics": ["Miami", "strippers", "dating"]},
-        "2": {"topics": ["Miami", "dating", "strippers", "youth"]}
+        "1": {
+          "premise": "Mentioning Miami implies hometown pride, not immediate stripper praise.",
+          "joke_type": "misdirect",
+          "topics": ["Miami", "strippers", "dating"]
+        },
+        "2": {
+          "premise": "Growing up around strippers can replace normal dating experience.",
+          "joke_type": "reframe",
+          "topics": ["Miami", "dating", "strippers", "youth"]
+        }
       }
     },
     "2": {
-      "premise": "A mixed Puerto Rican–Italian identity is reduced in Texas to a binary of Mexican or generically \"colored.\"",
       "beats": {
-        "1": {"topics": ["race", "Puerto Rican", "Texas", "ethnicity"]}
+        "1": {
+          "premise": "Texas reduces mixed Latino identity to crude racial categories.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["race", "Puerto Rican", "Texas", "ethnicity"]
+        }
       }
     }
   },

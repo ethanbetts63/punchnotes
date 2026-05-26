@@ -11,16 +11,21 @@
   "start_seconds": 6442,
   "bit_meta": {
     "1": {
-      "premise": "A sexual encounter with a female-to-male trans person produces an unexpected anatomical size comparison unfavorable to the man.",
       "beats": {
-        "1": {"topics": ["transgender", "sex", "anatomy", "dating"]}
+        "1": {
+          "premise": "A trans man's anatomy can make a cis man feel inadequate.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["transgender", "sex", "anatomy", "dating"]
+        }
       }
     },
     "2": {
-      "premise": "A series of escalating hand job confessions across increasingly absurd settings culminates in a coprophilic non-sequitur.",
       "beats": {
-        "1": {"topics": ["hand job", "Dr. Phil", "Bucky's", "comedy club"]},
-        "2": {"topics": ["sex", "shock comedy", "hand job"]}
+        "1": {
+          "premise": "Crude hand-job confessions escalate into enjoying the cleanup.",
+          "joke_type": "reframe",
+          "topics": ["hand job", "Dr. Phil", "Bucky's", "comedy club"]
+        }
       }
     }
   },
@@ -34,7 +39,7 @@
     {"text": "back. I gave him a hand job at Bucky's. Also, I work at a comedy club and I give", "label": "setup", "bit": 2, "beat": 1, "line_number": 2456, "start": 6479},
     {"text": "many hand jobs there.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2457, "start": 6495},
     {"text": "[Crowd boos]", "label": "fluff", "bit": null, "beat": null, "line_number": 2458, "start": 6498},
-    {"text": "The best part about it is that I get to eat all the cum.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 2459, "start": 6508},
+    {"text": "The best part about it is that I get to eat all the cum.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2459, "start": 6508},
     {"text": "What the fuck?", "label": "fluff", "bit": null, "beat": null, "line_number": 2460, "start": 6511},
     {"text": "That was the punchline that you held your hand up and like made us all wait for?", "label": "fluff", "bit": null, "beat": null, "line_number": 2461, "start": 6513},
     {"text": "Just hand jobs, hand jobs.", "label": "fluff", "bit": null, "beat": null, "line_number": 2462, "start": 6517},

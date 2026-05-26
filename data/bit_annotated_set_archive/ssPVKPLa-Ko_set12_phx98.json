@@ -13,9 +13,21 @@
     "1": {
       "premise": "A repeated name rhyme turns roast material into a chant.",
       "beats": {
-        "1": {"topics": ["Tony Hinchcliffe", "GTA", "gay jokes"]},
-        "2": {"topics": ["raves", "Tony Hinchcliffe", "rhyming"]},
-        "3": {"topics": ["squats", "body", "raves"]}
+        "1": {
+          "premise": "'Gay Tony,' 'GTA Tony,' and 'no way Tony' sound alike.",
+          "joke_type": "phonetic-match",
+          "topics": ["Tony Hinchcliffe", "GTA", "gay jokes"]
+        },
+        "2": {
+          "premise": "Rave talk becomes a rhyming chant about Tony's appearance.",
+          "joke_type": "phonetic-match",
+          "topics": ["raves", "Tony Hinchcliffe", "rhyming"]
+        },
+        "3": {
+          "premise": "Squat work reframes rave talk as body display.",
+          "joke_type": "reframe",
+          "topics": ["squats", "body", "raves"]
+        }
       }
     }
   },

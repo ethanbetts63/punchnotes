@@ -11,21 +11,30 @@
   "start_seconds": 1569,
   "bit_meta": {
     "1": {
-      "premise": "Mixed-race fractions make racist math wrong.",
       "beats": {
-        "1": {"topics": ["mixed race", "math", "family", "racism"]}
+        "1": {
+          "premise": "The three-fifths insult clashes with the actual half-Black fraction.",
+          "joke_type": "double-meaning",
+          "topics": ["mixed race", "math", "family", "racism"]
+        }
       }
     },
     "2": {
-      "premise": "A fat-mom hint can point to an absent dad.",
       "beats": {
-        "1": {"topics": ["mixed race", "parents", "absent fathers"]}
+        "1": {
+          "premise": "A fat-mom hint points to an absent father stereotype.",
+          "joke_type": "misdirect",
+          "topics": ["mixed race", "parents", "absent fathers"]
+        }
       }
     },
     "3": {
-      "premise": "Throat cancer turns a verbal performer into a mime.",
       "beats": {
-        "1": {"topics": ["performers", "throat cancer", "mimes"]}
+        "1": {
+          "premise": "Throat cancer turns a verbal performer into a silent one.",
+          "joke_type": "reframe",
+          "topics": ["performers", "throat cancer", "mimes"]
+        }
       }
     }
   },

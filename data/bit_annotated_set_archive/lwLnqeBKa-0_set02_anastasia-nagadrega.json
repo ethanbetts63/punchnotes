@@ -11,34 +11,48 @@
   "start_seconds": 795,
   "bit_meta": {
     "1": {
-      "premise": "Getting high can count as flying locally.",
       "beats": {
-        "1": {"topics": ["Austin", "weed", "travel"]}
+        "1": {
+          "premise": "Flying can mean getting high rather than traveling.",
+          "joke_type": "double-meaning",
+          "topics": ["Austin", "weed", "travel"]
+        }
       }
     },
     "2": {
-      "premise": "Private funniness may not survive an audience.",
       "beats": {
-        "1": {"topics": ["friends", "stage time", "comedy"]}
+        "1": {
+          "premise": "Being funny privately does not mean being funny onstage.",
+          "joke_type": "reframe",
+          "topics": ["friends", "stage time", "comedy"]
+        }
       }
     },
     "3": {
-      "premise": "Crowd work fails when audiences think too slowly.",
       "beats": {
-        "1": {"topics": ["crowd work", "audiences", "time limits"]}
+        "1": {
+          "premise": "Crowd work fails in a minute if audiences think too slowly.",
+          "joke_type": "reframe",
+          "topics": ["crowd work", "audiences", "time limits"]
+        }
       }
     },
     "4": {
-      "premise": "Ignoring Epstein news makes comedy shows look like reality avoidance.",
       "beats": {
-        "1": {"topics": ["Epstein files", "public apathy", "politics"]},
-        "2": {"topics": ["escapism", "audience", "reality"]}
+        "1": {
+          "premise": "Comedy shows become reality avoidance after ignored Epstein news.",
+          "joke_type": "reframe",
+          "topics": ["Epstein files", "public apathy", "politics"]
+        }
       }
     },
     "5": {
-      "premise": "Self-belief in funniness may not reach the room.",
       "beats": {
-        "1": {"topics": ["self-deprecation", "audience reaction", "comedy"]}
+        "1": {
+          "premise": "Self-belief in funniness may not reach the room.",
+          "joke_type": "reframe",
+          "topics": ["self-deprecation", "audience reaction", "comedy"]
+        }
       }
     }
   },
@@ -57,8 +71,8 @@
     {"text": "We're not gonna do anything about it.", "label": "setup", "bit": 4, "beat": 1, "line_number": 342, "start": 842},
     {"text": "We all know what's going on and we're just gonna, woo.", "label": "setup", "bit": 4, "beat": 1, "line_number": 343, "start": 843},
     {"text": "So anyway, that's why y'all are here.", "label": "punchline", "bit": 4, "beat": 1, "line_number": 344, "start": 847},
-    {"text": "You're avoiding reality and that's why I'm here.", "label": "tag", "bit": 4, "beat": 2, "line_number": 345, "start": 848},
-    {"text": "I'm also avoiding reality.", "label": "tag", "bit": 4, "beat": 2, "line_number": 346, "start": 851},
+    {"text": "You're avoiding reality and that's why I'm here.", "label": "tag", "bit": 4, "beat": 1, "line_number": 345, "start": 848},
+    {"text": "I'm also avoiding reality.", "label": "tag", "bit": 4, "beat": 1, "line_number": 346, "start": 851},
     {"text": "I think I'm funny.", "label": "setup", "bit": 5, "beat": 1, "line_number": 347, "start": 854},
     {"text": "Clearly you guys don't know.", "label": "punchline", "bit": 5, "beat": 1, "line_number": 348, "start": 855}
   ]

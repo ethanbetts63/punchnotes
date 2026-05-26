@@ -13,9 +13,21 @@
     "1": {
       "premise": "Herpes can become dating leverage and niche-market access.",
       "beats": {
-        "1": {"topics": ["herpes", "dating", "aftermarket parts"]},
-        "2": {"topics": ["relationships", "arguments", "herpes"]},
-        "3": {"topics": ["herpes", "sexual opportunity", "fat white women"]}
+        "1": {
+          "premise": "Herpes is like aftermarket parts because both add unwanted modifications.",
+          "joke_type": "analogy",
+          "topics": ["herpes", "dating", "aftermarket parts"]
+        },
+        "2": {
+          "premise": "Herpes can be used as a relationship trump card.",
+          "joke_type": "reframe",
+          "topics": ["relationships", "arguments", "herpes"]
+        },
+        "3": {
+          "premise": "Herpes creates a niche market like fat white women.",
+          "joke_type": "analogy",
+          "topics": ["herpes", "sexual opportunity", "fat white women"]
+        }
       }
     }
   },

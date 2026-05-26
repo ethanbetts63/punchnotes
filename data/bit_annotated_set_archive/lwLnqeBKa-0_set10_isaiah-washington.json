@@ -13,26 +13,43 @@
     "1": {
       "premise": "Fatherlessness can be so normal that having a dad seems mockable.",
       "beats": {
-        "1": {"topics": ["absent fathers", "elementary school", "Disneyland"]},
-        "2": {"topics": ["single mothers", "childhood", "masculinity"]}
+        "1": {
+          "premise": "Fatherlessness can make having a present dad seem shameful.",
+          "joke_type": "reframe",
+          "topics": ["absent fathers", "elementary school", "Disneyland"]
+        },
+        "2": {
+          "premise": "Single-mother childhoods make gay insults boomerang onto the insulter.",
+          "joke_type": "reframe",
+          "topics": ["single mothers", "childhood", "masculinity"]
+        }
       }
     },
     "2": {
-      "premise": "Single-mother Saturdays can mean plus-size lingerie shopping.",
       "beats": {
-        "1": {"topics": ["single mothers", "Lane Bryant", "shopping"]}
+        "1": {
+          "premise": "Lane Bryant is like Victoria's Secret for plus-size women.",
+          "joke_type": "analogy",
+          "topics": ["single mothers", "Lane Bryant", "shopping"]
+        }
       }
     },
     "3": {
-      "premise": "Religious shame can turn male puberty breasts into a crisis.",
       "beats": {
-        "1": {"topics": ["religion", "body size", "puberty", "shame"]}
+        "1": {
+          "premise": "Seeing titties implies sexual discovery, not noticing one's own chest.",
+          "joke_type": "misdirect",
+          "topics": ["religion", "body size", "puberty", "shame"]
+        }
       }
     },
     "4": {
-      "premise": "Body-positive dating claims can need audience validation.",
       "beats": {
-        "1": {"topics": ["bigger men", "audience reaction", "self-esteem"]}
+        "1": {
+          "premise": "A body-positive claim reveals insecurity when applause is expected.",
+          "joke_type": "reframe",
+          "topics": ["bigger men", "audience reaction", "self-esteem"]
+        }
       }
     }
   },

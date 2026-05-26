@@ -13,28 +13,52 @@
     "1": {
       "premise": "Dating fat women can make love and beauty status the appeal.",
       "beats": {
-        "1": {"topics": ["fat women", "love", "oral sex"]},
-        "2": {"topics": ["relationships", "being pretty", "aging"]}
+        "1": {
+          "premise": "Loving fat women implies emotional need, not oral sex.",
+          "joke_type": "misdirect",
+          "topics": ["fat women", "love", "oral sex"]
+        },
+        "2": {
+          "premise": "Dating fat women can make aging men the pretty partner.",
+          "joke_type": "reframe",
+          "topics": ["relationships", "being pretty", "aging"]
+        }
       }
     },
     "2": {
       "premise": "Fear of suicide turns sadness into sexual leverage.",
       "beats": {
-        "1": {"topics": ["dating", "suicide", "ex-boyfriends"]},
-        "2": {"topics": ["sadness", "oral sex", "suicide prevention"]},
-        "3": {"topics": ["oral sex", "sadness", "endurance"]},
-        "4": {"topics": ["horniness", "sadness", "conditioning"]}
+        "1": {
+          "premise": "A suicidal ex turns dating trauma into sexual leverage.",
+          "joke_type": "reframe",
+          "topics": ["dating", "suicide", "ex-boyfriends"]
+        },
+        "2": {
+          "premise": "Oral sex becomes suicide prevention when sadness is dangerous.",
+          "joke_type": "reframe",
+          "topics": ["sadness", "oral sex", "suicide prevention"]
+        },
+        "3": {
+          "premise": "What if oral sex physically extracted sadness.",
+          "joke_type": "what-if",
+          "topics": ["oral sex", "sadness", "endurance"]
+        },
+        "4": {
+          "premise": "Rewarding sadness sexually makes horniness trigger sadness.",
+          "joke_type": "reframe",
+          "topics": ["horniness", "sadness", "conditioning"]
+        }
       }
     }
   },
   "lines": [
     {"text": "- This comedy bit is gonna lose its potency", "label": "setup", "bit": 1, "beat": 1, "line_number": 1929, "start": 4355},
-    {"text": "after a black guy, but I love fat girls so much.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1930, "start": 4358},
+    {"text": "after a black guy, but I love fat girls so much.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1930, "start": 4358},
     {"text": "I fucking love them.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 1931, "start": 4364},
     {"text": "And you guys are looking at me like, is it the blow jobs?", "label": "setup", "bit": 1, "beat": 1, "line_number": 1932, "start": 4365},
     {"text": "No, it's the love.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1933, "start": 4367},
     {"text": "All right, I'm 33 years old.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1934, "start": 4371},
-    {"text": "I am fine being the pretty girl in the relationship", "label": "setup", "bit": 1, "beat": 2, "line_number": 1935, "start": 4372},
+    {"text": "I am fine being the pretty girl in the relationship", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1935, "start": 4372},
     {"text": "at this point.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1936, "start": 4376},
     {"text": "Nothing, well actually I've dated someone", "label": "setup", "bit": 2, "beat": 1, "line_number": 1937, "start": 4378},
     {"text": "who's boyfriend before me killed himself.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1938, "start": 4381},

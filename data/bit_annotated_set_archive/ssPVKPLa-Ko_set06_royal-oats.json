@@ -13,9 +13,21 @@
     "1": {
       "premise": "Small balls should not matter during sex but become gossip anyway.",
       "beats": {
-        "1": {"topics": ["muscles", "steroids", "small balls"]},
-        "2": {"topics": ["sex gossip", "small balls", "Vegas dice"]},
-        "3": {"topics": ["tea bagging", "small balls", "salt packets"]}
+        "1": {
+          "premise": "Steroid shrinkage means balls, not dick.",
+          "joke_type": "misdirect",
+          "topics": ["muscles", "steroids", "small balls"]
+        },
+        "2": {
+          "premise": "Tiny balls are like dice because both are small enough to roll.",
+          "joke_type": "analogy",
+          "topics": ["sex gossip", "small balls", "Vegas dice"]
+        },
+        "3": {
+          "premise": "Tiny balls make tea bagging more like condiment packets.",
+          "joke_type": "analogy",
+          "topics": ["tea bagging", "small balls", "salt packets"]
+        }
       }
     }
   },

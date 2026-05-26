@@ -11,10 +11,18 @@
   "start_seconds": 5036,
   "bit_meta": {
     "1": {
-      "premise": "Mandatory racial categorization in America is contrasted with homogeneous societies that skip the question for racist reasons, then with Asian countries that sort everyone into \"Asian or intruders.\"",
+      "premise": "Race categories expose different countries' racism.",
       "beats": {
-        "1": {"topics": ["race", "Black History Month", "Asian Heritage Month", "racism"]},
-        "2": {"topics": ["race", "Asia", "categorization", "xenophobia"]}
+        "1": {
+          "premise": "Skipping race questions can imply racial purity, not progress.",
+          "joke_type": "misdirect",
+          "topics": ["race", "Black History Month", "Asian Heritage Month", "racism"]
+        },
+        "2": {
+          "premise": "Asian racial categories reduce everyone to locals or intruders.",
+          "joke_type": "reframe",
+          "topics": ["race", "Asia", "categorization", "xenophobia"]
+        }
       }
     }
   },

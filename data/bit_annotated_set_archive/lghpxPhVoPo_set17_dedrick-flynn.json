@@ -11,16 +11,27 @@
   "start_seconds": 8454,
   "bit_meta": {
     "1": {
-      "premise": "Houston's Southern identity is captured by calling it a supersized version of Atlanta.",
       "beats": {
-        "1": {"topics": ["Houston", "Atlanta", "South", "cities"]}
+        "1": {
+          "premise": "Houston is like Atlanta because both feel culturally Southern.",
+          "joke_type": "analogy",
+          "topics": ["Houston", "Atlanta", "South", "cities"]
+        }
       }
     },
     "2": {
-      "premise": "Pimp C's cryptic lyric about shrimp and poison is revealed as autobiography: he nearly died from iodine poisoning caused by eating catastrophic quantities of shrimp, making the excess aspirational.",
+      "premise": "Pimp C's shrimp lyric becomes literal autobiography.",
       "beats": {
-        "1": {"topics": ["Pimp C", "rap", "shrimp", "iodine"]},
-        "2": {"topics": ["Pimp C", "shrimp", "iodine poisoning", "food"]}
+        "1": {
+          "premise": "'Eye-dyeing poison' sounds like iodine poisoning from eating shrimp.",
+          "joke_type": "phonetic-match",
+          "topics": ["Pimp C", "rap", "shrimp", "iodine"]
+        },
+        "2": {
+          "premise": "What if Pimp C's iodine lyric described an actual hospital diagnosis.",
+          "joke_type": "what-if",
+          "topics": ["Pimp C", "shrimp", "iodine poisoning", "food"]
+        }
       }
     }
   },

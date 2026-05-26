@@ -11,11 +11,23 @@
   "start_seconds": 6909,
   "bit_meta": {
     "1": {
-      "premise": "The Amish lifestyle is a long-running scam designed to confuse modern society, evidenced by their media ubiquity and the scammer logic of claiming their cameras don't work.",
+      "premise": "The Amish lifestyle looks like a deliberate scam.",
       "beats": {
-        "1": {"topics": ["Amish", "television", "scam", "media"]},
-        "2": {"topics": ["Amish", "cell phones", "scam", "technology"]},
-        "3": {"topics": ["Amish", "conspiracy", "butter churning", "wifi"]}
+        "1": {
+          "premise": "Amish visibility on modern media makes their elusiveness look fake.",
+          "joke_type": "reframe",
+          "topics": ["Amish", "television", "scam", "media"]
+        },
+        "2": {
+          "premise": "Avoiding cell phones resembles a scammer claiming their camera is broken.",
+          "joke_type": "analogy",
+          "topics": ["Amish", "cell phones", "scam", "technology"]
+        },
+        "3": {
+          "premise": "What if Amish traditions were invented in a meeting to confuse society.",
+          "joke_type": "what-if",
+          "topics": ["Amish", "conspiracy", "butter churning", "wifi"]
+        }
       }
     }
   },

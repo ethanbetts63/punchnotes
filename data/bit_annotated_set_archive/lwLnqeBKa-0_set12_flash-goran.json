@@ -13,9 +13,21 @@
     "1": {
       "premise": "Unknown ethnic stereotypes can make prejudice feel educational.",
       "beats": {
-        "1": {"topics": ["Bosnia", "stereotypes", "Europeans"]},
-        "2": {"topics": ["Bosnian stereotypes", "Glock", "note taking"]},
-        "3": {"topics": ["Bosnia", "language", "driving"]}
+        "1": {
+          "premise": "Not knowing one's own stereotype makes others' fear seem informative.",
+          "joke_type": "reframe",
+          "topics": ["Bosnia", "stereotypes", "Europeans"]
+        },
+        "2": {
+          "premise": "Ethnic insults become useful when stereotypes are unknown.",
+          "joke_type": "reframe",
+          "topics": ["Bosnian stereotypes", "Glock", "note taking"]
+        },
+        "3": {
+          "premise": "A bad ethnic representative forgets the language and disproves the stereotype.",
+          "joke_type": "misdirect",
+          "topics": ["Bosnia", "language", "driving"]
+        }
       }
     }
   },

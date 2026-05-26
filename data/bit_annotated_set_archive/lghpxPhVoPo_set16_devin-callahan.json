@@ -11,21 +11,30 @@
   "start_seconds": 8015,
   "bit_meta": {
     "1": {
-      "premise": "Sharing a surname with a famously cool fictional cop highlights the gap between the name's prestige and one's own dirty appearance.",
       "beats": {
-        "1": {"topics": ["Dirty Harry", "appearance", "name", "movies"]}
+        "1": {
+          "premise": "Dirty Harry's name can imply grime rather than toughness.",
+          "joke_type": "double-meaning",
+          "topics": ["Dirty Harry", "appearance", "name", "movies"]
+        }
       }
     },
     "2": {
-      "premise": "Two ghost archetypes are explained by cause of death: the footless ghost is a diabetes amputee who never gets their feet back in the afterlife.",
       "beats": {
-        "1": {"topics": ["ghosts", "afterlife", "diabetes", "death"]}
+        "1": {
+          "premise": "What if ghosts keep the amputations they had at death.",
+          "joke_type": "what-if",
+          "topics": ["ghosts", "afterlife", "diabetes", "death"]
+        }
       }
     },
     "3": {
-      "premise": "A mispronounced hotel name is defended by insisting the hotel is named after a specific employee, not the chain brand.",
       "beats": {
-        "1": {"topics": ["La Quinta", "road trip", "language", "hotels"]}
+        "1": {
+          "premise": "A hotel name can be mistaken for a front-desk worker's name.",
+          "joke_type": "double-meaning",
+          "topics": ["La Quinta", "road trip", "language", "hotels"]
+        }
       }
     }
   },

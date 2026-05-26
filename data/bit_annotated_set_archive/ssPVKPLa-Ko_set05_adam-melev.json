@@ -11,18 +11,37 @@
   "start_seconds": 2431,
   "bit_meta": {
     "1": {
-      "premise": "A birth year can be good personally and catastrophic historically.",
       "beats": {
-        "1": {"topics": ["2001", "9/11", "birth year"]}
+        "1": {
+          "premise": "A birth year can be good personally and catastrophic historically.",
+          "joke_type": "misdirect",
+          "topics": ["2001", "9/11", "birth year"]
+        }
       }
     },
     "2": {
       "premise": "A 9/11 birthday turns cupcakes into attack reenactments.",
       "beats": {
-        "1": {"topics": ["9/11", "birthdays", "cupcakes"]},
-        "2": {"topics": ["9/11", "twins", "cupcake trays"]},
-        "3": {"topics": ["9/11", "classrooms", "Pentagon"]},
-        "4": {"topics": ["9/11", "hallways", "cupcake trays"]}
+        "1": {
+          "premise": "A 9/11 memorial announcement can suddenly become a birthday announcement.",
+          "joke_type": "misdirect",
+          "topics": ["9/11", "birthdays", "cupcakes"]
+        },
+        "2": {
+          "premise": "A second cupcake tray is like the second plane.",
+          "joke_type": "analogy",
+          "topics": ["9/11", "twins", "cupcake trays"]
+        },
+        "3": {
+          "premise": "A classroom hit by cupcakes is like the Pentagon.",
+          "joke_type": "analogy",
+          "topics": ["9/11", "classrooms", "Pentagon"]
+        },
+        "4": {
+          "premise": "A fallen hallway cupcake tray is like the missed fourth attack.",
+          "joke_type": "analogy",
+          "topics": ["9/11", "hallways", "cupcake trays"]
+        }
       }
     }
   },

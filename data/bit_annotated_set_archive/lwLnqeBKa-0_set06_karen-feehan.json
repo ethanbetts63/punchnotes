@@ -11,34 +11,48 @@
   "start_seconds": 2886,
   "bit_meta": {
     "1": {
-      "premise": "Boston Ballet can explain racist anorexia.",
       "beats": {
-        "1": {"topics": ["Boston Ballet", "anorexia", "Massachusetts"]}
+        "1": {
+          "premise": "Ballet training explains racism and anorexia as shared institutional traits.",
+          "joke_type": "reframe",
+          "topics": ["Boston Ballet", "anorexia", "Massachusetts"]
+        }
       }
     },
     "2": {
-      "premise": "A sobriety tattoo fails if bartenders cannot read cursive.",
       "beats": {
-        "1": {"topics": ["alcoholism", "tattoos", "bartenders", "cursive"]}
+        "1": {
+          "premise": "A sobriety tattoo fails if bartenders cannot read cursive.",
+          "joke_type": "what-if",
+          "topics": ["alcoholism", "tattoos", "bartenders", "cursive"]
+        }
       }
     },
     "3": {
-      "premise": "Sleeping with MMA guys recreates the feeling of blacking out.",
       "beats": {
-        "1": {"topics": ["MMA fighters", "blackouts", "sex"]}
+        "1": {
+          "premise": "Sex with fighters is like blacking out because both end in head trauma.",
+          "joke_type": "analogy",
+          "topics": ["MMA fighters", "blackouts", "sex"]
+        }
       }
     },
     "4": {
-      "premise": "Cauliflower ear can look like externalized brain damage.",
       "beats": {
-        "1": {"topics": ["MMA fighters", "cauliflower ear", "sex"]},
-        "2": {"topics": ["MMA fighters", "brain injuries", "insults"]}
+        "1": {
+          "premise": "Cauliflower ear looks like fighters moved their brains outside.",
+          "joke_type": "analogy",
+          "topics": ["MMA fighters", "brain injuries", "cauliflower ear"]
+        }
       }
     },
     "5": {
-      "premise": "Pregnancy can test whether a future kid is a fighter.",
       "beats": {
-        "1": {"topics": ["MMA fighters", "pregnancy", "fighting"]}
+        "1": {
+          "premise": "What if pregnancy could test whether a fetus fights back.",
+          "joke_type": "what-if",
+          "topics": ["MMA fighters", "pregnancy", "fighting"]
+        }
       }
     }
   },
@@ -52,13 +66,13 @@
     {"text": "Whenever I miss blacking out,", "label": "setup", "bit": 3, "beat": 1, "line_number": 1264, "start": 2920},
     {"text": "I just sleep with an MMA guy.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 1265, "start": 2921},
     {"text": "Um...", "label": "fluff", "bit": null, "beat": null, "line_number": 1266, "start": 2923},
-    {"text": "You know, when I see a cauliflower here--", "label": "setup", "bit": 4, "beat": 1, "line_number": 1268, "start": 2927},
-    {"text": "Flood. It's not--", "label": "fluff", "bit": 4, "beat": 1, "line_number": 1270, "start": 2930},
-    {"text": "It's not good.", "label": "fluff", "bit": 4, "beat": 1, "line_number": 1271, "start": 2932},
-    {"text": "People are so mean about MMA guys.", "label": "setup", "bit": 4, "beat": 2, "line_number": 1272, "start": 2934},
-    {"text": "They're like, \"They're so dumb.\"", "label": "setup", "bit": 4, "beat": 2, "line_number": 1273, "start": 2936},
-    {"text": "I'm like, \"No, their brains are just on the outside now.\"", "label": "punchline", "bit": 4, "beat": 2, "line_number": 1274, "start": 2937},
-    {"text": "I'm just kidding, they're pretty dumb.", "label": "tag", "bit": 4, "beat": 2, "line_number": 1276, "start": 2944},
+    {"text": "You know, when I see a cauliflower here--", "label": "fluff", "bit": null, "beat": null, "line_number": 1268, "start": 2927},
+    {"text": "Flood. It's not--", "label": "fluff", "bit": null, "beat": null, "line_number": 1270, "start": 2930},
+    {"text": "It's not good.", "label": "fluff", "bit": null, "beat": null, "line_number": 1271, "start": 2932},
+    {"text": "People are so mean about MMA guys.", "label": "setup", "bit": 4, "beat": 1, "line_number": 1272, "start": 2934},
+    {"text": "They're like, \"They're so dumb.\"", "label": "setup", "bit": 4, "beat": 1, "line_number": 1273, "start": 2936},
+    {"text": "I'm like, \"No, their brains are just on the outside now.\"", "label": "punchline", "bit": 4, "beat": 1, "line_number": 1274, "start": 2937},
+    {"text": "I'm just kidding, they're pretty dumb.", "label": "tag", "bit": 4, "beat": 1, "line_number": 1276, "start": 2944},
     {"text": "I do this thing last week, I do this thing,", "label": "setup", "bit": 5, "beat": 1, "line_number": 1278, "start": 2949},
     {"text": "I let him come at me, and then I go,", "label": "setup", "bit": 5, "beat": 1, "line_number": 1279, "start": 2951},
     {"text": "\"Hey, let's see if this kid's a fighter.\"", "label": "punchline", "bit": 5, "beat": 1, "line_number": 1280, "start": 2953},

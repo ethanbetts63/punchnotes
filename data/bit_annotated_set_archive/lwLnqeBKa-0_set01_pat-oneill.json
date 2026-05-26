@@ -11,39 +11,57 @@
   "start_seconds": 352,
   "bit_meta": {
     "1": {
-      "premise": "Tinder is harder than Grindr.",
       "beats": {
-        "1": {"topics": ["Tinder", "Grindr", "dating apps"]}
+        "1": {
+          "premise": "Switching from Grindr to Tinder turns dating into a challenge.",
+          "joke_type": "reframe",
+          "topics": ["Tinder", "Grindr", "dating apps"]
+        }
       }
     },
     "2": {
-      "premise": "Google Maps can work like a stalking app.",
       "beats": {
-        "1": {"topics": ["exes", "Google Maps", "stalking"]}
+        "1": {
+          "premise": "Google Maps can be treated like a stalking app.",
+          "joke_type": "reframe",
+          "topics": ["exes", "Google Maps", "stalking"]
+        }
       }
     },
     "3": {
-      "premise": "Cheating can be sexual and academic at once.",
       "beats": {
-        "1": {"topics": ["cheating", "college", "math tests"]}
+        "1": {
+          "premise": "Cheating in a relationship is like cheating on a test through borrowed answers.",
+          "joke_type": "analogy",
+          "topics": ["cheating", "college", "math tests"]
+        }
       }
     },
     "4": {
-      "premise": "Menopause does not stop oral sex.",
       "beats": {
-        "1": {"topics": ["older women", "menopause", "oral sex"]}
+        "1": {
+          "premise": "Menopause matters less if oral sex is still possible.",
+          "joke_type": "reframe",
+          "topics": ["older women", "menopause", "oral sex"]
+        }
       }
     },
     "5": {
-      "premise": "Dating can create single mothers.",
       "beats": {
-        "1": {"topics": ["single moms", "dating", "pregnancy"]}
+        "1": {
+          "premise": "Dating single mothers implies preference, not creating them.",
+          "joke_type": "misdirect",
+          "topics": ["single moms", "dating", "pregnancy"]
+        }
       }
     },
     "6": {
-      "premise": "Unfamiliar anatomy can confuse oral-sex navigation.",
       "beats": {
-        "1": {"topics": ["sex", "black women", "oral sex"]}
+        "1": {
+          "premise": "A request to eat ass reveals prior oral-sex navigation was wrong.",
+          "joke_type": "misdirect",
+          "topics": ["sex", "black women", "oral sex"]
+        }
       }
     }
   },
