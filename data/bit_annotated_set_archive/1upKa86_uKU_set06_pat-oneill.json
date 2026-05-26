@@ -11,29 +11,45 @@
   "start_seconds": 3595,
   "bit_meta": {
     "1": {
-      "premise": "Puberty blockers invite hostile preservation jokes.",
+      "premise": "Refusing to call transitioning child son implies a new title, not their disownerment",
       "beats": {
-        "1": {"topics": ["trans children", "family", "rejection"]},
-        "2": {"topics": ["puberty blockers", "pedophiles", "medicine"]}
+        "1": {"topics": ["trans children", "family", "rejection"]}
       }
     },
     "2": {
-      "premise": "A little person would resent chosen puberty blocking.",
+      "premise": "Pedophiles benefit from puberty blockers.",
       "beats": {
-        "1": {"topics": ["circus", "little people", "puberty blockers"]}
+        "1": {"topics": ["puberty blockers", "pedophiles", "medicine"]}
       }
     },
     "3": {
-      "premise": "A little person with ADHD sounds like a fidget.",
+      "premise": "A midget would resent chosen puberty blocking.",
       "beats": {
-        "1": {"topics": ["little people", "ADHD", "wordplay"]}
+        "1": {"topics": ["circus", "midgets", "puberty blockers"]}
       }
     },
     "4": {
-      "premise": "School shootings can be puberty blockers and after-school activities.",
+      "premise": "'Midget' and 'fidget' sound alike, and 'fidget' independently fits ADHD.",
       "beats": {
-        "1": {"topics": ["school shootings", "puberty blockers", "dark humor"]},
-        "2": {"topics": ["school shootings", "race", "after school"]}
+        "1": {"topics": ["midgets", "ADHD", "wordplay"]}
+      }
+    },
+    "5": {
+      "premise": "School shootings are the ultimate puberty blocker.",
+      "beats": {
+        "1": {"topics": ["school shootings", "puberty blockers", "dark humor"]}
+      }
+    },
+    "6": {
+      "premise": "School shootings are widely associated with white shooters but rarely said aloud.",
+      "beats": {
+        "1": {"topics": ["school shootings", "white people", "race"]}
+      }
+    },
+    "7": {
+      "premise": "After-school violence is technically an extracurricular activity.",
+      "beats": {
+        "1": {"topics": ["school shootings", "race", "after school", "extracurricular"]}
       }
     }
   },
@@ -42,27 +58,27 @@
     {"text": "My son just came out as trans.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1662, "start": 3599},
     {"text": "Well, shouldn't call him my son anymore.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1663, "start": 3603},
     {"text": "Now that he's dead to me,", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1664, "start": 3608},
-    {"text": "they got him on puberty blockers", "label": "setup", "bit": 1, "beat": 2, "line_number": 1665, "start": 3611},
-    {"text": "or his pedophiles call them preservatives.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1666, "start": 3613},
-    {"text": "Fucking miracle medicine.", "label": "tag", "bit": 1, "beat": 2, "line_number": 1669, "start": 3627},
-    {"text": "The other day at my job,", "label": "setup", "bit": 2, "beat": 1, "line_number": 1670, "start": 3631},
-    {"text": "I was explaining puberty blockers to one of the midgets.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1671, "start": 3632},
-    {"text": "I work in a circus and...", "label": "setup", "bit": 2, "beat": 1, "line_number": 1672, "start": 3634},
-    {"text": "He goes, \"There's people choosing to do this.\"", "label": "setup", "bit": 2, "beat": 1, "line_number": 1674, "start": 3641},
-    {"text": "(imitates a \"chirping\" sound)", "label": "setup", "bit": 2, "beat": 1, "line_number": 1675, "start": 3643},
-    {"text": "\"Fucking calm down, Tyrion, you bigot.\"", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1676, "start": 3646},
-    {"text": "You there, sir, let me ask you,", "label": "setup", "bit": 3, "beat": 1, "line_number": 1678, "start": 3650},
-    {"text": "what do you call a little person with ADHD?", "label": "setup", "bit": 3, "beat": 1, "line_number": 1679, "start": 3651},
-    {"text": "That's right, a fidget.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 1680, "start": 3654},
-    {"text": "Good answer.", "label": "fluff", "bit": 3, "beat": 1, "line_number": 1681, "start": 3656},
-    {"text": "Speaking of little people,", "label": "setup", "bit": 4, "beat": 1, "line_number": 1682, "start": 3658},
-    {"text": "I wanna switch topics to school shootings.", "label": "setup", "bit": 4, "beat": 1, "line_number": 1683, "start": 3659},
-    {"text": "The ultimate puberty blocker and ...", "label": "punchline", "bit": 4, "beat": 1, "line_number": 1684, "start": 3662},
-    {"text": "You know, these shootings are often done by the same race.", "label": "setup", "bit": 4, "beat": 2, "line_number": 1686, "start": 3668},
-    {"text": "I'm looking at you, honkies.", "label": "punchline", "bit": 4, "beat": 2, "line_number": 1687, "start": 3670},
-    {"text": "White kids need to learn from their black classmates", "label": "setup", "bit": 4, "beat": 2, "line_number": 1688, "start": 3673},
-    {"text": "and save the shootings for after school.", "label": "punchline", "bit": 4, "beat": 2, "line_number": 1689, "start": 3676},
-    {"text": "For them, it's an extracurricular activity.", "label": "tag", "bit": 4, "beat": 2, "line_number": 1690, "start": 3678},
+    {"text": "they got him on puberty blockers", "label": "setup", "bit": 2, "beat": 1, "line_number": 1665, "start": 3611},
+    {"text": "or as pedophiles call them preservatives.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1666, "start": 3613},
+    {"text": "Fucking miracle medicine.", "label": "tag", "bit": 2, "beat": 1, "line_number": 1669, "start": 3627},
+    {"text": "The other day at my job,", "label": "setup", "bit": 3, "beat": 1, "line_number": 1670, "start": 3631},
+    {"text": "I was explaining puberty blockers to one of the midgets.", "label": "setup", "bit": 3, "beat": 1, "line_number": 1671, "start": 3632},
+    {"text": "I work in a circus and...", "label": "setup", "bit": 3, "beat": 1, "line_number": 1672, "start": 3634},
+    {"text": "He goes, \"There's people choosing to do this.\"", "label": "setup", "bit": 3, "beat": 1, "line_number": 1674, "start": 3641},
+    {"text": "(makes angry midget sound)", "label": "setup", "bit": 3, "beat": 1, "line_number": 1675, "start": 3643},
+    {"text": "\"Fucking calm down, Tyrion, you bigot.\"", "label": "punchline", "bit": 3, "beat": 1, "line_number": 1676, "start": 3646},
+    {"text": "You there, sir, let me ask you,", "label": "fluff", "bit": 4, "beat": 1, "line_number": 1678, "start": 3650},
+    {"text": "what do you call a little person with ADHD?", "label": "setup", "bit": 4, "beat": 1, "line_number": 1679, "start": 3651},
+    {"text": "That's right, a fidget.", "label": "punchline", "bit": 4, "beat": 1, "line_number": 1680, "start": 3654},
+    {"text": "Good answer.", "label": "fluff", "bit": 4, "beat": 1, "line_number": 1681, "start": 3656},
+    {"text": "Speaking of little people,", "label": "setup", "bit": 5, "beat": 1, "line_number": 1682, "start": 3658},
+    {"text": "I wanna switch topics to school shootings.", "label": "setup", "bit": 5, "beat": 1, "line_number": 1683, "start": 3659},
+    {"text": "The ultimate puberty blocker and ...", "label": "punchline", "bit": 5, "beat": 1, "line_number": 1684, "start": 3662},
+    {"text": "You know, these shootings are often done by the same race.", "label": "setup", "bit": 6, "beat": 1, "line_number": 1686, "start": 3668},
+    {"text": "I'm looking at you, honkies.", "label": "punchline", "bit": 6, "beat": 1, "line_number": 1687, "start": 3670},
+    {"text": "White kids need to learn from their black classmates", "label": "setup", "bit": 7, "beat": 1, "line_number": 1688, "start": 3673},
+    {"text": "and save the shootings for after school.", "label": "punchline", "bit": 7, "beat": 1, "line_number": 1689, "start": 3676},
+    {"text": "For them, it's an extracurricular activity.", "label": "tag", "bit": 7, "beat": 1, "line_number": 1690, "start": 3678},
     {"text": "Okay, thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 1691, "start": 3681}
   ]
 }

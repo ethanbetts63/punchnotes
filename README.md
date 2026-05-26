@@ -108,3 +108,15 @@ Line - fluff, setup, punchline or tagline.
 Topics are attributed at the beat level and are the salient topic / topics of the beat. 
 Premises are attributed at the bit level and are the smallest standalone â€œwhat this bit is aboutâ€ statement that the audience needs in order for the beats to make sense. 
 
+
+reframe (or perspective shift). The joke takes something familiar (puberty blockers as medical care
+  for trans kids) and reveals an angle from a stakeholder the audience hadn't been thinking about (pedophiles, for whom
+  this is functionally great news). The laugh comes from suddenly seeing the implication that was always logically there
+   but invisible.
+
+     wordplay is that it requires two things to line up simultaneously to be funny:
+
+  1. Phonetic match — "midget" and "fidget" near-rhyme
+  2. Semantic match — "fidget" also independently fits the ADHD frame (via fidget spinners)
+
+  - Elephant (in-the-room): X is widely understood about Y but rarely said aloud
