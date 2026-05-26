@@ -10,24 +10,24 @@
   "start_seconds": 7160,
   "bit_meta": {
     "1": {
-      "premise": "Citizenship gets less appealing when the draft expands.",
+      "premise": "Becoming a citizen right before a draft turns the milestone into a curse.",
       "beats": {
-        "1": {"topics": ["war", "citizenship", "draft"]},
-        "2": {"topics": ["draft age", "marijuana convictions", "army"]}
+        "1": {"topics": ["war", "citizenship", "draft"]}
       }
     },
     "2": {
-      "premise": "Tiny countries draft everyone because there is no room for standards.",
+      "premise": "Expanding draft eligibility to older stoners produces a pathetic army.",
       "beats": {
-        "1": {"topics": ["Estonia", "compulsory service", "wheelchairs"]},
-        "2": {"topics": ["Estonia", "special forces", "disability"]},
-        "3": {"topics": ["military training", "Santa Claus", "conscription"]}
+        "1": {"topics": ["draft age", "marijuana convictions", "army"]}
       }
     },
     "3": {
-      "premise": "A gay squad mate can be more valuable than a medic.",
+      "premise": "Estonia drafts everyone America excludes.",
       "beats": {
-        "1": {"topics": ["gay soldiers", "military", "base life"]}
+        "1": {"topics": ["Estonia", "compulsory service", "wheelchairs"]},
+        "2": {"topics": ["Estonia", "special forces", "disability"]},
+        "3": {"topics": ["military training", "Santa Claus", "conscription"]},
+        "4": {"topics": ["gay soldiers", "military", "base life"]}
       }
     }
   },
@@ -48,13 +48,13 @@
     {"text": "Everyone goes.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 3351, "start": 7228},
     {"text": "Wheelchair people, we send them.", "label": "setup", "bit": 2, "beat": 1, "line_number": 3352, "start": 7231},
     {"text": "Oh yeah, we put a grenade in your lap and...", "label": "punchline", "bit": 2, "beat": 1, "line_number": 3353, "start": 7234},
-    {"text": "Come on!", "label": "fluff", "bit": null, "beat": null, "line_number": 3355, "start": 7239},
+    {"text": "Come on!", "label": "tag", "bit": null, "beat": null, "line_number": 3355, "start": 7239},
     {"text": "Down syndrome people, we send them.", "label": "setup", "bit": 2, "beat": 2, "line_number": 3356, "start": 7246},
-    {"text": "Oh yeah, we have a whole squad.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 3357, "start": 7250},
-    {"text": "Estonian special forces.", "label": "tag", "bit": 2, "beat": 2, "line_number": 3358, "start": 7252},
+    {"text": "Oh yeah, we have a whole squad.", "label": "setup", "bit": 2, "beat": 2, "line_number": 3357, "start": 7250},
+    {"text": "Estonian special forces.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 3358, "start": 7252},
     {"text": "You think special forces mean somebody repels down", "label": "setup", "bit": 2, "beat": 2, "line_number": 3360, "start": 7261},
     {"text": "and has night vision knives,", "label": "setup", "bit": 2, "beat": 2, "line_number": 3361, "start": 7263},
-    {"text": "nickel us with a soft serve ice cream?", "label": "punchline", "bit": 2, "beat": 2, "line_number": 3362, "start": 7266},
+    {"text": "Nicholas with a soft serve ice cream?", "label": "punchline", "bit": 2, "beat": 2, "line_number": 3362, "start": 7266},
     {"text": "We send them!", "label": "tag", "bit": 2, "beat": 2, "line_number": 3364, "start": 7274},
     {"text": "We get them all together in a parking lot,", "label": "setup", "bit": 2, "beat": 3, "line_number": 3365, "start": 7276},
     {"text": "we connect them with a rope.", "label": "setup", "bit": 2, "beat": 3, "line_number": 3366, "start": 7278},
