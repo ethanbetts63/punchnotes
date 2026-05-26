@@ -10,24 +10,40 @@
   "start_seconds": 7160,
   "bit_meta": {
     "1": {
-      "premise": "Becoming a citizen right before a draft turns the milestone into a curse.",
       "beats": {
-        "1": {"topics": ["war", "citizenship", "draft"]}
+        "1": {
+          "premise": "Earning citizenship right before a draft turns the milestone into a curse.",
+          "topics": ["war", "citizenship", "draft"]
+        }
       }
     },
     "2": {
-      "premise": "Expanding draft eligibility to older stoners produces a pathetic army.",
       "beats": {
-        "1": {"topics": ["draft age", "marijuana convictions", "army"]}
+        "1": {
+          "premise": "Expanding draft eligibility to older stoners produces a pathetic army.",
+          "topics": ["draft age", "marijuana convictions", "army"]
+        }
       }
     },
     "3": {
       "premise": "Estonia drafts everyone America excludes.",
       "beats": {
-        "1": {"topics": ["Estonia", "compulsory service", "wheelchairs"]},
-        "2": {"topics": ["Estonia", "special forces", "disability"]},
-        "3": {"topics": ["military training", "Santa Claus", "conscription"]},
-        "4": {"topics": ["gay soldiers", "military", "base life"]}
+        "1": {
+          "premise": "Wheelchair soldiers with a grenade could kamikaze role at the enemy",
+          "topics": ["Estonia", "wheelchairs", "grenades"]
+        },
+        "2": {
+          "premise": "'Special forces' fits literally when the soldiers are special-needs.",
+          "topics": ["special forces", "down syndrome", "wordplay"]
+        },
+        "3": {
+          "premise": "Telling a down syndrome person someone killed Santa would make them mad. ",
+          "topics": ["Santa Claus", "down syndrome", "conscription"]
+        },
+        "4": {
+          "premise": "Without women in the military straight soldiers would protect gay soldiers.",
+          "topics": ["gay soldiers", "base life", "military"]
+        }
       }
     }
   },
@@ -63,13 +79,13 @@
     {"text": "Everybody goes!", "label": "tag", "bit": 3, "beat": 3, "line_number": 3371, "start": 7296},
     {"text": "Cripples, mentally challenged, even women.", "label": "tag", "bit": 3, "beat": 3, "line_number": 3372, "start": 7298},
     {"text": "Gay people, we send them.", "label": "setup", "bit": 3, "beat": 4, "line_number": 3374, "start": 7308},
-    {"text": "I know you guys don't do that.", "label": "setup", "bit": 3, "beat": 4, "line_number": 3375, "start": 7311},
+    {"text": "I know you guys don't do that.", "label": "fluff", "bit": 3, "beat": 4, "line_number": 3375, "start": 7311},
     {"text": "By the way, the only way I'm going to war is if I have a gay squad mate.", "label": "setup", "bit": 3, "beat": 4, "line_number": 3376, "start": 7313},
     {"text": "I'm protecting that motherfucker more than the medic.", "label": "setup", "bit": 3, "beat": 4, "line_number": 3377, "start": 7320},
     {"text": "He's the only one sucking dick back at the base.", "label": "punchline", "bit": 3, "beat": 4, "line_number": 3378, "start": 7324},
-    {"text": "Didn't you get behind me?", "label": "tag", "bit": 3, "beat": 4, "line_number": 3379, "start": 7328},
+    {"text": "Dylan get behind me!", "label": "tag", "bit": 3, "beat": 4, "line_number": 3379, "start": 7328},
     {"text": "I'm saving Dylan's life.", "label": "tag", "bit": 3, "beat": 4, "line_number": 3380, "start": 7331},
-    {"text": "No f*** left behind.", "label": "tag", "bit": 3, "beat": 4, "line_number": 3381, "start": 7334},
+    {"text": "No faggot left behind.", "label": "tag", "bit": 3, "beat": 4, "line_number": 3381, "start": 7334},
     {"text": "Thank you so much. That's my time.", "label": "fluff", "bit": null, "beat": null, "line_number": 3382, "start": 7339}
   ]
 }

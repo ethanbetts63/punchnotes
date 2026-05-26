@@ -28,6 +28,8 @@ Each input file is a set JSON from `data/2_set_inbox/`. Lines have an empty `lab
 
 Write the annotated file to `data/4_bit_annotated_set_inbox/<same-filename>.json`. The output adds `bit_meta` before `lines`, and each line gets `label`, `bit`, and `beat` fields. Field order on each line: `text`, `label`, `bit`, `beat`, `line_number`, `start`.
 
+Every beat has its own `premise` and `topics`. A bit gets its own `premise` **only when it has more than one beat** — the bit premise is the umbrella that ties multiple beats together. Single-beat bits don't need a bit premise because the beat premise already captures the joke's logic.
+
 ```json
 {
   "type": "set_meta",
@@ -36,9 +38,24 @@ Write the annotated file to `data/4_bit_annotated_set_inbox/<same-filename>.json
   ...
   "bit_meta": {
     "1": {
-      "premise": "New partners hate hearing about an ex's sexual preferences.",
       "beats": {
-        "1": {"topics": ["exes", "relationships"]}
+        "1": {
+          "premise": "New partners hate hearing about an ex's sexual preferences.",
+          "topics": ["exes", "relationships"]
+        }
+      }
+    },
+    "2": {
+      "premise": "Estonia drafts everyone America excludes.",
+      "beats": {
+        "1": {
+          "premise": "A wheelchair-bound soldier doubles as a suicide grenade carrier.",
+          "topics": ["Estonia", "wheelchairs", "grenades"]
+        },
+        "2": {
+          "premise": "'Special forces' can mean special-needs rather than elite.",
+          "topics": ["special forces", "down syndrome", "wordplay"]
+        }
       }
     }
   },
@@ -85,33 +102,65 @@ Everything that is not setup, punchline, or tag: greetings, sign-offs, name intr
 
 ### Hierarchy
 
-- **Bit**: a single premise or a sequence of beats that only make sense under a shared premise.
-- **Beat**: one setup/punchline/tags unit inside a bit.
+- **Bit**: one or more beats that share a premise. Every bit has at least one beat.
+- **Beat**: one setup/punchline/tags unit with its own specific comedic logic.
 
 ### Bit numbers and beat numbers
 
 Use sequential integers starting from 1. Assign `"bit": N` and `"beat": N` on each line. Lines outside all bits (opening greetings, sign-offs) get `"bit": null, "beat": null`.
 
+### Bit vs. multiple bits
+
+**Shared topic ≠ shared premise.** Don't group beats just because they're about the same subject. Group them only when removing one would orphan the others.
+
+The test: **can you extract a beat alone and still have it make sense?**
+- If yes → it's its own bit
+- If no (it depends on a premise established earlier) → same bit
+
+**Watch for pronoun bridges.** If a comedian links two structurally independent jokes by using a pronoun callback (e.g. "him" referring to someone established in the prior joke), they are still separate bits. The test is whether the joke's comedic premise would survive a one-word change ("him" → "my son"), not whether the current performance depends on the prior line.
+
 ### `bit_meta`
 
-For each bit, write a `premise` and a `beats` dict. For each beat, write `topics`.
+Every beat has `premise` and `topics`. A bit has its own `premise` **only when it has multiple beats** — the bit premise is the umbrella across them.
+
+For multi-beat bits, every beat must still have its own premise. The bit premise is the broad theme; each beat premise is the specific comedic mechanism of that beat.
 
 **Premise rules:**
-- State the abstract comedic logic, not a summary of what was said.
+- State the abstract comedic logic — *why is this funny*, not what was said.
 - No pronouns tied to the comedian — no "he", "she", "they", "the comic".
 - As short as possible while keeping the meaning.
 - Use the most general form: `"Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."`
 
-**Visual premises:** If a joke has no verbal setup, infer the visual from the punchline and state the connection as a universal truth. e.g. punchline `"I look like I just fucked a pair of balloons."` → premise `"Upright hair can look like static from sex with balloons."`
-
-**Misdirect premises:** Name the assumption being exploited and the unexpected replacement. e.g. `"Talk of seeing tits implies a woman, not a man."`
-
 **Topics:** 1–4 short, specific, searchable nouns per beat. Prefer `"crackheads"` over `"people doing drugs"`.
+
+### Joke types and premise formulas
+
+Most jokes fall into one of four mechanisms. Each has its own premise shape:
+
+**Misdirect** — assumption planted, then subverted.
+> Formula: *X implies Y, not Z.*
+> Example: `"Talk of seeing tits implies a woman, not a man."`
+
+**Reframe** — hidden implication of a known thing is surfaced. No prior assumption is planted; the audience just hadn't considered this angle.
+> Formula: state the hidden implication directly.
+> Example: `"Pedophiles benefit from puberty blockers."`
+
+**Wordplay** — a phrase fits two situations at once. Either through phonetic similarity or polysemy.
+> Formula: state the sonic/semantic match and why both sides independently fit.
+> Example: `"'Midget' and 'fidget' sound alike, and 'fidget' independently fits ADHD."`
+
+**Elephant-in-the-room** — taboo observation said aloud. The audience already knows the conclusion; the laugh comes from breaking the silence.
+> Formula: *X is widely understood about Y but rarely said aloud.*
+> Example: `"School shootings are widely associated with white shooters but rarely said aloud."`
+
+**Visual jokes** — if the punchline relies on the comedian's appearance (no verbal setup), infer the visual and state the connection as a universal truth.
+> Example: punchline `"I look like I just fucked a pair of balloons."` → premise `"Upright hair can look like static from sex with balloons."`
 
 ### Boundary rules
 
-- A new bit starts when the comedian introduces a new standalone premise.
+- A new bit starts when the comedian introduces a new standalone premise that doesn't depend on the prior bit.
 - A new beat starts when the comedian develops another setup/punchline unit under the current bit's premise.
+- Multi-beat bits typically have a shared setup at the start that establishes the umbrella premise, then each beat is a different application of that premise.
 - Do not merge separate bits just because they share a broad topic.
 - Do not split a bit just because a new setup line appears after a punchline — decide whether it depends on the existing premise.
 - Fluff that sits inside a bit's flow can receive that bit's number.
@@ -124,8 +173,10 @@ For each bit, write a `premise` and a `beats` dict. For each beat, write `topics
 2. Identify each punchline — that's the anchor for each beat.
 3. Walk backwards from each punchline labeling setup; walk forwards labeling tags.
 4. Mark everything else fluff.
-5. Group beats into bits by shared premise.
-6. Write the output JSON with `bit_meta` and fully labeled lines.
+5. For each beat, identify the joke type (misdirect / reframe / wordplay / elephant / visual) and write a premise using its formula.
+6. Group beats into bits by shared premise. Apply the extraction test: if a beat would survive standalone, it's its own bit.
+7. For multi-beat bits, write a bit premise that captures the umbrella the beats share.
+8. Write the output JSON with `bit_meta` and fully labeled lines.
 
 ---
 
