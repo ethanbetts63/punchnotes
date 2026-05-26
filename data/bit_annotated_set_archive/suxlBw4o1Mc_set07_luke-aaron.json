@@ -11,16 +11,27 @@
   "start_seconds": 4138,
   "bit_meta": {
     "1": {
-      "premise": "A cheese factory job can turn Swiss cheese holes into a sexual labor image.",
       "beats": {
-        "1": {"topics": ["Wisconsin", "cheese factory", "Swiss cheese", "sexual innuendo"]}
+        "1": {
+          "premise": "Swiss cheese holes can be reframed as the result of sexual labor.",
+          "joke_type": "reframe",
+          "topics": ["Wisconsin", "cheese factory", "Swiss cheese", "sexual innuendo"]
+        }
       }
     },
     "2": {
       "premise": "Adult responsibility checks can include body insecurity like a necessary item.",
       "beats": {
-        "1": {"topics": ["adulthood", "responsibility", "micro penis"]},
-        "2": {"topics": ["penis size", "sex", "squirrel"]}
+        "1": {
+          "premise": "A micro penis can be treated like an item to remember before leaving.",
+          "joke_type": "reframe",
+          "topics": ["adulthood", "responsibility", "micro penis"]
+        },
+        "2": {
+          "premise": "A sex partner praising penis size implies a woman, not a squirrel.",
+          "joke_type": "misdirect",
+          "topics": ["penis size", "sex", "squirrel"]
+        }
       }
     }
   },

@@ -10,22 +10,36 @@
   "start_seconds": 1353,
   "bit_meta": {
     "1": {
-      "premise": "Covering a face but not exposed breasts suggests absurd COVID caution.",
       "beats": {
-        "1": {"topics": ["homelessness", "masks", "Democrats"]}
+        "1": {
+          "premise": "Covering a face but not exposed breasts suggests absurd COVID caution.",
+          "joke_type": "reframe",
+          "topics": ["homelessness", "masks", "Democrats"]
+        }
       }
     },
     "2": {
-      "premise": "Iran sounds foreign until it becomes a Nebraska town.",
       "beats": {
-        "1": {"topics": ["Iran", "Nebraska", "identity"]}
+        "1": {
+          "premise": "Iran implies a foreign country, not a Nebraska town.",
+          "joke_type": "misdirect",
+          "topics": ["Iran", "Nebraska", "identity"]
+        }
       }
     },
     "3": {
       "premise": "Middle Eastern airport signs would ban stones instead of guns.",
       "beats": {
-        "1": {"topics": ["airport signs", "Middle East", "weapons"]},
-        "2": {"topics": ["lost limbs", "stones", "airport signs"]}
+        "1": {
+          "premise": "Middle Eastern weapons rules would treat stones like airplane threats.",
+          "joke_type": "what-if",
+          "topics": ["airport signs", "Middle East", "weapons"]
+        },
+        "2": {
+          "premise": "A stone-throwing culture makes lost limbs an airport liability.",
+          "joke_type": "what-if",
+          "topics": ["lost limbs", "stones", "airport signs"]
+        }
       }
     }
   },
@@ -42,7 +56,7 @@
     {"text": "reads, \"No stones allowed in the airplane.\"", "label": "punchline", "bit": 3, "beat": 1, "line_number": 585, "start": 1389},
     {"text": "But AK-47 is okay, because those virgins", "label": "tag", "bit": 3, "beat": 1, "line_number": 586, "start": 1392},
     {"text": "can get out of control.", "label": "tag", "bit": 3, "beat": 1, "line_number": 587, "start": 1396},
-    {"text": "Another sign right under that that reads, \"Not responsible for lost limbs.\"", "label": "tag", "bit": 3, "beat": 2, "line_number": 588, "start": 1404},
+    {"text": "Another sign right under that that reads, \"Not responsible for lost limbs.\"", "label": "punchline", "bit": 3, "beat": 2, "line_number": 588, "start": 1404},
     {"text": "Oh, you missed the stone.", "label": "tag", "bit": 3, "beat": 2, "line_number": 589, "start": 1412},
     {"text": "You missed me.", "label": "fluff", "bit": null, "beat": null, "line_number": 590, "start": 1418}
   ]

@@ -12,11 +12,31 @@
     "1": {
       "premise": "Restaurant-order stereotypes become fake language skills.",
       "beats": {
-        "1": {"topics": ["New York", "Spanish", "bodega orders"]},
-        "2": {"topics": ["Italian Americans", "deli orders", "Norwegians"]},
-        "3": {"topics": ["Chinese restaurants", "shouting", "food orders"]},
-        "4": {"topics": ["Chinese restaurants", "steak bones", "audience risk"]},
-        "5": {"topics": ["Asian audience", "Kim Jong-un", "height"]}
+        "1": {
+          "premise": "A bodega order becomes Spanish fluency through stereotype.",
+          "joke_type": "reframe",
+          "topics": ["New York", "Spanish", "bodega orders"]
+        },
+        "2": {
+          "premise": "Italian posturing implies Italian identity, not a Norwegian customer.",
+          "joke_type": "misdirect",
+          "topics": ["Italian Americans", "deli orders", "Norwegians"]
+        },
+        "3": {
+          "premise": "Shouting an order treats volume like translation.",
+          "joke_type": "reframe",
+          "topics": ["Chinese restaurants", "shouting", "food orders"]
+        },
+        "4": {
+          "premise": "Dog-eating stereotypes are widely known about Chinese restaurants but taboo.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["Chinese restaurants", "steak bones", "audience risk"]
+        },
+        "5": {
+          "premise": "A short Asian audience member resembles Kim Jong-un through height and ethnicity.",
+          "joke_type": "analogy",
+          "topics": ["Asian audience", "Kim Jong-un", "height"]
+        }
       }
     }
   },

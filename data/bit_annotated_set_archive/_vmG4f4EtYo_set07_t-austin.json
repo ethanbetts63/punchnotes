@@ -12,11 +12,31 @@
     "1": {
       "premise": "Apocalypse scenarios can be ranked like personal preferences.",
       "beats": {
-        "1": {"topics": ["apocalypse", "religion", "God"]},
-        "2": {"topics": ["Donald Trump", "Israel", "bombs"]},
-        "3": {"topics": ["zombies", "Thriller", "The Walking Dead"]},
-        "4": {"topics": ["peanuts", "allergies", "mass death"]},
-        "5": {"topics": ["aliens", "Donald Trump", "apocalypse"]}
+        "1": {
+          "premise": "What if the apocalypse made profanity impossible because God appeared.",
+          "joke_type": "what-if",
+          "topics": ["apocalypse", "religion", "God"]
+        },
+        "2": {
+          "premise": "A nuclear apocalypse is less hypothetical when current politics already resemble it.",
+          "joke_type": "reframe",
+          "topics": ["Donald Trump", "Israel", "bombs"]
+        },
+        "3": {
+          "premise": "What if a zombie apocalypse were desirable because pop culture prepared fans.",
+          "joke_type": "what-if",
+          "topics": ["zombies", "Thriller", "The Walking Dead"]
+        },
+        "4": {
+          "premise": "What if peanut allergies made peanuts a mass-casualty weapon.",
+          "joke_type": "what-if",
+          "topics": ["peanuts", "allergies", "mass death"]
+        },
+        "5": {
+          "premise": "What if alien apocalypse fears were confirmed by the crowd already being aliens.",
+          "joke_type": "what-if",
+          "topics": ["aliens", "Donald Trump", "apocalypse"]
+        }
       }
     }
   },

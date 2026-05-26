@@ -11,27 +11,39 @@
   "start_seconds": 1247,
   "bit_meta": {
     "1": {
-      "premise": "A movie sex scene can make an Oscar screening feel like a public masturbation setup.",
       "beats": {
-        "1": {"topics": ["Oscars", "movies", "sex scenes", "masturbation"]}
+        "1": {
+          "premise": "Losing the plot during a sex scene implies arousal, not confusion.",
+          "joke_type": "misdirect",
+          "topics": ["Oscars", "movies", "sex scenes", "masturbation"]
+        }
       }
     },
     "2": {
-      "premise": "Avoiding streets named for civil rights heroes makes navigation sound racist.",
       "beats": {
-        "1": {"topics": ["GPS", "Martin Luther King Boulevard", "racism"]}
+        "1": {
+          "premise": "Avoiding streets named for civil rights heroes makes navigation sound racist.",
+          "joke_type": "reframe",
+          "topics": ["GPS", "Martin Luther King Boulevard", "racism"]
+        }
       }
     },
     "3": {
-      "premise": "Racism seeming better can mean personal skill at racism improved.",
       "beats": {
-        "1": {"topics": ["racism", "aging", "self-improvement"]}
+        "1": {
+          "premise": "Racism getting better implies social progress, not personal skill.",
+          "joke_type": "misdirect",
+          "topics": ["racism", "aging", "self-improvement"]
+        }
       }
     },
     "4": {
-      "premise": "A racist pet name can make family history feel casually inherited.",
       "beats": {
-        "1": {"topics": ["grandfather", "cat", "racial slurs", "family history"]}
+        "1": {
+          "premise": "Casual family racism is widely inherited but rarely said aloud.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["grandfather", "cat", "racial slurs", "family history"]
+        }
       }
     }
   },

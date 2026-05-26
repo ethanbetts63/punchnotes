@@ -13,8 +13,16 @@
     "1": {
       "premise": "Private shower music can make singing and washing feel racially and sexually incriminating.",
       "beats": {
-        "1": {"topics": ["hip hop", "showers", "self-censorship", "Wu-Tang"]},
-        "2": {"topics": ["Kanye West", "Diddy", "shower", "sexual anxiety"]}
+        "1": {
+          "premise": "Singing uncensored hip hop in private can make showering feel racist.",
+          "joke_type": "reframe",
+          "topics": ["hip hop", "showers", "self-censorship", "Wu-Tang"]
+        },
+        "2": {
+          "premise": "Washing to suggestive hip hop can make showering feel sexually incriminating.",
+          "joke_type": "reframe",
+          "topics": ["Kanye West", "Diddy", "shower", "sexual anxiety"]
+        }
       }
     }
   },

@@ -46,7 +46,7 @@
     {"text": "Y'all know how hard it is to drive Uber", "label": "setup", "bit": 1, "beat": 1, "line_number": 2123, "start": 5015},
     {"text": "when you're a big black dude named Courtney?", "label": "setup", "bit": 1, "beat": 1, "line_number": 2124, "start": 5017},
     {"text": "People don't believe it's my car.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2126, "start": 5022},
-    {"text": "I had a lady once go, are you sure this is your car?", "label": "setup", "bit": 1, "beat": 1, "line_number": 2127, "start": 5023},
+    {"text": "I had a lady once go, are you sure this is your car?", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2127, "start": 5023},
     {"text": "You know, you hear a joke and you think she's playing,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2129, "start": 5028},
     {"text": "but she's like.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2130, "start": 5030},
     {"text": "And because I'm a comic, I'm all like,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2132, "start": 5032},

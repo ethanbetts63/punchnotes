@@ -11,22 +11,30 @@
   "start_seconds": 2705,
   "bit_meta": {
     "1": {
-      "premise": "Being labeled autistic by strangers can be defended by noting avoidance is also judgment.",
       "beats": {
-        "1": {"topics": ["autism", "strangers", "social avoidance"]}
+        "1": {
+          "premise": "Avoiding someone can imply the same autism judgment as saying it aloud.",
+          "joke_type": "reframe",
+          "topics": ["autism", "strangers", "social avoidance"]
+        }
       }
     },
     "2": {
-      "premise": "Repeated puppy deaths can make adult dogs seem impossible.",
       "beats": {
-        "1": {"topics": ["dogs", "puppies", "parvo", "childhood"]}
+        "1": {
+          "premise": "Only seeing puppies die can make adult dogs seem impossible.",
+          "joke_type": "reframe",
+          "topics": ["dogs", "puppies", "parvo", "childhood"]
+        }
       }
     },
     "3": {
-      "premise": "Racist language can be treated as situationally strategic instead of forbidden.",
       "beats": {
-        "1": {"topics": ["stepdad", "racial slurs", "Walmart", "Home Depot"]},
-        "2": {"topics": ["race riot", "Latinos", "work crews"]}
+        "1": {
+          "premise": "Racist language can be treated as situationally strategic instead of forbidden.",
+          "joke_type": "reframe",
+          "topics": ["stepdad", "racial slurs", "Walmart", "Home Depot", "race riot"]
+        }
       }
     }
   },
@@ -55,10 +63,10 @@
     {"text": "\"Where'd you fucking learn that word, dad?\"", "label": "setup", "bit": 3, "beat": 1, "line_number": 1139, "start": 2753},
     {"text": "He goes, \"At work, well you shouldn't be using it.", "label": "setup", "bit": 3, "beat": 1, "line_number": 1140, "start": 2755},
     {"text": "\"Unless we're at Home Depot", "label": "punchline", "bit": 3, "beat": 1, "line_number": 1141, "start": 2757},
-    {"text": "\"when we got people behind our back.", "label": "tag", "bit": 3, "beat": 2, "line_number": 1142, "start": 2758},
-    {"text": "\"We got the WebBacks helping us out", "label": "tag", "bit": 3, "beat": 2, "line_number": 1143, "start": 2759},
-    {"text": "\"in case of a race riot, right?\"", "label": "tag", "bit": 3, "beat": 2, "line_number": 1144, "start": 2761},
-    {"text": "Oh God.", "label": "fluff", "bit": 3, "beat": 2, "line_number": 1145, "start": 2763},
+    {"text": "\"when we got people behind our back.", "label": "tag", "bit": 3, "beat": 1, "line_number": 1142, "start": 2758},
+    {"text": "\"We got the WebBacks helping us out", "label": "tag", "bit": 3, "beat": 1, "line_number": 1143, "start": 2759},
+    {"text": "\"in case of a race riot, right?\"", "label": "tag", "bit": 3, "beat": 1, "line_number": 1144, "start": 2761},
+    {"text": "Oh God.", "label": "fluff", "bit": 3, "beat": 1, "line_number": 1145, "start": 2763},
     {"text": "I'm bad at dating guys.", "label": "setup", "bit": null, "beat": null, "line_number": 1146, "start": 2768},
     {"text": "Thank God, let's fucking get this over with.", "label": "fluff", "bit": null, "beat": null, "line_number": 1147, "start": 2770}
   ]

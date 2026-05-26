@@ -10,24 +10,42 @@
   "start_seconds": 1788,
   "bit_meta": {
     "1": {
-      "premise": "A farm can fail from having only one useless child.",
       "beats": {
-        "1": {"topics": ["farming", "only children", "family labor"]},
-        "2": {"topics": ["stand-up", "failure", "farm life"]}
+        "1": {
+          "premise": "A farm can fail from having only one useless child.",
+          "joke_type": "reframe",
+          "topics": ["farming", "only children", "family labor", "stand-up"]
+        }
       }
     },
     "2": {
       "premise": "A broke inheritance can be an overwhelming porn collection.",
       "beats": {
-        "1": {"topics": ["inheritance", "porn collection", "father"]},
-        "2": {"topics": ["masturbation", "rehab", "embarrassment"]}
+        "1": {
+          "premise": "Inheriting porn is burdensome when finishing it requires bodily depletion.",
+          "joke_type": "reframe",
+          "topics": ["inheritance", "porn collection", "father"]
+        },
+        "2": {
+          "premise": "Masturbation rehab is like vaping cancer because both are embarrassing consequences.",
+          "joke_type": "analogy",
+          "topics": ["masturbation", "rehab", "embarrassment"]
+        }
       }
     },
     "3": {
       "premise": "An untraumatic childhood leaves comedy without useful damage.",
       "beats": {
-        "1": {"topics": ["stand-up", "childhood", "trauma"]},
-        "2": {"topics": ["relatives", "farm animals", "sexual trauma"]}
+        "1": {
+          "premise": "Avoiding church and scouts can mean missing comedy-useful trauma.",
+          "joke_type": "reframe",
+          "topics": ["stand-up", "childhood", "trauma"]
+        },
+        "2": {
+          "premise": "A predatory relative being distracted by goats makes rejection insulting.",
+          "joke_type": "reframe",
+          "topics": ["relatives", "farm animals", "sexual trauma"]
+        }
       }
     }
   },
@@ -42,7 +60,7 @@
     {"text": "carry on the farm and the cheap farm labor.", "label": "setup", "bit": 1, "beat": 1, "line_number": 788, "start": 1799},
     {"text": "Well, I was an only child and a fuck up at that.", "label": "setup", "bit": 1, "beat": 1, "line_number": 789, "start": 1802},
     {"text": "So when my dad died, that's why the farm failed.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 790, "start": 1804.7},
-    {"text": "Now I'm out here doing comedy, fucking that up too.", "label": "tag", "bit": 1, "beat": 2, "line_number": 791, "start": 1806},
+    {"text": "Now I'm out here doing comedy, fucking that up too.", "label": "tag", "bit": 1, "beat": 1, "line_number": 791, "start": 1806},
     {"text": "It's crazy though, we were so broke", "label": "setup", "bit": 2, "beat": 1, "line_number": 792, "start": 1810},
     {"text": "that when my dad died, all I inherited", "label": "setup", "bit": 2, "beat": 1, "line_number": 793, "start": 1811},
     {"text": "was a porn collection.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 794, "start": 1813},

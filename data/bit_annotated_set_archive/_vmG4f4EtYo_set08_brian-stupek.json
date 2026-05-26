@@ -10,15 +10,21 @@
   "start_seconds": 4122,
   "bit_meta": {
     "1": {
-      "premise": "A creepy comment can masquerade as an online double-standard complaint.",
       "beats": {
-        "1": {"topics": ["social media", "bikini photos", "double standards"]}
+        "1": {
+          "premise": "A double-standard complaint implies gender unfairness, not commenting on a child.",
+          "joke_type": "misdirect",
+          "topics": ["social media", "bikini photos", "double standards"]
+        }
       }
     },
     "2": {
-      "premise": "An impression of an ideal woman can become a breakup reenactment.",
       "beats": {
-        "1": {"topics": ["impressions", "Latina", "breakups"]}
+        "1": {
+          "premise": "An impression of an ideal woman becomes a breakup reenactment.",
+          "joke_type": "misdirect",
+          "topics": ["impressions", "Latina", "breakups"]
+        }
       }
     }
   },

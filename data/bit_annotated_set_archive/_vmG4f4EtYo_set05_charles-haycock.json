@@ -12,10 +12,26 @@
     "1": {
       "premise": "Avoiding autism testing keeps the diagnosis from becoming real.",
       "beats": {
-        "1": {"topics": ["autism testing", "dating", "diagnosis"]},
-        "2": {"topics": ["autism testing", "brothers", "diagnosis"]},
-        "3": {"topics": ["autism", "part-time work", "puzzles"]},
-        "4": {"topics": ["Canada", "wait times", "autism testing"]}
+        "1": {
+          "premise": "Avoiding autism testing keeps autism from officially existing.",
+          "joke_type": "reframe",
+          "topics": ["autism testing", "dating", "diagnosis"]
+        },
+        "2": {
+          "premise": "Getting tested for autism is like getting caught permanently.",
+          "joke_type": "analogy",
+          "topics": ["autism testing", "brothers", "diagnosis"]
+        },
+        "3": {
+          "premise": "Taken literally, 'full on' autism implies part-time autism.",
+          "joke_type": "double-meaning",
+          "topics": ["autism", "part-time work", "puzzles"]
+        },
+        "4": {
+          "premise": "An autism wait time can diagnose autism through the scheduling reaction.",
+          "joke_type": "reframe",
+          "topics": ["Canada", "wait times", "autism testing"]
+        }
       }
     }
   },

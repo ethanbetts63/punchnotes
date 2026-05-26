@@ -10,33 +10,48 @@
   "start_seconds": 768,
   "bit_meta": {
     "1": {
-      "premise": "A Batman name is undercut by walking like the Penguin.",
       "beats": {
-        "1": {"topics": ["Michael Keaton", "Batman", "limping"]}
+        "1": {
+          "premise": "A Batman name is funny when the walk resembles the Penguin.",
+          "joke_type": "analogy",
+          "topics": ["Michael Keaton", "Batman", "limping"]
+        }
       }
     },
     "2": {
-      "premise": "A physical lean can look like a political leaning.",
       "beats": {
-        "1": {"topics": ["politics", "appearance", "leaning"]}
+        "1": {
+          "premise": "Taken literally, political leaning can mean physical leaning.",
+          "joke_type": "double-meaning",
+          "topics": ["politics", "appearance", "leaning"]
+        }
       }
     },
     "3": {
-      "premise": "Living in a car technically counts as homeownership.",
       "beats": {
-        "1": {"topics": ["homeownership", "RAV4", "car living"]}
+        "1": {
+          "premise": "Living in a car technically counts as homeownership.",
+          "joke_type": "reframe",
+          "topics": ["homeownership", "RAV4", "car living"]
+        }
       }
     },
     "4": {
-      "premise": "Getting older has made cough drops feel like candy.",
       "beats": {
-        "1": {"topics": ["aging", "cough drops", "candy"]}
+        "1": {
+          "premise": "Cough drops are like candy because both are flavored hard sweets.",
+          "joke_type": "analogy",
+          "topics": ["aging", "cough drops", "candy"]
+        }
       }
     },
     "5": {
-      "premise": "Aging has turned masturbation from desire into a prostate health chore.",
       "beats": {
-        "1": {"topics": ["aging", "masturbation", "prostate health"]}
+        "1": {
+          "premise": "Aging turns masturbation from desire into prostate maintenance.",
+          "joke_type": "reframe",
+          "topics": ["aging", "masturbation", "prostate health"]
+        }
       }
     }
   },

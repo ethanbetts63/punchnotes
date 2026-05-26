@@ -12,10 +12,26 @@
     "1": {
       "premise": "Buying debt makes repayment the buyer's problem.",
       "beats": {
-        "1": {"topics": ["debt collection", "Sprint", "debt buyers"]},
-        "2": {"topics": ["Sprint", "payment excuses", "unknown companies"]},
-        "3": {"topics": ["debt buyers", "performative charity", "Sprint commercials"]},
-        "4": {"topics": ["debt collection", "Jesus", "sins"]}
+        "1": {
+          "premise": "Buying debt makes the debt buyer responsible for it.",
+          "joke_type": "reframe",
+          "topics": ["debt collection", "Sprint", "debt buyers"]
+        },
+        "2": {
+          "premise": "Debt excuses belong with familiar creditors, not strangers.",
+          "joke_type": "reframe",
+          "topics": ["Sprint", "payment excuses", "unknown companies"]
+        },
+        "3": {
+          "premise": "Debt buyers are like performative helpers because both publicize unwanted generosity.",
+          "joke_type": "analogy",
+          "topics": ["debt buyers", "performative charity", "Sprint commercials"]
+        },
+        "4": {
+          "premise": "Jesus paying for sins would be worse if he collected afterward.",
+          "joke_type": "analogy",
+          "topics": ["debt collection", "Jesus", "sins"]
+        }
       }
     }
   },
