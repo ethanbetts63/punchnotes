@@ -1,0 +1,211 @@
+﻿{
+    "type":  "set_meta",
+    "video_id":  "suxlBw4o1Mc",
+    "episode_title":  "KT #759 - JOE LIST + STEVE RANNAZZISI",
+    "episode_url":  "https://www.youtube.com/watch?v=suxlBw4o1Mc",
+    "publish_date":  "2026-03-10",
+    "guests":  [
+                   "Joe List",
+                   "Steve Rannazzisi"
+               ],
+    "comedian_name":  "Mark Fitman",
+    "comedian_type":  "bucket_pull",
+    "set_number":  3,
+    "start_seconds":  1247,
+    "bits":  [
+                 {
+                     "bit_id":  "bit_001",
+                     "premise":  "A movie sex scene can make an Oscar screening feel like a public masturbation setup.",
+                     "line_range":  [
+                                        462,
+                                        465
+                                    ],
+                     "beats":  [
+                                   {
+                                       "beat_id":  "bit_001_beat_001",
+                                       "line_range":  [
+                                                          462,
+                                                          465
+                                                      ],
+                                       "topics":  [
+                                                      "Oscars",
+                                                      "movies",
+                                                      "sex scenes",
+                                                      "masturbation"
+                                                  ]
+                                   }
+                               ]
+                 },
+                 {
+                     "bit_id":  "bit_002",
+                     "premise":  "Avoiding streets named for civil rights heroes makes navigation sound racist.",
+                     "line_range":  [
+                                        466,
+                                        469
+                                    ],
+                     "beats":  [
+                                   {
+                                       "beat_id":  "bit_002_beat_001",
+                                       "line_range":  [
+                                                          466,
+                                                          469
+                                                      ],
+                                       "topics":  [
+                                                      "GPS",
+                                                      "Martin Luther King Boulevard",
+                                                      "racism"
+                                                  ]
+                                   }
+                               ]
+                 },
+                 {
+                     "bit_id":  "bit_003",
+                     "premise":  "Racism seeming better can mean personal skill at racism improved.",
+                     "line_range":  [
+                                        471,
+                                        473
+                                    ],
+                     "beats":  [
+                                   {
+                                       "beat_id":  "bit_003_beat_001",
+                                       "line_range":  [
+                                                          471,
+                                                          473
+                                                      ],
+                                       "topics":  [
+                                                      "racism",
+                                                      "aging",
+                                                      "self-improvement"
+                                                  ]
+                                   }
+                               ]
+                 },
+                 {
+                     "bit_id":  "bit_004",
+                     "premise":  "A racist pet name can make family history feel casually inherited.",
+                     "line_range":  [
+                                        475,
+                                        478
+                                    ],
+                     "beats":  [
+                                   {
+                                       "beat_id":  "bit_004_beat_001",
+                                       "line_range":  [
+                                                          475,
+                                                          478
+                                                      ],
+                                       "topics":  [
+                                                      "grandfather",
+                                                      "cat",
+                                                      "racial slurs",
+                                                      "family history"
+                                                  ]
+                                   }
+                               ]
+                 }
+             ],
+    "lines":  [
+                  {
+                      "line_number":  462,
+                      "text":  "How you doing, everyone? Nice to be here. It\u0027s coming up on Oscar season, and, you know, I used to be into it a lot more.",
+                      "start":  1247,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  463,
+                      "text":  "do it a lot more. Last year I saw the best picture, Inora, and the first 20",
+                      "start":  1254,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  464,
+                      "text":  "minutes of that movie is all sex and you know after that I kind of lost the plot",
+                      "start":  1260,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  465,
+                      "text":  "and just zipped up and left the theater. I don\u0027t think I\u0027ll be welcomed back this",
+                      "start":  1265,
+                      "label":  "punchline"
+                  },
+                  {
+                      "line_number":  466,
+                      "text":  "year I\u0027m not really sure. I don\u0027t know if it\u0027s racist or not but I programed my",
+                      "start":  1275,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  467,
+                      "text":  "to avoid all Martin Luther King boulebirds.",
+                      "start":  1281,
+                      "label":  "punchline"
+                  },
+                  {
+                      "line_number":  468,
+                      "text":  "[ Laughter ]",
+                      "start":  1283,
+                      "label":  "fluff"
+                  },
+                  {
+                      "line_number":  469,
+                      "text":  "Just figure I\u0027ll bypass that.",
+                      "start":  1288,
+                      "label":  "tag"
+                  },
+                  {
+                      "line_number":  470,
+                      "text":  "[ Laughter ]",
+                      "start":  1291,
+                      "label":  "fluff"
+                  },
+                  {
+                      "line_number":  471,
+                      "text":  "I do think racism is getting a little bit better.",
+                      "start":  1293,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  472,
+                      "text":  "As I get older, it seems a lot better.",
+                      "start":  1297,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  473,
+                      "text":  "I mean, I\u0027m getting really good at it.",
+                      "start":  1299,
+                      "label":  "punchline"
+                  },
+                  {
+                      "line_number":  474,
+                      "text":  "[ Laughter ]",
+                      "start":  1301,
+                      "label":  "fluff"
+                  },
+                  {
+                      "line_number":  475,
+                      "text":  "Come from my house, you know, my grandfather had a cat",
+                      "start":  1304,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  476,
+                      "text":  "that was named the N-word.",
+                      "start":  1307,
+                      "label":  "punchline"
+                  },
+                  {
+                      "line_number":  477,
+                      "text":  "[ Laughter ]",
+                      "start":  1309,
+                      "label":  "fluff"
+                  },
+                  {
+                      "line_number":  478,
+                      "text":  "Oh, it\u0027s just kind of there.",
+                      "start":  1312,
+                      "label":  "tag"
+                  }
+              ]
+}

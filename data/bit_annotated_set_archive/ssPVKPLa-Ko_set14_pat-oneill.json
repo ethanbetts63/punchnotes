@@ -1,0 +1,302 @@
+{
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": [
+    "Ari Shaffir",
+    "Luis J Gomez",
+    "Peyton Ruddy"
+  ],
+  "comedian_name": "Pat O'Neill",
+  "comedian_type": "regular",
+  "set_number": 14,
+  "start_seconds": 7558,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Autoerotic choking can be mislabeled as the cinnamon challenge.",
+      "line_range": [
+        3353,
+        3357
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            3353,
+            3357
+          ],
+          "topics": [
+            "masturbation",
+            "choking",
+            "cinnamon challenge"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Uncertain porn scale can imply accidental illegal porn.",
+      "line_range": [
+        3358,
+        3360
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            3358,
+            3360
+          ],
+          "topics": [
+            "porn",
+            "little people",
+            "uncertainty"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "Porn denial implies innocence or lying.",
+      "line_range": [
+        3361,
+        3364
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [
+            3361,
+            3364
+          ],
+          "topics": [
+            "porn",
+            "audiences",
+            "lying"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_004",
+      "premise": "Porn creates unrealistic lesbian beauty standards.",
+      "line_range": [
+        3365,
+        3369
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_004_beat_001",
+          "line_range": [
+            3365,
+            3369
+          ],
+          "topics": [
+            "porn",
+            "lesbians",
+            "beauty standards"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_005",
+      "premise": "Jewish lesbian identity creates a double-slur pun.",
+      "line_range": [
+        3370,
+        3374
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_005_beat_001",
+          "line_range": [
+            3370,
+            3374
+          ],
+          "topics": [
+            "Jewish women",
+            "lesbians",
+            "dating"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_006",
+      "premise": "Buying dinner for twelve men seems godlike under Jewish stereotypes.",
+      "line_range": [
+        3375,
+        3380
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_006_beat_001",
+          "line_range": [
+            3375,
+            3380
+          ],
+          "topics": [
+            "Jesus",
+            "Last Supper",
+            "Jewish stereotypes"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "- Folks, started doing that thing",
+      "start": 7558,
+      "label": "setup",
+      "line_number": 3353
+    },
+    {
+      "text": "where you choke yourself while you masturbate.",
+      "start": 7560,
+      "label": "setup",
+      "line_number": 3354
+    },
+    {
+      "text": "You guys have heard about this, the cinnamon challenge.",
+      "start": 7564,
+      "label": "punchline",
+      "line_number": 3355
+    },
+    {
+      "text": "Uh...",
+      "start": 7568,
+      "label": "fluff",
+      "line_number": 3356
+    },
+    {
+      "text": "Fun times.",
+      "start": 7570,
+      "label": "fluff",
+      "line_number": 3357
+    },
+    {
+      "text": "Last time I did that, I was watching some midget porn.",
+      "start": 7578,
+      "label": "setup",
+      "line_number": 3358
+    },
+    {
+      "text": "At least I hope.",
+      "start": 7581,
+      "label": "punchline",
+      "line_number": 3359
+    },
+    {
+      "text": "Uh...",
+      "start": 7583,
+      "label": "fluff",
+      "line_number": 3360
+    },
+    {
+      "text": "Got a big porn crowd here?",
+      "start": 7587,
+      "label": "setup",
+      "line_number": 3361
+    },
+    {
+      "text": "All right, most of you are either Amish or liars.",
+      "start": 7590,
+      "label": "punchline",
+      "line_number": 3363
+    },
+    {
+      "text": "It's fine though.",
+      "start": 7593,
+      "label": "fluff",
+      "line_number": 3364
+    },
+    {
+      "text": "And watching too much of that stuff growing up,",
+      "start": 7595,
+      "label": "setup",
+      "line_number": 3365
+    },
+    {
+      "text": "I think it gave me unrealistic expectations of women.",
+      "start": 7597,
+      "label": "setup",
+      "line_number": 3366
+    },
+    {
+      "text": "You know?",
+      "start": 7600,
+      "label": "fluff",
+      "line_number": 3367
+    },
+    {
+      "text": "Like thinking lesbians would be pretty.",
+      "start": 7601,
+      "label": "punchline",
+      "line_number": 3368
+    },
+    {
+      "text": "Rarely the case.",
+      "start": 7605,
+      "label": "tag",
+      "line_number": 3369
+    },
+    {
+      "text": "I dated a Jewish girl once, ended up being a lesbian.",
+      "start": 7608,
+      "label": "setup",
+      "line_number": 3370
+    },
+    {
+      "text": "The old double Ike.",
+      "start": 7612,
+      "label": "punchline",
+      "line_number": 3371
+    },
+    {
+      "text": "- Quarter of the LGBT Jew.",
+      "start": 7623,
+      "label": "tag",
+      "line_number": 3374
+    },
+    {
+      "text": "You know, the ancient Jews, as legend has it,",
+      "start": 7627,
+      "label": "setup",
+      "line_number": 3375
+    },
+    {
+      "text": "they saw Jesus Christ at the Last Supper",
+      "start": 7631,
+      "label": "setup",
+      "line_number": 3376
+    },
+    {
+      "text": "picking up the tab for 12 other dudes",
+      "start": 7633,
+      "label": "setup",
+      "line_number": 3377
+    },
+    {
+      "text": "and were like, \"He must be God.",
+      "start": 7636,
+      "label": "setup",
+      "line_number": 3378
+    },
+    {
+      "text": "We have to kill him.\"",
+      "start": 7639,
+      "label": "punchline",
+      "line_number": 3379
+    },
+    {
+      "text": "Okay, thank you.",
+      "start": 7642,
+      "label": "fluff",
+      "line_number": 3380
+    }
+  ]
+}

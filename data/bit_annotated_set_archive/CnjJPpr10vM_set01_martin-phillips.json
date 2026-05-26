@@ -1,0 +1,174 @@
+{
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": [
+    "Shane Gillis",
+    "James McCann"
+  ],
+  "comedian_name": "Martin Phillips",
+  "comedian_type": "golden_ticket",
+  "set_number": 1,
+  "start_seconds": 387,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Human trafficking sounds worse if regular traffic is miserable.",
+      "line_range": [
+        141,
+        144
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            141,
+            144
+          ],
+          "topics": [
+            "human trafficking",
+            "traffic"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Tight clothes can fake muscles.",
+      "line_range": [
+        145,
+        149
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            145,
+            149
+          ],
+          "topics": [
+            "women's clothes",
+            "body image",
+            "dresses"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "Making room for Jesus can imply a threesome.",
+      "line_range": [
+        150,
+        152
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [
+            150,
+            152
+          ],
+          "topics": [
+            "school",
+            "Jesus",
+            "sex"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "- What's up?",
+      "start": 387,
+      "label": "fluff",
+      "line_number": 138
+    },
+    {
+      "text": "Cool, okay, cool.",
+      "start": 390,
+      "label": "fluff",
+      "line_number": 140
+    },
+    {
+      "text": "I would never do human trafficking",
+      "start": 392,
+      "label": "setup",
+      "line_number": 141
+    },
+    {
+      "text": "because I hate regular traffic, you know?",
+      "start": 397,
+      "label": "punchline",
+      "line_number": 142
+    },
+    {
+      "text": "Like, who's doing this, right?",
+      "start": 401,
+      "label": "tag",
+      "line_number": 143
+    },
+    {
+      "text": "Okay.",
+      "start": 404,
+      "label": "fluff",
+      "line_number": 144
+    },
+    {
+      "text": "Sometimes I like to wear women's clothes, you know?",
+      "start": 405,
+      "label": "setup",
+      "line_number": 145
+    },
+    {
+      "text": "It's really tight. It makes me feel buff, you know?",
+      "start": 410,
+      "label": "setup",
+      "line_number": 146
+    },
+    {
+      "text": "And people are like, \"That, Marty, is that a swole?\"",
+      "start": 414,
+      "label": "setup",
+      "line_number": 147
+    },
+    {
+      "text": "Well, like, \"Nah, this is my sister's dress,\" you know?",
+      "start": 417,
+      "label": "punchline",
+      "line_number": 148
+    },
+    {
+      "text": "Okay. Okay. Okay.",
+      "start": 422,
+      "label": "fluff",
+      "line_number": 149
+    },
+    {
+      "text": "Okay, at school they have to say, \"Make room for Jesus.\"",
+      "start": 426,
+      "label": "setup",
+      "line_number": 150
+    },
+    {
+      "text": "And they say, \"Yeah, he's trying to cry too.",
+      "start": 437,
+      "label": "punchline",
+      "line_number": 151
+    },
+    {
+      "text": "He wants it on this.\"",
+      "start": 441,
+      "label": "tag",
+      "line_number": 152
+    },
+    {
+      "text": "Is that a minute?",
+      "start": 445,
+      "label": "fluff",
+      "line_number": 153
+    }
+  ]
+}

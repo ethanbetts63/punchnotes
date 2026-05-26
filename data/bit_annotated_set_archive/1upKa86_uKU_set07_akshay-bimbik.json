@@ -1,0 +1,166 @@
+{
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": [
+    "Sam Tallent"
+  ],
+  "comedian_name": "Akshay Bimbik",
+  "comedian_type": "bucket_pull",
+  "set_number": 7,
+  "start_seconds": 3901,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Santa can seem more real than people because culture outlives biology.",
+      "line_range": [
+        1795,
+        1810
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            1795,
+            1797
+          ],
+          "topics": [
+            "mushrooms",
+            "trauma",
+            "Santa Claus"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            1798,
+            1805
+          ],
+          "topics": [
+            "Santa Claus",
+            "existence",
+            "psychedelics"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_003",
+          "line_range": [
+            1806,
+            1810
+          ],
+          "topics": [
+            "Santa Claus",
+            "mall",
+            "trauma"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "Thank you.",
+      "start": 3901,
+      "label": "fluff",
+      "line_number": 1794
+    },
+    {
+      "text": "been doing a lot of drugs and dwelling on my traumas.",
+      "start": 3903,
+      "label": "setup",
+      "line_number": 1795
+    },
+    {
+      "text": "And mushrooms showed me that my biggest trauma",
+      "start": 3909,
+      "label": "setup",
+      "line_number": 1796
+    },
+    {
+      "text": "was learning that Santa Claus was not real.",
+      "start": 3913,
+      "label": "setup",
+      "line_number": 1797
+    },
+    {
+      "text": "But here's the thing.",
+      "start": 3917,
+      "label": "setup",
+      "line_number": 1798
+    },
+    {
+      "text": "When you think about Santa, when you're on mushrooms,",
+      "start": 3918,
+      "label": "setup",
+      "line_number": 1799
+    },
+    {
+      "text": "you realize they've been talking about Santa",
+      "start": 3921,
+      "label": "setup",
+      "line_number": 1800
+    },
+    {
+      "text": "for thousands of years.",
+      "start": 3923,
+      "label": "setup",
+      "line_number": 1801
+    },
+    {
+      "text": "And they're going to keep talking about Santa",
+      "start": 3926,
+      "label": "setup",
+      "line_number": 1802
+    },
+    {
+      "text": "for thousands of years.",
+      "start": 3929,
+      "label": "setup",
+      "line_number": 1803
+    },
+    {
+      "text": "Yet I'm only going to live for like 80 years.",
+      "start": 3930,
+      "label": "setup",
+      "line_number": 1804
+    },
+    {
+      "text": "So in a way, isn't Santa more real than me?",
+      "start": 3932,
+      "label": "setup",
+      "line_number": 1805
+    },
+    {
+      "text": "So here's my question.",
+      "start": 3942,
+      "label": "setup",
+      "line_number": 1806
+    },
+    {
+      "text": "If Santa's not real, and I'm less real than Santa,",
+      "start": 3945,
+      "label": "setup",
+      "line_number": 1807
+    },
+    {
+      "text": "then why did it feel real when he molested me at the mall?",
+      "start": 3951,
+      "label": "punchline",
+      "line_number": 1808
+    },
+    {
+      "text": "Our traumas ground us in the physical reality.",
+      "start": 3959,
+      "label": "tag",
+      "line_number": 1810
+    },
+    {
+      "text": "Thank you.",
+      "start": 3964,
+      "label": "fluff",
+      "line_number": 1812
+    }
+  ]
+}

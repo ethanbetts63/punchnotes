@@ -1,0 +1,256 @@
+{
+  "type": "set_meta",
+  "video_id": "_vmG4f4EtYo",
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "guests": [
+    "Theo Von",
+    "Jelly Roll"
+  ],
+  "comedian_name": "Matt Campbell",
+  "comedian_type": "bucket_pull",
+  "set_number": 10,
+  "start_seconds": 5158,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Loved ones create the cruelest nicknames because they know the flaw.",
+      "line_range": [
+        2408,
+        2440
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            2408,
+            2417
+          ],
+          "topics": [
+            "nicknames",
+            "Jelly Roll",
+            "crowd work"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            2418,
+            2421
+          ],
+          "topics": [
+            "grandfather",
+            "childhood obesity",
+            "nicknames"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_003",
+          "line_range": [
+            2423,
+            2429
+          ],
+          "topics": [
+            "brothers",
+            "Hitler",
+            "Donald Trump"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_004",
+          "line_range": [
+            2432,
+            2440
+          ],
+          "topics": [
+            "brothers",
+            "coming out",
+            "Benedict"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "Hello. Has anyone got crap nicknames?",
+      "start": 5158,
+      "label": "setup",
+      "line_number": 2408
+    },
+    {
+      "text": "Show of hands if they have a crap nickname?",
+      "start": 5164,
+      "label": "setup",
+      "line_number": 2409
+    },
+    {
+      "text": "No?",
+      "start": 5168,
+      "label": "fluff",
+      "line_number": 2410
+    },
+    {
+      "text": "Just me? Fuck you guys. All right.",
+      "start": 5169,
+      "label": "fluff",
+      "line_number": 2411
+    },
+    {
+      "text": "No, I just wanted to say, 'cause, like, you know,",
+      "start": 5172,
+      "label": "setup",
+      "line_number": 2412
+    },
+    {
+      "text": "when you get a crap nickname, like Boogerface",
+      "start": 5174,
+      "label": "setup",
+      "line_number": 2413
+    },
+    {
+      "text": "or, like, Numpy or something horrible like that...",
+      "start": 5176,
+      "label": "setup",
+      "line_number": 2414
+    },
+    {
+      "text": "Jelly Roll.",
+      "start": 5179,
+      "label": "punchline",
+      "line_number": 2415
+    },
+    {
+      "text": "Maybe you could attest. Maybe you could attest.",
+      "start": 5182,
+      "label": "tag",
+      "line_number": 2416
+    },
+    {
+      "text": "I don't know.",
+      "start": 5184,
+      "label": "fluff",
+      "line_number": 2417
+    },
+    {
+      "text": "But it always comes from the ones you love.",
+      "start": 5186,
+      "label": "setup",
+      "line_number": 2418
+    },
+    {
+      "text": "You know what I mean? It's never from people you hate.",
+      "start": 5188,
+      "label": "setup",
+      "line_number": 2419
+    },
+    {
+      "text": "Like, my granddad, when I was a fat kid,",
+      "start": 5191,
+      "label": "setup",
+      "line_number": 2420
+    },
+    {
+      "text": "called me Buster Bacon.",
+      "start": 5193,
+      "label": "punchline",
+      "line_number": 2421
+    },
+    {
+      "text": "Not as bad as my little brother.",
+      "start": 5198,
+      "label": "setup",
+      "line_number": 2423
+    },
+    {
+      "text": "He called him Adolf.",
+      "start": 5199,
+      "label": "punchline",
+      "line_number": 2424
+    },
+    {
+      "text": "And his justification for that was,",
+      "start": 5202,
+      "label": "setup",
+      "line_number": 2425
+    },
+    {
+      "text": "is whenever he screamed, he got exactly what he wanted.",
+      "start": 5204,
+      "label": "punchline",
+      "line_number": 2426
+    },
+    {
+      "text": "I mean, he could have called him Donald.",
+      "start": 5209,
+      "label": "tag",
+      "line_number": 2428
+    },
+    {
+      "text": "It would have worked the same.",
+      "start": 5210,
+      "label": "tag",
+      "line_number": 2429
+    },
+    {
+      "text": "[ Snorts ]",
+      "start": 5213,
+      "label": "fluff",
+      "line_number": 2431
+    },
+    {
+      "text": "It's all right, though. My dad sealed the name deal",
+      "start": 5216,
+      "label": "setup",
+      "line_number": 2432
+    },
+    {
+      "text": "with my brother,",
+      "start": 5218,
+      "label": "setup",
+      "line_number": 2433
+    },
+    {
+      "text": "because my brother came out of the closet",
+      "start": 5220,
+      "label": "setup",
+      "line_number": 2434
+    },
+    {
+      "text": "And his name's Benedict.",
+      "start": 5222,
+      "label": "setup",
+      "line_number": 2435
+    },
+    {
+      "text": "That's already -- I'm British.",
+      "start": 5225,
+      "label": "setup",
+      "line_number": 2436
+    },
+    {
+      "text": "My brother's name's Benedict. I'm already at a good start.",
+      "start": 5226,
+      "label": "setup",
+      "line_number": 2437
+    },
+    {
+      "text": "And my brother on the couch just yells,",
+      "start": 5229,
+      "label": "setup",
+      "line_number": 2438
+    },
+    {
+      "text": "\"Dad, the door is ringing.\"",
+      "start": 5231,
+      "label": "setup",
+      "line_number": 2439
+    },
+    {
+      "text": "And my dad just goes, \"Yeah, Benedict!\"",
+      "start": 5232,
+      "label": "punchline",
+      "line_number": 2440
+    }
+  ]
+}

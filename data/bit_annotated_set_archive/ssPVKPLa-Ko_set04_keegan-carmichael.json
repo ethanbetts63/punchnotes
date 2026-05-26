@@ -1,0 +1,191 @@
+{
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": [
+    "Ari Shaffir",
+    "Luis J Gomez",
+    "Peyton Ruddy"
+  ],
+  "comedian_name": "Keegan Carmichael",
+  "comedian_type": "bucket_pull",
+  "set_number": 4,
+  "start_seconds": 1746,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Stolen wallets can transfer debt instead of value.",
+      "line_range": [
+        716,
+        720
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            716,
+            720
+          ],
+          "topics": [
+            "wallet theft",
+            "credit card debt"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Cheese costs more in Spanish.",
+      "line_range": [
+        721,
+        727
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            721,
+            727
+          ],
+          "topics": [
+            "burritos",
+            "queso",
+            "language"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "Vegans are isolated at meat-centered holidays.",
+      "line_range": [
+        729,
+        730
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [
+            729,
+            730
+          ],
+          "topics": [
+            "vegans",
+            "Thanksgiving",
+            "family"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_004",
+      "premise": "Fire-exit instructions can sound like firefighting instructions.",
+      "line_range": [
+        732,
+        734
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_004_beat_001",
+          "line_range": [
+            732,
+            734
+          ],
+          "topics": [
+            "fire safety",
+            "stairs",
+            "wordplay"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "A guy stole my wallet.",
+      "start": 1746,
+      "label": "setup",
+      "line_number": 716
+    },
+    {
+      "text": "He's like, ha ha, I have your wallet.",
+      "start": 1748,
+      "label": "setup",
+      "line_number": 717
+    },
+    {
+      "text": "I was like, ha ha, you have 8K of credit card debt.",
+      "start": 1750,
+      "label": "punchline",
+      "line_number": 718
+    },
+    {
+      "text": "Start paying it back, you bum.",
+      "start": 1757,
+      "label": "tag",
+      "line_number": 720
+    },
+    {
+      "text": "Hey, you get cheese on a burrito, it's free.",
+      "start": 1761,
+      "label": "setup",
+      "line_number": 721
+    },
+    {
+      "text": "Queso, it's extra.",
+      "start": 1765,
+      "label": "setup",
+      "line_number": 722
+    },
+    {
+      "text": "So I'll take it in English.",
+      "start": 1769,
+      "label": "punchline",
+      "line_number": 723
+    },
+    {
+      "text": "I can't afford a bilingual burrito.",
+      "start": 1782,
+      "label": "tag",
+      "line_number": 725
+    },
+    {
+      "text": "Just make it in a language that's cost effective.",
+      "start": 1787,
+      "label": "tag",
+      "line_number": 727
+    },
+    {
+      "text": "My sister is vegan.",
+      "start": 1793,
+      "label": "setup",
+      "line_number": 729
+    },
+    {
+      "text": "On Thanksgiving, she eats alone.",
+      "start": 1795,
+      "label": "punchline",
+      "line_number": 730
+    },
+    {
+      "text": "Hey, I saw a sign, it said,",
+      "start": 1802,
+      "label": "setup",
+      "line_number": 732
+    },
+    {
+      "text": "\"In case of fire, use stairs.\"",
+      "start": 1805,
+      "label": "setup",
+      "line_number": 733
+    },
+    {
+      "text": "Fuck that, let's use water.",
+      "start": 1808,
+      "label": "punchline",
+      "line_number": 734
+    }
+  ]
+}

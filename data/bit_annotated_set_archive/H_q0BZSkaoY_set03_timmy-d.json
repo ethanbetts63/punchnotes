@@ -1,0 +1,62 @@
+{
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Timmy D",
+  "comedian_type": "bucket_pull",
+  "set_number": 3,
+  "start_seconds": 1790,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Accusations of racism are deflected by attributing the real racism to elephants, who exclusively trample people who aren't paying attention.",
+      "line_range": [766, 774],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [766, 769],
+          "topics": ["race", "elephants", "Africa"]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [770, 774],
+          "topics": ["elephants", "race", "attention"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Dying by elephant trampling is darkly absurd because instead of a peaceful deathbed scene, the priest takes predatory advantage of the moment.",
+      "line_range": [775, 781],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [775, 781],
+          "topics": ["death", "priests", "sexual abuse", "elephants"]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {"line_number": 766, "text": "Sony, somebody told me back there,", "start": 1790, "label": "setup"},
+    {"line_number": 767, "text": "this shirt looks racist.", "start": 1791, "label": "setup"},
+    {"line_number": 768, "text": "I'll tell you what's racist is elephants.", "start": 1796, "label": "punchline"},
+    {"line_number": 769, "text": "You never hear any white people getting killed by an elephant.", "start": 1801, "label": "tag"},
+    {"line_number": 770, "text": "How much have you got to be not paying attention", "start": 1807, "label": "setup"},
+    {"line_number": 771, "text": "to get killed by an elephant?", "start": 1808, "label": "setup"},
+    {"line_number": 772, "text": "I'd be like, \"Hey, look, y'all.", "start": 1811, "label": "setup"},
+    {"line_number": 773, "text": "Here comes the elephants.", "start": 1813, "label": "setup"},
+    {"line_number": 774, "text": "Ole.", "start": 1819, "label": "punchline"},
+    {"line_number": 775, "text": "Anyways, worst part about getting killed by an elephant", "start": 1821, "label": "setup"},
+    {"line_number": 776, "text": "is you're laying there and...", "start": 1825, "label": "setup"},
+    {"line_number": 777, "text": "I'm going blank.", "start": 1828, "label": "fluff"},
+    {"line_number": 778, "text": "You're like, \"Well, I've been killed by an elephant.\"", "start": 1831, "label": "setup"},
+    {"line_number": 779, "text": "And it's exactly the opposite of what you thought it would be like when you died.", "start": 1835, "label": "setup"},
+    {"line_number": 780, "text": "surrounded by loved ones, candles, and a priest trying to put his cock in your mouth. And you're", "start": 1839, "label": "punchline"},
+    {"line_number": 781, "text": "like, \"Hey man, I'm dying. Over here he goes.\" And the priest is like, \"That's what makes it extra", "start": 1851, "label": "tag"},
+    {"line_number": 782, "text": "dirty.\" So, I'll sell you later.", "start": 1855, "label": "fluff"}
+  ]
+}

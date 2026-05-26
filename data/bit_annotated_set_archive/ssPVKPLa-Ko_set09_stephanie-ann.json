@@ -1,0 +1,230 @@
+{
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": [
+    "Ari Shaffir",
+    "Luis J Gomez",
+    "Peyton Ruddy"
+  ],
+  "comedian_name": "Stephanie Ann",
+  "comedian_type": "bucket_pull",
+  "set_number": 9,
+  "start_seconds": 4778,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Weak men can make straight relationships feel lesbian.",
+      "line_range": [
+        2112,
+        2114
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            2112,
+            2114
+          ],
+          "topics": [
+            "relationships",
+            "lesbians",
+            "weak men"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Dirty-talk ownership sounds absurd when a body is old enough to be paid off.",
+      "line_range": [
+        2115,
+        2120
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            2115,
+            2116
+          ],
+          "topics": [
+            "sex talk",
+            "ownership",
+            "men"
+          ]
+        },
+        {
+          "beat_id": "bit_002_beat_002",
+          "line_range": [
+            2117,
+            2120
+          ],
+          "topics": [
+            "middle age",
+            "rent-to-own",
+            "loans"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "Stomach capacity does not imply throat capacity.",
+      "line_range": [
+        2121,
+        2129
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [
+            2121,
+            2129
+          ],
+          "topics": [
+            "gastric sleeve",
+            "weight loss",
+            "oral sex"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "I just got out of a 22-year lesbian relationship.",
+      "start": 4778,
+      "label": "setup",
+      "line_number": 2112
+    },
+    {
+      "text": "Not with a female, with a man who is a real bitch.",
+      "start": 4783,
+      "label": "punchline",
+      "line_number": 2113
+    },
+    {
+      "text": "Let's talk about it.",
+      "start": 4786,
+      "label": "fluff",
+      "line_number": 2114
+    },
+    {
+      "text": "Now men say things to me like, \"Whose pussy is this?\"",
+      "start": 4790,
+      "label": "setup",
+      "line_number": 2115
+    },
+    {
+      "text": "I'm like, \"I think it's mine.\"",
+      "start": 4795,
+      "label": "punchline",
+      "line_number": 2116
+    },
+    {
+      "text": "I mean, if this pussy at 45 and I don't own it,",
+      "start": 4797,
+      "label": "setup",
+      "line_number": 2117
+    },
+    {
+      "text": "it better be a land contract or rent-to-own situation.",
+      "start": 4800,
+      "label": "punchline",
+      "line_number": 2118
+    },
+    {
+      "text": "Otherwise, please, everyone give me a dollar tonight",
+      "start": 4804,
+      "label": "tag",
+      "line_number": 2119
+    },
+    {
+      "text": "me a dollar tonight to pay off this a firm loan, okay?",
+      "start": 4807,
+      "label": "tag",
+      "line_number": 2120
+    },
+    {
+      "text": "I've just lost a ton of weight with gastric sleeve surgery.",
+      "start": 4812,
+      "label": "setup",
+      "line_number": 2121
+    },
+    {
+      "text": "For those of you who don't know what gastric sleeve is,",
+      "start": 4818,
+      "label": "setup",
+      "line_number": 2122
+    },
+    {
+      "text": "it's where they surgically alter your stomach",
+      "start": 4820,
+      "label": "setup",
+      "line_number": 2123
+    },
+    {
+      "text": "to only hold four ounces of food.",
+      "start": 4822,
+      "label": "setup",
+      "line_number": 2124
+    },
+    {
+      "text": "But like, don't worry, boys, I can still fit",
+      "start": 4825,
+      "label": "setup",
+      "line_number": 2125
+    },
+    {
+      "text": "eight inches down my throat, okay?",
+      "start": 4826,
+      "label": "punchline",
+      "line_number": 2126
+    },
+    {
+      "text": "Yeah, yeah, yeah.",
+      "start": 4829,
+      "label": "fluff",
+      "line_number": 2127
+    },
+    {
+      "text": "I don't know if y'all got that, but you know,",
+      "start": 4831,
+      "label": "fluff",
+      "line_number": 2128
+    },
+    {
+      "text": "we got a ruler in the car down the road somewhere.",
+      "start": 4833,
+      "label": "tag",
+      "line_number": 2129
+    },
+    {
+      "text": "I don't know Austin, I'm from Detroit.",
+      "start": 4835,
+      "label": "fluff",
+      "line_number": 2130
+    },
+    {
+      "text": "All right.",
+      "start": 4837,
+      "label": "fluff",
+      "line_number": 2131
+    },
+    {
+      "text": "Anyway, I'm done, I think.",
+      "start": 4838,
+      "label": "fluff",
+      "line_number": 2132
+    },
+    {
+      "text": "All right, cool.",
+      "start": 4839,
+      "label": "fluff",
+      "line_number": 2133
+    }
+  ]
+}

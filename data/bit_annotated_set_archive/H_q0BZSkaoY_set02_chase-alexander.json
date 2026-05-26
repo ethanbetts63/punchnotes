@@ -1,0 +1,79 @@
+{
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Chase Alexander",
+  "comedian_type": "bucket_pull",
+  "set_number": 2,
+  "start_seconds": 1059,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "A string of brutal appearance insults turns out to all originate from the same two-person group chat — the comedian's parents.",
+      "line_range": [416, 441],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [416, 425],
+          "topics": ["appearance", "insults", "parents", "group chat"]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [426, 441],
+          "topics": ["dating", "weight gain", "dating app", "parents"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "A woman having both a master's degree and a DUI is framed as the ideal combination of respectability and fun.",
+      "line_range": [443, 446],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [443, 446],
+          "topics": ["dating", "DUI", "education"]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {"line_number": 415, "text": "- Brothership, how we doing?", "start": 1059, "label": "fluff"},
+    {"line_number": 416, "text": "I'm not doing good, guys.", "start": 1062, "label": "setup"},
+    {"line_number": 417, "text": "People say, \"Fucked up shit to me all the time,\" man.", "start": 1063, "label": "setup"},
+    {"line_number": 418, "text": "Someone said, \"I look divorced.", "start": 1066, "label": "punchline"},
+    {"line_number": 419, "text": "\"I'm 30, all right.\"", "start": 1069, "label": "tag"},
+    {"line_number": 420, "text": "Another person said, \"I look like Will Smith", "start": 1071, "label": "setup"},
+    {"line_number": 421, "text": "\"is my favorite rapper.\"", "start": 1072, "label": "punchline"},
+    {"line_number": 422, "text": "And then someone else said, \"I look like a substitute", "start": 1075, "label": "setup"},
+    {"line_number": 423, "text": "that just got out of prison.", "start": 1077, "label": "punchline"},
+    {"line_number": 424, "text": "I'm like, all right, that's three insults.", "start": 1078, "label": "setup"},
+    {"line_number": 425, "text": "There's two people in this group chat.", "start": 1080, "label": "punchline"},
+    {"line_number": 426, "text": "This is why I never asked my parents for shit anyways,", "start": 1082, "label": "setup"},
+    {"line_number": 427, "text": "you know?", "start": 1084, "label": "fluff"},
+    {"line_number": 428, "text": "Like I'm going on a date, I'm trying to send a selfie,", "start": 1086, "label": "setup"},
+    {"line_number": 429, "text": "how do I look in this shirt?", "start": 1088, "label": "setup"},
+    {"line_number": 430, "text": "This is what they fucking say to me.", "start": 1089, "label": "setup"},
+    {"line_number": 431, "text": "But I go on the date, and I'm getting fatter,", "start": 1091, "label": "setup"},
+    {"line_number": 432, "text": "I'm trying to articulate that in my profiles, right?", "start": 1093, "label": "setup"},
+    {"line_number": 433, "text": "So like every photo I get like a little bit fatter,", "start": 1095, "label": "setup"},
+    {"line_number": 434, "text": "and like the current one is like what I am now.", "start": 1097, "label": "setup"},
+    {"line_number": 435, "text": "But I go on this date, the chick's looking at the phone,", "start": 1099, "label": "setup"},
+    {"line_number": 436, "text": "looking at me, and she's like,", "start": 1101, "label": "setup"},
+    {"line_number": 437, "text": "\"You look like a Russian doll that ate", "start": 1103, "label": "setup"},
+    {"line_number": 438, "text": "all the other versions of yourself.", "start": 1105, "label": "punchline"},
+    {"line_number": 440, "text": "And I'm like, are you in that fucking group chat", "start": 1108, "label": "setup"},
+    {"line_number": 441, "text": "with my parents?", "start": 1110, "label": "punchline"},
+    {"line_number": 442, "text": "'Cause like, that is just too fucking good.", "start": 1111, "label": "fluff"},
+    {"line_number": 443, "text": "But I am seeing a chick right now, believe it or not.", "start": 1113, "label": "setup"},
+    {"line_number": 444, "text": "And I feel like I could really get the best", "start": 1116, "label": "setup"},
+    {"line_number": 445, "text": "of both worlds with her", "start": 1117, "label": "setup"},
+    {"line_number": 446, "text": "'cause she's got a master's degree and a DUI.", "start": 1118, "label": "punchline"},
+    {"line_number": 448, "text": "Guys, I've been Chase Alexander.", "start": 1122, "label": "fluff"},
+    {"line_number": 449, "text": "That's my time.", "start": 1123, "label": "fluff"},
+    {"line_number": 450, "text": "Thank you so much.", "start": 1124, "label": "fluff"}
+  ]
+}

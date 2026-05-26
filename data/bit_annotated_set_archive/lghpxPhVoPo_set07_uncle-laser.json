@@ -1,0 +1,96 @@
+{
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Uncle Laser",
+  "comedian_type": "regular",
+  "set_number": 7,
+  "start_seconds": 3450,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "The Houston rodeo produces an unlikely erotic spectacle: Black women twerking in jean shorts to George Strait.",
+      "line_range": [1273, 1276],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [1273, 1276],
+          "topics": ["rodeo", "race", "country music", "George Strait"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "A tornado-like woman at the rodeo is identified by her airbrush memorial shirt and feral hunger for brisket.",
+      "line_range": [1277, 1281],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [1277, 1281],
+          "topics": ["rodeo", "Houston", "brisket", "fashion"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "A drunk rodeo hookup becomes a panic-inducing encounter when the woman's repeated request for a queef is incomprehensible.",
+      "line_range": [1282, 1296],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [1282, 1287],
+          "topics": ["rodeo", "hookup", "Houston", "Louisiana"]
+        },
+        {
+          "beat_id": "bit_003_beat_002",
+          "line_range": [1288, 1296],
+          "topics": ["sex", "queef", "hookup", "family"]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {"line_number": 1270, "text": "City of Sur, Scrooster, Texas, how we feeling tonight?", "start": 3450, "label": "fluff"},
+    {"line_number": 1271, "text": "God damn, just in time for rodeo season.", "start": 3457, "label": "fluff"},
+    {"line_number": 1272, "text": "Favorite time of the year.", "start": 3461, "label": "fluff"},
+    {"line_number": 1273, "text": "Best thing I love about that goddamn rodeo is them big fat black women and them goddamn", "start": 3463, "label": "setup"},
+    {"line_number": 1274, "text": "jeans and jean shorts just throwing ass to our lord and savior George Strait.", "start": 3468, "label": "punchline"},
+    {"line_number": 1275, "text": "You ain't lived till you seen somebody pop their pussy to Amarillo by morning, I tell", "start": 3476, "label": "tag"},
+    {"line_number": 1276, "text": "you what.", "start": 3480, "label": "fluff"},
+    {"line_number": 1277, "text": "And you got them catafor tortoise, them big ass category for a tortoise walk around them", "start": 3481, "label": "setup"},
+    {"line_number": 1278, "text": "airbrush shirts.", "start": 3486, "label": "setup"},
+    {"line_number": 1279, "text": "Says R.I.P.", "start": 3487, "label": "setup"},
+    {"line_number": 1280, "text": "Miguel, barbeque stains on it.", "start": 3488, "label": "setup"},
+    {"line_number": 1281, "text": "Looking like a feral dog looking for a goddamn slice of brisket.", "start": 3491, "label": "punchline"},
+    {"line_number": 1282, "text": "I had piss drunk out there last night and shacked up with this creature, you know.", "start": 3497, "label": "setup"},
+    {"line_number": 1283, "text": "I said, \"Where you from, baby?\"", "start": 3503, "label": "setup"},
+    {"line_number": 1284, "text": "She said.", "start": 3504, "label": "setup"},
+    {"line_number": 1285, "text": "I'm from the bayou, Louisiana bayou.", "start": 3505, "label": "setup"},
+    {"line_number": 1286, "text": "I said, \"Fucking Buffalo bayou,", "start": 3506, "label": "punchline"},
+    {"line_number": 1287, "text": "that's where you're from, you're from fucking...\"", "start": 3508, "label": "tag"},
+    {"line_number": 1288, "text": "But there I am in the back of the Ford Focus, okay?", "start": 3511, "label": "setup"},
+    {"line_number": 1289, "text": "Gut in that pig and fucking Lot C, all right?", "start": 3514, "label": "setup"},
+    {"line_number": 1290, "text": "And she goes, \"Baby, you gonna make this pussy fought?\"", "start": 3519, "label": "setup"},
+    {"line_number": 1291, "text": "I said, \"Do what?\"", "start": 3527, "label": "setup"},
+    {"line_number": 1292, "text": "He said, \"You gonna make this pussy fought?\"", "start": 3530, "label": "setup"},
+    {"line_number": 1293, "text": "I said, \"Keep your fucking voice down. Keep your voice down.\"", "start": 3533, "label": "setup"},
+    {"line_number": 1294, "text": "I said, \"What are you asking me?\" She goes, \"You gonna make this pussy a ship?\"", "start": 3537, "label": "setup"},
+    {"line_number": 1295, "text": "I text my mom, I said, \"Hey, I met the Houston Live Shark Soul Roadie. I need you to come get me real quick.", "start": 3542, "label": "punchline"},
+    {"line_number": 1296, "text": "You're gonna have to come get me. Hey, security man, you ever made a pussy fart?\"", "start": 3549, "label": "tag"},
+    {"line_number": 1297, "text": "Strong and silent type, I like that.", "start": 3555, "label": "fluff"},
+    {"line_number": 1298, "text": "\"Sachifone, you ever made that pussy fart?\"", "start": 3558, "label": "fluff"},
+    {"line_number": 1299, "text": "What that sound like?", "start": 3560, "label": "fluff"},
+    {"line_number": 1300, "text": "*squeak*", "start": 3562, "label": "fluff"},
+    {"line_number": 1301, "text": "No, that ain't it.", "start": 3566, "label": "fluff"},
+    {"line_number": 1302, "text": "That ain't it.", "start": 3568, "label": "fluff"},
+    {"line_number": 1303, "text": "Did you need to say doctor for that?", "start": 3569, "label": "fluff"},
+    {"line_number": 1304, "text": "That ain't it.", "start": 3571, "label": "fluff"},
+    {"line_number": 1305, "text": "Michael Gonzalez, you ever had a pussy fart?", "start": 3572, "label": "fluff"},
+    {"line_number": 1306, "text": "What that sound like, boy?", "start": 3574, "label": "fluff"},
+    {"line_number": 1307, "text": "Michael Gonzalez, ladies and gentlemen, my name's Michael Laz-", "start": 3578, "label": "fluff"},
+    {"line_number": 1308, "text": "y'all be great.", "start": 3581, "label": "fluff"}
+  ]
+}

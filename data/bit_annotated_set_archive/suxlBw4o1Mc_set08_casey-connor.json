@@ -1,0 +1,193 @@
+﻿{
+    "type":  "set_meta",
+    "video_id":  "suxlBw4o1Mc",
+    "episode_title":  "KT #759 - JOE LIST + STEVE RANNAZZISI",
+    "episode_url":  "https://www.youtube.com/watch?v=suxlBw4o1Mc",
+    "publish_date":  "2026-03-10",
+    "guests":  [
+                   "Joe List",
+                   "Steve Rannazzisi"
+               ],
+    "comedian_name":  "Casey Connor",
+    "comedian_type":  "bucket_pull",
+    "set_number":  8,
+    "start_seconds":  4716,
+    "bits":  [
+                 {
+                     "bit_id":  "bit_001",
+                     "premise":  "Private shower music can make singing and washing feel racially and sexually incriminating.",
+                     "line_range":  [
+                                        2001,
+                                        2022
+                                    ],
+                     "beats":  [
+                                   {
+                                       "beat_id":  "bit_001_beat_001",
+                                       "line_range":  [
+                                                          2001,
+                                                          2004
+                                                      ],
+                                       "topics":  [
+                                                      "hip hop",
+                                                      "showers",
+                                                      "self-censorship",
+                                                      "Wu-Tang"
+                                                  ]
+                                   },
+                                   {
+                                       "beat_id":  "bit_001_beat_002",
+                                       "line_range":  [
+                                                          2006,
+                                                          2022
+                                                      ],
+                                       "topics":  [
+                                                      "Kanye West",
+                                                      "Diddy",
+                                                      "shower",
+                                                      "sexual anxiety"
+                                                  ]
+                                   }
+                               ]
+                 }
+             ],
+    "lines":  [
+                  {
+                      "line_number":  2000,
+                      "text":  "How\u0027s it going, Austin?",
+                      "start":  4716,
+                      "label":  "fluff"
+                  },
+                  {
+                      "line_number":  2001,
+                      "text":  "It has become problematic for me to take showers",
+                      "start":  4718,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2002,
+                      "text":  "alone again recently.",
+                      "start":  4722,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2003,
+                      "text":  "And that is because I listen to hip hop in the shower.",
+                      "start":  4723,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2004,
+                      "text":  "And I do not censor myself when Wu-Tang comes on.",
+                      "start":  4728,
+                      "label":  "punchline"
+                  },
+                  {
+                      "line_number":  2005,
+                      "text":  "Thank you.",
+                      "start":  4733,
+                      "label":  "fluff"
+                  },
+                  {
+                      "line_number":  2006,
+                      "text":  "But recently, Kanye was on my speaker.",
+                      "start":  4735,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2007,
+                      "text":  "I was washing my armpits and I just,",
+                      "start":  4741,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2008,
+                      "text":  "I kinda just felt a little strange",
+                      "start":  4744,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2009,
+                      "text":  "when I was listening to Kanye, so I had to skip the song.",
+                      "start":  4746,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2010,
+                      "text":  "I\u0027m sure you guys know which song it was.",
+                      "start":  4749,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2011,
+                      "text":  "But after I skipped that song,",
+                      "start":  4753,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2012,
+                      "text":  "Puff Daddy and the Family came on",
+                      "start":  4757,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2013,
+                      "text":  "and it was \"Fittin\u0027 to Get Loose.\"",
+                      "start":  4759,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2014,
+                      "text":  "And I don\u0027t know if you guys know this,",
+                      "start":  4761,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2015,
+                      "text":  "but the first like 20 to 30 seconds of that song",
+                      "start":  4763,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2016,
+                      "text":  "is Puffed Daddy just breathing heavy like",
+                      "start":  4767,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2017,
+                      "text":  "(breathing heavily)",
+                      "start":  4769,
+                      "label":  "fluff"
+                  },
+                  {
+                      "line_number":  2018,
+                      "text":  "and I\u0027m washing my asshole",
+                      "start":  4773,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2019,
+                      "text":  "and \"Fittin\u0027 to Get Loose\" is on",
+                      "start":  4775,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2020,
+                      "text":  "and I just prayed that I was the only one in there",
+                      "start":  4778,
+                      "label":  "setup"
+                  },
+                  {
+                      "line_number":  2021,
+                      "text":  "but I realized it\u0027s very easy to become racist and gay",
+                      "start":  4782,
+                      "label":  "punchline"
+                  },
+                  {
+                      "line_number":  2022,
+                      "text":  "by listening to hip hop.",
+                      "start":  4787,
+                      "label":  "tag"
+                  }
+              ]
+}

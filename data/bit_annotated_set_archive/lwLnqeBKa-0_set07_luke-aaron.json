@@ -1,0 +1,195 @@
+{
+  "type": "set_meta",
+  "video_id": "lwLnqeBKa-0",
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
+  "publish_date": "2026-04-28",
+  "guests": [
+    "Dustin Poirier",
+    "Ari Matti"
+  ],
+  "comedian_name": "Luke Aaron",
+  "comedian_type": "bucket_pull",
+  "set_number": 7,
+  "start_seconds": 3091,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "A perfect girlfriend can turn out to be a corpse.",
+      "line_range": [
+        1339,
+        1343
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            1339,
+            1343
+          ],
+          "topics": [
+            "dating",
+            "dead bodies",
+            "relationships"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Porn pop-ups are a modern generation's war trauma.",
+      "line_range": [
+        1344,
+        1357
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            1344,
+            1354
+          ],
+          "topics": [
+            "generational trauma",
+            "porn ads",
+            "childhood"
+          ]
+        },
+        {
+          "beat_id": "bit_002_beat_002",
+          "line_range": [
+            1355,
+            1357
+          ],
+          "topics": [
+            "war veterans",
+            "Purple Heart",
+            "sexual embarrassment"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "Dating is hard nowadays.",
+      "start": 3091,
+      "label": "setup",
+      "line_number": 1339
+    },
+    {
+      "text": "I was sleeping with this one girl.",
+      "start": 3093,
+      "label": "setup",
+      "line_number": 1340
+    },
+    {
+      "text": "I absolutely loved her.",
+      "start": 3096,
+      "label": "setup",
+      "line_number": 1341
+    },
+    {
+      "text": "I would have done anything for her,",
+      "start": 3098,
+      "label": "setup",
+      "line_number": 1342
+    },
+    {
+      "text": "but turns out she had no heartbeat.",
+      "start": 3099,
+      "label": "punchline",
+      "line_number": 1343
+    },
+    {
+      "text": "It annoys me when old people say,",
+      "start": 3103,
+      "label": "setup",
+      "line_number": 1344
+    },
+    {
+      "text": "\"Oh, you guys have it so easy nowadays.\"",
+      "start": 3106,
+      "label": "setup",
+      "line_number": 1345
+    },
+    {
+      "text": "Like, yeah, you all had to go to war or whatever,",
+      "start": 3110,
+      "label": "setup",
+      "line_number": 1346
+    },
+    {
+      "text": "but we also had to deal with trauma.",
+      "start": 3112,
+      "label": "setup",
+      "line_number": 1347
+    },
+    {
+      "text": "I remember I was like,",
+      "start": 3115,
+      "label": "setup",
+      "line_number": 1348
+    },
+    {
+      "text": "\"Oh, we had to deal with porn advertisements.\"",
+      "start": 3117,
+      "label": "setup",
+      "line_number": 1349
+    },
+    {
+      "text": "I remember I was like 12 years old and I looked up,",
+      "start": 3120,
+      "label": "setup",
+      "line_number": 1350
+    },
+    {
+      "text": "nude girl with breasts,",
+      "start": 3124,
+      "label": "setup",
+      "line_number": 1351
+    },
+    {
+      "text": "and then all of a sudden,",
+      "start": 3127,
+      "label": "setup",
+      "line_number": 1352
+    },
+    {
+      "text": "ad pops up for where there was a midget that got gangbanged by basketball people.",
+      "start": 3128,
+      "label": "punchline",
+      "line_number": 1353
+    },
+    {
+      "text": "That that shit scarred me",
+      "start": 3138,
+      "label": "tag",
+      "line_number": 1354
+    },
+    {
+      "text": "Yeah, so for the old people for their trauma",
+      "start": 3145,
+      "label": "setup",
+      "line_number": 1355
+    },
+    {
+      "text": "They got they got called a hero and got a purple heart",
+      "start": 3148,
+      "label": "setup",
+      "line_number": 1356
+    },
+    {
+      "text": "All I got was called a pervert and got a purple purple boner",
+      "start": 3153,
+      "label": "punchline",
+      "line_number": 1357
+    },
+    {
+      "text": "All right. Thank you. That's my time",
+      "start": 3158,
+      "label": "fluff",
+      "line_number": 1358
+    }
+  ]
+}

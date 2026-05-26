@@ -1,0 +1,324 @@
+{
+  "type": "set_meta",
+  "video_id": "_vmG4f4EtYo",
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "guests": [
+    "Theo Von",
+    "Jelly Roll"
+  ],
+  "comedian_name": "Ethan Griggs",
+  "comedian_type": "bucket_pull",
+  "set_number": 4,
+  "start_seconds": 1788,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "A farm can fail from having only one useless child.",
+      "line_range": [
+        783,
+        791
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            783,
+            790
+          ],
+          "topics": [
+            "farming",
+            "only children",
+            "family labor"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            791,
+            791
+          ],
+          "topics": [
+            "stand-up",
+            "failure",
+            "farm life"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "A broke inheritance can be an overwhelming porn collection.",
+      "line_range": [
+        792,
+        803
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            792,
+            798
+          ],
+          "topics": [
+            "inheritance",
+            "porn collection",
+            "father"
+          ]
+        },
+        {
+          "beat_id": "bit_002_beat_002",
+          "line_range": [
+            799,
+            803
+          ],
+          "topics": [
+            "masturbation",
+            "rehab",
+            "embarrassment"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "An untraumatic childhood leaves comedy without useful damage.",
+      "line_range": [
+        805,
+        812
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [
+            805,
+            809
+          ],
+          "topics": [
+            "stand-up",
+            "childhood",
+            "trauma"
+          ]
+        },
+        {
+          "beat_id": "bit_003_beat_002",
+          "line_range": [
+            810,
+            812
+          ],
+          "topics": [
+            "relatives",
+            "farm animals",
+            "sexual trauma"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "- Whoo, how we doing?",
+      "start": 1788,
+      "label": "fluff",
+      "line_number": 781
+    },
+    {
+      "text": "Man.",
+      "start": 1790,
+      "label": "fluff",
+      "line_number": 782
+    },
+    {
+      "text": "The end of the day,",
+      "start": 1791,
+      "label": "setup",
+      "line_number": 783
+    },
+    {
+      "text": "I'm just a hick ass farmer from Cattle Mills, Texas.",
+      "start": 1792,
+      "label": "setup",
+      "line_number": 784
+    },
+    {
+      "text": "And the thing about it is,",
+      "start": 1795,
+      "label": "setup",
+      "line_number": 785
+    },
+    {
+      "text": "if you know anything about farmers,",
+      "start": 1796,
+      "label": "setup",
+      "line_number": 786
+    },
+    {
+      "text": "the only reason they have kids is to like,",
+      "start": 1797,
+      "label": "setup",
+      "line_number": 787
+    },
+    {
+      "text": "carry on the farm and the cheap farm labor.",
+      "start": 1799,
+      "label": "setup",
+      "line_number": 788
+    },
+    {
+      "text": "Well, I was an only child and a fuck up at that.",
+      "start": 1802,
+      "label": "setup",
+      "line_number": 789
+    },
+    {
+      "text": "So when my dad died, that's why the farm failed.",
+      "start": 1804.7,
+      "label": "punchline",
+      "line_number": 790
+    },
+    {
+      "text": "Now I'm out here doing comedy, fucking that up too.",
+      "start": 1806,
+      "label": "tag",
+      "line_number": 791
+    },
+    {
+      "text": "It's crazy though, we were so broke",
+      "start": 1810,
+      "label": "setup",
+      "line_number": 792
+    },
+    {
+      "text": "that when my dad died, all I inherited",
+      "start": 1811,
+      "label": "setup",
+      "line_number": 793
+    },
+    {
+      "text": "was a porn collection.",
+      "start": 1813,
+      "label": "punchline",
+      "line_number": 794
+    },
+    {
+      "text": "And here's the thing, I used to buy my dad porn.",
+      "start": 1816,
+      "label": "setup",
+      "line_number": 795
+    },
+    {
+      "text": "So I've already seen a third of this collection",
+      "start": 1819,
+      "label": "setup",
+      "line_number": 796
+    },
+    {
+      "text": "and I don't have enough bodily fluids",
+      "start": 1822,
+      "label": "setup",
+      "line_number": 797
+    },
+    {
+      "text": "for the other two thirds of this collection.",
+      "start": 1824,
+      "label": "punchline",
+      "line_number": 798
+    },
+    {
+      "text": "I'll be damned if I'm going to rehab",
+      "start": 1827,
+      "label": "setup",
+      "line_number": 799
+    },
+    {
+      "text": "for masturbation addiction.",
+      "start": 1828,
+      "label": "setup",
+      "line_number": 800
+    },
+    {
+      "text": "That's like getting cancer from vaping.",
+      "start": 1830,
+      "label": "punchline",
+      "line_number": 801
+    },
+    {
+      "text": "That's just fucking embarrassing.",
+      "start": 1831,
+      "label": "tag",
+      "line_number": 802
+    },
+    {
+      "text": "Can't even raise my hand because it's busy.",
+      "start": 1834,
+      "label": "tag",
+      "line_number": 803
+    },
+    {
+      "text": "Shit.",
+      "start": 1837,
+      "label": "fluff",
+      "line_number": 804
+    },
+    {
+      "text": "But I'll tell you what, I don't think I'll make it",
+      "start": 1838,
+      "label": "setup",
+      "line_number": 805
+    },
+    {
+      "text": "in stand-up comedy, though.",
+      "start": 1843,
+      "label": "setup",
+      "line_number": 806
+    },
+    {
+      "text": "Man, I had a very untromatic childhood.",
+      "start": 1845,
+      "label": "setup",
+      "line_number": 807
+    },
+    {
+      "text": "I didn't get molested because I wasn't",
+      "start": 1847,
+      "label": "setup",
+      "line_number": 808
+    },
+    {
+      "text": "in the church or the scouts.",
+      "start": 1849,
+      "label": "punchline",
+      "line_number": 809
+    },
+    {
+      "text": "And the only relative that might have molested me",
+      "start": 1850,
+      "label": "setup",
+      "line_number": 810
+    },
+    {
+      "text": "was too busy fucking goats to give me the time of day.",
+      "start": 1853,
+      "label": "punchline",
+      "line_number": 811
+    },
+    {
+      "text": "I can't compete with sheep's pussy, nor would I want to.",
+      "start": 1856,
+      "label": "tag",
+      "line_number": 812
+    },
+    {
+      "text": "I guess that's my time.",
+      "start": 1859,
+      "label": "fluff",
+      "line_number": 813
+    },
+    {
+      "text": "I heard a little meow.",
+      "start": 1860,
+      "label": "fluff",
+      "line_number": 814
+    }
+  ]
+}

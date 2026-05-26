@@ -1,0 +1,72 @@
+{
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Gus Swanda",
+  "comedian_type": "bucket_pull",
+  "set_number": 8,
+  "start_seconds": 5065,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "A long-term expat returns to America and discovers a series of everyday words that have become forbidden, each with absurd consequences.",
+      "line_range": [2228, 2256],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [2228, 2238],
+          "topics": ["homelessness", "political correctness", "language policing"]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [2239, 2240],
+          "topics": ["political correctness", "Democrats", "disability"]
+        },
+        {
+          "beat_id": "bit_001_beat_003",
+          "line_range": [2242, 2247],
+          "topics": ["cars", "transgender", "political correctness", "homophobia"]
+        },
+        {
+          "beat_id": "bit_001_beat_004",
+          "line_range": [2248, 2256],
+          "topics": ["political correctness", "slurs", "language policing"]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {"line_number": 2228, "text": "I recently moved back to the United States after living in South Korea for", "start": 5065, "label": "setup"},
+    {"line_number": 2229, "text": "30 years, so I'm experienced a bit of a culture shock", "start": 5071, "label": "setup"},
+    {"line_number": 2230, "text": "The biggest difference is the things you can't say now in America that you could 30 years can't say", "start": 5075, "label": "setup"},
+    {"line_number": 2231, "text": "Apparently you can't say homeless you have to say unhoused. I tested this theory out", "start": 5081, "label": "setup"},
+    {"line_number": 2232, "text": "I saw homeless guy the other day and I said", "start": 5085, "label": "setup"},
+    {"line_number": 2233, "text": "Do you prefer the term homeless or unhoused and I will never forget what he said to me was so poignant", "start": 5087, "label": "setup"},
+    {"line_number": 2234, "text": "He said to me, \"Stop stealing my thoughts!\"", "start": 5093, "label": "punchline"},
+    {"line_number": 2235, "text": "as he stabbed me repeatedly.", "start": 5096, "label": "tag"},
+    {"line_number": 2236, "text": "[ Laughter ]", "start": 5098, "label": "fluff"},
+    {"line_number": 2237, "text": "I'll put that down as an unhoused", "start": 5101, "label": "tag"},
+    {"line_number": 2238, "text": "after I get back from the hospital.", "start": 5104, "label": "tag"},
+    {"line_number": 2239, "text": "You know, you can't say the word \"retard\" anymore.", "start": 5107, "label": "setup"},
+    {"line_number": 2240, "text": "That's a new one. You have to say \"Democrat.\"", "start": 5111, "label": "punchline"},
+    {"line_number": 2241, "text": "[ Laughter ]", "start": 5114, "label": "fluff"},
+    {"line_number": 2242, "text": "Um, yeah, you know, a mechanic kicked me out of show.", "start": 5118, "label": "setup"},
+    {"line_number": 2243, "text": "I was shopping the other day just for telling them", "start": 5122, "label": "setup"},
+    {"line_number": 2244, "text": "that I blew my -- blew a tranny.", "start": 5124, "label": "setup"},
+    {"line_number": 2245, "text": "[ Whistles ]", "start": 5126, "label": "fluff"},
+    {"line_number": 2246, "text": "It's like, \"That's homophobic.\"", "start": 5128, "label": "setup"},
+    {"line_number": 2247, "text": "I'm like, \"No, it's -- I drive too hard.\"", "start": 5129, "label": "punchline"},
+    {"line_number": 2248, "text": "Um, the worst one -- you can't say \"f--k\" anymore.", "start": 5132, "label": "setup"},
+    {"line_number": 2249, "text": "-Go ahead. Go ahead. Finish it. Finish it.", "start": 5137, "label": "fluff"},
+    {"line_number": 2250, "text": "-No, I mean, you have to say, \"A bundle of sticks", "start": 5139, "label": "setup"},
+    {"line_number": 2251, "text": "with which to start a fire with.\"", "start": 5143, "label": "punchline"},
+    {"line_number": 2252, "text": "You know.", "start": 5145, "label": "fluff"},
+    {"line_number": 2253, "text": "I mean, but that's so long!", "start": 5146, "label": "tag"},
+    {"line_number": 2254, "text": "I mean, \"f--k\" is a good word.", "start": 5149, "label": "tag"},
+    {"line_number": 2255, "text": "That's a good word. I love--", "start": 5151, "label": "tag"},
+    {"line_number": 2256, "text": "[BEEP]", "start": 5152, "label": "fluff"}
+  ]
+}

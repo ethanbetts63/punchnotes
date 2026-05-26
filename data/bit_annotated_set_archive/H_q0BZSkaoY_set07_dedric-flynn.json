@@ -1,0 +1,81 @@
+{
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Dedric Flynn",
+  "comedian_type": "regular",
+  "set_number": 7,
+  "start_seconds": 4478,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Armadillos classified as Mexican turtles opens a logical path to a Teenage Mutant Ninja Turtles crossover with Mexican characters.",
+      "line_range": [1961, 1973],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [1961, 1964],
+          "topics": ["armadillos", "race", "Mexico"]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [1966, 1973],
+          "topics": ["Teenage Mutant Ninja Turtles", "Mexico", "race"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Smoke detector low-battery chirping is a racially targeted conspiracy: the battery never actually dies, it just torments Black households.",
+      "line_range": [1977, 1998],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [1977, 1988],
+          "topics": ["smoke detectors", "race", "batteries"]
+        },
+        {
+          "beat_id": "bit_002_beat_002",
+          "line_range": [1990, 1998],
+          "topics": ["smoke detectors", "race", "conspiracy", "batteries"]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {"line_number": 1961, "text": "-Uh, armadillos are just Mexican turtles.", "start": 4478, "label": "punchline"},
+    {"line_number": 1962, "text": "[ Laughter ]", "start": 4483, "label": "fluff"},
+    {"line_number": 1963, "text": "[ Laughter ]", "start": 4486, "label": "fluff"},
+    {"line_number": 1964, "text": "I thought that's what the word \"armadillo\" means.", "start": 4490, "label": "tag"},
+    {"line_number": 1966, "text": "'Cause I've been trying to create some secret ooze", "start": 4496, "label": "tag"},
+    {"line_number": 1967, "text": "to turn these niggas into", "start": 4498, "label": "tag"},
+    {"line_number": 1968, "text": "teenage mutant ninja Mexican turtles.", "start": 4500, "label": "tag"},
+    {"line_number": 1970, "text": "You don't even gotta change the name.", "start": 4505, "label": "tag"},
+    {"line_number": 1971, "text": "You know what I'm saying?", "start": 4507, "label": "fluff"},
+    {"line_number": 1972, "text": "It's just Rafael Leonardo, Michael,", "start": 4508, "label": "tag"},
+    {"line_number": 1973, "text": "but I'm Master Splinter.", "start": 4510, "label": "tag"},
+    {"line_number": 1975, "text": "Now that I got y'all in a silly thing,", "start": 4513, "label": "fluff"},
+    {"line_number": 1976, "text": "I gotta get to some beef that I got.", "start": 4515, "label": "fluff"},
+    {"line_number": 1977, "text": "Fuck the nigga who made the low battery noise", "start": 4518, "label": "setup"},
+    {"line_number": 1978, "text": "and smoke detectors.", "start": 4521, "label": "setup"},
+    {"line_number": 1980, "text": "Nigga, how the fuck?", "start": 4524, "label": "fluff"},
+    {"line_number": 1981, "text": "I got so many white friends that move next door to me,", "start": 4526, "label": "setup"},
+    {"line_number": 1982, "text": "they smoke detector, don't never go off.", "start": 4531, "label": "setup"},
+    {"line_number": 1984, "text": "But when my black ass family move in,", "start": 4535, "label": "setup"},
+    {"line_number": 1985, "text": "that shit be on for 15 years.", "start": 4538, "label": "punchline"},
+    {"line_number": 1987, "text": "Nigga, either kill yourself or not.", "start": 4542, "label": "tag"},
+    {"line_number": 1988, "text": "I hate a battery that don't actually wanna die.", "start": 4544, "label": "tag"},
+    {"line_number": 1990, "text": "But then I know it's a conspiracy.", "start": 4548, "label": "setup"},
+    {"line_number": 1991, "text": "They turn us into sleeper agents.", "start": 4551, "label": "setup"},
+    {"line_number": 1992, "text": "They want us to be ghetto.", "start": 4552, "label": "setup"},
+    {"line_number": 1994, "text": "Because in 2001, I opened up the smoke detector,", "start": 4556, "label": "setup"},
+    {"line_number": 1995, "text": "and if y'all remember, Doris L used to be able", "start": 4561, "label": "setup"},
+    {"line_number": 1996, "text": "to have these buttons that you could press", "start": 4564, "label": "setup"},
+    {"line_number": 1997, "text": "and see how much energy was left in the battery.", "start": 4566, "label": "setup"},
+    {"line_number": 1998, "text": "Nigga, it was full.", "start": 4569, "label": "punchline"},
+    {"line_number": 2000, "text": "I'm done, I'm such a shit so bad.", "start": 4575, "label": "fluff"}
+  ]
+}

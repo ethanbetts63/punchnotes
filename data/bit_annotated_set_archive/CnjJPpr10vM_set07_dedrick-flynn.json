@@ -1,0 +1,379 @@
+{
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": [
+    "Shane Gillis",
+    "James McCann"
+  ],
+  "comedian_name": "Dedrick Flynn",
+  "comedian_type": "regular",
+  "set_number": 7,
+  "start_seconds": 3525,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "White friends are a seasonal luxury resource.",
+      "line_range": [
+        1557,
+        1572
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            1557,
+            1568
+          ],
+          "topics": [
+            "white friends",
+            "summer",
+            "jet skis",
+            "Black friends"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            1569,
+            1572
+          ],
+          "topics": [
+            "white friends",
+            "WrestleMania",
+            "weekends"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Sandbar parties turn beach games into racial land conquest.",
+      "line_range": [
+        1573,
+        1598
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            1573,
+            1579
+          ],
+          "topics": [
+            "sandbars",
+            "boats",
+            "reparations",
+            "40 acres"
+          ]
+        },
+        {
+          "beat_id": "bit_002_beat_002",
+          "line_range": [
+            1580,
+            1585
+          ],
+          "topics": [
+            "beaches",
+            "Air Force Ones",
+            "toes",
+            "boundaries"
+          ]
+        },
+        {
+          "beat_id": "bit_002_beat_003",
+          "line_range": [
+            1586,
+            1592
+          ],
+          "topics": [
+            "sandbars",
+            "beer pong",
+            "islands",
+            "Black friends"
+          ]
+        },
+        {
+          "beat_id": "bit_002_beat_004",
+          "line_range": [
+            1593,
+            1598
+          ],
+          "topics": [
+            "white friends",
+            "islands",
+            "competition"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "Hell yeah.",
+      "start": 3525,
+      "label": "fluff",
+      "line_number": 1556
+    },
+    {
+      "text": "Oh, man, it's summertime.",
+      "start": 3527,
+      "label": "setup",
+      "line_number": 1557
+    },
+    {
+      "text": "I love summertime because my white friends show back up.",
+      "start": 3529,
+      "label": "punchline",
+      "line_number": 1558
+    },
+    {
+      "text": "They go into hiding when it's wintertime.",
+      "start": 3533,
+      "label": "tag",
+      "line_number": 1559
+    },
+    {
+      "text": "And I just-- I miss flexing how good my white friends is,",
+      "start": 3535,
+      "label": "setup",
+      "line_number": 1560
+    },
+    {
+      "text": "like, on the internet.",
+      "start": 3540,
+      "label": "setup",
+      "line_number": 1561
+    },
+    {
+      "text": "Like, all of my black friends and family,",
+      "start": 3541,
+      "label": "setup",
+      "line_number": 1562
+    },
+    {
+      "text": "they hit me up after I post a story of me on another jet ski",
+      "start": 3543,
+      "label": "setup",
+      "line_number": 1563
+    },
+    {
+      "text": "that I didn't just pay for.",
+      "start": 3547,
+      "label": "setup",
+      "line_number": 1564
+    },
+    {
+      "text": "And they're like, hey, share your white friends with us.",
+      "start": 3548,
+      "label": "setup",
+      "line_number": 1565
+    },
+    {
+      "text": "And I'm like, no, nigga, y'all don't know how to act.",
+      "start": 3550,
+      "label": "punchline",
+      "line_number": 1566
+    },
+    {
+      "text": "Y'all don't know how to act at all.",
+      "start": 3553,
+      "label": "tag",
+      "line_number": 1567
+    },
+    {
+      "text": "Like, I got better white friends than white people.",
+      "start": 3555,
+      "label": "tag",
+      "line_number": 1568
+    },
+    {
+      "text": "Like, what did you do last weekend?",
+      "start": 3557,
+      "label": "setup",
+      "line_number": 1569
+    },
+    {
+      "text": "I was at WrestleMania.",
+      "start": 3560,
+      "label": "punchline",
+      "line_number": 1570
+    },
+    {
+      "text": "I was at WrestleMania because my white friends took me.",
+      "start": 3562,
+      "label": "tag",
+      "line_number": 1571
+    },
+    {
+      "text": "It was a great time.",
+      "start": 3565,
+      "label": "fluff",
+      "line_number": 1572
+    },
+    {
+      "text": "So I finally decided to take my brother out to a sandbar party.",
+      "start": 3568,
+      "label": "setup",
+      "line_number": 1573
+    },
+    {
+      "text": "Sandbars is this thing that happened in the ocean.",
+      "start": 3573,
+      "label": "setup",
+      "line_number": 1574
+    },
+    {
+      "text": "and like a piece of land come up,",
+      "start": 3575,
+      "label": "setup",
+      "line_number": 1575
+    },
+    {
+      "text": "and then you take a boat over there",
+      "start": 3577,
+      "label": "setup",
+      "line_number": 1576
+    },
+    {
+      "text": "and then you get to claim the land, right?",
+      "start": 3580,
+      "label": "setup",
+      "line_number": 1577
+    },
+    {
+      "text": "So I'm really giving my brother his 40 acres in a mule,",
+      "start": 3582,
+      "label": "punchline",
+      "line_number": 1578
+    },
+    {
+      "text": "right, I'm really just putting on for him.",
+      "start": 3586,
+      "label": "tag",
+      "line_number": 1579
+    },
+    {
+      "text": "And after about 40 minutes of arguing with that nigga,",
+      "start": 3589,
+      "label": "setup",
+      "line_number": 1580
+    },
+    {
+      "text": "he finally took his Air Force Ones off at the beach,",
+      "start": 3592,
+      "label": "setup",
+      "line_number": 1581
+    },
+    {
+      "text": "right, 'cause he looked me dead in my eyes",
+      "start": 3595,
+      "label": "setup",
+      "line_number": 1582
+    },
+    {
+      "text": "and he was like, \"Ain't nobody gonna see my toes,\" right?",
+      "start": 3598,
+      "label": "punchline",
+      "line_number": 1583
+    },
+    {
+      "text": "And I respect boundaries.",
+      "start": 3601,
+      "label": "tag",
+      "line_number": 1584
+    },
+    {
+      "text": "And so we, this nigga, he got his socks in the sand.",
+      "start": 3603,
+      "label": "tag",
+      "line_number": 1585
+    },
+    {
+      "text": "And when you had a sandbar, it's important",
+      "start": 3607,
+      "label": "setup",
+      "line_number": 1586
+    },
+    {
+      "text": "that when like another group of white people come,",
+      "start": 3610,
+      "label": "setup",
+      "line_number": 1587
+    },
+    {
+      "text": "you gotta fight these niggas to the death.",
+      "start": 3613,
+      "label": "setup",
+      "line_number": 1588
+    },
+    {
+      "text": "You gotta play like beer pong and flip cup.",
+      "start": 3615,
+      "label": "setup",
+      "line_number": 1589
+    },
+    {
+      "text": "And then the loser, they gotta go.",
+      "start": 3618,
+      "label": "setup",
+      "line_number": 1590
+    },
+    {
+      "text": "And they was real happy to have two black friends there.",
+      "start": 3621,
+      "label": "setup",
+      "line_number": 1591
+    },
+    {
+      "text": "Nigga, we held the island the whole day.",
+      "start": 3624,
+      "label": "punchline",
+      "line_number": 1592
+    },
+    {
+      "text": "After, 'cause like the week before,",
+      "start": 3628,
+      "label": "setup",
+      "line_number": 1593
+    },
+    {
+      "text": "they was like, \"Yo, Dejic, when you coming out,",
+      "start": 3630,
+      "label": "setup",
+      "line_number": 1594
+    },
+    {
+      "text": "We just lost six islands.",
+      "start": 3631,
+      "label": "punchline",
+      "line_number": 1595
+    },
+    {
+      "text": "You know what I'm saying?",
+      "start": 3634,
+      "label": "fluff",
+      "line_number": 1596
+    },
+    {
+      "text": "They brought they black friend.",
+      "start": 3635,
+      "label": "tag",
+      "line_number": 1597
+    },
+    {
+      "text": "You was supposed to be here, you know, suit up.",
+      "start": 3636,
+      "label": "tag",
+      "line_number": 1598
+    },
+    {
+      "text": "That's my time out there.",
+      "start": 3641,
+      "label": "fluff",
+      "line_number": 1599
+    }
+  ]
+}

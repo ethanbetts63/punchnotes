@@ -1,0 +1,59 @@
+{
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Clay McLaren",
+  "comedian_type": "bucket_pull",
+  "set_number": 13,
+  "start_seconds": 6442,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "A sexual encounter with a female-to-male trans person produces an unexpected anatomical size comparison unfavorable to the man.",
+      "line_range": [2453, 2454],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [2453, 2454],
+          "topics": ["transgender", "sex", "anatomy", "dating"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "A series of escalating hand job confessions across increasingly absurd settings culminates in a coprophilic non-sequitur.",
+      "line_range": [2455, 2459],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [2455, 2457],
+          "topics": ["hand job", "Dr. Phil", "Bucky's", "comedy club"]
+        },
+        {
+          "beat_id": "bit_002_beat_002",
+          "line_range": [2459, 2459],
+          "topics": ["sex", "shock comedy", "hand job"]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {"line_number": 2449, "text": "Hey everyone, how's it going tonight?", "start": 6442, "label": "fluff"},
+    {"line_number": 2451, "text": "Well, I'm probably going to suck harder than that other guy,", "start": 6446, "label": "fluff"},
+    {"line_number": 2452, "text": "but I'm going to do my best.", "start": 6449, "label": "fluff"},
+    {"line_number": 2453, "text": "So, I had my first sexual interaction with a female to male", "start": 6452, "label": "setup"},
+    {"line_number": 2454, "text": "transgender person. What sucked is that her clit was bigger than my dick. Also I", "start": 6458, "label": "punchline"},
+    {"line_number": 2455, "text": "went and met some dude named, I don't know, like Dr. Phil or something a while", "start": 6474, "label": "setup"},
+    {"line_number": 2456, "text": "back. I gave him a hand job at Bucky's. Also, I work at a comedy club and I give", "start": 6479, "label": "setup"},
+    {"line_number": 2457, "text": "many hand jobs there.", "start": 6495, "label": "punchline"},
+    {"line_number": 2458, "text": "[Crowd boos]", "start": 6498, "label": "fluff"},
+    {"line_number": 2459, "text": "The best part about it is that I get to eat all the cum.", "start": 6508, "label": "punchline"},
+    {"line_number": 2460, "text": "What the fuck?", "start": 6511, "label": "fluff"},
+    {"line_number": 2461, "text": "That was the punchline that you held your hand up and like made us all wait for?", "start": 6513, "label": "fluff"},
+    {"line_number": 2462, "text": "Just hand jobs, hand jobs.", "start": 6517, "label": "fluff"},
+    {"line_number": 2463, "text": "Jerked up this guy, jerked up that guy. Thank you. Good night.", "start": 6519, "label": "fluff"}
+  ]
+}

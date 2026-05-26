@@ -1,0 +1,216 @@
+{
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": [
+    "Sam Tallent"
+  ],
+  "comedian_name": "Paul Mendoza",
+  "comedian_type": "bucket_pull",
+  "set_number": 10,
+  "start_seconds": 5639,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Sandwich requests seem minor compared with barbecue.",
+      "line_range": [
+        2549,
+        2554
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            2549,
+            2554
+          ],
+          "topics": [
+            "women",
+            "sandwiches",
+            "barbecue"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Lice can become racial-purity parasites.",
+      "line_range": [
+        2555,
+        2562
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            2555,
+            2562
+          ],
+          "topics": [
+            "lice",
+            "parasites",
+            "race"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "Beautiful low-crime wine country can imply racist exclusion.",
+      "line_range": [
+        2564,
+        2571
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [
+            2564,
+            2569
+          ],
+          "topics": [
+            "Napa",
+            "wine country",
+            "racism"
+          ]
+        },
+        {
+          "beat_id": "bit_003_beat_002",
+          "line_range": [
+            2570,
+            2571
+          ],
+          "topics": [
+            "Napa",
+            "Mexican workers",
+            "grapes"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "- So I don't know why women get all upset",
+      "start": 5639,
+      "label": "setup",
+      "line_number": 2549
+    },
+    {
+      "text": "when you ask them to make them sandwich.",
+      "start": 5642,
+      "label": "setup",
+      "line_number": 2550
+    },
+    {
+      "text": "It's not that hard.",
+      "start": 5643,
+      "label": "setup",
+      "line_number": 2551
+    },
+    {
+      "text": "It's not like we're asking ladies to smoke us a brisket.",
+      "start": 5645,
+      "label": "punchline",
+      "line_number": 2552
+    },
+    {
+      "text": "Takes time and patience.",
+      "start": 5649,
+      "label": "tag",
+      "line_number": 2553
+    },
+    {
+      "text": "Quality is the wish no woman possesses.",
+      "start": 5651,
+      "label": "tag",
+      "line_number": 2554
+    },
+    {
+      "text": "So, black people can't get lice, just so you know.",
+      "start": 5655,
+      "label": "setup",
+      "line_number": 2555
+    },
+    {
+      "text": "Like, 97% of the cases are like white people,",
+      "start": 5660,
+      "label": "setup",
+      "line_number": 2557
+    },
+    {
+      "text": "which makes sense if you think about it,",
+      "start": 5664,
+      "label": "setup",
+      "line_number": 2558
+    },
+    {
+      "text": "'cause like, if I was a parasite,",
+      "start": 5666,
+      "label": "setup",
+      "line_number": 2559
+    },
+    {
+      "text": "I wouldn't have to feed off inferior blood either.",
+      "start": 5668,
+      "label": "punchline",
+      "line_number": 2560
+    },
+    {
+      "text": "I'd only want the best, and the purest blood from my family.",
+      "start": 5672,
+      "label": "tag",
+      "line_number": 2562
+    },
+    {
+      "text": "My name is Paul Mendoza, I am from Napa, California.",
+      "start": 5677,
+      "label": "setup",
+      "line_number": 2564
+    },
+    {
+      "text": "It's a very beautiful place, filled with beautiful people.",
+      "start": 5682,
+      "label": "setup",
+      "line_number": 2565
+    },
+    {
+      "text": "Very low crime.",
+      "start": 5685,
+      "label": "setup",
+      "line_number": 2566
+    },
+    {
+      "text": "A lot of people know Napa is a wine country.",
+      "start": 5687,
+      "label": "setup",
+      "line_number": 2567
+    },
+    {
+      "text": "Well, they don't know that it's an acronym.",
+      "start": 5690,
+      "label": "setup",
+      "line_number": 2568
+    },
+    {
+      "text": "It stands for \"No African People Loud.\"",
+      "start": 5692,
+      "label": "punchline",
+      "line_number": 2569
+    },
+    {
+      "text": "But we do allow the Mexicans, you know,",
+      "start": 5696,
+      "label": "setup",
+      "line_number": 2570
+    },
+    {
+      "text": "the grave's not gonna pick themselves.",
+      "start": 5699,
+      "label": "punchline",
+      "line_number": 2571
+    }
+  ]
+}

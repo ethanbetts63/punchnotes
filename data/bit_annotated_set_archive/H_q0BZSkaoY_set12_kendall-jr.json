@@ -1,0 +1,70 @@
+{
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Kendall Jr.",
+  "comedian_type": "bucket_pull",
+  "set_number": 12,
+  "start_seconds": 7382,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "A Black British accent violates the listener's racial expectations about how Black people are supposed to sound.",
+      "line_range": [3259, 3261],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [3259, 3261],
+          "topics": ["race", "British accent", "Black British"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Seeing a woman too affectionate with her dog triggers anxious hope that the relationship is not sexual.",
+      "line_range": [3263, 3264],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [3263, 3264],
+          "topics": ["dogs", "bestiality", "women"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "A meth addict's copper obsession collides fatally with a copper IUD, and the same destructive pattern applies to a woman whose abortion history has replaced grooming vocabulary with geopolitical terminology.",
+      "line_range": [3266, 3271],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [3266, 3269],
+          "topics": ["meth", "IUD", "copper", "sex"]
+        },
+        {
+          "beat_id": "bit_003_beat_002",
+          "line_range": [3270, 3271],
+          "topics": ["abortion", "Gaza", "sex"]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {"line_number": 3259, "text": "Y'all remember the first time you heard a", "start": 7382, "label": "setup"},
+    {"line_number": 3260, "text": "black British guy talk.", "start": 7384, "label": "setup"},
+    {"line_number": 3261, "text": "It's like you're not supposed to sound like that.", "start": 7388, "label": "punchline"},
+    {"line_number": 3262, "text": "Unrelated.", "start": 7395, "label": "fluff"},
+    {"line_number": 3263, "text": "Would you ever see a girl a little too close with her dog?", "start": 7399, "label": "setup"},
+    {"line_number": 3264, "text": "And thank God I hope I ain't fucking.", "start": 7403, "label": "punchline"},
+    {"line_number": 3265, "text": "That's all I gotta say.", "start": 7406, "label": "fluff"},
+    {"line_number": 3266, "text": "Meth heads though, you know.", "start": 7409, "label": "setup"},
+    {"line_number": 3267, "text": "I've been thinking they probably do have the best pull-out game because of all", "start": 7411, "label": "setup"},
+    {"line_number": 3268, "text": "that copper wiring. But when a meth head has found the one and she's got one of", "start": 7417, "label": "punchline"},
+    {"line_number": 3269, "text": "those copper IUDs, they cannot help themselves. And someone wants to be a", "start": 7425, "label": "tag"},
+    {"line_number": 3270, "text": "father. I did know a girl once she had so many abortions she didn't even", "start": 7434, "label": "setup"},
+    {"line_number": 3271, "text": "have a landing strip. There's just a Gaza strip. Kendall. Kendall Kendall. You've been", "start": 7441, "label": "punchline"}
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Emily Wade",
+  "comedian_type": "bucket_pull",
+  "set_number": 4,
+  "start_seconds": 2586,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "A Boston accent is only detectable in aggressive or obscene phrases, making it incompatible with sex appeal no matter the context.",
+      "line_range": [1074, 1096],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [1074, 1079],
+          "topics": ["Boston accent", "regional dialect", "aggression"]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [1080, 1089],
+          "topics": ["Boston accent", "sex", "rap lyrics", "Cardi B"]
+        },
+        {
+          "beat_id": "bit_001_beat_003",
+          "line_range": [1090, 1096],
+          "topics": ["Boston accent", "sex", "Mark Wahlberg", "fleshlight"]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {"line_number": 1074, "text": "- I'm from Boston.", "start": 2586, "label": "setup"},
+    {"line_number": 1075, "text": "You can't really hear it from my accent", "start": 2587, "label": "setup"},
+    {"line_number": 1076, "text": "unless I say certain words like \"back\"", "start": 2589, "label": "setup"},
+    {"line_number": 1077, "text": "or \"cackies\"", "start": 2593, "label": "setup"},
+    {"line_number": 1078, "text": "or \"suck my fucking dick, bitch.\"", "start": 2595, "label": "punchline"},
+    {"line_number": 1079, "text": "You know, the classics.", "start": 2598, "label": "tag"},
+    {"line_number": 1080, "text": "My guy friend heard my accent once, and he was like,", "start": 2600, "label": "setup"},
+    {"line_number": 1081, "text": "\"Emily, I think it's kind of hot", "start": 2603, "label": "setup"},
+    {"line_number": 1082, "text": "that you have a Boston accent.", "start": 2605, "label": "setup"},
+    {"line_number": 1083, "text": "Do you use it in the bedroom?\"", "start": 2607, "label": "setup"},
+    {"line_number": 1084, "text": "I was like, \"What the fuck do you think I do in there?", "start": 2610, "label": "setup"},
+    {"line_number": 1085, "text": "I'm just like, 'How to--'", "start": 2612, "label": "setup"},
+    {"line_number": 1086, "text": "Faster.", "start": 2616, "label": "setup"},
+    {"line_number": 1087, "text": "No, you show me who's in Chaj Daddy.", "start": 2618, "label": "punchline"},
+    {"line_number": 1088, "text": "I want you to pack that Big Mac truck right in Havoc Garage.", "start": 2621, "label": "tag"},
+    {"line_number": 1089, "text": "Or whatever Caddy B says.\"", "start": 2626, "label": "tag"},
+    {"line_number": 1090, "text": "I was having sex recently, though,", "start": 2629, "label": "setup"},
+    {"line_number": 1091, "text": "and he was hitting it from the back,", "start": 2631, "label": "setup"},
+    {"line_number": 1092, "text": "and I don't know where I just turn and go,", "start": 2633, "label": "setup"},
+    {"line_number": 1093, "text": "\"Use me like a fucking fleshlight.\"", "start": 2635, "label": "punchline"},
+    {"line_number": 1094, "text": "Sex stops immediately.", "start": 2638, "label": "tag"},
+    {"line_number": 1095, "text": "Nothing will get you softer than Mark Wahlberg's voice", "start": 2641, "label": "tag"},
+    {"line_number": 1096, "text": "coming out of my body.", "start": 2644, "label": "tag"},
+    {"line_number": 1097, "text": "Thank you guys so much.", "start": 2647, "label": "fluff"}
+  ]
+}

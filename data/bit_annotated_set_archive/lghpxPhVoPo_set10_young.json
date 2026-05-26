@@ -1,0 +1,50 @@
+{
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Young",
+  "comedian_type": "golden_ticket",
+  "set_number": 10,
+  "start_seconds": 5036,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Mandatory racial categorization in America is contrasted with homogeneous societies that skip the question for racist reasons, then with Asian countries that sort everyone into \"Asian or intruders.\"",
+      "line_range": [1878, 1892],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [1878, 1887],
+          "topics": ["race", "Black History Month", "Asian Heritage Month", "racism"]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [1889, 1892],
+          "topics": ["race", "Asia", "categorization", "xenophobia"]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {"line_number": 1876, "text": "- What's up, Houston?", "start": 5036, "label": "fluff"},
+    {"line_number": 1878, "text": "We just finished the Black History Month.", "start": 5041, "label": "setup"},
+    {"line_number": 1879, "text": "Fuck Black History Month.", "start": 5044, "label": "setup"},
+    {"line_number": 1880, "text": "Fuck Asian here this month too.", "start": 5047, "label": "setup"},
+    {"line_number": 1881, "text": "Why did they make our calendar racial?", "start": 5052, "label": "setup"},
+    {"line_number": 1882, "text": "Seems like everywhere I go they want to ask for my race.", "start": 5055, "label": "setup"},
+    {"line_number": 1883, "text": "You apply for school, what's your race?", "start": 5059, "label": "setup"},
+    {"line_number": 1884, "text": "You apply for jobs, what's your race?", "start": 5062, "label": "setup"},
+    {"line_number": 1885, "text": "See, where I grew up, they don't ask that question.", "start": 5064, "label": "setup"},
+    {"line_number": 1886, "text": "[ Laughter ]", "start": 5067, "label": "fluff"},
+    {"line_number": 1887, "text": "Because we're better at keeping our bloodline pure.", "start": 5072, "label": "punchline"},
+    {"line_number": 1888, "text": "[ Laughter ]", "start": 5076, "label": "fluff"},
+    {"line_number": 1889, "text": "So many different races to pick from under that question too.", "start": 5084, "label": "setup"},
+    {"line_number": 1890, "text": "Hispanic, non-Hispanic, black, white, Pacific, Islander.", "start": 5088, "label": "setup"},
+    {"line_number": 1891, "text": "In Asian countries, we just put people into two categories.", "start": 5093, "label": "setup"},
+    {"line_number": 1892, "text": "Asian or intruders.", "start": 5097, "label": "punchline"},
+    {"line_number": 1894, "text": "Thank you.", "start": 5102, "label": "fluff"}
+  ]
+}

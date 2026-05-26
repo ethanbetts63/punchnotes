@@ -1,0 +1,218 @@
+{
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": [
+    "Sam Tallent"
+  ],
+  "comedian_name": "Sammy Smith",
+  "comedian_type": "bucket_pull",
+  "set_number": 11,
+  "start_seconds": 5878,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Digital debt looks like wealth if the minus sign is hidden.",
+      "line_range": [
+        2667,
+        2675
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            2667,
+            2669
+          ],
+          "topics": [
+            "money",
+            "2026",
+            "financial decisions"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            2671,
+            2675
+          ],
+          "topics": [
+            "bank account",
+            "debt",
+            "perspective"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Being broke turns strip clubs into bargain hunting.",
+      "line_range": [
+        2676,
+        2688
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            2676,
+            2688
+          ],
+          "topics": [
+            "strip clubs",
+            "being broke",
+            "bargains"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "- What's up, you filthy fucking animals?",
+      "start": 5878,
+      "label": "fluff",
+      "line_number": 2665
+    },
+    {
+      "text": "It's 2026, guys, okay?",
+      "start": 5881,
+      "label": "setup",
+      "line_number": 2667
+    },
+    {
+      "text": "If you're making good financial decisions in 2026,",
+      "start": 5884,
+      "label": "setup",
+      "line_number": 2668
+    },
+    {
+      "text": "man, you a bitch, okay?",
+      "start": 5888,
+      "label": "punchline",
+      "line_number": 2669
+    },
+    {
+      "text": "All right, listen, let me tell y'all something.",
+      "start": 5890,
+      "label": "fluff",
+      "line_number": 2670
+    },
+    {
+      "text": "Money's digital and life is perspective.",
+      "start": 5892,
+      "label": "setup",
+      "line_number": 2671
+    },
+    {
+      "text": "If I pull my bank account up right now",
+      "start": 5895,
+      "label": "setup",
+      "line_number": 2672
+    },
+    {
+      "text": "and I cover up that little hyphen, man, I'm rich as fuck.",
+      "start": 5898,
+      "label": "punchline",
+      "line_number": 2673
+    },
+    {
+      "text": "I ain't shit you can tell me.",
+      "start": 5903,
+      "label": "tag",
+      "line_number": 2674
+    },
+    {
+      "text": "Yeah, I'm broke.",
+      "start": 5905,
+      "label": "tag",
+      "line_number": 2675
+    },
+    {
+      "text": "Um, and I'm not broke because I go to the strip club,",
+      "start": 5906,
+      "label": "setup",
+      "line_number": 2676
+    },
+    {
+      "text": "but I do go to the strip club,",
+      "start": 5912,
+      "label": "setup",
+      "line_number": 2677
+    },
+    {
+      "text": "even though I'm broke, you know?",
+      "start": 5914,
+      "label": "setup",
+      "line_number": 2678
+    },
+    {
+      "text": "You know, when I go to the strip club,",
+      "start": 5917,
+      "label": "setup",
+      "line_number": 2679
+    },
+    {
+      "text": "I go with a smooth $40.",
+      "start": 5918,
+      "label": "setup",
+      "line_number": 2680
+    },
+    {
+      "text": "Yeah, yeah, yeah.",
+      "start": 5921,
+      "label": "fluff",
+      "line_number": 2681
+    },
+    {
+      "text": "But it's $20 to get in.",
+      "start": 5922,
+      "label": "setup",
+      "line_number": 2682
+    },
+    {
+      "text": "So when I go to the strip club, I got $20.",
+      "start": 5924,
+      "label": "setup",
+      "line_number": 2683
+    },
+    {
+      "text": "And a lap dance is about $40.",
+      "start": 5928,
+      "label": "setup",
+      "line_number": 2684
+    },
+    {
+      "text": "So when I go to the strip club, I'm looking for a bargain.",
+      "start": 5930,
+      "label": "setup",
+      "line_number": 2685
+    },
+    {
+      "text": "Yeah, yeah, yeah.",
+      "start": 5934,
+      "label": "fluff",
+      "line_number": 2686
+    },
+    {
+      "text": "I walk in that bitch like I'm Indian.",
+      "start": 5934,
+      "label": "punchline",
+      "line_number": 2687
+    },
+    {
+      "text": "I'm looking for a very good deal.",
+      "start": 5936,
+      "label": "tag",
+      "line_number": 2688
+    },
+    {
+      "text": "Yeah.",
+      "start": 5941,
+      "label": "fluff",
+      "line_number": 2690
+    }
+  ]
+}

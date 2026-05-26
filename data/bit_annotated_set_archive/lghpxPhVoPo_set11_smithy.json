@@ -1,0 +1,67 @@
+{
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Smithy",
+  "comedian_type": "bucket_pull",
+  "set_number": 11,
+  "start_seconds": 5482,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "A gay friend exploits competitive masculinity by issuing a sexual challenge after getting a straight man drunk, forcing him to participate to avoid losing.",
+      "line_range": [2022, 2035],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [2022, 2035],
+          "topics": ["gay", "competition", "drinking", "sexuality"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "The archetype of the wise, church-going old Black man has been replaced by one chasing women, collapsing generational wisdom into debauchery.",
+      "line_range": [2037, 2047],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [2037, 2047],
+          "topics": ["Black culture", "aging", "church", "generational change"]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {"line_number": 2020, "text": "- Sup, niggas?", "start": 5482, "label": "fluff"},
+    {"line_number": 2021, "text": "You guys are easy.", "start": 5486, "label": "fluff"},
+    {"line_number": 2022, "text": "Y'all ever try to be friends with a gay person?", "start": 5489, "label": "setup"},
+    {"line_number": 2023, "text": "I have 'cause I'm progressive.", "start": 5492, "label": "setup"},
+    {"line_number": 2024, "text": "but you gotta watch out for him.", "start": 5495, "label": "setup"},
+    {"line_number": 2025, "text": "'Cause them niggas, they will try to fuck you.", "start": 5497, "label": "setup"},
+    {"line_number": 2026, "text": "Like I went out with Buddy, and we went shot for shot.", "start": 5499, "label": "setup"},
+    {"line_number": 2027, "text": "We was having a great fucking time.", "start": 5502, "label": "setup"},
+    {"line_number": 2028, "text": "But he waited until I got good and drunk.", "start": 5503, "label": "setup"},
+    {"line_number": 2029, "text": "And he started trying to challenge me to like weird games.", "start": 5506, "label": "setup"},
+    {"line_number": 2030, "text": "He was like, \"Yo, I bet you,", "start": 5508, "label": "setup"},
+    {"line_number": 2031, "text": "I could beat you in a dick sucking competition.\"", "start": 5511, "label": "setup"},
+    {"line_number": 2033, "text": "And that shit really blew me 'cause I'm like,", "start": 5514, "label": "setup"},
+    {"line_number": 2034, "text": "there's no way I'ma lose to a fuck.", "start": 5517, "label": "punchline"},
+    {"line_number": 2035, "text": "Like, wait, listen, I'm not gay, I'm just competitive.", "start": 5519, "label": "tag"},
+    {"line_number": 2037, "text": "Times are changing.", "start": 5526, "label": "setup"},
+    {"line_number": 2038, "text": "Times are changing.", "start": 5528, "label": "setup"},
+    {"line_number": 2039, "text": "We got old nigga YNs now.", "start": 5529, "label": "setup"},
+    {"line_number": 2040, "text": "Like, I don't know if y'all ever thought about this,", "start": 5532, "label": "setup"},
+    {"line_number": 2041, "text": "but whatever happened to old black people?", "start": 5535, "label": "setup"},
+    {"line_number": 2042, "text": "They used to be in the church.", "start": 5538, "label": "setup"},
+    {"line_number": 2043, "text": "They used to give great advice.", "start": 5539, "label": "setup"},
+    {"line_number": 2044, "text": "An old nigga at my job last week came up to me.", "start": 5542, "label": "setup"},
+    {"line_number": 2045, "text": "He was like, \"Where the hoes at?\"", "start": 5544, "label": "setup"},
+    {"line_number": 2046, "text": "Nigga, your kids are the hoes.", "start": 5548, "label": "punchline"},
+    {"line_number": 2047, "text": "What are you talking about?", "start": 5549, "label": "tag"},
+    {"line_number": 2049, "text": "All right, yeah, this is my time.", "start": 5552, "label": "fluff"}
+  ]
+}

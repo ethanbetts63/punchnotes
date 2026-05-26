@@ -1,0 +1,97 @@
+{
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Devin Callahan",
+  "comedian_type": "bucket_pull",
+  "set_number": 16,
+  "start_seconds": 8015,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Sharing a surname with a famously cool fictional cop highlights the gap between the name's prestige and one's own dirty appearance.",
+      "line_range": [3009, 3012],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [3009, 3012],
+          "topics": ["Dirty Harry", "appearance", "name", "movies"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Two ghost archetypes are explained by cause of death: the footless ghost is a diabetes amputee who never gets their feet back in the afterlife.",
+      "line_range": [3014, 3032],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [3014, 3032],
+          "topics": ["ghosts", "afterlife", "diabetes", "death"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "A mispronounced hotel name is defended by insisting the hotel is named after a specific employee, not the chain brand.",
+      "line_range": [3037, 3053],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [3037, 3053],
+          "topics": ["La Quinta", "road trip", "language", "hotels"]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {"line_number": 3006, "text": "- All right, how you guys doing?", "start": 8015, "label": "fluff"},
+    {"line_number": 3008, "text": "Yeah, I'm Devin Callahan.", "start": 8018, "label": "fluff"},
+    {"line_number": 3009, "text": "Callahan like Dirty Harry.", "start": 8020, "label": "setup"},
+    {"line_number": 3010, "text": "Yeah, I see your face confused.", "start": 8022, "label": "setup"},
+    {"line_number": 3011, "text": "He like, \"I remember Dirty Harry.", "start": 8024, "label": "setup"},
+    {"line_number": 3012, "text": "\"He wasn't this dirty.\"", "start": 8026, "label": "punchline"},
+    {"line_number": 3013, "text": "What the fuck's wrong with you?", "start": 8027, "label": "fluff"},
+    {"line_number": 3014, "text": "So, yeah, so I figured out,", "start": 8028, "label": "setup"},
+    {"line_number": 3015, "text": "not to bring it down and not talk about death,", "start": 8032, "label": "setup"},
+    {"line_number": 3016, "text": "I figured out the afterlife.", "start": 8035, "label": "setup"},
+    {"line_number": 3017, "text": "I got it.", "start": 8036, "label": "setup"},
+    {"line_number": 3018, "text": "It's two types of jokes, ghosts.", "start": 8037, "label": "setup"},
+    {"line_number": 3019, "text": "One ghost, full body guy standing under a light.", "start": 8039, "label": "setup"},
+    {"line_number": 3020, "text": "Hey, it's my grandfather,", "start": 8043, "label": "setup"},
+    {"line_number": 3021, "text": "probably smoking a cigarette head to toe.", "start": 8044, "label": "setup"},
+    {"line_number": 3022, "text": "It's a ghost.", "start": 8046, "label": "setup"},
+    {"line_number": 3023, "text": "Second ghost, you just get like a little haunting thing", "start": 8047, "label": "setup"},
+    {"line_number": 3024, "text": "and it's just like no legs or nothing,", "start": 8051, "label": "setup"},
+    {"line_number": 3025, "text": "just feet up, like feet gone, knees up,", "start": 8053, "label": "setup"},
+    {"line_number": 3026, "text": "and they're just running around like, ooh.", "start": 8057, "label": "setup"},
+    {"line_number": 3027, "text": "Their second type, those are the motherfuckers,", "start": 8060, "label": "setup"},
+    {"line_number": 3028, "text": "they die of diabetes.", "start": 8063, "label": "punchline"},
+    {"line_number": 3029, "text": "Yes.", "start": 8065, "label": "fluff"},
+    {"line_number": 3031, "text": "It turns out in the afterlife, you don't get your feet back.", "start": 8068, "label": "tag"},
+    {"line_number": 3032, "text": "It's like a punishment.", "start": 8071, "label": "tag"},
+    {"line_number": 3033, "text": "Yeah, it's crazy.", "start": 8073, "label": "fluff"},
+    {"line_number": 3034, "text": "It's crazy.", "start": 8074, "label": "fluff"},
+    {"line_number": 3035, "text": "I need some friends.", "start": 8076, "label": "fluff"},
+    {"line_number": 3036, "text": "I need some new friends.", "start": 8078, "label": "fluff"},
+    {"line_number": 3037, "text": "I was chilling with my homies and we were on a road trip", "start": 8079, "label": "setup"},
+    {"line_number": 3038, "text": "and I was like, \"Hey man, I'm getting kind of tired.", "start": 8082, "label": "setup"},
+    {"line_number": 3039, "text": "Let's pull into somewhere.\"", "start": 8085, "label": "setup"},
+    {"line_number": 3040, "text": "And I saw a hotel, L-A-Q-U-I-N-T-A,", "start": 8086, "label": "setup"},
+    {"line_number": 3041, "text": "and I told my homies, \"Hey, let's stay at La Quinta.\"", "start": 8090, "label": "setup"},
+    {"line_number": 3042, "text": "Right?", "start": 8095, "label": "fluff"},
+    {"line_number": 3043, "text": "And they started laughing.", "start": 8096, "label": "setup"},
+    {"line_number": 3044, "text": "They were like, \"Ah, this fool crazy.", "start": 8097, "label": "setup"},
+    {"line_number": 3045, "text": "It's La Quinta, Bo.", "start": 8100, "label": "setup"},
+    {"line_number": 3046, "text": "It's La Quinta.\"", "start": 8101, "label": "setup"},
+    {"line_number": 3048, "text": "- Okay, was that the end of the joke?", "start": 8104, "label": "fluff"},
+    {"line_number": 3049, "text": "- No.", "start": 8105, "label": "fluff"},
+    {"line_number": 3050, "text": "- Okay, finish it.", "start": 8106, "label": "fluff"},
+    {"line_number": 3051, "text": "- And so I was telling them,", "start": 8107, "label": "setup"},
+    {"line_number": 3052, "text": "\"No, La Quinta is the chick that works at the front desk,", "start": 8109, "label": "setup"},
+    {"line_number": 3053, "text": "but the establishment is La Quinta, right?\"", "start": 8113, "label": "punchline"}
+  ]
+}

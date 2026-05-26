@@ -1,0 +1,107 @@
+{
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "William Montgomery",
+  "comedian_type": "regular",
+  "set_number": 1,
+  "start_seconds": 404,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Declaring violent intent toward a fellow comedian's mother lands as a come-on rather than a threat.",
+      "line_range": [97, 99],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [97, 99],
+          "topics": ["Red Band", "crowd work", "roast", "mothers"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "A cliché phrase about territorial conflict becomes literally true when the people involved are clinically obese.",
+      "line_range": [102, 103],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [102, 103],
+          "topics": ["obesity", "western clichés"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "A 'yo mama so fat' insult is updated by replacing the punchline with a current pharmaceutical shortage.",
+      "line_range": [105, 106],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [105, 106],
+          "topics": ["Red Band", "obesity", "Ozempic", "roast"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_004",
+      "premise": "A public figure's death is reframed as the result of a political assassination by invoking an implausible suspect.",
+      "line_range": [108, 110],
+      "beats": [
+        {
+          "beat_id": "bit_004_beat_001",
+          "line_range": [108, 110],
+          "topics": ["Jesse Jackson", "Hillary Clinton", "death", "conspiracy"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_005",
+      "premise": "Asking AI to define God in the shortest terms possible yields an answer that treats a musician as a deity.",
+      "line_range": [112, 115],
+      "beats": [
+        {
+          "beat_id": "bit_005_beat_001",
+          "line_range": [112, 115],
+          "topics": ["ChatGPT", "God", "Aphex Twin", "religion"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_006",
+      "premise": "A legal system's failure to indict a father for killing his daughter over political speech is reframed as official validation.",
+      "line_range": [116, 119],
+      "beats": [
+        {
+          "beat_id": "bit_006_beat_001",
+          "line_range": [116, 119],
+          "topics": ["Texas", "Donald Trump", "grand jury", "justifiable homicide"]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {"line_number": 97, "text": "Tony, I'm about to be fuckin' threatening violence", "start": 404, "label": "setup"},
+    {"line_number": 98, "text": "against Red Band's moms.", "start": 407, "label": "setup"},
+    {"line_number": 99, "text": "Pussy tonight!", "start": 408, "label": "punchline"},
+    {"line_number": 102, "text": "\"This town is not big enough for the both of us,\"", "start": 412, "label": "setup"},
+    {"line_number": 103, "text": "said two clinically obese people.", "start": 416, "label": "punchline"},
+    {"line_number": 105, "text": "And by the way, Red Band, your mama was so fat,", "start": 421, "label": "setup"},
+    {"line_number": 106, "text": "now there's an ozimpic shortage.", "start": 424, "label": "punchline"},
+    {"line_number": 108, "text": "The Reverend Jesse Jackson just died,", "start": 429, "label": "setup"},
+    {"line_number": 109, "text": "and I'm trying to figure out what he did", "start": 431, "label": "setup"},
+    {"line_number": 110, "text": "to piss off Hillary Clinton.", "start": 433, "label": "punchline"},
+    {"line_number": 112, "text": "I asked Chat GPT to explain the concept of God", "start": 437, "label": "setup"},
+    {"line_number": 113, "text": "in the shortest terms possible.", "start": 441, "label": "setup"},
+    {"line_number": 114, "text": "It wrote back two words, \"A-Fex Twin.\"", "start": 443, "label": "punchline"},
+    {"line_number": 115, "text": "[cheers and applause]", "start": 446, "label": "fluff"},
+    {"line_number": 116, "text": "A Texas grand jury declined to indict a man", "start": 449, "label": "setup"},
+    {"line_number": 117, "text": "who shot and killed his daughter", "start": 452, "label": "setup"},
+    {"line_number": 118, "text": "because she said bad things about Donald Trump.", "start": 453, "label": "setup"},
+    {"line_number": 119, "text": "I'm no lawyer, but isn't that called justifiable homicide?", "start": 456, "label": "punchline"},
+    {"line_number": 121, "text": "Okay, that's my time. Tony!", "start": 462, "label": "fluff"}
+  ]
+}

@@ -1,0 +1,302 @@
+{
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": [
+    "Ari Shaffir",
+    "Luis J Gomez",
+    "Peyton Ruddy"
+  ],
+  "comedian_name": "Surjan",
+  "comedian_type": "bucket_pull",
+  "set_number": 7,
+  "start_seconds": 3701,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Immigrant names can turn parental expectations into literal labels.",
+      "line_range": [
+        1587,
+        1602
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            1587,
+            1593
+          ],
+          "topics": [
+            "immigrant parents",
+            "doctors",
+            "names"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            1594,
+            1598
+          ],
+          "topics": [
+            "siblings",
+            "engineers",
+            "names"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_003",
+          "line_range": [
+            1599,
+            1602
+          ],
+          "topics": [
+            "siblings",
+            "abortion",
+            "parental expectations"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Sobriety language can reframe slur restraint as addiction recovery.",
+      "line_range": [
+        1603,
+        1609
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            1603,
+            1609
+          ],
+          "topics": [
+            "sobriety",
+            "New Year's resolutions",
+            "slurs"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "A knock-knock joke can fail before the payoff.",
+      "line_range": [
+        1610,
+        1618
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [
+            1610,
+            1618
+          ],
+          "topics": [
+            "knock-knock jokes",
+            "cats",
+            "crowd work"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "- So my name is Surjan.",
+      "start": 3701,
+      "label": "setup",
+      "line_number": 1587
+    },
+    {
+      "text": "I don't know if you guys can tell by looking at me,",
+      "start": 3703,
+      "label": "setup",
+      "line_number": 1588
+    },
+    {
+      "text": "but my parents are brown immigrants.",
+      "start": 3705,
+      "label": "setup",
+      "line_number": 1589
+    },
+    {
+      "text": "And my mom, she wanted me to be a doctor so bad,",
+      "start": 3708,
+      "label": "setup",
+      "line_number": 1590
+    },
+    {
+      "text": "she named me Surjan.",
+      "start": 3711,
+      "label": "punchline",
+      "line_number": 1591
+    },
+    {
+      "text": "It's fucked up, I know so much pressure.",
+      "start": 3713,
+      "label": "tag",
+      "line_number": 1592
+    },
+    {
+      "text": "Imagine being named after a job.",
+      "start": 3714,
+      "label": "tag",
+      "line_number": 1593
+    },
+    {
+      "text": "But my name's kind of cool.",
+      "start": 3716,
+      "label": "setup",
+      "line_number": 1594
+    },
+    {
+      "text": "My siblings, they got it so much worse.",
+      "start": 3717,
+      "label": "setup",
+      "line_number": 1595
+    },
+    {
+      "text": "My older brother, his name is Engineer.",
+      "start": 3719,
+      "label": "punchline",
+      "line_number": 1596
+    },
+    {
+      "text": "Yeah, and he grew up to be an engineer",
+      "start": 3723,
+      "label": "setup",
+      "line_number": 1597
+    },
+    {
+      "text": "'cause he's a suck up.",
+      "start": 3724,
+      "label": "punchline",
+      "line_number": 1598
+    },
+    {
+      "text": "But my little sister, she has the worst name.",
+      "start": 3725,
+      "label": "setup",
+      "line_number": 1599
+    },
+    {
+      "text": "I feel so bad for her.",
+      "start": 3727,
+      "label": "setup",
+      "line_number": 1600
+    },
+    {
+      "text": "They didn't really believe in her that much,",
+      "start": 3728,
+      "label": "setup",
+      "line_number": 1601
+    },
+    {
+      "text": "so they named her Abortion.",
+      "start": 3730,
+      "label": "punchline",
+      "line_number": 1602
+    },
+    {
+      "text": "Just to get real for a second,",
+      "start": 3734,
+      "label": "setup",
+      "line_number": 1603
+    },
+    {
+      "text": "I don't know if you guys are still doing",
+      "start": 3735,
+      "label": "setup",
+      "line_number": 1604
+    },
+    {
+      "text": "your New Year's resolution,",
+      "start": 3736,
+      "label": "setup",
+      "line_number": 1605
+    },
+    {
+      "text": "but as of today, I'm officially four months sober.",
+      "start": 3737,
+      "label": "setup",
+      "line_number": 1606
+    },
+    {
+      "text": "Thank you, thank you.",
+      "start": 3741,
+      "label": "fluff",
+      "line_number": 1607
+    },
+    {
+      "text": "It's been four months since I last said the N word.",
+      "start": 3742,
+      "label": "punchline",
+      "line_number": 1608
+    },
+    {
+      "text": "Yeah, staying strong, staying strong.",
+      "start": 3746,
+      "label": "tag",
+      "line_number": 1609
+    },
+    {
+      "text": "And for my last joke, I need you guys to play along with me.",
+      "start": 3748,
+      "label": "fluff",
+      "line_number": 1610
+    },
+    {
+      "text": "You know how this goes?",
+      "start": 3750,
+      "label": "fluff",
+      "line_number": 1611
+    },
+    {
+      "text": "Knock, knock.",
+      "start": 3751,
+      "label": "setup",
+      "line_number": 1612
+    },
+    {
+      "text": "My cat.",
+      "start": 3753,
+      "label": "setup",
+      "line_number": 1613
+    },
+    {
+      "text": "Leo.",
+      "start": 3756,
+      "label": "setup",
+      "line_number": 1614
+    },
+    {
+      "text": "Oh, I was, I was hoping I was at a minute,",
+      "start": 3759,
+      "label": "fluff",
+      "line_number": 1615
+    },
+    {
+      "text": "but I didn't get it.",
+      "start": 3763,
+      "label": "fluff",
+      "line_number": 1616
+    },
+    {
+      "text": "I sped through it.",
+      "start": 3765,
+      "label": "fluff",
+      "line_number": 1617
+    },
+    {
+      "text": "I sped through it.",
+      "start": 3766,
+      "label": "fluff",
+      "line_number": 1618
+    }
+  ]
+}

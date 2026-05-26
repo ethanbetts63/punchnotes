@@ -1,0 +1,210 @@
+{
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": [
+    "Ari Shaffir",
+    "Luis J Gomez",
+    "Peyton Ruddy"
+  ],
+  "comedian_name": "Miranda Meadows",
+  "comedian_type": "bucket_pull",
+  "set_number": 13,
+  "start_seconds": 6621,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Period fingering can turn a hand into a C-Walk shape.",
+      "line_range": [
+        2939,
+        2945
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            2939,
+            2945
+          ],
+          "topics": [
+            "period sex",
+            "fingering",
+            "C-Walk"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Bedwetting after nightmares can be reframed as abuse-induced squirting.",
+      "line_range": [
+        2947,
+        2953
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            2947,
+            2953
+          ],
+          "topics": [
+            "bedwetting",
+            "squirting",
+            "sexual abuse"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "Rolling R's can turn a language lesson into a rape setup.",
+      "line_range": [
+        2955,
+        2957
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [
+            2955,
+            2957
+          ],
+          "topics": [
+            "sexual abuse",
+            "rolled R's",
+            "rape"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_004",
+      "premise": "Michigan hand maps can turn molestation into a location pun.",
+      "line_range": [
+        2960,
+        2961
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_004_beat_001",
+          "line_range": [
+            2960,
+            2961
+          ],
+          "topics": [
+            "Michigan",
+            "sexual abuse",
+            "map jokes"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "When I finger my girlfriend",
+      "start": 6621,
+      "label": "setup",
+      "line_number": 2939
+    },
+    {
+      "text": "on her period,",
+      "start": 6628,
+      "label": "setup",
+      "line_number": 2940
+    },
+    {
+      "text": "dude, my finger goes in like this",
+      "start": 6633,
+      "label": "setup",
+      "line_number": 2941
+    },
+    {
+      "text": "and it comes out like this.",
+      "start": 6635,
+      "label": "punchline",
+      "line_number": 2942
+    },
+    {
+      "text": "And when I'm done with her, she'll be creep walking away.",
+      "start": 6645,
+      "label": "tag",
+      "line_number": 2945
+    },
+    {
+      "text": "When I was a kid, I used to have nightmares",
+      "start": 6654,
+      "label": "setup",
+      "line_number": 2947
+    },
+    {
+      "text": "and I'd pee the bed.",
+      "start": 6656,
+      "label": "setup",
+      "line_number": 2948
+    },
+    {
+      "text": "And recently I found out I'm a squirter.",
+      "start": 6658,
+      "label": "setup",
+      "line_number": 2949
+    },
+    {
+      "text": "So I think back to those times I had nightmares",
+      "start": 6664,
+      "label": "setup",
+      "line_number": 2951
+    },
+    {
+      "text": "and I'd pee the bed and I realized,",
+      "start": 6666,
+      "label": "setup",
+      "line_number": 2952
+    },
+    {
+      "text": "oh, I was just sleeping next to my uncle.",
+      "start": 6668,
+      "label": "punchline",
+      "line_number": 2953
+    },
+    {
+      "text": "The uncle that molested me taught me a lot.",
+      "start": 6674,
+      "label": "setup",
+      "line_number": 2955
+    },
+    {
+      "text": "He taught me how to roll my R's",
+      "start": 6678,
+      "label": "setup",
+      "line_number": 2956
+    },
+    {
+      "text": "so that when I got older, I could say, \"Rrrr, rape.\"",
+      "start": 6680,
+      "label": "punchline",
+      "line_number": 2957
+    },
+    {
+      "text": "I was molested in the state of Michigan.",
+      "start": 6692,
+      "label": "setup",
+      "line_number": 2960
+    },
+    {
+      "text": "He touched me here.",
+      "start": 6695,
+      "label": "punchline",
+      "line_number": 2961
+    },
+    {
+      "text": "I've been Miranda Meadows, I'm sorry!",
+      "start": 6699,
+      "label": "fluff",
+      "line_number": 2963
+    }
+  ]
+}

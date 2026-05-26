@@ -1,0 +1,92 @@
+{
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Colin Sledge",
+  "comedian_type": "golden_ticket",
+  "set_number": 4,
+  "start_seconds": 1817,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Biblical body-part ratios are extended to hands, making constant finger-blasting a divine commandment.",
+      "line_range": [645, 647],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [645, 647],
+          "topics": ["religion", "sex", "God", "hands"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "An empowering anti-faking-orgasm declaration is undercut by indifference rather than skill.",
+      "line_range": [649, 651],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [649, 651],
+          "topics": ["sex", "orgasm", "dating", "girlfriend"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "Medical advice about urinating after sex is reframed as an invitation for a golden shower fetish.",
+      "line_range": [653, 658],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [653, 658],
+          "topics": ["sex", "UTI", "urine", "fetish"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_004",
+      "premise": "A claim of making eye contact during sex is true only because it is directed at one's own reflection, reframed as cuckold fantasy.",
+      "line_range": [665, 670],
+      "beats": [
+        {
+          "beat_id": "bit_004_beat_001",
+          "line_range": [665, 668],
+          "topics": ["sex", "eye contact", "mirror", "narcissism"]
+        },
+        {
+          "beat_id": "bit_004_beat_002",
+          "line_range": [669, 670],
+          "topics": ["sex", "cuckold", "fetish", "mirror"]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {"line_number": 644, "text": "- Okay, thank you.", "start": 1817, "label": "fluff"},
+    {"line_number": 645, "text": "You know, so God gave us two ears and one mouth", "start": 1821, "label": "setup"},
+    {"line_number": 646, "text": "'cause we're supposed to listen twice as much as we talk.", "start": 1826, "label": "setup"},
+    {"line_number": 647, "text": "But he also gave us ten fingers, so we're supposed to be finger-blasting like all the time.", "start": 1829, "label": "punchline"},
+    {"line_number": 648, "text": "Okay.", "start": 1849, "label": "fluff"},
+    {"line_number": 649, "text": "I always tell girls, \"You should never fake an orgasm with me.\"", "start": 1851, "label": "setup"},
+    {"line_number": 650, "text": "You know.", "start": 1854, "label": "fluff"},
+    {"line_number": 651, "text": "'Cause I don't care.", "start": 1856, "label": "punchline"},
+    {"line_number": 653, "text": "I found out women are supposed to pee after sex", "start": 1866, "label": "setup"},
+    {"line_number": 654, "text": "to prevent a UTI every time,", "start": 1869, "label": "setup"},
+    {"line_number": 655, "text": "but I always tell them,", "start": 1872, "label": "setup"},
+    {"line_number": 656, "text": "just to be safe, you should pee during sex.", "start": 1873, "label": "punchline"},
+    {"line_number": 658, "text": "So I'm into that, hell yeah.", "start": 1878, "label": "tag"},
+    {"line_number": 660, "text": "My parents are here, by the way.", "start": 1884, "label": "fluff"},
+    {"line_number": 661, "text": "Can I?", "start": 1886, "label": "fluff"},
+    {"line_number": 663, "text": "Can I do one more joke?", "start": 1888, "label": "fluff"},
+    {"line_number": 664, "text": "Okay.", "start": 1890, "label": "fluff"},
+    {"line_number": 665, "text": "My girlfriend says I don't make enough eye contact", "start": 1893, "label": "setup"},
+    {"line_number": 666, "text": "during sex and it's not even true,", "start": 1895, "label": "setup"},
+    {"line_number": 667, "text": "I make a lot of eye contact during sex.", "start": 1897, "label": "setup"},
+    {"line_number": 668, "text": "It's just with myself in the mirror.", "start": 1899, "label": "punchline"},
+    {"line_number": 669, "text": "Not in like a narcissistic way.", "start": 1904, "label": "setup"},
+    {"line_number": 670, "text": "I just like to pretend I'm getting cucked by my evil twin.", "start": 1906, "label": "tag"}
+  ]
+}

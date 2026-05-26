@@ -1,0 +1,79 @@
+{
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Hans Kim",
+  "comedian_type": "regular",
+  "set_number": 15,
+  "start_seconds": 7327,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "American linguistic arrogance is justified by military supremacy: possessing nuclear weapons removes any obligation to learn a second language.",
+      "line_range": [2763, 2767],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [2763, 2767],
+          "topics": ["race", "Spanish", "nationalism", "Super Bowl"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Deporting Mexicans to reduce crime is inefficient because street robberies are conducted in Ebonics, not Spanish.",
+      "line_range": [2768, 2777],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [2768, 2777],
+          "topics": ["immigration", "deportation", "race", "crime"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_003",
+      "premise": "Black men are associated with forced labor and crime; the only rational fitness goal is surviving a robbery long enough for police to arrive.",
+      "line_range": [2779, 2786],
+      "beats": [
+        {
+          "beat_id": "bit_003_beat_001",
+          "line_range": [2779, 2782],
+          "topics": ["race", "gardening", "slavery", "crime"]
+        },
+        {
+          "beat_id": "bit_003_beat_002",
+          "line_range": [2784, 2786],
+          "topics": ["race", "fitness", "police", "crime"]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {"line_number": 2761, "text": "Hey!", "start": 7327, "label": "fluff"},
+    {"line_number": 2762, "text": "What's up Houston?", "start": 7331, "label": "fluff"},
+    {"line_number": 2763, "text": "Oh yeah. Don't worry, I speak English.", "start": 7337, "label": "setup"},
+    {"line_number": 2764, "text": "This isn't the Super Bowl halftime show.", "start": 7343, "label": "punchline"},
+    {"line_number": 2765, "text": "If I wanted to hear a bunch of Spanish, I'd go to a kitchen at Chili's.", "start": 7348, "label": "tag"},
+    {"line_number": 2766, "text": "Stop trying to make me learn things. This is America.", "start": 7354, "label": "setup"},
+    {"line_number": 2767, "text": "What's the point of having all these bombs if I have to learn?", "start": 7360, "label": "punchline"},
+    {"line_number": 2768, "text": "I do think it's fucked up that a lot of Mexicans are getting deported.", "start": 7365, "label": "setup"},
+    {"line_number": 2769, "text": "I think if you're trying to reduce crime,", "start": 7368, "label": "setup"},
+    {"line_number": 2770, "text": "Deporting Mexicans is the least efficient way to do that.", "start": 7370, "label": "setup"},
+    {"line_number": 2771, "text": "I've never been walking down a dark alley", "start": 7374, "label": "setup"},
+    {"line_number": 2772, "text": "and heard the voice behind me be like,", "start": 7376, "label": "setup"},
+    {"line_number": 2773, "text": "\"Give me your money.\"", "start": 7378, "label": "setup"},
+    {"line_number": 2775, "text": "It's usually some form of Ebonics.", "start": 7388, "label": "punchline"},
+    {"line_number": 2777, "text": "The language of robberies.", "start": 7393, "label": "tag"},
+    {"line_number": 2779, "text": "Yeah, I recently saw a black guy gardening.", "start": 7398, "label": "setup"},
+    {"line_number": 2780, "text": "I was like, \"Dude, you don't have to do that anymore.\"", "start": 7400, "label": "punchline"},
+    {"line_number": 2782, "text": "You can do larceny and retail theft as well now.", "start": 7407, "label": "tag"},
+    {"line_number": 2784, "text": "I am working out right now.", "start": 7413, "label": "setup"},
+    {"line_number": 2785, "text": "You know, I don't have to be stronger than a black guy.", "start": 7416, "label": "setup"},
+    {"line_number": 2786, "text": "I just have to last long enough 'til the cops get there.", "start": 7419, "label": "punchline"},
+    {"line_number": 2788, "text": "All right, well, that's my tie.", "start": 7423, "label": "fluff"}
+  ]
+}

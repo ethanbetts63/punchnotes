@@ -1,0 +1,202 @@
+{
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": [
+    "Shane Gillis",
+    "James McCann"
+  ],
+  "comedian_name": "Lucas Hinderlighter",
+  "comedian_type": "bucket_pull",
+  "set_number": 9,
+  "start_seconds": 4438,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "One remaining sock can imply genital cover instead of footwear.",
+      "line_range": [
+        1990,
+        1999
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [
+            1990,
+            1994
+          ],
+          "topics": [
+            "porta potties",
+            "toilet paper",
+            "socks"
+          ]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [
+            1996,
+            1999
+          ],
+          "topics": [
+            "porta potties",
+            "socks",
+            "genitals"
+          ]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "Barely legal changes meaning across eras.",
+      "line_range": [
+        2001,
+        2008
+      ],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [
+            2001,
+            2008
+          ],
+          "topics": [
+            "grandpa",
+            "porn",
+            "aging",
+            "interracial porn"
+          ]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "text": "Thank you guys.",
+      "start": 4438,
+      "label": "fluff",
+      "line_number": 1988
+    },
+    {
+      "text": "My name's Lucas.",
+      "start": 4440,
+      "label": "fluff",
+      "line_number": 1989
+    },
+    {
+      "text": "I had a weird day today.",
+      "start": 4441,
+      "label": "setup",
+      "line_number": 1990
+    },
+    {
+      "text": "I walked into a porta potty that didn't have any toilet paper in it.",
+      "start": 4444,
+      "label": "setup",
+      "line_number": 1991
+    },
+    {
+      "text": "Yeah.",
+      "start": 4449,
+      "label": "fluff",
+      "line_number": 1992
+    },
+    {
+      "text": "So I walked out of that porta potty wearing only one sock.",
+      "start": 4450,
+      "label": "punchline",
+      "line_number": 1993
+    },
+    {
+      "text": "Yeah, yeah, because I had to wipe with the rest of my clothes.",
+      "start": 4455,
+      "label": "tag",
+      "line_number": 1994
+    },
+    {
+      "text": "Y'all ever do that?",
+      "start": 4464,
+      "label": "fluff",
+      "line_number": 1996
+    },
+    {
+      "text": "Y'all ever walk out of a porta potty with a sock on your dick?",
+      "start": 4467,
+      "label": "tag",
+      "line_number": 1997
+    },
+    {
+      "text": "Oh, you thought it was on my foot? Oh, no, it was...",
+      "start": 4472,
+      "label": "tag",
+      "line_number": 1998
+    },
+    {
+      "text": "It was on my dick.",
+      "start": 4475,
+      "label": "tag",
+      "line_number": 1999
+    },
+    {
+      "text": "It's good to be here.",
+      "start": 4478,
+      "label": "fluff",
+      "line_number": 2000
+    },
+    {
+      "text": "I was hanging out with my grandpa recently.",
+      "start": 4479,
+      "label": "setup",
+      "line_number": 2001
+    },
+    {
+      "text": "My grandpa's getting old.",
+      "start": 4481,
+      "label": "setup",
+      "line_number": 2002
+    },
+    {
+      "text": "I was in his room recently.",
+      "start": 4483,
+      "label": "setup",
+      "line_number": 2003
+    },
+    {
+      "text": "I found a box in his room that was labeled",
+      "start": 4484,
+      "label": "setup",
+      "line_number": 2004
+    },
+    {
+      "text": "\"The Barely Legal Porn.\"",
+      "start": 4486,
+      "label": "setup",
+      "line_number": 2005
+    },
+    {
+      "text": "Yeah.",
+      "start": 4489,
+      "label": "fluff",
+      "line_number": 2006
+    },
+    {
+      "text": "Now, in 2026, barely legal porn is 18-year-old girls.",
+      "start": 4490,
+      "label": "setup",
+      "line_number": 2007
+    },
+    {
+      "text": "But my grandpa's so old that it was all just interracial.",
+      "start": 4496,
+      "label": "punchline",
+      "line_number": 2008
+    },
+    {
+      "text": "Thank you.",
+      "start": 4503,
+      "label": "fluff",
+      "line_number": 2010
+    }
+  ]
+}

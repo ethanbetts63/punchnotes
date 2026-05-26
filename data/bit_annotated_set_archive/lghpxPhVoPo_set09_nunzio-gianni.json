@@ -1,0 +1,59 @@
+{
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Nunzio Gianni",
+  "comedian_type": "bucket_pull",
+  "set_number": 9,
+  "start_seconds": 4532,
+  "bits": [
+    {
+      "bit_id": "bit_001",
+      "premise": "Growing up in Miami meant skipping conventional dating and going straight to strippers and sex workers.",
+      "line_range": [1693, 1699],
+      "beats": [
+        {
+          "beat_id": "bit_001_beat_001",
+          "line_range": [1693, 1694],
+          "topics": ["Miami", "strippers", "dating"]
+        },
+        {
+          "beat_id": "bit_001_beat_002",
+          "line_range": [1695, 1699],
+          "topics": ["Miami", "dating", "strippers", "youth"]
+        }
+      ]
+    },
+    {
+      "bit_id": "bit_002",
+      "premise": "A mixed Puerto Rican–Italian identity is reduced in Texas to a binary of Mexican or generically \"colored.\"",
+      "line_range": [1701, 1702],
+      "beats": [
+        {
+          "beat_id": "bit_002_beat_001",
+          "line_range": [1701, 1702],
+          "topics": ["race", "Puerto Rican", "Texas", "ethnicity"]
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {"line_number": 1691, "text": "how we doing today you sin awesome my name is Nunzio Gianni i'm actually coming from Miami for", "start": 4532, "label": "fluff"},
+    {"line_number": 1692, "text": "for my birthday.", "start": 4541, "label": "fluff"},
+    {"line_number": 1693, "text": "So I don't know if we got any folks from Miami", "start": 4542, "label": "setup"},
+    {"line_number": 1694, "text": "or Miami, I know the strippers are amazing, I love them too.", "start": 4544, "label": "punchline"},
+    {"line_number": 1695, "text": "I'm fairly young, I moved to Miami when I was 16.", "start": 4548, "label": "setup"},
+    {"line_number": 1696, "text": "Dating was actually really hard, 16 into 18, early 20s,", "start": 4552, "label": "setup"},
+    {"line_number": 1697, "text": "'cause Miami's not a place for somebody young like me.", "start": 4556, "label": "setup"},
+    {"line_number": 1698, "text": "But I guess I got a taste in some strippers and hoes,", "start": 4559, "label": "setup"},
+    {"line_number": 1699, "text": "so I think I could do all right.", "start": 4562, "label": "punchline"},
+    {"line_number": 1701, "text": "I'm Puerto Rican and Italian, my ethnicity is kind of hard to pick when I come to Texas.", "start": 4568, "label": "setup"},
+    {"line_number": 1702, "text": "I'm either Mexican or colored, so.", "start": 4575, "label": "punchline"},
+    {"line_number": 1703, "text": "Guys, I'm really nervous, guys.", "start": 4579, "label": "fluff"},
+    {"line_number": 1704, "text": "This is my first time.", "start": 4589, "label": "fluff"},
+    {"line_number": 1705, "text": "Fuck.", "start": 4590, "label": "fluff"}
+  ]
+}
