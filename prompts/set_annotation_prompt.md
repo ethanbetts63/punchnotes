@@ -58,7 +58,7 @@ The line where the laugh lands. The reveal, twist, or payoff the setup was build
 > "Robert Wadlow, world's tallest man, 15 inches soft, the fucking end."
 
 ### `tag`
-An additional punchline that builds off the previous punchline without needing new setup. A tag rides on the laugh already in the room â€” if it introduces fresh material, it is a new `setup`, not a tag.
+An additional punchline that builds off the previous punchline without needing new setup. A tag rides on the laugh already in the room - if it introduces fresh material, it is a new `setup`, not a tag.
 
 > "That's the end of the documentary." (after the Robert Wadlow punchline)
 > "Y'all don't know how to act at all." (escalation of "y'all don't know how to act")
@@ -75,17 +75,23 @@ Everything that is not setup, punchline, or tag. Greetings, sign-offs, name intr
 ## How to label
 
 1. Read the whole set first. Get the structure in your head before labeling line-by-line.
-2. Identify each joke's punchline first â€” that's the anchor.
+2. Identify each joke's punchline first - that's the anchor.
 3. Walk backwards from the punchline labeling setup.
 4. Walk forwards labeling any tags that ride the laugh.
 5. Mark everything else fluff.
 
+### Visual jokes and misdirects
+
+- **Visual jokes can have implicit setup.** If the audience can see the setup, the first spoken comparison or reveal may be the `punchline` even without a verbal setup. Example: `"I know I look like I just fucked a pair of balloons."` can be a punchline because the setup is the comedian's visible appearance.
+- **Misdirects turn on the frame-flip line.** Label the line where the audience realizes its assumption was wrong as the `punchline`. Example: after `"The first time I seen titties, I cried,"` the line `"I was looking in the mirror like,"` is the punchline because it reveals the joke is about male breasts, not a woman.
+- **The next line after a misdirect is often a tag or continuation.** If it only extends the same reveal, label it `tag`; if the punchline sentence is split by transcription, a second `punchline` line can be acceptable.
+
 ### Rules of thumb
 
-- **One punchline per joke.** If you find yourself labeling two adjacent lines as punchline, one of them is probably a tag (rides the previous laugh) or setup (sets up the real punchline).
+- **One punchline per joke.** If you find yourself labeling two adjacent lines as punchline, one of them is probably a tag (rides the previous laugh) or setup (sets up the real punchline). Occasionally, the transcription will split the punchline sentance over two lines which is a case where two punchline lines in a row is accebtable. 
 - **Tags require an immediately preceding punchline or tag.** A line cannot tag a fluff or a setup.
 - **Sound effects from the show (kitten, bear, music) are fluff.** They appear as `[squeals]`, `[music]`, etc.
-- **Verbal stumbles and filler are fluff.** `"Uh..."`, `"Hell yeah."`, `"Believe that."`, `"You know what I mean?"` â€” when they're not part of an actual joke.
+- **Verbal stumbles and filler are fluff.** `"Uh..."`, `"Hell yeah."`, `"Believe that."`, `"You know what I mean?"` - when they're not part of an actual joke.
 - **Self-introductions are fluff.** `"My name is Brandon."` is fluff unless the name itself is the punchline.
 - **Closers are fluff.** `"That's my time."`, `"Thank you guys."`, `"Okay, that's enough for me, thank you."`
 
@@ -108,9 +114,9 @@ After writing, **delete the source file from `2_set_inbox/`**. The annotated fil
 
 ---
 
-## Worked example 1 â€” High-quality set (Pat O'Neill, `set14`)
+## Worked example 1 High-quality set (Pat O'Neill, `set14`)
 
-A clean, well-structured set. Four discrete setupâ†’punchline jokes with a sign-off.
+A clean, well-structured set. Four discrete setup-to-punchline jokes with a sign-off.
 
 ```json
 {"text": "- Folks, my ex-girlfriend,", "start": 7450, "label": "setup"}
@@ -128,13 +134,13 @@ A clean, well-structured set. Four discrete setupâ†’punchline jokes with a 
 {"text": "Okay, that's enough for me, thank you.", "start": 7517, "label": "fluff"}
 ```
 
-Note on 7510: "I was telling that story last night" arguably tags joke #3 (he's still on the vomit story) but has its own full setupâ†’punchline arc with a new premise (audience reaction), so it's labeled setup.
+Note on 7510: "I was telling that story last night" arguably tags joke #3 (he's still on the vomit story) but has its own full setup-to-punchline arc with a new premise (audience reaction), so it's labeled setup.
 
 ---
 
-## Worked example 2 â€” Medium-quality set (Liv Taylor, `set03`)
+## Worked example 2 - Medium-quality set (Liv Taylor, `set03`)
 
-Some structure â€” two clear jokes land â€” but the set gets cut off by the kitten/bear and the third joke is interrupted.
+Some structure - two clear jokes land - but the set gets cut off by the kitten/bear and the third joke is interrupted.
 
 ```json
 {"text": "What's up, Austin?", "start": 1379, "label": "fluff"}
@@ -167,12 +173,12 @@ Some structure â€” two clear jokes land â€” but the set gets cut off b
 
 Notes:
 - "So I started listening to Negro Spirituals" lands as the shock-turn punchline of the smoke-detector joke, but the smoke-detector reveal is the *real* punchline (recontextualizes it). For the one-punchline-per-joke rule, the shock line is labeled punchline of its own mini-beat and the reveal is the main punchline.
-- "That's fucking crazy" (1411) is ambiguous â€” could be the comedian reading the room or part of the setup for the reveal. Labeled setup.
-- The interrupted Zip Recruiter joke (1447â€“1451) never lands â€” she gets cut off and finishes hurriedly.
+- "That's fucking crazy" (1411) is ambiguous - could be the comedian reading the room or part of the setup for the reveal. Labeled setup.
+- The interrupted Zip Recruiter joke (1447-1451) never lands - she gets cut off and finishes hurriedly.
 
 ---
 
-## Worked example 3 â€” Low-quality set (Brandon Fields, `set08`)
+## Worked example 3 Low-quality set (Brandon Fields, `set08`)
 
 Very little structure. Brandon admits he's high, rambles, never lands a clean punchline, addresses an audience member at the end.
 
@@ -198,15 +204,15 @@ Very little structure. Brandon admits he's high, rambles, never lands a clean pu
 {"text": "- I'm like that dude on House of Rest back there.", "start": 3912, "label": "setup"}
 {"text": "That just left a stage.", "start": 3915, "label": "setup"}
 {"text": "He was actually on House of Rest.", "start": 3916, "label": "setup"}
-{"text": "I saw that ankle monitor and shit.", "start": 3918, "label": "punchline"}
+{"text": "I saw that ankle monitor and shit.", "start": 3918, "label": "setup"}
 {"text": "Thank you, I'm Brandon.", "start": 3920, "label": "fluff"}
 ```
 
 Notes:
-- "more than being black these days" is the structural punchline of the phone bit but it doesn't actually land â€” could also be read as setup leading nowhere. Call it punchline since it's the clearest candidate.
-- The whole Android section (3882â€“3895) is "setup, setup, setup, give up" â€” no real punchline arrives, so everything is setup and the "Maybe? Alright, fuck y'all" is fluff (giving up on the bit).
-- "Um, uh, white thing about me, uh, I could swim" is a tiny joke (swimming = white) buried in stumbles â€” labeled punchline.
-- The closer is crowd work calling out an audience member with an ankle monitor â€” labeled punchline since it's a real laugh.
+- "more than being black these days" is the structural punchline of the phone bit but it doesn't actually land could also be read as setup leading nowhere. Call it punchline since it's the clearest candidate and seems like what the writer intended. .
+- The whole Android section (3882-3895) is "setup, setup, setup, give up" no real punchline arrives, so everything is setup and the "Maybe? Alright, fuck y'all" is fluff (giving up on the bit).
+- "Um, uh, white thing about me, uh, I could swim" is a tiny joke (swimming = white) buried in stumbles - labeled punchline.
+
 
 ---
 
@@ -221,4 +227,3 @@ Notes:
    - Delete the source file from `2_set_inbox/`.
 3. Move to the next file. Repeat.
 4. When `2_set_inbox/` is empty, stop.
-

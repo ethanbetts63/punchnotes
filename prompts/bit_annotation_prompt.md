@@ -136,23 +136,62 @@ Use 1-4 topics per beat. Prefer specific nouns over full sentences.
 
 ## Premise Guidance
 
-A good premise is specific enough to distinguish one bit from another bit on the same topic.
+A premise is the abstract comedic idea that makes the bit work. It is not a summary of what the comedian said or did.
 
-Topic:
+**Rules:**
+- Write it as short as possible while keeping the meaning.
+- No pronouns tied to the comedian — no "he", "she", "they", "the comic". The premise should stand as a universal idea anyone could riff on.
+- State the comedic logic, not the performance.
 
-`streaming`
+Examples: 
 
-Weak premise:
 
-`Streaming is funny.`
+The goal is to simplify to the most general form. For instance: 
+  "premise": "Living in a RAV4 technically counts as homeownership.",
+This is very close but the more general version of this would be: 
+  "premise": "Living in a car technically counts as homeownership.",
+---
 
-Strong premise:
+### Visual and Physical Premises
 
-`Middle-aged men trying to become Twitch streamers are sad and unappealing.`
+Some jokes have no verbal setup — the setup is the comedian's appearance, a prop, or something physical the audience can see. You cannot see the video, so you must infer. These jokes will often have lines like: "I look like". 
 
-Another strong premise on the same topic:
+**Formula: infer the visual → find the absurd connection → state it as a universal truth.**
 
-`Crackheads would make entertaining livestreamers because their lives are chaotic.`
+If the punchline obviously is reliant on something visual, ask: what must be physically true about this person for that punchline to land? Then write the premise around the connection between the trait and the image.
+
+Some inaccuracy is expected and acceptable — do your best.
+
+**Examples:**
+
+Punchline: `"I know I look like I just fucked a pair of balloons."`
+Inferred visual: upright or static-charged hair.
+Premise: `Upright hair can look like static from sex with balloons.`
+
+Punchline: `"I look like a chicken that just got done pecking the ground."`
+Inferred visual: a hunched posture or bobbing head movement.
+Premise: `A hunched bobbing posture can look like a chicken searching for food.`
+
+These are two separate beats even though they share the meta-theme of appearance jokes — neither punchline needs the other to work, so they should not be merged into one beat.
+
+---
+
+### Misdirection Premises
+
+Some jokes work by making the audience assume one frame, then revealing a different frame. For these, the premise should name the assumption being exploited and the unexpected replacement.
+
+**Formula: expected assumption -> revealed meaning -> short universal premise.**
+
+Do not summarize the joke. State the mistaken expectation that makes the turn funny.
+
+**Example:**
+
+Setup: `"For example, the first time I seen titties, I cried."`
+Punchline turn: `"I was looking in the mirror like,"`
+Tag: `"yo, those not supposed to be there."`
+Premise: `Talk of seeing tits implies a woman, not a man.`
+
+In this example, the punchline turn is the mirror line because that is where the audience realizes the expected object of the joke was wrong.
 
 ---
 
