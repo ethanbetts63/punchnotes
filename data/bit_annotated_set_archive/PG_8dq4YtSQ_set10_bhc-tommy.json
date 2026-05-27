@@ -9,9 +9,9 @@
   "comedian_type": "bucket_pull",
   "set_number": 10,
   "start_seconds": 5457,
-  "interview_end_line": null,
-  "interview_end_seconds": null,
-  "joke_book": null,
+  "interview_end_line": 2565,
+  "interview_end_seconds": 5837.9,
+  "joke_book": "small",
   "bit_meta": {
     "1": {
       "premise": "Every fact in a necrophiliac coroner's news story doubles as a pun on death, sex, or both.",

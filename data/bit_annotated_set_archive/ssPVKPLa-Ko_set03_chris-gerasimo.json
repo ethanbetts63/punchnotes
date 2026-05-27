@@ -9,9 +9,9 @@
   "comedian_type": "bucket_pull",
   "set_number": 3,
   "start_seconds": 1222,
-  "interview_end_line": null,
-  "interview_end_seconds": null,
-  "joke_book": null,
+  "interview_end_line": 706,
+  "interview_end_seconds": 1692.7,
+  "joke_book": "large",
   "bit_meta": {
     "1": {
       "premise": "A dinosaur-sounding name is funnier with a long neck.",

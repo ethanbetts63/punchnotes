@@ -9,8 +9,8 @@
   "comedian_type": "bucket_pull",
   "set_number": 5,
   "start_seconds": 2431,
-  "interview_end_line": null,
-  "interview_end_seconds": null,
+  "interview_end_line": 1196,
+  "interview_end_seconds": 2897.0,
   "joke_book": null,
   "bit_meta": {
     "1": {

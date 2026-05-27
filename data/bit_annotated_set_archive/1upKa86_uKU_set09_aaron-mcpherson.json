@@ -9,9 +9,9 @@
   "comedian_type": "bucket_pull",
   "set_number": 9,
   "start_seconds": 5058,
-  "interview_end_line": null,
-  "interview_end_seconds": null,
-  "joke_book": null,
+  "interview_end_line": 2512,
+  "interview_end_seconds": 5554.28,
+  "joke_book": "medium",
   "bit_meta": {
     "1": {
       "premise": "Unwanted women can become a profitable sex-work niche.",

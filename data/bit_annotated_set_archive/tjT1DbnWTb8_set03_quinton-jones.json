@@ -9,9 +9,9 @@
   "comedian_type": "bucket_pull",
   "set_number": 3,
   "start_seconds": 1485,
-  "interview_end_line": null,
-  "interview_end_seconds": null,
-  "joke_book": null,
+  "interview_end_line": 882,
+  "interview_end_seconds": 1978.56,
+  "joke_book": "large",
   "bit_meta": {
     "1": {
       "premise": "Women with cats are primed for bad relationships because a cat already models loveless cohabitation.",

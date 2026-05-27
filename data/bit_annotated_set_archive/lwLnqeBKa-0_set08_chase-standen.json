@@ -9,9 +9,9 @@
   "comedian_type": "bucket_pull",
   "set_number": 8,
   "start_seconds": 3483,
-  "interview_end_line": null,
-  "interview_end_seconds": null,
-  "joke_book": null,
+  "interview_end_line": 1732,
+  "interview_end_seconds": 4014.82,
+  "joke_book": "large",
   "bit_meta": {
     "1": {
       "premise": "Oral sex instructions can feel like Bop It.",

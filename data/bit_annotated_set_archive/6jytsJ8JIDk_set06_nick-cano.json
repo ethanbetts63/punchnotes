@@ -9,9 +9,9 @@
   "comedian_type": "bucket_pull",
   "set_number": 6,
   "start_seconds": 2753,
-  "interview_end_line": null,
-  "interview_end_seconds": null,
-  "joke_book": null,
+  "interview_end_line": 1469,
+  "interview_end_seconds": 3184.86,
+  "joke_book": "large",
   "bit_meta": {
     "1": {
       "premise": "Hell is imagined as segregated into stereotype-specific punishments.",

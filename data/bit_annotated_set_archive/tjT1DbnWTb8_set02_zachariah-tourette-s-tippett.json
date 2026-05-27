@@ -9,9 +9,9 @@
   "comedian_type": "bucket_pull",
   "set_number": 2,
   "start_seconds": 649,
-  "interview_end_line": null,
-  "interview_end_seconds": null,
-  "joke_book": null,
+  "interview_end_line": 539,
+  "interview_end_seconds": 1303.08,
+  "joke_book": "large",
   "bit_meta": {
     "1": {
       "premise": "Pitching Tourette's as a superpower to children ends in a brawl and a career in rubble.",

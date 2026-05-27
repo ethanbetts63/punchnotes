@@ -8,9 +8,9 @@
   "comedian_type": "bucket_pull",
   "set_number": 10,
   "start_seconds": 5158,
-  "interview_end_line": null,
-  "interview_end_seconds": null,
-  "joke_book": null,
+  "interview_end_line": 2676,
+  "interview_end_seconds": 5745.66,
+  "joke_book": "small",
   "bit_meta": {
     "1": {
       "premise": "Loved ones create the cruelest nicknames because they know the flaw.",

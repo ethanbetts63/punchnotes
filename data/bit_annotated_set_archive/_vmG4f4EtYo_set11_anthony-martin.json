@@ -8,9 +8,9 @@
   "comedian_type": "bucket_pull",
   "set_number": 11,
   "start_seconds": 5763,
-  "interview_end_line": null,
-  "interview_end_seconds": null,
-  "joke_book": null,
+  "interview_end_line": 3006,
+  "interview_end_seconds": 6420.46,
+  "joke_book": "large",
   "bit_meta": {
     "1": {
       "premise": "Predator-catching videos become uncomfortable when the targets seem vulnerable or elected.",

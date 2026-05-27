@@ -8,8 +8,8 @@
   "comedian_type": "regular",
   "set_number": 1,
   "start_seconds": 425,
-  "interview_end_line": null,
-  "interview_end_seconds": null,
+  "interview_end_line": 289,
+  "interview_end_seconds": 740.92,
   "joke_book": null,
   "bit_meta": {
     "1": {

@@ -9,9 +9,9 @@
   "comedian_type": "bucket_pull",
   "set_number": 9,
   "start_seconds": 4438,
-  "interview_end_line": null,
-  "interview_end_seconds": null,
-  "joke_book": null,
+  "interview_end_line": 2239,
+  "interview_end_seconds": 4929.34,
+  "joke_book": "large",
   "bit_meta": {
     "1": {
       "premise": "One remaining sock can imply genital cover instead of footwear.",
