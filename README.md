@@ -1,8 +1,6 @@
 # JokeScore
 
-JokeScore is a system for measuring and analyzing stand-up comedy using audience reaction as a real-world signal for humor.
-
-At its core, JokeScore processes recorded comedy sets and calculates metrics such as laughs per minute, joke density, laugh intensity, and joke efficiency by aligning transcripts with audience laughter. Sets are broken down hierarchically into bits, beats, and individual lines, allowing jokes to be analyzed structurally rather than as raw text.
+JokeScore is a system for analyzing/annotating stand-up comedy 
 
 The project starts with Kill Tony because it provides a uniquely useful dataset: short standardized sets, high performance variance, recurring comedians, live audience reactions, and explicit quality signals like joke book awards. From there, the system can expand into broader stand-up datasets and eventually become both a comedy analytics platform and a training dataset for AI systems that learn humor from actual audience response rather than text alone.
 
@@ -57,7 +55,7 @@ Every beat stores:
 
 Kill Tony adds useful structure that most stand-up datasets do not have.
 
-Bucket-pull sets are short and standardized. Interviews happen immediately after the set. Tony and the panel often give a joke book award at the end of the interview: `small`, `medium`, or `large`. Joke book size is captured as a human-curated quality signal. If no current award is clear, the value is left `null`.
+Bucket-pull sets are short and standardized. Interviews happen immediately after the set. Tony and the panel often give a joke book award at the end of the interview: `small`, `medium`, or `large`. Joke book size is captured as a human-curated quality signal. If no current award is clear, the value is left `null`. This is just a signal. Bad sets followed by great interviews can still receive a big joke book and vice versa. Regardless, a small joke book is strongly correlated with a bad set.  
 
 The archive also stores `interview_end_line` and `interview_end_seconds`, so interviews can later be extracted programmatically without re-analyzing the full episode transcript.
 
@@ -88,60 +86,73 @@ Everything that is not setup, punchline, or tag: greetings, sign-offs, name intr
 - Sound effects are fluff.
 - Self-introductions are fluff unless the name itself is the joke.
 - Closers such as "That's my time" and "Thank you" are fluff.
-- Sight-dependent jokes can have implicit setup from stage context.
-- Misdirects turn on the frame-flip line; label that line as the punchline.
+- Visually-dependent jokes can have implicit setup from stage context.
 
-## Joke Types
+### Joke types and premise formulas
 
-Each beat receives one joke mechanism.
+Most jokes fall into one of these mechanisms. Each has its own premise shape. The value in the `joke_type` field uses the lowercase/hyphenated form shown next to each name.
 
-### `misdirect`
+**Misdirect** (`misdirect`) — assumption planted, then subverted.
+> Formula: *X implies Y, not Z.*
+> Example:
+> - setup: `"My son just came out as trans."`
+> - setup: `"Well, shouldn't call him my son anymore."`
+> - punchline: `"Now that he's dead to me,"`
+> Premise: `"Refusing to call a transitioning child your son implies a new title, not their disownment."`
 
-An assumption is planted, then subverted.
+**Reframe** (`reframe`) — hidden implication of a known thing is surfaced. No prior assumption is planted; the audience just hadn't considered this angle.
+> Formula: state the hidden implication directly.
+> Example:
+> - setup: `"they got him on puberty blockers"`
+> - punchline: `"or as pedophiles call them preservatives."`
+> - tag: `"Fucking miracle medicine."`
+> Premise: `"Pedophiles benefit from puberty blockers."`
 
-Formula: `X implies Y, not Z.`
+**Phonetic match** (`phonetic-match`) — two *different* words sound alike, and both independently fit the context.
+> Formula: state the sonic match and why both sides independently fit.
+> Example:
+> - setup: `"what do you call a little person with ADHD?"`
+> - punchline: `"That's right, a fidget."`
+> Premise: `"'Midget' and 'fidget' sound alike, and 'fidget' independently fits ADHD."`
 
-### `reframe`
+**Double-meaning** (`double-meaning`) — the *same* words admit two readings, and the comedian deliberately picks the non-standard one. Hinges on semantic ambiguity, not phonetic similarity.
+> Formula: *Taken literally, [phrase] has two meanings.*
+> Example:
+> - setup: `"'In case of fire, use stairs.'"`
+> - punchline: `"Fuck that, let's use water."`
+> Premise: `"Taken literally, 'In case of fire, use stairs' has two meanings."`
 
-A hidden implication of a known thing is surfaced. The audience did not necessarily hold the wrong assumption; they just had not considered this angle.
+**What-if** (`what-if`) — a counterfactual scenario is posed and the joke comes from taking it seriously. Distinct from reframe: a reframe surfaces a *real* implication; a what-if *invents* one and runs with it.
+> Formula: *What if [counterfactual]?* or state the hypothetical condition directly.
+> Example:
+> - setup: `"A guy stole my wallet."`
+> - setup: `"He's like, ha ha, I have your wallet."`
+> - punchline: `"I was like, ha ha, you have 8K of credit card debt."`
+> Premise: `"What if stealing a credit card meant you also stole the debt."`
 
-Formula: state the hidden implication directly.
+**Analogy** (`analogy`) — two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
+> Formula: *X is like Y because both share Z.*
+> Example:
+> - setup: `"But golfing prepared me for marriage,"`
+> - setup: `"cause both involved me spending a lot of money"`
+> - punchline: `"at something I'm not really good at."`
+> - tag: `"And then waking up the next morning"`
+> - tag: `"and deciding to try again, 'cause I like the challenge."`
+> Premise: `"Golf is like marriage because both make failure expensive and repeatable."`
 
-### `phonetic-match`
+**Prop** (`prop`) — the joke depends on a literal object the comedian is using or presenting onstage. This is rare: if you are unsure if a prop is being used, assume it is not and choose the closest other joke type.
+> Formula: *This object reveals or creates [comic meaning].*
+> Example:
+> - setup: `"[comedian holds up a strange object]"`
+> - punchline: `"This is what my dating life has come to."`
+> Premise: `"A physical object can stand in for a failed dating life."`
 
-Two different words sound alike, and both independently fit the context.
-
-Formula: state the sonic match and why both sides fit.
-
-### `double-meaning`
-
-The same words admit two readings, and the comedian deliberately chooses the non-standard one.
-
-Formula: `Taken literally, [phrase] has two meanings.`
-
-### `what-if`
-
-A counterfactual scenario is posed and taken seriously.
-
-Formula: `What if [counterfactual]?`
-
-### `analogy`
-
-Two different things are made funny by showing that they share the same unexpected structure.
-
-Formula: `X is like Y because both share Z.`
-
-### `prop`
-
-The joke depends on a literal object the comedian is using or presenting onstage.
-
-Formula: `This object reveals or creates [comic meaning].`
-
-### `elephant-in-the-room`
-
-A taboo or obvious observation is said aloud. The audience already understands the conclusion; the laugh comes from breaking the silence.
-
-Formula: `X is widely understood about Y but rarely said aloud.`
+**Elephant-in-the-room** (`elephant-in-the-room`) — taboo observation said aloud. The audience already knows the conclusion; the laugh comes from breaking the silence.
+> Formula: *X is widely understood about Y but rarely said aloud.*
+> Example:
+> - setup: `"You know, these shootings are often done by the same race."`
+> - punchline: `"I'm looking at you, honkies."`
+> Premise: `"School shootings are widely associated with white shooters but rarely said aloud."`
 
 ## Pipeline
 
