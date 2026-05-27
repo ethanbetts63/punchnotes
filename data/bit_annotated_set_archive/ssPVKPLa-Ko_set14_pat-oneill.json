@@ -1,0 +1,98 @@
+{
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Pat O'Neill",
+  "comedian_type": "regular",
+  "set_number": 14,
+  "start_seconds": 7558,
+  "interview_end_line": 3481,
+  "interview_end_seconds": 7884.22,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "Autoerotic asphyxiation while masturbating could be reframed as the cinnamon challenge.",
+          "joke_type": "reframe",
+          "topics": ["masturbation", "choking", "cinnamon challenge"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Watching little-person porn implies adult dwarfs, but the \"I hope\" reveals uncertainty about whether the subjects were children.",
+          "joke_type": "misdirect",
+          "topics": ["porn", "little people", "uncertainty"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "Everyone watching porn is widely understood from the crowd's silence but rarely admitted aloud.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["porn", "audiences", "lying"]
+        }
+      }
+    },
+    "4": {
+      "beats": {
+        "1": {
+          "premise": "\"Unrealistic expectations from porn\" implies impossible body standards, but reveals the expectation that lesbians are attractive.",
+          "joke_type": "misdirect",
+          "topics": ["porn", "lesbians", "beauty standards"]
+        }
+      }
+    },
+    "5": {
+      "beats": {
+        "1": {
+          "premise": "\"Kike\" sounds like \"Ike\" and \"dyke\" sounds like \"Ike,\" making \"Ike\" a polite alias combining both slurs.",
+          "joke_type": "phonetic-match",
+          "topics": ["Jewish women", "lesbians", "dating"]
+        }
+      }
+    },
+    "6": {
+      "beats": {
+        "1": {
+          "premise": "Paying the bill for twelve people could be reframed as proof of divinity given Jewish frugality stereotypes.",
+          "joke_type": "reframe",
+          "topics": ["Jesus", "Last Supper", "Jewish stereotypes"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "- Folks, started doing that thing", "label": "setup", "bit": 1, "beat": 1, "line_number": 3353, "start": 7558},
+    {"text": "where you choke yourself while you masturbate.", "label": "setup", "bit": 1, "beat": 1, "line_number": 3354, "start": 7560},
+    {"text": "You guys have heard about this, the cinnamon challenge.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 3355, "start": 7564},
+    {"text": "Uh...", "label": "fluff", "bit": 1, "beat": 1, "line_number": 3356, "start": 7568},
+    {"text": "Fun times.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 3357, "start": 7570},
+    {"text": "Last time I did that, I was watching some midget porn.", "label": "setup", "bit": 2, "beat": 1, "line_number": 3358, "start": 7578},
+    {"text": "At least I hope.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 3359, "start": 7581},
+    {"text": "Uh...", "label": "fluff", "bit": 2, "beat": 1, "line_number": 3360, "start": 7583},
+    {"text": "Got a big porn crowd here?", "label": "setup", "bit": 3, "beat": 1, "line_number": 3361, "start": 7587},
+    {"text": "All right, most of you are either Amish or liars.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 3363, "start": 7590},
+    {"text": "It's fine though.", "label": "fluff", "bit": 3, "beat": 1, "line_number": 3364, "start": 7593},
+    {"text": "And watching too much of that stuff growing up,", "label": "setup", "bit": 4, "beat": 1, "line_number": 3365, "start": 7595},
+    {"text": "I think it gave me unrealistic expectations of women.", "label": "setup", "bit": 4, "beat": 1, "line_number": 3366, "start": 7597},
+    {"text": "You know?", "label": "fluff", "bit": 4, "beat": 1, "line_number": 3367, "start": 7600},
+    {"text": "Like thinking lesbians would be pretty.", "label": "punchline", "bit": 4, "beat": 1, "line_number": 3368, "start": 7601},
+    {"text": "Rarely the case.", "label": "tag", "bit": 4, "beat": 1, "line_number": 3369, "start": 7605},
+    {"text": "I dated a Jewish girl once, ended up being a lesbian.", "label": "setup", "bit": 5, "beat": 1, "line_number": 3370, "start": 7608},
+    {"text": "The old double Ike.", "label": "punchline", "bit": 5, "beat": 1, "line_number": 3371, "start": 7612},
+    {"text": "- Quarter of the LGBT Jew.", "label": "tag", "bit": 5, "beat": 1, "line_number": 3374, "start": 7623},
+    {"text": "You know, the ancient Jews, as legend has it,", "label": "setup", "bit": 6, "beat": 1, "line_number": 3375, "start": 7627},
+    {"text": "they saw Jesus Christ at the Last Supper", "label": "setup", "bit": 6, "beat": 1, "line_number": 3376, "start": 7631},
+    {"text": "picking up the tab for 12 other dudes", "label": "setup", "bit": 6, "beat": 1, "line_number": 3377, "start": 7633},
+    {"text": "and were like, \"He must be God.", "label": "setup", "bit": 6, "beat": 1, "line_number": 3378, "start": 7636},
+    {"text": "We have to kill him.\"", "label": "punchline", "bit": 6, "beat": 1, "line_number": 3379, "start": 7639},
+    {"text": "Okay, thank you.", "label": "fluff", "bit": 6, "beat": 1, "line_number": 3380, "start": 7642}
+  ]
+}

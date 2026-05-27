@@ -1,0 +1,77 @@
+{
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Adam Melev",
+  "comedian_type": "bucket_pull",
+  "set_number": 5,
+  "start_seconds": 2431,
+  "interview_end_line": 1196,
+  "interview_end_seconds": 2897.0,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "Being born in 2001 implies personal celebration, but reveals it was also the year of 9/11.",
+          "joke_type": "misdirect",
+          "topics": ["2001", "9/11", "birth year"]
+        }
+      }
+    },
+    "2": {
+      "premise": "A 9/11 birthday turns cupcakes into attack reenactments.",
+      "beats": {
+        "1": {
+          "premise": "A solemn 9/11 memorial announcement implies tragedy, but pivots to a birthday cupcake celebration.",
+          "joke_type": "misdirect",
+          "topics": ["9/11", "birthdays", "cupcakes"]
+        },
+        "2": {
+          "premise": "A second cupcake tray hitting the classroom is like the second 9/11 plane because both are announced in stunned repetition.",
+          "joke_type": "analogy",
+          "topics": ["9/11", "twins", "cupcake trays"]
+        },
+        "3": {
+          "premise": "A Pentagon-shaped classroom hit by a third cupcake tray is like the 9/11 Pentagon attack because both involve a third impact on a pentagon.",
+          "joke_type": "analogy",
+          "topics": ["9/11", "classrooms", "Pentagon"]
+        },
+        "4": {
+          "premise": "A cupcake tray that fell in the hallway is like the fourth 9/11 flight because both never reached their target.",
+          "joke_type": "analogy",
+          "topics": ["9/11", "hallways", "cupcake trays"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "I'm born in 2001.", "label": "setup", "bit": 1, "beat": 1, "line_number": 994, "start": 2431},
+    {"text": "It was a great year for me.", "label": "setup", "bit": 1, "beat": 1, "line_number": 995, "start": 2441},
+    {"text": "Not so great for lower Manhattan.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 996, "start": 2445},
+    {"text": "All right.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 997, "start": 2447},
+    {"text": "Growing up in school, we had a kid whose birthday was on the actual 9/11/2001.", "label": "setup", "bit": 2, "beat": 1, "line_number": 998, "start": 2449},
+    {"text": "So every year we would have that moment of silence at the end of the day, and the class", "label": "setup", "bit": 2, "beat": 1, "line_number": 999, "start": 2460},
+    {"text": "would get real quiet.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1000, "start": 2463},
+    {"text": "And then the teacher would break in, \"Boys and girls, on this day we must remember that", "label": "setup", "bit": 2, "beat": 1, "line_number": 1001, "start": 2464},
+    {"text": "Francesca's mom brought cupcakes!\"", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1002, "start": 2471},
+    {"text": "Oh my gosh, are those chocolate frosted?", "label": "tag", "bit": 2, "beat": 1, "line_number": 1003, "start": 2474},
+    {"text": "Because this is a day I will never forget.", "label": "tag", "bit": 2, "beat": 1, "line_number": 1004, "start": 2479},
+    {"text": "We actually had a twin in the class too, Francesca.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1005, "start": 2485},
+    {"text": "The teacher would tell us, \"Boys and girls,", "label": "setup", "bit": 2, "beat": 2, "line_number": 1006, "start": 2489},
+    {"text": "\"I just got word from the office", "label": "setup", "bit": 2, "beat": 2, "line_number": 1007, "start": 2490},
+    {"text": "\"that a second tray of cupcakes has hit our classroom.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 1008, "start": 2492},
+    {"text": "\"A second tray of cupcakes has hit our classroom.\"", "label": "tag", "bit": 2, "beat": 2, "line_number": 1009, "start": 2494},
+    {"text": "It's really crazy 'cause there was another", "label": "setup", "bit": 2, "beat": 3, "line_number": 1010, "start": 2499},
+    {"text": "9/11 birthday in our school across the hall from us.", "label": "setup", "bit": 2, "beat": 3, "line_number": 1011, "start": 2501},
+    {"text": "There was another 9/11 birthday.", "label": "setup", "bit": 2, "beat": 3, "line_number": 1012, "start": 2503},
+    {"text": "A third tray of cupcakes hit over there.", "label": "punchline", "bit": 2, "beat": 3, "line_number": 1013, "start": 2505},
+    {"text": "Really crazy, is that classroom--", "label": "setup", "bit": 2, "beat": 3, "line_number": 1014, "start": 2508},
+    {"text": "- That classroom was Pentagon shaped", "label": "punchline", "bit": 2, "beat": 3, "line_number": 1017, "start": 2512},
+    {"text": "and there was supposed to be a fourth tray", "label": "setup", "bit": 2, "beat": 4, "line_number": 1018, "start": 2514},
+    {"text": "but that one fell in the hallway on the way to the class.", "label": "punchline", "bit": 2, "beat": 4, "line_number": 1019, "start": 2516}
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "type": "set_meta",
+  "video_id": "suxlBw4o1Mc",
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI",
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc",
+  "publish_date": "2026-03-10",
+  "guests": ["Joe List", "Steve Rannazzisi"],
+  "comedian_name": "Simply Courtney",
+  "comedian_type": "bucket_pull",
+  "set_number": 9,
+  "start_seconds": 5014,
+  "interview_end_line": 2408,
+  "interview_end_seconds": 5452.04,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "premise": "Racial profiling of a Black Uber driver is widely understood but turns into a shared theft joke when confronted.",
+      "beats": {
+        "1": {
+          "premise": "A Black driver with a feminine name makes a rider's car-ownership doubt widely understood as racial profiling but rarely admitted as such.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["Uber", "names", "race", "rider suspicion"]
+        },
+        "2": {
+          "premise": "Responding to car-theft suspicion could be reframed as confirming a shared criminal conspiracy.",
+          "joke_type": "reframe",
+          "topics": ["car theft", "Black History Month", "race"]
+        }
+      }
+    },
+    "2": {
+      "premise": "Weed makes parental support and work obligations collapse into wrong allegiances and accidental captivity.",
+      "beats": {
+        "1": {
+          "premise": "Being high could be what reframes parenting at a child's game into cheering for the opposing team.",
+          "joke_type": "reframe",
+          "topics": ["weed", "tolerance break", "basketball", "parenting"]
+        },
+        "2": {
+          "premise": "Forgetting an Uber passenger could be reframed as inadvertently acquiring a new roommate.",
+          "joke_type": "reframe",
+          "topics": ["weed", "Uber", "passengers", "roommates"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "- Oh man.", "label": "fluff", "bit": null, "beat": null, "line_number": 2122, "start": 5014},
+    {"text": "Y'all know how hard it is to drive Uber", "label": "setup", "bit": 1, "beat": 1, "line_number": 2123, "start": 5015},
+    {"text": "when you're a big black dude named Courtney?", "label": "setup", "bit": 1, "beat": 1, "line_number": 2124, "start": 5017},
+    {"text": "People don't believe it's my car.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2126, "start": 5022},
+    {"text": "I had a lady once go, are you sure this is your car?", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2127, "start": 5023},
+    {"text": "You know, you hear a joke and you think she's playing,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2129, "start": 5028},
+    {"text": "but she's like.", "label": "setup", "bit": 1, "beat": 2, "line_number": 2130, "start": 5030},
+    {"text": "And because I'm a comic, I'm all like,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2132, "start": 5032},
+    {"text": "no, we stole this motherfucker together, let's go!", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2133, "start": 5034},
+    {"text": "Happy Black History Month, by the way.", "label": "tag", "bit": 1, "beat": 2, "line_number": 2135, "start": 5040},
+    {"text": "All right, so anyways, I'm recently", "label": "setup", "bit": 2, "beat": 1, "line_number": 2137, "start": 5044},
+    {"text": "taking a tolerance break from weed.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2138, "start": 5046},
+    {"text": "I don't hate weed.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2139, "start": 5050},
+    {"text": "I just don't like the things that I do when I'm on it.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2140, "start": 5051},
+    {"text": "Like I'll go to my son's basketball game", "label": "setup", "bit": 2, "beat": 1, "line_number": 2141, "start": 5053},
+    {"text": "and cheer for the wrong team.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2142, "start": 5054},
+    {"text": "I also do stupid things like forget I'm driving Uber.", "label": "setup", "bit": 2, "beat": 2, "line_number": 2144, "start": 5063},
+    {"text": "Have a passenger in the backseat just terrified.", "label": "setup", "bit": 2, "beat": 2, "line_number": 2146, "start": 5070},
+    {"text": "I'm like, I'm about to have a roommate.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 2147, "start": 5074},
+    {"text": "I think that's about it y'all, thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 2149, "start": 5078}
+  ]
+}

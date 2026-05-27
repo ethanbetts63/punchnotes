@@ -1,0 +1,82 @@
+{
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "David Jolley",
+  "comedian_type": "golden_ticket",
+  "set_number": 1,
+  "start_seconds": 485,
+  "interview_end_line": 415,
+  "interview_end_seconds": 968.76,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+        "premise": "A Puerto Rico crowd being predominantly white is widely understood but rarely said aloud.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["Puerto Rico", "white people", "crowd work"]
+        }
+      }
+    },
+    "2": {
+      "premise": "Middle-aged men trying to become Twitch streamers are pathetic to watch.",
+      "beats": {
+        "1": {
+          "premise": "'Twitch' can mean the streaming platform or an old man's involuntary muscle spasm.",
+          "joke_type": "double-meaning",
+          "topics": ["streaming", "Twitch", "middle age"]
+        },
+        "2": {
+        "premise": "A senior citizen's livestream could be their boring medical routine.",
+          "joke_type": "reframe",
+          "topics": ["streaming", "blood pressure", "work"]
+        }
+      }
+    },
+    "3": {
+      "premise": "Crackheads accidentally produce better streaming content than anyone trying.",
+      "beats": {
+        "1": {
+          "premise": "A crackhead's authentic daily life could be more entertaining than any intentional stream.",
+          "joke_type": "reframe",
+          "topics": ["crackheads", "streaming", "sex work"]
+        },
+        "2": {
+          "premise": "Hauling a stolen appliance on a bicycle could be more compelling content than any planned stream.",
+          "joke_type": "reframe",
+          "topics": ["crackheads", "livestreaming", "theft"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "How y'all doing tonight?", "label": "fluff", "bit": null, "beat": null, "line_number": 177, "start": 485},
+    {"text": "White people in Puerto Rico!", "label": "punchline", "bit": 1, "beat": 1, "line_number": 178, "start": 486},
+    {"text": "Hell yeah, man.", "label": "fluff", "bit": null, "beat": null, "line_number": 180, "start": 489},
+    {"text": "Life been going good.", "label": "setup", "bit": 2, "beat": 1, "line_number": 181, "start": 490},
+    {"text": "I've been on the road and shit, you know?", "label": "setup", "bit": 2, "beat": 1, "line_number": 182, "start": 491},
+    {"text": "But most of my homeboys my age, all them boys", "label": "setup", "bit": 2, "beat": 1, "line_number": 183, "start": 493},
+    {"text": "been going through like a midlife crisis.", "label": "setup", "bit": 2, "beat": 1, "line_number": 184, "start": 496},
+    {"text": "My homeboy Johnny called me the other day,", "label": "setup", "bit": 2, "beat": 1, "line_number": 185, "start": 498},
+    {"text": "and he was like, hey, Dave, I'm about to start streaming.", "label": "setup", "bit": 2, "beat": 1, "line_number": 186, "start": 500},
+    {"text": "I said, streaming?", "label": "setup", "bit": 2, "beat": 1, "line_number": 187, "start": 504},
+    {"text": "Man, I hung the phone up.", "label": "setup", "bit": 2, "beat": 1, "line_number": 188, "start": 505},
+    {"text": "Somebody want to see no old nigga twitch.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 189, "start": 507},
+    {"text": "5.30 AM, chat.", "label": "tag", "bit": 2, "beat": 2, "line_number": 190, "start": 510},
+    {"text": "Taking my blood pressure medicine.", "label": "tag", "bit": 2, "beat": 2, "line_number": 191, "start": 512},
+    {"text": "So I pass out at work again.", "label": "tag", "bit": 2, "beat": 2, "line_number": 192, "start": 514},
+    {"text": "There's only one type of people I want to see streamed,", "label": "setup", "bit": 3, "beat": 1, "line_number": 193, "start": 517},
+    {"text": "and that's crackheads.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 194, "start": 520},
+    {"text": "I pay top dollar to watch a crackhead stream.", "label": "tag", "bit": 3, "beat": 1, "line_number": 195, "start": 522},
+    {"text": "3.30 AM, just sucked my ninth digger today.", "label": "tag", "bit": 3, "beat": 1, "line_number": 196, "start": 525},
+    {"text": "But I heard America gets to work.", "label": "tag", "bit": 3, "beat": 1, "line_number": 197, "start": 528},
+    {"text": "They doin' all kind of crackhead shit in the camera.", "label": "setup", "bit": 3, "beat": 2, "line_number": 198, "start": 531},
+    {"text": "I'm about to take this full-size Washington dryer", "label": "setup", "bit": 3, "beat": 2, "line_number": 199, "start": 533},
+    {"text": "nine miles away on a 10-speed bicycle.", "label": "punchline", "bit": 3, "beat": 2, "line_number": 200, "start": 536},
+    {"text": "Yeah, yeah, thank God, that's been a bunch of fun, man.", "label": "fluff", "bit": null, "beat": null, "line_number": 202, "start": 541}
+  ]
+}

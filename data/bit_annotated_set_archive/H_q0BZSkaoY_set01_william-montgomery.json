@@ -1,0 +1,92 @@
+{
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "William Montgomery",
+  "comedian_type": "regular",
+  "set_number": 1,
+  "start_seconds": 404,
+  "interview_end_line": 405,
+  "interview_end_seconds": 1040.32,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "Threatening violence against someone's mother implies physical harm, but reveals sexual intent.",
+          "joke_type": "misdirect",
+          "topics": ["Red Band", "crowd work", "roast", "mothers"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "\"Not big enough for the both of us\" can mean a territorial standoff or a literal space problem for two obese people.",
+          "joke_type": "double-meaning",
+          "topics": ["obesity", "western clichés"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "A mother is so fat that her Ozempic use alone could cause a nationwide shortage.",
+          "joke_type": "hyperbole",
+          "topics": ["Red Band", "obesity", "Ozempic", "roast"]
+        }
+      }
+    },
+    "4": {
+      "beats": {
+        "1": {
+          "premise": "Jesse Jackson's death implies natural causes, but the question is what he did to anger Hillary Clinton.",
+          "joke_type": "misdirect",
+          "topics": ["Jesse Jackson", "Hillary Clinton", "death", "conspiracy"]
+        }
+      }
+    },
+    "5": {
+      "beats": {
+        "1": {
+          "premise": "God's essence could be captured in two words by ChatGPT as an electronic musician's name.",
+          "joke_type": "reframe",
+          "topics": ["ChatGPT", "God", "Aphex Twin", "religion"]
+        }
+      }
+    },
+    "6": {
+      "beats": {
+        "1": {
+          "premise": "A grand jury declining to indict for politically motivated killing could be treated as making it legally justifiable.",
+          "joke_type": "reframe",
+          "topics": ["Texas", "Donald Trump", "grand jury", "justifiable homicide"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "Tony, I'm about to be fuckin' threatening violence", "label": "setup", "bit": 1, "beat": 1, "line_number": 97, "start": 404},
+    {"text": "against Red Band's moms.", "label": "setup", "bit": 1, "beat": 1, "line_number": 98, "start": 407},
+    {"text": "Pussy tonight!", "label": "punchline", "bit": 1, "beat": 1, "line_number": 99, "start": 408},
+    {"text": "\"This town is not big enough for the both of us,\"", "label": "setup", "bit": 2, "beat": 1, "line_number": 102, "start": 412},
+    {"text": "said two clinically obese people.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 103, "start": 416},
+    {"text": "And by the way, Red Band, your mama was so fat,", "label": "setup", "bit": 3, "beat": 1, "line_number": 105, "start": 421},
+    {"text": "now there's an ozimpic shortage.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 106, "start": 424},
+    {"text": "The Reverend Jesse Jackson just died,", "label": "setup", "bit": 4, "beat": 1, "line_number": 108, "start": 429},
+    {"text": "and I'm trying to figure out what he did", "label": "setup", "bit": 4, "beat": 1, "line_number": 109, "start": 431},
+    {"text": "to piss off Hillary Clinton.", "label": "punchline", "bit": 4, "beat": 1, "line_number": 110, "start": 433},
+    {"text": "I asked Chat GPT to explain the concept of God", "label": "setup", "bit": 5, "beat": 1, "line_number": 112, "start": 437},
+    {"text": "in the shortest terms possible.", "label": "setup", "bit": 5, "beat": 1, "line_number": 113, "start": 441},
+    {"text": "It wrote back two words, \"A-Fex Twin.\"", "label": "punchline", "bit": 5, "beat": 1, "line_number": 114, "start": 443},
+    {"text": "[cheers and applause]", "label": "fluff", "bit": 5, "beat": 1, "line_number": 115, "start": 446},
+    {"text": "A Texas grand jury declined to indict a man", "label": "setup", "bit": 6, "beat": 1, "line_number": 116, "start": 449},
+    {"text": "who shot and killed his daughter", "label": "setup", "bit": 6, "beat": 1, "line_number": 117, "start": 452},
+    {"text": "because she said bad things about Donald Trump.", "label": "setup", "bit": 6, "beat": 1, "line_number": 118, "start": 453},
+    {"text": "I'm no lawyer, but isn't that called justifiable homicide?", "label": "punchline", "bit": 6, "beat": 1, "line_number": 119, "start": 456},
+    {"text": "Okay, that's my time. Tony!", "label": "fluff", "bit": null, "beat": null, "line_number": 121, "start": 462}
+  ]
+}

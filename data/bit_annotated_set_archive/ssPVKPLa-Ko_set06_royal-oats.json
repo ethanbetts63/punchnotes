@@ -1,0 +1,78 @@
+{
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Royal Oats",
+  "comedian_type": "bucket_pull",
+  "set_number": 6,
+  "start_seconds": 2927,
+  "interview_end_line": 1571,
+  "interview_end_seconds": 3668.38,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "premise": "Small balls should not matter during sex but become gossip anyway.",
+      "beats": {
+        "1": {
+          "premise": "Steroids shrinking genitals implies the dick, but reveals it's actually the balls.",
+          "joke_type": "misdirect",
+          "topics": ["muscles", "steroids", "small balls"]
+        },
+        "2": {
+          "premise": "Post-sex gossip implies commentary on dick quality, but reveals the complaint was about small balls.",
+          "joke_type": "misdirect",
+          "topics": ["sex gossip", "small balls", "Vegas dice"]
+        },
+        "3": {
+          "premise": "A tiny pair of balls is like salt and pepper packets because both are too small to serve their function.",
+          "joke_type": "analogy",
+          "topics": ["tea bagging", "small balls", "salt packets"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "Yeah, I don't know if you could tell by looking at me", "label": "setup", "bit": 1, "beat": 1, "line_number": 1205, "start": 2927},
+    {"text": "in the cleavage that I'm showing right now,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1206, "start": 2929},
+    {"text": "but it's a lot of muscle up under here, right?", "label": "setup", "bit": 1, "beat": 1, "line_number": 1207, "start": 2932},
+    {"text": "And you know the first thing they say about people", "label": "setup", "bit": 1, "beat": 1, "line_number": 1208, "start": 2934},
+    {"text": "when they got muscles, right, is they on steroids.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1209, "start": 2937},
+    {"text": "And I don't have a problem with steroids,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1210, "start": 2940},
+    {"text": "because steroids is cool, right?", "label": "setup", "bit": 1, "beat": 1, "line_number": 1211, "start": 2942},
+    {"text": "I have a problem with what they say about people on steroids,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1212, "start": 2945},
+    {"text": "right?", "label": "fluff", "bit": 1, "beat": 1, "line_number": 1213, "start": 2948},
+    {"text": "Like this one trick trying to come at me, and she was like,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1214, "start": 2948},
+    {"text": "I know your dick is shriveled up to this small", "label": "setup", "bit": 1, "beat": 1, "line_number": 1215, "start": 2952},
+    {"text": "because of all the steroids you use.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1216, "start": 2954},
+    {"text": "And I had to correct her, right?", "label": "setup", "bit": 1, "beat": 1, "line_number": 1217, "start": 2957},
+    {"text": "I was like, first of all, bitch, it's not your dick, they say.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1218, "start": 2959},
+    {"text": "It's your balls, right?", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1219, "start": 2965},
+    {"text": "And I've never had sex with a woman when she--", "label": "setup", "bit": 1, "beat": 2, "line_number": 1220, "start": 2968},
+    {"text": "I've never had sex with a woman, and she", "label": "setup", "bit": 1, "beat": 2, "line_number": 1221, "start": 2972},
+    {"text": "She get on the phone with her homegirl the next day,", "label": "setup", "bit": 1, "beat": 2, "line_number": 1222, "start": 2974},
+    {"text": "and she's like, \"Ooh, hello?\"", "label": "setup", "bit": 1, "beat": 2, "line_number": 1223, "start": 2976},
+    {"text": "She's like, \"Hello?\" She's like, \"Hey, bitch,", "label": "setup", "bit": 1, "beat": 2, "line_number": 1224, "start": 2978},
+    {"text": "\"what you doing, nothing? What you doing?", "label": "setup", "bit": 1, "beat": 2, "line_number": 1225, "start": 2979},
+    {"text": "\"Nothing? Did you fuck royal?\"", "label": "setup", "bit": 1, "beat": 2, "line_number": 1226, "start": 2981},
+    {"text": "She said, \"And did?\"", "label": "setup", "bit": 1, "beat": 2, "line_number": 1227, "start": 2983},
+    {"text": "She said, \"How was the dick?\"", "label": "setup", "bit": 1, "beat": 2, "line_number": 1228, "start": 2984},
+    {"text": "She said, \"The dick was good, bud.\"", "label": "setup", "bit": 1, "beat": 2, "line_number": 1229, "start": 2985},
+    {"text": "She said, \"Uh-uh, bud, what, bitch?\"", "label": "setup", "bit": 1, "beat": 2, "line_number": 1230, "start": 2987},
+    {"text": "She said, \"Bitch, he had small balls, right?\"", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1231, "start": 2989},
+    {"text": "I'm talking about balls, so small,", "label": "tag", "bit": 1, "beat": 2, "line_number": 1232, "start": 2993},
+    {"text": "could've went to Vegas and shot dice", "label": "tag", "bit": 1, "beat": 2, "line_number": 1233, "start": 2995},
+    {"text": "with them motherfuckers, okay?", "label": "tag", "bit": 1, "beat": 2, "line_number": 1234, "start": 2997},
+    {"text": "Right? She said, \"Here I am, being a--\"", "label": "setup", "bit": 1, "beat": 3, "line_number": 1235, "start": 2999},
+    {"text": "- Let me finish it.", "label": "fluff", "bit": 1, "beat": 3, "line_number": 1238, "start": 3004},
+    {"text": "- Thank you, let me finish your honor, let me finish.", "label": "fluff", "bit": 1, "beat": 3, "line_number": 1243, "start": 3010},
+    {"text": "Your honor, please, let me finish.", "label": "fluff", "bit": 1, "beat": 3, "line_number": 1244, "start": 3012},
+    {"text": "- Let me finish it.", "label": "fluff", "bit": 1, "beat": 3, "line_number": 1246, "start": 3015},
+    {"text": "She said, here I am being a freaky bitch,", "label": "setup", "bit": 1, "beat": 3, "line_number": 1248, "start": 3019},
+    {"text": "trying to get tea bag and this nigga brought", "label": "setup", "bit": 1, "beat": 3, "line_number": 1249, "start": 3024},
+    {"text": "salt and pepper packages.", "label": "punchline", "bit": 1, "beat": 3, "line_number": 1250, "start": 3027},
+    {"text": "That's the end of it.", "label": "fluff", "bit": null, "beat": null, "line_number": 1251, "start": 3030}
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": ["Shane Gillis", "James McCann"],
+  "comedian_name": "Cameron Shepherd",
+  "comedian_type": "bucket_pull",
+  "set_number": 2,
+  "start_seconds": 711,
+  "interview_end_line": 456,
+  "interview_end_seconds": 1137.36,
+  "joke_book": "large",
+  "bit_meta": {
+    "1": {
+      "premise": "A tallest-man documentary should answer the penis-size question.",
+      "beats": {
+        "1": {
+          "premise": "The sexual curiosity around the world's tallest man is widely understood but rarely addressed in his documentary.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["Robert Wadlow", "documentaries", "genitals"]
+        },
+        "2": {
+          "premise": "A documentary about the world's tallest man could be perfected by one measurement and nothing else.",
+          "joke_type": "reframe",
+          "topics": ["Robert Wadlow", "documentary endings", "penis size"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Playing LeapFrog nude as a child implies that was the game's rule, but reveals a predatory uncle.",
+          "joke_type": "misdirect",
+          "topics": ["LeapFrog", "childhood games", "nudity", "uncle"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "Yeah, those are my tits, make some noise everybody!", "label": "fluff", "bit": null, "beat": null, "line_number": 278, "start": 711},
+    {"text": "Hell yeah.", "label": "fluff", "bit": null, "beat": null, "line_number": 279, "start": 718},
+    {"text": "I recently saw the worst documentary of my life everybody.", "label": "setup", "bit": 1, "beat": 1, "line_number": 280, "start": 720},
+    {"text": "I saw a documentary on Robert Wadlow.", "label": "setup", "bit": 1, "beat": 1, "line_number": 281, "start": 725},
+    {"text": "Now Robert Wadlow is the world's tallest man in American history, okay?", "label": "setup", "bit": 1, "beat": 1, "line_number": 282, "start": 728},
+    {"text": "This son of a bitch was 8'11\", alright?", "label": "setup", "bit": 1, "beat": 1, "line_number": 283, "start": 732},
+    {"text": "And on this documentary, they told you all the shit you didn't want to know, alright?", "label": "setup", "bit": 1, "beat": 1, "line_number": 284, "start": 735},
+    {"text": "\"Oh, he had big glasses, he had big shoes.\"", "label": "setup", "bit": 1, "beat": 1, "line_number": 285, "start": 739},
+    {"text": "They didn't talk about his big stupid cock one time.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 286, "start": 742},
+    {"text": "Yeah, not once.", "label": "tag", "bit": 1, "beat": 1, "line_number": 287, "start": 746},
+    {"text": "That's an eight foot 11 man.", "label": "tag", "bit": 1, "beat": 1, "line_number": 288, "start": 747},
+    {"text": "That's a hell of a pecker.", "label": "tag", "bit": 1, "beat": 1, "line_number": 289, "start": 748},
+    {"text": "And I wanna fucking see it, dude.", "label": "tag", "bit": 1, "beat": 1, "line_number": 290, "start": 750},
+    {"text": "What the hell?", "label": "tag", "bit": 1, "beat": 1, "line_number": 291, "start": 753},
+    {"text": "That could have been the greatest documentary", "label": "setup", "bit": 1, "beat": 2, "line_number": 292, "start": 754},
+    {"text": "in American history, and it could have been really short,", "label": "setup", "bit": 1, "beat": 2, "line_number": 293, "start": 757},
+    {"text": "right?", "label": "setup", "bit": 1, "beat": 2, "line_number": 294, "start": 759},
+    {"text": "Robert Wadlow, world's tallest man,", "label": "setup", "bit": 1, "beat": 2, "line_number": 295, "start": 760},
+    {"text": "15 inches soft, the fucking end.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 296, "start": 763},
+    {"text": "That's the end of the documentary.", "label": "tag", "bit": 1, "beat": 2, "line_number": 297, "start": 767},
+    {"text": "LeapFrog naked, anyone ever tried it?", "label": "setup", "bit": 2, "beat": 1, "line_number": 298, "start": 769},
+    {"text": "- No?", "label": "fluff", "bit": 2, "beat": 1, "line_number": 301, "start": 775},
+    {"text": "That's odd.", "label": "setup", "bit": 2, "beat": 1, "line_number": 303, "start": 777},
+    {"text": "You know, as a child, folks,", "label": "setup", "bit": 2, "beat": 1, "line_number": 304, "start": 778},
+    {"text": "I thought that's how you played the game, you know?", "label": "setup", "bit": 2, "beat": 1, "line_number": 305, "start": 779},
+    {"text": "I thought LeapFrog was a game you played nude.", "label": "setup", "bit": 2, "beat": 1, "line_number": 306, "start": 782},
+    {"text": "Come to find out, my uncle's just a weird guy.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 307, "start": 784},
+    {"text": "Thank you guys for your time, I love you all.", "label": "fluff", "bit": null, "beat": null, "line_number": 309, "start": 788}
+  ]
+}

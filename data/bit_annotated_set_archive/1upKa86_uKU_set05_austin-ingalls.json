@@ -1,0 +1,86 @@
+{
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "Austin Ingalls",
+  "comedian_type": "bucket_pull",
+  "set_number": 5,
+  "start_seconds": 3089,
+  "interview_end_line": 1649,
+  "interview_end_seconds": 3566.2,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "'Old-fashioned' can mean traditional values or unrepentant racism.",
+          "joke_type": "double-meaning",
+          "topics": ["Midwest", "family", "racism"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+        "premise": "A child's string of diagnoses could be a better name than their actual name.",
+          "joke_type": "reframe",
+          "topics": ["friends", "children", "diagnoses"]
+        }
+      }
+    },
+    "3": {
+      "premise": "Prison staff can be more disturbing to encounter than the inmates.",
+      "beats": {
+        "1": {
+        "premise": "Working at a prison could be more unsettling because of the employees than the inmates.",
+          "joke_type": "reframe",
+          "topics": ["prison", "coworkers", "dating"]
+        },
+        "2": {
+          "premise": "A coworker's child porn bust implies a moral story, but reveals only a lesson about lending laptops.",
+          "joke_type": "misdirect",
+          "topics": ["coworkers", "laptop", "crime"]
+        }
+      }
+    },
+    "4": {
+      "beats": {
+        "1": {
+          "premise": "A homeless person's AIDS sign implies a plea for sympathy, but would have served better as a pre-sex warning.",
+          "joke_type": "misdirect",
+          "topics": ["homelessness", "AIDS", "sex"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "How we doing, everybody?", "label": "fluff", "bit": null, "beat": null, "line_number": 1406, "start": 3089},
+    {"text": "-How we doing? Thank you so much.", "label": "fluff", "bit": null, "beat": null, "line_number": 1407, "start": 3091},
+    {"text": "I'm from the Midwest.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1408, "start": 3093},
+    {"text": "My family's old-fashioned is what you say", "label": "setup", "bit": 1, "beat": 1, "line_number": 1409, "start": 3094},
+    {"text": "when your family's still racist.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1410, "start": 3097},
+    {"text": "And all my friends are starting families of their own,", "label": "setup", "bit": 2, "beat": 1, "line_number": 1411, "start": 3100},
+    {"text": "and one of my friends, his kid, has Asperger's ADHD", "label": "setup", "bit": 2, "beat": 1, "line_number": 1412, "start": 3103},
+    {"text": "I can never remember a little fucker's name,", "label": "setup", "bit": 2, "beat": 1, "line_number": 1413, "start": 3106},
+    {"text": "so I just call him \"AAA.\"", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1414, "start": 3108},
+    {"text": "I used to work at a prison for like three years,", "label": "setup", "bit": 3, "beat": 1, "line_number": 1416, "start": 3113},
+    {"text": "and you meet a lot of interesting people", "label": "setup", "bit": 3, "beat": 1, "line_number": 1417, "start": 3115},
+    {"text": "when you work at a prison, employees as well.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 1418, "start": 3117},
+    {"text": "We worked with this one guy who would eat his own hair,", "label": "setup", "bit": 3, "beat": 1, "line_number": 1419, "start": 3120},
+    {"text": "and if you can believe it, he didn't crush it with the women.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 1420, "start": 3123},
+    {"text": "There was reason for that.", "label": "tag", "bit": 3, "beat": 1, "line_number": 1421, "start": 3127},
+    {"text": "He was into child porn.", "label": "tag", "bit": 3, "beat": 1, "line_number": 1422, "start": 3128},
+    {"text": "Yeah, he got busted at his house", "label": "setup", "bit": 3, "beat": 2, "line_number": 1423, "start": 3131},
+    {"text": "with a computer full of child pornography.", "label": "setup", "bit": 3, "beat": 2, "line_number": 1424, "start": 3133},
+    {"text": "That was the last time I trusted a coworker", "label": "setup", "bit": 3, "beat": 2, "line_number": 1425, "start": 3136},
+    {"text": "with my laptop.", "label": "punchline", "bit": 3, "beat": 2, "line_number": 1426, "start": 3139},
+    {"text": "Thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 1428, "start": 3143},
+    {"text": "I saw a homeless person outside holding a sign that said,", "label": "setup", "bit": 4, "beat": 1, "line_number": 1429, "start": 3144},
+    {"text": "\"Dying of AIDS.\"", "label": "setup", "bit": 4, "beat": 1, "line_number": 1430, "start": 3148},
+    {"text": "Could've used that sign before the blowjob.", "label": "punchline", "bit": 4, "beat": 1, "line_number": 1432, "start": 3150},
+    {"text": "Thank you, guys. I'm Austin Ingalls.", "label": "fluff", "bit": null, "beat": null, "line_number": 1434, "start": 3155}
+  ]
+}

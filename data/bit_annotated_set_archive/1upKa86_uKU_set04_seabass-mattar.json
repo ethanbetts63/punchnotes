@@ -1,0 +1,78 @@
+{
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "Seabass Mattar",
+  "comedian_type": "bucket_pull",
+  "set_number": 4,
+  "start_seconds": 2562,
+  "interview_end_line": 1374,
+  "interview_end_seconds": 2995.08,
+  "joke_book": "small",
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "A bald head is like a stepdad's appearance because both signal defeated domesticity.",
+          "joke_type": "analogy",
+          "topics": ["gratitude", "hair loss", "stepdads"]
+        }
+      }
+    },
+    "2": {
+      "premise": "A dead father's memorial tattoo on the right hand makes every future use of that hand a parental violation.",
+      "beats": {
+        "1": {
+          "premise": "Getting a memorial tattoo could become a linguistic negotiation over foreign punctuation.",
+          "joke_type": "reframe",
+          "topics": ["father", "heart transplant", "tattoos"]
+        },
+        "2": {
+        "premise": "A memorial tattoo on the dominant hand could be a parental encounter during masturbation.",
+          "joke_type": "reframe",
+          "topics": ["tattoos", "masturbation", "grief"]
+        },
+        "3": {
+          "premise": "'I'll give you a hand' can mean emotional support or literal sexual assistance.",
+          "joke_type": "double-meaning",
+          "topics": ["father", "advice", "double entendre"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "Hey, what's up, what's up, what's up?", "label": "fluff", "bit": null, "beat": null, "line_number": 1158, "start": 2562},
+    {"text": "All right, no gratitude here, no problem.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1159, "start": 2566},
+    {"text": "That's the problem with people today.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1160, "start": 2568},
+    {"text": "There's no fucking gratitude anywhere.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1161, "start": 2570},
+    {"text": "I saw a guy with a forehead, a hair say", "label": "setup", "bit": 1, "beat": 1, "line_number": 1162, "start": 2572},
+    {"text": "he had a bad hair day.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1163, "start": 2574},
+    {"text": "I was like, \"Bitch, I look like I drive a Honda CRV", "label": "setup", "bit": 1, "beat": 1, "line_number": 1164, "start": 2575},
+    {"text": "\"as a stepdad.\"", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1165, "start": 2580},
+    {"text": "That's what people are missing, man.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 1166, "start": 2582},
+    {"text": "And one of the things that I was gratefully blessed with", "label": "setup", "bit": 2, "beat": 1, "line_number": 1167, "start": 2584},
+    {"text": "was my dad had a heart transplant.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1168, "start": 2587},
+    {"text": "So every day he woke up was a grateful day, right?", "label": "setup", "bit": 2, "beat": 1, "line_number": 1169, "start": 2589},
+    {"text": "And I got this tattoo in memorance of him.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1170, "start": 2593},
+    {"text": "And it says, \"All this extra time.\"", "label": "setup", "bit": 2, "beat": 1, "line_number": 1171, "start": 2596},
+    {"text": "That was my dad's motto.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1172, "start": 2598},
+    {"text": "I had a Cuban guy tattoo it, and I was like,", "label": "setup", "bit": 2, "beat": 1, "line_number": 1173, "start": 2600},
+    {"text": "\"Mira Emmanuel, I don't wanna see no silent H's", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1174, "start": 2602},
+    {"text": "in that bitch.", "label": "tag", "bit": 2, "beat": 1, "line_number": 1175, "start": 2605},
+    {"text": "No tildes.\"", "label": "tag", "bit": 2, "beat": 1, "line_number": 1176, "start": 2607},
+    {"text": "And I love it, and I love everything it stands for,", "label": "setup", "bit": 2, "beat": 2, "line_number": 1177, "start": 2608},
+    {"text": "but the only thing I regret is where I put it,", "label": "setup", "bit": 2, "beat": 2, "line_number": 1178, "start": 2611},
+    {"text": "'cause it's on my right hand.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1179, "start": 2613},
+    {"text": "I gotta go jerk off.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 1180, "start": 2616},
+    {"text": "I'm like, \"Papi, oh yeah.\"", "label": "tag", "bit": 2, "beat": 2, "line_number": 1181, "start": 2617},
+    {"text": "You already had your time, you know what I mean?", "label": "tag", "bit": 2, "beat": 2, "line_number": 1182, "start": 2619},
+    {"text": "But it does stay true to something my dad always told me.", "label": "setup", "bit": 2, "beat": 3, "line_number": 1183, "start": 2622},
+    {"text": "He said, \"Life's gonna get hard. Life's gonna get rough.", "label": "setup", "bit": 2, "beat": 3, "line_number": 1184, "start": 2626},
+    {"text": "But if you need a hand, I'll always be there for you.\"", "label": "setup", "bit": 2, "beat": 3, "line_number": 1185, "start": 2628},
+    {"text": "And I was like, \"Goddamn. Not like that.\"", "label": "punchline", "bit": 2, "beat": 3, "line_number": 1186, "start": 2631},
+    {"text": "Thank y'all. My name is C. Bass Matart.", "label": "fluff", "bit": null, "beat": null, "line_number": 1187, "start": 2634}
+  ]
+}

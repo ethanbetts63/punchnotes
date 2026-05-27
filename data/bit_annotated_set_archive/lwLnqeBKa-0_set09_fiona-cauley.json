@@ -1,0 +1,70 @@
+{
+  "type": "set_meta",
+  "video_id": "lwLnqeBKa-0",
+  "episode_title": "KT #765 - DUSTIN POIRIER + ARI MATTI",
+  "episode_url": "https://www.youtube.com/watch?v=lwLnqeBKa-0",
+  "publish_date": "2026-04-28",
+  "guests": ["Dustin Poirier", "Ari Matti"],
+  "comedian_name": "Fiona Cauley",
+  "comedian_type": "golden_ticket",
+  "set_number": 9,
+  "start_seconds": 4052,
+  "interview_end_line": 1917,
+  "interview_end_seconds": 4535.98,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "premise": "A false terminal diagnosis launders promiscuity as urgency.",
+      "beats": {
+        "1": {
+          "premise": "A terminal diagnosis could be justification for sleeping with as many people as possible.",
+          "joke_type": "reframe",
+          "topics": ["diagnosis", "promiscuity", "disability"]
+        },
+        "2": {
+          "premise": "Surviving a misdiagnosis could be losing the excuse and being left only with the behavior.",
+          "joke_type": "reframe",
+          "topics": ["not dying", "promiscuity", "self-image"]
+        }
+      }
+    },
+    "2": {
+      "premise": "A wheelchair makes sneaking out after a hookup impossible.",
+      "beats": {
+        "1": {
+          "premise": "A wheelchair backing up is like a reversing truck because both beep loudly.",
+          "joke_type": "analogy",
+          "topics": ["one-night stands", "wheelchair", "sneaking out"]
+        },
+        "2": {
+          "premise": "Racial camouflage in the dark could be a workaround for a noisy wheelchair exit.",
+          "joke_type": "reframe",
+          "topics": ["dating", "black men", "workarounds"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "I know I've talked a lot about being married,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1746, "start": 4052},
+    {"text": "but I used to be, like, a real big whore.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1747, "start": 4058},
+    {"text": "Okay, and I don't feel bad about it.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1748, "start": 4065},
+    {"text": "I think anyone in my situation would have done the same.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1749, "start": 4069},
+    {"text": "Okay.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 1750, "start": 4073},
+    {"text": "You know, I was 18, I was single,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1751, "start": 4075},
+    {"text": "diagnosed with this shit, I thought I was dying.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1752, "start": 4078},
+    {"text": "You know, I wanted to roll into as much dick as possible.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1753, "start": 4082},
+    {"text": "You know, and then you find out you're not really dying,", "label": "setup", "bit": 1, "beat": 2, "line_number": 1755, "start": 4089},
+    {"text": "and now you're like, just a whore.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1756, "start": 4096},
+    {"text": "And that is her truth to live with.", "label": "tag", "bit": 1, "beat": 2, "line_number": 1759, "start": 4104},
+    {"text": "But back in my day, I had a good amount", "label": "setup", "bit": 2, "beat": 1, "line_number": 1761, "start": 4112},
+    {"text": "of one night stands, okay?", "label": "setup", "bit": 2, "beat": 1, "line_number": 1762, "start": 4117},
+    {"text": "But I'm a normal lady.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1763, "start": 4121},
+    {"text": "Sometimes I wanted to like sneak out.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1764, "start": 4125},
+    {"text": "This shit (laughs)", "label": "setup", "bit": 2, "beat": 1, "line_number": 1766, "start": 4133},
+    {"text": "made it impossible.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1767, "start": 4135},
+    {"text": "Every time I back up.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1769, "start": 4138},
+    {"text": "(beep)", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1770, "start": 4140},
+    {"text": "Okay, so I did figure out like a work around for it.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1772, "start": 4143},
+    {"text": "I started only fucking black guys.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 1773, "start": 4149}
+  ]
+}

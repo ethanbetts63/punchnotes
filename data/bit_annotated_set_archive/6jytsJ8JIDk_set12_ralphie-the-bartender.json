@@ -1,0 +1,69 @@
+{
+  "type": "set_meta",
+  "video_id": "6jytsJ8JIDk",
+  "episode_title": "KT #758 - DONNELL RAWLINGS + TREVOR WALLACE",
+  "episode_url": "https://www.youtube.com/watch?v=6jytsJ8JIDk",
+  "publish_date": "2026-03-03",
+  "guests": ["Donnell Rawlings", "Trevor Wallace"],
+  "comedian_name": "Ralphie the bartender",
+  "comedian_type": "bucket_pull",
+  "set_number": 12,
+  "start_seconds": 5699,
+  "interview_end_line": 2722,
+  "interview_end_seconds": 6082.72,
+  "joke_book": "small",
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "Going to Home Depot for a man implies immigration status matters, but reveals a kink list matters more.",
+          "joke_type": "misdirect",
+          "topics": ["Home Depot", "day laborers", "immigration", "dating"]
+        }
+      }
+    },
+    "2": {
+      "premise": "A religious man's bedroom language accidentally converts sex into a prayer service.",
+      "beats": {
+        "1": {
+          "premise": "A declaration of love could be a prayer when it ends with \"Amen.\"",
+          "joke_type": "reframe",
+          "topics": ["religion", "relationships", "pillow talk", "amen"]
+        },
+        "2": {
+          "premise": "\"Who's your man?\" implies sexual dominance, but receives a sincere religious answer.",
+          "joke_type": "misdirect",
+          "topics": ["sex", "Jesus", "amen", "dominance"]
+        },
+        "3": {
+          "premise": "\"He came\" can mean sexual climax or the Lord's arrival, and \"amen\" can end a prayer or a sex act.",
+          "joke_type": "double-meaning",
+          "topics": ["amen", "safe word", "religion", "orgasm"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "So a couple months ago I go to Home Depot to look for a dude", "label": "setup", "bit": 1, "beat": 1, "line_number": 2566, "start": 5699},
+    {"text": "and he didn't really come with a green card", "label": "setup", "bit": 1, "beat": 1, "line_number": 2567, "start": 5702},
+    {"text": "but a really long kink card.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2568, "start": 5704},
+    {"text": "So we started dating.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2569, "start": 5706},
+    {"text": "And things have been going pretty good.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2570, "start": 5708},
+    {"text": "The other night we're having a really intimate, deep discussion.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2571, "start": 5710},
+    {"text": "He's giving me the reassurance that you want", "label": "setup", "bit": 2, "beat": 1, "line_number": 2572, "start": 5714},
+    {"text": "and that you need a new relationship.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2573, "start": 5716},
+    {"text": "I love you forever and ever and always. Amen. I'm like, \"Chingao, dude, did you just bring your", "label": "setup", "bit": 2, "beat": 1, "line_number": 2574, "start": 5718},
+    {"text": "faith into this? How good Chingao are you?\" And later that night, he's actually trying to put me", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2575, "start": 5726},
+    {"text": "on the dinner table. And can you blame him? You know, boys got to eat. And he's getting all sex", "label": "setup", "bit": 2, "beat": 2, "line_number": 2576, "start": 5733},
+    {"text": "with me, rubbing up on me and whatnot. And he's like, \"Who's your man?\" And so immediately I", "label": "setup", "bit": 2, "beat": 2, "line_number": 2577, "start": 5738},
+    {"text": "I sit up and I look him dead in the eyes,", "label": "setup", "bit": 2, "beat": 2, "line_number": 2578, "start": 5743},
+    {"text": "and I'm like, \"Our one and only, Lord and Savior,", "label": "setup", "bit": 2, "beat": 2, "line_number": 2579, "start": 5745},
+    {"text": "\"Jesus Christ, amen.\"", "label": "punchline", "bit": 2, "beat": 2, "line_number": 2580, "start": 5748},
+    {"text": "So he came, which is pretty cool", "label": "setup", "bit": 2, "beat": 3, "line_number": 2581, "start": 5751},
+    {"text": "because before this relationship,", "label": "setup", "bit": 2, "beat": 3, "line_number": 2582, "start": 5754},
+    {"text": "I really wasn't that religious,", "label": "setup", "bit": 2, "beat": 3, "line_number": 2583, "start": 5756},
+    {"text": "but apparently we pray every night now", "label": "setup", "bit": 2, "beat": 3, "line_number": 2584, "start": 5757},
+    {"text": "'cause our men's our new safe word.", "label": "punchline", "bit": 2, "beat": 3, "line_number": 2585, "start": 5759},
+    {"text": "Thank you, I'm Ralphie.", "label": "fluff", "bit": null, "beat": null, "line_number": 2586, "start": 5763}
+  ]
+}

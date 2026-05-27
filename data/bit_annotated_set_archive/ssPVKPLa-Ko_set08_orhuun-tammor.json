@@ -1,0 +1,91 @@
+{
+  "type": "set_meta",
+  "video_id": "ssPVKPLa-Ko",
+  "episode_title": "KT #767 - ARI SHAFFIR - LUIS J GOMEZ - PEYTON RUDDY",
+  "episode_url": "https://www.youtube.com/watch?v=ssPVKPLa-Ko",
+  "publish_date": "2026-05-12",
+  "guests": ["Ari Shaffir", "Luis J Gomez", "Peyton Ruddy"],
+  "comedian_name": "Orhuun Tammor",
+  "comedian_type": "golden_ticket",
+  "set_number": 8,
+  "start_seconds": 4355,
+  "interview_end_line": 2078,
+  "interview_end_seconds": 4709.78,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "premise": "Dating fat women reframes who has status and what motivates the relationship.",
+      "beats": {
+        "1": {
+          "premise": "Loving fat women implies a sexual motivation, but reveals genuine emotional attachment.",
+          "joke_type": "misdirect",
+          "topics": ["fat women", "love", "oral sex"]
+        },
+        "2": {
+          "premise": "Dating a less conventionally attractive partner could be what makes the less attractive man the 'pretty' one.",
+          "joke_type": "reframe",
+          "topics": ["relationships", "being pretty", "aging"]
+        }
+      }
+    },
+    "2": {
+      "premise": "A partner's suicidal ex history turns sadness into a sexual bargaining chip.",
+      "beats": {
+        "1": {
+          "premise": "A partner's suicidal ex history could be reframed as a sexual advantage.",
+          "joke_type": "reframe",
+          "topics": ["dating", "suicide", "ex-boyfriends"]
+        },
+        "2": {
+          "premise": "A blowjob given to prevent suicide could be mental health care.",
+          "joke_type": "reframe",
+          "topics": ["sadness", "oral sex", "suicide prevention"]
+        },
+        "3": {
+          "premise": "A blowjob is so prolonged that it extracts sadness as a physical substance.",
+          "joke_type": "hyperbole",
+          "topics": ["oral sex", "sadness", "endurance"]
+        },
+        "4": {
+          "premise": "Sexual arousal conditioned on sadness could be what makes horniness trigger sadness instead.",
+          "joke_type": "reframe",
+          "topics": ["horniness", "sadness", "conditioning"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "- This comedy bit is gonna lose its potency", "label": "setup", "bit": 1, "beat": 1, "line_number": 1929, "start": 4355},
+    {"text": "after a black guy, but I love fat girls so much.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1930, "start": 4358},
+    {"text": "I fucking love them.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 1931, "start": 4364},
+    {"text": "And you guys are looking at me like, is it the blow jobs?", "label": "setup", "bit": 1, "beat": 1, "line_number": 1932, "start": 4365},
+    {"text": "No, it's the love.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1933, "start": 4367},
+    {"text": "All right, I'm 33 years old.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1934, "start": 4371},
+    {"text": "I am fine being the pretty girl in the relationship", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1935, "start": 4372},
+    {"text": "at this point.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1936, "start": 4376},
+    {"text": "Nothing, well actually I've dated someone", "label": "setup", "bit": 2, "beat": 1, "line_number": 1937, "start": 4378},
+    {"text": "who's boyfriend before me killed himself.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1938, "start": 4381},
+    {"text": "That's the best.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1939, "start": 4385},
+    {"text": "Okay, I'm not saying go find a girl", "label": "setup", "bit": 2, "beat": 1, "line_number": 1941, "start": 4388},
+    {"text": "and depress her boyfriend.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1942, "start": 4390},
+    {"text": "I'm saying if you did, it would be worth the time.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1943, "start": 4393},
+    {"text": "It's fine.", "label": "fluff", "bit": null, "beat": null, "line_number": 1944, "start": 4395},
+    {"text": "'Cause dude, every time you're sad, you get a blowjob.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1946, "start": 4397},
+    {"text": "So you don't kill yourself.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 1947, "start": 4401},
+    {"text": "And it's like not normal blowjob,", "label": "setup", "bit": 2, "beat": 3, "line_number": 1949, "start": 4404},
+    {"text": "like normal blowjob, you finish and then it ends.", "label": "setup", "bit": 2, "beat": 3, "line_number": 1950, "start": 4406},
+    {"text": "This one, like, if you come, you're like, I'm done.", "label": "setup", "bit": 2, "beat": 3, "line_number": 1951, "start": 4408},
+    {"text": "She's like, I'm not.", "label": "punchline", "bit": 2, "beat": 3, "line_number": 1952, "start": 4411},
+    {"text": "She does it till sadness comes out effervescently.", "label": "tag", "bit": 2, "beat": 3, "line_number": 1953, "start": 4412},
+    {"text": "And that works with blow jaws, by the way.", "label": "tag", "bit": 2, "beat": 3, "line_number": 1954, "start": 4417},
+    {"text": "Blow jaws comes out, then sadness, then blood,", "label": "tag", "bit": 2, "beat": 3, "line_number": 1955, "start": 4418},
+    {"text": "if you keep going.", "label": "tag", "bit": 2, "beat": 3, "line_number": 1956, "start": 4421},
+    {"text": "So you gotta stop between sadness and blood.", "label": "tag", "bit": 2, "beat": 3, "line_number": 1957, "start": 4422},
+    {"text": "But after a while, it's dangerous,", "label": "setup", "bit": 2, "beat": 4, "line_number": 1958, "start": 4426},
+    {"text": "'cause it's like every time you're horny, you get sad.", "label": "punchline", "bit": 2, "beat": 4, "line_number": 1959, "start": 4428},
+    {"text": "Like, Paolo's dick over there.", "label": "tag", "bit": 2, "beat": 4, "line_number": 1960, "start": 4431},
+    {"text": "Okay, you guys don't read, you don't know who Paolo is,", "label": "fluff", "bit": null, "beat": null, "line_number": 1961, "start": 4435},
+    {"text": "but good, good.", "label": "fluff", "bit": null, "beat": null, "line_number": 1962, "start": 4436},
+    {"text": "I should have ended right before.", "label": "fluff", "bit": null, "beat": null, "line_number": 1963, "start": 4439}
+  ]
+}

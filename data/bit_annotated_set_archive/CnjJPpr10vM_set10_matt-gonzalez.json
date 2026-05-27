@@ -1,0 +1,64 @@
+{
+  "type": "set_meta",
+  "video_id": "CnjJPpr10vM",
+  "episode_title": "KT #768 - SHANE GILLIS + JAMES MCCANN",
+  "episode_url": "https://www.youtube.com/watch?v=CnjJPpr10vM",
+  "publish_date": "2026-05-19",
+  "guests": ["Shane Gillis", "James McCann"],
+  "comedian_name": "Matt Gonzalez",
+  "comedian_type": "bucket_pull",
+  "set_number": 10,
+  "start_seconds": 4945,
+  "interview_end_line": 2702,
+  "interview_end_seconds": 6000.7,
+  "joke_book": "large",
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "\"Ozempic\" sounds like \"oh, spic,\" and it works as a nickname combining a fat person's drug and a Mexican slur.",
+          "joke_type": "phonetic-match",
+          "topics": ["Mexican identity", "weight", "Ozempic"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Catholic priests being pedophiles is widely understood as a stereotype but rarely used to decline the priesthood.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["Catholicism", "priests", "child abuse", "white women"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "Sex with a white citizen girlfriend could be reframed as an exchange for immigration papers.",
+          "joke_type": "reframe",
+          "topics": ["girlfriends", "white women", "green cards"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "What's up?", "label": "fluff", "bit": null, "beat": null, "line_number": 2244, "start": 4945},
+    {"text": "I'm fat and I'm Mexican.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2245, "start": 4947},
+    {"text": "My friends call me \"Ozemspic.\"", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2246, "start": 4950},
+    {"text": "Now, being Mexican, obviously I grew up Catholic.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2247, "start": 4957},
+    {"text": "Growing up Catholic, I'd always have, like, the old ladies at church.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2248, "start": 4960},
+    {"text": "They'd be like, \"Mijo.\"", "label": "setup", "bit": 2, "beat": 1, "line_number": 2249, "start": 4964},
+    {"text": "They'd pinch my cheek, \"Mijo.\"", "label": "setup", "bit": 2, "beat": 1, "line_number": 2250, "start": 4966},
+    {"text": "One of these days, you're gonna grow up.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2251, "start": 4968},
+    {"text": "grow up and you're gonna be a priest. I don't know how to tell them. I don't want", "label": "setup", "bit": 2, "beat": 1, "line_number": 2252, "start": 4972},
+    {"text": "to fuck kids. Like that's not my journey and that's definitely not my cross to", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2253, "start": 4979},
+    {"text": "bear. God's plan for me was to fuck of-age white women and it's going pretty", "label": "tag", "bit": 2, "beat": 1, "line_number": 2254, "start": 4988},
+    {"text": "I can't lie.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2255, "start": 4997},
+    {"text": "It's going pretty good.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2257, "start": 5000},
+    {"text": "I have a girlfriend, it's sick as fuck.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2258, "start": 5001},
+    {"text": "She's white as hell.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2259, "start": 5004},
+    {"text": "I give her a good dick.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2260, "start": 5006},
+    {"text": "She gives me a green card.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 2261, "start": 5008},
+    {"text": "Thank you, that's my time.", "label": "fluff", "bit": null, "beat": null, "line_number": 2262, "start": 5012}
+  ]
+}

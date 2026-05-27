@@ -1,0 +1,60 @@
+{
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Martin Phillips",
+  "comedian_type": "golden_ticket",
+  "set_number": 10,
+  "start_seconds": 6256,
+  "interview_end_line": 2917,
+  "interview_end_seconds": 6668.84,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "A medication labeled \"oral\" could be evidence that a rectal version also exists.",
+          "joke_type": "reframe",
+          "topics": ["medication", "baclofen", "anal", "drugs"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "\"Squashed\" can mean crushed or getting high by smoking weed through a squash.",
+          "joke_type": "double-meaning",
+          "topics": ["weed", "squash", "drug slang"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "Scientific permission to sleep with a cousin could be self-serving research by an attracted scientist.",
+          "joke_type": "reframe",
+          "topics": ["incest", "cousins", "science", "sex"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "What's up? Hey, the medication I take is called oral backlifen.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2767, "start": 6256},
+    {"text": "I take oral backlifen because I don't want to take anal backlifen, you know?", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2768, "start": 6264},
+    {"text": "It could fall out, you know?", "label": "tag", "bit": 1, "beat": 1, "line_number": 2769, "start": 6270},
+    {"text": "Some people smoke weed through an apple.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2770, "start": 6274},
+    {"text": "I smoke through a squash.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2771, "start": 6278},
+    {"text": "I'm like, \"Oh, I'm so squashed right now.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2772, "start": 6281},
+    {"text": "Let's get squashed.\"", "label": "tag", "bit": 2, "beat": 1, "line_number": 2773, "start": 6285},
+    {"text": "I'm trying to make it a thing.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2774, "start": 6288},
+    {"text": "Okay, um...", "label": "fluff", "bit": null, "beat": null, "line_number": 2775, "start": 6290},
+    {"text": "Uh, scientists say, scientifically speaking,", "label": "setup", "bit": 3, "beat": 1, "line_number": 2776, "start": 6292},
+    {"text": "you can sleep with your second cousin.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2777, "start": 6296},
+    {"text": "And I don't know, it sounds like that scientist", "label": "setup", "bit": 3, "beat": 1, "line_number": 2778, "start": 6300},
+    {"text": "just had a really hot cousin, you know?", "label": "punchline", "bit": 3, "beat": 1, "line_number": 2779, "start": 6303},
+    {"text": "Like, \"I did the research. It's cool.\"", "label": "tag", "bit": 3, "beat": 1, "line_number": 2780, "start": 6306}
+  ]
+}

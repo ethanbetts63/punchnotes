@@ -1,0 +1,86 @@
+{
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "Caleb Andrews",
+  "comedian_type": "bucket_pull",
+  "set_number": 12,
+  "start_seconds": 6525,
+  "interview_end_line": 3372,
+  "interview_end_seconds": 7413.24,
+  "joke_book": "large",
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "A disappointing upbringing could be preparation for a silent comedy audience.",
+          "joke_type": "reframe",
+          "topics": ["Mississippi", "single mothers", "disappointment"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Denying someone a loan could be more humbling for the banker when the rejected person drives a nicer truck.",
+          "joke_type": "reframe",
+          "topics": ["banking", "loans", "trucks"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "In a small town, a grandmother's reputation could be as important as a credit score.",
+          "joke_type": "reframe",
+          "topics": ["small towns", "credit scores", "grandmothers"]
+        }
+      }
+    },
+    "4": {
+      "premise": "Golf and marriage are expensive commitments to being bad at something.",
+      "beats": {
+        "1": {
+          "premise": "A pre-wedding golf trip could be a celebration of love reframed as four hours of silent self-loathing.",
+          "joke_type": "reframe",
+          "topics": ["marriage", "bachelor trips", "golf"]
+        },
+        "2": {
+          "premise": "Golf is like marriage because both are expensive, you're not good at either, and you keep trying anyway.",
+          "joke_type": "analogy",
+          "topics": ["marriage", "golf", "money"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "Hey guys, I am a banker.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2947, "start": 6525},
+    {"text": "I'm from a small town in Mississippi,", "label": "setup", "bit": 1, "beat": 1, "line_number": 2948, "start": 6528},
+    {"text": "and I was raised by a single mother, so you don't laugh at this set.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2949, "start": 6530},
+    {"text": "I'm used to disappointment.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2950, "start": 6534},
+    {"text": "Being a banker, you see a lot.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2952, "start": 6536},
+    {"text": "Nothing's quite as humbling as denying somebody for a loan,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2953, "start": 6538},
+    {"text": "and they pull off in the truck that's nicer than yours.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2954, "start": 6542},
+    {"text": "Yeah.", "label": "fluff", "bit": null, "beat": null, "line_number": 2956, "start": 6546},
+    {"text": "Being from a small town, it's kind of funny in my industry,", "label": "setup", "bit": 3, "beat": 1, "line_number": 2957, "start": 6547},
+    {"text": "your credit score and your grandma's reputation are pretty much the same thing.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2958, "start": 6550},
+    {"text": "Like, \"Sir, you filed bankruptcy last year, but your nana made a mean apple pie,", "label": "setup", "bit": 3, "beat": 1, "line_number": 2959, "start": 6554},
+    {"text": "So let's see what we can do.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 2960, "start": 6559},
+    {"text": "Yeah.", "label": "fluff", "bit": 3, "beat": 1, "line_number": 2961, "start": 6561},
+    {"text": "I'm also married.", "label": "setup", "bit": 4, "beat": 1, "line_number": 2962, "start": 6562},
+    {"text": "I got married last year.", "label": "setup", "bit": 4, "beat": 1, "line_number": 2963, "start": 6563},
+    {"text": "Thank you. Thank you.", "label": "fluff", "bit": 4, "beat": 1, "line_number": 2965, "start": 6565},
+    {"text": "Um, I went on a bachelor trip with my buddies.", "label": "setup", "bit": 4, "beat": 1, "line_number": 2966, "start": 6566},
+    {"text": "We went golfing, 'cause nothing says celebrating love,", "label": "setup", "bit": 4, "beat": 1, "line_number": 2967, "start": 6569},
+    {"text": "like, hating yourself for four hours silently.", "label": "punchline", "bit": 4, "beat": 1, "line_number": 2968, "start": 6572},
+    {"text": "But golfing prepared me for marriage,", "label": "setup", "bit": 4, "beat": 2, "line_number": 2970, "start": 6576},
+    {"text": "'cause both involved me spending a lot of money", "label": "setup", "bit": 4, "beat": 2, "line_number": 2971, "start": 6578},
+    {"text": "at something I'm not really good at.", "label": "punchline", "bit": 4, "beat": 2, "line_number": 2972, "start": 6581},
+    {"text": "And then waking up the next morning", "label": "tag", "bit": 4, "beat": 2, "line_number": 2974, "start": 6584},
+    {"text": "and deciding to try again, 'cause I like the challenge.", "label": "tag", "bit": 4, "beat": 2, "line_number": 2975, "start": 6586},
+    {"text": "Thank you. That's my time.", "label": "fluff", "bit": null, "beat": null, "line_number": 2976, "start": 6588}
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "type": "set_meta",
+  "video_id": "suxlBw4o1Mc",
+  "episode_title": "KT #759 - JOE LIST + STEVE RANNAZZISI",
+  "episode_url": "https://www.youtube.com/watch?v=suxlBw4o1Mc",
+  "publish_date": "2026-03-10",
+  "guests": ["Joe List", "Steve Rannazzisi"],
+  "comedian_name": "Mark Fitman",
+  "comedian_type": "bucket_pull",
+  "set_number": 3,
+  "start_seconds": 1247,
+  "interview_end_line": 687,
+  "interview_end_seconds": 1733.16,
+  "joke_book": "large",
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "\"Lost the plot\" during a movie implies narrative confusion, but reveals masturbating and leaving the theater.",
+          "joke_type": "misdirect",
+          "topics": ["Oscars", "movies", "sex scenes", "masturbation"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "MLK Boulevards are widely understood to be dangerous neighborhoods but rarely named as places to reroute around.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["GPS", "Martin Luther King Boulevard", "racism"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "\"Racism is getting better as I age\" implies societal progress, but reveals personal improvement at being racist.",
+          "joke_type": "misdirect",
+          "topics": ["racism", "aging", "self-improvement"]
+        }
+      }
+    },
+    "4": {
+      "beats": {
+        "1": {
+          "premise": "Casual intergenerational racism is widely understood to persist in families but rarely confessed aloud.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["grandfather", "cat", "racial slurs", "family history"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "How you doing, everyone? Nice to be here. It's coming up on Oscar season, and, you know, I used to be into it a lot more.", "label": "setup", "bit": 1, "beat": 1, "line_number": 462, "start": 1247},
+    {"text": "do it a lot more. Last year I saw the best picture, Inora, and the first 20", "label": "setup", "bit": 1, "beat": 1, "line_number": 463, "start": 1254},
+    {"text": "minutes of that movie is all sex and you know after that I kind of lost the plot", "label": "setup", "bit": 1, "beat": 1, "line_number": 464, "start": 1260},
+    {"text": "and just zipped up and left the theater. I don't think I'll be welcomed back this", "label": "punchline", "bit": 1, "beat": 1, "line_number": 465, "start": 1265},
+    {"text": "year I'm not really sure. I don't know if it's racist or not but I programed my", "label": "setup", "bit": 2, "beat": 1, "line_number": 466, "start": 1275},
+    {"text": "to avoid all Martin Luther King boulebirds.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 467, "start": 1281},
+    {"text": "[ Laughter ]", "label": "fluff", "bit": 2, "beat": 1, "line_number": 468, "start": 1283},
+    {"text": "Just figure I'll bypass that.", "label": "tag", "bit": 2, "beat": 1, "line_number": 469, "start": 1288},
+    {"text": "[ Laughter ]", "label": "fluff", "bit": null, "beat": null, "line_number": 470, "start": 1291},
+    {"text": "I do think racism is getting a little bit better.", "label": "setup", "bit": 3, "beat": 1, "line_number": 471, "start": 1293},
+    {"text": "As I get older, it seems a lot better.", "label": "setup", "bit": 3, "beat": 1, "line_number": 472, "start": 1297},
+    {"text": "I mean, I'm getting really good at it.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 473, "start": 1299},
+    {"text": "[ Laughter ]", "label": "fluff", "bit": null, "beat": null, "line_number": 474, "start": 1301},
+    {"text": "Come from my house, you know, my grandfather had a cat", "label": "setup", "bit": 4, "beat": 1, "line_number": 475, "start": 1304},
+    {"text": "that was named the N-word.", "label": "punchline", "bit": 4, "beat": 1, "line_number": 476, "start": 1307},
+    {"text": "[ Laughter ]", "label": "fluff", "bit": 4, "beat": 1, "line_number": 477, "start": 1309},
+    {"text": "Oh, it's just kind of there.", "label": "tag", "bit": 4, "beat": 1, "line_number": 478, "start": 1312}
+  ]
+}

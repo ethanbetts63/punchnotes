@@ -1,0 +1,84 @@
+{
+  "type": "set_meta",
+  "video_id": "lghpxPhVoPo",
+  "episode_title": "KT #761 (HOUSTON) - ADAM RAY + KIM CONGDON",
+  "episode_url": "https://www.youtube.com/watch?v=lghpxPhVoPo",
+  "publish_date": "2026-03-24",
+  "guests": ["Adam Ray", "Kim Congdon"],
+  "comedian_name": "Colin Sledge",
+  "comedian_type": "golden_ticket",
+  "set_number": 4,
+  "start_seconds": 1817,
+  "interview_end_line": 833,
+  "interview_end_seconds": 2253.78,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "Ten fingers is like a divine sexual directive because both turn anatomy into instructions for constant fingering.",
+          "joke_type": "analogy",
+          "topics": ["religion", "sex", "God", "hands"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Discouraging fake orgasms implies sensitivity, but reveals complete indifference to the partner's pleasure.",
+          "joke_type": "misdirect",
+          "topics": ["sex", "orgasm", "dating", "girlfriend"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "Medical advice to pee after sex could be used to justify a sexual fetish for peeing during sex.",
+          "joke_type": "reframe",
+          "topics": ["sex", "UTI", "urine", "fetish"]
+        }
+      }
+    },
+    "4": {
+      "premise": "Watching yourself in a mirror during sex reframes eye contact as narcissism and cuckolding.",
+      "beats": {
+        "1": {
+          "premise": "Making eye contact during sex implies watching a partner, but reveals watching oneself in a mirror.",
+          "joke_type": "misdirect",
+          "topics": ["sex", "eye contact", "mirror", "narcissism"]
+        },
+        "2": {
+          "premise": "Watching yourself in a mirror during sex could be reframed as being cuckolded by an evil twin.",
+          "joke_type": "reframe",
+          "topics": ["sex", "cuckold", "fetish", "mirror"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "- Okay, thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 644, "start": 1817},
+    {"text": "You know, so God gave us two ears and one mouth", "label": "setup", "bit": 1, "beat": 1, "line_number": 645, "start": 1821},
+    {"text": "'cause we're supposed to listen twice as much as we talk.", "label": "setup", "bit": 1, "beat": 1, "line_number": 646, "start": 1826},
+    {"text": "But he also gave us ten fingers, so we're supposed to be finger-blasting like all the time.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 647, "start": 1829},
+    {"text": "Okay.", "label": "fluff", "bit": null, "beat": null, "line_number": 648, "start": 1849},
+    {"text": "I always tell girls, \"You should never fake an orgasm with me.\"", "label": "setup", "bit": 2, "beat": 1, "line_number": 649, "start": 1851},
+    {"text": "You know.", "label": "fluff", "bit": 2, "beat": 1, "line_number": 650, "start": 1854},
+    {"text": "'Cause I don't care.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 651, "start": 1856},
+    {"text": "I found out women are supposed to pee after sex", "label": "setup", "bit": 3, "beat": 1, "line_number": 653, "start": 1866},
+    {"text": "to prevent a UTI every time,", "label": "setup", "bit": 3, "beat": 1, "line_number": 654, "start": 1869},
+    {"text": "but I always tell them,", "label": "setup", "bit": 3, "beat": 1, "line_number": 655, "start": 1872},
+    {"text": "just to be safe, you should pee during sex.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 656, "start": 1873},
+    {"text": "So I'm into that, hell yeah.", "label": "tag", "bit": 3, "beat": 1, "line_number": 658, "start": 1878},
+    {"text": "My parents are here, by the way.", "label": "fluff", "bit": null, "beat": null, "line_number": 660, "start": 1884},
+    {"text": "Can I?", "label": "fluff", "bit": null, "beat": null, "line_number": 661, "start": 1886},
+    {"text": "Can I do one more joke?", "label": "fluff", "bit": null, "beat": null, "line_number": 663, "start": 1888},
+    {"text": "Okay.", "label": "fluff", "bit": null, "beat": null, "line_number": 664, "start": 1890},
+    {"text": "My girlfriend says I don't make enough eye contact", "label": "setup", "bit": 4, "beat": 1, "line_number": 665, "start": 1893},
+    {"text": "during sex and it's not even true,", "label": "setup", "bit": 4, "beat": 1, "line_number": 666, "start": 1895},
+    {"text": "I make a lot of eye contact during sex.", "label": "setup", "bit": 4, "beat": 1, "line_number": 667, "start": 1897},
+    {"text": "It's just with myself in the mirror.", "label": "punchline", "bit": 4, "beat": 1, "line_number": 668, "start": 1899},
+    {"text": "Not in like a narcissistic way.", "label": "setup", "bit": 4, "beat": 2, "line_number": 669, "start": 1904},
+    {"text": "I just like to pretend I'm getting cucked by my evil twin.", "label": "punchline", "bit": 4, "beat": 2, "line_number": 670, "start": 1906}
+  ]
+}

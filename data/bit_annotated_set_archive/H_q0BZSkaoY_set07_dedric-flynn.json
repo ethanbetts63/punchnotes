@@ -1,0 +1,80 @@
+{
+  "type": "set_meta",
+  "video_id": "H_q0BZSkaoY",
+  "episode_title": "KT #760 - STEVE0 + TIM BUTTERLY",
+  "episode_url": "https://www.youtube.com/watch?v=H_q0BZSkaoY",
+  "publish_date": "2026-03-17",
+  "guests": ["Steve0", "Tim Butterly"],
+  "comedian_name": "Dedric Flynn",
+  "comedian_type": "regular",
+  "set_number": 7,
+  "start_seconds": 4478,
+  "interview_end_line": 2220,
+  "interview_end_seconds": 5049.84,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "premise": "Armadillos could be reframed as Mexican turtles.",
+      "beats": {
+        "1": {
+          "premise": "An armadillo is like a turtle because both are armored animals from the same general region.",
+          "joke_type": "analogy",
+          "topics": ["armadillos", "race", "Mexico"]
+        },
+        "2": {
+          "premise": "Mexican armadillos could be reframed as the source material for a Mexican Ninja Turtles franchise.",
+          "joke_type": "reframe",
+          "topics": ["Teenage Mutant Ninja Turtles", "Mexico", "race"]
+        }
+      }
+    },
+    "2": {
+      "premise": "Smoke detectors could be reframed as a racial conspiracy tool.",
+      "beats": {
+        "1": {
+          "premise": "Smoke detector chirps that only activate in Black households could be reframed as racial targeting.",
+          "joke_type": "reframe",
+          "topics": ["smoke detectors", "race", "batteries"]
+        },
+        "2": {
+          "premise": "A full battery in a chirping smoke detector could be reframed as evidence of deliberate racial conditioning.",
+          "joke_type": "reframe",
+          "topics": ["smoke detectors", "race", "conspiracy", "batteries"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "-Uh, armadillos are just Mexican turtles.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1961, "start": 4478},
+    {"text": "[ Laughter ]", "label": "fluff", "bit": 1, "beat": 1, "line_number": 1962, "start": 4483},
+    {"text": "[ Laughter ]", "label": "fluff", "bit": 1, "beat": 1, "line_number": 1963, "start": 4486},
+    {"text": "I thought that's what the word \"armadillo\" means.", "label": "tag", "bit": 1, "beat": 1, "line_number": 1964, "start": 4490},
+    {"text": "'Cause I've been trying to create some secret ooze", "label": "setup", "bit": 1, "beat": 2, "line_number": 1966, "start": 4496},
+    {"text": "to turn these niggas into", "label": "setup", "bit": 1, "beat": 2, "line_number": 1967, "start": 4498},
+    {"text": "teenage mutant ninja Mexican turtles.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1968, "start": 4500},
+    {"text": "You don't even gotta change the name.", "label": "tag", "bit": 1, "beat": 2, "line_number": 1970, "start": 4505},
+    {"text": "You know what I'm saying?", "label": "fluff", "bit": 1, "beat": 2, "line_number": 1971, "start": 4507},
+    {"text": "It's just Rafael Leonardo, Michael,", "label": "tag", "bit": 1, "beat": 2, "line_number": 1972, "start": 4508},
+    {"text": "but I'm Master Splinter.", "label": "tag", "bit": 1, "beat": 2, "line_number": 1973, "start": 4510},
+    {"text": "Now that I got y'all in a silly thing,", "label": "fluff", "bit": null, "beat": null, "line_number": 1975, "start": 4513},
+    {"text": "I gotta get to some beef that I got.", "label": "fluff", "bit": null, "beat": null, "line_number": 1976, "start": 4515},
+    {"text": "Fuck the nigga who made the low battery noise", "label": "setup", "bit": 2, "beat": 1, "line_number": 1977, "start": 4518},
+    {"text": "and smoke detectors.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1978, "start": 4521},
+    {"text": "Nigga, how the fuck?", "label": "fluff", "bit": 2, "beat": 1, "line_number": 1980, "start": 4524},
+    {"text": "I got so many white friends that move next door to me,", "label": "setup", "bit": 2, "beat": 1, "line_number": 1981, "start": 4526},
+    {"text": "they smoke detector, don't never go off.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1982, "start": 4531},
+    {"text": "But when my black ass family move in,", "label": "setup", "bit": 2, "beat": 1, "line_number": 1984, "start": 4535},
+    {"text": "that shit be on for 15 years.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1985, "start": 4538},
+    {"text": "Nigga, either kill yourself or not.", "label": "tag", "bit": 2, "beat": 1, "line_number": 1987, "start": 4542},
+    {"text": "I hate a battery that don't actually wanna die.", "label": "tag", "bit": 2, "beat": 1, "line_number": 1988, "start": 4544},
+    {"text": "But then I know it's a conspiracy.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1990, "start": 4548},
+    {"text": "They turn us into sleeper agents.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1991, "start": 4551},
+    {"text": "They want us to be ghetto.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1992, "start": 4552},
+    {"text": "Because in 2001, I opened up the smoke detector,", "label": "setup", "bit": 2, "beat": 2, "line_number": 1994, "start": 4556},
+    {"text": "and if y'all remember, Doris L used to be able", "label": "setup", "bit": 2, "beat": 2, "line_number": 1995, "start": 4561},
+    {"text": "to have these buttons that you could press", "label": "setup", "bit": 2, "beat": 2, "line_number": 1996, "start": 4564},
+    {"text": "and see how much energy was left in the battery.", "label": "setup", "bit": 2, "beat": 2, "line_number": 1997, "start": 4566},
+    {"text": "Nigga, it was full.", "label": "punchline", "bit": 2, "beat": 2, "line_number": 1998, "start": 4569},
+    {"text": "I'm done, I'm such a shit so bad.", "label": "fluff", "bit": null, "beat": null, "line_number": 2000, "start": 4575}
+  ]
+}

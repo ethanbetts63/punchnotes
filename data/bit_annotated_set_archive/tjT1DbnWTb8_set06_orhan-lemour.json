@@ -1,0 +1,63 @@
+{
+  "type": "set_meta",
+  "video_id": "tjT1DbnWTb8",
+  "episode_title": "KT #756 - JIM NORTON + IAN FIDANCE",
+  "episode_url": "https://www.youtube.com/watch?v=tjT1DbnWTb8",
+  "publish_date": "2026-02-17",
+  "guests": ["Jim Norton", "Ian Fidance"],
+  "comedian_name": "Orhan Lemour",
+  "comedian_type": "bucket_pull",
+  "set_number": 6,
+  "start_seconds": 3253,
+  "interview_end_line": 1725,
+  "interview_end_seconds": 4031.9,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "Watching a more successful comedian get roasted could be reframed as proof that your own career was worthless.",
+          "joke_type": "reframe",
+          "topics": ["Kill Tony", "self-deprecation", "comedy career", "roasting"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Turkish cultural pessimism could be what reframes the \"if you're happy\" children's song into a reminder that happiness is irrelevant.",
+          "joke_type": "reframe",
+          "topics": ["Turkey", "happiness", "cultural pessimism", "children's song"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "\"Making America great again\" could be reframed as simply living somewhere worse until your baseline resets.",
+          "joke_type": "reframe",
+          "topics": ["MAGA", "Turkey", "America", "patriotism"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "- How are you guys?", "label": "fluff", "bit": null, "beat": null, "line_number": 1463, "start": 3253},
+    {"text": "It was very fun watching what you guys did to that guy over there.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1464, "start": 3254},
+    {"text": "Because he's more successful than me.", "label": "setup", "bit": 1, "beat": 1, "line_number": 1465, "start": 3258},
+    {"text": "I'm shit. I'm like, \"I've never fucking done comedy.\"", "label": "setup", "bit": 1, "beat": 1, "line_number": 1466, "start": 3261},
+    {"text": "I never felt more like I wasted nine years of my life than right now.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1467, "start": 3264},
+    {"text": "It's...", "label": "fluff", "bit": null, "beat": null, "line_number": 1468, "start": 3269},
+    {"text": "Okay, they're laughing.", "label": "fluff", "bit": null, "beat": null, "line_number": 1469, "start": 3270},
+    {"text": "I, like, I shat myself. It just went inside, back in the day.", "label": "fluff", "bit": null, "beat": null, "line_number": 1470, "start": 3272},
+    {"text": "I can actually do stuff.", "label": "fluff", "bit": null, "beat": null, "line_number": 1471, "start": 3276},
+    {"text": "I'm from Turkey. It's not a happy place, you know.", "label": "setup", "bit": 2, "beat": 1, "line_number": 1472, "start": 3278},
+    {"text": "state motto is if you're happy and you know it", "label": "setup", "bit": 2, "beat": 1, "line_number": 1473, "start": 3283},
+    {"text": "it doesn't look good, it doesn't matter.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 1474, "start": 3286},
+    {"text": "But I was there for two years, like I lived in LA for a long time", "label": "setup", "bit": 3, "beat": 1, "line_number": 1475, "start": 3291},
+    {"text": "then I moved back there and then I came back here", "label": "setup", "bit": 3, "beat": 1, "line_number": 1476, "start": 3295},
+    {"text": "and I like in this time I realized how to make America great again actually", "label": "setup", "bit": 3, "beat": 1, "line_number": 1477, "start": 3298},
+    {"text": "what you do is you go live in Turkey for two years", "label": "setup", "bit": 3, "beat": 1, "line_number": 1478, "start": 3302},
+    {"text": "and then you come back and it's fucking spectacular again.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 1479, "start": 3306}
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "type": "set_meta",
+  "video_id": "PG_8dq4YtSQ",
+  "episode_title": "KT #755 - DR PHIL (ADAM RAY) + SAL VULCANO, + GREG FITZSIMMONS",
+  "episode_url": "https://www.youtube.com/watch?v=PG_8dq4YtSQ",
+  "publish_date": "2026-02-10",
+  "guests": ["Dr Phil (Adam Ray)", "Sal Vulcano", "Greg Fitzsimmons"],
+  "comedian_name": "Tariq Morales",
+  "comedian_type": "bucket_pull",
+  "set_number": 5,
+  "start_seconds": 2845,
+  "interview_end_line": 1387,
+  "interview_end_seconds": 3280.26,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "premise": "Redefining \"N-word\" as Nazi lets a Black man weaponize the slur against white supremacists.",
+      "beats": {
+        "1": {
+          "premise": "\"N-word\" can mean the racial slur or Nazi, so a Black man being called one becomes a compliment.",
+          "joke_type": "double-meaning",
+          "topics": ["Tesla", "Nazis", "N-word", "racism"]
+        },
+        "2": {
+          "premise": "\"Full of N-words\" can mean a Black neighborhood or a Nazi stronghold.",
+          "joke_type": "double-meaning",
+          "topics": ["Idaho", "Nazis", "N-word", "white supremacy"]
+        },
+        "3": {
+          "premise": "\"Tesla Model 3rd Reich\" can mean a real car model or a Nazi-branded vehicle.",
+          "joke_type": "double-meaning",
+          "topics": ["Tesla", "Third Reich", "Nazis", "car models"]
+        },
+        "4": {
+          "premise": "\"N-word lives don't matter\" can mean targeting Black people or, with the redefinition, Nazis.",
+          "joke_type": "double-meaning",
+          "topics": ["N-word", "Nazis", "Black Lives Matter", "protest"]
+        },
+        "5": {
+          "premise": "\"I hate black people but not as much as blonde-haired N-words\" can mean hating Black people more, or hating Nazis most.",
+          "joke_type": "double-meaning",
+          "topics": ["Nazis", "N-word", "racism", "blonde hair"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "Guys.", "label": "fluff", "bit": null, "beat": null, "line_number": 1169, "start": 2845},
+    {"text": "[ Applause ]", "label": "fluff", "bit": null, "beat": null, "line_number": 1170, "start": 2847},
+    {"text": "-Hell, yeah.", "label": "fluff", "bit": null, "beat": null, "line_number": 1171, "start": 2849},
+    {"text": "You guys remember when driving to Tesla made you a Nazi?", "label": "setup", "bit": 1, "beat": 1, "line_number": 1172, "start": 2851},
+    {"text": "I miss those days.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1173, "start": 2855},
+    {"text": "I like being called a different type of N-word.", "label": "tag", "bit": 1, "beat": 1, "line_number": 1174, "start": 2857},
+    {"text": "[ Laughter ]", "label": "fluff", "bit": null, "beat": null, "line_number": 1175, "start": 2860},
+    {"text": "Which is ironic. I'm from Idaho.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1176, "start": 2862},
+    {"text": "That place is full of N-words.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1177, "start": 2864},
+    {"text": "I had to go out and buy myself a Tesla Model 3rd Reich.", "label": "punchline", "bit": 1, "beat": 3, "line_number": 1178, "start": 2866},
+    {"text": "That's where I drive now.", "label": "tag", "bit": 1, "beat": 3, "line_number": 1179, "start": 2870},
+    {"text": "See, this joke is only fun and silly if you can remember that the N word means Nazi, right?", "label": "fluff", "bit": null, "beat": null, "line_number": 1180, "start": 2871},
+    {"text": "So anyway, I see this group of filthy fucking N words coming down the sidewalk.", "label": "setup", "bit": 1, "beat": 4, "line_number": 1181, "start": 2879},
+    {"text": "And they were headed right towards me because I was screaming out \"N word lives don't matter.\"", "label": "punchline", "bit": 1, "beat": 4, "line_number": 1182, "start": 2885},
+    {"text": "Yeah, I hate black people.", "label": "setup", "bit": 1, "beat": 5, "line_number": 1183, "start": 2888},
+    {"text": "Not as much as I hate those blonde-haired, blue-eyed N words.", "label": "punchline", "bit": 1, "beat": 5, "line_number": 1184, "start": 2894},
+    {"text": "Thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 1185, "start": 2899}
+  ]
+}

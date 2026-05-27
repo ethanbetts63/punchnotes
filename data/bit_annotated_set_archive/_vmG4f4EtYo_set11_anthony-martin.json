@@ -1,0 +1,73 @@
+{
+  "type": "set_meta",
+  "video_id": "_vmG4f4EtYo",
+  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
+  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
+  "guests": ["Theo Von", "Jelly Roll"],
+  "comedian_name": "Anthony Martin",
+  "comedian_type": "bucket_pull",
+  "set_number": 11,
+  "start_seconds": 5763,
+  "interview_end_line": 3006,
+  "interview_end_seconds": 6420.46,
+  "joke_book": "large",
+  "bit_meta": {
+    "1": {
+      "premise": "Predator-catching is satisfying until the predator turns out to be someone you can't feel good punching.",
+      "beats": {
+        "1": {
+        "premise": "A predator-catching sting could be a retail-store action sequence.",
+          "joke_type": "reframe",
+          "topics": ["YouTube", "predator catchers", "Walmart"]
+        },
+        "2": {
+          "premise": "Feeling guilty about punching a predator implies disability, but reveals they're a reelection candidate.",
+          "joke_type": "misdirect",
+          "topics": ["guilt", "disabilities", "politicians"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Accidentally sexting a mother-in-law implies horror, but reveals unexpected reciprocation.",
+          "joke_type": "misdirect",
+          "topics": ["sexting", "fiance", "mother-in-law"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "- Hello.", "label": "fluff", "bit": null, "beat": null, "line_number": 2686, "start": 5763},
+    {"text": "I'm in a YouTube rabbit hole right now.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2687, "start": 5765},
+    {"text": "Anyone else?", "label": "fluff", "bit": 1, "beat": 1, "line_number": 2688, "start": 5767},
+    {"text": "Yeah.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 2689, "start": 5769},
+    {"text": "I'm into young bros beating up pedophiles on the internet.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2690, "start": 5770},
+    {"text": "Have you seen this?", "label": "fluff", "bit": 1, "beat": 1, "line_number": 2691, "start": 5773},
+    {"text": "Oh my goodness.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 2692, "start": 5775},
+    {"text": "It's phenomenal.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2693, "start": 5777},
+    {"text": "The way it works, it's like a young bro", "label": "setup", "bit": 1, "beat": 1, "line_number": 2694, "start": 5778},
+    {"text": "starts catfishing a pedophile,", "label": "setup", "bit": 1, "beat": 1, "line_number": 2695, "start": 5781},
+    {"text": "meets him out on a Walmart.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2696, "start": 5782},
+    {"text": "He's just like, \"Hey, you looking for Rebecca?\"", "label": "setup", "bit": 1, "beat": 1, "line_number": 2697, "start": 5784},
+    {"text": "\"I'm Rebecca, I'm just hits him.\"", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2698, "start": 5785},
+    {"text": "Bounces off the chips aisle.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2699, "start": 5788},
+    {"text": "He's like, \"Maybe alone he's running through.\"", "label": "tag", "bit": 1, "beat": 1, "line_number": 2700, "start": 5789},
+    {"text": "He crashed through a giant soda tower", "label": "tag", "bit": 1, "beat": 1, "line_number": 2701, "start": 5792},
+    {"text": "that looks like the University of Texas.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2702, "start": 5794},
+    {"text": "And I like these videos,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2703, "start": 5797},
+    {"text": "But I started to feel guilty when you find out", "label": "setup", "bit": 1, "beat": 2, "line_number": 2704, "start": 5799},
+    {"text": "that these guys, they have autism or mental disabilities,", "label": "setup", "bit": 1, "beat": 2, "line_number": 2705, "start": 5800},
+    {"text": "or they're running for reelection.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2706, "start": 5805},
+    {"text": "And I just feel guilty.", "label": "fluff", "bit": 1, "beat": 2, "line_number": 2707, "start": 5807},
+    {"text": "I feel guilty.", "label": "fluff", "bit": 1, "beat": 2, "line_number": 2708, "start": 5809},
+    {"text": "I was texting with my fiance the other day,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2709, "start": 5812},
+    {"text": "and I was saying all the dirty stuff.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2710, "start": 5815},
+    {"text": "I was like, yeah, I'm gonna take you down,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2711, "start": 5816},
+    {"text": "flip you around all over town and all that.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2712, "start": 5817},
+    {"text": "And I, not good at it, but I send the texts,", "label": "setup", "bit": 2, "beat": 1, "line_number": 2713, "start": 5821},
+    {"text": "and I immediately get a response back from my mother-in-law.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2714, "start": 5826},
+    {"text": "It said, \"Anthony, never text me that again.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2715, "start": 5829},
+    {"text": "Come say it to my face.\"", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2716, "start": 5832}
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "type": "set_meta",
+  "video_id": "1upKa86_uKU",
+  "episode_title": "KT #766 - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=1upKa86_uKU",
+  "publish_date": "2026-05-05",
+  "guests": ["Sam Tallent"],
+  "comedian_name": "Sammy Smith",
+  "comedian_type": "bucket_pull",
+  "set_number": 11,
+  "start_seconds": 5878,
+  "interview_end_line": 2934,
+  "interview_end_seconds": 6464.1,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+        "premise": "Making responsible financial decisions in the current economy could be cowardice rather than wisdom.",
+          "joke_type": "reframe",
+          "topics": ["money", "2026", "financial decisions"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+        "premise": "Covering the negative sign on a digital bank balance could be turning debt into wealth.",
+          "joke_type": "reframe",
+          "topics": ["bank account", "debt", "perspective"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "A broke strip club visitor is like a frugal bargain hunter because both are aggressively minimizing cost.",
+          "joke_type": "analogy",
+          "topics": ["strip clubs", "being broke", "bargains"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "- What's up, you filthy fucking animals?", "label": "fluff", "bit": null, "beat": null, "line_number": 2665, "start": 5878},
+    {"text": "It's 2026, guys, okay?", "label": "setup", "bit": 1, "beat": 1, "line_number": 2667, "start": 5881},
+    {"text": "If you're making good financial decisions in 2026,", "label": "setup", "bit": 1, "beat": 1, "line_number": 2668, "start": 5884},
+    {"text": "man, you a bitch, okay?", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2669, "start": 5888},
+    {"text": "All right, listen, let me tell y'all something.", "label": "fluff", "bit": null, "beat": null, "line_number": 2670, "start": 5890},
+    {"text": "Money's digital and life is perspective.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2671, "start": 5892},
+    {"text": "If I pull my bank account up right now", "label": "setup", "bit": 2, "beat": 1, "line_number": 2672, "start": 5895},
+    {"text": "and I cover up that little hyphen, man, I'm rich as fuck.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2673, "start": 5898},
+    {"text": "I ain't shit you can tell me.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2674, "start": 5903},
+    {"text": "Yeah, I'm broke.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2675, "start": 5905},
+    {"text": "Um, and I'm not broke because I go to the strip club,", "label": "setup", "bit": 3, "beat": 1, "line_number": 2676, "start": 5906},
+    {"text": "but I do go to the strip club,", "label": "setup", "bit": 3, "beat": 1, "line_number": 2677, "start": 5912},
+    {"text": "even though I'm broke, you know?", "label": "setup", "bit": 3, "beat": 1, "line_number": 2678, "start": 5914},
+    {"text": "You know, when I go to the strip club,", "label": "setup", "bit": 3, "beat": 1, "line_number": 2679, "start": 5917},
+    {"text": "I go with a smooth $40.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2680, "start": 5918},
+    {"text": "Yeah, yeah, yeah.", "label": "fluff", "bit": 3, "beat": 1, "line_number": 2681, "start": 5921},
+    {"text": "But it's $20 to get in.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2682, "start": 5922},
+    {"text": "So when I go to the strip club, I got $20.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2683, "start": 5924},
+    {"text": "And a lap dance is about $40.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2684, "start": 5928},
+    {"text": "So when I go to the strip club, I'm looking for a bargain.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2685, "start": 5930},
+    {"text": "Yeah, yeah, yeah.", "label": "fluff", "bit": 3, "beat": 1, "line_number": 2686, "start": 5934},
+    {"text": "I walk in that bitch like I'm Indian.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 2687, "start": 5934},
+    {"text": "I'm looking for a very good deal.", "label": "tag", "bit": 3, "beat": 1, "line_number": 2688, "start": 5936},
+    {"text": "Yeah.", "label": "fluff", "bit": null, "beat": null, "line_number": 2690, "start": 5941}
+  ]
+}
