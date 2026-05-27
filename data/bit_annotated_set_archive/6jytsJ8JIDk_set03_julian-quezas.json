@@ -14,15 +14,15 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Stephen Hawking accusations are filtered through wheelchair logistics.",
+      "premise": "Stephen Hawking's disability is reframed as the mechanism of his alleged crimes.",
       "beats": {
         "1": {
-          "premise": "What if wheelchair speed were the only way Stephen Hawking could molest children.",
-          "joke_type": "what-if",
+          "premise": "A motorized wheelchair at full speed could be reframed as the only viable assault mechanism for a paralyzed person.",
+          "joke_type": "reframe",
           "topics": ["Stephen Hawking", "wheelchairs", "children"]
         },
         "2": {
-          "premise": "Wheelchair speed is exaggerated enough to reshape a face.",
+          "premise": "A wheelchair is so fast that wind resistance could account for Stephen Hawking's facial appearance.",
           "joke_type": "hyperbole",
           "topics": ["Stephen Hawking", "wind resistance", "wheelchairs"]
         }

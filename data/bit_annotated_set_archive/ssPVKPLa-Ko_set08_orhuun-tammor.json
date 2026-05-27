@@ -14,40 +14,40 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "Dating fat women can make love and beauty status the appeal.",
+      "premise": "Dating fat women reframes who has status and what motivates the relationship.",
       "beats": {
         "1": {
-          "premise": "Loving fat women implies emotional need, not oral sex.",
+          "premise": "Loving fat women implies a sexual motivation, but reveals genuine emotional attachment.",
           "joke_type": "misdirect",
           "topics": ["fat women", "love", "oral sex"]
         },
         "2": {
-          "premise": "Dating fat women can make aging men the pretty partner.",
+          "premise": "Dating a less conventionally attractive partner could make the less attractive man the 'pretty' one.",
           "joke_type": "reframe",
           "topics": ["relationships", "being pretty", "aging"]
         }
       }
     },
     "2": {
-      "premise": "Fear of suicide turns sadness into sexual leverage.",
+      "premise": "A partner's suicidal ex history turns sadness into a sexual bargaining chip.",
       "beats": {
         "1": {
-          "premise": "A suicidal ex turns dating trauma into sexual leverage.",
+          "premise": "A partner's suicidal ex history could be reframed as a sexual advantage.",
           "joke_type": "reframe",
           "topics": ["dating", "suicide", "ex-boyfriends"]
         },
         "2": {
-          "premise": "Oral sex becomes suicide prevention when sadness is dangerous.",
+          "premise": "A blowjob given to prevent suicide could reframe oral sex as mental health care.",
           "joke_type": "reframe",
           "topics": ["sadness", "oral sex", "suicide prevention"]
         },
         "3": {
-          "premise": "What if oral sex physically extracted sadness.",
-          "joke_type": "what-if",
+          "premise": "A blowjob is so prolonged it extracts sadness as a physical substance.",
+          "joke_type": "hyperbole",
           "topics": ["oral sex", "sadness", "endurance"]
         },
         "4": {
-          "premise": "Rewarding sadness sexually makes horniness trigger sadness.",
+          "premise": "Sexual arousal conditioned on sadness could make horniness trigger sadness instead.",
           "joke_type": "reframe",
           "topics": ["horniness", "sadness", "conditioning"]
         }

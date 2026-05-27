@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Ballet training explains racism and anorexia as shared institutional traits.",
+          "premise": "Ballet training could explain both racism and anorexia as institutional side effects.",
           "joke_type": "reframe",
           "topics": ["Boston Ballet", "anorexia", "Massachusetts"]
         }
@@ -25,8 +25,8 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "A sobriety tattoo fails if bartenders cannot read cursive.",
-          "joke_type": "what-if",
+          "premise": "A sobriety tattoo implies self-control enforcement, but fails because bartenders can't read cursive.",
+          "joke_type": "misdirect",
           "topics": ["alcoholism", "tattoos", "bartenders", "cursive"]
         }
       }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Sex with fighters is like blacking out because both end in head trauma.",
+          "premise": "Sleeping with MMA fighters is like blacking out because both end in head trauma.",
           "joke_type": "analogy",
           "topics": ["MMA fighters", "blackouts", "sex"]
         }
@@ -43,8 +43,8 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Cauliflower ear looks like fighters moved their brains outside.",
-          "joke_type": "analogy",
+          "premise": "Calling MMA fighters dumb could be reframed as their brains relocating to the outside.",
+          "joke_type": "reframe",
           "topics": ["MMA fighters", "brain injuries", "cauliflower ear"]
         }
       }
@@ -52,8 +52,8 @@
     "5": {
       "beats": {
         "1": {
-          "premise": "What if pregnancy could test whether a fetus fights back.",
-          "joke_type": "what-if",
+          "premise": "Sex with an MMA fighter could double as a prenatal fighting aptitude test.",
+          "joke_type": "reframe",
           "topics": ["MMA fighters", "pregnancy", "fighting"]
         }
       }

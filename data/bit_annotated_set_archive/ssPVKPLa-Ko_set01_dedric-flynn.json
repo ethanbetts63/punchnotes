@@ -17,12 +17,12 @@
       "premise": "Adults suppress silliness in favor of outrage and detachment.",
       "beats": {
         "1": {
-          "premise": "Detached audiences need a command to become silly.",
+          "premise": "Social outrage and detachment could be overridden by a direct command to be silly.",
           "joke_type": "reframe",
           "topics": ["silliness", "audiences", "outrage"]
         },
         "2": {
-          "premise": "Jewish comics losing silliness explains a comic's wilderness retreat.",
+          "premise": "A famous silly comedian retreating to the wilderness could mark the death of Jewish silliness.",
           "joke_type": "reframe",
           "topics": ["Jewish comedians", "goofy laughter", "silliness"]
         }
@@ -31,7 +31,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Sex is like reheated fries because both become disappointing leftovers.",
+          "premise": "Sex is like reheated fries because both are disappointing the second time.",
           "joke_type": "analogy",
           "topics": ["sex", "french fries", "comparison jokes"]
         }
@@ -40,7 +40,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Attraction is like a rocket countdown because proximity lowers the number.",
+          "premise": "Rating someone's attractiveness as they approach is like a rocket countdown because the number only goes down.",
           "joke_type": "analogy",
           "topics": ["attraction", "rating people", "rocket countdowns"]
         }

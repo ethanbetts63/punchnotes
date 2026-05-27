@@ -14,15 +14,15 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Elephants are blamed for racially selective deaths.",
+      "premise": "Elephant deaths are avoidable enough to seem racially selective.",
       "beats": {
         "1": {
-          "premise": "Elephants killing only nonwhite people would make elephants racist.",
+          "premise": "Elephants could be racist because they only kill nonwhite people.",
           "joke_type": "reframe",
           "topics": ["race", "elephants", "Africa"]
         },
         "2": {
-          "premise": "Being killed by an elephant implies impossible inattentiveness.",
+          "premise": "An elephant charge could be dodged as easily as a bullfighting pass.",
           "joke_type": "reframe",
           "topics": ["elephants", "race", "attention"]
         }
@@ -31,7 +31,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Priest abuse at deathbeds is a taboo fear rarely said aloud.",
+          "premise": "Dying surrounded by a priest who might abuse you is widely feared but rarely said aloud.",
           "joke_type": "elephant-in-the-room",
           "topics": ["death", "priests", "sexual abuse", "elephants"]
         }

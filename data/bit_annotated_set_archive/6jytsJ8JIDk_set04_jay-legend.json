@@ -14,15 +14,15 @@
   "joke_book": "small",
   "bit_meta": {
     "1": {
-      "premise": "Singular they/them pronouns are treated as literal multiple people.",
+      "premise": "Using they/them for one person implies a group everywhere it appears.",
       "beats": {
         "1": {
-          "premise": "A date using they/them pronouns implies extra dinner guests to pay for.",
+          "premise": "\"They/them\" as a singular pronoun can mean one non-binary person or a literal group of dinner guests.",
           "joke_type": "double-meaning",
           "topics": ["they them", "dating", "restaurant bills"]
         },
         "2": {
-          "premise": "Using they/them for one absent date makes the waiter expect a group.",
+          "premise": "\"They\" used for a single absent date can mean one person or imply a group to the waiter.",
           "joke_type": "double-meaning",
           "topics": ["they them", "waiters", "orders"]
         }

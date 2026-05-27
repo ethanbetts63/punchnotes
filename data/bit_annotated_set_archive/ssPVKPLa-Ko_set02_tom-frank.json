@@ -17,23 +17,23 @@
       "premise": "Stateless identity turns national origin into suspicion.",
       "beats": {
         "1": {
-          "premise": "Asking where a gypsy is from implies suspicion, not geography.",
+          "premise": "Innocent questions about a gypsy's origin imply suspicion, but escalate to accusing them of stealing a dog.",
           "joke_type": "misdirect",
           "topics": ["gypsies", "identity", "missing dogs"]
         },
         "2": {
-          "premise": "Gypsy identity is Jewish identity without paperwork.",
+          "premise": "Being a gypsy could be reframed as being Jewish without the paperwork.",
           "joke_type": "reframe",
           "topics": ["Czechoslovakia", "Jewish identity", "documents"]
         },
         "3": {
-          "premise": "A vanished homeland makes geography correction sound like homelessness.",
+          "premise": "A dissolved homeland could be reframed as a branding failure, unlike Israel.",
           "joke_type": "reframe",
           "topics": ["homelands", "Israel", "country names"]
         },
         "4": {
-          "premise": "Country names can be read as literal immigration excuses.",
-          "joke_type": "double-meaning",
+          "premise": "\"Hungary\" sounds like \"hungry\" and fits because hungry immigrants are told the country is full.",
+          "joke_type": "phonetic-match",
           "topics": ["Greenland", "Turkey", "Hungary", "immigration"]
         }
       }
@@ -42,12 +42,12 @@
       "premise": "School bullying is free insult therapy.",
       "beats": {
         "1": {
-          "premise": "School bullies make paid insult therapy redundant.",
+          "premise": "School bullying could be reframed as free professional insult therapy.",
           "joke_type": "reframe",
           "topics": ["immigrant parents", "school bullying", "therapy"]
         },
         "2": {
-          "premise": "Fat shaming working makes a broken school system useful.",
+          "premise": "A broken school system could still be useful because fat shaming actually works.",
           "joke_type": "reframe",
           "topics": ["school system", "fat shaming"]
         }

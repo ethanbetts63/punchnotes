@@ -16,8 +16,8 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "The three-fifths insult clashes with the actual half-Black fraction.",
-          "joke_type": "double-meaning",
+          "premise": "A racist fraction insult could be refuted as simply bad math.",
+          "joke_type": "reframe",
           "topics": ["mixed race", "math", "family", "racism"]
         }
       }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "A fat-mom hint points to an absent father stereotype.",
+          "premise": "Hinting which parent is Black implies a racial answer, but reveals an absent-father deflection.",
           "joke_type": "misdirect",
           "topics": ["mixed race", "parents", "absent fathers"]
         }
@@ -34,8 +34,8 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Throat cancer turns a verbal performer into a silent one.",
-          "joke_type": "reframe",
+          "premise": "A ruined vocal career implies a tragic end, but the performer adapted by becoming a mime.",
+          "joke_type": "misdirect",
           "topics": ["performers", "throat cancer", "mimes"]
         }
       }

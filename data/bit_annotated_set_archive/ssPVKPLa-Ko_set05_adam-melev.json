@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "A birth year can be good personally and catastrophic historically.",
+          "premise": "Being born in 2001 implies personal celebration, but reveals it was also the year of 9/11.",
           "joke_type": "misdirect",
           "topics": ["2001", "9/11", "birth year"]
         }
@@ -26,22 +26,22 @@
       "premise": "A 9/11 birthday turns cupcakes into attack reenactments.",
       "beats": {
         "1": {
-          "premise": "A 9/11 memorial announcement can suddenly become a birthday announcement.",
+          "premise": "A solemn 9/11 memorial announcement implies tragedy, but pivots to a birthday cupcake celebration.",
           "joke_type": "misdirect",
           "topics": ["9/11", "birthdays", "cupcakes"]
         },
         "2": {
-          "premise": "A second cupcake tray is like the second plane.",
+          "premise": "A second cupcake tray hitting the classroom is like the second 9/11 plane because both are announced in stunned repetition.",
           "joke_type": "analogy",
           "topics": ["9/11", "twins", "cupcake trays"]
         },
         "3": {
-          "premise": "A classroom hit by cupcakes is like the Pentagon.",
+          "premise": "A Pentagon-shaped classroom hit by a third cupcake tray is like the 9/11 Pentagon attack.",
           "joke_type": "analogy",
           "topics": ["9/11", "classrooms", "Pentagon"]
         },
         "4": {
-          "premise": "A fallen hallway cupcake tray is like the missed fourth attack.",
+          "premise": "A cupcake tray that fell in the hallway is like the fourth 9/11 flight that never reached its target.",
           "joke_type": "analogy",
           "topics": ["9/11", "hallways", "cupcake trays"]
         }

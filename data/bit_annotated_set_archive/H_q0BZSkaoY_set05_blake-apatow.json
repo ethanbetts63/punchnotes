@@ -14,30 +14,30 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Immigration policy is reframed as a personal sexual preference optimization system with a formal exchange rate.",
+      "premise": "Immigration policy could be designed as a personal sexual preference system.",
       "beats": {
         "1": {
-          "premise": "What if a border wall included an exception for attractive immigrants.",
-          "joke_type": "what-if",
+          "premise": "A border wall could include an exception for attractive immigrants.",
+          "joke_type": "reframe",
           "topics": ["immigration", "border wall", "Latinas"]
         },
         "2": {
-          "premise": "Immigration can be treated like a trade exchange for sexual preference.",
+          "premise": "Importing attractive immigrants could be offset by deporting unattractive ones at a set exchange rate.",
           "joke_type": "reframe",
           "topics": ["immigration", "Latinas", "obesity", "deportation"]
         }
       }
     },
     "2": {
-      "premise": "A friend's fentanyl overdose is treated as the ultimate fulfillment of his goal to be chill, with guilt redirected to the dealer rather than the witness.",
+      "premise": "A fentanyl overdose is framed first as a success, then as a crime.",
       "beats": {
         "1": {
-          "premise": "Taken literally, getting chill can mean becoming dead.",
+          "premise": "\"Chill\" can mean emotionally relaxed or literally cold and dead.",
           "joke_type": "double-meaning",
           "topics": ["fentanyl", "Xanax", "death", "drugs"]
         },
         "2": {
-          "premise": "Guilt over an overdose implies helplessness, not having sold the pill.",
+          "premise": "\"Imagine how I feel\" implies survivor's guilt, but reveals culpability as the drug dealer.",
           "joke_type": "misdirect",
           "topics": ["fentanyl", "drug dealing", "guilt", "FaceTime"]
         }

@@ -16,22 +16,22 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "A lesbian relationship implies a woman partner, not a weak man.",
+          "premise": "A 22-year lesbian relationship implies a female partner, but reveals a man who acted like a woman.",
           "joke_type": "misdirect",
           "topics": ["relationships", "lesbians", "weak men"]
         }
       }
     },
     "2": {
-      "premise": "Dirty-talk ownership sounds absurd when a body is old enough to be paid off.",
+      "premise": "Dirty-talk ownership questions could be answered with property financing logic.",
       "beats": {
         "1": {
-          "premise": "Taken literally, dirty-talk ownership has two meanings.",
+          "premise": "\"Whose pussy is this?\" can mean sexual dominance or literal property ownership.",
           "joke_type": "double-meaning",
           "topics": ["sex talk", "ownership", "men"]
         },
         "2": {
-          "premise": "An unpaid body part is like financed property.",
+          "premise": "An unowned body part at 45 is like a home still under a mortgage.",
           "joke_type": "analogy",
           "topics": ["middle age", "rent-to-own", "loans"]
         }
@@ -40,8 +40,8 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Reduced stomach capacity does not imply reduced throat capacity.",
-          "joke_type": "reframe",
+          "premise": "Surgically reduced stomach implies reduced throat capacity, but reveals the throat is unchanged.",
+          "joke_type": "misdirect",
           "topics": ["gastric sleeve", "weight loss", "oral sex"]
         }
       }

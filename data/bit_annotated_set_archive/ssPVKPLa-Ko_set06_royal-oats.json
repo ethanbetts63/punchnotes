@@ -17,17 +17,17 @@
       "premise": "Small balls should not matter during sex but become gossip anyway.",
       "beats": {
         "1": {
-          "premise": "Steroid shrinkage means balls, not dick.",
+          "premise": "Steroids shrinking genitals implies the dick, but reveals it's actually the balls.",
           "joke_type": "misdirect",
           "topics": ["muscles", "steroids", "small balls"]
         },
         "2": {
-          "premise": "Tiny balls are like dice because both are small enough to roll.",
-          "joke_type": "analogy",
+          "premise": "Post-sex gossip implies commentary on dick quality, but reveals the complaint was about small balls.",
+          "joke_type": "misdirect",
           "topics": ["sex gossip", "small balls", "Vegas dice"]
         },
         "3": {
-          "premise": "Tiny balls make tea bagging more like condiment packets.",
+          "premise": "Tiny balls are like salt and pepper packets because both are too small to serve their function.",
           "joke_type": "analogy",
           "topics": ["tea bagging", "small balls", "salt packets"]
         }

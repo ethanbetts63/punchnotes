@@ -14,15 +14,15 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Baby funerals expose absurd contradictions in normal funeral customs.",
+      "premise": "Baby funerals expose contradictions in how we treat infant death formally.",
       "beats": {
         "1": {
-          "premise": "A baby funeral can be judged by infant attendance like popularity.",
+          "premise": "A baby funeral could be judged by infant attendance like a popularity contest.",
           "joke_type": "reframe",
           "topics": ["baby funeral", "death", "babies"]
         },
         "2": {
-          "premise": "Baby talk cannot serve as a respectful funeral voice.",
+          "premise": "A baby funeral is the only funeral where the voice used with the deceased is too undignified for the eulogy.",
           "joke_type": "reframe",
           "topics": ["baby funeral", "baby talk", "eulogy", "death"]
         }
@@ -31,7 +31,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Taken literally, 'What year is it?' can signal disorientation instead of criticism.",
+          "premise": "\"What year is it?\" can mean rhetorical disbelief at backward language or literal confusion about the date.",
           "joke_type": "double-meaning",
           "topics": ["political correctness", "language policing", "disability"]
         }

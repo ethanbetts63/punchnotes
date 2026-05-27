@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Women running the world sounds less certain when money is wagered.",
+          "premise": "Asking who runs the world implies agreement, but the offer to bet reveals skepticism.",
           "joke_type": "misdirect",
           "topics": ["women", "power", "betting"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "An Epstein book scare shifts from Trump to nearby people.",
+          "premise": "Denying Trump's name in the Epstein book implies innocence, but reveals a random audience member is listed instead.",
           "joke_type": "misdirect",
           "topics": ["Epstein", "Trump", "black book", "audience roast"]
         }

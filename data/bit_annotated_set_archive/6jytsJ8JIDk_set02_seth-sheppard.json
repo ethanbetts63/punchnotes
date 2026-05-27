@@ -14,30 +14,30 @@
   "joke_book": "small",
   "bit_meta": {
     "1": {
-      "premise": "Tiny black ancestry is treated as full racial entitlement.",
+      "premise": "Fractional Black ancestry could be treated as full racial entitlement.",
       "beats": {
         "1": {
-          "premise": "Being one-eighth black makes Black History Month personally claimable.",
+          "premise": "One-eighth Black ancestry could make Black History Month personally claimable.",
           "joke_type": "reframe",
           "topics": ["ancestry", "Black History Month", "race"]
         },
         "2": {
-          "premise": "Partial black ancestry tempts someone toward racial slurs without permission.",
+          "premise": "Partial Black ancestry could make forbidden racial slurs feel within reach.",
           "joke_type": "reframe",
           "topics": ["slurs", "black ancestry", "permission"]
         }
       }
     },
     "2": {
-      "premise": "A failed sexual performance is reframed as a successful first time.",
+      "premise": "Losing virginity despite dysfunction reframes failure as success.",
       "beats": {
         "1": {
-          "premise": "Soft sex works through drunken persistence rather than impressive anatomy.",
+          "premise": "A soft-dick virginity loss implies impressive anatomy was needed, but reveals drunken persistence was enough.",
           "joke_type": "misdirect",
           "topics": ["virginity", "erections", "drinking"]
         },
         "2": {
-          "premise": "An older drunk partner turns teenage virginity loss into predation.",
+          "premise": "A teenage boy seduced by an older woman could be reframed as statutory predation.",
           "joke_type": "reframe",
           "topics": ["age gap", "virginity", "whiskey"]
         }

@@ -14,31 +14,31 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "Armadillos are treated as Mexican turtles.",
+      "premise": "Armadillos could be reframed as Mexican turtles.",
       "beats": {
         "1": {
-          "premise": "Armadillos are like turtles because both are armored animals.",
+          "premise": "Armadillos are like turtles because both are armored animals from the same general region.",
           "joke_type": "analogy",
           "topics": ["armadillos", "race", "Mexico"]
         },
         "2": {
-          "premise": "What if Mexican turtles became Teenage Mutant Ninja Turtles.",
-          "joke_type": "what-if",
+          "premise": "Mexican armadillos could be reframed as the source material for a Mexican Ninja Turtles franchise.",
+          "joke_type": "reframe",
           "topics": ["Teenage Mutant Ninja Turtles", "Mexico", "race"]
         }
       }
     },
     "2": {
-      "premise": "Smoke detector chirps are framed as racially targeted torment.",
+      "premise": "Smoke detectors could be reframed as a racial conspiracy tool.",
       "beats": {
         "1": {
-          "premise": "Low-battery chirps seem to follow Black families, not white neighbors.",
+          "premise": "Smoke detector chirps that only activate in Black households could be reframed as racial targeting.",
           "joke_type": "reframe",
           "topics": ["smoke detectors", "race", "batteries"]
         },
         "2": {
-          "premise": "What if full batteries chirped to psychologically condition Black households.",
-          "joke_type": "what-if",
+          "premise": "A full battery in a chirping smoke detector could be reframed as evidence of deliberate racial conditioning.",
+          "joke_type": "reframe",
           "topics": ["smoke detectors", "race", "conspiracy", "batteries"]
         }
       }

@@ -14,20 +14,20 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "A Boston accent turns sexual talk into aggressive local parody.",
+      "premise": "A Boston accent makes sex sound like aggressive street performance.",
       "beats": {
         "1": {
-          "premise": "Accent examples imply regional words, not obscene threats.",
+          "premise": "Listing Boston accent words implies regional pronunciations, but ends with an obscene phrase.",
           "joke_type": "misdirect",
           "topics": ["Boston accent", "regional dialect", "aggression"]
         },
         "2": {
-          "premise": "Boston bedroom talk is like rap lyrics because both become explicit commands.",
+          "premise": "Boston bedroom dirty talk is like rap lyrics because both are aggressive sexual commands.",
           "joke_type": "analogy",
           "topics": ["Boston accent", "sex", "rap lyrics", "Cardi B"]
         },
         "3": {
-          "premise": "A Boston accent during sex is like Mark Wahlberg dubbing the moment.",
+          "premise": "A Boston accent during sex is like Mark Wahlberg dubbing the scene.",
           "joke_type": "analogy",
           "topics": ["Boston accent", "sex", "Mark Wahlberg", "fleshlight"]
         }

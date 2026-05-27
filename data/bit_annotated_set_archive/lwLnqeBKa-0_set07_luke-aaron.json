@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Loving an unresponsive partner implies romance, not necrophilia.",
+          "premise": "Romantic devotion to an unresponsive partner implies love, but reveals necrophilia.",
           "joke_type": "misdirect",
           "topics": ["dating", "dead bodies", "relationships"]
         }
@@ -26,12 +26,12 @@
       "premise": "Porn pop-ups are a modern generation's war trauma.",
       "beats": {
         "1": {
-          "premise": "Porn pop-ups are like war because both traumatize young people.",
+          "premise": "Stumbling onto extreme porn pop-ups is like war because both leave young people scarred unexpectedly.",
           "joke_type": "analogy",
           "topics": ["generational trauma", "porn ads", "childhood"]
         },
         "2": {
-          "premise": "War trauma earns medals while porn trauma earns sexual shame.",
+          "premise": "A purple heart for war trauma is like a purple boner for porn trauma because both mark lasting damage from unwanted exposure.",
           "joke_type": "analogy",
           "topics": ["war veterans", "Purple Heart", "sexual embarrassment"]
         }

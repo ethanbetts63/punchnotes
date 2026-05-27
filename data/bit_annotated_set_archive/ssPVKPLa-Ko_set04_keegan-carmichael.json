@@ -16,8 +16,8 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "What if stealing a credit card meant you also stole the debt.",
-          "joke_type": "what-if",
+          "premise": "Stealing a wallet could mean inheriting the owner's credit card debt along with the cash.",
+          "joke_type": "reframe",
           "topics": ["wallet theft", "credit card debt"]
         }
       }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Cheese costs more in Spanish.",
+          "premise": "The same cheese ingredient could be reframed as a premium upgrade just by naming it in Spanish.",
           "joke_type": "reframe",
           "topics": ["burritos", "queso", "language"]
         }
@@ -34,8 +34,8 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Vegans are isolated at meat-centered holidays.",
-          "joke_type": "reframe",
+          "premise": "Vegans at Thanksgiving are widely understood to have nothing to eat but rarely said aloud.",
+          "joke_type": "elephant-in-the-room",
           "topics": ["vegans", "Thanksgiving", "family"]
         }
       }
@@ -43,7 +43,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Taken literally, 'In case of fire, use stairs' has two meanings.",
+          "premise": "\"Use stairs\" can mean take the stairs as an escape or use stairs as a firefighting tool.",
           "joke_type": "double-meaning",
           "topics": ["fire safety", "stairs", "wordplay"]
         }

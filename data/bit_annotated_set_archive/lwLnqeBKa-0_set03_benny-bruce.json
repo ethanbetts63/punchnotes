@@ -16,8 +16,8 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "What if domino patterns could accidentally become swastikas.",
-          "joke_type": "what-if",
+          "premise": "Domino patterns could accidentally form a swastika.",
+          "joke_type": "reframe",
           "topics": ["dominoes", "swastikas", "games"]
         }
       }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Spanish during sex can be mistaken for dirty talk.",
+          "premise": "Shutting down dirty talk mid-sex reveals that the Spanish being spoken was mistaken for dirty talk.",
           "joke_type": "misdirect",
           "topics": ["Spanish", "dirty talk", "sex", "Latinas"]
         }
