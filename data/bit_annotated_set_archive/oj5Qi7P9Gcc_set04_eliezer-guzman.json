@@ -1,0 +1,63 @@
+{
+  "type": "set_meta",
+  "video_id": "oj5Qi7P9Gcc",
+  "episode_title": "KT #754 - BERT KREISCHER + RICK INGRAHAM",
+  "episode_url": "https://www.youtube.com/watch?v=oj5Qi7P9Gcc",
+  "publish_date": "2026-02-03",
+  "guests": ["Bert Kreischer", "Rick Ingraham"],
+  "comedian_name": "Eliezer Guzman",
+  "comedian_type": "bucket_pull",
+  "set_number": 4,
+  "start_seconds": 2395,
+  "interview_end_line": 1271,
+  "interview_end_seconds": 2969,
+  "joke_book": "medium",
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "A push-up app is so demanding that users lose contact with family.",
+          "joke_type": "hyperbole",
+          "topics": ["fitness app", "phone", "push-ups", "isolation"]
+        }
+      }
+    },
+    "2": {
+      "premise": "A scooter injury leaves only the wrong hand available during a surprise sexual encounter.",
+      "beats": {
+        "1": {
+          "premise": "An injured dominant hand could be a non-dominant-hand sex problem.",
+          "joke_type": "reframe",
+          "topics": ["injury", "fingering", "left hand", "ex-girlfriend"]
+        },
+        "2": {
+          "premise": "Fingering with the wrong hand is like plugging in a charger because both miss the hole.",
+          "joke_type": "analogy",
+          "topics": ["charger", "fingering", "left hand", "darkness"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 994, "text": "- Hey everybody, Salazar again.", "start": 2395, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 995, "text": "I've been trying to gain muscle, lose some weight.", "start": 2397, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 996, "text": "So I downloaded this new app that doesn't let me", "start": 2403, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 997, "text": "use my phone until I do enough push-ups.", "start": 2407, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 998, "text": "So if you see my friends and family,", "start": 2409, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 999, "text": "tell them I'm alive. Tell them I missed them.", "start": 2412, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 1000, "text": "Yeah, my luck with technology hasn't been great.", "start": 2418, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1001, "text": "I fell on a Lime scooter about a month ago,", "start": 2422, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1002, "text": "And I fell on my right hand, and I couldn't use it for a while.", "start": 2426, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1003, "text": "And it made things awkward because I'm a righty.", "start": 2429, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1004, "text": "And I ran into my ex-girlfriend at this bar.", "start": 2432, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1005, "text": "She was drunk.", "start": 2435, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1006, "text": "I was drunk.", "start": 2436, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1007, "text": "So we made out.", "start": 2436, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1008, "text": "She was like, I want you to finger me right now.", "start": 2438, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1009, "text": "But all I had was my left.", "start": 2442, "label": "punchline", "bit": 2, "beat": 1},
+    {"line_number": 1010, "text": "And the best way I could describe it--", "start": 2445, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 1011, "text": "you ever tried to plug your charger in the dark?", "start": 2447, "label": "punchline", "bit": 2, "beat": 2},
+    {"line_number": 1013, "text": "I could have sworn the holes are right here.", "start": 2453, "label": "tag", "bit": 2, "beat": 2},
+    {"line_number": 1015, "text": "If you didn't get that, you're European.", "start": 2458, "label": "tag", "bit": 2, "beat": 2}
+  ]
+}

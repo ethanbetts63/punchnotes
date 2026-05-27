@@ -1,0 +1,66 @@
+{
+  "type": "set_meta",
+  "video_id": "2LGShfsvnTM",
+  "episode_title": "KT #753 - JIM BREUER - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=2LGShfsvnTM",
+  "publish_date": "2026-01-27",
+  "guests": ["Jim Breuer - Sam Tallent"],
+  "comedian_name": "Mike Holder",
+  "comedian_type": "bucket_pull",
+  "set_number": 8,
+  "start_seconds": 4423,
+  "interview_end_line": 2166,
+  "interview_end_seconds": 4912,
+  "joke_book": "large",
+  "bit_meta": {
+    "1": {
+      "premise": "A Sudanese immigrant misreads American idioms and gender norms.",
+      "beats": {
+        "1": {
+          "premise": "\"Spilling the beans\" can mean revealing secrets or fumbling a hot Latina.",
+          "joke_type": "double-meaning",
+          "topics": ["idioms", "Latina", "immigrant", "English"]
+        },
+        "2": {
+          "premise": "A racial slur could be a gender-neutral pronoun.",
+          "joke_type": "reframe",
+          "topics": ["misgendering", "pronouns", "Sudan", "slur"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Having one imaginary friend could be imaginary unpopularity.",
+          "joke_type": "reframe",
+          "topics": ["imaginary friends", "children", "losers", "America"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 1896, "text": "- Thank you, thank you very much.", "start": 4423, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1897, "text": "I've got an embarrassing confession to make.", "start": 4424, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1898, "text": "I've recently learned that spilling the beans", "start": 4427, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1899, "text": "does not mean fumbling a hot Latina.", "start": 4429, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 1901, "text": "I don't understand these phrases.", "start": 4434, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1902, "text": "I'm from Sudan, I'm not American.", "start": 4436, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1903, "text": "I just moved here five years ago, and as you can imagine,", "start": 4438, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1904, "text": "I've been misgendering people left and right", "start": 4441, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1905, "text": "or so-called that.", "start": 4443, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1906, "text": "Until I learn, I never have to worry about misgendering", "start": 4445, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1907, "text": "if I just call everybody my n***a.", "start": 4448, "label": "punchline", "bit": 1, "beat": 2},
+    {"line_number": 1909, "text": "Makes it a whole lot easier for me.", "start": 4452, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 1910, "text": "Also learned that in America we don't trust the government.", "start": 4454, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1911, "text": "I mean, what kind of government shuts down?", "start": 4457, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1912, "text": "And then the Air Force said the freezing area 51 program,", "start": 4460, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1913, "text": "or as I like to call it, putting the aliens on ice", "start": 4463, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1914, "text": "has to be the only country in the world", "start": 4468, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1915, "text": "where kids have imaginary friends.", "start": 4469, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1916, "text": "But how come it's always one imaginary friend?", "start": 4472, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1917, "text": "To me that shows that even in their imaginations,", "start": 4475, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1918, "text": "They're still fucking losers.", "start": 4477, "label": "punchline", "bit": 2, "beat": 1},
+    {"line_number": 1920, "text": "Fucked up.", "start": 4480, "label": "tag", "bit": 2, "beat": 1},
+    {"line_number": 1922, "text": "Thank you very much.", "start": 4485, "label": "fluff", "bit": null, "beat": null}
+  ]
+}

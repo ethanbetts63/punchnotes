@@ -1,0 +1,62 @@
+{
+  "type": "set_meta",
+  "video_id": "oj5Qi7P9Gcc",
+  "episode_title": "KT #754 - BERT KREISCHER + RICK INGRAHAM",
+  "episode_url": "https://www.youtube.com/watch?v=oj5Qi7P9Gcc",
+  "publish_date": "2026-02-03",
+  "guests": ["Bert Kreischer", "Rick Ingraham"],
+  "comedian_name": "Eliezer Guzman",
+  "comedian_type": "bucket_pull",
+  "set_number": 5,
+  "start_seconds": 2627,
+  "interview_end_line": 1271,
+  "interview_end_seconds": 2969,
+  "joke_book": "medium",
+  "bit_meta": {
+    "1": {
+      "premise": "A criminal father and a little-person stepdad produce a childhood with no one to look up to in either sense.",
+      "beats": {
+        "1": {
+          "premise": "\"Look up to\" can mean admire or physically look upward at.",
+          "joke_type": "double-meaning",
+          "topics": ["little person", "stepdad", "role models", "criminal"]
+        },
+        "2": {
+          "premise": "A little-person stepdad could be mistaken for an older child.",
+          "joke_type": "reframe",
+          "topics": ["little person", "stepdad", "child abuse", "size"]
+        },
+        "3": {
+          "premise": "Bullies threatening a mother implies an insult, but reveals a future stepdad.",
+          "joke_type": "misdirect",
+          "topics": ["little person", "stepdad", "bullies", "school"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 1112, "text": "I've been going to therapy lately.", "start": 2627, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1113, "text": "Had a weird situation.", "start": 2630, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1114, "text": "My real father was a criminal,", "start": 2632, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1115, "text": "and my stepdad was a little person.", "start": 2635, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1116, "text": "So I had no one to look up to.", "start": 2638, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 1118, "text": "Yeah.", "start": 2645, "label": "fluff", "bit": 1, "beat": 1},
+    {"line_number": 1120, "text": "What?", "start": 2651, "label": "fluff", "bit": 1, "beat": 1},
+    {"line_number": 1122, "text": "A lot of comics in the middle of the day go,", "start": 2653, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1123, "text": "\"Wait, wait, wait, wait, wait.\"", "start": 2655, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1124, "text": "Go ahead, go.", "start": 2657, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1125, "text": "- When I met him, I was just five years old", "start": 2658, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1126, "text": "and he was just a little bigger than me.", "start": 2661, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1127, "text": "And my mom was like, \"This is your new stepdad.\"", "start": 2663, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1128, "text": "I was like, \"My stepdad is seven years old.\"", "start": 2666, "label": "punchline", "bit": 1, "beat": 2},
+    {"line_number": 1129, "text": "And it gave me weird confidence 'cause he used to hit me.", "start": 2671, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1130, "text": "Yeah, and even when I was little,", "start": 2674, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1131, "text": "I was like, \"This bigger kid hits like a bitch.\"", "start": 2675, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 1132, "text": "But what really messed me up is I met him", "start": 2680, "label": "setup", "bit": 1, "beat": 3},
+    {"line_number": 1133, "text": "I was five.", "start": 2682, "label": "setup", "bit": 1, "beat": 3},
+    {"line_number": 1134, "text": "So I just started school that year,", "start": 2684, "label": "setup", "bit": 1, "beat": 3},
+    {"line_number": 1135, "text": "and I was getting bullied at recess.", "start": 2685, "label": "setup", "bit": 1, "beat": 3},
+    {"line_number": 1136, "text": "So I was like, \"Wow, those kids really meant it", "start": 2687, "label": "setup", "bit": 1, "beat": 3},
+    {"line_number": 1137, "text": "when they said they were gonna fuck my mom.\"", "start": 2689, "label": "punchline", "bit": 1, "beat": 3}
+  ]
+}

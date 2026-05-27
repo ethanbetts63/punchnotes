@@ -1,0 +1,63 @@
+{
+  "type": "set_meta",
+  "video_id": "2LGShfsvnTM",
+  "episode_title": "KT #753 - JIM BREUER - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=2LGShfsvnTM",
+  "publish_date": "2026-01-27",
+  "guests": ["Jim Breuer - Sam Tallent"],
+  "comedian_name": "Jay Moody",
+  "comedian_type": "bucket_pull",
+  "set_number": 9,
+  "start_seconds": 4926,
+  "interview_end_line": 2336,
+  "interview_end_seconds": 5289,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "Micro-dosing cocaine could be poverty rather than wellness.",
+          "joke_type": "reframe",
+          "topics": ["micro-dosing", "cocaine", "drugs", "money"]
+        }
+      }
+    },
+    "2": {
+      "premise": "P. Diddy's predatory parties were secretly the engine of Hollywood's social scene.",
+      "beats": {
+        "1": {
+          "premise": "A thousand bottles of lube implies excess supplies, but reveals LeBron-sized sex.",
+          "joke_type": "misdirect",
+          "topics": ["P. Diddy", "lube", "LeBron James", "scandal"]
+        },
+        "2": {
+          "premise": "Predators powering celebrity after-parties is widely understood about Hollywood but rarely said aloud.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["Oscars", "Grammys", "after-parties", "Epstein"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 2172, "text": "- Guys, I've been, uh, been micro dosing a lot.", "start": 4926, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 2173, "text": "Look a lot.", "start": 4931, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 2174, "text": "Probably too much.", "start": 4934, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 2175, "text": "Just a little bit throughout the day,", "start": 4937, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 2176, "text": "you know that's how they say micro dose.", "start": 4938, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 2177, "text": "I've been micro dosing cocaine.", "start": 4939, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 2178, "text": "'Cause that's how you do it.", "start": 4943, "label": "tag", "bit": 1, "beat": 1},
+    {"line_number": 2179, "text": "If I could afford a macro dose, I would.", "start": 4947, "label": "tag", "bit": 1, "beat": 1},
+    {"line_number": 2180, "text": "I can't.", "start": 4951, "label": "tag", "bit": 1, "beat": 1},
+    {"line_number": 2181, "text": "They said, uh, P. Diddy had a thousand bottles of lube.", "start": 4952, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 2182, "text": "P. Diddy had a thousand bottles of lube left.", "start": 4956, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 2183, "text": "You gotta understand...", "start": 4964, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 2184, "text": "LeBron is tall. That's a lot of baby oil.", "start": 4968, "label": "punchline", "bit": 2, "beat": 1},
+    {"line_number": 2186, "text": "Just makes me wonder, like, the Oscars and the Grammys,", "start": 4973, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 2187, "text": "what are these after parties like?", "start": 4976, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 2188, "text": "Epstein's dead and P.D.'s in jail.", "start": 4977, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 2189, "text": "They gotta suck, dude.", "start": 4980, "label": "punchline", "bit": 2, "beat": 2},
+    {"line_number": 2190, "text": "Those actors are like, \"I'm not going, the after parties.", "start": 4983, "label": "tag", "bit": 2, "beat": 2},
+    {"line_number": 2191, "text": "He's only got like a thousand bottles left.", "start": 4987, "label": "tag", "bit": 2, "beat": 2},
+    {"line_number": 2192, "text": "This isn't gonna be that fun.\"", "start": 4989, "label": "tag", "bit": 2, "beat": 2}
+  ]
+}

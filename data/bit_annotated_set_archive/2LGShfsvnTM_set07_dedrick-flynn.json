@@ -1,0 +1,106 @@
+{
+  "type": "set_meta",
+  "video_id": "2LGShfsvnTM",
+  "episode_title": "KT #753 - JIM BREUER - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=2LGShfsvnTM",
+  "publish_date": "2026-01-27",
+  "guests": ["Jim Breuer - Sam Tallent"],
+  "comedian_name": "Dedrick Flynn",
+  "comedian_type": "regular",
+  "set_number": 7,
+  "start_seconds": 3930,
+  "interview_end_line": 1888,
+  "interview_end_seconds": 4402,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "premise": "Fear of flying is rational because humans were never meant to be airborne.",
+      "beats": {
+        "1": {
+          "premise": "Flying could be defying God.",
+          "joke_type": "reframe",
+          "topics": ["flying", "God", "gravity", "fear"]
+        },
+        "2": {
+          "premise": "Turbulence could be proof that God exists.",
+          "joke_type": "reframe",
+          "topics": ["turbulence", "religion", "fear", "flying"]
+        }
+      }
+    },
+    "2": {
+      "premise": "Private jets are more terrifying than commercial planes because there is no buffer from what's actually happening.",
+      "beats": {
+        "1": {
+          "premise": "Red means danger is widely understood about warning displays but rarely shown to passengers.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["private jet", "pilot", "turbulence", "danger"]
+        },
+        "2": {
+          "premise": "A pilot reassuring passengers could be abandoning a two-person cockpit.",
+          "joke_type": "reframe",
+          "topics": ["pilot", "cockpit", "turbulence", "private jet"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 1672, "text": "It's so good to be back home.", "start": 3930, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1673, "text": "I hate flying.", "start": 3933, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1674, "text": "I'm scared of it, and that's not an irrational fear.", "start": 3936, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1675, "text": "and I'm tired of people bullying.", "start": 3939, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1676, "text": "We not supposed to be up there.", "start": 3940, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1677, "text": "All right, we're not supposed to be up there.", "start": 3943, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1678, "text": "And if we were supposed to be up there,", "start": 3945, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1679, "text": "then why did God invent gravity?", "start": 3947, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1680, "text": "All right, God wanted us on this ground, not in the air.", "start": 3949, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1681, "text": "If he wanted us in the air, he would have made us angels.", "start": 3952, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1682, "text": "But we not supposed to be up there.", "start": 3954, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1683, "text": "We're defying God.", "start": 3956, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 1684, "text": "All right, we are defying God being up there.", "start": 3957, "label": "tag", "bit": 1, "beat": 1},
+    {"line_number": 1685, "text": "And I'm not religious,", "start": 3960, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1686, "text": "but when that plane start turbo-lizing,", "start": 3961, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1687, "text": "nigga, I believe in God.", "start": 3963, "label": "punchline", "bit": 1, "beat": 2},
+    {"line_number": 1689, "text": "When the plane got tuberculosis, nigga, you the--", "start": 3967, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 1690, "text": "Oh!", "start": 3971, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 1691, "text": "Our father who out in heaven, how low a fee that name?", "start": 3972, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 1692, "text": "You know, I can't--", "start": 3974, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 1693, "text": "I ain't here-- nigga, what?", "start": 3976, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 1694, "text": "I took my first-- I took my first private jet, right?", "start": 3978, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1695, "text": "And I didn't pay for it. Tony did.", "start": 3981, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1696, "text": "It was Tony's flight.", "start": 3983, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1697, "text": "I was going to open up for Tony.", "start": 3985, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1698, "text": "And I can tell you all this.", "start": 3987, "label": "fluff", "bit": 2, "beat": 1},
+    {"line_number": 1699, "text": "Fuck little planes, all right?", "start": 3988, "label": "punchline", "bit": 2, "beat": 1},
+    {"line_number": 1700, "text": "Fuck little planes.", "start": 3992, "label": "tag", "bit": 2, "beat": 1},
+    {"line_number": 1701, "text": "We not supposed to see the captain, all right?", "start": 3993, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1702, "text": "That's what I-- we not supposed to see the captain.", "start": 3995, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1703, "text": "the captain the whole time that I was supposed to be in 30F,", "start": 3997, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1704, "text": "nigga, I'm not supposed to--", "start": 4000, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1706, "text": "There's supposed to be room in between,", "start": 4006, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1707, "text": "because you-- I'm not supposed to hear what they hear", "start": 4008, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1708, "text": "or see what they see.", "start": 4010, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1709, "text": "Lie to me over at the intercom, all right?", "start": 4012, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1710, "text": "That's-- I turned around, and I looked, and I saw the map", "start": 4014, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1711, "text": "that they saw with the plane going, and the bat was red.", "start": 4018, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1712, "text": "And we can agree that red mean bad.", "start": 4021, "label": "punchline", "bit": 2, "beat": 1},
+    {"line_number": 1714, "text": "I know red mean bad because the pilot came", "start": 4026, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 1715, "text": "and he leaned over to us.", "start": 4029, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 1716, "text": "He was like, \"Hey, guys, we're gonna get into some turbulent weather.", "start": 4030, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 1717, "text": "It's gonna be really increment.\"", "start": 4033, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 1718, "text": "Which, if people say that, we gonna die.", "start": 4035, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 1719, "text": "You know what I'm saying?", "start": 4037, "label": "fluff", "bit": 2, "beat": 2},
+    {"line_number": 1720, "text": "When you start using big words, somebody about to die.", "start": 4038, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 1721, "text": "And he was like, \"Make sure you guys are buckled up", "start": 4041, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 1722, "text": "as if I ever took off my seat belt.\"", "start": 4044, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 1723, "text": "And he was like, \"Y'all, we're gonna be fine.\"", "start": 4047, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 1724, "text": "But the whole time he was talking, I didn't say nothing", "start": 4050, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 1725, "text": "because I was scared and I was crying.", "start": 4052, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 1726, "text": "I was crying, but I really wanted to say,", "start": 4054, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 1727, "text": "\"Nigga, get back up there, all right?", "start": 4058, "label": "punchline", "bit": 2, "beat": 2},
+    {"line_number": 1728, "text": "Why are you back here?", "start": 4060, "label": "tag", "bit": 2, "beat": 2},
+    {"line_number": 1729, "text": "This plane take two people.", "start": 4061, "label": "tag", "bit": 2, "beat": 2},
+    {"line_number": 1730, "text": "I turn around the pilot doing this with both steering wheel.\"", "start": 4063, "label": "tag", "bit": 2, "beat": 2},
+    {"line_number": 1731, "text": "Thank y'all so much for that, man.", "start": 4067, "label": "fluff", "bit": null, "beat": null}
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "type": "set_meta",
+  "video_id": "oj5Qi7P9Gcc",
+  "episode_title": "KT #754 - BERT KREISCHER + RICK INGRAHAM",
+  "episode_url": "https://www.youtube.com/watch?v=oj5Qi7P9Gcc",
+  "publish_date": "2026-02-03",
+  "guests": ["Bert Kreischer", "Rick Ingraham"],
+  "comedian_name": "Sharon Ruth Hensley",
+  "comedian_type": "bucket_pull",
+  "set_number": 6,
+  "start_seconds": 2990,
+  "interview_end_line": 1458,
+  "interview_end_seconds": 3418,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "Circumcision status is widely understood about penises but rarely asked aloud.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["penis", "circumcision", "men", "conversation"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Warning about illegal dick pics implies rejection, but reveals strict submission guidelines.",
+          "joke_type": "misdirect",
+          "topics": ["dick pics", "Texas law", "nude photos", "size reference"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 1281, "text": "Good evening, Kill Tony people.", "start": 2990, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1282, "text": "Take two.", "start": 2993, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1283, "text": "I am Sharon Ruth Hensley and I have two helpful hints for the male of our species to better interact with me.", "start": 2994, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1284, "text": "One, if you insist on mentioning your penis, Tony,", "start": 3003, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1285, "text": "more than once within a short period of time, I will have questions and/or comments.", "start": 3009, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1286, "text": "I am not responsible for what form those take and inquiring minds still want to know your circumcision status.", "start": 3015, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 1287, "text": "Two, if you insist on sending me pictures of said penis, Tony's audience, be aware in", "start": 3023, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1288, "text": "Texas and a handful of other states it is against the law.", "start": 3033, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1289, "text": "I find them amusing, so I will allow it.", "start": 3037, "label": "punchline", "bit": 2, "beat": 1},
+    {"line_number": 1290, "text": "If, and only if, you follow these guidelines.", "start": 3041, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1291, "text": "Well lit, head to toe, nude, fully erect, holding a 16 ounce bottle adjacent for size", "start": 3044, "label": "tag", "bit": 2, "beat": 1}
+  ]
+}

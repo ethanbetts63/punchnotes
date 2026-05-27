@@ -1,0 +1,78 @@
+{
+  "type": "set_meta",
+  "video_id": "2LGShfsvnTM",
+  "episode_title": "KT #753 - JIM BREUER - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=2LGShfsvnTM",
+  "publish_date": "2026-01-27",
+  "guests": ["Jim Breuer - Sam Tallent"],
+  "comedian_name": "Hank Garza",
+  "comedian_type": "bucket_pull",
+  "set_number": 4,
+  "start_seconds": 2241,
+  "interview_end_line": 1042,
+  "interview_end_seconds": 2522,
+  "joke_book": "large",
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "\"Prematurely\" can mean early birth or ejaculating too quickly.",
+          "joke_type": "double-meaning",
+          "topics": ["premature birth", "sex", "father"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Failing to pick up dog poop could be making excuses for animals.",
+          "joke_type": "reframe",
+          "topics": ["white guilt", "dog poop", "public"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "A racist impression implies Mexicans, but reveals Japanese soldiers hearing Navajo Code Talkers.",
+          "joke_type": "misdirect",
+          "topics": ["Navajo Code Talkers", "impression", "Japanese", "history"]
+        }
+      }
+    },
+    "4": {
+      "beats": {
+        "1": {
+          "premise": "Drug addiction is like fatherhood because both are exhausting and thankless.",
+          "joke_type": "analogy",
+          "topics": ["drug addiction", "fatherhood", "parenting"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 898, "text": "Guys, believe it or not, I was actually born prematurely.", "start": 2241, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 899, "text": "My dad came quick.", "start": 2246, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 900, "text": "It's crazy.", "start": 2248, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 901, "text": "The other day, I was out in public with my dog,", "start": 2250, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 902, "text": "and it took a shit, and I didn't have a bag.", "start": 2252, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 903, "text": "And I did that move, you know, and I was like,", "start": 2255, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 904, "text": "\"Man, is this what white guilt feels like?\"", "start": 2257, "label": "punchline", "bit": 2, "beat": 1},
+    {"line_number": 906, "text": "\"Having to make excuses for animals?\"", "start": 2262, "label": "tag", "bit": 2, "beat": 1},
+    {"line_number": 908, "text": "\"All right, you're gonna love this next one.\"", "start": 2267, "label": "fluff", "bit": 3, "beat": 1},
+    {"line_number": 910, "text": "I've been really working on this impression.", "start": 2270, "label": "fluff", "bit": 3, "beat": 1},
+    {"line_number": 911, "text": "Here, I'm gonna hit you with it.", "start": 2272, "label": "fluff", "bit": 3, "beat": 1},
+    {"line_number": 912, "text": "Oh, yeah, boss.", "start": 2275, "label": "setup", "bit": 3, "beat": 1},
+    {"line_number": 913, "text": "They look like a skinny Mexican.", "start": 2276, "label": "setup", "bit": 3, "beat": 1},
+    {"line_number": 914, "text": "And they talk like a \"Ho yo yo yo ho yo yo yo.\"", "start": 2279, "label": "setup", "bit": 3, "beat": 1},
+    {"line_number": 916, "text": "Yo, that's the Japanese scene", "start": 2286, "label": "punchline", "bit": 3, "beat": 1},
+    {"line_number": 917, "text": "the Navajo Code Talkers for the first time.", "start": 2287, "label": "punchline", "bit": 3, "beat": 1},
+    {"line_number": 919, "text": "Little history for your ass.", "start": 2291, "label": "tag", "bit": 3, "beat": 1},
+    {"line_number": 921, "text": "Um, before I was a dad, I was a drug addict,", "start": 2295, "label": "setup", "bit": 4, "beat": 1},
+    {"line_number": 922, "text": "and I thought I was gonna be a terrible father.", "start": 2298, "label": "setup", "bit": 4, "beat": 1},
+    {"line_number": 923, "text": "So I found out that being a drug addict and being a dad,", "start": 2300, "label": "setup", "bit": 4, "beat": 1},
+    {"line_number": 924, "text": "Zach's ain't fucking life.", "start": 2302, "label": "punchline", "bit": 4, "beat": 1},
+    {"line_number": 925, "text": "I'll end it at that, 'cause it's pretty deep.", "start": 2304, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 926, "text": "But, yeah, that's been my time. Thank you so much.", "start": 2306, "label": "fluff", "bit": null, "beat": null}
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "type": "set_meta",
+  "video_id": "2LGShfsvnTM",
+  "episode_title": "KT #753 - JIM BREUER - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=2LGShfsvnTM",
+  "publish_date": "2026-01-27",
+  "guests": ["Jim Breuer - Sam Tallent"],
+  "comedian_name": "Sheik Ahmed",
+  "comedian_type": "bucket_pull",
+  "set_number": 11,
+  "start_seconds": 6180,
+  "interview_end_line": 2854,
+  "interview_end_seconds": 6477,
+  "joke_book": "small",
+  "bit_meta": {
+    "1": {
+      "premise": "The Islamic promise of virgins transplanted into Western social conventions.",
+      "beats": {
+        "1": {
+          "premise": "\"Virgins and gentlemen\" can mean a formal greeting or an Islamic afterlife fantasy.",
+          "joke_type": "double-meaning",
+          "topics": ["virgins", "Islam", "greeting", "wordplay"]
+        },
+        "2": {
+          "premise": "A virgin workshop implies sexual instruction, but reveals defensive combat advice.",
+          "joke_type": "misdirect",
+          "topics": ["virgin", "Islam", "hijab", "workshop"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "\"An eye for an eye\" implies reciprocal justice, but reveals Christian fast-food virgins.",
+          "joke_type": "misdirect",
+          "topics": ["virgins", "Chick-fil-A", "Middle East", "Christianity"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "Bring-your-child-to-work day could be overcrowding 7-Eleven.",
+          "joke_type": "reframe",
+          "topics": ["7-Eleven", "Middle East", "stereotype", "Uber"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 2740, "text": "- Good evening, virgins and gentlemen.", "start": 6180, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 2741, "text": "I am Sheikh Ahmed.", "start": 6184, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 2742, "text": "I teach a one minute workshop to infidels", "start": 6187, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 2743, "text": "how to treat your virgin.", "start": 6190, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 2744, "text": "First, bend your knees.", "start": 6192, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 2745, "text": "Second, you throw the hijab at the virgin.", "start": 6194, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 2746, "text": "Cover yourself up.", "start": 6197, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 2747, "text": "Cover yourself up.", "start": 6199, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 2748, "text": "Cover yourself up.", "start": 6200, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 2749, "text": "And third, you dodge for anything the virgin throws", "start": 6202, "label": "punchline", "bit": 1, "beat": 2},
+    {"line_number": 2750, "text": "back at you.", "start": 6206, "label": "punchline", "bit": 1, "beat": 2},
+    {"line_number": 2751, "text": "Honk, honk.", "start": 6207, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 2752, "text": "I, we have a saying in Mideast, an eye for an eye.", "start": 6210, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 2753, "text": "And what about the virgins?", "start": 6213, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 2754, "text": "They said go to Chick-fil-A.", "start": 6216, "label": "punchline", "bit": 2, "beat": 1},
+    {"line_number": 2755, "text": "The Chick-fil-A.", "start": 6218, "label": "tag", "bit": 2, "beat": 1},
+    {"line_number": 2756, "text": "That's where the virgins are.", "start": 6220, "label": "tag", "bit": 2, "beat": 1},
+    {"line_number": 2757, "text": "Well, in Mideast, we don't have bring your child to work day", "start": 6222, "label": "setup", "bit": 3, "beat": 1},
+    {"line_number": 2758, "text": "because it gets too crowded at 7-Eleven.", "start": 6227, "label": "punchline", "bit": 3, "beat": 1},
+    {"line_number": 2759, "text": "Anyone needs a ride in my Uber's park outside.", "start": 6231, "label": "tag", "bit": 3, "beat": 1},
+    {"line_number": 2760, "text": "Thank you very much.", "start": 6235, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 2761, "text": "I am not here to bomb anyone.", "start": 6236, "label": "tag", "bit": 3, "beat": 1}
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "type": "set_meta",
+  "video_id": "oj5Qi7P9Gcc",
+  "episode_title": "KT #754 - BERT KREISCHER + RICK INGRAHAM",
+  "episode_url": "https://www.youtube.com/watch?v=oj5Qi7P9Gcc",
+  "publish_date": "2026-02-03",
+  "guests": ["Bert Kreischer", "Rick Ingraham"],
+  "comedian_name": "Angel Diaz",
+  "comedian_type": "bucket_pull",
+  "set_number": 9,
+  "start_seconds": 4470,
+  "interview_end_line": 2412,
+  "interview_end_seconds": 5616,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "premise": "Needing a new place to live is made worse by a landlord who ignores the maintenance request to promote his DJ set.",
+      "beats": {
+        "1": {
+          "premise": "Nobody wanting to live with someone is widely understood by silence but rarely said aloud.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["housing", "subletting", "crowd work"]
+        },
+        "2": {
+          "premise": "An AC repair request implies maintenance, but reveals landlord DJ promotion.",
+          "joke_type": "misdirect",
+          "topics": ["landlord", "AC", "DJ", "text message"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 1908, "text": "- Yo, fuck yeah.", "start": 4470, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1909, "text": "Yo, give it up for myself one time.", "start": 4471, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1910, "text": "Hell yeah.", "start": 4475, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1911, "text": "Fuck, I actually have a real life question.", "start": 4477, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1912, "text": "Is anyone in here subletting a room?", "start": 4480, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1913, "text": "Fuck me, bro.", "start": 4484, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 1914, "text": "God damn.", "start": 4486, "label": "tag", "bit": 1, "beat": 1},
+    {"line_number": 1915, "text": "Does anyone see themselves living with me at all?", "start": 4487, "label": "tag", "bit": 1, "beat": 1},
+    {"line_number": 1916, "text": "Jesus Christ.", "start": 4491, "label": "tag", "bit": 1, "beat": 1},
+    {"line_number": 1917, "text": "All right, well, it's because I have to move out", "start": 4492, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1918, "text": "of my apartment, like, really bad.", "start": 4494, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1919, "text": "Like, all right.", "start": 4496, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 1920, "text": "This is a text message thread between, like,", "start": 4496, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1921, "text": "me and my landlord.", "start": 4498, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1922, "text": "I had to write it down.", "start": 4499, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 1923, "text": "All right, this is what I said to--", "start": 4501, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 1924, "text": "all right.", "start": 4502, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 1925, "text": "I said, Mr. Landlord-- no, all right.", "start": 4504, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 1926, "text": "I said, Mr. Landlord Man, can you please come tomorrow", "start": 4507, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1927, "text": "between 10 AM and 1 PM to fix the AC unit?", "start": 4513, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1928, "text": "And this is what he said.", "start": 4518, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1929, "text": "He said, \"You short little Mexican man.\"", "start": 4520, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1930, "text": "No, I'm kidding.", "start": 4524, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 1931, "text": "I'm kidding.", "start": 4525, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 1932, "text": "He didn't say that.", "start": 4525, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 1933, "text": "He didn't say that.", "start": 4526, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 1934, "text": "He said, \"I am doing a live stream set on the radio.", "start": 4527, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1935, "text": "Please, oh fuck, please tune in online", "start": 4531, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1936, "text": "and I will come around for,", "start": 4535, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1937, "text": "you won't believe who the fuck is a DJ.\"", "start": 4536, "label": "punchline", "bit": 1, "beat": 2},
+    {"line_number": 1938, "text": "Damn, yo, yeah, you know what?", "start": 4539, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1939, "text": "Yeah, yo, give it up for me.", "start": 4540, "label": "fluff", "bit": null, "beat": null}
+  ]
+}

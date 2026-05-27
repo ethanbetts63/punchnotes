@@ -1,0 +1,66 @@
+{
+  "type": "set_meta",
+  "video_id": "oj5Qi7P9Gcc",
+  "episode_title": "KT #754 - BERT KREISCHER + RICK INGRAHAM",
+  "episode_url": "https://www.youtube.com/watch?v=oj5Qi7P9Gcc",
+  "publish_date": "2026-02-03",
+  "guests": ["Bert Kreischer", "Rick Ingraham"],
+  "comedian_name": "Hans Kim",
+  "comedian_type": "regular",
+  "set_number": 1,
+  "start_seconds": 386,
+  "interview_end_line": 289,
+  "interview_end_seconds": 768,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "premise": "ICE can mean frozen road hazard or immigration enforcement, and the \"bad kind\" is the one entering homes without warrants.",
+      "beats": {
+        "1": {
+          "premise": "\"ICE\" can mean frozen road hazard or immigration enforcement.",
+          "joke_type": "double-meaning",
+          "topics": ["ICE", "immigration", "warrants", "wordplay"]
+        },
+        "2": {
+          "premise": "Black crime stereotypes are widely understood about policing but rarely said aloud.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["ICE", "Black people", "immigration", "crime"]
+        },
+        "3": {
+          "premise": "Deporting Black people is so physically demanding that agents need elite fitness.",
+          "joke_type": "hyperbole",
+          "topics": ["ICE", "Black people", "deportation", "fitness"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Three-gun training is so excessive that it only fits a carjacking during quail hunting.",
+          "joke_type": "hyperbole",
+          "topics": ["three-gun competition", "Antifa", "quail", "guns"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 140, "text": "Hey.", "start": 386, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 141, "text": "Hope you guys are staying warm, driving safe.", "start": 389, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 142, "text": "There's a lot of ice on the road and not just the good kind.", "start": 392, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 143, "text": "Not just the brave men and women who are trying to make sure these sexy Latinas don't suck her cocks.", "start": 399, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 145, "text": "But the bad kind that enters your home without a warrant.", "start": 408, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 146, "text": "My only problem with ICE is that they're going after every minority group except black people.", "start": 411, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 148, "text": "I mean, you're trying to reduce crime.", "start": 422, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 150, "text": "You can just give it more room to breathe.", "start": 428, "label": "punchline", "bit": 1, "beat": 2},
+    {"line_number": 152, "text": "But I understand.", "start": 433, "label": "setup", "bit": 1, "beat": 3},
+    {"line_number": 153, "text": "Can you imagine the shape you have to be", "start": 434, "label": "setup", "bit": 1, "beat": 3},
+    {"line_number": 154, "text": "into to deport black people?", "start": 436, "label": "punchline", "bit": 1, "beat": 3},
+    {"line_number": 156, "text": "Yeah, I'm actually training", "start": 442, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 157, "text": "for the three-gun competition right now.", "start": 444, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 158, "text": "That's where you shoot a pistol, a rifle,", "start": 447, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 159, "text": "and a shotgun in under three minutes,", "start": 449, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 160, "text": "just in case I get carjacked at an Antifa rally.", "start": 451, "label": "punchline", "bit": 2, "beat": 1},
+    {"line_number": 161, "text": "And a flock of quail fly by.", "start": 455, "label": "tag", "bit": 2, "beat": 1},
+    {"line_number": 162, "text": "All right, that's my time.", "start": 458, "label": "fluff", "bit": null, "beat": null}
+  ]
+}

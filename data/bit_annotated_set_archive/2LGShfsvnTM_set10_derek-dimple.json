@@ -1,0 +1,59 @@
+{
+  "type": "set_meta",
+  "video_id": "2LGShfsvnTM",
+  "episode_title": "KT #753 - JIM BREUER - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=2LGShfsvnTM",
+  "publish_date": "2026-01-27",
+  "guests": ["Jim Breuer - Sam Tallent"],
+  "comedian_name": "Derek Dimple",
+  "comedian_type": "bucket_pull",
+  "set_number": 10,
+  "start_seconds": 5309,
+  "interview_end_line": 2723,
+  "interview_end_seconds": 6135,
+  "joke_book": "small",
+  "bit_meta": {
+    "1": {
+      "premise": "An autistic comedian's relationship with eye contact subverts every expectation about the condition.",
+      "beats": {
+        "1": {
+          "premise": "Crowd call-and-response implies hype, but reveals an autism-spectrum diagnosis.",
+          "joke_type": "misdirect",
+          "topics": ["autism", "crowd work", "spectrum", "eye contact"]
+        },
+        "2": {
+          "premise": "Eye-contact porn could be an autistic contradiction.",
+          "joke_type": "reframe",
+          "topics": ["autism", "eye contact", "porn", "irony"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 2345, "text": "- Comedy mothership, make some noise", "start": 5309, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 2346, "text": "if you're having a good time.", "start": 5311, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 2348, "text": "Let me hear you go, \"Woo!\"", "start": 5315, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 2350, "text": "Let me hear you go, \"Aw.\"", "start": 5319, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 2351, "text": "Tism, I have it.", "start": 5321, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 2352, "text": "Could you tell?", "start": 5324, "label": "tag", "bit": 1, "beat": 1},
+    {"line_number": 2353, "text": "Something that doesn't totally make sense", "start": 5326, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 2354, "text": "about me being on the spectrum", "start": 5328, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 2355, "text": "is my favorite kind of adult videos", "start": 5329, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 2356, "text": "have lots of eye contact.", "start": 5331, "label": "punchline", "bit": 1, "beat": 2},
+    {"line_number": 2357, "text": "Thank you.", "start": 5334, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 2358, "text": "Thank you.", "start": 5336, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 2359, "text": "Don't you fucking look away.", "start": 5337, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 2360, "text": "Thank you.", "start": 5340, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 2361, "text": "There's a rock right now.", "start": 5340, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 2362, "text": "Thank you.", "start": 5342, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 2363, "text": "I got four eyes, look at them.", "start": 5343, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 2364, "text": "Eyes up here, ladies and gentlemen.", "start": 5345, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 2365, "text": "I got five eyes, look at them.", "start": 5347, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 2367, "text": "Six, seven eyes, look at them.", "start": 5351, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 2368, "text": "So now, from here to here,", "start": 5354, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 2369, "text": "I just look like a hot lady", "start": 5359, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 2370, "text": "in one of those Renaissance paintings.", "start": 5360, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 2371, "text": "Oh my lord, is my visage not pleasing to you?", "start": 5364, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 2372, "text": "Thank you very much.", "start": 5370, "label": "fluff", "bit": null, "beat": null}
+  ]
+}

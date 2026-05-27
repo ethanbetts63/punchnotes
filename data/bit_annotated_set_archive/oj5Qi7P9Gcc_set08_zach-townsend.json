@@ -1,0 +1,81 @@
+{
+  "type": "set_meta",
+  "video_id": "oj5Qi7P9Gcc",
+  "episode_title": "KT #754 - BERT KREISCHER + RICK INGRAHAM",
+  "episode_url": "https://www.youtube.com/watch?v=oj5Qi7P9Gcc",
+  "publish_date": "2026-02-03",
+  "guests": ["Bert Kreischer", "Rick Ingraham"],
+  "comedian_name": "Zach Townsend",
+  "comedian_type": "bucket_pull",
+  "set_number": 8,
+  "start_seconds": 4014,
+  "interview_end_line": 1893,
+  "interview_end_seconds": 4420,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "premise": "Kids and guns are interchangeable dangers with identical social rituals.",
+      "beats": {
+        "1": {
+          "premise": "\"It\" can mean a gun or a child.",
+          "joke_type": "double-meaning",
+          "topics": ["guns", "kids", "jail", "holding"]
+        },
+        "2": {
+          "premise": "A gun is like a kid because both are held sideways by bad owners.",
+          "joke_type": "analogy",
+          "topics": ["guns", "babies", "Walmart", "sideways"]
+        },
+        "3": {
+          "premise": "\"School\" can mean a child's classroom or a gun's expected crime scene.",
+          "joke_type": "double-meaning",
+          "topics": ["guns", "kids", "school", "street"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Teacher-student sex could be caused by low teacher pay.",
+          "joke_type": "reframe",
+          "topics": ["teachers", "students", "salary", "dating"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 1699, "text": "How's it going? I'm 35 years old. I used to want kids real bad.", "start": 4014, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1700, "text": "I used to want guns real bad, too. Now I don't know if I want either one, you know.", "start": 4017, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1701, "text": "I kind of see them as the same thing, you know, they're both dangerous.", "start": 4022, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1702, "text": "And whenever somebody has one, they're always like, \"Do you want to hold it?\"", "start": 4026, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1703, "text": "You know, and I'm like, \"No!", "start": 4029, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1704, "text": "No, I know way too many people in jail", "start": 4031, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1705, "text": "for touching those things.", "start": 4033, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 1706, "text": "You know what I mean?", "start": 4034, "label": "fluff", "bit": 1, "beat": 1},
+    {"line_number": 1707, "text": "No, yuck.", "start": 4035, "label": "tag", "bit": 1, "beat": 1},
+    {"line_number": 1708, "text": "Get my fingerprints off it, yeah.", "start": 4036, "label": "tag", "bit": 1, "beat": 1},
+    {"line_number": 1709, "text": "I feel like guns are a lot like kids too", "start": 4039, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1710, "text": "'cause all the worst people I know hold their sideways.", "start": 4041, "label": "punchline", "bit": 1, "beat": 2},
+    {"line_number": 1711, "text": "You know, it's either like, give me your fucking money", "start": 4043, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1712, "text": "or like baby hanging off the hip at Walmart, you know.", "start": 4045, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 1713, "text": "Some white woman in Cookie Monster pajama bottoms", "start": 4048, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 1714, "text": "even though the sun is still up.", "start": 4051, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 1715, "text": "Come on, you guys have been to Houston before.", "start": 4053, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 1716, "text": "You know what I'm talking about.", "start": 4055, "label": "fluff", "bit": 1, "beat": 2},
+    {"line_number": 1717, "text": "The baby's got the tears to come on this side.", "start": 4057, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 1718, "text": "I feel like guns are a lot like kids too,", "start": 4060, "label": "setup", "bit": 1, "beat": 3},
+    {"line_number": 1719, "text": "'cause I never see one out on the street.", "start": 4061, "label": "setup", "bit": 1, "beat": 3},
+    {"line_number": 1720, "text": "I'm like, shouldn't you be in school right now?", "start": 4062, "label": "punchline", "bit": 1, "beat": 3},
+    {"line_number": 1721, "text": "You know, and I, I don't know about you guys,", "start": 4064, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1722, "text": "but whenever I, whenever I'm on Facebook,", "start": 4070, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1723, "text": "I see a new article of like a female teacher", "start": 4071, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1724, "text": "banging their younger male students.", "start": 4073, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1725, "text": "We gotta pay these teachers more money, right?", "start": 4076, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1726, "text": "So they, so they can afford to go on dates", "start": 4078, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1727, "text": "with people their own age.", "start": 4080, "label": "punchline", "bit": 2, "beat": 1},
+    {"line_number": 1728, "text": "'Cause it's super easy to wine and dine a 15 year old.", "start": 4081, "label": "tag", "bit": 2, "beat": 1},
+    {"line_number": 1729, "text": "You just fucking say six, seven", "start": 4083, "label": "tag", "bit": 2, "beat": 1},
+    {"line_number": 1730, "text": "while you juggle their balls a little bit, you know?", "start": 4085, "label": "tag", "bit": 2, "beat": 1},
+    {"line_number": 1731, "text": "All right, I'm Zach, thank you guys.", "start": 4087, "label": "fluff", "bit": null, "beat": null}
+  ]
+}

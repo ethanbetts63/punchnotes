@@ -1,0 +1,69 @@
+{
+  "type": "set_meta",
+  "video_id": "PG_8dq4YtSQ",
+  "episode_title": "KT #755 - DR PHIL (ADAM RAY) + SAL VULCANO, + GREG FITZSIMMONS",
+  "episode_url": "https://www.youtube.com/watch?v=PG_8dq4YtSQ",
+  "publish_date": "2026-02-10",
+  "guests": ["Dr Phil (Adam Ray)", "Sal Vulcano", "Greg Fitzsimmons"],
+  "comedian_name": "Sion Lazar",
+  "comedian_type": "bucket_pull",
+  "set_number": 12,
+  "start_seconds": 6280,
+  "interview_end_line": 3004,
+  "interview_end_seconds": 6900,
+  "joke_book": "medium",
+  "bit_meta": {
+    "1": {
+      "premise": "Chinese people are dangerous pedestrians because they never look up from their phones.",
+      "beats": {
+        "1": {
+          "premise": "Bad Chinese driving implies traffic danger, but reveals worse walking.",
+          "joke_type": "misdirect",
+          "topics": ["Chinese people", "driving", "walking", "stereotypes"]
+        },
+        "2": {
+          "premise": "A phone-distracted pedestrian is like a remote-control car because both keep bouncing into obstacles.",
+          "joke_type": "analogy",
+          "topics": ["pedestrians", "phones", "bumper cars", "Shanghai"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "\"Metrosexual\" can mean stylish urban man or someone having sex in the metro.",
+          "joke_type": "double-meaning",
+          "topics": ["metrosexual", "metro", "subway", "poles"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 2738, "text": "-Well, I just came from Shanghai.", "start": 6280, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 2739, "text": "I'm sorry if some of my humor doesn't land,", "start": 6282, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 2740, "text": "but I'm used to talking to people who don't speak English.", "start": 6285, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 2741, "text": "So if you don't mind, I'm going to talk a little bit", "start": 6288, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 2742, "text": "about some Chinese problems.", "start": 6291, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 2743, "text": "If you people think that they don't drive well over here,", "start": 6293, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 2744, "text": "you should see how they walk.", "start": 6295, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 2746, "text": "There's this one guy, he walked into me about 10 times.", "start": 6299, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 2747, "text": "It's kind of like those remote cars", "start": 6301, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 2748, "text": "when they bump into something.", "start": 6304, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 2749, "text": "He just, \"Yee-yah, boom, yee-yah, boom.\"", "start": 6306, "label": "punchline", "bit": 1, "beat": 2},
+    {"line_number": 2750, "text": "They don't even look up from their phone.", "start": 6309, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 2751, "text": "They just keep on bouncing into your ass", "start": 6311, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 2752, "text": "until they just burn out.", "start": 6312, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 2753, "text": "The other problem is they got a lot of metrosexuals out there.", "start": 6317, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 2754, "text": "Does anyone know what a metrosexual is?", "start": 6321, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 2755, "text": "If you don't know what a Metro's...", "start": 6323, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 2756, "text": "[ Laughter ]", "start": 6326, "label": "fluff", "bit": 2, "beat": 1},
+    {"line_number": 2757, "text": "Calm down, Americans. Calm down.", "start": 6332, "label": "fluff", "bit": 2, "beat": 1},
+    {"line_number": 2758, "text": "Stand on your head and calm down, like the police say.", "start": 6334, "label": "fluff", "bit": 2, "beat": 1},
+    {"line_number": 2759, "text": "So put your hands in the air, stand on your head and calm down.", "start": 6337, "label": "fluff", "bit": 2, "beat": 1},
+    {"line_number": 2760, "text": "No. Calm down, sir.", "start": 6340, "label": "fluff", "bit": 2, "beat": 1},
+    {"line_number": 2761, "text": "You need to -- No.", "start": 6343, "label": "fluff", "bit": 2, "beat": 1},
+    {"line_number": 2762, "text": "What they do is, in the Metro, if you're walking around", "start": 6344, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 2763, "text": "and you don't know what a Metrosexual is,", "start": 6347, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 2764, "text": "just watch who's bouncing off of the poles.", "start": 6349, "label": "punchline", "bit": 2, "beat": 1}
+  ]
+}

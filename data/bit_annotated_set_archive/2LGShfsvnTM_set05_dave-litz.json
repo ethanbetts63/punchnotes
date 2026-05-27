@@ -1,0 +1,60 @@
+{
+  "type": "set_meta",
+  "video_id": "2LGShfsvnTM",
+  "episode_title": "KT #753 - JIM BREUER - SAM TALLENT",
+  "episode_url": "https://www.youtube.com/watch?v=2LGShfsvnTM",
+  "publish_date": "2026-01-27",
+  "guests": ["Jim Breuer - Sam Tallent"],
+  "comedian_name": "Dave Litz",
+  "comedian_type": "bucket_pull",
+  "set_number": 5,
+  "start_seconds": 2687,
+  "interview_end_line": 1346,
+  "interview_end_seconds": 3154,
+  "joke_book": "small",
+  "bit_meta": {
+    "1": {
+      "premise": "A Japanese mother-in-law's pancreatic cancer surgery yields absurd achievements and a gut-spilling pun.",
+      "beats": {
+        "1": {
+          "premise": "Removing a pancreas could be inventing triabetics.",
+          "joke_type": "reframe",
+          "topics": ["pancreatic cancer", "Japan", "diabetes", "surgery"]
+        },
+        "2": {
+          "premise": "\"Spilling guts\" can mean revealing secrets or exposing internal organs.",
+          "joke_type": "double-meaning",
+          "topics": ["Japanese", "secrets", "surgery", "idiom"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 1125, "text": "- Hey, everybody.", "start": 2687, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1126, "text": "Waka waka waka.", "start": 2688, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1127, "text": "Nanu nanu.", "start": 2689, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1129, "text": "My mother-in-law survived stage four pancreatic cancer", "start": 2692, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1130, "text": "by having her pancreas cut out.", "start": 2696, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1131, "text": "(gagging)", "start": 2699, "label": "fluff", "bit": 1, "beat": 1},
+    {"line_number": 1132, "text": "That's right.", "start": 2699, "label": "fluff", "bit": 1, "beat": 1},
+    {"line_number": 1133, "text": "Yeah, my mother-in-law was born in Sendai, Japan,", "start": 2700, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1134, "text": "And in Japan, they don't have the same diseases that we do.", "start": 2703, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1135, "text": "They don't have the same health problems.", "start": 2708, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1136, "text": "They don't have pancreatic cancer.", "start": 2710, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1137, "text": "So they gave her two choices.", "start": 2712, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1138, "text": "They were like, you can either live and we,", "start": 2713, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1139, "text": "\"Cut out your pancreas,\" or you keep your pancreas in", "start": 2716, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1140, "text": "and you die.", "start": 2720, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1141, "text": "So she was like, \"I want to leave.\"", "start": 2722, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1142, "text": "So they, \"Cut out our pancreas.\"", "start": 2725, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1143, "text": "So she now has a permanent insulin pump", "start": 2728, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1144, "text": "and type 3 diabetes, which I like to call triabetics.", "start": 2731, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 1145, "text": "So in one woman, my mother-in-law,", "start": 2736, "label": "tag", "bit": 1, "beat": 1},
+    {"line_number": 1146, "text": "the Japanese cured pancreatic cancer,", "start": 2742, "label": "tag", "bit": 1, "beat": 1},
+    {"line_number": 1147, "text": "they invented a cyborg, and they perfected triabetics.", "start": 2745, "label": "tag", "bit": 1, "beat": 1},
+    {"line_number": 1148, "text": "So you know why these Japanese can't keep a secret?", "start": 2751, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1149, "text": "Because they're always spilling their guts.", "start": 2755, "label": "punchline", "bit": 1, "beat": 2},
+    {"line_number": 1150, "text": "[GRUNTS]", "start": 2756, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1151, "text": "You see that?", "start": 2758, "label": "fluff", "bit": null, "beat": null}
+  ]
+}

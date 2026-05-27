@@ -1,0 +1,103 @@
+{
+  "type": "set_meta",
+  "video_id": "oj5Qi7P9Gcc",
+  "episode_title": "KT #754 - BERT KREISCHER + RICK INGRAHAM",
+  "episode_url": "https://www.youtube.com/watch?v=oj5Qi7P9Gcc",
+  "publish_date": "2026-02-03",
+  "guests": ["Bert Kreischer", "Rick Ingraham"],
+  "comedian_name": "Dedric Flynn",
+  "comedian_type": "regular",
+  "set_number": 7,
+  "start_seconds": 3458,
+  "interview_end_line": 1688,
+  "interview_end_seconds": 3978,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "premise": "A man with no arms steals a wallet using his feet, then has the audacity to set terms.",
+      "beats": {
+        "1": {
+          "premise": "Missing arms could be toes functioning like fingers.",
+          "joke_type": "reframe",
+          "topics": ["Greyhound", "theft", "disability", "feet"]
+        },
+        "2": {
+          "premise": "Using arms and legs could be cheating against an armless thief.",
+          "joke_type": "reframe",
+          "topics": ["wrestling", "cheating", "disability", "theft"]
+        },
+        "3": {
+          "premise": "Snitching is widely understood as dangerous on a long bus ride but rarely admitted aloud.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["Greyhound", "snitching", "bus travel", "theft"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Carrying a gun on Greyhound could be obvious self-defense.",
+          "joke_type": "reframe",
+          "topics": ["Greyhound", "gun", "court", "self-defense"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "A Velcro wallet could be audible proof of an attempt to pay.",
+          "joke_type": "reframe",
+          "topics": ["Velcro wallet", "paying", "poverty", "sound"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 1472, "text": "- What's up?", "start": 3458, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 1473, "text": "Guys, I hate the Greyhound.", "start": 3461, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1474, "text": "I'm so glad I don't gonna take the Greyhound no more.", "start": 3464, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1475, "text": "One time a nigga with no arms stole my wallet.", "start": 3468, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 1477, "text": "I'll say it again.", "start": 3473, "label": "fluff", "bit": 1, "beat": 1},
+    {"line_number": 1478, "text": "A nigga with no arms stole my wallet.", "start": 3474, "label": "tag", "bit": 1, "beat": 1},
+    {"line_number": 1479, "text": "And the only reason why I called him", "start": 3478, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1480, "text": "because my wallet was in my hoodie", "start": 3479, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1481, "text": "'cause it was cold out and I felt that nigga", "start": 3481, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1482, "text": "big toe scrape across my tummy.", "start": 3483, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 1484, "text": "And then while I woke, that shit was right there", "start": 3487, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1485, "text": "in between his thumb toe, I don't know what you call it,", "start": 3490, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1486, "text": "but his thumb toe and his index toe", "start": 3493, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1487, "text": "was gripping that motherfucker.", "start": 3496, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 1488, "text": "And he got strong legs, he got nice legs", "start": 3498, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1489, "text": "'cause you know how like Daredevil, his eyes don't work,", "start": 3500, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 1490, "text": "so his ears is stronger, so his arms is his legs.", "start": 3503, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 1491, "text": "So when I tried to grab that shit, I had to like, tug a--", "start": 3507, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1492, "text": "You know, I had to tug a war with this nigga.", "start": 3511, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1493, "text": "Then I started wrestling my wallet away.", "start": 3513, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 1494, "text": "He talk about, \"You cheating, you cheating,\"", "start": 3515, "label": "punchline", "bit": 1, "beat": 2},
+    {"line_number": 1495, "text": "'cause I had to use my arms and my legs...", "start": 3517, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 1497, "text": "to get it away.", "start": 3522, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 1498, "text": "It's just when I finally got it,", "start": 3523, "label": "setup", "bit": 1, "beat": 3},
+    {"line_number": 1499, "text": "I stood up with my wallet, and he stood up with me,", "start": 3525, "label": "setup", "bit": 1, "beat": 3},
+    {"line_number": 1500, "text": "but he was wearing a hoodie, too,", "start": 3528, "label": "setup", "bit": 1, "beat": 3},
+    {"line_number": 1501, "text": "with no arms. His arms was dangling.", "start": 3529, "label": "setup", "bit": 1, "beat": 3},
+    {"line_number": 1502, "text": "So when he stood up, he was like,", "start": 3532, "label": "setup", "bit": 1, "beat": 3},
+    {"line_number": 1503, "text": "\"What are you gonna do? Snitch?\"", "start": 3533, "label": "punchline", "bit": 1, "beat": 3},
+    {"line_number": 1504, "text": "I was like, \"No, nigga, we still got eight hours on this bus.", "start": 3536, "label": "tag", "bit": 1, "beat": 3},
+    {"line_number": 1505, "text": "I can't snitch.\"", "start": 3539, "label": "tag", "bit": 1, "beat": 3},
+    {"line_number": 1506, "text": "How dare you? 'Cause the other thing is,", "start": 3541, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1507, "text": "when I ride the Greyhound, I got my gun on me,", "start": 3543, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1508, "text": "and they tell you, \"You can't ride with your gun.", "start": 3545, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1509, "text": "You won't get in trouble. Go to court.", "start": 3547, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1510, "text": "Go to court.\" If you tell judges, like,", "start": 3550, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1511, "text": "\"Why'd you have your gun?\" I was like,", "start": 3551, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1512, "text": "\"I want a Greyhound,\" and I got all of my teeth.", "start": 3552, "label": "punchline", "bit": 2, "beat": 1},
+    {"line_number": 1513, "text": "They'll be like, \"Aquit it every single time.\"", "start": 3555, "label": "tag", "bit": 2, "beat": 1},
+    {"line_number": 1514, "text": "'Cause if I had woken up,", "start": 3559, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1515, "text": "and that nigga had stole my wallet with my gun,", "start": 3561, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1516, "text": "ain't nobody going--", "start": 3563, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 1517, "text": "Ain't nobody going nowhere until I find my Transformers Velcro wallet.", "start": 3564, "label": "punchline", "bit": 2, "beat": 1},
+    {"line_number": 1518, "text": "I got a Velcro wallet because I want people to hear me at least try to pay for something.", "start": 3573, "label": "setup", "bit": 3, "beat": 1},
+    {"line_number": 1519, "text": "Everybody within H and T and V, when you hear that shh, you're like, \"He did his best that he could.\"", "start": 3582, "label": "punchline", "bit": 3, "beat": 1},
+    {"line_number": 1520, "text": "That's my time, y'all. I love y'all.", "start": 3588, "label": "fluff", "bit": null, "beat": null}
+  ]
+}

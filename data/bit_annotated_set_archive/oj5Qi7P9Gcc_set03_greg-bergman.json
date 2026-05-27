@@ -1,0 +1,88 @@
+{
+  "type": "set_meta",
+  "video_id": "oj5Qi7P9Gcc",
+  "episode_title": "KT #754 - BERT KREISCHER + RICK INGRAHAM",
+  "episode_url": "https://www.youtube.com/watch?v=oj5Qi7P9Gcc",
+  "publish_date": "2026-02-03",
+  "guests": ["Bert Kreischer", "Rick Ingraham"],
+  "comedian_name": "Greg Bergman",
+  "comedian_type": "bucket_pull",
+  "set_number": 3,
+  "start_seconds": 1540,
+  "interview_end_line": 976,
+  "interview_end_seconds": 2360,
+  "joke_book": "large",
+  "bit_meta": {
+    "1": {
+      "premise": "Dating a non-binary person means the same partner can be either a romantic victim or a domestic violence target depending on the pronoun in use.",
+      "beats": {
+        "1": {
+          "premise": "\"Her or him\" can mean two genders or one non-binary partner.",
+          "joke_type": "double-meaning",
+          "topics": ["non-binary", "pronouns", "domestic violence", "relationships"]
+        },
+        "2": {
+          "premise": "A black eye could be covered by makeup for the abuser instead of the victim.",
+          "joke_type": "reframe",
+          "topics": ["non-binary", "domestic violence", "police", "makeup"]
+        }
+      }
+    },
+    "2": {
+      "premise": "The \"biggest penis in Austin\" is purchased, and purchasing it too many times creates a disproportionately wide result.",
+      "beats": {
+        "1": {
+          "premise": "Having the biggest penis implies natural endowment, but reveals a purchased implant.",
+          "joke_type": "misdirect",
+          "topics": ["penis", "implant", "Austin", "bragging"]
+        },
+        "2": {
+          "premise": "A penis implant is so wide that it resembles a hockey puck.",
+          "joke_type": "hyperbole",
+          "topics": ["penis implant", "girth", "hockey puck", "tuna"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"line_number": 606, "text": "I'm in a great mood, I'm dating a beautiful girl.", "start": 1540, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 607, "text": "Beautiful girl, I shouldn't say girl,", "start": 1542, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 608, "text": "she actually identifies as non-binary.", "start": 1544, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 609, "text": "Yeah, which I gotta say,", "start": 1547, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 610, "text": "fellas, it's the best of both worlds.", "start": 1549, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 611, "text": "You know, I come home from work,", "start": 1550, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 612, "text": "I'm in a, depending on my mood,", "start": 1552, "label": "setup", "bit": 1, "beat": 1},
+    {"line_number": 613, "text": "I can make love to her or beat the shit out of him,", "start": 1553, "label": "punchline", "bit": 1, "beat": 1},
+    {"line_number": 614, "text": "you know what I'm saying?", "start": 1556, "label": "fluff", "bit": 1, "beat": 1},
+    {"line_number": 616, "text": "You get away with it, no, no, no, officer,", "start": 1558, "label": "setup", "bit": 1, "beat": 2},
+    {"line_number": 617, "text": "she put on the makeup to cover the black eye I gave him,", "start": 1560, "label": "punchline", "bit": 1, "beat": 2},
+    {"line_number": 618, "text": "not the other way around, you know?", "start": 1562, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 619, "text": "You get away with it, it's amazing.", "start": 1564, "label": "tag", "bit": 1, "beat": 2},
+    {"line_number": 620, "text": "Well, I was signing up 57 times.", "start": 1567, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 621, "text": "I don't know if I'll ever be back.", "start": 1568, "label": "fluff", "bit": null, "beat": null},
+    {"line_number": 622, "text": "I have to tell Austin I have the biggest penis in Austin.", "start": 1570, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 623, "text": "This is a fact.", "start": 1573, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 624, "text": "Look up.", "start": 1574, "label": "fluff", "bit": 2, "beat": 1},
+    {"line_number": 625, "text": "I do.", "start": 1575, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 626, "text": "I have the biggest dick in Austin.", "start": 1575, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 627, "text": "I'm not bragging.", "start": 1577, "label": "setup", "bit": 2, "beat": 1},
+    {"line_number": 628, "text": "I bought it.", "start": 1577, "label": "punchline", "bit": 2, "beat": 1},
+    {"line_number": 629, "text": "That's odd.", "start": 1578, "label": "fluff", "bit": 2, "beat": 2},
+    {"line_number": 630, "text": "Allow me to explain.", "start": 1579, "label": "fluff", "bit": 2, "beat": 2},
+    {"line_number": 631, "text": "About 10 years ago, Lincoln would say half a score,", "start": 1581, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 632, "text": "I got a penis implant.", "start": 1584, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 633, "text": "Made a movie about a pig like me.", "start": 1585, "label": "fluff", "bit": 2, "beat": 2},
+    {"line_number": 634, "text": "And there's only one caveat.", "start": 1587, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 635, "text": "They can only make it thicker, not longer.", "start": 1589, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 636, "text": "You know?", "start": 1592, "label": "fluff", "bit": 2, "beat": 2},
+    {"line_number": 637, "text": "And I'm a little disproportionate.", "start": 1592, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 638, "text": "I got to be honest.", "start": 1595, "label": "fluff", "bit": 2, "beat": 2},
+    {"line_number": 639, "text": "You're supposed to go twice, I went three times,", "start": 1596, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 640, "text": "third time, not a charm.", "start": 1598, "label": "setup", "bit": 2, "beat": 2},
+    {"line_number": 641, "text": "I'm hung like a hockey puck.", "start": 1599, "label": "punchline", "bit": 2, "beat": 2},
+    {"line_number": 642, "text": "It's really a couple cans of tuna stacked", "start": 1601, "label": "tag", "bit": 2, "beat": 2},
+    {"line_number": 643, "text": "on top of one another, but not that cheap bumblebee shit.", "start": 1603, "label": "tag", "bit": 2, "beat": 2},
+    {"line_number": 644, "text": "Talk about that albacore, about that solid white meat.", "start": 1606, "label": "tag", "bit": 2, "beat": 2},
+    {"line_number": 645, "text": "That's what I got.", "start": 1609, "label": "tag", "bit": 2, "beat": 2}
+  ]
+}
