@@ -9,6 +9,8 @@ class Beat(models.Model):
         ('double-meaning', 'Double-meaning'),
         ('what-if', 'What-if'),
         ('analogy', 'Analogy'),
+        ('hyperbole', 'Hyperbole'),
+        ('act-out', 'Act-out'),
         ('elephant-in-the-room', 'Elephant-in-the-room'),
         ('prop', 'Prop'),
     ]

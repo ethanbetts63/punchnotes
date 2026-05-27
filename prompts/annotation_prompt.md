@@ -136,7 +136,7 @@ For multi-beat bits, every beat must still have its own premise. The bit premise
 - No pronouns tied to the comedian — no "he", "she", "they", "the comic".
 - Use the most general form: `"Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."`
 
-**Joke type:** one of the eight labels defined in the next section: `misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `what-if`, `analogy`, `elephant-in-the-room`, `prop`. Pick the mechanism that best describes how the joke gets its laugh — the same mechanism the premise formula is built around.
+**Joke type:** one of the ten labels defined in the next section: `misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `what-if`, `analogy`, `hyperbole`, `act-out`, `elephant-in-the-room`, `prop`. Pick the mechanism that best describes how the joke gets its laugh — the same mechanism the premise formula is built around.
 
 Do not use joke types outside this list. If a joke seems to need a type that is not allowed, choose the closest allowed type and mention the uncertainty in your closing comments.
 
@@ -194,6 +194,23 @@ Most jokes fall into one of these mechanisms. Each has its own premise shape. Th
 > - tag: `"and deciding to try again, 'cause I like the challenge."`
 > Premise: `"Golf is like marriage because both make failure expensive and repeatable."`
 
+**Hyperbole** (`hyperbole`) — a feeling, trait, preference, or consequence is exaggerated past plausibility. The laugh comes from the excess of degree, scale, or intensity, not from ambiguity, comparison, or a fully imagined counterfactual world.
+> Formula: *X is treated as so [extreme] that [wildly disproportionate consequence].*
+> Example:
+> - setup: `"So I've already seen a third of this collection"`
+> - setup: `"and I don't have enough bodily fluids"`
+> - punchline: `"for the other two thirds of this collection."`
+> Premise: `"A porn inheritance is so large it would physically deplete the heir."`
+
+**Act-out** (`act-out`) — the joke depends on embodied performance: a voice, scream, facial expression, mime, posture, movement, or physical imitation. Use this only when the transcript explicitly captures the performance cue, or when a supplied stage direction makes the act-out recoverable. If the transcript only contains thin words whose joke depends on unseen performance, choose the closest text-visible mechanism instead.
+> Formula: *Performing [voice/movement/expression] reveals or creates [comic meaning].*
+> Example:
+> - setup: `"Wheelchair people, we send them."`
+> - setup: `"Oh yeah, we put a grenade in your lap and..."`
+> - punchline: `"Come on!"`
+> Premise: `"Screaming a wheelchair charge turns a grenade carrier into physical military action."`
+> Note: this Ari Mati example is only `act-out` if the annotator knows the line is screamed and physically performed; from transcript alone, it should remain `what-if`.
+
 **Prop** (`prop`) — the joke depends on a literal object the comedian is using or presenting onstage. This is rare: if you are unsure if a prop is being used, assume it is not and choose the closest other joke type.
 > Formula: *This object reveals or creates [comic meaning].*
 > Example:
@@ -217,6 +234,7 @@ Most jokes fall into one of these mechanisms. Each has its own premise shape. Th
 - Do not split a bit just because a new setup line appears after a punchline — decide whether it depends on the existing premise.
 - Fluff that sits inside a bit's flow can receive that bit's number.
 - Stage context can supply setup, but choose the joke type by mechanism. Most "I look like..." jokes are `analogy`, not `prop`.
+- Do not infer `act-out` from transcript text alone. Use `act-out` only when the transcript or supplied context makes the embodied performance clear; otherwise choose the text-visible mechanism.
 
 ---
 
@@ -226,7 +244,7 @@ Most jokes fall into one of these mechanisms. Each has its own premise shape. Th
 2. Identify each punchline — that's the anchor for each beat.
 3. Walk backwards from each punchline labeling setup; walk forwards labeling tags.
 4. Mark everything else fluff.
-5. For each beat, identify the joke type (`misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `what-if`, `analogy`, `elephant-in-the-room`, `prop`) and write a premise using its formula. Record the type in the beat's `joke_type` field. Do not invent other `joke_type` values.
+5. For each beat, identify the joke type (`misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `what-if`, `analogy`, `hyperbole`, `act-out`, `elephant-in-the-room`, `prop`) and write a premise using its formula. Record the type in the beat's `joke_type` field. Do not invent other `joke_type` values.
 6. Group beats into bits by shared premise. Apply the extraction test: if a beat would survive standalone, it's its own bit.
 7. For multi-beat bits, write a bit premise that captures the umbrella the beats share.
 8. Write the output JSON with `bit_meta` and fully labeled lines.

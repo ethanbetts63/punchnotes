@@ -152,14 +152,16 @@ Example:
 
 Premise: `"Golf is like marriage because both make failure expensive and repeatable."`
 
-**Prop** (`prop`) — the joke depends on a literal object the comedian is using or presenting onstage. This is rare: if you are unsure if a prop is being used, assume it is not and choose the closest other joke type.
-Formula: *This object reveals or creates [comic meaning].*
+**Hyperbole** (`hyperbole`) — a feeling, trait, preference, or consequence is exaggerated past plausibility. The laugh comes from the excess of degree, scale, or intensity, not from ambiguity, comparison, or a fully imagined counterfactual world.
+Formula: *X is treated as so [extreme] that [wildly disproportionate consequence].*
 
 Example:
-- setup: `"[comedian holds up a strange object]"`
-- punchline: `"This is what my dating life has come to."`
+- setup: `"So I've already seen a third of this collection"`
+- setup: `"and I don't have enough bodily fluids"`
+- punchline: `"for the other two thirds of this collection."`
 
-Premise: `"A physical object can stand in for a failed dating life."`
+Premise: `"A porn inheritance is so large it would physically deplete the heir."`
+
 
 **Elephant-in-the-room** (`elephant-in-the-room`) — taboo observation said aloud. The audience already knows the conclusion; the laugh comes from breaking the silence.
 Formula: *X is widely understood about Y but rarely said aloud.*
@@ -169,6 +171,41 @@ Example:
 - punchline: `"I'm looking at you, honkies."`
 
 Premise: `"School shootings are widely associated with white shooters but rarely said aloud."`
+
+
+**Act-out** (`act-out`) — the joke depends on embodied performance: a voice, scream, facial expression, mime, posture, movement, or physical imitation. 
+Formula: *Performing [voice/movement/expression] reveals or creates [comic meaning].*
+
+Example:
+- setup: `"Wheelchair people, we send them."`
+- setup: `"Oh yeah, we put a grenade in your lap and..."`
+- punchline: `"Come on!"`
+
+Premise: `"Wheelchair soldiers with a grenade could kamikaze roll at the enemy."`
+
+
+### Not a valid Joke types
+
+**Prop** (`prop`) — the joke depends on a literal object the comedian is using or presenting onstage. Often the prop is the setup or the punchline but the joke type still can always be found in the above list.  The example below is a. 
+
+Formula: *This object reveals or creates [comic meaning].*
+
+Example:
+- setup: `"It's a mouse trap to trap gay mice, see"`
+- punchline: `"[Pulls out mouse trap with a disco ball attatched]"`
+
+Premise: `"A gay mouse could be lured by a disco ball"`
+
+
+**Act-out** (`act-out`) — the joke depends on embodied performance: a voice, scream, facial expression, mime, posture, movement, or physical imitation. 
+Formula: *Performing [voice/movement/expression] is used as the setup and/or punchline.*
+
+Example:
+- setup: `"Wheelchair people, we send them."`
+- setup: `"Oh yeah, we put a grenade in your lap and..."`
+- punchline: `"Come on! [acts out racing a wheelchair into battle]"`
+
+Premise: `"Screaming a wheelchair charge turns a grenade carrier into physical military action."`
 
 ## Pipeline
 

@@ -25,8 +25,8 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "A beat-up car has been rear-ended as many times as a known person who gets penetrated often.",
-          "joke_type": "analogy",
+          "premise": "Being rear-ended has two meanings",
+          "joke_type": "double-meaning",
           "topics": ["car", "rear-ended", "roast", "poverty"]
         }
       }
@@ -34,8 +34,8 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Being broke enough to skip Powerball at $20 million implies $20 million is beneath consideration.",
-          "joke_type": "reframe",
+          "premise": "Poverty is exaggerated until $20 million seems insufficient.",
+          "joke_type": "hyperbole",
           "topics": ["Powerball", "lottery", "poverty", "money"]
         }
       }

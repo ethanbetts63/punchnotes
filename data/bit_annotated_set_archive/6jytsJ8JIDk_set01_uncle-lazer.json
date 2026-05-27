@@ -46,8 +46,8 @@
           "topics": ["moving furniture", "mattresses", "marriage"]
         },
         "2": {
-          "premise": "AIDS has tiers, and the worst tier is preferable to moving furniture.",
-          "joke_type": "reframe",
+          "premise": "Moving furniture is treated as worse than severe disease.",
+          "joke_type": "hyperbole",
           "topics": ["AIDS", "Magic Johnson", "moving furniture"]
         },
         "3": {

@@ -22,8 +22,8 @@
           "topics": ["Stephen Hawking", "wheelchairs", "children"]
         },
         "2": {
-          "premise": "Extreme wheelchair speed explains Stephen Hawking's facial appearance.",
-          "joke_type": "what-if",
+          "premise": "Wheelchair speed is exaggerated enough to reshape a face.",
+          "joke_type": "hyperbole",
           "topics": ["Stephen Hawking", "wind resistance", "wheelchairs"]
         }
       }
