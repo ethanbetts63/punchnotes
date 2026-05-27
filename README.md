@@ -94,64 +94,88 @@ Most jokes fall into one of these mechanisms. Each has its own premise shape. Th
 
 **Misdirect** (`misdirect`) — assumption planted, then subverted.
 Formula: *X implies Y, not Z.*
+
 Example:
+
 - setup: `"My son just came out as trans."`
 - setup: `"Well, shouldn't call him my son anymore."`
 - punchline: `"Now that he's dead to me,"`
+
 Premise: `"Refusing to call a transitioning child your son implies a new title, not their disownment."`
 
 **Reframe** (`reframe`) — hidden implication of a known thing is surfaced. No prior assumption is planted; the audience just hadn't considered this angle.
 Formula: state the hidden implication directly.
+
 Example:
+
 - setup: `"they got him on puberty blockers"`
 - punchline: `"or as pedophiles call them preservatives."`
 - tag: `"Fucking miracle medicine."`
+
 Premise: `"Pedophiles benefit from puberty blockers."`
 
 **Phonetic match** (`phonetic-match`) — two *different* words sound alike, and both independently fit the context.
 Formula: state the sonic match and why both sides independently fit.
+
 Example:
+
 - setup: `"what do you call a little person with ADHD?"`
 - punchline: `"That's right, a fidget."`
+
 Premise: `"'Midget' and 'fidget' sound alike, and 'fidget' independently fits ADHD."`
 
 **Double-meaning** (`double-meaning`) — the *same* words admit two readings, and the comedian deliberately picks the non-standard one. Hinges on semantic ambiguity, not phonetic similarity.
 Formula: *Taken literally, [phrase] has two meanings.*
+
 Example:
+
 - setup: `"'In case of fire, use stairs.'"`
 - punchline: `"Fuck that, let's use water."`
+
 Premise: `"Taken literally, 'In case of fire, use stairs' has two meanings."`
 
 **What-if** (`what-if`) — a counterfactual scenario is posed and the joke comes from taking it seriously. Distinct from reframe: a reframe surfaces a *real* implication; a what-if *invents* one and runs with it.
 Formula: *What if [counterfactual]?* or state the hypothetical condition directly.
+
 Example:
+
 - setup: `"A guy stole my wallet."`
 - setup: `"He's like, ha ha, I have your wallet."`
 - punchline: `"I was like, ha ha, you have 8K of credit card debt."`
+
 Premise: `"What if stealing a credit card meant you also stole the debt."`
 
 **Analogy** (`analogy`) — two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
 Formula: *X is like Y because both share Z.*
+
 Example:
+
 - setup: `"But golfing prepared me for marriage,"`
 - setup: `"cause both involved me spending a lot of money"`
 - punchline: `"at something I'm not really good at."`
 - tag: `"And then waking up the next morning"`
 - tag: `"and deciding to try again, 'cause I like the challenge."`
+
 Premise: `"Golf is like marriage because both make failure expensive and repeatable."`
 
 **Prop** (`prop`) — the joke depends on a literal object the comedian is using or presenting onstage. This is rare: if you are unsure if a prop is being used, assume it is not and choose the closest other joke type.
 Formula: *This object reveals or creates [comic meaning].*
+
 Example:
+
 - setup: `"[comedian holds up a strange object]"`
 - punchline: `"This is what my dating life has come to."`
+
 Premise: `"A physical object can stand in for a failed dating life."`
 
 **Elephant-in-the-room** (`elephant-in-the-room`) — taboo observation said aloud. The audience already knows the conclusion; the laugh comes from breaking the silence.
 Formula: *X is widely understood about Y but rarely said aloud.*
+
 Example:
+
 - setup: `"You know, these shootings are often done by the same race."`
 - punchline: `"I'm looking at you, honkies."`
+
 Premise: `"School shootings are widely associated with white shooters but rarely said aloud."`
 
 ## Pipeline
