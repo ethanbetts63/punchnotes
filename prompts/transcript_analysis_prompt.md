@@ -24,6 +24,8 @@ If a line inside the range is clearly Tony, a panel member, or other non-comedia
 
 Audience reaction lines are filtered automatically by the command.
 
+Also identify the joke book size Tony gives the comic at the end of the interview when it is clear. Use only the current appearance's award, not discussion of a previous appearance.
+
 After all sets in the episode are extracted successfully, delete the processed transcript file from `1_transcript_inbox`.
 
 ---
@@ -66,6 +68,27 @@ Useful end cues:
 - Tony starts interviewing: "How long have you been doing stand-up?", "Where are you from?", "What do you do?"
 
 Do not end a set just because the kitten sound or one-minute mark appears. If Tony lets the comedian finish a joke after a warning, include the final joke line.
+
+---
+
+## Joke book size
+
+Bucket-pull comics often receive a joke book after their interview. Track the top-level `joke_book` value as:
+
+- `small` for small, little, or smallest joke book
+- `medium` for medium or medium-sized joke book
+- `large` for big or large joke book
+- `null` if no joke book is given, or if a joke book is mentioned but the size cannot be worked out confidently
+
+Useful award cues:
+
+- "Here's a big joke book."
+- "There's a little joke book for you."
+- "You're leaving here with a medium-sized jokebook."
+- "You're our first Big Joke Book of the Night."
+- "Here's the smallest joke book I could find."
+
+Do not count prior-appearance questions or answers, such as "What size joke book did you get last time?", "Did you get a big joke book last time?", or "No, I got a big joke book." Do not count sponsor or meta mentions like "Bonsai makes our amazing joke books."
 
 ---
 
