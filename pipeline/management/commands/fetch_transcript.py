@@ -7,9 +7,14 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 
 # YouTube video IDs are always 11 characters.
-# Audio files are named "{video_id} - {title}.{ext}" so the title can be
-# recovered offline without a network call.
+# Audio files are named "{video_id} - {YYYY-MM-DD} - {title}.{ext}" so both
+# the publish date and title can be recovered offline without a network call.
 VIDEO_ID_LEN = 11
+DATE_LEN = 10  # YYYY-MM-DD
+# offsets into the stem: "{id} - {date} - {title}"
+DATE_START = VIDEO_ID_LEN + 3       # 14
+DATE_END = DATE_START + DATE_LEN    # 24
+TITLE_START = DATE_END + 3          # 27
 WHISPER_LINES_KEY = "segments"
 
 
@@ -49,8 +54,11 @@ def find_audio(audio_dir, video_id):
 
 
 def title_from_audio(audio_path):
-    """Parse the episode title from a '{video_id} - {title}.ext' filename."""
-    return audio_path.stem[VIDEO_ID_LEN + 3:]  # skip "{id} - "
+    return audio_path.stem[TITLE_START:]
+
+
+def publish_date_from_audio(audio_path):
+    return audio_path.stem[DATE_START:DATE_END]
 
 
 class Command(BaseCommand):
@@ -108,7 +116,7 @@ class Command(BaseCommand):
                 episode_url = f"https://www.youtube.com/watch?v={video_id}"
                 ydl_opts = {
                     "format": "bestaudio/best",
-                    "outtmpl": str(audio_dir / f"{video_id} - {title}.%(ext)s"),
+                    "outtmpl": str(audio_dir / f"{video_id} - {publish_date} - {title}.%(ext)s"),
                     "quiet": True,
                     "no_warnings": True,
                 }
@@ -141,9 +149,7 @@ class Command(BaseCommand):
             episode_url = f"https://www.youtube.com/watch?v={video_id}"
 
             if video_id not in publish_dates:
-                # Audio was already cached in Phase 1 (or --local-only); fetch metadata now.
-                self.stdout.write(f"  [{video_id}] fetching metadata for publish date...")
-                _, publish_dates[video_id] = fetch_episode_meta(video_id)
+                publish_dates[video_id] = publish_date_from_audio(audio_path)
             publish_date = publish_dates[video_id]
 
             self.stdout.write(f"\n[{video_id}] Title: {episode_title}")
