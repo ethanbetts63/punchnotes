@@ -26,11 +26,11 @@ Each input file is a set JSON from `data/2_set_inbox/`. Lines have an empty `lab
 
 ## Output
 
-Write the annotated file to `data/4_bit_annotated_set_inbox/<same-filename>.json`. The output adds `bit_meta` before `lines`, and each line gets `label`, `bit`, and `beat` fields. Field order on each line: `text`, `label`, `bit`, `beat`, `line_number`, `start`.
+Write the annotated file to `data/4_bit_annotated_set_inbox/<same-filename>.json`. The output adds `bit_meta` before `lines`, and each line gets `label`, `bit`, and `beat` fields.
 
 Every beat has its own `premise`, `joke_type`, and `topics`. A bit gets its own `premise` **only when it has more than one beat** — the bit premise is the umbrella that ties multiple beats together. Single-beat bits don't need a bit premise because the beat premise already captures the joke's logic.
 
-Field order on each beat: `premise`, `joke_type`, `topics`.
+Write valid JSON in any standard format — formatting is normalised automatically downstream.
 
 ```json
 {

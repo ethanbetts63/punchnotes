@@ -42,4 +42,16 @@ python manage.py import_lines
 
 This will import everything from `4_bit_annotated_set_inbox` into the database and archive the files to `bit_annotated_set_archive`.
 
-When Phase 3 is complete, report that the pipeline is done.
+---
+
+## Phase 4 — Normalize Archive
+
+Once Phase 3 is complete, run:
+
+```powershell
+python manage.py normalize_archive
+```
+
+This normalizes the JSON formatting of all files in `bit_annotated_set_archive` to the canonical format.
+
+When Phase 4 is complete, report that the pipeline is done.

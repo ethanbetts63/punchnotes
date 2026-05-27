@@ -5,19 +5,34 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 
 
-FIELD_ORDER = [
+SET_FIELD_ORDER = [
     "type", "video_id", "episode_title", "episode_url", "publish_date",
     "guests", "comedian_name", "comedian_type", "set_number",
     "start_seconds", "joke_book", "bit_meta", "lines",
 ]
 
+LINE_FIELD_ORDER = ["text", "label", "bit", "beat", "line_number", "start"]
+
+BEAT_FIELD_ORDER = ["premise", "joke_type", "topics"]
+
+
+def _reorder(d, order):
+    """Return d with keys in order first, then any remainder."""
+    out = {k: d[k] for k in order if k in d}
+    out.update({k: v for k, v in d.items() if k not in out})
+    return out
+
 
 def _fmt_nested(obj, depth):
-    """Recursively serialize a dict with 2-space indent; all lists compact."""
+    """Recursively serialize a dict with 2-space indent; all lists compact.
+    Applies BEAT_FIELD_ORDER to leaf dicts that look like beat objects."""
     if not obj:
         return "{}"
     pad = "  " * depth
     inner = "  " * (depth + 1)
+    # Apply beat field ordering if this dict has beat-like keys
+    if any(k in obj for k in BEAT_FIELD_ORDER):
+        obj = _reorder(obj, BEAT_FIELD_ORDER)
     rows = []
     items = list(obj.items())
     for i, (k, v) in enumerate(items):
@@ -41,7 +56,7 @@ def serialize(data: dict) -> str:
     """
     # Build ordered output dict; joke_book inserted after start_seconds even if absent
     out = {}
-    for key in FIELD_ORDER:
+    for key in SET_FIELD_ORDER:
         if key == "joke_book":
             out[key] = data.get("joke_book")  # null if not in source
         elif key in data:
@@ -66,6 +81,7 @@ def serialize(data: dict) -> str:
             inner = []
             for j, ln in enumerate(value):
                 lcomma = "," if j < len(value) - 1 else ""
+                ln = _reorder(ln, LINE_FIELD_ORDER)
                 inner.append(f"    {json.dumps(ln, ensure_ascii=False)}{lcomma}")
             val_str = "[\n" + "\n".join(inner) + "\n  ]"
 
