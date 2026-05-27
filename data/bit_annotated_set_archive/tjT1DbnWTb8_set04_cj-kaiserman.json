@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "A person so visibly broke gets charity reversed on them by a homeless man.",
+          "premise": "Rolling down a window to give a homeless man money implies charity, but reveals the homeless man offering water back.",
           "joke_type": "misdirect",
           "topics": ["homelessness", "poverty", "charity", "car"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Being rear-ended has two meanings",
+          "premise": "\"Rear-ended\" can mean struck from behind in a car accident or penetrated anally.",
           "joke_type": "double-meaning",
           "topics": ["car", "rear-ended", "roast", "poverty"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Poverty is exaggerated until $20 million seems insufficient.",
+          "premise": "Financial desperation is so extreme that winning $20 million wouldn't be worth the risk of a five-dollar ticket.",
           "joke_type": "hyperbole",
           "topics": ["Powerball", "lottery", "poverty", "money"]
         }

@@ -17,27 +17,27 @@
       "premise": "A very short partner turns romance and sex into scale jokes.",
       "beats": {
         "1": {
-          "premise": "Love being blind also implies ignoring extreme shortness.",
+          "premise": "\"Love is blind\" could also mean ignoring a partner's extreme shortness.",
           "joke_type": "reframe",
           "topics": ["engagement", "short women", "love"]
         },
         "2": {
-          "premise": "A short partner can be treated like a child-sized date.",
+          "premise": "A partner short enough to carry in a front pack could qualify for child-rate discounts.",
           "joke_type": "reframe",
           "topics": ["dating", "short women", "discounts"]
         },
         "3": {
-          "premise": "A small partner makes normal anatomy seem huge by comparison.",
+          "premise": "An average penis could look enormous next to a little person's body.",
           "joke_type": "reframe",
           "topics": ["short women", "penis size", "scale"]
         },
         "4": {
-          "premise": "A large height gap makes standing ejaculation like a shower.",
+          "premise": "Ejaculation while standing over a much shorter partner is like a shower because both involve fluid falling from above.",
           "joke_type": "analogy",
           "topics": ["height difference", "sex", "money shot"]
         },
         "5": {
-          "premise": "Taken literally, 69 with a half-size partner becomes 34.5.",
+          "premise": "\"69\" is a sexual position and a number, so halving it by height mismatch yields 34.5.",
           "joke_type": "double-meaning",
           "topics": ["69 position", "oral sex", "kneecaps"]
         }

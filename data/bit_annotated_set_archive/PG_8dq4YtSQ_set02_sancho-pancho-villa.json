@@ -16,8 +16,8 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Elevator shoes that add two inches still fall visibly short of the mic stand used as a height reference.",
-          "joke_type": "prop",
+          "premise": "Two inches of elevator shoe is so little it still visibly falls short of a 5'3\" reference.",
+          "joke_type": "hyperbole",
           "topics": ["height", "elevator shoes", "mic stand", "short men"]
         }
       }
@@ -26,12 +26,12 @@
       "premise": "A short man hitting on a tall woman turns every sexual suggestion into a logistics problem.",
       "beats": {
         "1": {
-          "premise": "\"Go up on me\" implies oral sex but a short man hears a request for a step ladder.",
-          "joke_type": "misdirect",
+          "premise": "\"Go up on me\" can mean perform oral sex or literally climb up to reach someone taller.",
+          "joke_type": "double-meaning",
           "topics": ["height", "oral sex", "step ladder", "pickup lines"]
         },
         "2": {
-          "premise": "\"Eating my way to your heart\" frames overeating as a romantic courtship strategy.",
+          "premise": "\"Eating my way to your heart\" can mean winning affection through food or physically eating through someone.",
           "joke_type": "double-meaning",
           "topics": ["eating", "height", "shirt", "flirting"]
         }
@@ -40,8 +40,8 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "A tall man using the short urinal forces a short man to rest his genitals on the rim, risking crabs.",
-          "joke_type": "what-if",
+          "premise": "A short urinal occupied by a tall man could force a short person's genitals onto the rim, risking crabs.",
+          "joke_type": "reframe",
           "topics": ["urinal", "height", "crabs", "bathroom"]
         }
       }

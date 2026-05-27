@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "'Great set' can mean a great comedy performance or a great pair of breasts.",
+          "premise": "\"Great set\" can mean a strong comedy performance or a great pair of small breasts.",
           "joke_type": "double-meaning",
           "topics": ["stand-up comedy", "breasts", "compliments", "B-cups"]
         }
@@ -25,8 +25,8 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "A Black lesbian not eating pussy reframes the expected sexual practice of lesbianism.",
-          "joke_type": "reframe",
+          "premise": "\"Doesn't eat pussy\" implies avoidance, but reveals aggressive enthusiasm instead.",
+          "joke_type": "misdirect",
           "topics": ["lesbians", "Sam Jay", "oral sex", "Black women"]
         }
       }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "A doctor who isn't a gynecologist is useless to someone interested in vaginas.",
+          "premise": "A doctor could be reframed as completely useless if the only specialization that matters is gynecology.",
           "joke_type": "reframe",
           "topics": ["Dr. Phil", "gynecologist", "doctors", "vaginas"]
         }
@@ -43,7 +43,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Needing a card to recite Miranda rights frames the deficit as educational rather than arrest-based familiarity.",
+          "premise": "Needing to read Miranda rights off a card implies no college education, but reveals no arrest experience either.",
           "joke_type": "misdirect",
           "topics": ["Miranda rights", "college", "arrests", "crowd work"]
         }
@@ -52,7 +52,7 @@
     "5": {
       "beats": {
         "1": {
-          "premise": "An adult who cannot read is funnier as a disqualifier than any wrong political answer.",
+          "premise": "Not being able to read is widely understood to disqualify more than any wrong political answer.",
           "joke_type": "elephant-in-the-room",
           "topics": ["literacy", "crowd work", "entourage", "audience"]
         }

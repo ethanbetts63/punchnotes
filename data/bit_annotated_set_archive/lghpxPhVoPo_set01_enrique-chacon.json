@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "A white Houston audience looks like a racist megachurch.",
+          "premise": "An all-white audience is like a racist megachurch because both are homogeneously white and fervent.",
           "joke_type": "analogy",
           "topics": ["race", "Houston", "Lakewood Church", "audience"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "ICE targeting white people ruins Lululemon as a hiding spot.",
+          "premise": "Hiding among white shoppers implies safe camouflage, but reveals it fails if ICE now targets white people too.",
           "joke_type": "misdirect",
           "topics": ["ICE", "immigration", "race", "Lululemon"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Taken literally, saving the kitty can help eat the kitty.",
+          "premise": "\"Kitty\" can mean a rescue cat or female genitalia.",
           "joke_type": "double-meaning",
           "topics": ["dating", "cats", "animal rescue", "sex"]
         }
@@ -43,8 +43,8 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Dog talk with white men collapses when inherited racism returns.",
-          "joke_type": "reframe",
+          "premise": "Bonding over dogs implies a cross-racial connection, but reveals that inherited racism ends the conversation.",
+          "joke_type": "misdirect",
           "topics": ["race", "dogs", "blue heeler", "racism"]
         }
       }

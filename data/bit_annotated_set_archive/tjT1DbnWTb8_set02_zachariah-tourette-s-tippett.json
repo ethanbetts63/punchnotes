@@ -14,15 +14,15 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Pitching Tourette's as a superpower to children ends in a brawl and a career in rubble.",
+      "premise": "Pitching Tourette's as a superpower fails when a child exposes its worst flaw and a wrestling move ends the career.",
       "beats": {
         "1": {
-          "premise": "A child demolishes the Tourette's-as-superpower pitch by noting you cannot win hide and seek.",
-          "joke_type": "reframe",
+          "premise": "Framing Tourette's as a superpower implies strength, but a child reveals the disqualifying flaw: losing every game of hide and seek.",
+          "joke_type": "misdirect",
           "topics": ["Tourette's syndrome", "superpower", "children", "hide and seek"]
         },
         "2": {
-          "premise": "Fighting back against mocking children gets you banned from motivational speaking.",
+          "premise": "Retaliating against mocking children could be reframed as the only way to lose a motivational speaking career.",
           "joke_type": "reframe",
           "topics": ["Tourette's syndrome", "motivational speaking", "children", "violence"]
         }
@@ -31,7 +31,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "A Tourette's greeter's tic converts 'Welcome' into an insult.",
+          "premise": "A Tourette's tic could be reframed as a greeter accidentally insulting every customer after welcoming them.",
           "joke_type": "reframe",
           "topics": ["Tourette's syndrome", "Walmart greeter", "tic", "customer service"]
         }

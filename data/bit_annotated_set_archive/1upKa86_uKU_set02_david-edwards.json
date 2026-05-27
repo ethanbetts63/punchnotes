@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Upright hair is like static from sex with balloons.",
+          "premise": "Standing-up hair is like post-balloon sex static because both result from the same friction.",
           "joke_type": "analogy",
           "topics": ["appearance", "static electricity", "balloons"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "A hunched posture is like a chicken pecking the ground.",
+          "premise": "A hunched-over person is like a chicken pecking because both share the same bent-forward profile.",
           "joke_type": "analogy",
           "topics": ["appearance", "chickens", "posture"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Resembling two celebrities implies being their unwanted illegitimate child.",
+          "premise": "Resembling two celebrities could mean being their unwanted illegitimate child.",
           "joke_type": "reframe",
           "topics": ["appearance", "celebrity parents", "Utah"]
         }
@@ -43,7 +43,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Describing oneself as 'like a baboon under the sheets' implies sexual prowess, not a medical condition.",
+          "premise": "'Like a baboon under the sheets' implies sexual aggression, but reveals a painful anal condition.",
           "joke_type": "misdirect",
           "topics": ["Latina women", "baboon", "hemorrhoids"]
         }
@@ -52,8 +52,8 @@
     "5": {
       "beats": {
         "1": {
-          "premise": "Hemorrhoid-induced bathroom strain looks identical to a horror-movie ghost crawl.",
-          "joke_type": "reframe",
+          "premise": "Straining on the toilet with hemorrhoids is like a horror-movie ghost crawl because both involve contorted suffering.",
+          "joke_type": "analogy",
           "topics": ["The Ring", "bathroom", "hemorrhoids"]
         }
       }

@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "'Ozempic' can absorb 'spic' to fit a fat Mexican nickname.",
+          "premise": "\"Ozempic\" contains \"spic,\" so it works as a nickname combining a fat person's drug and a Mexican slur.",
           "joke_type": "phonetic-match",
           "topics": ["Mexican identity", "weight", "Ozempic"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Catholic priesthood is widely associated with child abuse but rarely said aloud.",
+          "premise": "Catholic priests being pedophiles is widely assumed but rarely used to decline the priesthood.",
           "joke_type": "elephant-in-the-room",
           "topics": ["Catholicism", "priests", "child abuse", "white women"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Dating a citizen can make sex feel like immigration barter.",
+          "premise": "Sex with a white citizen girlfriend could be reframed as an exchange for immigration papers.",
           "joke_type": "reframe",
           "topics": ["girlfriends", "white women", "green cards"]
         }

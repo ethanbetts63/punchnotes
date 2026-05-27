@@ -14,20 +14,20 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "A repeated name rhyme turns roast material into a chant.",
+      "premise": "Rave-rap cadence turns gay rumors and physical observations into a roast chant.",
       "beats": {
         "1": {
-          "premise": "'Gay Tony,' 'GTA Tony,' and 'no way Tony' sound alike.",
+          "premise": "\"Gay Tony\" sounds like \"GTA Tony\" and \"No way Tony\", and each fits a different gay-dismissal.",
           "joke_type": "phonetic-match",
           "topics": ["Tony Hinchcliffe", "GTA", "gay jokes"]
         },
         "2": {
-          "premise": "Rave talk becomes a rhyming chant about Tony's appearance.",
+          "premise": "\"Twin\" sounds like \"thin\", and \"thin\" fits because it flips a compliment into a body jab.",
           "joke_type": "phonetic-match",
           "topics": ["raves", "Tony Hinchcliffe", "rhyming"]
         },
         "3": {
-          "premise": "Squat work reframes rave talk as body display.",
+          "premise": "Doing squats could be reframed as rave-floor preparation for showing off your ass.",
           "joke_type": "reframe",
           "topics": ["squats", "body", "raves"]
         }

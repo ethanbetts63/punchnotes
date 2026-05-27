@@ -14,25 +14,25 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "In American English, 'white' as a modifier reliably signals superiority or power.",
+      "premise": "In American English, \"white\" as a modifier signals superiority or power in every context.",
       "beats": {
         "1": {
-          "premise": "The most powerful person lives in the White House, not just a house.",
+          "premise": "\"White House\" could be reframed as proof that only the \"white\" version of something holds real power.",
           "joke_type": "reframe",
           "topics": ["White House", "race", "power", "language"]
         },
         "2": {
-          "premise": "White-collar jobs are labeled white because they're more intellectual and better paid.",
+          "premise": "\"White collar\" could be reframed as evidence that calling work \"white\" makes it superior and better paid.",
           "joke_type": "reframe",
           "topics": ["white-collar", "blue-collar", "class", "language"]
         },
         "3": {
-          "premise": "'White lives matter' reads as a compliment when 'white' signals good intentions.",
+          "premise": "\"White lives\" can mean racially white people or lives with good intentions, making the slogan a compliment.",
           "joke_type": "double-meaning",
           "topics": ["white lives matter", "race", "intentions", "language"]
         },
         "4": {
-          "premise": "Diddy's all-white parties ended with him not being white enough for a presidential pardon.",
+          "premise": "Hosting all-white parties implies Diddy embraces whiteness, but reveals he wasn't white enough for a White House pardon.",
           "joke_type": "misdirect",
           "topics": ["Diddy", "white parties", "baby oil", "White House pardon"]
         }

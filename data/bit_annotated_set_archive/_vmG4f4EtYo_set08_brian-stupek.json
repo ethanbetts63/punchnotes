@@ -15,7 +15,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "A double-standard complaint implies gender unfairness, not commenting on a child.",
+          "premise": "Complaining about a bikini photo double standard implies adult-targeted bias, but reveals the subject is a child.",
           "joke_type": "misdirect",
           "topics": ["social media", "bikini photos", "double standards"]
         }
@@ -24,7 +24,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "An impression of an ideal woman becomes a breakup reenactment.",
+          "premise": "Setting up a flattering impression of a woman implies admiration, but delivers a real breakup.",
           "joke_type": "misdirect",
           "topics": ["impressions", "Latina", "breakups"]
         }

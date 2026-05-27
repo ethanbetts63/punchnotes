@@ -13,26 +13,26 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "Avoiding autism testing keeps the diagnosis from becoming real.",
+      "premise": "A diagnosis only exists if you seek one.",
       "beats": {
         "1": {
-          "premise": "Avoiding autism testing keeps autism from officially existing.",
+          "premise": "Not getting tested could count as a cure — a diagnosis only exists if you seek one.",
           "joke_type": "reframe",
           "topics": ["autism testing", "dating", "diagnosis"]
         },
         "2": {
-          "premise": "Getting tested for autism is like getting caught permanently.",
-          "joke_type": "analogy",
+          "premise": "Getting tested for autism could mean the diagnosis permanently catches you.",
+          "joke_type": "reframe",
           "topics": ["autism testing", "brothers", "diagnosis"]
         },
         "3": {
-          "premise": "Taken literally, 'full on' autism implies part-time autism.",
+          "premise": "'Full on' can mean maximum intensity or imply a part-time alternative exists.",
           "joke_type": "double-meaning",
           "topics": ["autism", "part-time work", "puzzles"]
         },
         "4": {
-          "premise": "An autism wait time can diagnose autism through the scheduling reaction.",
-          "joke_type": "reframe",
+          "premise": "Obsessively calculating an exact appointment date is widely recognized as autistic behavior but never said aloud.",
+          "joke_type": "elephant-in-the-room",
           "topics": ["Canada", "wait times", "autism testing"]
         }
       }

@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "A vasectomy question implies family planning, not needing sex first.",
+          "premise": "Being asked about a vasectomy implies sexual activity, but reveals virginity.",
           "joke_type": "misdirect",
           "topics": ["vasectomy", "virginity", "family", "sex"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Denying incest implies morality, not failing to compete for a cousin.",
+          "premise": "Denying sex with a cousin implies moral objection, but reveals she was simply out of his league.",
           "joke_type": "misdirect",
           "topics": ["Kentucky", "incest", "family", "homecoming"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "'Methodist' and 'meth' sound alike, and crystal meth fits drug use.",
+          "premise": "\"Methodist\" sounds like \"meth,\" and \"Crystal Methodist\" fits because it means crystal meth user.",
           "joke_type": "phonetic-match",
           "topics": ["religion", "meth", "Kentucky", "drugs"]
         }

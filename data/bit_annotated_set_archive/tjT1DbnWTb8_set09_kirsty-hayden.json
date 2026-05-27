@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Describing house-sitting responsibilities makes Hinge sound like a legitimate housing app.",
+          "premise": "Describing finding strangers to live with, water plants, and care for pets implies a house-sitting app, but reveals a dating app.",
           "joke_type": "misdirect",
           "topics": ["Hinge", "house-sitting", "dating apps", "homelessness"]
         }
@@ -25,12 +25,12 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "A cat eating only your underwear reveals a yeast infection by proxy.",
+          "premise": "A cat eating only dirty underwear could be reframed as an accidental yeast infection diagnosis.",
           "joke_type": "reframe",
           "topics": ["yeast infection", "cat", "underwear", "house-sitting"]
         },
         "2": {
-          "premise": "Taken literally, 'puss' means both cat and vagina, letting both senses apply simultaneously.",
+          "premise": "\"Puss\" can mean a cat or a vagina, letting the phrase apply to both simultaneously.",
           "joke_type": "double-meaning",
           "topics": ["puss", "cat", "vagina", "wordplay"]
         }

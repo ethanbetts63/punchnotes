@@ -14,15 +14,15 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "Americans should not have to accommodate Spanish.",
+      "premise": "Military dominance makes learning other languages unnecessary for Americans.",
       "beats": {
         "1": {
-          "premise": "An Asian performer speaking English distinguishes comedy from a Spanish-heavy halftime show.",
+          "premise": "An Asian comic reassuring the crowd about speaking English implies a language barrier, but reveals the Super Bowl halftime show was too Spanish.",
           "joke_type": "misdirect",
           "topics": ["race", "Spanish", "Super Bowl"]
         },
         "2": {
-          "premise": "Military power makes learning another language feel unnecessary.",
+          "premise": "Having the world's biggest military arsenal could make learning a second language pointless.",
           "joke_type": "reframe",
           "topics": ["Spanish", "nationalism", "bombs"]
         }
@@ -31,7 +31,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Deporting Mexicans would not reduce robberies stereotyped as Black.",
+          "premise": "Deporting Mexicans to reduce crime is widely understood to miss the actual demographic responsible for muggings.",
           "joke_type": "elephant-in-the-room",
           "topics": ["immigration", "deportation", "race", "crime"]
         }
@@ -40,7 +40,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "A Black man gardening evokes slavery despite being ordinary yard work.",
+          "premise": "A Black man doing yard work could be reframed as unnecessary labor given modern options like retail theft.",
           "joke_type": "reframe",
           "topics": ["race", "gardening", "slavery", "crime"]
         }
@@ -49,8 +49,8 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Fitness only needs to delay a robber until police arrive.",
-          "joke_type": "what-if",
+          "premise": "Working out could be reframed as needing to outlast a Black mugger only long enough for police to arrive.",
+          "joke_type": "reframe",
           "topics": ["race", "fitness", "police", "crime"]
         }
       }

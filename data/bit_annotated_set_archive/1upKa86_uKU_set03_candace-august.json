@@ -14,15 +14,15 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Being the sole Black family member makes you the unwilling authority on all things Black.",
+      "premise": "Being the only Black person in a family makes you their unofficial Black spokesperson.",
       "beats": {
         "1": {
-          "premise": "Being Black implies knowing Black cultural history, even when you don't.",
+          "premise": "Being asked to explain Black history implies expertise, but reveals total ignorance of it.",
           "joke_type": "misdirect",
           "topics": ["interracial marriage", "Juneteenth", "in-laws"]
         },
         "2": {
-          "premise": "Answering racial stereotype questions with invented Black superpowers turns ignorance into an advantage.",
+          "premise": "Racial stereotype questions could be answered with invented superpowers to reward the asker's ignorance.",
           "joke_type": "reframe",
           "topics": ["racial questions", "fried chicken", "superpowers"]
         }

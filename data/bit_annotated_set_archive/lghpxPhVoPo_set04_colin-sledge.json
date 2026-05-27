@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Body-part counts can imply divine sexual instructions.",
+          "premise": "Divine body-part ratios imply sexual directives: ten fingers means constant fingering.",
           "joke_type": "analogy",
           "topics": ["religion", "sex", "God", "hands"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Telling women not to fake orgasms implies care, not indifference.",
+          "premise": "Discouraging fake orgasms implies sensitivity, but reveals complete indifference to the partner's pleasure.",
           "joke_type": "misdirect",
           "topics": ["sex", "orgasm", "dating", "girlfriend"]
         }
@@ -34,22 +34,22 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Peeing after sex can justify peeing during sex.",
+          "premise": "Medical advice to pee after sex could justify a sexual fetish for peeing during sex.",
           "joke_type": "reframe",
           "topics": ["sex", "UTI", "urine", "fetish"]
         }
       }
     },
     "4": {
-      "premise": "Mirror sex turns eye contact into fetish logic.",
+      "premise": "Watching yourself in a mirror during sex reframes eye contact as narcissism and cuckolding.",
       "beats": {
         "1": {
-          "premise": "Making eye contact during sex implies a partner, not a reflection.",
+          "premise": "Making eye contact during sex implies watching a partner, but reveals watching oneself in a mirror.",
           "joke_type": "misdirect",
           "topics": ["sex", "eye contact", "mirror", "narcissism"]
         },
         "2": {
-          "premise": "Mirror sex can simulate being cucked by an evil twin.",
+          "premise": "Watching yourself in a mirror during sex could be reframed as being cuckolded by an evil twin.",
           "joke_type": "reframe",
           "topics": ["sex", "cuckold", "fetish", "mirror"]
         }

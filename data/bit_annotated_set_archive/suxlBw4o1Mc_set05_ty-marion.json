@@ -16,23 +16,23 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Taken literally, talking during sex can mean speaking to anyone.",
-          "joke_type": "double-meaning",
+          "premise": "\"Talk more during sex\" implies dirty talk to the partner, but reveals calling someone else on the phone.",
+          "joke_type": "misdirect",
           "topics": ["sex", "phone calls", "miscommunication", "girlfriend's dad"]
         }
       }
     },
     "2": {
-      "premise": "Burial coins turn sex with a motionless partner into stereotype tags.",
+      "premise": "A motionless sexual partner could be reframed as a corpse, unlocking burial coin stereotypes.",
       "beats": {
         "1": {
-          "premise": "Sex with a motionless partner can be reframed as preparing a corpse.",
+          "premise": "Sex with a motionless partner could be reframed as preparing a corpse for burial.",
           "joke_type": "reframe",
           "topics": ["dating", "church", "corpse", "burial coins", "Asian stereotypes"]
         },
         "2": {
-          "premise": "Jewish cheapness makes burial coins too valuable to leave behind.",
-          "joke_type": "reframe",
+          "premise": "Jewish frugality is so extreme it extends to reclaiming burial coins after sex.",
+          "joke_type": "hyperbole",
           "topics": ["Jewish stereotypes", "cheapness", "burial coins"]
         }
       }

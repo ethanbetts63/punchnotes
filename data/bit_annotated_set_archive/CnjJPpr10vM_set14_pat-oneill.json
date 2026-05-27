@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "New partners hate hearing about an ex's sexual preferences.",
+          "premise": "An ex's sexual kink could become relationship friction when mentioned to a new partner.",
           "joke_type": "reframe",
           "topics": ["girlfriends", "exes", "spitting"]
         }
@@ -25,8 +25,8 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Unsafe sex can turn herpes into an additive risk.",
-          "joke_type": "what-if",
+          "premise": "Unprotected sex with a possible herpes carrier could result in double herpes.",
+          "joke_type": "reframe",
           "topics": ["condoms", "herpes", "hookups"]
         }
       }
@@ -34,8 +34,8 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Drunken vomiting during sex implies sex should have stopped earlier.",
-          "joke_type": "misdirect",
+          "premise": "A partner vomiting during sex could mean the lesson is to let them sleep first.",
+          "joke_type": "reframe",
           "topics": ["drinking", "vomit", "sex"]
         }
       }
@@ -43,7 +43,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Being called toxic can prompt a literal body-toxicity insult.",
+          "premise": "\"Toxic\" can mean emotionally harmful or literally secreting bodily toxins.",
           "joke_type": "double-meaning",
           "topics": ["crowd reactions", "toxicity", "periods"]
         }

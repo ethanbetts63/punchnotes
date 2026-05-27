@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "'Hims' and 'hymns' sound alike, and hymns independently fit Mormons.",
+          "premise": "\"Hims\" (ED medication brand) sounds like \"hymns,\" and hymns fit Mormons who pray for potency.",
           "joke_type": "phonetic-match",
           "topics": ["Mormons", "Hims", "erectile dysfunction", "hymns"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Taken literally, having acid has two meanings.",
+          "premise": "\"Having acid\" can mean taking LSD recreationally or suffering from acid reflux.",
           "joke_type": "double-meaning",
           "topics": ["aging", "sobriety", "acid", "acid reflux"]
         }

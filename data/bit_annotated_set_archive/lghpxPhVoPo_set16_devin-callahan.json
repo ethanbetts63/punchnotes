@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Dirty Harry's name can imply grime rather than toughness.",
+          "premise": "\"Dirty Harry\" can mean a legendary tough-guy movie character or just a literally filthy person.",
           "joke_type": "double-meaning",
           "topics": ["Dirty Harry", "appearance", "name", "movies"]
         }
@@ -25,8 +25,8 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "What if ghosts keep the amputations they had at death.",
-          "joke_type": "what-if",
+          "premise": "Legless ghosts could be explained as diabetics who kept their amputations in the afterlife.",
+          "joke_type": "reframe",
           "topics": ["ghosts", "afterlife", "diabetes", "death"]
         }
       }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "A hotel name can be mistaken for a front-desk worker's name.",
+          "premise": "\"La Quinta\" can mean a hotel chain or a person's name.",
           "joke_type": "double-meaning",
           "topics": ["La Quinta", "road trip", "language", "hotels"]
         }

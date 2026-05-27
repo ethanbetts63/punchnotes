@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Peeing on pregnancy tests you know will read negative is a cheap way to manufacture good news.",
+          "premise": "A pregnancy test you know will be negative could be reframed as guaranteed affordable good news.",
           "joke_type": "reframe",
           "topics": ["pregnancy test", "emotional support", "mental health", "good news"]
         }
@@ -25,32 +25,32 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Pretending to be a gay couple gets two straight friends into cheaper couples therapy.",
+          "premise": "A male friendship could be reframed as a gay relationship to access cheaper couples therapy.",
           "joke_type": "reframe",
           "topics": ["couples therapy", "healthcare costs", "friendship", "pretending to be gay"]
         }
       }
     },
     "3": {
-      "premise": "Discovering a black widow spider in your room obligates you to treat it like a Black mother.",
+      "premise": "Finding a black widow spider triggers obligations to both a white girlfriend and a Black mother.",
       "beats": {
         "1": {
-          "premise": "A white girlfriend's preference for the spider overrides the Black man's instinct to kill it.",
+          "premise": "A white girlfriend's preference for keeping spiders is widely understood to override her partner's instincts, but rarely confronted.",
           "joke_type": "elephant-in-the-room",
           "topics": ["interracial relationship", "spider", "white girlfriend", "Black men"]
         },
         "2": {
-          "premise": "'Black widow' names both a lethal spider and a Black mother, making killing it morally impossible.",
+          "premise": "\"Black widow\" can mean a lethal spider or a Black mother, making killing it morally impossible.",
           "joke_type": "double-meaning",
           "topics": ["black widow", "Black mother", "spider", "wordplay"]
         },
         "3": {
-          "premise": "Treating a spider like a Black mom means taking her to church by the window and playing Kirk Franklin.",
-          "joke_type": "what-if",
+          "premise": "A black widow spider could be reframed as a Black mom requiring Sunday church attendance by her window.",
+          "joke_type": "reframe",
           "topics": ["Black mother", "church", "Kirk Franklin", "spider"]
         },
         "4": {
-          "premise": "Charlotte's web-writing only works if you believe Wilbur the illiterate pig could read it.",
+          "premise": "Charlotte's web messages could be reframed as meaningless because the pig they were written for was illiterate.",
           "joke_type": "reframe",
           "topics": ["Charlotte's Web", "Wilbur", "literacy", "children's books"]
         }

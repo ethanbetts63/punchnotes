@@ -13,26 +13,26 @@
   "joke_book": "medium",
   "bit_meta": {
     "1": {
-      "premise": "Humanized dogs would expose uncomfortable pet-owner choices.",
+      "premise": "If dogs could communicate, standard pet care would seem like abuse.",
       "beats": {
         "1": {
-          "premise": "Pet mind-reading implies affection, not violent resentment.",
+          "premise": "Pet mind-reading implies they'd express love, but reveals violent thoughts instead.",
           "joke_type": "misdirect",
           "topics": ["Neuralink", "pets", "animal thoughts"]
         },
         "2": {
-          "premise": "Talking dogs would make neutering sound like forced castration.",
-          "joke_type": "what-if",
+          "premise": "Neutering a talking dog would be indistinguishable from forced castration.",
+          "joke_type": "reframe",
           "topics": ["dog owners", "neutering", "castration"]
         },
         "3": {
-          "premise": "Talking dogs would make owners too empathetic to neuter them.",
-          "joke_type": "what-if",
+          "premise": "A dog that could plead its case would make neutering impossible for any empathetic owner.",
+          "joke_type": "reframe",
           "topics": ["dog owners", "neutering", "stray dogs"]
         },
         "4": {
-          "premise": "A dog supporting AOC would become unacceptable to conservatives.",
-          "joke_type": "what-if",
+          "premise": "A dog watching political news implies intellectual companionship, but reveals a disqualifying ideology.",
+          "joke_type": "misdirect",
           "topics": ["dogs", "AOC", "Democrats"]
         }
       }

@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Making sandwiches seems easy compared with smoking brisket.",
+          "premise": "Making a sandwich could be the reasonable request — smoking brisket takes real skill.",
           "joke_type": "reframe",
           "topics": ["women", "sandwiches", "barbecue"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Lice avoiding Black people implies racial purity, not biology.",
+          "premise": "Lice avoiding Black people could be reframed as parasites having a taste for pure-blooded hosts.",
           "joke_type": "reframe",
           "topics": ["lice", "parasites", "race"]
         }
@@ -35,12 +35,12 @@
       "premise": "Beautiful low-crime wine country can imply racist exclusion.",
       "beats": {
         "1": {
-          "premise": "Taken as an acronym, Napa can mean racial exclusion.",
-          "joke_type": "double-meaning",
+          "premise": "A charming wine-country town name could be a racial exclusion acronym.",
+          "joke_type": "reframe",
           "topics": ["Napa", "wine country", "racism"]
         },
         "2": {
-          "premise": "Allowing Mexican residents implies labor exploitation, not inclusion.",
+          "premise": "Allowing a minority group into a restricted town implies inclusivity, but reveals it's purely for farm labor.",
           "joke_type": "misdirect",
           "topics": ["Napa", "Mexican workers", "grapes"]
         }

@@ -16,28 +16,28 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Waymos exist in Austin because there aren't enough Black people to veto bad ideas.",
+          "premise": "Self-driving cars exist in Austin because Black communities aren't present to reject bad ideas first.",
           "joke_type": "elephant-in-the-room",
           "topics": ["Waymo", "Austin", "Black people", "self-driving cars"]
         }
       }
     },
     "2": {
-      "premise": "Waymos replace human drivers, but the human factor they cut is the only thing keeping drunk passengers safe and out of police custody.",
+      "premise": "Waymos remove the human factor that protects drunk passengers from police.",
       "beats": {
         "1": {
-          "premise": "Without a human driver to wake you, the police become your alarm clock.",
+          "premise": "A Waymo can't wake you up, so \"who wakes you\" implies a helpful driver but reveals it's the police.",
           "joke_type": "misdirect",
           "topics": ["Waymo", "drunk", "Uber", "police"]
         },
         "2": {
-          "premise": "A cop calling your mama is more effective than any alarm because childhood fear overrides adult inertia.",
+          "premise": "A mother's phone call could be reframed as the most reliable alarm a heavy sleeper has.",
           "joke_type": "reframe",
           "topics": ["police", "mama", "phone", "waking up"]
         },
         "3": {
-          "premise": "Cleaning during a sibling's punishment is a universally understood childhood survival tactic.",
-          "joke_type": "reframe",
+          "premise": "Cleaning during a sibling's punishment is widely understood as the survival move that deflects your own beating.",
+          "joke_type": "elephant-in-the-room",
           "topics": ["childhood", "punishment", "siblings", "cleaning"]
         }
       }

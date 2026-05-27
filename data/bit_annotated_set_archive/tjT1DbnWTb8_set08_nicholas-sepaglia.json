@@ -14,15 +14,15 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Unprompted insults from a stranger invite equally savage comebacks.",
+      "premise": "An unprovoked insult implies the target looks scary, but each comeback reframes her as the actual victim.",
       "beats": {
         "1": {
-          "premise": "Being called a rapist opens the door to calling her a victim.",
+          "premise": "\"You look like a rapist\" implies an appearance judgment, but the comeback reframes her as his victim.",
           "joke_type": "misdirect",
           "topics": ["insults", "bachelorette party", "rapist", "victim"]
         },
         "2": {
-          "premise": "Saying you're not into fat chicks while she's visibly anorexic counts as a second insult.",
+          "premise": "Announcing disinterest in fat women could be reframed as an insult to someone who is visibly anorexic.",
           "joke_type": "reframe",
           "topics": ["anorexia", "fat shaming", "insults", "bachelorette party"]
         }

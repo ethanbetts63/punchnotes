@@ -17,12 +17,12 @@
       "premise": "Racism can mean loyalty to the human race.",
       "beats": {
         "1": {
-          "premise": "Taken literally, racism can mean loyalty to the human race.",
+          "premise": "\"Racism\" can mean racial prejudice or loyalty to the human race specifically.",
           "joke_type": "double-meaning",
           "topics": ["racism", "AI", "robots", "human race"]
         },
         "2": {
-          "premise": "Taken literally, wired beings can mean robots or meth users.",
+          "premise": "\"Wired beings\" can mean electrically powered robots or humans wired on meth.",
           "joke_type": "double-meaning",
           "topics": ["robots", "meth", "wired beings"]
         }
@@ -31,7 +31,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Legal weed erases the hardship rituals of illegal buying.",
+          "premise": "Marijuana legalization could mean the loss of brick-weed rituals and dealer nostalgia.",
           "joke_type": "reframe",
           "topics": ["marijuana legalization", "brick weed", "resin", "dealers"]
         }

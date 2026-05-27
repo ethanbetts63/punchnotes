@@ -14,21 +14,21 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "Being Jewish gets mistaken for autism, and the two identities share so much that the only real difference is Holocaust history.",
+      "premise": "Being Jewish gets mistaken for autism, and the two identities share so much the only real difference is the Holocaust.",
       "beats": {
         "1": {
-          "premise": "Being called autistic by 'they' turns out to mean just his dad.",
+          "premise": "\"They\" calling him autistic implies widespread consensus, but reveals it's only his dad.",
           "joke_type": "misdirect",
           "topics": ["autism", "dad", "Kill Tony", "retarded"]
         },
         "2": {
-          "premise": "Having family on both Epstein's list and Schindler's List signals extreme Jewishness through two opposite connotations.",
+          "premise": "Having family on Epstein's list and Schindler's List both signal extreme Jewishness through opposite moral poles.",
           "joke_type": "double-meaning",
           "topics": ["Jewish", "Epstein", "Schindler's List", "lists"]
         },
         "3": {
-          "premise": "Autism and Judaism share every behavioral trait except the historical relationship with trains.",
-          "joke_type": "elephant-in-the-room",
+          "premise": "Autism is like Judaism because both share identical behavioral traits, differing only in their historical relationship with trains.",
+          "joke_type": "analogy",
           "topics": ["autism", "Judaism", "trains", "Holocaust"]
         }
       }

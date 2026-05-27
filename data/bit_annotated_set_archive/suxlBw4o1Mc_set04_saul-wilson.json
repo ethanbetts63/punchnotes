@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Taken literally, brownie points can mean favor or sexual access.",
+          "premise": "\"Brownie points\" can mean social favor or, in modern dating, earned access to anal sex.",
           "joke_type": "double-meaning",
           "topics": ["dating", "brownie points", "anal sex"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Taken literally, Twenty One Pilots can mean a band or available aviators.",
+          "premise": "\"Twenty One Pilots\" can mean the band or twenty-one actual certified pilots during a shortage.",
           "joke_type": "double-meaning",
           "topics": ["pilot shortage", "Twenty One Pilots", "wordplay"]
         }
@@ -34,8 +34,8 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "What if hurricane names came from meteorologists' revenge against exes.",
-          "joke_type": "what-if",
+          "premise": "Naming storms after people could be reframed as meteorologists taking revenge on exes.",
+          "joke_type": "reframe",
           "topics": ["hurricanes", "exes", "meteorology", "revenge"]
         }
       }
@@ -43,7 +43,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "'Leukemia' sounds like a person's name and independently fits naming diseases.",
+          "premise": "\"Leukemia\" sounds like a Black woman's name, and that name fits because diseases are supposedly named after people.",
           "joke_type": "phonetic-match",
           "topics": ["disease names", "leukemia", "names"]
         }

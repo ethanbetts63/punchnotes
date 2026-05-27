@@ -16,8 +16,8 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Batman naming logic would expose a white person's racial fear.",
-          "joke_type": "analogy",
+          "premise": "Batman's fear-based naming convention implies a heroic title, but reveals a white person's racial fear.",
+          "joke_type": "misdirect",
           "topics": ["Batman", "black men", "superheroes"]
         }
       }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Radiation-based superhero origins imply Japan should produce more superheroes.",
+          "premise": "Superhero origin by radiation could mean Japan should produce the most superheroes.",
           "joke_type": "reframe",
           "topics": ["superheroes", "radiation", "Japan"]
         }
@@ -35,12 +35,12 @@
       "premise": "Japanese disaster references are converted into racial sex wordplay.",
       "beats": {
         "1": {
-          "premise": "Asian jokes being short-sighted uses a vision stereotype as self-defense.",
+          "premise": "\"Short-sighted\" can mean intellectually narrow or literally poor-visioned, linking to Asian stereotypes.",
           "joke_type": "double-meaning",
           "topics": ["Asian jokes", "stereotypes", "vision"]
         },
         "2": {
-          "premise": "'Nagasaki' sounds like 'nigga sucky'.",
+          "premise": "\"Nagasaki\" sounds like \"nigga sucky,\" and \"nigga sucky\" fits as a misread slang phrase.",
           "joke_type": "phonetic-match",
           "topics": ["Nagasaki", "Oppenheimer", "oral sex"]
         }
@@ -49,7 +49,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Hamas fighting Israel is like bringing a knife to a space-laser fight.",
+          "premise": "Hamas attacking Israel is like bringing a knife to a space-laser fight because the power disparity is extreme.",
           "joke_type": "analogy",
           "topics": ["Hamas", "Israel", "space lasers"]
         }
@@ -58,8 +58,8 @@
     "5": {
       "beats": {
         "1": {
-          "premise": "Prayer direction makes Muslims tactically vulnerable to sneak attacks.",
-          "joke_type": "what-if",
+          "premise": "Directional prayer could serve as a predictable tactical vulnerability.",
+          "joke_type": "reframe",
           "topics": ["Middle East", "prayer", "war"]
         }
       }

@@ -17,23 +17,23 @@
       "premise": "Rural white danger is treated as scarier than wilderness danger.",
       "beats": {
         "1": {
-          "premise": "A rural Texas sunset implies a Black person should obey sundown-town rules.",
+          "premise": "A rural Texas sunset could signal that sundown-town rules still apply.",
           "joke_type": "reframe",
           "topics": ["rural Texas", "sundown towns", "race"]
         },
         "2": {
-          "premise": "A mountain lion is preferable to encountering a rural white man.",
+          "premise": "A mountain lion attack implies the worst-case threat, but a rural white man is worse.",
           "joke_type": "misdirect",
           "topics": ["mountain lions", "white men", "woods"]
         },
         "3": {
-          "premise": "White men are scarier than bears because bear defenses do not stop them.",
+          "premise": "A rural white man is scarier than a grizzly bear because bear mace works on bears but not on white men.",
           "joke_type": "analogy",
           "topics": ["bears", "bear mace", "white men"]
         },
         "4": {
-          "premise": "A polar bear without the correct soda branding becomes sexually murderous.",
-          "joke_type": "what-if",
+          "premise": "A polar bear could be docile when associated with Coca-Cola but lethal with Pepsi.",
+          "joke_type": "reframe",
           "topics": ["polar bears", "Coca-Cola", "Pepsi"]
         }
       }

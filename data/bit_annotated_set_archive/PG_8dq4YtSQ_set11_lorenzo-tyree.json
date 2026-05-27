@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Refusing one-night stands in favor of two night stands is really about bedroom furniture symmetry.",
+          "premise": "\"One-night stand\" can mean a casual sexual encounter or a single bedside table.",
           "joke_type": "double-meaning",
           "topics": ["one-night stands", "bedroom furniture", "sex"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Mishearing 'VYI' as 'DUI' shifts the concern from sex to drunk driving.",
+          "premise": "\"VYI\" sounds like \"DUI\", and \"DUI\" fits because she just drove them home drunk.",
           "joke_type": "phonetic-match",
           "topics": ["yeast infection", "DUI", "hookup", "mishearing"]
         }

@@ -15,7 +15,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Covering a face but not exposed breasts suggests absurd COVID caution.",
+          "premise": "Wearing a mask but nothing else could be the ultimate virtue-signal without modesty.",
           "joke_type": "reframe",
           "topics": ["homelessness", "masks", "Democrats"]
         }
@@ -24,23 +24,23 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Iran implies a foreign country, not a Nebraska town.",
+          "premise": "'Iran' implies a foreign country, but reveals a small-town American hometown.",
           "joke_type": "misdirect",
           "topics": ["Iran", "Nebraska", "identity"]
         }
       }
     },
     "3": {
-      "premise": "Middle Eastern airport signs would ban stones instead of guns.",
+      "premise": "Airport safety signs reflect the local weapon of choice.",
       "beats": {
         "1": {
-          "premise": "Middle Eastern weapons rules would treat stones like airplane threats.",
-          "joke_type": "what-if",
+          "premise": "A 'no weapons on planes' sign could list stones rather than guns in a stone-throwing culture.",
+          "joke_type": "reframe",
           "topics": ["airport signs", "Middle East", "weapons"]
         },
         "2": {
-          "premise": "A stone-throwing culture makes lost limbs an airport liability.",
-          "joke_type": "what-if",
+          "premise": "A 'not responsible for lost limbs' sign could be routine liability in a stone-throwing culture.",
+          "joke_type": "reframe",
           "topics": ["lost limbs", "stones", "airport signs"]
         }
       }

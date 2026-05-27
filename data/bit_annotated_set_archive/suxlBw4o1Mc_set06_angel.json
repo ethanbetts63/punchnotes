@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Avoiding someone can imply the same autism judgment as saying it aloud.",
+          "premise": "Avoiding someone entirely could be reframed as calling them autistic without using the word.",
           "joke_type": "reframe",
           "topics": ["autism", "strangers", "social avoidance"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Only seeing puppies die can make adult dogs seem impossible.",
+          "premise": "Only experiencing sick puppies dying could be reframed as evidence that all dogs die young of parvo.",
           "joke_type": "reframe",
           "topics": ["dogs", "puppies", "parvo", "childhood"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Racist language can be treated as situationally strategic instead of forbidden.",
+          "premise": "Racial slurs could be reframed as tactical race-riot survival tools, appropriate only at specific locations.",
           "joke_type": "reframe",
           "topics": ["stepdad", "racial slurs", "Walmart", "Home Depot", "race riot"]
         }

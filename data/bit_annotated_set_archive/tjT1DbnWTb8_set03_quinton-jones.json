@@ -14,20 +14,20 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Women with cats are primed for bad relationships because a cat already models loveless cohabitation.",
+      "premise": "Women with cats are already conditioned to accept what cats model: loveless, abusive cohabitation.",
       "beats": {
         "1": {
-          "premise": "Cat women are easy to please because they already live with something that doesn't love them.",
+          "premise": "A cat woman could be reframed as easy to please because she already accepts being unloved by a housemate.",
           "joke_type": "reframe",
           "topics": ["cat women", "relationships", "cats", "emotional neglect"]
         },
         "2": {
-          "premise": "Mimicking a cat's abusive behavior is the logical strategy to get a cat woman to cook for you.",
-          "joke_type": "what-if",
+          "premise": "Gaslighting a cat-woman is like how a cat behaves, because both abuse earns the same reward: getting fed.",
+          "joke_type": "analogy",
           "topics": ["cat women", "gaslighting", "cats", "relationships"]
         },
         "3": {
-          "premise": "After all the dark relationship material, the actual reason to avoid cat women is a mundane allergy.",
+          "premise": "\"Not for the best reasons\" to avoid cat women implies dark psychology, but reveals a simple allergy.",
           "joke_type": "misdirect",
           "topics": ["cat allergy", "Benadryl", "sex", "cat women"]
         }

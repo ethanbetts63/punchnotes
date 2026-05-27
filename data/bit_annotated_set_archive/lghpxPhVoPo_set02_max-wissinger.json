@@ -14,35 +14,35 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "Romantic confidence collapses into childishness and loneliness.",
+      "premise": "A romantic encounter reveals perpetual youthful appearance and the absence of an actual girlfriend.",
       "beats": {
         "1": {
-          "premise": "Looking excited during sex is really just looking like a child.",
-          "joke_type": "analogy",
+          "premise": "\"Like a kid in a candy store\" implies sexual excitement, but reveals an always-childlike appearance.",
+          "joke_type": "misdirect",
           "topics": ["dating", "appearance", "sex", "girlfriend"]
         },
         "2": {
-          "premise": "A girlfriend story implies dating success, not total loneliness.",
+          "premise": "Recounting a girlfriend story implies an actual relationship, but reveals there is no girlfriend.",
           "joke_type": "misdirect",
           "topics": ["dating", "loneliness", "girlfriend"]
         }
       }
     },
     "2": {
-      "premise": "Gluten intolerance makes ordinary life pathetic.",
+      "premise": "Gluten intolerance renders ordinary social situations humiliating.",
       "beats": {
         "1": {
-          "premise": "A gluten-free man cannot fight off Little Debbie.",
+          "premise": "\"Fight off Little Debbie\" can mean resisting a snack food or protecting a girlfriend from an attacker.",
           "joke_type": "double-meaning",
           "topics": ["gluten", "dating", "food", "masculinity"]
         },
         "2": {
-          "premise": "Gluten makes a harmless apple fritter cause bathroom disaster.",
+          "premise": "A harmless office donut could send a gluten-intolerant person straight to the bathroom.",
           "joke_type": "reframe",
           "topics": ["gluten", "donuts", "food", "workplace"]
         },
         "3": {
-          "premise": "Thinking about a toaster implies breakfast, not suicide.",
+          "premise": "Mentioning a toaster implies making toast, but reveals suicidal ideation via electrocution in a bath.",
           "joke_type": "misdirect",
           "topics": ["gluten", "depression", "suicide", "toaster"]
         }

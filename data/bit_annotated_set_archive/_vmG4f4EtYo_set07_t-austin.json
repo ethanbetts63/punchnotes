@@ -13,31 +13,31 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "Apocalypse scenarios can be ranked like personal preferences.",
+      "premise": "Every apocalypse type has a hidden upside.",
       "beats": {
         "1": {
-          "premise": "What if the apocalypse made profanity impossible because God appeared.",
-          "joke_type": "what-if",
+          "premise": "God's arrival at the apocalypse could make profanity impossible since the deity is right there.",
+          "joke_type": "reframe",
           "topics": ["apocalypse", "religion", "God"]
         },
         "2": {
-          "premise": "A nuclear apocalypse is less hypothetical when current politics already resemble it.",
+          "premise": "Current political reality could already qualify as the nuclear apocalypse.",
           "joke_type": "reframe",
           "topics": ["Donald Trump", "Israel", "bombs"]
         },
         "3": {
-          "premise": "What if a zombie apocalypse were desirable because pop culture prepared fans.",
-          "joke_type": "what-if",
+          "premise": "A zombie apocalypse could be the one scenario fans are actually prepared and eager for.",
+          "joke_type": "reframe",
           "topics": ["zombies", "Thriller", "The Walking Dead"]
         },
         "4": {
-          "premise": "What if peanut allergies made peanuts a mass-casualty weapon.",
-          "joke_type": "what-if",
+          "premise": "Peanuts could qualify as a weapon of mass destruction given the prevalence of allergies.",
+          "joke_type": "reframe",
           "topics": ["peanuts", "allergies", "mass death"]
         },
         "5": {
-          "premise": "What if alien apocalypse fears were confirmed by the crowd already being aliens.",
-          "joke_type": "what-if",
+          "premise": "Alien invasion fears imply outsiders, but the audience itself could already be the aliens.",
+          "joke_type": "misdirect",
           "topics": ["aliens", "Donald Trump", "apocalypse"]
         }
       }

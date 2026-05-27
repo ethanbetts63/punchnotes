@@ -17,52 +17,52 @@
       "premise": "Epstein's Island, repackaged as an enticing vacation destination, reveals each famous guest's worst scandal.",
       "beats": {
         "1": {
-          "premise": "A pitch for a paradise island full of celebrities and beautiful women turns out to be Epstein's Island.",
+          "premise": "A pitch for a paradise island with celebrities implies a dream vacation, but reveals Epstein's Island.",
           "joke_type": "misdirect",
           "topics": ["Epstein's Island", "Jeffrey Epstein", "sex trafficking", "vacation"]
         },
         "2": {
-          "premise": "The island's perfect weather is controlled by hook-nosed men in small hats, said aloud.",
+          "premise": "Jewish control of institutions is widely assumed in conspiracy circles but rarely stated as a punchline.",
           "joke_type": "elephant-in-the-room",
           "topics": ["antisemitism", "conspiracy theories", "Epstein's Island", "weather"]
         },
         "3": {
-          "premise": "Clinton 'coming in under four minutes' sounds like a Groundhog Day forecast but means ejaculation speed.",
+          "premise": "\"Coming in under four minutes\" implies a Groundhog Day weather forecast, but reveals premature ejaculation.",
           "joke_type": "misdirect",
           "topics": ["Bill Clinton", "Groundhog Day", "sex", "Epstein's Island"]
         },
         "4": {
-          "premise": "Clinton's preference for Asian women rephrased as a slur he invented.",
+          "premise": "Sexual fetishization of Asian women by powerful men is widely understood but rarely named aloud.",
           "joke_type": "elephant-in-the-room",
           "topics": ["Bill Clinton", "Asian women", "racial slurs", "Epstein's Island"]
         },
         "5": {
-          "premise": "A Black midget combines the three-fifths compromise fraction with being half a person, yielding three-tenths of a human.",
+          "premise": "A Black little person is like a fraction of a fraction because both the three-fifths compromise and dwarfism reduce personhood.",
           "joke_type": "analogy",
           "topics": ["three-fifths compromise", "dwarfism", "slavery", "race"]
         },
         "6": {
-          "premise": "Trump using JD Vance as furniture and Fauci transforming into a bat literalize their worst public caricatures.",
-          "joke_type": "what-if",
+          "premise": "Each politician's worst public caricature could be presented as literal behavior.",
+          "joke_type": "reframe",
           "topics": ["Trump", "JD Vance", "Fauci", "COVID-19"]
         },
         "7": {
-          "premise": "Biden sleeping with a prostitute who smokes a candy cigarette implies he chose a child-level partner.",
+          "premise": "A candy cigarette after sex could imply the person smoking it is childlike.",
           "joke_type": "reframe",
           "topics": ["Biden", "prostitute", "candy cigarette", "dementia"]
         },
         "8": {
-          "premise": "Stephen Hawking on a treadmill ends with an eject button, treating his wheelchair as a carnival ride.",
+          "premise": "A motorized wheelchair on a treadmill could function like a carnival eject ride.",
           "joke_type": "reframe",
           "topics": ["Stephen Hawking", "wheelchair", "treadmill", "Epstein's Island"]
         },
         "9": {
-          "premise": "An Arabic stripper requests rocks instead of cash because throwing money is replaced by stoning.",
+          "premise": "Throwing money at a Muslim stripper could be replaced by throwing rocks under Islamic custom.",
           "joke_type": "reframe",
           "topics": ["Arabic stripper", "stoning", "Islam", "tipping"]
         },
         "10": {
-          "premise": "A stripper presented as Black is revealed to be a white woman in blackface, making the audience the ones who judged by appearance.",
+          "premise": "A Black stripper's appearance implies authentic Blackness, but reveals white skin beneath makeup.",
           "joke_type": "misdirect",
           "topics": ["blackface", "race", "stripper", "Epstein's Island"]
         }
@@ -72,12 +72,12 @@
       "premise": "FOMO about Epstein's Island traps you between not wanting to go and not wanting to miss it.",
       "beats": {
         "1": {
-          "premise": "No ball that left the island was blue — every guest's desires were satisfied.",
+          "premise": "\"Blue balls\" can mean sports equipment or unsatisfied sexual desire.",
           "joke_type": "double-meaning",
           "topics": ["blue balls", "Epstein's Island", "sex", "sports equipment"]
         },
         "2": {
-          "premise": "FOMO about a place you morally oppose still overrides your better judgment.",
+          "premise": "Wanting to attend Epstein's Island despite its moral horror is widely felt but rarely admitted.",
           "joke_type": "elephant-in-the-room",
           "topics": ["FOMO", "Epstein's Island", "moral compromise", "complicity"]
         }

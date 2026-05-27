@@ -17,12 +17,12 @@
       "premise": "A string of brutal appearance insults turns out to all originate from the same two-person group chat — the comedian's parents.",
       "beats": {
         "1": {
-          "premise": "Cruel appearance insults imply strangers, not parents in a group chat.",
+          "premise": "Multiple brutal appearance insults imply a crowd of critics, but reveal only the comedian's two parents.",
           "joke_type": "misdirect",
           "topics": ["appearance", "insults", "parents", "group chat"]
         },
         "2": {
-          "premise": "Weight gain is like Russian dolls because each larger body contains prior versions.",
+          "premise": "Progressive weight gain is like a Russian doll that ate the others because each heavier version contains the prior ones.",
           "joke_type": "analogy",
           "topics": ["dating", "weight gain", "dating app", "parents"]
         }
@@ -31,7 +31,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "A DUI can complement a master's degree as fun credentials.",
+          "premise": "A DUI could complement a master's degree as the best-of-both-worlds dating credential.",
           "joke_type": "reframe",
           "topics": ["dating", "DUI", "education"]
         }

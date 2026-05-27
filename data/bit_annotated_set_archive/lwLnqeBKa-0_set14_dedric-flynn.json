@@ -14,31 +14,31 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "Tattoos can make workers seem tougher and more trustworthy.",
+      "premise": "Tattoos signal blue-collar credibility more reliably than credentials do.",
       "beats": {
         "1": {
-          "premise": "Visible tattoos make car-wash workers seem more trustworthy.",
+          "premise": "More tattoos could signal greater trustworthiness with someone's car.",
           "joke_type": "reframe",
           "topics": ["car wash", "tattoos", "management"]
         },
         "2": {
-          "premise": "A tattooed mechanic seems credible because danger implies competence.",
+          "premise": "A throat-tattooed mechanic's intimidation could be reframed as the most convincing upsell.",
           "joke_type": "reframe",
           "topics": ["tattoos", "car repair", "trust"]
         },
         "3": {
-          "premise": "Nurses having tattoos implies they endured more than doctors.",
+          "premise": "Nurses having tattoos while doctors don't could signal nurses endured more to be there.",
           "joke_type": "reframe",
           "topics": ["tattoos", "nurses", "doctors"]
         },
         "4": {
-          "premise": "What if hospitals ran better because tattooed nurses rushed injections.",
-          "joke_type": "what-if",
+          "premise": "Tattooed nurses' eagerness to needle patients could be reframed as aggressive efficiency.",
+          "joke_type": "reframe",
           "topics": ["nurses", "hospitals", "needles"]
         },
         "5": {
-          "premise": "Blue-collar credibility is like tattoos because both signal physical effort.",
-          "joke_type": "analogy",
+          "premise": "Willingness to punch drywall could be reframed as the true credential for hanging it.",
+          "joke_type": "reframe",
           "topics": ["tattoos", "blue-collar work", "drummers", "audience roast"]
         }
       }

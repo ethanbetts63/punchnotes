@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Taken literally, 'old-fashioned' has two meanings: traditional values and unrepentant racism.",
+          "premise": "'Old-fashioned' can mean traditional values or unrepentant racism.",
           "joke_type": "double-meaning",
           "topics": ["Midwest", "family", "racism"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "A child's multiple diagnoses make a more memorable identifier than their actual name.",
+          "premise": "A child's string of diagnoses could work better as a name than their actual name.",
           "joke_type": "reframe",
           "topics": ["friends", "children", "diagnoses"]
         }
@@ -35,12 +35,12 @@
       "premise": "Prison staff can be more disturbing to encounter than the inmates.",
       "beats": {
         "1": {
-          "premise": "Prison employees can be more dangerous and deranged than the inmates themselves.",
+          "premise": "Working at a prison could mean the employees are more unsettling than the inmates.",
           "joke_type": "reframe",
           "topics": ["prison", "coworkers", "dating"]
         },
         "2": {
-          "premise": "A coworker's child porn conviction is reframed as a cautionary tale about laptop lending.",
+          "premise": "A coworker's child porn bust implies a moral story, but reveals only a lesson about lending laptops.",
           "joke_type": "misdirect",
           "topics": ["coworkers", "laptop", "crime"]
         }
@@ -49,7 +49,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "A homeless person's AIDS warning sign implies public sympathy, not a warning to recent sex partners.",
+          "premise": "A homeless person's AIDS sign implies a plea for sympathy, but would have served better as a pre-sex warning.",
           "joke_type": "misdirect",
           "topics": ["homelessness", "AIDS", "sex"]
         }

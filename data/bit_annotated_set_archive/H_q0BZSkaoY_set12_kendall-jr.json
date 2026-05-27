@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Black British accents violate unspoken racial expectations.",
+          "premise": "A Black person having a British accent is widely jarring but rarely admitted aloud.",
           "joke_type": "elephant-in-the-room",
           "topics": ["race", "British accent", "Black British"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Excessive affection toward a dog implies possible bestiality.",
+          "premise": "A woman being unusually close with her dog could mean she's having sex with it.",
           "joke_type": "reframe",
           "topics": ["dogs", "bestiality", "women"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Taken literally, meth heads have pull-out game with copper.",
+          "premise": "\"Pull-out game\" can mean contraception withdrawal or stripping copper wire.",
           "joke_type": "double-meaning",
           "topics": ["meth", "IUD", "copper", "sex"]
         }
@@ -43,7 +43,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Taken literally, a landing strip can become the Gaza Strip.",
+          "premise": "\"Strip\" can mean a pubic hair style or a war-ravaged territory.",
           "joke_type": "double-meaning",
           "topics": ["abortion", "Gaza", "pubic hair"]
         }

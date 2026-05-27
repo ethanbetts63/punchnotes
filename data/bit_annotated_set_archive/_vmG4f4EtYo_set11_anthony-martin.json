@@ -13,16 +13,16 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Predator-catching videos become uncomfortable when the targets seem vulnerable or elected.",
+      "premise": "Predator-catching is satisfying until the predator turns out to be someone you can't feel good punching.",
       "beats": {
         "1": {
-          "premise": "Predator-catching videos become retail-store action scenes.",
+          "premise": "A predator-catching sting could play out like a retail-store action sequence.",
           "joke_type": "reframe",
           "topics": ["YouTube", "predator catchers", "Walmart"]
         },
         "2": {
-          "premise": "Politicians fit naturally among predators who complicate vigilante punishment.",
-          "joke_type": "reframe",
+          "premise": "Feeling guilty about punching a predator implies disability, but reveals they're a reelection candidate.",
+          "joke_type": "misdirect",
           "topics": ["guilt", "disabilities", "politicians"]
         }
       }
@@ -30,7 +30,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "A wrong-recipient sext implies rejection, not reciprocated interest.",
+          "premise": "Accidentally sexting a mother-in-law implies horror, but reveals unexpected reciprocation.",
           "joke_type": "misdirect",
           "topics": ["sexting", "fiance", "mother-in-law"]
         }

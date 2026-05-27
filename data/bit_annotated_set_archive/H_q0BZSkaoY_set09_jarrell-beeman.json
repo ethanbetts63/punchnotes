@@ -16,23 +16,23 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "A muted reaction to Dayton implies disappointment over heroin, not civic judgment.",
+          "premise": "A quiet crowd reaction to Dayton implies judgment about the city, but reveals they expected heroin enthusiasm.",
           "joke_type": "misdirect",
           "topics": ["Dayton Ohio", "heroin", "regional identity"]
         }
       }
     },
     "2": {
-      "premise": "Proximity to violent crime creates irrationally cheap rent, which in turn creates a financial incentive to commit even more murders.",
+      "premise": "Cheap rent near violent crime creates a financial incentive to commit more murders.",
       "beats": {
         "1": {
-          "premise": "Nearby murders can explain rent as a bargain rather than a red flag.",
+          "premise": "Shockingly cheap rent near a crime scene could be a perk, not a warning.",
           "joke_type": "reframe",
           "topics": ["Dayton Ohio", "rent", "murder", "poverty"]
         },
         "2": {
-          "premise": "What if committing more murders could lower rent further.",
-          "joke_type": "what-if",
+          "premise": "Murder could be a viable rent-reduction strategy.",
+          "joke_type": "reframe",
           "topics": ["rent", "murder", "crime"]
         }
       }

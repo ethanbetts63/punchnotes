@@ -14,15 +14,15 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Conspiracy claims can become true through literal reframing.",
+      "premise": "Alex Jones's conspiracy claims could be taken as literal true statements.",
       "beats": {
         "1": {
-          "premise": "Alex Jones saying true things implies facts, not accurate 9/11 warnings.",
+          "premise": "\"He says some true things\" implies general accuracy, but reveals he literally predicted the 9/11 attack.",
           "joke_type": "misdirect",
           "topics": ["Alex Jones", "9/11", "conspiracies"]
         },
         "2": {
-          "premise": "Calling frogs gay reframes conspiracy harm as outing them.",
+          "premise": "\"Turning frogs gay\" could be reframed as involuntarily outing closeted frogs.",
           "joke_type": "reframe",
           "topics": ["Alex Jones", "gay frogs", "outing"]
         }

@@ -16,8 +16,8 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "\"Doxxing\" sounds like a sport where men box with their genitals.",
-          "joke_type": "misdirect",
+          "premise": "Doxxing sounds like the sexual act of docking",
+          "joke_type": "double-meaning",
           "topics": ["doxxing", "boxing", "mother", "internet slang"]
         }
       }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Ordering amberjack and receiving a fish with whiskers means being literally catfished.",
+          "premise": "\"Catfished\" can mean deceived online or literally served a fish with whiskers.",
           "joke_type": "double-meaning",
           "topics": ["catfishing", "amberjack", "restaurant", "fish"]
         }
@@ -34,8 +34,8 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "A flat earther's suicidal walk in one direction accidentally proves the earth is round.",
-          "joke_type": "what-if",
+          "premise": "A flat earther walking in one direction to die implies falling off the edge, but reveals circumnavigation.",
+          "joke_type": "misdirect",
           "topics": ["flat earth", "suicide", "circumnavigation", "round earth"]
         }
       }

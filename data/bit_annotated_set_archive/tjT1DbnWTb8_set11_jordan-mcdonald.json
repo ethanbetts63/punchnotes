@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "A homeless man's claim of weekend-only crack use implies discipline — and it happens to be the weekend.",
+          "premise": "\"I only smoke crack on weekends\" implies disciplined drug use, but reveals it's currently the weekend.",
           "joke_type": "misdirect",
           "topics": ["crack", "homelessness", "discipline", "Toronto"]
         }

@@ -13,25 +13,25 @@
   "joke_book": "small",
   "bit_meta": {
     "1": {
-      "premise": "Loved ones create the cruelest nicknames because they know the flaw.",
+      "premise": "The cruelest nicknames always come from those closest to you.",
       "beats": {
         "1": {
-          "premise": "Jelly Roll sounds insulting when listed among cruel nicknames.",
+          "premise": "A celebrity's name could qualify as a cruel fat-kid nickname.",
           "joke_type": "reframe",
           "topics": ["nicknames", "Jelly Roll", "crowd work"]
         },
         "2": {
-          "premise": "A fat child is like bacon because both imply excess fat.",
+          "premise": "A fat child is like bacon because both are associated with excess fat.",
           "joke_type": "analogy",
           "topics": ["grandfather", "childhood obesity", "nicknames"]
         },
         "3": {
-          "premise": "A screaming child is like Hitler because tantrums secure control.",
+          "premise": "A screaming toddler is like Hitler because both got what they wanted through unhinged yelling.",
           "joke_type": "analogy",
           "topics": ["brothers", "Hitler", "Donald Trump"]
         },
         "4": {
-          "premise": "'Benedict' and 'bend a dick' sound alike, and both fit coming out.",
+          "premise": "'Benedict' sounds like 'bend-a-dick', and 'bend-a-dick' fits when someone comes out as gay.",
           "joke_type": "phonetic-match",
           "topics": ["brothers", "coming out", "Benedict"]
         }

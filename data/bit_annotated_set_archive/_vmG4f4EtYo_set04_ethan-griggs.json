@@ -15,38 +15,38 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "A farm can fail from having only one useless child.",
+          "premise": "Having one child to work the farm still dooms it if that child is a failure.",
           "joke_type": "reframe",
           "topics": ["farming", "only children", "family labor", "stand-up"]
         }
       }
     },
     "2": {
-      "premise": "A broke inheritance can be an overwhelming porn collection.",
+      "premise": "A poor father's only bequest could be a vast, embarrassing pornography collection.",
       "beats": {
         "1": {
-          "premise": "A porn inheritance is so large it would physically deplete the heir.",
+          "premise": "A porn collection is so large you could run out of bodily fluids before finishing it.",
           "joke_type": "hyperbole",
           "topics": ["inheritance", "porn collection", "father"]
         },
         "2": {
-          "premise": "Masturbation rehab is like vaping cancer because both are embarrassing consequences.",
+          "premise": "Masturbation addiction is like vaping cancer because both are shameful consequences of trivial habits.",
           "joke_type": "analogy",
           "topics": ["masturbation", "rehab", "embarrassment"]
         }
       }
     },
     "3": {
-      "premise": "An untraumatic childhood leaves comedy without useful damage.",
+      "premise": "Childhood trauma is the raw material of stand-up comedy.",
       "beats": {
         "1": {
-          "premise": "Avoiding church and scouts can mean missing comedy-useful trauma.",
+          "premise": "Avoiding predatory institutions could mean missing the trauma that fuels stand-up comedy.",
           "joke_type": "reframe",
           "topics": ["stand-up", "childhood", "trauma"]
         },
         "2": {
-          "premise": "A predatory relative being distracted by goats makes rejection insulting.",
-          "joke_type": "reframe",
+          "premise": "A predatory relative's preference for farm animals implies escape but reveals rejection instead.",
+          "joke_type": "misdirect",
           "topics": ["relatives", "farm animals", "sexual trauma"]
         }
       }

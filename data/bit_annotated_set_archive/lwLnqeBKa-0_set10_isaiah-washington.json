@@ -14,15 +14,15 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "Fatherlessness can be so normal that having a dad seems mockable.",
+      "premise": "Fatherlessness is so normalized that having a dad becomes the mockable trait.",
       "beats": {
         "1": {
-          "premise": "Fatherlessness can make having a present dad seem shameful.",
+          "premise": "Having a present father could be reframed as shameful when absence is the norm.",
           "joke_type": "reframe",
           "topics": ["absent fathers", "elementary school", "Disneyland"]
         },
         "2": {
-          "premise": "Single-mother childhoods make gay insults boomerang onto the insulter.",
+          "premise": "Being raised by a single mother could itself qualify as the \"gay\" thing they mocked others for.",
           "joke_type": "reframe",
           "topics": ["single mothers", "childhood", "masculinity"]
         }
@@ -31,7 +31,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Lane Bryant is like Victoria's Secret for plus-size women.",
+          "premise": "Lane Bryant is like Victoria's Secret because both sell lingerie to a specific body type.",
           "joke_type": "analogy",
           "topics": ["single mothers", "Lane Bryant", "shopping"]
         }
@@ -40,7 +40,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Seeing titties implies sexual discovery, not noticing one's own chest.",
+          "premise": "\"First time I saw titties\" implies someone else's chest, but reveals looking in the mirror at his own.",
           "joke_type": "misdirect",
           "topics": ["religion", "body size", "puberty", "shame"]
         }
@@ -49,8 +49,8 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "A body-positive claim reveals insecurity when applause is expected.",
-          "joke_type": "reframe",
+          "premise": "Claiming some women like bigger men implies confidence but reveals a need for audience validation.",
+          "joke_type": "misdirect",
           "topics": ["bigger men", "audience reaction", "self-esteem"]
         }
       }

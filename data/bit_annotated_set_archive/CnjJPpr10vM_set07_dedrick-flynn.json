@@ -17,12 +17,12 @@
       "premise": "White friends are a seasonal luxury resource.",
       "beats": {
         "1": {
-          "premise": "White friends provide seasonal access to expensive summer activities.",
+          "premise": "White friends could be treated as seasonal passes to activities like jet skis and boats.",
           "joke_type": "reframe",
           "topics": ["white friends", "summer", "jet skis", "Black friends"]
         },
         "2": {
-          "premise": "White friends can make a weekend impressive by funding WrestleMania.",
+          "premise": "Having exceptional white friends could explain attending events like WrestleMania.",
           "joke_type": "reframe",
           "topics": ["white friends", "WrestleMania", "weekends"]
         }
@@ -32,22 +32,22 @@
       "premise": "Sandbar parties turn beach games into racial land conquest.",
       "beats": {
         "1": {
-          "premise": "Claiming sandbar land can count as reparations.",
+          "premise": "Claiming an ocean sandbar could count as fulfilling the 40 acres reparations promise.",
           "joke_type": "reframe",
           "topics": ["sandbars", "boats", "reparations", "40 acres"]
         },
         "2": {
-          "premise": "Refusing beach shoes can be about hiding toes, not comfort.",
+          "premise": "Refusing to remove shoes at the beach implies stubbornness, but reveals hiding ugly toes.",
           "joke_type": "misdirect",
           "topics": ["beaches", "Air Force Ones", "toes", "boundaries"]
         },
         "3": {
-          "premise": "Beer pong can become a fight to hold island territory.",
+          "premise": "Beach games like beer pong could determine who controls sandbar territory.",
           "joke_type": "reframe",
           "topics": ["sandbars", "beer pong", "islands", "Black friends"]
         },
         "4": {
-          "premise": "Black friends become strategic reinforcements in island competitions.",
+          "premise": "Black friends could function as strategic reinforcements in sandbar territory battles.",
           "joke_type": "reframe",
           "topics": ["white friends", "islands", "competition"]
         }

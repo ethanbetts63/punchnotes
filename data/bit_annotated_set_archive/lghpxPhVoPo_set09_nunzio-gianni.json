@@ -14,15 +14,15 @@
   "joke_book": "small",
   "bit_meta": {
     "1": {
-      "premise": "Growing up in Miami meant skipping conventional dating and going straight to strippers and sex workers.",
+      "premise": "Growing up in Miami replaces conventional dating with strippers.",
       "beats": {
         "1": {
-          "premise": "Mentioning Miami implies hometown pride, not immediate stripper praise.",
+          "premise": "Asking if anyone's from Miami implies civic connection, but reveals only shared love of strippers.",
           "joke_type": "misdirect",
           "topics": ["Miami", "strippers", "dating"]
         },
         "2": {
-          "premise": "Growing up around strippers can replace normal dating experience.",
+          "premise": "Getting a taste for strippers as a teenager could substitute for learning to date normally.",
           "joke_type": "reframe",
           "topics": ["Miami", "dating", "strippers", "youth"]
         }
@@ -31,7 +31,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Texas reduces mixed Latino identity to crude racial categories.",
+          "premise": "In Texas, ambiguous Latino ethnicity gets collapsed into \"Mexican\" or \"colored\" — and everyone knows it.",
           "joke_type": "elephant-in-the-room",
           "topics": ["race", "Puerto Rican", "Texas", "ethnicity"]
         }

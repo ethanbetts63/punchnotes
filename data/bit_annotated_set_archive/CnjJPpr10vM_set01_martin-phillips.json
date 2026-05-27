@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Taken literally, human trafficking includes regular traffic.",
+          "premise": "\"Traffic\" in \"human trafficking\" can mean criminal transport or ordinary road congestion.",
           "joke_type": "double-meaning",
           "topics": ["human trafficking", "traffic"]
         }
@@ -25,8 +25,8 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Tight dresses can make a body look muscular.",
-          "joke_type": "reframe",
+          "premise": "Looking muscular in tight clothes implies gym gains, but reveals a sister's dress.",
+          "joke_type": "misdirect",
           "topics": ["women's clothes", "body image", "dresses"]
         }
       }
@@ -34,8 +34,8 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "What if Jesus joined the sex he is supposed to prevent.",
-          "joke_type": "what-if",
+          "premise": "\"Make room for Jesus\" could mean Jesus himself wants in on the sex act.",
+          "joke_type": "reframe",
           "topics": ["school", "Jesus", "sex"]
         }
       }

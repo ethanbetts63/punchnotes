@@ -14,25 +14,25 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Sleeping with a white woman for the first time comes with unexpected cultural and logistical consequences.",
+      "premise": "Sleeping with a white woman for the first time brings unexpected cultural and interpersonal consequences.",
       "beats": {
         "1": {
-          "premise": "Crowd approval for a sexual milestone clashes with girlfriend's disapproval.",
+          "premise": "A crowd cheering a sexual milestone implies celebration, but reveals a girlfriend who is furious.",
           "joke_type": "misdirect",
           "topics": ["white woman", "girlfriend", "cheating", "sex"]
         },
         "2": {
-          "premise": "A supportive reaction to premature ejaculation is undercut by not knowing his name.",
+          "premise": "A supportive response to premature ejaculation implies acceptance, but reveals she doesn't know his name.",
           "joke_type": "misdirect",
           "topics": ["premature ejaculation", "white woman", "wrong name", "sex"]
         },
         "3": {
-          "premise": "Sex with a white woman triggers full cultural assimilation into white leisure activities.",
+          "premise": "Sex with a white woman could trigger full cultural assimilation into white leisure activities.",
           "joke_type": "reframe",
           "topics": ["white woman", "IPAs", "brewery", "corn hole"]
         },
         "4": {
-          "premise": "A praise kink expects romantic affirmation but gets sports-bro compliments instead.",
+          "premise": "A praise kink implies romantic affirmation is needed, but gets sports-fan slang instead.",
           "joke_type": "misdirect",
           "topics": ["kink", "praise kink", "sex", "slang"]
         }

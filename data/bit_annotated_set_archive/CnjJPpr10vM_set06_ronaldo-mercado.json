@@ -17,22 +17,22 @@
       "premise": "Single parents must perform the absent parent's racial stereotypes.",
       "beats": {
         "1": {
-          "premise": "A missing father can stand in for Mexican identity.",
-          "joke_type": "reframe",
+          "premise": "An absent Mexican father is widely associated with Mexican identity but rarely treated as heritage proof.",
+          "joke_type": "elephant-in-the-room",
           "topics": ["Mexican identity", "mixed race", "absent fathers"]
         },
         "2": {
-          "premise": "A Mexican dad at baseball practice is expected to maintain the field.",
+          "premise": "Acting as a Mexican dad at baseball practice could mean mowing the field, not just watching.",
           "joke_type": "reframe",
           "topics": ["single mothers", "Mexican dads", "labor", "baseball"]
         },
         "3": {
-          "premise": "Taken literally, putting a roof over a child means building it.",
+          "premise": "\"Put a roof over my head\" can mean provide housing or literally build and shingle one.",
           "joke_type": "double-meaning",
           "topics": ["single mothers", "Mexican dads", "roofing"]
         },
         "4": {
-          "premise": "A Black mother acting as a white dad would use corny white catchphrases.",
+          "premise": "A Black mother filling in as a white dad could express whiteness through corny catchphrases.",
           "joke_type": "reframe",
           "topics": ["mixed race", "Black moms", "white dads"]
         }

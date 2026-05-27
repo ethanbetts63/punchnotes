@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "'Great set' can mean a great comedy performance or a great pair of breasts.",
+          "premise": "\"Great set\" can mean a strong comedy performance or a great pair of small breasts.",
           "joke_type": "double-meaning",
           "topics": ["stand-up comedy", "breasts", "compliments", "B-cups"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "A Muslim father can't watch Kevin Bacon movies because the name contains 'bacon'.",
+          "premise": "\"Kevin Bacon\" can mean the actor or a famous pork product, making it unwatchable with a Muslim.",
           "joke_type": "double-meaning",
           "topics": ["Kevin Bacon", "Muslims", "bacon", "pork"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Wrist slits double as a tally to count months being single.",
+          "premise": "Wrist scars from self-harm could be reframed as a tally of months spent single.",
           "joke_type": "reframe",
           "topics": ["self-harm", "being single", "counting", "dark humor"]
         }
@@ -43,8 +43,8 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "When told he needs blonde hair and big boobs to finish, offering to dye his hair shifts the inadequacy onto him.",
-          "joke_type": "reframe",
+          "premise": "\"Needing blonde hair and big boobs to come\" implies her inadequacy, but the fix offered is to dye his hair instead.",
+          "joke_type": "misdirect",
           "topics": ["relationships", "sex", "hair dye", "breakups"]
         }
       }

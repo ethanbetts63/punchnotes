@@ -14,30 +14,30 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "A false death sentence can turn promiscuity into urgency.",
+      "premise": "A false terminal diagnosis launders promiscuity as urgency.",
       "beats": {
         "1": {
-          "premise": "A death sentence makes promiscuity feel like urgent life planning.",
+          "premise": "A terminal diagnosis could justify sleeping with as many people as possible.",
           "joke_type": "reframe",
           "topics": ["diagnosis", "promiscuity", "disability"]
         },
         "2": {
-          "premise": "Surviving removes the noble excuse for promiscuity.",
+          "premise": "Surviving a misdiagnosis strips away the excuse, leaving only the behavior.",
           "joke_type": "reframe",
           "topics": ["not dying", "promiscuity", "self-image"]
         }
       }
     },
     "2": {
-      "premise": "A wheelchair makes post-hookup exits audible.",
+      "premise": "A wheelchair makes sneaking out after a hookup impossible.",
       "beats": {
         "1": {
-          "premise": "A wheelchair makes sneaking out like backing up a truck.",
+          "premise": "A wheelchair backing up is like a reversing truck because both beep loudly.",
           "joke_type": "analogy",
           "topics": ["one-night stands", "wheelchair", "sneaking out"]
         },
         "2": {
-          "premise": "Dating black men becomes a workaround for failed sneaking out.",
+          "premise": "Racial camouflage in the dark could be a workaround for a noisy wheelchair exit.",
           "joke_type": "reframe",
           "topics": ["dating", "black men", "workarounds"]
         }

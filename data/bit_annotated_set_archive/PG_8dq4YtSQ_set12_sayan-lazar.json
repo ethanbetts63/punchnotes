@@ -17,12 +17,12 @@
       "premise": "Chinese pedestrians are more dangerous than Chinese drivers.",
       "beats": {
         "1": {
-          "premise": "The expected complaint about Chinese driving is subverted by a complaint about Chinese walking.",
+          "premise": "Complaining about Chinese people driving implies bad driving, but reveals the walking is worse.",
           "joke_type": "misdirect",
           "topics": ["Chinese people", "driving", "walking"]
         },
         "2": {
-          "premise": "A phone-distracted pedestrian who keeps bumping into you behaves exactly like a cheap bumper car.",
+          "premise": "A phone-distracted pedestrian is like a cheap bump-and-reverse car because both bounce off obstacles repeatedly.",
           "joke_type": "analogy",
           "topics": ["pedestrians", "bumper cars", "phones", "China"]
         }
@@ -31,7 +31,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Taken literally, 'metrosexual' means someone who gets sexual with subway poles.",
+          "premise": "\"Metrosexual\" can mean a style-conscious man or someone who has sex in the subway.",
           "joke_type": "double-meaning",
           "topics": ["metrosexuals", "subway", "poles", "China"]
         }

@@ -17,37 +17,37 @@
       "premise": "Hell is imagined as segregated into stereotype-specific punishments.",
       "beats": {
         "1": {
-          "premise": "Adding race to hell makes a generic insult personally alarming.",
-          "joke_type": "reframe",
+          "premise": "\"Go to hell\" implies a generic curse, but \"black hell\" implies a specifically worse fate.",
+          "joke_type": "misdirect",
           "topics": ["black hell", "insults", "race"]
         },
         "2": {
-          "premise": "The devil being evil implies hell would also be segregated.",
-          "joke_type": "reframe",
+          "premise": "A segregated hell is widely implied by who runs it but rarely said aloud.",
+          "joke_type": "elephant-in-the-room",
           "topics": ["hell", "devil", "segregation"]
         },
         "3": {
-          "premise": "Black hell is endless paternity drama and child-support expense.",
-          "joke_type": "what-if",
+          "premise": "Paternity drama is so defining that eternal repetition of it could constitute Black hell.",
+          "joke_type": "hyperbole",
           "topics": ["black hell", "paternity tests", "child support"]
         },
         "4": {
-          "premise": "Gay hell maps top and bottom onto literal levels of hell.",
+          "premise": "\"Top\" and \"bottom\" can mean sexual roles or literal levels of hell.",
           "joke_type": "double-meaning",
           "topics": ["gay hell", "tops", "bottoms"]
         },
         "5": {
-          "premise": "Japanese suffering can be Vietnamese joy because enemies value opposite outcomes.",
+          "premise": "One nation's hell could be its historical enemy's heaven.",
           "joke_type": "reframe",
           "topics": ["Japanese hell", "Vietnamese heaven", "national rivalry"]
         },
         "6": {
-          "premise": "Mexican hell freezing over turns ice into ICE.",
+          "premise": "\"Ice\" can mean frozen water or immigration enforcement.",
           "joke_type": "double-meaning",
           "topics": ["Mexican hell", "ICE", "immigration"]
         },
         "7": {
-          "premise": "Indian hell is assumed to smell worse than ordinary hell.",
+          "premise": "Indian culture smelling bad is widely assumed but rarely applied to hell.",
           "joke_type": "elephant-in-the-room",
           "topics": ["Indian hell", "smell", "stereotypes"]
         }

@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Flying can mean getting high rather than traveling.",
+          "premise": "\"I flew here\" can mean traveling by plane or arriving by getting high on a blunt.",
           "joke_type": "double-meaning",
           "topics": ["Austin", "weed", "travel"]
         }
@@ -25,8 +25,8 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Being funny privately does not mean being funny onstage.",
-          "joke_type": "reframe",
+          "premise": "Being invited to perform implies stage funniness, but reveals being funny only when no one is around.",
+          "joke_type": "misdirect",
           "topics": ["friends", "stage time", "comedy"]
         }
       }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Crowd work fails in a minute if audiences think too slowly.",
+          "premise": "Crowd work in a one-minute set is impossible because audiences think too slowly.",
           "joke_type": "reframe",
           "topics": ["crowd work", "audiences", "time limits"]
         }
@@ -43,7 +43,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Comedy shows become reality avoidance after ignored Epstein news.",
+          "premise": "Attending a comedy show could be reframed as collective reality avoidance after the ignored Epstein revelations.",
           "joke_type": "reframe",
           "topics": ["Epstein files", "public apathy", "politics"]
         }
@@ -52,7 +52,7 @@
     "5": {
       "beats": {
         "1": {
-          "premise": "Self-belief in funniness may not reach the room.",
+          "premise": "Believing you're funny could be entirely invisible to the audience.",
           "joke_type": "reframe",
           "topics": ["self-deprecation", "audience reaction", "comedy"]
         }

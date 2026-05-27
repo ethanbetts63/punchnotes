@@ -16,12 +16,12 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Outrage in Minneapolis implies police controversy, not anger at wine experts.",
+          "premise": "\"Crazy stuff going on in Minneapolis\" implies police controversy, but reveals anger at wine experts.",
           "joke_type": "misdirect",
           "topics": ["Minneapolis", "sommeliers", "protests", "wine"]
         },
         "2": {
-          "premise": "Sommeliers \"whine\" because wine and whine sound the same.",
+          "premise": "\"Wine\" sounds like \"whine\", and \"whine\" fits because sommeliers complain professionally.",
           "joke_type": "phonetic-match",
           "topics": ["sommeliers", "wine", "whine"]
         }
@@ -30,8 +30,8 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Don Lemon's arrest turns the idiom \"when life gives you lemons\" into legal advice.",
-          "joke_type": "misdirect",
+          "premise": "\"Lemon\" the celebrity name sounds like \"lemons\" the fruit, so the idiom about lemons becomes arrest advice.",
+          "joke_type": "phonetic-match",
           "topics": ["Don Lemon", "arrest", "lemons", "legal aid"]
         }
       }
@@ -39,7 +39,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Jewish people are widely understood to be visually identifiable in a way undercover cops are not.",
+          "premise": "Being visually identifiable as Jewish is widely understood but rarely stated directly against undercover cops.",
           "joke_type": "elephant-in-the-room",
           "topics": ["Jewish people", "undercover cops", "identity", "stereotypes"]
         }
@@ -49,12 +49,12 @@
       "premise": "Disability terms read literally expose absurd meanings in everyday language.",
       "beats": {
         "1": {
-          "premise": "\"Retarded\" provokes defensiveness because the description applies to so many people.",
+          "premise": "\"Retarded\" is widely avoided because it accurately describes more people than is comfortable to admit.",
           "joke_type": "elephant-in-the-room",
           "topics": ["retarded", "slurs", "disability", "defensiveness"]
         },
         "2": {
-          "premise": "\"MS in business\" reads as a degree in running meetings with multiple sclerosis, not a master's degree.",
+          "premise": "\"MS\" can mean a graduate degree or multiple sclerosis, making \"MS in business\" a qualification for disabled executives.",
           "joke_type": "double-meaning",
           "topics": ["MS", "multiple sclerosis", "business degree", "acronyms"]
         }

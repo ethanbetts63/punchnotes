@@ -15,7 +15,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Earning citizenship right before a draft turns the milestone into a curse.",
+          "premise": "Earning citizenship implies a new beginning, but immediately triggers a draft notice instead.",
           "joke_type": "misdirect",
           "topics": ["war", "citizenship", "draft"]
         }
@@ -24,7 +24,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Expanding draft eligibility to older stoners produces a pathetic army.",
+          "premise": "Relaxing draft eligibility could produce an army of middle-aged stoners.",
           "joke_type": "reframe",
           "topics": ["draft age", "marijuana convictions", "army"]
         }
@@ -34,22 +34,22 @@
       "premise": "Estonia drafts everyone America excludes.",
       "beats": {
         "1": {
-          "premise": "Wheelchair soldiers with a grenade could kamikaze roll at the enemy",
-          "joke_type": "what-if",
+          "premise": "A wheelchair soldier with a grenade could serve as a kamikaze charge vehicle.",
+          "joke_type": "reframe",
           "topics": ["Estonia", "wheelchairs", "grenades"]
         },
         "2": {
-          "premise": "'Special forces' fits literally when the soldiers are special-needs.",
+          "premise": "'Special forces' can mean elite soldiers or special-needs soldiers.",
           "joke_type": "double-meaning",
           "topics": ["special forces", "down syndrome", "wordplay"]
         },
         "3": {
-          "premise": "Telling a down syndrome person someone killed Santa would make them mad. ",
+          "premise": "Telling someone Santa was killed could be the most effective battle cry for down syndrome soldiers.",
           "joke_type": "reframe",
           "topics": ["Santa Claus", "down syndrome", "conscription"]
         },
         "4": {
-          "premise": "Without women in the military straight soldiers would protect gay soldiers.",
+          "premise": "A gay soldier is worth protecting more than a medic because he provides a service no one else will.",
           "joke_type": "reframe",
           "topics": ["gay soldiers", "base life", "military"]
         }

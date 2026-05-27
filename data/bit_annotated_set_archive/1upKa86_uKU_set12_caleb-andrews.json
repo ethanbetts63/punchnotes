@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "A disappointing upbringing prepares for audience silence.",
+          "premise": "A disappointing upbringing could prepare you for a silent comedy audience.",
           "joke_type": "reframe",
           "topics": ["Mississippi", "single mothers", "disappointment"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Loan denials feel humbling when applicants own nicer trucks.",
+          "premise": "Denying someone a loan could be more humbling for the banker when the rejected person drives a nicer truck.",
           "joke_type": "reframe",
           "topics": ["banking", "loans", "trucks"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Small-town grandmothers can matter as much as credit scores.",
+          "premise": "In a small town, a grandmother's reputation could carry the same weight as a credit score.",
           "joke_type": "reframe",
           "topics": ["small towns", "credit scores", "grandmothers"]
         }
@@ -44,12 +44,12 @@
       "premise": "Golf and marriage are expensive commitments to being bad at something.",
       "beats": {
         "1": {
-          "premise": "Golf celebrates love by making people silently hate themselves.",
+          "premise": "A pre-wedding golf trip could reframe the celebration of love as four hours of silent self-loathing.",
           "joke_type": "reframe",
           "topics": ["marriage", "bachelor trips", "golf"]
         },
         "2": {
-          "premise": "Golf prepares for marriage by making failure expensive and repeatable.",
+          "premise": "Golf is like marriage because both are expensive, you're not good at either, and you keep trying anyway.",
           "joke_type": "analogy",
           "topics": ["marriage", "golf", "money"]
         }

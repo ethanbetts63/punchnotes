@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "An oral medication label implies an anal version exists.",
+          "premise": "A medication labeled \"oral\" implies a rectal version also exists.",
           "joke_type": "reframe",
           "topics": ["medication", "baclofen", "anal", "drugs"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Taken as drug slang, smoking through squash makes someone squashed.",
+          "premise": "Smoking weed through a squash could make \"squashed\" the new slang for being high.",
           "joke_type": "double-meaning",
           "topics": ["weed", "squash", "drug slang"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Incest research can be reinterpreted as a scientist justifying attraction.",
+          "premise": "Scientific permission to sleep with a cousin could be self-serving research by an attracted scientist.",
           "joke_type": "reframe",
           "topics": ["incest", "cousins", "science", "sex"]
         }

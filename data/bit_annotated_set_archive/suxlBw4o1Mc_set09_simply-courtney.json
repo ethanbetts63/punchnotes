@@ -14,31 +14,31 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "A driver whose name conflicts with rider expectations can make Uber pickup suspicion sound racist.",
+      "premise": "Racial profiling of a Black Uber driver is widely understood but turns into a shared theft joke when confronted.",
       "beats": {
         "1": {
-          "premise": "A masculine driver with a feminine name makes Uber suspicion sound racist.",
-          "joke_type": "reframe",
+          "premise": "A Black driver with a feminine name makes a rider's car-ownership doubt widely understood as racial profiling.",
+          "joke_type": "elephant-in-the-room",
           "topics": ["Uber", "names", "race", "rider suspicion"]
         },
         "2": {
-          "premise": "Questioning car ownership implies shared theft, not rider caution.",
-          "joke_type": "misdirect",
+          "premise": "Responding to car-theft suspicion could be reframed as confirming a shared criminal conspiracy.",
+          "joke_type": "reframe",
           "topics": ["car theft", "Black History Month", "race"]
         }
       }
     },
     "2": {
-      "premise": "Being high can scramble parental and work responsibilities into wrong allegiances and captivity.",
+      "premise": "Weed makes parental support and work obligations collapse into wrong allegiances and accidental captivity.",
       "beats": {
         "1": {
-          "premise": "Being high can make parental support go to the opponent.",
+          "premise": "Being high could reframe parenting at a child's game into cheering for the opposing team.",
           "joke_type": "reframe",
           "topics": ["weed", "tolerance break", "basketball", "parenting"]
         },
         "2": {
-          "premise": "What if forgetting an Uber passenger turned them into a roommate.",
-          "joke_type": "what-if",
+          "premise": "Forgetting an Uber passenger could be reframed as inadvertently acquiring a new roommate.",
+          "joke_type": "reframe",
           "topics": ["weed", "Uber", "passengers", "roommates"]
         }
       }

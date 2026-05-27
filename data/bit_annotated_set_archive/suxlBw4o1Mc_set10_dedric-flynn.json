@@ -14,45 +14,45 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "Real sibling energy requires enough children to create a household gang.",
+      "premise": "Enough siblings could reframe the family home as a gang that eliminates childhood fears.",
       "beats": {
         "1": {
-          "premise": "Having only one or two siblings fails the real-siblings threshold.",
+          "premise": "One or two siblings could be reframed as not qualifying as real siblings at all.",
           "joke_type": "reframe",
           "topics": ["siblings", "large families", "family size"]
         },
         "2": {
-          "premise": "A crowded sibling bed turns the boogeyman into an outnumbered intruder.",
-          "joke_type": "what-if",
+          "premise": "Fear of the boogeyman could be reframed as a gang-jumping opportunity when six siblings share a bed.",
+          "joke_type": "reframe",
           "topics": ["crowded housing", "boogeyman", "sibling defense"]
         }
       }
     },
     "2": {
-      "premise": "A shared 1990s CRT television could turn siblings into remote-control combatants.",
+      "premise": "Sharing a CRT TV remote is so contentious it produces sibling violence and sabotage.",
       "beats": {
         "1": {
-          "premise": "A shared TV remote turns siblings into wartime enemies.",
-          "joke_type": "analogy",
+          "premise": "Sibling rivalry over the TV remote is so intense it produces physical violence over a cartoon.",
+          "joke_type": "hyperbole",
           "topics": ["1990s", "CRT TV", "siblings", "SpongeBob"]
         },
         "2": {
-          "premise": "Removing remote batteries turns channel control into covert revenge.",
+          "premise": "Removing batteries from a shared remote could be reframed as the ultimate petty power move.",
           "joke_type": "reframe",
           "topics": ["remote controls", "batteries", "petty revenge"]
         }
       }
     },
     "3": {
-      "premise": "A bulky CRT television could function like furniture and a body that responds to being slapped.",
+      "premise": "A CRT TV could be reframed as furniture, and a faulty one is like a woman because slapping fixes both.",
       "beats": {
         "1": {
-          "premise": "A bulky CRT TV is like furniture because both hold household decor.",
-          "joke_type": "analogy",
+          "premise": "A bulky CRT TV could be reframed as furniture given it holds plants and family photos.",
+          "joke_type": "reframe",
           "topics": ["CRT TV", "furniture", "family photos", "houseplants"]
         },
         "2": {
-          "premise": "A faulty CRT TV is like a sexist caricature because slapping fixes it.",
+          "premise": "A faulty CRT TV is like a woman because both respond to being slapped.",
           "joke_type": "analogy",
           "topics": ["CRT TV", "repair", "slapping", "sexism"]
         }

@@ -17,42 +17,42 @@
       "premise": "Relationships improve men by upgrading bathroom products.",
       "beats": {
         "1": {
-          "premise": "Taken men look better because they borrow women's bathroom products.",
+          "premise": "Partnered men could look more attractive simply because they're using their partner's bathroom products.",
           "joke_type": "reframe",
           "topics": ["relationships", "bathroom products", "attraction"]
         },
         "2": {
-          "premise": "Single men can resemble refrigerator mold that learned misogyny.",
-          "joke_type": "what-if",
+          "premise": "A single man's appearance and smell is like refrigerator mold — both are the product of years of neglect.",
+          "joke_type": "analogy",
           "topics": ["single men", "hygiene", "smell"]
         },
         "3": {
-          "premise": "Men's all-in-one body wash implies alcohol and criminal charges.",
-          "joke_type": "reframe",
+          "premise": "A single man's all-in-one body wash is so comprehensive it includes alcohol and criminal charges.",
+          "joke_type": "hyperbole",
           "topics": ["roommates", "body wash", "single men"]
         },
         "4": {
-          "premise": "Women's shower products are like an overstocked seasoning cabinet.",
+          "premise": "A woman's shower products are like a chef's seasoning cabinet because both contain an overwhelming array of specialized options.",
           "joke_type": "analogy",
           "topics": ["women's bathrooms", "shampoo", "seasoning"]
         },
         "5": {
-          "premise": "Trying every shower product can look like masturbating.",
+          "premise": "Spending a long time with someone's shower products implies masturbation, but reveals innocent beauty experimentation.",
           "joke_type": "misdirect",
           "topics": ["purple shampoo", "shower products", "masturbation"]
         },
         "6": {
-          "premise": "Mixing shower products can become a bathroom version of suicide soda.",
-          "joke_type": "reframe",
+          "premise": "Mixing all shower products is like a suicide soda because both combine every available option indiscriminately.",
+          "joke_type": "analogy",
           "topics": ["Taco Bell", "soda", "shower products"]
         },
         "7": {
-          "premise": "Body glitter can make a man look like a cheerleader.",
+          "premise": "Using body glitter gel makes a man look like a cheerleader because both end up covered in sparkle.",
           "joke_type": "analogy",
           "topics": ["body glitter", "Bring It On", "beauty products"]
         },
         "8": {
-          "premise": "Bath bombs make being partnered more fun than being dry.",
+          "premise": "Bath bombs with colors, glitter, and oils could make the bathing experience so joyful that being single feels like deprivation.",
           "joke_type": "reframe",
           "topics": ["bath bombs", "essential oils", "being single"]
         }

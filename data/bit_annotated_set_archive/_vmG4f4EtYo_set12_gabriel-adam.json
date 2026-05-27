@@ -16,13 +16,13 @@
       "premise": "A domestic-abuse joke can accidentally help the victim escape.",
       "beats": {
         "1": {
-          "premise": "A joke about abuse implies backlash, not helping the victim escape.",
+          "premise": "Making a domestic abuse joke implies public backlash, but reveals it helped the victim escape.",
           "joke_type": "misdirect",
           "topics": ["stand-up taboos", "girlfriend", "domestic violence"]
         },
         "2": {
-          "premise": "What if leaving an abuser required chewing through chains.",
-          "joke_type": "what-if",
+          "premise": "Keeping a partner from leaving is so extreme she has to chew through physical chains.",
+          "joke_type": "hyperbole",
           "topics": ["girlfriend", "escape", "chains"]
         }
       }

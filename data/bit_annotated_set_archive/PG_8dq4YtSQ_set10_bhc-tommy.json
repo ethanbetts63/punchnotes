@@ -14,41 +14,41 @@
   "joke_book": "small",
   "bit_meta": {
     "1": {
-      "premise": "Every fact in a necrophiliac coroner's news story doubles as a pun on death, sex, or both.",
+      "premise": "Every fact in a necrophiliac coroner's story doubles as a pun on death, sex, or both.",
       "beats": {
         "1": {
-          "premise": "Describing necrophilia as magical reframes a sexual deviance as a fantasy.",
+          "premise": "Necrophilia could be reframed as performance magic, with a corpse as the subject.",
           "joke_type": "reframe",
           "topics": ["necrophilia", "coroner", "Corpus Christi", "magic"]
         },
         "2": {
-          "premise": "'Chilled' in 'Netflix and chill' has a second meaning when the partner is a corpse.",
+          "premise": "\"Netflix and chilled\" can mean relaxed at home or sex with a cold corpse.",
           "joke_type": "double-meaning",
           "topics": ["necrophilia", "Netflix and chill", "corpse", "wordplay"]
         },
         "3": {
-          "premise": "A female necrophiliac needs rigor mortis to serve the same function as a live male partner.",
+          "premise": "Rigor mortis could be reframed as the functional substitute for a male erection in female necrophilia.",
           "joke_type": "reframe",
           "topics": ["rigor mortis", "female offender", "necrophilia", "erection"]
         },
         "4": {
-          "premise": "A necrophiliac's favorite movies are titles that literally describe her activity.",
+          "premise": "\"Die Hard\" and \"Rise of the Dead\" can mean action movies or a literal description of necrophiliac preferences.",
           "joke_type": "double-meaning",
           "topics": ["Die Hard", "Rise of the Living Dead", "necrophilia", "movie titles"]
         },
         "5": {
-          "premise": "'Gang banging' applies equally to a sex act with multiple corpses and to gang violence, including the gang names Crypts and Bloods.",
+          "premise": "\"Gang banging gangbangers\" can mean group sex with gang members or gang-on-gang violence with corpses.",
           "joke_type": "double-meaning",
           "topics": ["gang bang", "Crips", "Bloods", "necrophilia"]
         },
         "6": {
-          "premise": "'Sexual battery' and 'shocker' are legal and colloquial terms that also describe literal electrical acts.",
+          "premise": "\"Sexual battery\" can mean the legal charge or literally using a battery for sex acts.",
           "joke_type": "double-meaning",
           "topics": ["sexual battery", "jumper cables", "shocker", "electricity"]
         },
         "7": {
-          "premise": "Vampires can't enter without permission, making them ideal birth control partners.",
-          "joke_type": "reframe",
+          "premise": "\"A vampire can't come inside without permission\" can mean entering a home or ejaculation.",
+          "joke_type": "double-meaning",
           "topics": ["vampires", "Twilight", "birth control", "consent"]
         }
       }

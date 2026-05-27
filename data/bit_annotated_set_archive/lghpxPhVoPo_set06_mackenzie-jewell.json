@@ -14,30 +14,30 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "Identity labels get ranked through privilege and sexual choice.",
+      "premise": "Being a double minority is neutralized by whiteness, and bisexuality is undermined by choosing dick.",
       "beats": {
         "1": {
-          "premise": "White privilege cancels out minority identity stacking.",
+          "premise": "Being gay and autistic could grant minority status, but whiteness cancels it out entirely.",
           "joke_type": "reframe",
           "topics": ["autism", "sexuality", "race", "privilege"]
         },
         "2": {
-          "premise": "Bisexuality seems gayer because dick is chosen over pussy.",
+          "premise": "Bisexuality could be considered gayer than being gay because it means choosing dick despite having a choice.",
           "joke_type": "reframe",
           "topics": ["bisexuality", "gay", "sex", "sexuality"]
         }
       }
     },
     "2": {
-      "premise": "Autistic focus interrupts sex.",
+      "premise": "An autistic brain derails sex with intense hyperfocus on irrelevant topics.",
       "beats": {
         "1": {
-          "premise": "Sexual sensory overload can trigger cloud-storage questions.",
+          "premise": "A vagina giving sensory overload could redirect an autistic brain to cloud-storage questions mid-sex.",
           "joke_type": "reframe",
           "topics": ["autism", "sex", "sensory overload", "technology"]
         },
         "2": {
-          "premise": "Taken literally, Netflix and chill prioritizes the movie.",
+          "premise": "\"Netflix and chill\" can mean a sex invitation or actually watching a movie.",
           "joke_type": "double-meaning",
           "topics": ["autism", "Netflix", "sex", "movies"]
         }

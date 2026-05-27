@@ -16,22 +16,22 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Taken literally, a Jackass-style name can become a crude ass pun.",
+          "premise": "\"Jackass\" can mean a TV stunt show brand or a crude insult, and swapping half the word creates the same effect.",
           "joke_type": "double-meaning",
           "topics": ["stage name", "Jackass parody", "wordplay"]
         }
       }
     },
     "2": {
-      "premise": "A bad comedy set can be turned into a punishment stunt with a shock collar.",
+      "premise": "A shock collar turns bombing onstage into a self-punishing stunt.",
       "beats": {
         "1": {
-          "premise": "A shock collar can turn bombing into a self-punishing stunt.",
-          "joke_type": "prop",
+          "premise": "Bombing on stage could become a self-inflicted punishment if the comedian wears a shock collar.",
+          "joke_type": "reframe",
           "topics": ["shock collar", "bombing", "audience participation", "stunts"]
         },
         "2": {
-          "premise": "A dog collar implies handing control to someone stereotyped as doglike.",
+          "premise": "A dog collar could naturally belong to a lesbian, given the stereotype.",
           "joke_type": "reframe",
           "topics": ["dog collar", "lesbians", "shock collar"]
         }
@@ -41,22 +41,22 @@
       "premise": "Praise for women's sports can be undercut by sexist stereotypes.",
       "beats": {
         "1": {
-          "premise": "A female skier's injury implies athletic danger, not sexist domestic safety.",
+          "premise": "Concern for an injured female athlete implies empathy, but reveals she should have stayed in the kitchen.",
           "joke_type": "misdirect",
           "topics": ["Olympics", "Lindsey Vonn", "skiing", "sexism"]
         },
         "2": {
-          "premise": "Praising women's sports only every four years disguises dismissiveness as support.",
+          "premise": "Declaring love for women's Olympics implies genuine support, but reveals a desire to limit coverage to once every four years.",
           "joke_type": "misdirect",
           "topics": ["women's sports", "Olympics", "television"]
         },
         "3": {
-          "premise": "White women on ice implies sports achievement, not cocaine.",
+          "premise": "\"White women on ice\" implies sports achievement, but could mean cocaine use.",
           "joke_type": "misdirect",
           "topics": ["women's hockey", "gold medal", "cocaine", "lesbians"]
         },
         "4": {
-          "premise": "Criticizing the WNBA for missed dunks masks a cruder insult.",
+          "premise": "Criticizing the WNBA for not dunking implies a sports critique, but reveals an appearance insult.",
           "joke_type": "misdirect",
           "topics": ["WNBA", "basketball", "dunking", "women's sports"]
         }
@@ -65,23 +65,23 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "A forehead feature can look like a penis.",
+          "premise": "A prominent forehead vein is like a penis because both protrude in an unmissable, phallic shape.",
           "joke_type": "analogy",
           "topics": ["crowd work", "appearance roast", "forehead", "penis"]
         }
       }
     },
     "5": {
-      "premise": "Giving someone a shock-collar remote can look like long-awaited control over men.",
+      "premise": "A shock-collar remote given to a woman could satisfy decades of suppressed desire to control men.",
       "beats": {
         "1": {
-          "premise": "A woman enjoying a shock remote reveals long-withheld control over men.",
+          "premise": "An older woman enthusiastically shocking a man could signal decades of pent-up desire for control.",
           "joke_type": "reframe",
           "topics": ["shock collar", "control", "gender resentment"]
         },
         "2": {
-          "premise": "Blue-haired women could be placated by temporary power over men.",
-          "joke_type": "what-if",
+          "premise": "Feminist grievances could be solved by giving women one day of shock-collar control over a man.",
+          "joke_type": "reframe",
           "topics": ["blue-haired women", "shock collar", "power", "men"]
         }
       }
@@ -89,38 +89,38 @@
     "6": {
       "beats": {
         "1": {
-          "premise": "Playing copyrighted music can turn a stunt into demonetization.",
-          "joke_type": "prop",
+          "premise": "Playing a copyrighted song during a stunt could reframe the whole segment as an act of copyright infringement.",
+          "joke_type": "reframe",
           "topics": ["copyright", "Limp Bizkit", "demonetization", "stunts"]
         }
       }
     },
     "7": {
-      "premise": "A self-imposed shock-collar stunt becomes terrifying when the setting gets turned too high.",
+      "premise": "A self-controlled shock-collar stunt stops being safe once someone else turns the voltage up.",
       "beats": {
         "1": {
-          "premise": "A shock-collar stunt stops being funny when the voltage gets raised.",
-          "joke_type": "prop",
+          "premise": "A shock stunt framed as harmless fun becomes genuinely terrifying when the voltage is cranked past the agreed limit.",
+          "joke_type": "misdirect",
           "topics": ["shock collar", "pain", "stunt escalation"]
         },
         "2": {
-          "premise": "Promising safety collapses when a stranger controls the shock collar.",
+          "premise": "Handing the shock remote to a stranger implies trust, but reveals complete loss of control.",
           "joke_type": "misdirect",
           "topics": ["shock collar", "loss of control", "fear"]
         }
       }
     },
     "8": {
-      "premise": "A gross-out taste test can escalate by presenting animal semen as a real drink.",
+      "premise": "A taste-test setup implies harmless mystery liquid, but the cup contains horse semen.",
       "beats": {
         "1": {
-          "premise": "A taste-test cup can reveal real animal semen as the punishment.",
-          "joke_type": "prop",
+          "premise": "A taste-test cup implies a food or drink challenge, but reveals actual horse semen.",
+          "joke_type": "misdirect",
           "topics": ["taste test", "horse semen", "gross-out", "stunts"]
         },
         "2": {
-          "premise": "A pubic hair makes the disgusting drink more physically credible.",
-          "joke_type": "prop",
+          "premise": "A pubic hair in the cup could be proof that the horse semen is authentic.",
+          "joke_type": "reframe",
           "topics": ["horse semen", "pubic hair", "gross-out"]
         }
       }
@@ -128,42 +128,42 @@
     "9": {
       "beats": {
         "1": {
-          "premise": "Threatening to remove a penis also threatens its future sexual usefulness.",
+          "premise": "Threatening to punch off a penis could inadvertently harm the gay men who rely on it.",
           "joke_type": "reframe",
           "topics": ["threats", "genital injury", "gay men", "crowd work"]
         }
       }
     },
     "10": {
-      "premise": "Trivia penalties can be made absurd by combining basic questions with disgusting drinks.",
+      "premise": "Trivia punishment is made absurd by pairing easy questions with horse semen.",
       "beats": {
         "1": {
-          "premise": "Trivia makes tap water seem like the punishment beside horse semen.",
-          "joke_type": "prop",
+          "premise": "Tap water next to horse semen could be reframed as the more palatable punishment.",
+          "joke_type": "reframe",
           "topics": ["trivia", "tap water", "horse semen", "penalties"]
         },
         "2": {
-          "premise": "A guest's presence makes resisting horse semen seem impossible.",
+          "premise": "An attractive guest's arrival could make even horse semen an irresistible temptation.",
           "joke_type": "reframe",
           "topics": ["horse semen", "Heidi", "temptation"]
         },
         "3": {
-          "premise": "A fake brand quiz treats tap water like a real sponsor product.",
+          "premise": "Tap water could be reframed as a branded product by asking a fake multiple-choice question about its creator.",
           "joke_type": "reframe",
           "topics": ["tap water", "brand quiz", "Steve-O"]
         },
         "4": {
-          "premise": "Tap water can be framed as containing every possible contaminant.",
+          "premise": "Tap water could be framed as containing every dangerous substance imaginable.",
           "joke_type": "reframe",
           "topics": ["tap water", "contaminants", "trivia"]
         },
         "5": {
-          "premise": "A water source question can make Flint the least absurd answer.",
+          "premise": "\"All of the above\" sources for tap water could include Flint, Michigan as just one option among worse choices.",
           "joke_type": "reframe",
           "topics": ["tap water", "Flint", "Redban"]
         },
         "6": {
-          "premise": "An Epstein trivia question turns a game-show bit into an exit.",
+          "premise": "An Epstein trivia question implies a quiz answer, but the comedian's exit reveals the question is unanswerable on camera.",
           "joke_type": "misdirect",
           "topics": ["Epstein", "private jets", "exit"]
         }

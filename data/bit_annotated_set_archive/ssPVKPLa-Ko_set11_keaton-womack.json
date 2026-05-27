@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Overseas military service implies the army, not ISIS.",
+          "premise": "\"Overseas military service\" implies the armed forces, but reveals joining ISIS.",
           "joke_type": "misdirect",
           "topics": ["military families", "ISIS", "viral videos"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Jealousy over teacher scandals implies being a student, not a teacher.",
+          "premise": "Jealousy over teacher-student affairs implies wishing it happened to you as a student, but reveals wishing it as a teacher.",
           "joke_type": "misdirect",
           "topics": ["teachers", "students", "inappropriate relationships"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "A Filipino sequel to Crazy Rich Asians would be Crazy Poor Asians.",
+          "premise": "Filipino poverty could be reframed as the inverse sequel to Crazy Rich Asians.",
           "joke_type": "reframe",
           "topics": ["Crazy Rich Asians", "Filipinos", "movie sequels"]
         }
@@ -43,7 +43,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "'White Lives Matter' and 'White Lines Matter' sound alike, and cocaine fits Hunter Biden.",
+          "premise": "\"White Lives Matter\" sounds like \"White Lines Matter\", and \"White Lines\" fits because it evokes cocaine and Hunter Biden.",
           "joke_type": "phonetic-match",
           "topics": ["Hunter Biden", "cocaine", "movie titles"]
         }

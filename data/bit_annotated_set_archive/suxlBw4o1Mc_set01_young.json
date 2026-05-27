@@ -16,8 +16,8 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Fetishizing Arab men is like modesty policing because lust becomes their fault.",
-          "joke_type": "analogy",
+          "premise": "Sexual attraction to Arab men could be reframed as Islamic modesty policing, making lust the target's fault.",
+          "joke_type": "reframe",
           "topics": ["Arab men", "modesty", "lust", "stoning"]
         }
       }
@@ -25,8 +25,8 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "What if wealth made scat play a culturally themed gift.",
-          "joke_type": "what-if",
+          "premise": "Scat play with attractive men could be reframed as a culturally halal gift.",
+          "joke_type": "reframe",
           "topics": ["wealth", "Arab models", "scat play", "halal"]
         }
       }

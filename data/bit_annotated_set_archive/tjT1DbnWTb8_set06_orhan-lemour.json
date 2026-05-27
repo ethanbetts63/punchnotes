@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Watching a more successful comedian get roasted makes nine years of comedy feel wasted.",
+          "premise": "Watching a more successful comedian get roasted could be reframed as proof that your own career was worthless.",
           "joke_type": "reframe",
           "topics": ["Kill Tony", "self-deprecation", "comedy career", "roasting"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Turkey's cultural attitude toward happiness inverts the children's song into a warning.",
+          "premise": "Turkish cultural pessimism could reframe the \"if you're happy\" children's song into a reminder that happiness is irrelevant.",
           "joke_type": "reframe",
           "topics": ["Turkey", "happiness", "cultural pessimism", "children's song"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Making America great again just requires living somewhere worse long enough to reset expectations.",
+          "premise": "\"Making America great again\" could be reframed as simply living somewhere worse until your baseline resets.",
           "joke_type": "reframe",
           "topics": ["MAGA", "Turkey", "America", "patriotism"]
         }

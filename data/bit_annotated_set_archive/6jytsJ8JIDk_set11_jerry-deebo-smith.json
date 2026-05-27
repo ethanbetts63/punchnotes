@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Calling ass-eating 'groceries' is a polite name for something that belongs in the chitlins category.",
+          "premise": "Ass-eating could be categorized as chitlins rather than groceries.",
           "joke_type": "reframe",
           "topics": ["ass-eating", "chitlins", "groceries", "sex slang"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Men eat ass not out of desire but because they cannot find the clitoris.",
+          "premise": "Ass-eating could be a fallback position when the clitoris can't be found.",
           "joke_type": "reframe",
           "topics": ["ass-eating", "clitoris", "sexual ignorance"]
         }
@@ -35,12 +35,12 @@
       "premise": "Having standards about oral sex requires rules women find offensive.",
       "beats": {
         "1": {
-          "premise": "A smell detectable through clothing is disqualifying for oral sex.",
+          "premise": "Pre-undressing odor strong enough to detect is widely understood as disqualifying but rarely stated as a rule.",
           "joke_type": "elephant-in-the-room",
           "topics": ["vaginal odor", "oral sex", "hygiene"]
         },
         "2": {
-          "premise": "A womb where an abortion occurred is a haunted house, and Black men don't go in haunted houses.",
+          "premise": "A post-abortion womb is like a haunted house because both contain a murder and Black men avoid both.",
           "joke_type": "analogy",
           "topics": ["abortion", "haunted houses", "oral sex", "pro-choice parody"]
         }

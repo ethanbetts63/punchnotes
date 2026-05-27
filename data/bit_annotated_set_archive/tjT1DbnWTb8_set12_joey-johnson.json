@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Telling a homeless man you're a comedian earns pity instead of being the one giving it.",
+          "premise": "Explaining you can't give money because you're a comedian implies deflecting charity, but reveals the homeless man giving you money out of pity.",
           "joke_type": "misdirect",
           "topics": ["homelessness", "stand-up comedy", "Denver", "status"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Political neutrality has a price — and $900 is enough to buy it.",
+          "premise": "Political neutrality could be reframed as a commodity with a known price: $900 in stimulus money.",
           "joke_type": "reframe",
           "topics": ["unemployment", "COVID", "Trump", "stimulus check"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "'Killing the little guy' applies equally to big business and abortion.",
+          "premise": "\"Killing the little guy\" can mean crushing small businesses or terminating a fetus.",
           "joke_type": "double-meaning",
           "topics": ["small business", "abortion", "mom-and-pop", "fetus"]
         }

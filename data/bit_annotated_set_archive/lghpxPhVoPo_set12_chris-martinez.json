@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Overpriced rocks can sound like the biblical Promised Land.",
+          "premise": "Selling overpriced rocks could be the fulfillment of the 3,000-year-old Jewish promise of land.",
           "joke_type": "reframe",
           "topics": ["Cam Patterson", "SNL", "Jews", "Kill Tony"]
         }
@@ -25,8 +25,8 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "What if Trump claimed local infrastructure as a personal achievement.",
-          "joke_type": "what-if",
+          "premise": "Any existing public infrastructure could be reframed as a personal Trump achievement.",
+          "joke_type": "reframe",
           "topics": ["Donald Trump", "Corpus Christi", "Biden", "politics"]
         }
       }

@@ -14,31 +14,31 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Environmentalism and racism can overlap absurdly.",
+      "premise": "Racist ideology and eco-friendly values can coexist absurdly.",
       "beats": {
         "1": {
-          "premise": "Tesla power shifts from clean energy to white supremacy.",
+          "premise": "\"White power\" can mean electricity brand identity or white supremacy.",
           "joke_type": "double-meaning",
           "topics": ["Tesla", "Elon Musk", "white supremacy", "race"]
         },
         "2": {
-          "premise": "What if the KKK made cross burnings eco-friendly.",
-          "joke_type": "what-if",
+          "premise": "Hate group rituals could be made eco-friendly without losing their menace.",
+          "joke_type": "reframe",
           "topics": ["KKK", "environmentalism", "race", "LED"]
         }
       }
     },
     "2": {
-      "premise": "Sports matchups can accidentally echo racial history.",
+      "premise": "NFL team names can inadvertently restage racial history as entertainment.",
       "beats": {
         "1": {
-          "premise": "Cowboys versus Redskins on Thanksgiving resembles a reenactment.",
+          "premise": "A Cowboys-vs-Redskins game on Thanksgiving could be a historical reenactment, not a sporting event.",
           "joke_type": "reframe",
           "topics": ["Washington Redskins", "Dallas Cowboys", "Thanksgiving", "Native Americans"]
         },
         "2": {
-          "premise": "What if a police team played a racial-slur team on Juneteenth.",
-          "joke_type": "what-if",
+          "premise": "A \"Cops vs. Niggas\" game on Juneteenth is like a racial-conflict reenactment dressed as sports.",
+          "joke_type": "analogy",
           "topics": ["police", "race", "Juneteenth", "NFL"]
         }
       }

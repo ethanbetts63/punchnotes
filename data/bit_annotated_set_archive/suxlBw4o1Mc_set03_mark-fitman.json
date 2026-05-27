@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Losing the plot during a sex scene implies arousal, not confusion.",
+          "premise": "\"Lost the plot\" during a movie implies narrative confusion, but reveals masturbating and leaving the theater.",
           "joke_type": "misdirect",
           "topics": ["Oscars", "movies", "sex scenes", "masturbation"]
         }
@@ -25,8 +25,8 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Avoiding streets named for civil rights heroes makes navigation sound racist.",
-          "joke_type": "reframe",
+          "premise": "MLK Boulevards are widely understood to be dangerous neighborhoods, but rerouting around them is rarely said aloud.",
+          "joke_type": "elephant-in-the-room",
           "topics": ["GPS", "Martin Luther King Boulevard", "racism"]
         }
       }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Racism getting better implies social progress, not personal skill.",
+          "premise": "\"Racism is getting better as I age\" implies societal progress, but reveals personal improvement at being racist.",
           "joke_type": "misdirect",
           "topics": ["racism", "aging", "self-improvement"]
         }
@@ -43,7 +43,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Casual family racism is widely inherited but rarely said aloud.",
+          "premise": "Casual intergenerational racism is widely understood to persist in families but rarely confessed aloud.",
           "joke_type": "elephant-in-the-room",
           "topics": ["grandfather", "cat", "racial slurs", "family history"]
         }

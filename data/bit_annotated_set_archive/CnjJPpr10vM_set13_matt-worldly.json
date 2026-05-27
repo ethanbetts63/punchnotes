@@ -17,17 +17,17 @@
       "premise": "Fake Arabic can become real Arabic through video-game hostage phrases.",
       "beats": {
         "1": {
-          "premise": "Claiming to speak Arabic implies fluency, not chanting nonsense syllables.",
+          "premise": "Claiming to speak Arabic implies genuine fluency, but reveals rhythmic nonsense syllables.",
           "joke_type": "misdirect",
           "topics": ["high school", "Arabic", "calligraphy", "classroom jokes"]
         },
         "2": {
-          "premise": "'La' can be both nonsense chanting and actual Arabic.",
+          "premise": "\"La\" can mean nonsense chanting or actual Arabic, so the first attempt was both.",
           "joke_type": "double-meaning",
           "topics": ["Arabic", "teachers", "insensitivity"]
         },
         "3": {
-          "premise": "Beautiful classroom Arabic can be a video-game hostage command.",
+          "premise": "Authentic-sounding Arabic could be a Call of Duty hostage command memorized from the game.",
           "joke_type": "reframe",
           "topics": ["Arabic", "Call of Duty", "hostages"]
         }

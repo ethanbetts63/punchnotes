@@ -16,22 +16,22 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Sobriety implies quitting drugs, not white women.",
+          "premise": "Announcing sobriety implies quitting drugs, but reveals it means abstaining from white women.",
           "joke_type": "misdirect",
           "topics": ["sobriety", "race", "sex", "dating"]
         }
       }
     },
     "2": {
-      "premise": "Racial obligation becomes sexual obligation.",
+      "premise": "Racial solidarity could be expressed as sexual service.",
       "beats": {
         "1": {
-          "premise": "Black History Month can require sexual participation.",
+          "premise": "\"Doing your part\" for Black History Month could mean performing oral sex on Black women.",
           "joke_type": "reframe",
           "topics": ["Black History Month", "race", "sex", "oral sex"]
         },
         "2": {
-          "premise": "Reparations can be demanded as extended oral sex.",
+          "premise": "Reparations could be owed as forced, extended oral sex.",
           "joke_type": "reframe",
           "topics": ["oral sex", "reparations", "race", "sex"]
         }

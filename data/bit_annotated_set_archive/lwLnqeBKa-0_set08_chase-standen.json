@@ -14,40 +14,40 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Oral sex instructions can feel like Bop It.",
+      "premise": "Oral sex commands are indistinguishable from Bop It instructions.",
       "beats": {
         "1": {
-          "premise": "Oral sex is like Bop It because both involve frantic commands.",
+          "premise": "Oral sex is like Bop It because both involve rapid, escalating commands.",
           "joke_type": "analogy",
           "topics": ["girlfriend", "oral sex", "Bop It"]
         },
         "2": {
-          "premise": "Sex instructions are like Bop It commands because both escalate rhythmically.",
+          "premise": "Oral sex commands are like Bop It instructions because both are identical in form.",
           "joke_type": "analogy",
           "topics": ["sex instructions", "Bop It", "oral sex"]
         },
         "3": {
-          "premise": "Taken sexually, Bop It scoring and passing instructions have two meanings.",
+          "premise": "\"Pass it to a friend\" can mean the Bop It rule or sharing a partner sexually.",
           "joke_type": "double-meaning",
           "topics": ["Bop It", "high scores", "sex"]
         },
         "4": {
-          "premise": "Taken sexually, 'pull it' can mean yanking a landing strip.",
+          "premise": "\"Pull it\" can mean a Bop It command or yanking a landing strip.",
           "joke_type": "double-meaning",
           "topics": ["landing strip", "Bop It", "girlfriend"]
         }
       }
     },
     "2": {
-      "premise": "A landing strip can become the Gaza Strip through sex and death imagery.",
+      "premise": "A vagina with a landing strip could be reframed as the Gaza Strip.",
       "beats": {
         "1": {
-          "premise": "'Landing strip' and 'Gaza Strip' share phrasing and both fit contested territory.",
-          "joke_type": "phonetic-match",
+          "premise": "\"Strip\" can mean a pubic hair style or a contested territory.",
+          "joke_type": "double-meaning",
           "topics": ["Gaza Strip", "landing strip", "wordplay"]
         },
         "2": {
-          "premise": "A vagina is like Gaza because both receive loads and contain dying children.",
+          "premise": "A vagina is like Gaza because both receive projectiles and contain dying children.",
           "joke_type": "analogy",
           "topics": ["Gaza", "ejaculation", "dead children"]
         }

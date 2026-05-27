@@ -14,15 +14,15 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "Sleep aids can be misread through a strange musical frame.",
+      "premise": "Needing help to sleep implies conventional aids, but reveals slave spirituals from a smoke detector.",
       "beats": {
         "1": {
-          "premise": "Cold weather makes slave spirituals seem like appropriate comfort music.",
+          "premise": "Extreme cold could make listening to slave spirituals feel like an appropriate coping mechanism.",
           "joke_type": "reframe",
           "topics": ["Texas", "cold weather", "Negro spirituals"]
         },
         "2": {
-          "premise": "Listening to spirituals implies Spotify, not a smoke detector chirp.",
+          "premise": "Listening to slave spirituals implies a deliberate Spotify choice, but reveals a dying smoke detector battery.",
           "joke_type": "misdirect",
           "topics": ["smoke detectors", "laziness", "Spotify"]
         }
@@ -32,12 +32,12 @@
       "premise": "Entrepreneur can be polite code for full-time crackhead.",
       "beats": {
         "1": {
-          "premise": "Entrepreneurship can politely describe a crackhead's self-employment.",
+          "premise": "Entrepreneurship could be a polite word for full-time crack addiction.",
           "joke_type": "reframe",
           "topics": ["father", "entrepreneurship", "crackheads"]
         },
         "2": {
-          "premise": "A crackhead being full-time makes addiction sound salaried.",
+          "premise": "Crack addiction described as full-time could be reported like a standard salaried job.",
           "joke_type": "reframe",
           "topics": ["ZipRecruiter", "salary", "crackheads"]
         }

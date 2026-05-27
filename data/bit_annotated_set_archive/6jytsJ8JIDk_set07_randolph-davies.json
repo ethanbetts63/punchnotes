@@ -17,27 +17,27 @@
       "premise": "Massage therapists create bodily hazards that ruin relaxation.",
       "beats": {
         "1": {
-          "premise": "Repeated disbelief is revealed as hearing a masseuse farted in a sleeping mouth.",
+          "premise": "\"No way\" implies generic disbelief, but reveals a masseuse farted in an open sleeping mouth.",
           "joke_type": "misdirect",
           "topics": ["masseuse", "farting", "sleep"]
         },
         "2": {
-          "premise": "A massage therapist's seizures make relaxation physically risky.",
+          "premise": "A reliable masseuse could be one whose seizures just got too frequent to use.",
           "joke_type": "reframe",
           "topics": ["massages", "seizures", "massage therapists"]
         },
         "3": {
-          "premise": "A fart apology is first heard as blaming the client for losing control.",
+          "premise": "\"Sorry about the fart\" implies blaming the client, but reveals the masseuse confessing.",
           "joke_type": "misdirect",
           "topics": ["farting", "apologies", "massages"]
         },
         "4": {
-          "premise": "Confessing to a fart is like surrendering after a successful robbery.",
+          "premise": "Admitting to a fart after the victim was unaware is like turning yourself in after a successful bank robbery.",
           "joke_type": "analogy",
           "topics": ["farting", "confession", "robbery"]
         },
         "5": {
-          "premise": "Honest service is worthless when the service includes mouth farts.",
+          "premise": "An honest fart confession could be the defining review metric for a massage.",
           "joke_type": "reframe",
           "topics": ["reviews", "farting", "massages"]
         }

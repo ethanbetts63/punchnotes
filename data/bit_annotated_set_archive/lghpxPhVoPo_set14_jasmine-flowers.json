@@ -14,21 +14,21 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "The Amish lifestyle looks like a deliberate scam.",
+      "premise": "The Amish lifestyle could be a long-running coordinated scam designed to confuse modern society.",
       "beats": {
         "1": {
-          "premise": "Amish visibility on modern media makes their elusiveness look fake.",
+          "premise": "Constant Amish media appearances could be proof of a scam rather than genuine elusiveness.",
           "joke_type": "reframe",
           "topics": ["Amish", "television", "scam", "media"]
         },
         "2": {
-          "premise": "Avoiding cell phones resembles a scammer claiming their camera is broken.",
+          "premise": "The Amish refusing cell phones is like a scammer claiming a broken camera — both are classic deceptions.",
           "joke_type": "analogy",
           "topics": ["Amish", "cell phones", "scam", "technology"]
         },
         "3": {
-          "premise": "What if Amish traditions were invented in a meeting to confuse society.",
-          "joke_type": "what-if",
+          "premise": "Amish traditions could have been deliberately invented in a single meeting to maximize societal confusion.",
+          "joke_type": "reframe",
           "topics": ["Amish", "conspiracy", "butter churning", "wifi"]
         }
       }

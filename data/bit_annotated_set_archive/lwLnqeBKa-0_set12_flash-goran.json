@@ -14,20 +14,20 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Unknown ethnic stereotypes can make prejudice feel educational.",
+      "premise": "Not knowing your own stereotype means others' fear teaches you what it is.",
       "beats": {
         "1": {
-          "premise": "Not knowing one's own stereotype makes others' fear seem informative.",
+          "premise": "Not knowing one's own stereotype could be reframed as learning it from others' nervous reactions.",
           "joke_type": "reframe",
           "topics": ["Bosnia", "stereotypes", "Europeans"]
         },
         "2": {
-          "premise": "Ethnic insults become useful when stereotypes are unknown.",
+          "premise": "An ethnic insult could be reframed as useful information about one's own group.",
           "joke_type": "reframe",
           "topics": ["Bosnian stereotypes", "Glock", "note taking"]
         },
         "3": {
-          "premise": "A bad ethnic representative forgets the language and disproves the stereotype.",
+          "premise": "\"Not the best representative\" implies language loss and dangerous driving, but reveals good driving instead.",
           "joke_type": "misdirect",
           "topics": ["Bosnia", "language", "driving"]
         }

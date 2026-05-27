@@ -15,8 +15,8 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "A Batman name is funny when the walk resembles the Penguin.",
-          "joke_type": "analogy",
+          "premise": "Being named after Batman implies heroic bearing, but the hobble matches the villain instead.",
+          "joke_type": "misdirect",
           "topics": ["Michael Keaton", "Batman", "limping"]
         }
       }
@@ -24,7 +24,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Taken literally, political leaning can mean physical leaning.",
+          "premise": "'Lean' can mean political ideology or physical posture.",
           "joke_type": "double-meaning",
           "topics": ["politics", "appearance", "leaning"]
         }
@@ -33,7 +33,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Living in a car technically counts as homeownership.",
+          "premise": "Living in a car could qualify as homeownership.",
           "joke_type": "reframe",
           "topics": ["homeownership", "RAV4", "car living"]
         }
@@ -42,7 +42,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Cough drops are like candy because both are flavored hard sweets.",
+          "premise": "Cough drops are like hard candy because both are flavored sweets with no nutritional purpose.",
           "joke_type": "analogy",
           "topics": ["aging", "cough drops", "candy"]
         }
@@ -51,7 +51,7 @@
     "5": {
       "beats": {
         "1": {
-          "premise": "Aging turns masturbation from desire into prostate maintenance.",
+          "premise": "Masturbation could be medically necessary rather than pleasure-driven.",
           "joke_type": "reframe",
           "topics": ["aging", "masturbation", "prostate health"]
         }

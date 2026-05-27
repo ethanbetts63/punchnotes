@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "The rodeo can turn country music into a twerking soundtrack.",
+          "premise": "Watching Black women twerk to George Strait could be the most unexpected rodeo highlight.",
           "joke_type": "reframe",
           "topics": ["rodeo", "race", "country music", "George Strait"]
         }
@@ -25,23 +25,23 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "A rodeo woman looks like a feral dog hunting brisket.",
+          "premise": "A rodeo woman in an airbrush memorial shirt is like a feral dog because both are desperately hunting meat.",
           "joke_type": "analogy",
           "topics": ["rodeo", "Houston", "brisket", "fashion"]
         }
       }
     },
     "3": {
-      "premise": "A rodeo hookup becomes a confusing bayou nightmare.",
+      "premise": "A rodeo hookup with a bayou woman escalates from geographic deflation to sexual confusion.",
       "beats": {
         "1": {
-          "premise": "A Louisiana bayou hookup is reduced to Buffalo Bayou.",
+          "premise": "A woman claiming to be from the Louisiana bayou could just be from a mundane Houston drainage ditch.",
           "joke_type": "reframe",
           "topics": ["rodeo", "hookup", "Houston", "Louisiana"]
         },
         "2": {
-          "premise": "A sex request becomes so confusing it requires maternal rescue.",
-          "joke_type": "misdirect",
+          "premise": "A request to queef is so confusing and alarming that the only rational response is texting your mother for rescue.",
+          "joke_type": "hyperbole",
           "topics": ["sex", "queef", "hookup", "family"]
         }
       }

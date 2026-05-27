@@ -14,15 +14,15 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "Gaming college scheduling software lets a bad student satisfy all gen-ed requirements with the least meaningful courses.",
+      "premise": "Gaming scheduling software turns gen-ed requirements into the easiest possible entertainment.",
       "beats": {
         "1": {
-          "premise": "A scheduling glitch lets one dance class satisfy three separate diversity requirements simultaneously.",
+          "premise": "A dance class could be reframed as simultaneously satisfying arts, global perspective, and social diversity requirements.",
           "joke_type": "reframe",
           "topics": ["college", "gen-ed requirements", "scheduling glitch", "dance appreciation"]
         },
         "2": {
-          "premise": "Taking feminism courses as entertainment is justified because the student is the one paying.",
+          "premise": "Cheating a college education could be reframed as a rational consumer choice since the student is paying.",
           "joke_type": "reframe",
           "topics": ["feminism", "college", "education", "consumer mindset"]
         }
@@ -31,7 +31,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Responding to a definition of fragile masculinity by doing the mashed potato proves the definition.",
+          "premise": "Responding to a fragile masculinity explanation by doing the mashed potato could be reframed as a live demonstration of the concept.",
           "joke_type": "reframe",
           "topics": ["fragile masculinity", "mashed potato", "deflection", "irony"]
         }

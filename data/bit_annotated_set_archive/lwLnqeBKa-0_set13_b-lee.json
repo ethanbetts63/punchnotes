@@ -16,27 +16,27 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "A lowered microphone reveals rare height accommodation.",
-          "joke_type": "prop",
+          "premise": "A pre-lowered mic stand could be reframed as rare accommodation for short people.",
+          "joke_type": "reframe",
           "topics": ["microphone", "height", "self-deprecation"]
         }
       }
     },
     "2": {
-      "premise": "Backhanded celebrity comparisons can feel flattering when the baseline is worse.",
+      "premise": "Backhanded celebrity comparisons feel like upgrades when the previous comparison was worse.",
       "beats": {
         "1": {
-          "premise": "A haircut makes someone look young and old simultaneously.",
-          "joke_type": "analogy",
+          "premise": "A haircut is so ambiguous it implies two different decades of age simultaneously.",
+          "joke_type": "hyperbole",
           "topics": ["haircuts", "aging", "comics"]
         },
         "2": {
-          "premise": "A short man is like discount Jason Momoa because both imply diminished Aquaman.",
+          "premise": "A short man is like a Wish.com Jason Momoa because both are diminished versions of the same template.",
           "joke_type": "analogy",
           "topics": ["Jason Momoa", "Aquaman", "insults"]
         },
         "3": {
-          "premise": "Walmart Mark Wahlberg reframes Donnie Wahlberg as the cheaper version.",
+          "premise": "\"Walmart Mark Wahlberg\" could be reframed as simply being Donnie Wahlberg.",
           "joke_type": "reframe",
           "topics": ["Mark Wahlberg", "Donnie Wahlberg", "celebrity comparisons"]
         }
@@ -46,12 +46,12 @@
       "premise": "Donnie Wahlberg is unbeatable for reasons other than talent.",
       "beats": {
         "1": {
-          "premise": "Donnie Wahlberg being unbeatable implies talent, not marrying well.",
+          "premise": "\"Can never beat Donnie\" implies superior talent, but reveals he can barely perform.",
           "joke_type": "misdirect",
           "topics": ["Donnie Wahlberg", "performing", "competition"]
         },
         "2": {
-          "premise": "An anti-autism celebrity crush makes sex self-defeating.",
+          "premise": "Marrying an anti-autism crusader would make sex self-defeating if the partner is autistic.",
           "joke_type": "reframe",
           "topics": ["Jenny McCarthy", "marriage", "autism"]
         }

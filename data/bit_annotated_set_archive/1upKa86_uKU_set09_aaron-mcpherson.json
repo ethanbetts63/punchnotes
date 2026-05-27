@@ -17,22 +17,22 @@
       "premise": "Unwanted women can become a profitable sex-work niche.",
       "beats": {
         "1": {
-          "premise": "Wanting sex implies broad desire, not a niche for disgusting partners.",
+          "premise": "Announcing a desire to have sex implies broad appeal, but reveals a specific niche for disgusting partners.",
           "joke_type": "misdirect",
           "topics": ["sexual preference", "dating", "persona"]
         },
         "2": {
-          "premise": "Unwanted women would pay for sexual attention.",
+          "premise": "Extreme physical unattractiveness could be a selling point because desperate partners pay.",
           "joke_type": "reframe",
           "topics": ["overweight women", "money", "dating"]
         },
         "3": {
-          "premise": "'Gigolo' and 'Jig-a-lode' sound alike, and both fit sex work.",
+          "premise": "'Gigolo' sounds like 'Jig-a-lode', and 'Jig-a-lode' fits a Black sex worker persona.",
           "joke_type": "phonetic-match",
           "topics": ["gigolo", "sex work", "wordplay"]
         },
         "4": {
-          "premise": "Lifting partners' legs makes sex work double as exercise.",
+          "premise": "Having sex with extremely obese partners could count as strength training.",
           "joke_type": "reframe",
           "topics": ["sex work", "fitness", "overweight women"]
         }
@@ -41,7 +41,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Missing porn audio implies Bluetooth exposure, not a device problem.",
+          "premise": "Missing porn audio implies a device problem, but reveals it's playing through a nearby Bluetooth speaker.",
           "joke_type": "misdirect",
           "topics": ["Bluetooth", "porn", "privacy"]
         }

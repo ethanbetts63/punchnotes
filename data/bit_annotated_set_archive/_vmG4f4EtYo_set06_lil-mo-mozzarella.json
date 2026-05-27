@@ -13,30 +13,30 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Restaurant-order stereotypes become fake language skills.",
+      "premise": "Ordering food in ethnic style could count as speaking that language.",
       "beats": {
         "1": {
-          "premise": "A bodega order becomes Spanish fluency through stereotype.",
+          "premise": "Ordering food at a bodega in the right accent could pass for speaking Spanish.",
           "joke_type": "reframe",
           "topics": ["New York", "Spanish", "bodega orders"]
         },
         "2": {
-          "premise": "Italian posturing implies Italian identity, not a Norwegian customer.",
+          "premise": "Performing Italian deli mannerisms implies Italian heritage, but reveals a freckled Norwegian.",
           "joke_type": "misdirect",
           "topics": ["Italian Americans", "deli orders", "Norwegians"]
         },
         "3": {
-          "premise": "Shouting an order treats volume like translation.",
+          "premise": "Shouting an order louder could work as a substitute for actually speaking the language.",
           "joke_type": "reframe",
           "topics": ["Chinese restaurants", "shouting", "food orders"]
         },
         "4": {
-          "premise": "Dog-eating stereotypes are widely known about Chinese restaurants but taboo.",
+          "premise": "The assumption that Chinese restaurant workers eat dogs is widely held but too dangerous to say aloud.",
           "joke_type": "elephant-in-the-room",
           "topics": ["Chinese restaurants", "steak bones", "audience risk"]
         },
         "5": {
-          "premise": "A short Asian audience member resembles Kim Jong-un through height and ethnicity.",
+          "premise": "A short Asian man in the audience could be Kim Jong-un because both share height and ethnicity.",
           "joke_type": "analogy",
           "topics": ["Asian audience", "Kim Jong-un", "height"]
         }

@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Epstein's only objection to a party guest is that he might scare the children he is trafficking.",
+          "premise": "Epstein's only concern about inviting a scary-looking guest could be reframed as protecting his trafficked children from being frightened.",
           "joke_type": "reframe",
           "topics": ["Jeffrey Epstein", "sex trafficking", "children", "Redman"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "A man caught having sex with a vacuum cleaner reports the injury, not the crime.",
+          "premise": "A comment on a sex-with-vacuum-cleaner arrest implies denial or excuse, but reveals a complaint about physical injury.",
           "joke_type": "misdirect",
           "topics": ["vacuum cleaner", "indecent exposure", "injury", "Orlando"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Getting banned from a wholesome antiques show for violent threats over a bong collection treats drug paraphernalia as legitimate heirlooms.",
+          "premise": "A bong collection could be reframed as a legitimate antique heirloom deserving professional appraisal.",
           "joke_type": "reframe",
           "topics": ["Antiques Roadshow", "bong", "death threats", "banned"]
         }
@@ -43,7 +43,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Asking which of 'Aphex Twin' is more popular treats a solo artist's name as a literal description of two people.",
+          "premise": "\"Aphex Twin\" can mean the solo artist or two literal twins, and the literal reading produces a nonsense question.",
           "joke_type": "double-meaning",
           "topics": ["Aphex Twin", "Taylor Swift", "music", "wordplay"]
         }

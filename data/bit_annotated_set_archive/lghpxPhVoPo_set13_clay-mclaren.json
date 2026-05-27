@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "A trans man's anatomy can make a cis man feel inadequate.",
+          "premise": "An FTM trans person's testosterone-enlarged clit being bigger than a cis man's penis is the unsaid anatomical reality.",
           "joke_type": "elephant-in-the-room",
           "topics": ["transgender", "sex", "anatomy", "dating"]
         }
@@ -25,8 +25,8 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Crude hand-job confessions escalate into enjoying the cleanup.",
-          "joke_type": "reframe",
+          "premise": "\"Giving hand jobs at the comedy club\" can mean handling difficult acts or performing actual sexual services.",
+          "joke_type": "double-meaning",
           "topics": ["hand job", "Dr. Phil", "Bucky's", "comedy club"]
         }
       }

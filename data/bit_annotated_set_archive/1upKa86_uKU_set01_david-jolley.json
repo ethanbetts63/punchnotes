@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Puerto Rico crowds can still be predominantly white.",
+          "premise": "A Puerto Rico crowd being predominantly white is widely noticeable but rarely said aloud.",
           "joke_type": "elephant-in-the-room",
           "topics": ["Puerto Rico", "white people", "crowd work"]
         }
@@ -26,12 +26,12 @@
       "premise": "Middle-aged men trying to become Twitch streamers are pathetic to watch.",
       "beats": {
         "1": {
-          "premise": "Taken literally, 'twitch' describes an old man's involuntary body movement, not a streaming platform.",
+          "premise": "'Twitch' can mean the streaming platform or an old man's involuntary muscle spasm.",
           "joke_type": "double-meaning",
           "topics": ["streaming", "Twitch", "middle age"]
         },
         "2": {
-          "premise": "An elderly streamer's content would just be mundane medical routines.",
+          "premise": "A senior citizen's livestream could just be their boring medical routine.",
           "joke_type": "reframe",
           "topics": ["streaming", "blood pressure", "work"]
         }
@@ -41,12 +41,12 @@
       "premise": "Crackheads accidentally produce better streaming content than anyone trying.",
       "beats": {
         "1": {
-          "premise": "Genuinely chaotic lives make crackheads more watchable than intentional streamers.",
+          "premise": "A crackhead's authentic daily life could be more entertaining than any intentional stream.",
           "joke_type": "reframe",
           "topics": ["crackheads", "streaming", "sex work"]
         },
         "2": {
-          "premise": "Drug-fueled theft narrated as normal activity is more entertaining than any planned stream.",
+          "premise": "Hauling a stolen appliance on a bicycle could be more compelling content than any planned stream.",
           "joke_type": "reframe",
           "topics": ["crackheads", "livestreaming", "theft"]
         }

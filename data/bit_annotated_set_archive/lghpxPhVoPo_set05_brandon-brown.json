@@ -14,25 +14,25 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "Kill Tony references become bedroom roleplay.",
+      "premise": "Kill Tony catchphrases and performer voices could double as bedroom roleplay material.",
       "beats": {
         "1": {
-          "premise": "Taken literally, a Kill Tony catchphrase also describes sex.",
+          "premise": "\"We're really doing it\" can mean the Kill Tony show is live or sex is happening.",
           "joke_type": "double-meaning",
           "topics": ["sex", "Kill Tony", "marriage", "roleplay"]
         },
         "2": {
-          "premise": "Black Kill Tony performers can become a bedroom roleplay voice.",
-          "joke_type": "analogy",
+          "premise": "The exuberant energy of a Black Kill Tony performer could serve as bedroom dirty talk.",
+          "joke_type": "reframe",
           "topics": ["race", "Kill Tony", "sex", "roleplay"]
         },
         "3": {
-          "premise": "Asian Kill Tony performers can become a bedroom roleplay voice.",
-          "joke_type": "analogy",
+          "premise": "An Asian Kill Tony performer's accent could serve as exaggerated dirty talk during sex.",
+          "joke_type": "reframe",
           "topics": ["race", "Kill Tony", "sex", "roleplay"]
         },
         "4": {
-          "premise": "Taken literally, failing to hit buttons can mean bad oral sex.",
+          "premise": "\"Hit the buttons\" can mean pressing a game-show buzzer or stimulating erogenous zones.",
           "joke_type": "double-meaning",
           "topics": ["oral sex", "Kill Tony", "Tony Hinchcliffe", "marriage"]
         }

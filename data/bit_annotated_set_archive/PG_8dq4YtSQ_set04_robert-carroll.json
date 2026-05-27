@@ -16,8 +16,8 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "A 60-year-old man masturbating 38 times in one afternoon is specific enough to be believable.",
-          "joke_type": "elephant-in-the-room",
+          "premise": "Masturbating 38 times in an afternoon is so excessive it becomes a specific, reportable fact.",
+          "joke_type": "hyperbole",
           "topics": ["masturbation", "hotel", "old men", "shrooms"]
         }
       }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Taking seven grams of mushrooms and calling it microdosing inverts what the term means.",
+          "premise": "A heroic dose of mushrooms could be reframed as microdosing through sheer ignorance of the term.",
           "joke_type": "reframe",
           "topics": ["microdosing", "psilocybin", "mushrooms", "drug culture"]
         }

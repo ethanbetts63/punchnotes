@@ -16,8 +16,8 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Switching from Grindr to Tinder turns dating into a challenge.",
-          "joke_type": "reframe",
+          "premise": "Being on Tinder implies straight dating, but reveals moving from Grindr because gay dating was too easy.",
+          "joke_type": "misdirect",
           "topics": ["Tinder", "Grindr", "dating apps"]
         }
       }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Google Maps can be treated like a stalking app.",
+          "premise": "Google Maps could be used as a stalking tool to track an ex's location.",
           "joke_type": "reframe",
           "topics": ["exes", "Google Maps", "stalking"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Cheating in a relationship is like cheating on a test through borrowed answers.",
+          "premise": "Cheating on a partner is like cheating on a math test because both involve copying from someone else.",
           "joke_type": "analogy",
           "topics": ["cheating", "college", "math tests"]
         }
@@ -43,7 +43,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Menopause matters less if oral sex is still possible.",
+          "premise": "Menopause could be irrelevant as long as a woman's mouth still gets wet.",
           "joke_type": "reframe",
           "topics": ["older women", "menopause", "oral sex"]
         }
@@ -52,7 +52,7 @@
     "5": {
       "beats": {
         "1": {
-          "premise": "Dating single mothers implies preference, not creating them.",
+          "premise": "Dating single mothers implies a preference for them, but reveals being the one who created them.",
           "joke_type": "misdirect",
           "topics": ["single moms", "dating", "pregnancy"]
         }
@@ -61,7 +61,7 @@
     "6": {
       "beats": {
         "1": {
-          "premise": "A request to eat ass reveals prior oral-sex navigation was wrong.",
+          "premise": "Being told to eat ass implies a new request, but reveals the wrong anatomy was being serviced all along.",
           "joke_type": "misdirect",
           "topics": ["sex", "black women", "oral sex"]
         }

@@ -17,17 +17,17 @@
       "premise": "iPhone vs Android text color discrimination mirrors the structure of racial discrimination.",
       "beats": {
         "1": {
-          "premise": "Being judged by the color of your texts is structurally identical to being judged by the color of your skin.",
+          "premise": "Phone text discrimination is like racial discrimination because both judge people by color.",
           "joke_type": "analogy",
           "topics": ["Android", "iPhone", "green texts", "discrimination"]
         },
         "2": {
-          "premise": "MLK's 'I Have a Dream' speech maps perfectly onto the green-vs-blue texting divide.",
+          "premise": "The green/blue text divide is like the racial divide because both inspire the same dream of unity.",
           "joke_type": "analogy",
           "topics": ["MLK", "green texts", "blue texts", "civil rights"]
         },
         "3": {
-          "premise": "Civil rights protest chants rewritten around phone text color reveal how arbitrary both conflicts are.",
+          "premise": "Android supporters are like civil rights marchers because both use protest chants over an arbitrary color divide.",
           "joke_type": "analogy",
           "topics": ["Android", "iPhone", "protest chants", "civil rights"]
         }

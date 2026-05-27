@@ -17,13 +17,13 @@
       "premise": "Forrest Gump's innocence would misread racist and violent history.",
       "beats": {
         "1": {
-          "premise": "Forrest Gump would mistake a KKK rally for ghosts and heat.",
-          "joke_type": "what-if",
+          "premise": "Forrest Gump's naivety could reframe a KKK rally as an innocent bonfire with friends in ghost costumes.",
+          "joke_type": "reframe",
           "topics": ["Forrest Gump", "KKK", "racism"]
         },
         "2": {
-          "premise": "Forrest Gump would mistake waterboarding for helping thirsty people.",
-          "joke_type": "what-if",
+          "premise": "Forrest Gump's naivety could reframe waterboarding as charitable hydration.",
+          "joke_type": "reframe",
           "topics": ["Forrest Gump", "Vietnam", "torture"]
         }
       }

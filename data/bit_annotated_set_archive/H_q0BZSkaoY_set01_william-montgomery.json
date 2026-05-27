@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Threatening violence against a mother implies harm, not sex.",
+          "premise": "Threatening violence against someone's mother implies physical harm, but reveals sexual intent.",
           "joke_type": "misdirect",
           "topics": ["Red Band", "crowd work", "roast", "mothers"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Taken literally, a town can be too small for two obese people.",
+          "premise": "\"Not big enough for the both of us\" can mean a territorial standoff or a literal space problem for two obese people.",
           "joke_type": "double-meaning",
           "topics": ["obesity", "western clichés"]
         }
@@ -34,8 +34,8 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "One fat mother could cause an Ozempic shortage.",
-          "joke_type": "what-if",
+          "premise": "A mother is so fat that her Ozempic use alone could cause a nationwide shortage.",
+          "joke_type": "hyperbole",
           "topics": ["Red Band", "obesity", "Ozempic", "roast"]
         }
       }
@@ -43,7 +43,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "A reverend's death implies natural causes, not Clinton retaliation.",
+          "premise": "Jesse Jackson's death implies natural causes, but the question is what he did to anger Hillary Clinton.",
           "joke_type": "misdirect",
           "topics": ["Jesse Jackson", "Hillary Clinton", "death", "conspiracy"]
         }
@@ -52,7 +52,7 @@
     "5": {
       "beats": {
         "1": {
-          "premise": "Artificial intelligence can define God as Aphex Twin.",
+          "premise": "God's essence could be captured in two words by ChatGPT as an electronic musician's name.",
           "joke_type": "reframe",
           "topics": ["ChatGPT", "God", "Aphex Twin", "religion"]
         }
@@ -61,7 +61,7 @@
     "6": {
       "beats": {
         "1": {
-          "premise": "A failed indictment can make political murder sound legally justified.",
+          "premise": "A grand jury declining to indict for politically motivated killing could make it legally justifiable.",
           "joke_type": "reframe",
           "topics": ["Texas", "Donald Trump", "grand jury", "justifiable homicide"]
         }

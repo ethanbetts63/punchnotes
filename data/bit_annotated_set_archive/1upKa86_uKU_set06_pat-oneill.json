@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Refusing to call a transitioning child son implies a new title, not disownment.",
+          "premise": "Refusing to call a transitioning child your son implies a new title, but reveals disownment.",
           "joke_type": "misdirect",
           "topics": ["trans children", "family", "rejection"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Pedophiles benefit from puberty blockers.",
+          "premise": "Puberty blockers could benefit pedophiles by preserving children's pre-pubescent appearance.",
           "joke_type": "reframe",
           "topics": ["puberty blockers", "pedophiles", "medicine"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Little people would resent voluntary puberty blockers.",
+          "premise": "A little person could view voluntary puberty blockers as a mockery of their involuntary condition.",
           "joke_type": "reframe",
           "topics": ["circus", "midgets", "puberty blockers"]
         }
@@ -43,7 +43,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "'Midget' and 'fidget' sound alike, and 'fidget' independently fits ADHD.",
+          "premise": "'Midget' sounds like 'fidget', and 'fidget' fits a person with ADHD.",
           "joke_type": "phonetic-match",
           "topics": ["midgets", "ADHD", "wordplay"]
         }
@@ -52,7 +52,7 @@
     "5": {
       "beats": {
         "1": {
-          "premise": "School shootings block puberty by killing students.",
+          "premise": "School shootings could qualify as the most effective puberty blocker.",
           "joke_type": "reframe",
           "topics": ["school shootings", "puberty blockers", "dark humor"]
         }
@@ -61,7 +61,7 @@
     "6": {
       "beats": {
         "1": {
-          "premise": "School shootings are widely associated with white shooters but rarely said aloud.",
+          "premise": "White perpetrators of school shootings are widely understood but rarely called out directly.",
           "joke_type": "elephant-in-the-room",
           "topics": ["school shootings", "white people", "race"]
         }
@@ -70,7 +70,7 @@
     "7": {
       "beats": {
         "1": {
-          "premise": "Unlike white gun violence, black gun violence is outside of school.",
+          "premise": "After-school gun violence among Black youth could be reframed as an extracurricular activity.",
           "joke_type": "reframe",
           "topics": ["school shootings", "race", "after school", "extracurricular"]
         }

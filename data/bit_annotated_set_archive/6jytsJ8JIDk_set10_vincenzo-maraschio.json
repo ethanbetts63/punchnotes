@@ -16,8 +16,8 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "LGBTQ+ is heard like ordering every burger topping and every anal option.",
-          "joke_type": "double-meaning",
+          "premise": "\"LGBTQ+\" implies a burger customization order, but reveals a sexual identity spectrum.",
+          "joke_type": "misdirect",
           "topics": ["LGBTQ", "burgers", "anal sex"]
         }
       }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "'Grindr' and 'grinder' sound alike, and grinders independently fit sandwich cravings.",
+          "premise": "\"Grindr\" sounds like \"grinder,\" and \"grinder\" fits because it names an East Coast sandwich.",
           "joke_type": "phonetic-match",
           "topics": ["Grindr", "sandwiches", "foodies"]
         }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Inviting someone to a Cowboys game reveals gayness more than oral sex does.",
+          "premise": "A Cowboys game invitation could be a more reliable gayness signal than an oral sex encounter.",
           "joke_type": "reframe",
           "topics": ["Dallas Cowboys", "gay men", "football"]
         }

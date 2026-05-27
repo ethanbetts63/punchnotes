@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Financial responsibility in 2026 makes someone look weak.",
+          "premise": "Making responsible financial decisions in the current economy could signal cowardice rather than wisdom.",
           "joke_type": "reframe",
           "topics": ["money", "2026", "financial decisions"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Digital debt looks like wealth if the minus sign is hidden.",
+          "premise": "Covering the negative sign on a digital bank balance could reframe debt as wealth.",
           "joke_type": "reframe",
           "topics": ["bank account", "debt", "perspective"]
         }
@@ -34,8 +34,8 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Being broke turns strip clubs into bargain hunting.",
-          "joke_type": "elephant-in-the-room",
+          "premise": "A broke strip club visitor is like a frugal bargain hunter because both are aggressively minimizing cost.",
+          "joke_type": "analogy",
           "topics": ["strip clubs", "being broke", "bargains"]
         }
       }

@@ -14,15 +14,15 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "Race categories expose different countries' racism.",
+      "premise": "Racial categorization systems reveal different flavors of racism across cultures.",
       "beats": {
         "1": {
-          "premise": "Skipping race questions can imply racial purity, not progress.",
+          "premise": "Not asking about race implies post-racial progress, but reveals bloodline purity enforcement.",
           "joke_type": "misdirect",
           "topics": ["race", "Black History Month", "Asian Heritage Month", "racism"]
         },
         "2": {
-          "premise": "Asian racial categories reduce everyone to locals or intruders.",
+          "premise": "The complex Western racial taxonomy could be reduced in Asian countries to just two categories: Asian or intruder.",
           "joke_type": "reframe",
           "topics": ["race", "Asia", "categorization", "xenophobia"]
         }

@@ -16,8 +16,8 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Period fingering is like dancing because both can leave a hand gang-signing.",
-          "joke_type": "analogy",
+          "premise": "Period fingering could be reframed as gang-sign initiation because both end with blood-red bent fingers.",
+          "joke_type": "reframe",
           "topics": ["period sex", "fingering", "C-Walk"]
         }
       }
@@ -25,8 +25,8 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Bedwetting after nightmares can be reframed as abuse-induced squirting.",
-          "joke_type": "reframe",
+          "premise": "Childhood bedwetting during nightmares implies a scary dream, but reveals childhood sexual abuse.",
+          "joke_type": "misdirect",
           "topics": ["bedwetting", "squirting", "sexual abuse"]
         }
       }
@@ -34,7 +34,7 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Rolled R's and rape both fit an abuse-flavored language lesson.",
+          "premise": "\"Roll your R's\" sounds like \"rape\", and \"rape\" fits because the uncle who taught it was abusive.",
           "joke_type": "phonetic-match",
           "topics": ["sexual abuse", "rolled R's", "rape"]
         }
@@ -43,7 +43,7 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Taken literally, touching someone here can mean a body part or Michigan.",
+          "premise": "\"Touched me here\" can mean on my body or in the geographic state of Michigan.",
           "joke_type": "double-meaning",
           "topics": ["Michigan", "sexual abuse", "map jokes"]
         }

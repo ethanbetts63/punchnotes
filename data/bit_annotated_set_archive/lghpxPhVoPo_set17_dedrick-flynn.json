@@ -16,23 +16,23 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Houston is like Atlanta because both feel culturally Southern.",
+          "premise": "Houston is like Atlanta because both cities share the same large, warm Southern energy.",
           "joke_type": "analogy",
           "topics": ["Houston", "Atlanta", "South", "cities"]
         }
       }
     },
     "2": {
-      "premise": "Pimp C's shrimp lyric becomes literal autobiography.",
+      "premise": "Pimp C's lyric about iodine poisoning from shrimp could be a real medical biography.",
       "beats": {
         "1": {
-          "premise": "'Eye-dyeing poison' sounds like iodine poisoning from eating shrimp.",
+          "premise": "\"Eye-dyeing poison\" sounds like \"iodine poisoning,\" and iodine poisoning fits because shrimp is high in iodine.",
           "joke_type": "phonetic-match",
           "topics": ["Pimp C", "rap", "shrimp", "iodine"]
         },
         "2": {
-          "premise": "What if Pimp C's iodine lyric described an actual hospital diagnosis.",
-          "joke_type": "what-if",
+          "premise": "Pimp C's lyric about shrimp and poison could be a literal account of an iodine-poisoning hospital visit.",
+          "joke_type": "reframe",
           "topics": ["Pimp C", "shrimp", "iodine poisoning", "food"]
         }
       }

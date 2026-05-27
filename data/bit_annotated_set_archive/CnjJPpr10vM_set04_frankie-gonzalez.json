@@ -17,12 +17,12 @@
       "premise": "Gay denial can survive both violence and orgasm.",
       "beats": {
         "1": {
-          "premise": "Taken literally, coming out of the closet has two meanings.",
+          "premise": "\"Came out of the closet\" can mean revealed homosexuality or physically escaped from one.",
           "joke_type": "double-meaning",
           "topics": ["family", "coming out", "homophobia"]
         },
         "2": {
-          "premise": "Feeling nothing after kissing a man implies no attraction, not post-orgasm emptiness.",
+          "premise": "Feeling nothing after kissing a man implies no attraction, but reveals an orgasm occurred.",
           "joke_type": "misdirect",
           "topics": ["sexuality", "roommates", "denial"]
         }
@@ -31,8 +31,8 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Acid can turn a Black hiking photo into Bigfoot evidence.",
-          "joke_type": "reframe",
+          "premise": "Finding Bigfoot on acid implies a cryptid sighting, but reveals photos of a Black friend in low light.",
+          "joke_type": "misdirect",
           "topics": ["acid", "hiking", "Bigfoot", "Black friends"]
         }
       }
@@ -40,8 +40,8 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Taken literally, DoorDash orders can sound like terrorist commands.",
-          "joke_type": "double-meaning",
+          "premise": "A Muslim delivery driver's name implies a DoorDash notification, but sounds like a terrorist command on acid.",
+          "joke_type": "misdirect",
           "topics": ["acid", "DoorDash", "9/11", "terrorism"]
         }
       }

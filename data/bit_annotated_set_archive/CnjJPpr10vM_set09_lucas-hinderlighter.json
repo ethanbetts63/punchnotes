@@ -14,15 +14,15 @@
   "joke_book": "large",
   "bit_meta": {
     "1": {
-      "premise": "One remaining sock can imply genital cover instead of footwear.",
+      "premise": "Running out of toilet paper can force clothing to serve double duty.",
       "beats": {
         "1": {
-          "premise": "No toilet paper can turn clothing into emergency wipes.",
-          "joke_type": "what-if",
+          "premise": "Without toilet paper, clothing could be repurposed as emergency wipes.",
+          "joke_type": "reframe",
           "topics": ["porta potties", "toilet paper", "socks"]
         },
         "2": {
-          "premise": "One remaining sock implies footwear, not genital cover.",
+          "premise": "Having one sock left implies it is on the foot, but reveals it is covering the genitals.",
           "joke_type": "misdirect",
           "topics": ["porta potties", "socks", "genitals"]
         }
@@ -31,7 +31,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Taken literally, barely legal porn changes meaning across eras.",
+          "premise": "\"Barely legal\" can mean barely of legal age or barely permitted by historical law.",
           "joke_type": "double-meaning",
           "topics": ["grandpa", "porn", "aging", "interracial porn"]
         }

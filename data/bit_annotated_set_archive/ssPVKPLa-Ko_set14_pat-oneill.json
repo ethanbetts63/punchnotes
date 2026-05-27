@@ -16,7 +16,7 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Autoerotic choking can be reframed as the cinnamon challenge.",
+          "premise": "Autoerotic asphyxiation while masturbating could be reframed as the cinnamon challenge.",
           "joke_type": "reframe",
           "topics": ["masturbation", "choking", "cinnamon challenge"]
         }
@@ -25,7 +25,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Watching little-person porn implies dwarf actors, not possible children.",
+          "premise": "Watching little-person porn implies adult dwarfs, but the \"I hope\" reveals uncertainty about whether the subjects were children.",
           "joke_type": "misdirect",
           "topics": ["porn", "little people", "uncertainty"]
         }
@@ -34,8 +34,8 @@
     "3": {
       "beats": {
         "1": {
-          "premise": "Denying porn use implies religious innocence or lying.",
-          "joke_type": "reframe",
+          "premise": "Everyone watches porn but won't admit it — silence in the crowd is widely understood to mean lying.",
+          "joke_type": "elephant-in-the-room",
           "topics": ["porn", "audiences", "lying"]
         }
       }
@@ -43,8 +43,8 @@
     "4": {
       "beats": {
         "1": {
-          "premise": "Porn creates unrealistic expectations that lesbians are attractive.",
-          "joke_type": "reframe",
+          "premise": "\"Unrealistic expectations from porn\" implies impossible body standards, but reveals the expectation that lesbians are attractive.",
+          "joke_type": "misdirect",
           "topics": ["porn", "lesbians", "beauty standards"]
         }
       }
@@ -52,7 +52,7 @@
     "5": {
       "beats": {
         "1": {
-          "premise": "Two slurs can be blended into one dating disappointment.",
+          "premise": "\"Kike\" and \"dyke\" both sound like \"Ike\", and \"Ike\" fits as a polite alias combining both slurs.",
           "joke_type": "phonetic-match",
           "topics": ["Jewish women", "lesbians", "dating"]
         }
@@ -61,7 +61,7 @@
     "6": {
       "beats": {
         "1": {
-          "premise": "Buying dinner for twelve men seems godlike under Jewish stereotypes.",
+          "premise": "Paying the bill for twelve people could be reframed as proof of divinity given Jewish frugality stereotypes.",
           "joke_type": "reframe",
           "topics": ["Jesus", "Last Supper", "Jewish stereotypes"]
         }

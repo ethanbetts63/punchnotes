@@ -17,12 +17,12 @@
       "premise": "A tallest-man documentary should answer the penis-size question.",
       "beats": {
         "1": {
-          "premise": "A tallest-man documentary should answer the obvious penis-size question.",
+          "premise": "A documentary about the world's tallest man omits the question everyone actually wanted answered.",
           "joke_type": "elephant-in-the-room",
           "topics": ["Robert Wadlow", "documentaries", "genitals"]
         },
         "2": {
-          "premise": "The only needed fact in a tallest-man documentary is penis size.",
+          "premise": "A documentary about the world's tallest man could be perfected by one measurement and nothing else.",
           "joke_type": "reframe",
           "topics": ["Robert Wadlow", "documentary endings", "penis size"]
         }
@@ -31,7 +31,7 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "Naked LeapFrog implies a childhood rule, not an uncle's abuse.",
+          "premise": "Playing LeapFrog nude as a child implies that was the game's rule, but reveals a predatory uncle.",
           "joke_type": "misdirect",
           "topics": ["LeapFrog", "childhood games", "nudity", "uncle"]
         }

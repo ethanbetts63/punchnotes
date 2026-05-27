@@ -16,8 +16,8 @@
     "1": {
       "beats": {
         "1": {
-          "premise": "Parental nudity can make a father's penis an unavoidable family member.",
-          "joke_type": "reframe",
+          "premise": "A father's penis is so large it has its own life, finances, and parental approval.",
+          "joke_type": "hyperbole",
           "topics": ["father", "nudity", "childhood memory", "penis size"]
         }
       }
@@ -25,8 +25,8 @@
     "2": {
       "beats": {
         "1": {
-          "premise": "A mother's exposed breast can turn a wake-up into unwanted breastfeeding.",
-          "joke_type": "reframe",
+          "premise": "A mother's breast grazing your face while waking you implies innocent morning routine, but reveals a breastfeeding dynamic.",
+          "joke_type": "misdirect",
           "topics": ["mother", "breasts", "school mornings", "breastfeeding"]
         }
       }

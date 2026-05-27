@@ -13,25 +13,25 @@
   "joke_book": null,
   "bit_meta": {
     "1": {
-      "premise": "Buying debt makes repayment the buyer's problem.",
+      "premise": "Buying debt transfers ownership of it, not the right to collect.",
       "beats": {
         "1": {
-          "premise": "Buying debt makes the debt buyer responsible for it.",
+          "premise": "Buying debt could mean you now own the problem, not the solution.",
           "joke_type": "reframe",
           "topics": ["debt collection", "Sprint", "debt buyers"]
         },
         "2": {
-          "premise": "Debt excuses belong with familiar creditors, not strangers.",
-          "joke_type": "reframe",
+          "premise": "Personal payment excuses only land with the creditor who witnessed the struggle.",
+          "joke_type": "elephant-in-the-room",
           "topics": ["Sprint", "payment excuses", "unknown companies"]
         },
         "3": {
-          "premise": "Debt buyers are like performative helpers because both publicize unwanted generosity.",
+          "premise": "Buying debt to publicize it is like filming charity stunts because both flaunt unwanted generosity.",
           "joke_type": "analogy",
           "topics": ["debt buyers", "performative charity", "Sprint commercials"]
         },
         "4": {
-          "premise": "Jesus paying for sins would be worse if he collected afterward.",
+          "premise": "Jesus paying for sins is like buying debt because both could justify sending a collection notice.",
           "joke_type": "analogy",
           "topics": ["debt collection", "Jesus", "sins"]
         }

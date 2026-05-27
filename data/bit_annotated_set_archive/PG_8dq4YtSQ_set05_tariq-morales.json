@@ -17,27 +17,27 @@
       "premise": "Redefining \"N-word\" as Nazi lets a Black man weaponize the slur against white supremacists.",
       "beats": {
         "1": {
-          "premise": "A Black man misses Tesla driving because it earned him a different kind of N-word label.",
+          "premise": "\"N-word\" can mean the racial slur or Nazi, so a Black man being called one becomes a compliment.",
           "joke_type": "double-meaning",
           "topics": ["Tesla", "Nazis", "N-word", "racism"]
         },
         "2": {
-          "premise": "Idaho being \"full of N-words\" refers to Nazis, not Black people.",
+          "premise": "\"Full of N-words\" can mean a Black neighborhood or a Nazi stronghold.",
           "joke_type": "double-meaning",
           "topics": ["Idaho", "Nazis", "N-word", "white supremacy"]
         },
         "3": {
-          "premise": "\"Tesla Model 3rd Reich\" fuses the car brand with Nazi Germany as a product line.",
+          "premise": "\"Tesla Model 3rd Reich\" can mean a real car model or a Nazi-branded vehicle.",
           "joke_type": "double-meaning",
           "topics": ["Tesla", "Third Reich", "Nazis", "car models"]
         },
         "4": {
-          "premise": "\"N-word lives don't matter\" targets Nazis when N-word is redefined as Nazi.",
+          "premise": "\"N-word lives don't matter\" can target Black people or, with the redefinition, Nazis.",
           "joke_type": "double-meaning",
           "topics": ["N-word", "Nazis", "Black Lives Matter", "protest"]
         },
         "5": {
-          "premise": "\"I hate black people, but not as much as blonde-haired blue-eyed N-words\" reveals the N-word means Nazi.",
+          "premise": "\"I hate black people but not as much as blonde-haired N-words\" can mean hating Black people more, or hating Nazis most.",
           "joke_type": "double-meaning",
           "topics": ["Nazis", "N-word", "racism", "blonde hair"]
         }
