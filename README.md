@@ -96,7 +96,6 @@ Most jokes fall into one of these mechanisms. Each has its own premise shape. Th
 Formula: *X implies Y, not Z.*
 
 Example:
-
 - setup: `"My son just came out as trans."`
 - setup: `"Well, shouldn't call him my son anymore."`
 - punchline: `"Now that he's dead to me,"`
@@ -107,7 +106,6 @@ Premise: `"Refusing to call a transitioning child your son implies a new title, 
 Formula: state the hidden implication directly.
 
 Example:
-
 - setup: `"they got him on puberty blockers"`
 - punchline: `"or as pedophiles call them preservatives."`
 - tag: `"Fucking miracle medicine."`
@@ -118,7 +116,6 @@ Premise: `"Pedophiles benefit from puberty blockers."`
 Formula: state the sonic match and why both sides independently fit.
 
 Example:
-
 - setup: `"what do you call a little person with ADHD?"`
 - punchline: `"That's right, a fidget."`
 
@@ -128,7 +125,6 @@ Premise: `"'Midget' and 'fidget' sound alike, and 'fidget' independently fits AD
 Formula: *Taken literally, [phrase] has two meanings.*
 
 Example:
-
 - setup: `"'In case of fire, use stairs.'"`
 - punchline: `"Fuck that, let's use water."`
 
@@ -138,7 +134,6 @@ Premise: `"Taken literally, 'In case of fire, use stairs' has two meanings."`
 Formula: *What if [counterfactual]?* or state the hypothetical condition directly.
 
 Example:
-
 - setup: `"A guy stole my wallet."`
 - setup: `"He's like, ha ha, I have your wallet."`
 - punchline: `"I was like, ha ha, you have 8K of credit card debt."`
@@ -149,7 +144,6 @@ Premise: `"What if stealing a credit card meant you also stole the debt."`
 Formula: *X is like Y because both share Z.*
 
 Example:
-
 - setup: `"But golfing prepared me for marriage,"`
 - setup: `"cause both involved me spending a lot of money"`
 - punchline: `"at something I'm not really good at."`
@@ -162,7 +156,6 @@ Premise: `"Golf is like marriage because both make failure expensive and repeata
 Formula: *This object reveals or creates [comic meaning].*
 
 Example:
-
 - setup: `"[comedian holds up a strange object]"`
 - punchline: `"This is what my dating life has come to."`
 
@@ -172,7 +165,6 @@ Premise: `"A physical object can stand in for a failed dating life."`
 Formula: *X is widely understood about Y but rarely said aloud.*
 
 Example:
-
 - setup: `"You know, these shootings are often done by the same race."`
 - punchline: `"I'm looking at you, honkies."`
 
