@@ -90,7 +90,7 @@ Everything that is not setup, punchline, or tag: greetings, sign-offs, name intr
 
 ### Joke types and premise formulas
 
-Most jokes should be assigned one of these mechanisms. Each type has a preferred premise shape. The value in the `joke_type` field uses the lowercase/hyphenated form shown next to each name.
+All jokes should be assigned one of these mechanisms. Each type has a preferred premise shape. The value in the `joke_type` field uses the lowercase/hyphenated form shown next to each name. **The way you write the premise must exactly match the formula given for each joke type.** 
 
 **Misdirect** (`misdirect`) — an assumption is planted, then subverted.
 Formula: *[setup] implies [expected interpretation], but [punchline reveals unexpected interpretation].*

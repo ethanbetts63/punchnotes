@@ -9,6 +9,17 @@ from django.core.management.base import BaseCommand
 from pipeline.models import Beat, Bit, Comedian, Episode, Line, Set
 
 
+PREMISE_STRUCTURE_RULES = {
+    "misdirect": ("implies", "but"),
+    "reframe": ("could be",),
+    "phonetic-match": ("sounds like", "and"),
+    "double-meaning": ("can mean", "or"),
+    "analogy": ("is like", "because both"),
+    "hyperbole": ("so", "that"),
+    "elephant-in-the-room": ("widely understood", "but rarely"),
+}
+
+
 class Command(BaseCommand):
     help = "Import bit-annotated set JSON files from data/4_bit_annotated_set_inbox/ into the database"
 
@@ -40,6 +51,7 @@ class Command(BaseCommand):
         slug = match.group(3)
 
         meta = json.loads(path.read_text(encoding="utf-8-sig"))
+        self._validate_bit_meta(meta)
 
         episode, _ = Episode.objects.get_or_create(
             video_id=video_id,
@@ -157,3 +169,40 @@ class Command(BaseCommand):
                 f"{len(lines)} lines, {len(meta.get('bit_meta', {}))} bits"
             )
         )
+
+    def _validate_bit_meta(self, meta):
+        errors = []
+        for bit_num, bit_data in meta.get("bit_meta", {}).items():
+            for beat_num, beat_data in bit_data.get("beats", {}).items():
+                location = f"bit {bit_num} beat {beat_num}"
+                joke_type = beat_data.get("joke_type")
+                premise = beat_data.get("premise")
+
+                if joke_type not in PREMISE_STRUCTURE_RULES:
+                    accepted = ", ".join(sorted(PREMISE_STRUCTURE_RULES))
+                    errors.append(
+                        f"{location}: joke_type must be one of [{accepted}], got {joke_type!r}"
+                    )
+                    continue
+
+                if not isinstance(premise, str) or not premise.strip():
+                    errors.append(f"{location}: premise is required for joke_type {joke_type!r}")
+                    continue
+
+                premise_lower = premise.lower()
+                missing = [
+                    required
+                    for required in PREMISE_STRUCTURE_RULES[joke_type]
+                    if required not in premise_lower
+                ]
+                if missing:
+                    required = ", ".join(
+                        f'"{phrase}"' for phrase in PREMISE_STRUCTURE_RULES[joke_type]
+                    )
+                    errors.append(
+                        f"{location}: {joke_type} premise must contain {required}; "
+                        f"missing {', '.join(f'{phrase!r}' for phrase in missing)}"
+                    )
+
+        if errors:
+            raise ValueError("Invalid bit_meta:\n  " + "\n  ".join(errors))

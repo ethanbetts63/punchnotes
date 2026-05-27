@@ -52,8 +52,8 @@ Write valid JSON in any standard format — formatting is normalised automatical
       "premise": "Estonia drafts everyone America excludes.",
       "beats": {
         "1": {
-          "premise": "A wheelchair-bound soldier doubles as a suicide grenade carrier.",
-          "joke_type": "what-if",
+          "premise": "A wheelchair soldier could be a suicide grenade carrier.",
+          "joke_type": "reframe",
           "topics": ["Estonia", "wheelchairs", "grenades"]
         },
         "2": {
@@ -136,7 +136,7 @@ For multi-beat bits, every beat must still have its own premise. The bit premise
 - No pronouns tied to the comedian — no "he", "she", "they", "the comic".
 - Use the most general form: `"Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."`
 
-**Joke type:** one of the ten labels defined in the next section: `misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `what-if`, `analogy`, `hyperbole`, `act-out`, `elephant-in-the-room`, `prop`. Pick the mechanism that best describes how the joke gets its laugh — the same mechanism the premise formula is built around.
+**Joke type:** one of the seven accepted labels defined in the next section: `misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `analogy`, `hyperbole`, `elephant-in-the-room`. Pick the mechanism that best describes how the joke gets its laugh — the same mechanism the premise formula is built around.
 
 Do not use joke types outside this list. If a joke seems to need a type that is not allowed, choose the closest allowed type and mention the uncertainty in your closing comments.
 
@@ -145,10 +145,13 @@ Do not use joke types outside this list. If a joke seems to need a type that is 
 
 ### Joke types and premise formulas
 
-Most jokes should be assigned one of these mechanisms. Each type has a preferred premise shape. The value in the `joke_type` field uses the lowercase/hyphenated form shown next to each name.
+Most jokes should be assigned one of these mechanisms. Each type has a preferred premise shape. The value in the `joke_type` field uses the lowercase/hyphenated form shown next to each name. **The way you write the premise must exactly match the formula given for each joke type. VERY IMPORTANT** Bit level premesis should just be done as simply as possible.
+
+Beat premises are checked before database import. If the required phrase markers for the selected joke type are missing, the file will be rejected and will not go into the database.
 
 **Misdirect** (`misdirect`) — an assumption is planted, then subverted.
 Formula: *[setup] implies [expected interpretation], but [punchline reveals unexpected interpretation].*
+Required phrase markers: `implies`, `but`.
 
 Example:
 - setup: `"My son just came out as trans."`
@@ -159,6 +162,7 @@ Premise: `"Refusing to call a transitioning child your son implies a new title, 
 
 **Reframe** (`reframe`) — a known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required; the joke surfaces an alternate perspective to understand the same fact, object, behavior, or situation.
 Formula: *[known thing] could be [unexpected interpretation].*
+Required phrase marker: `could be`.
 
 Example:
 - setup: `"they got him on puberty blockers"`
@@ -169,6 +173,7 @@ Premise: `"Puberty blockers could be beneficial to pedophiles."`
 
 **Phonetic match** (`phonetic-match`) — two *different* words sound alike, and both independently fit the context. Basic versions of phonetic-match might literally just have two words that sound similar without any contextual link.
 Formula: *"[word A]" sounds like "[word B]", and [word B] fits because [reason].*
+Required phrase markers: `sounds like`, `and`.
 
 Example:
 - setup: `"what do you call a little person with ADHD?"`
@@ -178,6 +183,7 @@ Premise: `"'Midget' sounds like 'fidget', and 'fidget' fits ADHD."`
 
 **Double-meaning** (`double-meaning`) — the *same* word or phrase admits two readings, and the comedian deliberately picks the non-standard one. Hinges on semantic ambiguity, not phonetic similarity.
 Formula: *"[phrase]" can mean [meaning A] or [meaning B].*
+Required phrase markers: `can mean`, `or`.
 
 Example:
 - setup: `"'In case of fire, use stairs.'"`
@@ -187,6 +193,7 @@ Premise: `"'Use stairs' can mean take the stairs or use stairs as the tool."`
 
 **Analogy** (`analogy`) — two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
 Formula: *[X] is like [Y] because both [shared structure].*
+Required phrase markers: `is like`, `because both`.
 
 Example:
 - setup: `"But golfing prepared me for marriage,"`
@@ -199,6 +206,7 @@ Premise: `"Golf is like marriage because both are difficult, expensive and repet
 
 **Hyperbole** (`hyperbole`) — a feeling, trait, preference, or consequence is exaggerated past plausibility. The laugh comes from the excess of degree, scale, or intensity.
 Formula: *[thing] is so [extreme quality] that [impossible or disproportionate result].*
+Required phrase markers: `so`, `that`.
 
 Example:
 - setup: `"So I've already seen a third of this collection"`
@@ -210,6 +218,7 @@ Premise: `"A porn collection is so large that you could run out of sperm."`
 
 **Elephant-in-the-room** (`elephant-in-the-room`) — a taboo or socially avoided observation is said aloud. The audience already recognizes the conclusion; the laugh comes from breaking the silence.
 Formula: *[observation] is widely understood about [topic] but rarely said aloud.*
+Required phrase markers: `widely understood`, `but rarely`.
 
 Example:
 - setup: `"You know, these shootings are often done by the same race."`
@@ -252,7 +261,7 @@ Joke type: `reframe`
 - Do not split a bit just because a new setup line appears after a punchline — decide whether it depends on the existing premise.
 - Fluff that sits inside a bit's flow can receive that bit's number.
 - Stage context can supply setup, but choose the joke type by mechanism. Most "I look like..." jokes are `analogy`, not `prop`.
-- Do not infer `act-out` from transcript text alone. Use `act-out` only when the transcript or supplied context makes the embodied performance clear; otherwise choose the text-visible mechanism.
+- Do not use `act-out` as the `joke_type`. If a transcript includes embodied performance, choose the underlying text-visible mechanism.
 
 ---
 
@@ -262,7 +271,7 @@ Joke type: `reframe`
 2. Identify each punchline — that's the anchor for each beat.
 3. Walk backwards from each punchline labeling setup; walk forwards labeling tags.
 4. Mark everything else fluff.
-5. For each beat, identify the joke type (`misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `what-if`, `analogy`, `hyperbole`, `act-out`, `elephant-in-the-room`, `prop`) and write a premise using its formula. Record the type in the beat's `joke_type` field. Do not invent other `joke_type` values.
+5. For each beat, identify the joke type (`misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `analogy`, `hyperbole`, `elephant-in-the-room`) and write a premise using its formula. Record the type in the beat's `joke_type` field. Do not invent other `joke_type` values.
 6. Group beats into bits by shared premise. Apply the extraction test: if a beat would survive standalone, it's its own bit.
 7. For multi-beat bits, write a bit premise that captures the umbrella the beats share.
 8. Write the output JSON with `bit_meta` and fully labeled lines.
@@ -321,8 +330,8 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives on t
       "premise": "Estonia drafts everyone America excludes.",
       "beats": {
         "1": {
-          "premise": "Wheelchair soldiers with a grenade could kamikaze roll at the enemy.",
-          "joke_type": "what-if",
+          "premise": "Wheelchair soldiers with a grenade could be kamikaze rollers.",
+          "joke_type": "reframe",
           "topics": ["Estonia", "wheelchairs", "grenades"]
         },
         "2": {
