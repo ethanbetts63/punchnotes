@@ -90,58 +90,48 @@ Everything that is not setup, punchline, or tag: greetings, sign-offs, name intr
 
 ### Joke types and premise formulas
 
-Most jokes fall into one of these mechanisms. Each has its own premise shape. The value in the `joke_type` field uses the lowercase/hyphenated form shown next to each name.
+Most jokes should be assigned one of these mechanisms. Each type has a preferred premise shape. The value in the `joke_type` field uses the lowercase/hyphenated form shown next to each name.
 
-**Misdirect** (`misdirect`) — assumption planted, then subverted.
-Formula: *X implies Y, not Z.*
+**Misdirect** (`misdirect`) — an assumption is planted, then subverted.
+Formula: *[setup] implies [expected interpretation], but [punchline reveals unexpected interpretation].*
 
 Example:
 - setup: `"My son just came out as trans."`
 - setup: `"Well, shouldn't call him my son anymore."`
 - punchline: `"Now that he's dead to me,"`
 
-Premise: `"Refusing to call a transitioning child your son implies a new title, not their disownment."`
+Premise: `"Refusing to call a transitioning child your son implies a new title, but reveals disownment."`
 
-**Reframe** (`reframe`) — hidden implication of a known thing is surfaced. No prior assumption is planted; the audience just hadn't considered this angle.
-Formula: state the hidden implication directly.
+**Reframe** (`reframe`) — a known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required; the joke surfaces an alternate way to understand the same fact, object, behavior, or situation.
+Formula: *[known thing] could be [unexpected interpretation].*
 
 Example:
 - setup: `"they got him on puberty blockers"`
 - punchline: `"or as pedophiles call them preservatives."`
 - tag: `"Fucking miracle medicine."`
 
-Premise: `"Pedophiles benefit from puberty blockers."`
+Premise: `"Puberty blockers could be beneficial to pedophiles."`
 
 **Phonetic match** (`phonetic-match`) — two *different* words sound alike, and both independently fit the context.
-Formula: state the sonic match and why both sides independently fit.
+Formula: *"[word A]" sounds like "[word B]", and [word B] fits because [reason].*
 
 Example:
 - setup: `"what do you call a little person with ADHD?"`
 - punchline: `"That's right, a fidget."`
 
-Premise: `"'Midget' and 'fidget' sound alike, and 'fidget' independently fits ADHD."`
+Premise: `"'Midget' sounds like 'fidget', and 'fidget' fits ADHD."`
 
-**Double-meaning** (`double-meaning`) — the *same* words admit two readings, and the comedian deliberately picks the non-standard one. Hinges on semantic ambiguity, not phonetic similarity.
-Formula: *Taken literally, [phrase] has two meanings.*
+**Double-meaning** (`double-meaning`) — the *same* word or phrase admits two readings, and the comedian deliberately picks the non-standard one. Hinges on semantic ambiguity, not phonetic similarity.
+Formula: *"[phrase]" can mean [meaning A] or [meaning B].*
 
 Example:
 - setup: `"'In case of fire, use stairs.'"`
 - punchline: `"Fuck that, let's use water."`
 
-Premise: `"Taken literally, 'In case of fire, use stairs' has two meanings."`
-
-**What-if** (`what-if`) — a counterfactual scenario is posed and the joke comes from taking it seriously. Distinct from reframe: a reframe surfaces a *real* implication; a what-if *invents* one and runs with it.
-Formula: *What if [counterfactual]?* or state the hypothetical condition directly.
-
-Example:
-- setup: `"A guy stole my wallet."`
-- setup: `"He's like, ha ha, I have your wallet."`
-- punchline: `"I was like, ha ha, you have 8K of credit card debt."`
-
-Premise: `"What if stealing a credit card meant you also stole the debt."`
+Premise: `"'Use stairs' can mean take the stairs or use stairs as the tool."`
 
 **Analogy** (`analogy`) — two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
-Formula: *X is like Y because both share Z.*
+Formula: *[X] is like [Y] because both [shared structure].*
 
 Example:
 - setup: `"But golfing prepared me for marriage,"`
@@ -150,62 +140,53 @@ Example:
 - tag: `"And then waking up the next morning"`
 - tag: `"and deciding to try again, 'cause I like the challenge."`
 
-Premise: `"Golf is like marriage because both make failure expensive and repeatable."`
+Premise: `"Golf is like marriage because both are difficult, expensive and repetitious."`
 
-**Hyperbole** (`hyperbole`) — a feeling, trait, preference, or consequence is exaggerated past plausibility. The laugh comes from the excess of degree, scale, or intensity, not from ambiguity, comparison, or a fully imagined counterfactual world.
-Formula: *X is treated as so [extreme] that [wildly disproportionate consequence].*
+**Hyperbole** (`hyperbole`) — a feeling, trait, preference, or consequence is exaggerated past plausibility. The laugh comes from the excess of degree, scale, or intensity.
+Formula: *[thing] is so [extreme quality] that [impossible or disproportionate result].*
 
 Example:
 - setup: `"So I've already seen a third of this collection"`
 - setup: `"and I don't have enough bodily fluids"`
 - punchline: `"for the other two thirds of this collection."`
 
-Premise: `"A porn inheritance is so large it would physically deplete the heir."`
+Premise: `"A porn collection is so large that you could run out of sperm."`
 
 
-**Elephant-in-the-room** (`elephant-in-the-room`) — taboo observation said aloud. The audience already knows the conclusion; the laugh comes from breaking the silence.
-Formula: *X is widely understood about Y but rarely said aloud.*
+**Elephant-in-the-room** (`elephant-in-the-room`) — a taboo or socially avoided observation is said aloud. The audience already recognizes the conclusion; the laugh comes from breaking the silence.
+Formula: *[observation] is widely understood about [topic] but rarely said aloud.*
 
 Example:
 - setup: `"You know, these shootings are often done by the same race."`
 - punchline: `"I'm looking at you, honkies."`
 
-Premise: `"School shootings are widely associated with white shooters but rarely said aloud."`
+Premise: `"White shooters are widely associated with school shootings but rarely named aloud."`
 
 
-**Act-out** (`act-out`) — the joke depends on embodied performance: a voice, scream, facial expression, mime, posture, movement, or physical imitation. 
-Formula: *Performing [voice/movement/expression] reveals or creates [comic meaning].*
+### Not valid joke types
 
-Example:
-- setup: `"Wheelchair people, we send them."`
-- setup: `"Oh yeah, we put a grenade in your lap and..."`
-- punchline: `"Come on!"`
-
-Premise: `"Wheelchair soldiers with a grenade could kamikaze roll at the enemy."`
-
-
-### Not a valid Joke types
-
-**Prop** (`prop`) — the joke depends on a literal object the comedian is using or presenting onstage. Often the prop is the setup or the punchline but the joke type still can always be found in the above list.  The example below is a. 
-
-Formula: *This object reveals or creates [comic meaning].*
+**Prop** (`prop`) — a literal object used or presented onstage. A prop can be the setup, punchline, or evidence, but the underlying joke type should still be one of the valid mechanisms above.
 
 Example:
 - setup: `"It's a mouse trap to trap gay mice, see"`
-- punchline: `"[Pulls out mouse trap with a disco ball attatched]"`
+- punchline: `"[Pulls out mouse trap with a disco ball attached]"`
 
-Premise: `"A gay mouse could be lured by a disco ball"`
+Premise: `"A mousetrap for gay mice could use nightlife stereotypes as bait."`
+Joke type: `reframe`
 
 
-**Act-out** (`act-out`) — the joke depends on embodied performance: a voice, scream, facial expression, mime, posture, movement, or physical imitation. 
-Formula: *Performing [voice/movement/expression] is used as the setup and/or punchline.*
+**Act-out** (`act-out`) — embodied performance: a voice, scream, facial expression, mime, posture, movement, or physical imitation. An act-out can carry the setup or punchline, but the underlying joke type should still be one of the valid mechanisms above.
 
 Example:
 - setup: `"Wheelchair people, we send them."`
 - setup: `"Oh yeah, we put a grenade in your lap and..."`
 - punchline: `"Come on! [acts out racing a wheelchair into battle]"`
 
-Premise: `"Screaming a wheelchair charge turns a grenade carrier into physical military action."`
+Premise: `"A wheelchair with a grenade could become a form of military charge."`
+Joke type: `reframe`
+
+**What-if** (`what-if`) — a premise framing, not a joke type. Almost any joke can be rewritten as "what if..." Omitting `what-if` forces the annotator to name the more precise mechanism: `reframe`, `hyperbole`, `analogy`, `double-meaning`, or another valid type.
+
 
 ## Pipeline
 
