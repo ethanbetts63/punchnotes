@@ -6,7 +6,8 @@ from django.core.management.base import BaseCommand
 SET_FIELD_ORDER = [
     "type", "video_id", "episode_title", "episode_url", "publish_date",
     "guests", "comedian_name", "comedian_type", "set_number",
-    "start_seconds", "joke_book", "bit_meta", "lines",
+    "start_seconds", "interview_end_line", "interview_end_seconds",
+    "joke_book", "bit_meta", "lines",
 ]
 
 LINE_FIELD_ORDER = ["text", "label", "bit", "beat", "line_number", "start"]
@@ -78,15 +79,19 @@ def serialize_set(data: dict) -> str:
     Canonical format:
       - Top-level fields in FIELD_ORDER, 2-space indented
       - 'guests': compact array on one line
-      - 'joke_book': always present (null if absent), after 'start_seconds'
+      - 'interview_end_line': always present (null if absent), after 'start_seconds'
+      - 'interview_end_seconds': always present (null if absent), after 'interview_end_line'
+      - 'joke_book': always present (null if absent), after interview metadata
       - 'bit_meta': expanded structure, but all arrays (topics etc.) compact
       - 'lines': each element a compact single-line object
     """
-    # Build ordered output dict; joke_book inserted after start_seconds even if absent
+    # Build ordered output dict; nullable metadata fields are inserted even if absent.
     out = {}
     for key in SET_FIELD_ORDER:
         if key == "joke_book":
             out[key] = _normalize_joke_book(data.get("joke_book"))  # null if absent or uncertain
+        elif key in {"interview_end_line", "interview_end_seconds"}:
+            out[key] = data.get(key)
         elif key in data:
             out[key] = data[key]
     # Preserve any unrecognised keys at the end

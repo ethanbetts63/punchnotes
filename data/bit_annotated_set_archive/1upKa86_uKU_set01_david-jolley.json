@@ -9,6 +9,8 @@
   "comedian_type": "golden_ticket",
   "set_number": 1,
   "start_seconds": 485,
+  "interview_end_line": null,
+  "interview_end_seconds": null,
   "joke_book": null,
   "bit_meta": {
     "1": {

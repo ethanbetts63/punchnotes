@@ -13,7 +13,7 @@ Each transcript line has a stable `line_number`. Use those original line numbers
 Read the transcript and identify each comedian's ~1-minute stand-up set. For each set, run the extraction command:
 
 ```powershell
-python manage.py extract_set --transcript <path> --start-line <N> --end-line <N> --comedian-name "<Name>" --comedian-type <bucket_pull|regular|golden_ticket> --set-number <N>
+python manage.py extract_set --transcript <path> --start-line <N> --end-line <N> --comedian-name "<Name>" --comedian-type <bucket_pull|regular|golden_ticket> --set-number <N> --interview-end-line <N> --joke-book <small|medium|large|null>
 ```
 
 If a line inside the range is clearly Tony, a panel member, or other non-comedian speech, omit it with:
@@ -24,7 +24,7 @@ If a line inside the range is clearly Tony, a panel member, or other non-comedia
 
 Audience reaction lines are filtered automatically by the command.
 
-Also identify the joke book size Tony gives the comic at the end of the interview when it is clear. Use only the current appearance's award, not discussion of a previous appearance.
+Also identify the final line of the comic's post-set interview and the joke book size Tony gives the comic at the end of the interview when it is clear. Use only the current appearance's award, not discussion of a previous appearance.
 
 After all sets in the episode are extracted successfully, delete the processed transcript file from `1_transcript_inbox`.
 
@@ -73,7 +73,7 @@ Do not end a set just because the kitten sound or one-minute mark appears. If To
 
 ## Joke book size
 
-Bucket-pull comics often receive a joke book after their interview. Track the top-level `joke_book` value as:
+Bucket-pull comics often receive a joke book after their interview. Pass the value with `--joke-book` as:
 
 - `small` for small, little, or smallest joke book
 - `medium` for medium or medium-sized joke book
@@ -89,6 +89,16 @@ Useful award cues:
 - "Here's the smallest joke book I could find."
 
 Do not count prior-appearance questions or answers, such as "What size joke book did you get last time?", "Did you get a big joke book last time?", or "No, I got a big joke book." Do not count sponsor or meta mentions like "Bonsai makes our amazing joke books."
+
+---
+
+## Interview end
+
+For every extracted set, pass `--interview-end-line` as the last transcript line belonging to that comic's post-set interview or exit. This is usually the line where Tony thanks the comic, says their name to the crowd, hands them a joke book, or immediately before Tony introduces the next comic, returns to show banter, or starts a sponsor/transition block.
+
+If the interview end is uncertain, use the clearest last line before the next set starts. Do not include the next comic's intro or material.
+
+For Timmy No-Breaks, use the final line of his included appearance.
 
 ---
 

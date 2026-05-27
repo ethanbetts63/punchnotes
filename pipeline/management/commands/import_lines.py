@@ -64,7 +64,24 @@ class Command(BaseCommand):
             defaults={
                 "comedian": comedian,
                 "start_seconds": meta["start_seconds"],
+                "interview_end_line": meta.get("interview_end_line"),
+                "interview_end_seconds": meta.get("interview_end_seconds"),
+                "joke_book": meta.get("joke_book"),
             },
+        )
+        set_obj.comedian = comedian
+        set_obj.start_seconds = meta["start_seconds"]
+        set_obj.interview_end_line = meta.get("interview_end_line")
+        set_obj.interview_end_seconds = meta.get("interview_end_seconds")
+        set_obj.joke_book = meta.get("joke_book")
+        set_obj.save(
+            update_fields=[
+                "comedian",
+                "start_seconds",
+                "interview_end_line",
+                "interview_end_seconds",
+                "joke_book",
+            ]
         )
 
         for guest_name in meta.get("guests", []):

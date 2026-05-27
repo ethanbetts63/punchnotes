@@ -13,6 +13,8 @@ AUDIENCE_REACTION_RE = re.compile(
     re.IGNORECASE,
 )
 
+JOKE_BOOK_VALUES = {"small", "medium", "large"}
+
 
 def dump_set(doc):
     """Pretty-print set metadata with one compact JSON object per line."""
@@ -57,6 +59,37 @@ def parse_line_numbers(value):
     return line_numbers
 
 
+def normalize_joke_book(value):
+    if value is None:
+        return None
+
+    text = value.strip().lower()
+    if not text or text in {"null", "none", "unknown", "unclear"}:
+        return None
+    if text in JOKE_BOOK_VALUES:
+        return text
+    raise CommandError("--joke-book must be one of small, medium, large, or null")
+
+
+def find_source_line(source_lines, target_line_number):
+    for i, line in enumerate(source_lines, start=1):
+        if line.get("line_number", i) == target_line_number:
+            return line
+    raise CommandError(f"--interview-end-line not found in transcript: {target_line_number}")
+
+
+def line_end_seconds(line):
+    start = line.get("start")
+    if start is None:
+        return None
+
+    duration = line.get("duration")
+    if duration is None:
+        return start
+
+    return start + duration
+
+
 class Command(BaseCommand):
     help = "Extract one stand-up set from a transcript line range into data/set_inbox/"
 
@@ -76,6 +109,17 @@ class Command(BaseCommand):
             "--omit-lines",
             default="",
             help="Comma-separated source line numbers to omit from the extracted set",
+        )
+        parser.add_argument(
+            "--joke-book",
+            default=None,
+            help="Joke book size awarded after the interview: small, medium, large, or null",
+        )
+        parser.add_argument(
+            "--interview-end-line",
+            type=int,
+            default=None,
+            help="Last source line number belonging to this comic's post-set interview",
         )
 
     def handle(self, *args, **options):
@@ -119,6 +163,13 @@ class Command(BaseCommand):
         if not selected_lines:
             raise CommandError("No lines selected for this range")
 
+        interview_end_line = options["interview_end_line"]
+        interview_end_seconds = None
+        if interview_end_line is not None:
+            if interview_end_line < end_line:
+                raise CommandError("--interview-end-line must be greater than or equal to --end-line")
+            interview_end_seconds = line_end_seconds(find_source_line(source_lines, interview_end_line))
+
         video_id = transcript["video_id"]
         set_number = options["set_number"]
         comedian_name = options["comedian_name"]
@@ -138,6 +189,9 @@ class Command(BaseCommand):
             "comedian_type": options["comedian_type"],
             "set_number": set_number,
             "start_seconds": selected_lines[0]["start"],
+            "interview_end_line": interview_end_line,
+            "interview_end_seconds": interview_end_seconds,
+            "joke_book": normalize_joke_book(options["joke_book"]),
             "lines": selected_lines,
         }
 

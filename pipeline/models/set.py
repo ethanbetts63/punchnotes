@@ -6,6 +6,14 @@ class Set(models.Model):
     comedian = models.ForeignKey('pipeline.Comedian', on_delete=models.CASCADE, related_name='sets')
     set_number = models.PositiveSmallIntegerField()
     start_seconds = models.FloatField()
+    interview_end_line = models.PositiveSmallIntegerField(blank=True, null=True)
+    interview_end_seconds = models.FloatField(blank=True, null=True)
+    joke_book = models.CharField(
+        max_length=10,
+        choices=[('small', 'Small'), ('medium', 'Medium'), ('large', 'Large')],
+        blank=True,
+        null=True,
+    )
 
     class Meta:
         ordering = ['set_number']

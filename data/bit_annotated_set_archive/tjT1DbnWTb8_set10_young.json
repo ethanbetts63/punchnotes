@@ -9,6 +9,8 @@
   "comedian_type": "regular",
   "set_number": 10,
   "start_seconds": 5332,
+  "interview_end_line": null,
+  "interview_end_seconds": null,
   "joke_book": null,
   "bit_meta": {
     "1": {
