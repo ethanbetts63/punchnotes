@@ -9,6 +9,7 @@
   "comedian_type": "golden_ticket",
   "set_number": 9,
   "start_seconds": 4052,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "A false death sentence can turn promiscuity into urgency.",

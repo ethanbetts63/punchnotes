@@ -8,6 +8,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 10,
   "start_seconds": 5158,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Loved ones create the cruelest nicknames because they know the flaw.",

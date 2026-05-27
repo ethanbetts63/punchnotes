@@ -1,0 +1,70 @@
+{
+  "type": "set_meta",
+  "video_id": "6jytsJ8JIDk",
+  "episode_title": "KT #758 - DONNELL RAWLINGS + TREVOR WALLACE",
+  "episode_url": "https://www.youtube.com/watch?v=6jytsJ8JIDk",
+  "publish_date": "2026-03-03",
+  "guests": ["Donnell Rawlings", "Trevor Wallace"],
+  "comedian_name": "Jerry Deebo Smith",
+  "comedian_type": "bucket_pull",
+  "set_number": 11,
+  "start_seconds": 5285,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "Calling ass-eating 'groceries' is a polite name for something that belongs in the chitlins category.",
+          "joke_type": "reframe",
+          "topics": ["ass-eating", "chitlins", "groceries", "sex slang"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Men eat ass not out of desire but because they cannot find the clitoris.",
+          "joke_type": "reframe",
+          "topics": ["ass-eating", "clitoris", "sexual ignorance"]
+        }
+      }
+    },
+    "3": {
+      "premise": "Having standards about oral sex requires rules women find offensive.",
+      "beats": {
+        "1": {
+          "premise": "A smell detectable through clothing is disqualifying for oral sex.",
+          "joke_type": "elephant-in-the-room",
+          "topics": ["vaginal odor", "oral sex", "hygiene"]
+        },
+        "2": {
+          "premise": "A womb where an abortion occurred is a haunted house, and Black men don't go in haunted houses.",
+          "joke_type": "analogy",
+          "topics": ["abortion", "haunted houses", "oral sex", "pro-choice parody"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "- I like to eat pussy.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2385, "start": 5285},
+    {"text": "But don't get me confused with these young dudes eating ass,", "label": "setup", "bit": 1, "beat": 1, "line_number": 2386, "start": 5288},
+    {"text": "calling it groceries.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2387, "start": 5291},
+    {"text": "That's not groceries.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2388, "start": 5292},
+    {"text": "That's chitlins, and you niggas need to stop.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2389, "start": 5293},
+    {"text": "That is chitlins.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2390, "start": 5296},
+    {"text": "I think a lot of dudes eat ass because they still don't know", "label": "setup", "bit": 2, "beat": 1, "line_number": 2391, "start": 5298},
+    {"text": "where the clitoris is, but I do.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2392, "start": 5300},
+    {"text": "And because of that, I have two rules, ladies.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2394, "start": 5305},
+    {"text": "Like, the first one is if I can smell it", "label": "setup", "bit": 3, "beat": 1, "line_number": 2395, "start": 5307},
+    {"text": "before you take your pants off, I'm not eating that shit.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 2396, "start": 5309},
+    {"text": "And they always get mad at you when you tell them", "label": "setup", "bit": 3, "beat": 1, "line_number": 2397, "start": 5313},
+    {"text": "that they pussies think like they don't know.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2398, "start": 5315},
+    {"text": "Like, bitch, you knew that pussy smelled like a 91-degree day in Puerto Rico before you came over here.", "label": "tag", "bit": 3, "beat": 1, "line_number": 2399, "start": 5317},
+    {"text": "And the second one is, um, if you ever had an abortion...", "label": "setup", "bit": 3, "beat": 2, "line_number": 2400, "start": 5324},
+    {"text": "Yeah, I always lose people on that part.", "label": "fluff", "bit": 3, "beat": 2, "line_number": 2401, "start": 5329},
+    {"text": "But fuck that, somebody got murdered in there.", "label": "setup", "bit": 3, "beat": 2, "line_number": 2402, "start": 5332},
+    {"text": "Y'all know niggas don't fuck around in haunted houses.", "label": "punchline", "bit": 3, "beat": 2, "line_number": 2403, "start": 5337},
+    {"text": "My tongue, my choice, bitch.", "label": "tag", "bit": 3, "beat": 2, "line_number": 2404, "start": 5342},
+    {"text": "- Thank you. - There you go.", "label": "fluff", "bit": null, "beat": null, "line_number": 2405, "start": 5347}
+  ]
+}

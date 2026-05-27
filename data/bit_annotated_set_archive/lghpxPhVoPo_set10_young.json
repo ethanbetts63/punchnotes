@@ -9,6 +9,7 @@
   "comedian_type": "golden_ticket",
   "set_number": 10,
   "start_seconds": 5036,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Race categories expose different countries' racism.",

@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 2,
   "start_seconds": 711,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "A tallest-man documentary should answer the penis-size question.",

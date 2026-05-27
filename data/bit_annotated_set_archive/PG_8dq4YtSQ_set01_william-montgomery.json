@@ -1,0 +1,67 @@
+{
+  "type": "set_meta",
+  "video_id": "PG_8dq4YtSQ",
+  "episode_title": "KT #755 - DR PHIL (ADAM RAY) + SAL VULCANO, + GREG FITZSIMMONS",
+  "episode_url": "https://www.youtube.com/watch?v=PG_8dq4YtSQ",
+  "publish_date": "2026-02-10",
+  "guests": ["Dr Phil (Adam Ray)", "Sal Vulcano", "Greg Fitzsimmons"],
+  "comedian_name": "William Montgomery",
+  "comedian_type": "regular",
+  "set_number": 1,
+  "start_seconds": 463,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "\"Doxxing\" sounds like a sport where men box with their genitals.",
+          "joke_type": "misdirect",
+          "topics": ["doxxing", "boxing", "mother", "internet slang"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Ordering amberjack and receiving a fish with whiskers means being literally catfished.",
+          "joke_type": "double-meaning",
+          "topics": ["catfishing", "amberjack", "restaurant", "fish"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "A flat earther's suicidal walk in one direction accidentally proves the earth is round.",
+          "joke_type": "what-if",
+          "topics": ["flat earth", "suicide", "circumnavigation", "round earth"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "-My mother was watching the news the other night,", "label": "setup", "bit": 1, "beat": 1, "line_number": 155, "start": 463},
+    {"text": "and she heard people talk about doxxing one another.", "label": "setup", "bit": 1, "beat": 1, "line_number": 156, "start": 465},
+    {"text": "She goes, \"Honey, what is doxxing?\"", "label": "setup", "bit": 1, "beat": 1, "line_number": 157, "start": 469},
+    {"text": "I said, \"Oh, it's when two guys get in a ring", "label": "setup", "bit": 1, "beat": 1, "line_number": 158, "start": 471},
+    {"text": "and punch each other with their dicks.\"", "label": "punchline", "bit": 1, "beat": 1, "line_number": 159, "start": 474},
+    {"text": "[ Laughter ]", "label": "fluff", "bit": null, "beat": null, "line_number": 160, "start": 477},
+    {"text": "The waiter walks out and goes,", "label": "setup", "bit": 2, "beat": 1, "line_number": 161, "start": 480},
+    {"text": "\"Who ordered the amber jack?\"", "label": "setup", "bit": 2, "beat": 1, "line_number": 162, "start": 481},
+    {"text": "I raised my hand, and he sends it down in front of me.", "label": "setup", "bit": 2, "beat": 1, "line_number": 163, "start": 484},
+    {"text": "I look and I say, \"Wait, this has whiskers.", "label": "setup", "bit": 2, "beat": 1, "line_number": 164, "start": 486},
+    {"text": "Have I literally been catfished?\"", "label": "punchline", "bit": 2, "beat": 1, "line_number": 165, "start": 489},
+    {"text": "[ Laughter ]", "label": "fluff", "bit": null, "beat": null, "line_number": 166, "start": 492},
+    {"text": "Can you imagine if you were a flat earther,", "label": "setup", "bit": 3, "beat": 1, "line_number": 167, "start": 494},
+    {"text": "like a depressed flat earther,", "label": "setup", "bit": 3, "beat": 1, "line_number": 168, "start": 497},
+    {"text": "and one day you tell your flat earther,", "label": "setup", "bit": 3, "beat": 1, "line_number": 169, "start": 499},
+    {"text": "\"Friends, I really can't take it anymore.", "label": "setup", "bit": 3, "beat": 1, "line_number": 170, "start": 501},
+    {"text": "I'm just gonna walk this way, and I'm never gonna stop.\"", "label": "setup", "bit": 3, "beat": 1, "line_number": 171, "start": 503},
+    {"text": "And they're all like, \"No, don't do it. No.\"", "label": "setup", "bit": 3, "beat": 1, "line_number": 172, "start": 506},
+    {"text": "And then around 80 days later,", "label": "setup", "bit": 3, "beat": 1, "line_number": 173, "start": 509},
+    {"text": "you show up from the opposite direction,", "label": "setup", "bit": 3, "beat": 1, "line_number": 174, "start": 511},
+    {"text": "And you're in a hot air balloon, and you're like,", "label": "setup", "bit": 3, "beat": 1, "line_number": 175, "start": 515},
+    {"text": "\"Guys, y'all are never gonna believe this!\"", "label": "punchline", "bit": 3, "beat": 1, "line_number": 176, "start": 517},
+    {"text": "Okay, that's my time, Tony.", "label": "fluff", "bit": null, "beat": null, "line_number": 177, "start": 521}
+  ]
+}

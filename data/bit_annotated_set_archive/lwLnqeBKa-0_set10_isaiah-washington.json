@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 10,
   "start_seconds": 4561,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Fatherlessness can be so normal that having a dad seems mockable.",

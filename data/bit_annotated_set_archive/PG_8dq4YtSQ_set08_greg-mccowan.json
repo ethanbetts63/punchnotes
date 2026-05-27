@@ -1,0 +1,61 @@
+{
+  "type": "set_meta",
+  "video_id": "PG_8dq4YtSQ",
+  "episode_title": "KT #755 - DR PHIL (ADAM RAY) + SAL VULCANO, + GREG FITZSIMMONS",
+  "episode_url": "https://www.youtube.com/watch?v=PG_8dq4YtSQ",
+  "publish_date": "2026-02-10",
+  "guests": ["Dr Phil (Adam Ray)", "Sal Vulcano", "Greg Fitzsimmons"],
+  "comedian_name": "Greg McCowan",
+  "comedian_type": "bucket_pull",
+  "set_number": 8,
+  "start_seconds": 4467,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "premise": "iPhone vs Android text color discrimination mirrors the structure of racial discrimination.",
+      "beats": {
+        "1": {
+          "premise": "Being judged by the color of your texts is structurally identical to being judged by the color of your skin.",
+          "joke_type": "analogy",
+          "topics": ["Android", "iPhone", "green texts", "discrimination"]
+        },
+        "2": {
+          "premise": "MLK's 'I Have a Dream' speech maps perfectly onto the green-vs-blue texting divide.",
+          "joke_type": "analogy",
+          "topics": ["MLK", "green texts", "blue texts", "civil rights"]
+        },
+        "3": {
+          "premise": "Civil rights protest chants rewritten around phone text color reveal how arbitrary both conflicts are.",
+          "joke_type": "analogy",
+          "topics": ["Android", "iPhone", "protest chants", "civil rights"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "- Yo, what's going on?", "label": "fluff", "bit": null, "beat": null, "line_number": 1913, "start": 4467},
+    {"text": "Yo, Tony.", "label": "fluff", "bit": null, "beat": null, "line_number": 1914, "start": 4469},
+    {"text": "Yo, recently I've been trying to date,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1915, "start": 4471},
+    {"text": "but it's been very hard with an Android phone", "label": "setup", "bit": 1, "beat": 1, "line_number": 1916, "start": 4473},
+    {"text": "because for some reason,", "label": "setup", "bit": 1, "beat": 1, "line_number": 1917, "start": 4476},
+    {"text": "iPhone users always discriminate on me", "label": "setup", "bit": 1, "beat": 1, "line_number": 1918, "start": 4478},
+    {"text": "based off the color of my text messages.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 1919, "start": 4480},
+    {"text": "You know what I mean?", "label": "fluff", "bit": 1, "beat": 1, "line_number": 1921, "start": 4483},
+    {"text": "It's always weird.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1922, "start": 4485},
+    {"text": "Like every time I'm in the club", "label": "setup", "bit": 1, "beat": 2, "line_number": 1923, "start": 4486},
+    {"text": "and I'm trying to talk to a girl,", "label": "setup", "bit": 1, "beat": 2, "line_number": 1924, "start": 4487},
+    {"text": "I feel like Martin Luther King.", "label": "setup", "bit": 1, "beat": 2, "line_number": 1925, "start": 4488},
+    {"text": "I'm like, \"I have a dream that one day green messages and blue messages will way they come", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1926, "start": 4490},
+    {"text": "together.\"", "label": "punchline", "bit": 1, "beat": 2, "line_number": 1927, "start": 4496},
+    {"text": "You know what I mean?", "label": "fluff", "bit": 1, "beat": 2, "line_number": 1928, "start": 4497},
+    {"text": "It was great.", "label": "fluff", "bit": 1, "beat": 2, "line_number": 1929, "start": 4500},
+    {"text": "I can imagine I'll have a group of Android supporters behind me leaving the club.", "label": "setup", "bit": 1, "beat": 3, "line_number": 1930, "start": 4501},
+    {"text": "They'll be chatting shit like, \"Green or blue, we don't care.", "label": "punchline", "bit": 1, "beat": 3, "line_number": 1931, "start": 4506},
+    {"text": "Let us see your underwear.\"", "label": "punchline", "bit": 1, "beat": 3, "line_number": 1932, "start": 4509},
+    {"text": "Shit's crazy.", "label": "fluff", "bit": 1, "beat": 3, "line_number": 1933, "start": 4511},
+    {"text": "Across the street, you'll see the iPhone supporters and they'll be saying shit like, \"Well, it's", "label": "setup", "bit": 1, "beat": 3, "line_number": 1934, "start": 4514},
+    {"text": "if he ain't blue, then he can't come through", "label": "tag", "bit": 1, "beat": 3, "line_number": 1935, "start": 4520},
+    {"text": "or shit like that, you know what I mean?", "label": "fluff", "bit": 1, "beat": 3, "line_number": 1936, "start": 4522},
+    {"text": "Yeah.", "label": "fluff", "bit": null, "beat": null, "line_number": 1937, "start": 4524}
+  ]
+}

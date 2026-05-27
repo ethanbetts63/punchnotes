@@ -9,6 +9,7 @@
   "comedian_type": "golden_ticket",
   "set_number": 4,
   "start_seconds": 1817,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "beats": {

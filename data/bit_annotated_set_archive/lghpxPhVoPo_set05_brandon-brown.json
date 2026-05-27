@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 5,
   "start_seconds": 2268,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Kill Tony references become bedroom roleplay.",

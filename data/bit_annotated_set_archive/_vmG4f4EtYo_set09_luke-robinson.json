@@ -8,6 +8,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 9,
   "start_seconds": 4636,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Humanized dogs would expose uncomfortable pet-owner choices.",

@@ -9,6 +9,7 @@
   "comedian_type": "regular",
   "set_number": 10,
   "start_seconds": 5504,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Real sibling energy requires enough children to create a household gang.",

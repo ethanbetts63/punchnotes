@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 4,
   "start_seconds": 1814,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Gay denial can survive both violence and orgasm.",

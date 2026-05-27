@@ -8,6 +8,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 6,
   "start_seconds": 3015,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Restaurant-order stereotypes become fake language skills.",

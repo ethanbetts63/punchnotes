@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 2,
   "start_seconds": 666,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Tiny black ancestry is treated as full racial entitlement.",

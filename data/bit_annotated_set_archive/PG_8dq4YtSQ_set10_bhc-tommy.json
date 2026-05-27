@@ -1,0 +1,83 @@
+{
+  "type": "set_meta",
+  "video_id": "PG_8dq4YtSQ",
+  "episode_title": "KT #755 - DR PHIL (ADAM RAY) + SAL VULCANO, + GREG FITZSIMMONS",
+  "episode_url": "https://www.youtube.com/watch?v=PG_8dq4YtSQ",
+  "publish_date": "2026-02-10",
+  "guests": ["Dr Phil (Adam Ray)", "Sal Vulcano", "Greg Fitzsimmons"],
+  "comedian_name": "BHC Tommy",
+  "comedian_type": "bucket_pull",
+  "set_number": 10,
+  "start_seconds": 5457,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "premise": "Every fact in a necrophiliac coroner's news story doubles as a pun on death, sex, or both.",
+      "beats": {
+        "1": {
+          "premise": "Describing necrophilia as magical reframes a sexual deviance as a fantasy.",
+          "joke_type": "reframe",
+          "topics": ["necrophilia", "coroner", "Corpus Christi", "magic"]
+        },
+        "2": {
+          "premise": "'Chilled' in 'Netflix and chill' has a second meaning when the partner is a corpse.",
+          "joke_type": "double-meaning",
+          "topics": ["necrophilia", "Netflix and chill", "corpse", "wordplay"]
+        },
+        "3": {
+          "premise": "A female necrophiliac needs rigor mortis to serve the same function as a live male partner.",
+          "joke_type": "reframe",
+          "topics": ["rigor mortis", "female offender", "necrophilia", "erection"]
+        },
+        "4": {
+          "premise": "A necrophiliac's favorite movies are titles that literally describe her activity.",
+          "joke_type": "double-meaning",
+          "topics": ["Die Hard", "Rise of the Living Dead", "necrophilia", "movie titles"]
+        },
+        "5": {
+          "premise": "'Gang banging' applies equally to a sex act with multiple corpses and to gang violence, including the gang names Crypts and Bloods.",
+          "joke_type": "double-meaning",
+          "topics": ["gang bang", "Crips", "Bloods", "necrophilia"]
+        },
+        "6": {
+          "premise": "'Sexual battery' and 'shocker' are legal and colloquial terms that also describe literal electrical acts.",
+          "joke_type": "double-meaning",
+          "topics": ["sexual battery", "jumper cables", "shocker", "electricity"]
+        },
+        "7": {
+          "premise": "Vampires can't enter without permission, making them ideal birth control partners.",
+          "joke_type": "reframe",
+          "topics": ["vampires", "Twilight", "birth control", "consent"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "Last Christmas, a Corpus Christi coroner", "label": "setup", "bit": 1, "beat": 1, "line_number": 2397, "start": 5457},
+    {"text": "was in court for having intercourse with corpses.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2398, "start": 5459},
+    {"text": "And they said it was the best sex ever.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2399, "start": 5463},
+    {"text": "Magical even.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2400, "start": 5464},
+    {"text": "\"Abracadabra,\" if you will.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2401, "start": 5466},
+    {"text": "Now that's what I call Netflix and chilled.", "label": "punchline", "bit": 1, "beat": 2, "line_number": 2403, "start": 5469},
+    {"text": "There's a burial plot twist.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2405, "start": 5473},
+    {"text": "The offender's actually a woman.", "label": "setup", "bit": 1, "beat": 3, "line_number": 2406, "start": 5474},
+    {"text": "Thank the Lord for Rigor Mortis.", "label": "punchline", "bit": 1, "beat": 3, "line_number": 2407, "start": 5476},
+    {"text": "She testified that her favorite movies are \"Die Hard\"", "label": "setup", "bit": 1, "beat": 4, "line_number": 2409, "start": 5479},
+    {"text": "and \"Rise of the Living Dead.\"", "label": "punchline", "bit": 1, "beat": 4, "line_number": 2410, "start": 5482},
+    {"text": "In related news, a local drive-by shooting had 12 casualties.", "label": "setup", "bit": 1, "beat": 5, "line_number": 2411, "start": 5485},
+    {"text": "That means she was down there gang banging gangbangers.", "label": "punchline", "bit": 1, "beat": 5, "line_number": 2412, "start": 5489},
+    {"text": "It was crypts and blood everywhere", "label": "tag", "bit": 1, "beat": 5, "line_number": 2414, "start": 5492},
+    {"text": "with no regard for human life.", "label": "setup", "bit": 1, "beat": 5, "line_number": 2415, "start": 5494},
+    {"text": "'Cause there wasn't any.", "label": "tag", "bit": 1, "beat": 5, "line_number": 2416, "start": 5496},
+    {"text": "She's also facing sexual battery charges, literally,", "label": "setup", "bit": 1, "beat": 6, "line_number": 2417, "start": 5499},
+    {"text": "because she had jumper cables hooked up to their nipples.", "label": "punchline", "bit": 1, "beat": 6, "line_number": 2418, "start": 5502},
+    {"text": "Here's the real shocker.", "label": "setup", "bit": 1, "beat": 6, "line_number": 2419, "start": 5506},
+    {"text": "She only got caught because she got pregnant.", "label": "punchline", "bit": 1, "beat": 6, "line_number": 2420, "start": 5507},
+    {"text": "The dumbass was out there, raw dog and zombies,", "label": "setup", "bit": 1, "beat": 7, "line_number": 2421, "start": 5510},
+    {"text": "when she should have been using", "label": "setup", "bit": 1, "beat": 7, "line_number": 2422, "start": 5512},
+    {"text": "the Twilight birth control method.", "label": "setup", "bit": 1, "beat": 7, "line_number": 2423, "start": 5513},
+    {"text": "That's when you bang only vampires.", "label": "setup", "bit": 1, "beat": 7, "line_number": 2424, "start": 5515},
+    {"text": "And it works, because a vampire can't come inside", "label": "setup", "bit": 1, "beat": 7, "line_number": 2425, "start": 5517},
+    {"text": "anywhere without permission first.", "label": "punchline", "bit": 1, "beat": 7, "line_number": 2426, "start": 5520}
+  ]
+}

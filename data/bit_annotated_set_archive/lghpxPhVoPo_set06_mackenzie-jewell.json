@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 6,
   "start_seconds": 2731,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Identity labels get ranked through privilege and sexual choice.",

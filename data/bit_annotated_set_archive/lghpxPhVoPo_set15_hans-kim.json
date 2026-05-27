@@ -9,6 +9,7 @@
   "comedian_type": "regular",
   "set_number": 15,
   "start_seconds": 7327,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Americans should not have to accommodate Spanish.",

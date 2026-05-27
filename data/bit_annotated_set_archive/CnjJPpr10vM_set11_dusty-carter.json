@@ -9,6 +9,7 @@
   "comedian_type": "regular",
   "set_number": 11,
   "start_seconds": 6021,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Racism can mean loyalty to the human race.",

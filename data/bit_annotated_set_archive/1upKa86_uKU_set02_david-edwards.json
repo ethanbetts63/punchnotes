@@ -9,30 +9,51 @@
   "comedian_type": "bucket_pull",
   "set_number": 2,
   "start_seconds": 1001,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "beats": {
-        "1": {"premise": "Upright hair is like static from sex with balloons.", "joke_type": "analogy", "topics": ["appearance", "static electricity", "balloons"]}
+        "1": {
+          "premise": "Upright hair is like static from sex with balloons.",
+          "joke_type": "analogy",
+          "topics": ["appearance", "static electricity", "balloons"]
+        }
       }
     },
     "2": {
       "beats": {
-        "1": {"premise": "A hunched posture is like a chicken pecking the ground.", "joke_type": "analogy", "topics": ["appearance", "chickens", "posture"]}
+        "1": {
+          "premise": "A hunched posture is like a chicken pecking the ground.",
+          "joke_type": "analogy",
+          "topics": ["appearance", "chickens", "posture"]
+        }
       }
     },
     "3": {
       "beats": {
-        "1": {"premise": "Resembling two celebrities implies being their unwanted illegitimate child.", "joke_type": "reframe", "topics": ["appearance", "celebrity parents", "Utah"]}
+        "1": {
+          "premise": "Resembling two celebrities implies being their unwanted illegitimate child.",
+          "joke_type": "reframe",
+          "topics": ["appearance", "celebrity parents", "Utah"]
+        }
       }
     },
     "4": {
       "beats": {
-        "1": {"premise": "Describing oneself as 'like a baboon under the sheets' implies sexual prowess, not a medical condition.", "joke_type": "misdirect", "topics": ["Latina women", "baboon", "hemorrhoids"]}
+        "1": {
+          "premise": "Describing oneself as 'like a baboon under the sheets' implies sexual prowess, not a medical condition.",
+          "joke_type": "misdirect",
+          "topics": ["Latina women", "baboon", "hemorrhoids"]
+        }
       }
     },
     "5": {
       "beats": {
-        "1": {"premise": "Hemorrhoid-induced bathroom strain looks identical to a horror-movie ghost crawl.", "joke_type": "reframe", "topics": ["The Ring", "bathroom", "hemorrhoids"]}
+        "1": {
+          "premise": "Hemorrhoid-induced bathroom strain looks identical to a horror-movie ghost crawl.",
+          "joke_type": "reframe",
+          "topics": ["The Ring", "bathroom", "hemorrhoids"]
+        }
       }
     }
   },

@@ -9,6 +9,7 @@
   "comedian_type": "regular",
   "set_number": 9,
   "start_seconds": 4514,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Rural white danger is treated as scarier than wilderness danger.",

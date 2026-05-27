@@ -9,6 +9,7 @@
   "comedian_type": "regular",
   "set_number": 4,
   "start_seconds": 1803,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Singular they/them pronouns are treated as literal multiple people.",

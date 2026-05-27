@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 11,
   "start_seconds": 6690,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Environmentalism and racism can overlap absurdly.",

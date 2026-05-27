@@ -8,6 +8,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 7,
   "start_seconds": 3754,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Apocalypse scenarios can be ranked like personal preferences.",

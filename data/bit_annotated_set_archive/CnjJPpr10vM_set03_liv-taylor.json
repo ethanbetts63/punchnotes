@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 3,
   "start_seconds": 1379,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Sleep aids can be misread through a strange musical frame.",

@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 9,
   "start_seconds": 5014,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "A driver whose name conflicts with rider expectations can make Uber pickup suspicion sound racist.",

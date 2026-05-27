@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 9,
   "start_seconds": 4778,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "beats": {

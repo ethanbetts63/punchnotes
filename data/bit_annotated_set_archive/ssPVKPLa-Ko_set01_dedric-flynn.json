@@ -9,6 +9,7 @@
   "comedian_type": "regular",
   "set_number": 1,
   "start_seconds": 429,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Adults suppress silliness in favor of outrage and detachment.",

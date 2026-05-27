@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 6,
   "start_seconds": 2927,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Small balls should not matter during sex but become gossip anyway.",

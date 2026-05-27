@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 2,
   "start_seconds": 1059,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "A string of brutal appearance insults turns out to all originate from the same two-person group chat — the comedian's parents.",

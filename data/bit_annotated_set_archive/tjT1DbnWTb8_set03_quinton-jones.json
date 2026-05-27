@@ -1,0 +1,65 @@
+{
+  "type": "set_meta",
+  "video_id": "tjT1DbnWTb8",
+  "episode_title": "KT #756 - JIM NORTON + IAN FIDANCE",
+  "episode_url": "https://www.youtube.com/watch?v=tjT1DbnWTb8",
+  "publish_date": "2026-02-17",
+  "guests": ["Jim Norton", "Ian Fidance"],
+  "comedian_name": "Quinton Jones",
+  "comedian_type": "bucket_pull",
+  "set_number": 3,
+  "start_seconds": 1485,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "premise": "Women with cats are primed for bad relationships because a cat already models loveless cohabitation.",
+      "beats": {
+        "1": {
+          "premise": "Cat women are easy to please because they already live with something that doesn't love them.",
+          "joke_type": "reframe",
+          "topics": ["cat women", "relationships", "cats", "emotional neglect"]
+        },
+        "2": {
+          "premise": "Mimicking a cat's abusive behavior is the logical strategy to get a cat woman to cook for you.",
+          "joke_type": "what-if",
+          "topics": ["cat women", "gaslighting", "cats", "relationships"]
+        },
+        "3": {
+          "premise": "After all the dark relationship material, the actual reason to avoid cat women is a mundane allergy.",
+          "joke_type": "misdirect",
+          "topics": ["cat allergy", "Benadryl", "sex", "cat women"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "Happy New Year, everybody.", "label": "fluff", "bit": null, "beat": null, "line_number": 614, "start": 1485},
+    {"text": "Since it's a new year, I decided to make new rules for myself.", "label": "setup", "bit": 1, "beat": 1, "line_number": 615, "start": 1488},
+    {"text": "My newest rule is I decided I'm going to stop dating women with cats.", "label": "setup", "bit": 1, "beat": 1, "line_number": 616, "start": 1494},
+    {"text": "Yeah.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 617, "start": 1497},
+    {"text": "It's tough because I don't know if y'all knew this, but women with cats are the biggest", "label": "setup", "bit": 1, "beat": 1, "line_number": 618, "start": 1499},
+    {"text": "and toes out here.", "label": "setup", "bit": 1, "beat": 1, "line_number": 619, "start": 1503},
+    {"text": "And it's so easy to keep a cat woman happy", "label": "setup", "bit": 1, "beat": 1, "line_number": 620, "start": 1506},
+    {"text": "because she's already used to somebody in her house", "label": "setup", "bit": 1, "beat": 1, "line_number": 621, "start": 1509},
+    {"text": "that doesn't love her.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 622, "start": 1511},
+    {"text": "Like, my ex used to have a cat, and it's weird,", "label": "setup", "bit": 1, "beat": 2, "line_number": 623, "start": 1514},
+    {"text": "'cause I'm trying to be a good guy,", "label": "setup", "bit": 1, "beat": 2, "line_number": 624, "start": 1515},
+    {"text": "but clearly she loves abuse.", "label": "setup", "bit": 1, "beat": 2, "line_number": 625, "start": 1517},
+    {"text": "'Cause, like, every time she would feed her cat,", "label": "setup", "bit": 1, "beat": 2, "line_number": 626, "start": 1518},
+    {"text": "her cat would just beat her ass.", "label": "setup", "bit": 1, "beat": 2, "line_number": 627, "start": 1520},
+    {"text": "I'm like, \"Goddamn.\"", "label": "fluff", "bit": 1, "beat": 2, "line_number": 628, "start": 1521},
+    {"text": "And I'm jealous. I'm like, \"Damn, I want her to cook for me,", "label": "setup", "bit": 1, "beat": 2, "line_number": 629, "start": 1523},
+    {"text": "so I figure if I want some food,", "label": "setup", "bit": 1, "beat": 2, "line_number": 630, "start": 1525},
+    {"text": "I got to keep it even with the cat.\"", "label": "setup", "bit": 1, "beat": 2, "line_number": 631, "start": 1526},
+    {"text": "I didn't hit her, but, um,", "label": "setup", "bit": 1, "beat": 2, "line_number": 632, "start": 1529},
+    {"text": "What I did do was gas light her and knock shit over", "label": "punchline", "bit": 1, "beat": 2, "line_number": 633, "start": 1531},
+    {"text": "from time to time.", "label": "tag", "bit": 1, "beat": 2, "line_number": 634, "start": 1533},
+    {"text": "And it's not for the best reasons.", "label": "setup", "bit": 1, "beat": 3, "line_number": 636, "start": 1537},
+    {"text": "It's not 'cause I hate cats,", "label": "setup", "bit": 1, "beat": 3, "line_number": 637, "start": 1538},
+    {"text": "it's not 'cause I hate cat women.", "label": "setup", "bit": 1, "beat": 3, "line_number": 638, "start": 1539},
+    {"text": "I'm just allergic.", "label": "punchline", "bit": 1, "beat": 3, "line_number": 639, "start": 1540},
+    {"text": "Yeah, and I don't think women respect", "label": "setup", "bit": 1, "beat": 3, "line_number": 640, "start": 1542},
+    {"text": "how hard it is to have sex on Benadryl.", "label": "tag", "bit": 1, "beat": 3, "line_number": 641, "start": 1544},
+    {"text": "That's my time, y'all, Quentin Jones.", "label": "fluff", "bit": null, "beat": null, "line_number": 643, "start": 1549}
+  ]
+}

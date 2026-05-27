@@ -1,0 +1,60 @@
+{
+  "type": "set_meta",
+  "video_id": "PG_8dq4YtSQ",
+  "episode_title": "KT #755 - DR PHIL (ADAM RAY) + SAL VULCANO, + GREG FITZSIMMONS",
+  "episode_url": "https://www.youtube.com/watch?v=PG_8dq4YtSQ",
+  "publish_date": "2026-02-10",
+  "guests": ["Dr Phil (Adam Ray)", "Sal Vulcano", "Greg Fitzsimmons"],
+  "comedian_name": "Lorenzo Tyree",
+  "comedian_type": "bucket_pull",
+  "set_number": 11,
+  "start_seconds": 5867,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "Refusing one-night stands in favor of two night stands is really about bedroom furniture symmetry.",
+          "joke_type": "double-meaning",
+          "topics": ["one-night stands", "bedroom furniture", "sex"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Mishearing 'VYI' as 'DUI' shifts the concern from sex to drunk driving.",
+          "joke_type": "phonetic-match",
+          "topics": ["yeast infection", "DUI", "hookup", "mishearing"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "So, I don't do one night stands anymore.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2574, "start": 5867},
+    {"text": "I do two night stands.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2575, "start": 5873},
+    {"text": "Otherwise it looks, you know, it makes the bedroom look uneven.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2576, "start": 5875},
+    {"text": "Yeah, last time I hooked up with the girls on Sixth Street and, you know, she takes me", "label": "setup", "bit": 2, "beat": 1, "line_number": 2577, "start": 5879},
+    {"text": "home.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2578, "start": 5887},
+    {"text": "I'm super drunk.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2579, "start": 5888},
+    {"text": "She's super high, you know.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2580, "start": 5890},
+    {"text": "We start macking as soon as we walk through the door.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2581, "start": 5891},
+    {"text": "And I go down on her, I don't know why, in the moment I go down on her.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2582, "start": 5894},
+    {"text": "I'm horny, that's why.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2583, "start": 5900},
+    {"text": "But yeah, she stops me, I'm like, \"Oh shit, is she on her period?\"", "label": "setup", "bit": 2, "beat": 1, "line_number": 2584, "start": 5904},
+    {"text": "No.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2585, "start": 5909},
+    {"text": "Like, \"Is she trans?\"", "label": "setup", "bit": 2, "beat": 1, "line_number": 2586, "start": 5910},
+    {"text": "No.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2587, "start": 5913},
+    {"text": "She told me she had a DUI, or that's what I thought I heard, you know?", "label": "setup", "bit": 2, "beat": 1, "line_number": 2588, "start": 5916},
+    {"text": "And I'm like, \"Why'd you tell me this now?", "label": "setup", "bit": 2, "beat": 1, "line_number": 2589, "start": 5920},
+    {"text": "You drove us here and then you're gonna tell me that?", "label": "setup", "bit": 2, "beat": 1, "line_number": 2590, "start": 5921},
+    {"text": "It's fucking crazy.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2591, "start": 5923},
+    {"text": "But she tells me, no, no, no, a VYI.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2592, "start": 5926},
+    {"text": "I'm like, VY, what the fuck's a VYI?", "label": "setup", "bit": 2, "beat": 1, "line_number": 2593, "start": 5929},
+    {"text": "She has vaginal yeast infection.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2594, "start": 5931},
+    {"text": "(mumbling)", "label": "fluff", "bit": 2, "beat": 1, "line_number": 2595, "start": 5933},
+    {"text": "I was like, yeah, I'll take the mag,", "label": "tag", "bit": 2, "beat": 1, "line_number": 2596, "start": 5936},
+    {"text": "you can keep the cheese.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2597, "start": 5937},
+    {"text": "Thank you, mine's the first time for you.", "label": "fluff", "bit": null, "beat": null, "line_number": 2598, "start": 5941}
+  ]
+}

@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 5,
   "start_seconds": 3179,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Immigration policy is reframed as a personal sexual preference optimization system with a formal exchange rate.",

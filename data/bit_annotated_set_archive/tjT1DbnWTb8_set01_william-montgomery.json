@@ -1,0 +1,63 @@
+{
+  "type": "set_meta",
+  "video_id": "tjT1DbnWTb8",
+  "episode_title": "KT #756 - JIM NORTON + IAN FIDANCE",
+  "episode_url": "https://www.youtube.com/watch?v=tjT1DbnWTb8",
+  "publish_date": "2026-02-17",
+  "guests": ["Jim Norton", "Ian Fidance"],
+  "comedian_name": "William Montgomery",
+  "comedian_type": "regular",
+  "set_number": 1,
+  "start_seconds": 280,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "Epstein's only objection to a party guest is that he might scare the children he is trafficking.",
+          "joke_type": "reframe",
+          "topics": ["Jeffrey Epstein", "sex trafficking", "children", "Redman"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "A man caught having sex with a vacuum cleaner reports the injury, not the crime.",
+          "joke_type": "misdirect",
+          "topics": ["vacuum cleaner", "indecent exposure", "injury", "Orlando"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "Getting banned from a wholesome antiques show for violent threats over a bong collection treats drug paraphernalia as legitimate heirlooms.",
+          "joke_type": "reframe",
+          "topics": ["Antiques Roadshow", "bong", "death threats", "banned"]
+        }
+      }
+    },
+    "4": {
+      "beats": {
+        "1": {
+          "premise": "Asking which of 'Aphex Twin' is more popular treats a solo artist's name as a literal description of two people.",
+          "joke_type": "double-meaning",
+          "topics": ["Aphex Twin", "Taylor Swift", "music", "wordplay"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "Did y'all see the email where Jeffrey Epstein's assistant asked him if they should invite", "label": "setup", "bit": 1, "beat": 1, "line_number": 91, "start": 280},
+    {"text": "Brian Reichel to the next big island party?", "label": "setup", "bit": 1, "beat": 1, "line_number": 92, "start": 285},
+    {"text": "Epstein replied, \"Hell no! Redman might frighten the kids!\"", "label": "punchline", "bit": 1, "beat": 1, "line_number": 93, "start": 289},
+    {"text": "An Orlando man was arrested for indecent exposure after neighbors saw him having sex with a", "label": "setup", "bit": 2, "beat": 1, "line_number": 95, "start": 297},
+    {"text": "vacuum cleaner. When asked to comment on his arrest, the man said, \"My balls are gone.\"", "label": "punchline", "bit": 2, "beat": 1, "line_number": 96, "start": 301},
+    {"text": "I got banned from Antique's Roadshow for issuing death threats after they refused to", "label": "setup", "bit": 3, "beat": 1, "line_number": 97, "start": 309},
+    {"text": "appraise my vintage bong collection. The Icecatcher's carved in pink ivory, you pompous prick!", "label": "punchline", "bit": 3, "beat": 1, "line_number": 98, "start": 313},
+    {"text": "I read where A-Fex Twin now had more monthly listeners on YouTube than Taylor Swift. My", "label": "setup", "bit": 4, "beat": 1, "line_number": 99, "start": 322},
+    {"text": "My only question is, which twin is it?", "label": "punchline", "bit": 4, "beat": 1, "line_number": 100, "start": 326},
+    {"text": "OK, that's my time.", "label": "fluff", "bit": null, "beat": null, "line_number": 101, "start": 329}
+  ]
+}

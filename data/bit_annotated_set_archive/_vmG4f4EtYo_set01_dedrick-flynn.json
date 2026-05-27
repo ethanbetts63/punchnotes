@@ -8,6 +8,7 @@
   "comedian_type": "regular",
   "set_number": 1,
   "start_seconds": 425,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Buying debt makes repayment the buyer's problem.",

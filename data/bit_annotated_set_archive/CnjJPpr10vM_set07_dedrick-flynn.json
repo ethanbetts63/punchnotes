@@ -9,6 +9,7 @@
   "comedian_type": "regular",
   "set_number": 7,
   "start_seconds": 3525,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "White friends are a seasonal luxury resource.",

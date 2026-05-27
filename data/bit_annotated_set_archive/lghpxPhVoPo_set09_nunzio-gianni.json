@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 9,
   "start_seconds": 4532,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Growing up in Miami meant skipping conventional dating and going straight to strippers and sex workers.",

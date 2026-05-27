@@ -1,0 +1,87 @@
+{
+  "type": "set_meta",
+  "video_id": "PG_8dq4YtSQ",
+  "episode_title": "KT #755 - DR PHIL (ADAM RAY) + SAL VULCANO, + GREG FITZSIMMONS",
+  "episode_url": "https://www.youtube.com/watch?v=PG_8dq4YtSQ",
+  "publish_date": "2026-02-10",
+  "guests": ["Dr Phil (Adam Ray)", "Sal Vulcano", "Greg Fitzsimmons"],
+  "comedian_name": "Layla Ingalls",
+  "comedian_type": "bucket_pull",
+  "set_number": 13,
+  "start_seconds": 6916,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "'Great set' can mean a great comedy performance or a great pair of breasts.",
+          "joke_type": "double-meaning",
+          "topics": ["stand-up comedy", "breasts", "compliments", "B-cups"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "A Muslim father can't watch Kevin Bacon movies because the name contains 'bacon'.",
+          "joke_type": "double-meaning",
+          "topics": ["Kevin Bacon", "Muslims", "bacon", "pork"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "Wrist slits double as a tally to count months being single.",
+          "joke_type": "reframe",
+          "topics": ["self-harm", "being single", "counting", "dark humor"]
+        }
+      }
+    },
+    "4": {
+      "beats": {
+        "1": {
+          "premise": "When told he needs blonde hair and big boobs to finish, offering to dye his hair shifts the inadequacy onto him.",
+          "joke_type": "reframe",
+          "topics": ["relationships", "sex", "hair dye", "breakups"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "- Hi, guys.", "label": "fluff", "bit": null, "beat": null, "line_number": 3037, "start": 6916},
+    {"text": "Hey, mothership, it's good to be here.", "label": "fluff", "bit": null, "beat": null, "line_number": 3038, "start": 6918},
+    {"text": "I've always had a nervous energy about me my whole life,", "label": "setup", "bit": 1, "beat": 1, "line_number": 3039, "start": 6921},
+    {"text": "but stand-up has helped me a lot.", "label": "setup", "bit": 1, "beat": 1, "line_number": 3040, "start": 6924},
+    {"text": "It's been a huge confidence boost.", "label": "setup", "bit": 1, "beat": 1, "line_number": 3041, "start": 6925},
+    {"text": "Sometimes after I get off stage now,", "label": "setup", "bit": 1, "beat": 1, "line_number": 3042, "start": 6927},
+    {"text": "people come up to me and they'll be like, \"Layla, great set.\"", "label": "setup", "bit": 1, "beat": 1, "line_number": 3043, "start": 6929},
+    {"text": "And that makes me feel good, 'cause they're just B-cups.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 3044, "start": 6932},
+    {"text": "Okay, six, six, six.", "label": "fluff", "bit": null, "beat": null, "line_number": 3046, "start": 6938},
+    {"text": "A little bit about me,", "label": "fluff", "bit": null, "beat": null, "line_number": 3047, "start": 6941},
+    {"text": "I can't watch Kevin Bacon movies with my dad,", "label": "setup", "bit": 2, "beat": 1, "line_number": 3048, "start": 6942},
+    {"text": "he's Muslim.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 3049, "start": 6945},
+    {"text": "I have been single now for like 13 or 14 months.", "label": "setup", "bit": 3, "beat": 1, "line_number": 3050, "start": 6950},
+    {"text": "I don't remember exactly.", "label": "setup", "bit": 3, "beat": 1, "line_number": 3051, "start": 6954},
+    {"text": "I'll have to recount the slits on my wrist.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 3052, "start": 6956},
+    {"text": "It's been 14.", "label": "tag", "bit": 3, "beat": 1, "line_number": 3054, "start": 6965},
+    {"text": "I was with a guy for six years,", "label": "setup", "bit": 4, "beat": 1, "line_number": 3056, "start": 6968},
+    {"text": "and then after six years,", "label": "setup", "bit": 4, "beat": 1, "line_number": 3057, "start": 6971},
+    {"text": "he told me he needed blonde hair and big boobs to come.", "label": "setup", "bit": 4, "beat": 1, "line_number": 3058, "start": 6973},
+    {"text": "And I was like, well, we can dye your hair.", "label": "punchline", "bit": 4, "beat": 1, "line_number": 3059, "start": 6978},
+    {"text": "Okay, thank you, thank you, thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 3061, "start": 6984},
+    {"text": "Leila Ingalls.", "label": "fluff", "bit": null, "beat": null, "line_number": 3062, "start": 6986},
+    {"text": "Welcome back, Leila.", "label": "fluff", "bit": null, "beat": null, "line_number": 3063, "start": 6989},
+    {"text": "How's it going?", "label": "fluff", "bit": null, "beat": null, "line_number": 3064, "start": 6992},
+    {"text": "It's going good.", "label": "fluff", "bit": null, "beat": null, "line_number": 3065, "start": 6993},
+    {"text": "It's going good.", "label": "fluff", "bit": null, "beat": null, "line_number": 3066, "start": 6994},
+    {"text": "Were you going to say something else there?", "label": "fluff", "bit": null, "beat": null, "line_number": 3067, "start": 6997},
+    {"text": "No, it's going good.", "label": "fluff", "bit": null, "beat": null, "line_number": 3068, "start": 7000},
+    {"text": "-Uh...", "label": "fluff", "bit": null, "beat": null, "line_number": 3082, "start": 7023},
+    {"text": "He told me he needed blonde hair and big boobs to come.", "label": "fluff", "bit": null, "beat": null, "line_number": 3083, "start": 7026},
+    {"text": "And I was like, \"Well, we can dye your hair.\"", "label": "fluff", "bit": null, "beat": null, "line_number": 3084, "start": 7028},
+    {"text": "And then...", "label": "fluff", "bit": null, "beat": null, "line_number": 3085, "start": 7031},
+    {"text": "I felt like the meow interrupted it.", "label": "fluff", "bit": null, "beat": null, "line_number": 3086, "start": 7033},
+    {"text": "But, you know, I'll be quiet now.", "label": "fluff", "bit": null, "beat": null, "line_number": 3087, "start": 7035}
+  ]
+}

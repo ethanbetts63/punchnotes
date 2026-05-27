@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 3,
   "start_seconds": 1790,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Elephants are blamed for racially selective deaths.",

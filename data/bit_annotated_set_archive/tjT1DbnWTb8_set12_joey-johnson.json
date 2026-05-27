@@ -1,0 +1,82 @@
+{
+  "type": "set_meta",
+  "video_id": "tjT1DbnWTb8",
+  "episode_title": "KT #756 - JIM NORTON + IAN FIDANCE",
+  "episode_url": "https://www.youtube.com/watch?v=tjT1DbnWTb8",
+  "publish_date": "2026-02-17",
+  "guests": ["Jim Norton", "Ian Fidance"],
+  "comedian_name": "Joey Johnson",
+  "comedian_type": "bucket_pull",
+  "set_number": 12,
+  "start_seconds": 6410,
+  "joke_book": null,
+  "bit_meta": {
+    "1": {
+      "beats": {
+        "1": {
+          "premise": "Telling a homeless man you're a comedian earns pity instead of being the one giving it.",
+          "joke_type": "misdirect",
+          "topics": ["homelessness", "stand-up comedy", "Denver", "status"]
+        }
+      }
+    },
+    "2": {
+      "beats": {
+        "1": {
+          "premise": "Political neutrality has a price — and $900 is enough to buy it.",
+          "joke_type": "reframe",
+          "topics": ["unemployment", "COVID", "Trump", "stimulus check"]
+        }
+      }
+    },
+    "3": {
+      "beats": {
+        "1": {
+          "premise": "'Killing the little guy' applies equally to big business and abortion.",
+          "joke_type": "double-meaning",
+          "topics": ["small business", "abortion", "mom-and-pop", "fetus"]
+        }
+      }
+    }
+  },
+  "lines": [
+    {"text": "What's up, guys?", "label": "fluff", "bit": null, "beat": null, "line_number": 2754, "start": 6410},
+    {"text": "Man, it's cool you're all here.", "label": "fluff", "bit": null, "beat": null, "line_number": 2755, "start": 6411},
+    {"text": "11 years I've never been pulled before.", "label": "fluff", "bit": null, "beat": null, "line_number": 2756, "start": 6412},
+    {"text": "So that's, you know, 11 years of comedy, man.", "label": "fluff", "bit": null, "beat": null, "line_number": 2757, "start": 6414},
+    {"text": "It's, yeah, sure, I don't have enough time, shut up.", "label": "fluff", "bit": null, "beat": null, "line_number": 2758, "start": 6416},
+    {"text": "It's hard making money doing this, man, 11 years.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2759, "start": 6419},
+    {"text": "I just got back, I was doing shows in the Denver area", "label": "setup", "bit": 1, "beat": 1, "line_number": 2760, "start": 6422},
+    {"text": "and I'll stop by like a homeless guy", "label": "setup", "bit": 1, "beat": 1, "line_number": 2761, "start": 6424},
+    {"text": "outside the comedy club.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2762, "start": 6425},
+    {"text": "He goes, \"Excuse me, sir, can you spare some change?\"", "label": "setup", "bit": 1, "beat": 1, "line_number": 2763, "start": 6426},
+    {"text": "And I told him, I was like, \"Look, dude,", "label": "setup", "bit": 1, "beat": 1, "line_number": 2764, "start": 6429},
+    {"text": "I don't have any money, I'm a stand-up comedian.\"", "label": "setup", "bit": 1, "beat": 1, "line_number": 2765, "start": 6430},
+    {"text": "And then I shit you not, guys, this homeless guy", "label": "setup", "bit": 1, "beat": 1, "line_number": 2766, "start": 6432},
+    {"text": "like paused and assessed my fucking situation.", "label": "setup", "bit": 1, "beat": 1, "line_number": 2767, "start": 6434},
+    {"text": "Right, the dude looks up and down, down to Michigan beat,", "label": "setup", "bit": 1, "beat": 1, "line_number": 2768, "start": 6437},
+    {"text": "he just goes, \"My bad fam, you right?\"", "label": "punchline", "bit": 1, "beat": 1, "line_number": 2769, "start": 6439},
+    {"text": "That fucked me up, guys.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 2770, "start": 6441},
+    {"text": "That ruined my whole week.", "label": "fluff", "bit": 1, "beat": 1, "line_number": 2771, "start": 6444},
+    {"text": "My bad fam-- I know I spoke like that too.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2772, "start": 6445},
+    {"text": "He was Asian.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2773, "start": 6447},
+    {"text": "It was the weirdest.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2774, "start": 6448},
+    {"text": "My bad fam, you're right.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2775, "start": 6450},
+    {"text": "And then he gave me $5, all right?", "label": "tag", "bit": 1, "beat": 1, "line_number": 2776, "start": 6451},
+    {"text": "And I took that shit because it's hard out here for a player.", "label": "tag", "bit": 1, "beat": 1, "line_number": 2777, "start": 6453},
+    {"text": "All right, yeah.", "label": "fluff", "bit": null, "beat": null, "line_number": 2778, "start": 6455},
+    {"text": "I was on unemployment during COVID.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2779, "start": 6457},
+    {"text": "That was the best money I ever made, all right?", "label": "setup", "bit": 2, "beat": 1, "line_number": 2780, "start": 6458},
+    {"text": "I'm not really political.", "label": "setup", "bit": 2, "beat": 1, "line_number": 2781, "start": 6461},
+    {"text": "When Trump was showing out $900, I was like, I can be bought.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 2782, "start": 6462},
+    {"text": "That is a lot.", "label": "tag", "bit": 2, "beat": 1, "line_number": 2783, "start": 6465},
+    {"text": "I was on unemployment.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2784, "start": 6466},
+    {"text": "I wasn't taking advantage of the system.", "label": "setup", "bit": 3, "beat": 1, "line_number": 2785, "start": 6468},
+    {"text": "We hear about that a lot, right?", "label": "setup", "bit": 3, "beat": 1, "line_number": 2786, "start": 6469},
+    {"text": "Taking advantage of--", "label": "setup", "bit": 3, "beat": 1, "line_number": 2787, "start": 6470},
+    {"text": "I wasn't the money given back to me. I was putting into small business. I love small business man", "label": "setup", "bit": 3, "beat": 1, "line_number": 2788, "start": 6471},
+    {"text": "I love it to a fault like I love small business so much", "label": "setup", "bit": 3, "beat": 1, "line_number": 2789, "start": 6475},
+    {"text": "I will only take a girl I'm seeing out to a mom-and-pop abortion clinic", "label": "setup", "bit": 3, "beat": 1, "line_number": 2790, "start": 6477},
+    {"text": "Because big abortions just killing the little guy right everybody", "label": "punchline", "bit": 3, "beat": 1, "line_number": 2791, "start": 6483}
+  ]
+}

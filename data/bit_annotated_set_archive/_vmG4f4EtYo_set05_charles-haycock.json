@@ -8,6 +8,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 5,
   "start_seconds": 2489,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "Avoiding autism testing keeps the diagnosis from becoming real.",

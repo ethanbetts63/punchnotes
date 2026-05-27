@@ -9,6 +9,7 @@
   "comedian_type": "bucket_pull",
   "set_number": 4,
   "start_seconds": 2586,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "premise": "A Boston accent turns sexual talk into aggressive local parody.",

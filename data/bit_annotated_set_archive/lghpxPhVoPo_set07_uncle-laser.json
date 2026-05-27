@@ -9,6 +9,7 @@
   "comedian_type": "regular",
   "set_number": 7,
   "start_seconds": 3450,
+  "joke_book": null,
   "bit_meta": {
     "1": {
       "beats": {
