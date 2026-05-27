@@ -1,122 +1,163 @@
-﻿jokescore
+# JokeScore
 
-A system for measuring how funny stand-up comedy actually is.
+JokeScore is a system for measuring and analyzing stand-up comedy using audience reaction as a real-world signal for humor.
 
-The core idea is simple: calculate a comedian's laughs per minute (LPM) from a recorded set. From there, you can compare comics, compare different sets from the same comic, and even track how performance changes over time.
+At its core, JokeScore processes recorded comedy sets and calculates metrics such as laughs per minute, joke density, laugh intensity, and joke efficiency by aligning transcripts with audience laughter. Sets are broken down hierarchically into bits, beats, and individual lines, allowing jokes to be analyzed structurally rather than as raw text.
 
-Beyond LPM, you could derive other metrics:
+The project starts with Kill Tony because it provides a uniquely useful dataset: short standardized sets, high performance variance, recurring comedians, live audience reactions, and explicit quality signals like joke book awards. From there, the system can expand into broader stand-up datasets and eventually become both a comedy analytics platform and a training dataset for AI systems that learn humor from actual audience response rather than text alone.
 
-Words per minute vs laughs per minute
-Words-per-laugh ratio
-Average laugh duration/intensity
-Performance heatmaps across a set
-Joke/tag efficiency
+## Goals
 
-You could then break sets down at the joke level, scoring individual jokes and tags based on audience response. That effectively gives jokes a measurable "weighting."
+JokeScore is designed to connect comedic structure to measurable audience response.
 
-At scale, this becomes interesting for AI. Current language models can ingest huge numbers of jokes, but they don't inherently know what is actually funny. A large dataset with joke-level audience reaction scores could provide a real-world humor signal.
+Short-term goals:
 
-Another possible layer is premise rarity. If you maintained a large database of stand-up transcripts, you could estimate how common or overused a premise is, or even flag potential joke theft/similarity between comics.
+- Extract stand-up sets from full episode transcripts.
+- Label each set line by comedic function.
+- Group lines into bits and beats.
+- Annotate each beat with premise, joke mechanism, and topics.
+- Preserve interview boundaries and quality signals such as joke book awards.
+- Align transcripts with laughter and applause events.
 
-There are also deeper questions:
+Long-term goals:
 
-How much of comedy is the written joke vs delivery/presentation?
-How much does room energy affect results?
-Why can the same set perform wildly differently in different rooms?
-Existing Tools & Research
+- Estimate premise originality across a large comedy corpus.
+- Detect joke similarity and possible plagiarism.
+- Identify overused topics and premises.
+- Compare joke structures against audience reaction.
+- Separate writing quality from delivery, room energy, and context.
+- Train humor models on actual audience response rather than text-only examples.
 
-Some products already cover parts of this idea:
+## Data Model
 
-StandApp Comedy and Jokesmith provide automatic laughter detection, transcripts, LPM analytics, and audience-reaction heatmaps.
-LaughTrack experimented with joke-level laugh scoring.
-Gillick's laughter-detection library provides open-source laugh boundary models.
+JokeScore represents stand-up as a hierarchy:
 
-Recent datasets are making this more feasible:
+- **Set**: one recorded appearance by a comic.
+- **Bit**: one or more beats that share a premise.
+- **Beat**: one setup, punchline, and optional tags with its own comedic logic.
+- **Line**: a transcript line labeled by function.
 
-StandUp4AI â€“ 3,617 stand-up videos with transcripts and laugh labels
-TIC-TALK â€“ multimodal dataset with transcripts, body pose, and laughter events
-SMILE â€“ laughter-labeled clips with contextual annotations
-What Still Doesn't Exist
+Every annotated set stores:
 
-Most current systems stop at audience reaction analytics. The bigger semantic layer is still mostly untouched.
+- episode metadata
+- comedian metadata
+- set start time
+- interview end line and timestamp
+- joke book award size, when clear
+- bit and beat metadata
+- line-level labels
 
-Major gaps:
+Every beat stores:
 
-Premise originality scoring
-Joke similarity / plagiarism detection
-WPM vs LPM analysis
-Crowd-work detection
-Applause/interruption tagging
-Separating delivery quality from joke quality
-AI-assisted callback or punchline generation trained on audience response
-Opportunity
+- `premise`: the abstract comedic logic of the beat
+- `joke_type`: the mechanism that creates the laugh
+- `topics`: short searchable topic labels
 
-The strongest unexplored area is probably semantic comedy intelligence:
+## Kill Tony Signals
 
-detecting similar jokes across the entire stand-up corpus
-measuring how novel a premise is
-understanding which joke structures consistently outperform others
-training humor models on actual audience response instead of raw text alone
+Kill Tony adds useful structure that most stand-up datasets do not have.
 
-Most existing products are essentially analytics dashboards. None appear to combine:
+Bucket-pull sets are short and standardized. Interviews happen immediately after the set. Tony and the panel often give a joke book award at the end of the interview: `small`, `medium`, or `large`. Joke book size is captured as a human-curated quality signal. If no current award is clear, the value is left `null`.
 
-large-scale stand-up datasets,
-semantic similarity analysis,
-audience reaction modeling,
-and AI training pipelines.
+The archive also stores `interview_end_line` and `interview_end_seconds`, so interviews can later be extracted programmatically without re-analyzing the full episode transcript.
 
-That gap is where jokescore becomes interesting.
+## Line Labels
 
+Each transcript line is assigned one primary label.
 
-so far we are just targeting kill tony and premise rarity as a starting point.
+### `setup`
 
-Extensions
+A line that establishes premise, scenario, observation, or context for a joke. It builds toward the laugh without delivering it.
 
-Ideas for future expansion once the core pipeline is stable.
+### `punchline`
 
-Jokebook as a quality signal
+The line where the laugh lands: the reveal, twist, or payoff the setup was building toward.
 
-At the end of each bucket pull interview, Tony awards the comedian a jokebook â€” small, medium, or large â€” based on how well they did. Occasionally none is given, either because the set was poor or because the comedian already received one in a prior appearance. This is one of the few ground-truth quality labels available in the dataset: an in-the-moment assessment from Tony and the panel, with immediate audience context. Recording jokebook size (small / medium / large / none) and the likely reason per appearance would give jokescore a human-curated label to validate LPM-based scoring against.
+### `tag`
 
-Interview preservation
+An additional punchline that builds off the previous punchline without requiring new setup. If the line introduces fresh material, it is a new `setup`, not a tag.
 
-The set extraction pipeline already identifies where each set ends and the interview begins â€” that boundary is a byproduct of work already being done. Right now the interview window is simply discarded. Capturing it costs almost nothing extra and preserves all the qualitative signal that follows a set: Tony's reaction, panel feedback, the comedian's backstory, and the jokebook award. A dedicated interview extraction step (parallel to the existing set prompt) could record jokebook size, whether the comedian has appeared before, years doing comedy, home city, and any notable panel reactions. This data doesn't belong in the set pipeline but it would be valuable to have archived for later analysis.
+### `fluff`
 
-Audio-based laughter detection
+Everything that is not setup, punchline, or tag: greetings, sign-offs, name introductions, verbal stumbles, audio events, and crowd-acknowledgement filler that is not doing comedic work.
 
-Whisper's non-speech tokens ([laughter], [applause], â™ª) give a coarse signal, but purpose-built models like Gillick's laughter detection library could provide precise laughter timestamps and intensity scores. Layering that over the line-level transcript would enable true LPM calculation at the joke and line level rather than at the set level.
+## Labeling Rules
 
-Crowd-work detection at scale
+- One joke should usually have one punchline.
+- Tags require an immediately preceding punchline or tag.
+- Sound effects are fluff.
+- Self-introductions are fluff unless the name itself is the joke.
+- Closers such as "That's my time" and "Thank you" are fluff.
+- Sight-dependent jokes can have implicit setup from stage context.
+- Misdirects turn on the frame-flip line; label that line as the punchline.
 
-The line taxonomy already includes crowd_work as a type. Tracking the ratio of crowd_work lines to joke lines across a comedian's appearances over time would reveal how much of their performance depends on the room versus prepared material â€” a meaningful signal for separating delivery quality from joke quality, one of the major gaps identified above.
+## Joke Types
 
-Premise originality scoring
+Each beat receives one joke mechanism.
 
-With a large corpus of Kill Tony sets, semantic similarity between premises across comedians and across time could be computed. This would surface originality signals and flag potential joke similarity between comics â€” useful both as a dataset feature and as a standalone tool.
+### `misdirect`
 
-additional labeling depth. right now we are working with setup, punchline, tag and fluff. that covers everything. but theres more analysis you could do for instance a punchline or a tag could also be a callback. the fluff could be all sorts of things like a closing remark like thank you. the setup maybe could be thought of as a bridge in differnet contexts. 
+An assumption is planted, then subverted.
 
+Formula: `X implies Y, not Z.`
 
-Joke hierarchy: 
-Top to bottom: 
-Set - the full recorded appearance of the comic doing standup
-Bit - a single beat or a sequence of beats that do not make sense without the context of a shared premise
-Beat - a sequence of setup + punchline + tag (if present). The start of a beat is the first setup line following a punchline or tag in a set. 
-Line - fluff, setup, punchline or tagline. 
+### `reframe`
 
+A hidden implication of a known thing is surfaced. The audience did not necessarily hold the wrong assumption; they just had not considered this angle.
 
-Topics are attributed at the beat level and are the salient topic / topics of the beat. 
-Premises are attributed at the bit level and are the smallest standalone â€œwhat this bit is aboutâ€ statement that the audience needs in order for the beats to make sense. 
+Formula: state the hidden implication directly.
 
+### `phonetic-match`
 
-reframe (or perspective shift). The joke takes something familiar (puberty blockers as medical care
-  for trans kids) and reveals an angle from a stakeholder the audience hadn't been thinking about (pedophiles, for whom
-  this is functionally great news). The laugh comes from suddenly seeing the implication that was always logically there
-   but invisible.
+Two different words sound alike, and both independently fit the context.
 
-     wordplay is that it requires two things to line up simultaneously to be funny:
+Formula: state the sonic match and why both sides fit.
 
-  1. Phonetic match — "midget" and "fidget" near-rhyme
-  2. Semantic match — "fidget" also independently fits the ADHD frame (via fidget spinners)
+### `double-meaning`
 
-  - Elephant (in-the-room): X is widely understood about Y but rarely said aloud
+The same words admit two readings, and the comedian deliberately chooses the non-standard one.
+
+Formula: `Taken literally, [phrase] has two meanings.`
+
+### `what-if`
+
+A counterfactual scenario is posed and taken seriously.
+
+Formula: `What if [counterfactual]?`
+
+### `analogy`
+
+Two different things are made funny by showing that they share the same unexpected structure.
+
+Formula: `X is like Y because both share Z.`
+
+### `prop`
+
+The joke depends on a literal object the comedian is using or presenting onstage.
+
+Formula: `This object reveals or creates [comic meaning].`
+
+### `elephant-in-the-room`
+
+A taboo or obvious observation is said aloud. The audience already understands the conclusion; the laugh comes from breaking the silence.
+
+Formula: `X is widely understood about Y but rarely said aloud.`
+
+## Pipeline
+
+The current workflow is:
+
+1. Archive full episode transcripts.
+2. Extract individual set windows.
+3. Record set metadata, interview boundaries, and joke book awards.
+4. Annotate lines as setup, punchline, tag, or fluff.
+5. Group lines into bits and beats.
+6. Add beat-level premises, joke types, and topics.
+7. Import annotated sets into the database.
+8. Use audience reaction data to score sets, beats, jokes, and tags.
+
+## Why This Matters
+
+Most comedy analysis stops at transcripts or high-level audience reaction. JokeScore is aimed at the semantic layer: how jokes are built, how often similar premises appear, and which structures reliably produce laughter.
+
+Because the dataset includes both strong and weak performances, it can support deeper analysis of why material succeeds or fails. The same system can eventually compare joke writing, delivery, crowd work, room energy, originality, and audience response at scale.
