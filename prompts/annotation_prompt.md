@@ -194,7 +194,7 @@ Most jokes fall into one of these mechanisms. Each has its own premise shape. Th
 > - tag: `"and deciding to try again, 'cause I like the challenge."`
 > Premise: `"Golf is like marriage because both make failure expensive and repeatable."`
 
-**Prop** (`prop`) — the joke depends on a literal object the comedian is using or presenting onstage. The object itself supplies essential setup or payoff, and the joke would not work from spoken text alone. This is rare: if you are unsure whether an object is truly being used as a prop, assume it is not and choose the closest other joke type.
+**Prop** (`prop`) — the joke depends on a literal object the comedian is using or presenting onstage. This is rare: if you are unsure if a prop is being used, assume it is not and choose the closest other joke type.
 > Formula: *This object reveals or creates [comic meaning].*
 > Example:
 > - setup: `"[comedian holds up a strange object]"`
