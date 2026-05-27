@@ -102,7 +102,7 @@ Example:
 
 Premise: `"Refusing to call a transitioning child your son implies a new title, but reveals disownment."`
 
-**Reframe** (`reframe`) — a known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required; the joke surfaces an alternate way to understand the same fact, object, behavior, or situation.
+**Reframe** (`reframe`) — a known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required; the joke surfaces an alternate perspective to understand the same fact, object, behavior, or situation.
 Formula: *[known thing] could be [unexpected interpretation].*
 
 Example:
