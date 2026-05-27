@@ -9,22 +9,22 @@ The project starts with Kill Tony because it provides a uniquely useful dataset:
 JokeScore is designed to connect comedic structure to measurable audience response.
 
 Short-term goals:
-
-- Extract stand-up sets from full episode transcripts.
+- Extract stand-up sets from full Kill Tony episode transcripts.
 - Label each set line by comedic function.
 - Group lines into bits and beats.
 - Annotate each beat with premise, joke mechanism, and topics.
 - Preserve interview boundaries and quality signals such as joke book awards.
 - Align transcripts with laughter and applause events.
+- Create a website focusing on the kill tony universe. 
+
+Medium-term goals: 
+- Expand database to include any youtube set
+- Estimate premise originality across.
+- Detect joke originality
+- Sort topics by rarity.
 
 Long-term goals:
-
-- Estimate premise originality across a large comedy corpus.
-- Detect joke similarity and possible plagiarism.
-- Identify overused topics and premises.
-- Compare joke structures against audience reaction.
-- Separate writing quality from delivery, room energy, and context.
-- Train humor models on actual audience response rather than text-only examples.
+- Analyse the audio and potentially video of a set to figure out for a given joke how loud the laugh was, how long the audience laughed, weighted values relative to previous sets in the same show or earlier jokes. etc. 
 
 ## Data Model
 
@@ -192,7 +192,7 @@ Joke type: `reframe`
 
 The current workflow is:
 
-1. Archive full episode transcripts.
+1. Download full episode audio files and process into transcripts.
 2. Extract individual set windows.
 3. Record set metadata, interview boundaries, and joke book awards.
 4. Annotate lines as setup, punchline, tag, or fluff.
