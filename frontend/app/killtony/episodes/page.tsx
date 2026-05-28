@@ -1,5 +1,6 @@
-import Link from "next/link";
+import { Suspense } from "react";
 import { getServerEpisodes } from "@/lib/serverApi";
+import EpisodeControls from "@/components/EpisodeControls";
 
 export const metadata = {
   title: "Episodes — Kill Tony | JokeScore",
@@ -23,28 +24,9 @@ export default async function EpisodesPage() {
             <p className="text-stone-500">No episodes indexed yet.</p>
           </div>
         ) : (
-          <div className="divide-y divide-stone-100 rounded-xl border border-stone-200">
-            {episodes.map((ep) => (
-              <Link
-                key={ep.id}
-                href={`/killtony/episodes/${ep.id}`}
-                className="flex items-center justify-between px-5 py-4 hover:bg-stone-50 transition-colors"
-              >
-                <div>
-                  <span className="text-xs font-medium text-stone-400 uppercase tracking-wide">
-                    Episode {ep.number}
-                  </span>
-                  <p className="mt-0.5 font-medium text-stone-900">
-                    {ep.title || `Kill Tony #${ep.number}`}
-                  </p>
-                  <p className="text-sm text-stone-400">{ep.date}</p>
-                </div>
-                <div className="text-sm text-stone-400">
-                  {ep.set_count} sets →
-                </div>
-              </Link>
-            ))}
-          </div>
+          <Suspense>
+            <EpisodeControls episodes={episodes} />
+          </Suspense>
         )}
       </div>
     </div>

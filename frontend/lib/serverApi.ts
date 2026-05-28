@@ -50,6 +50,9 @@ export type Episode = {
   title: string;
   date: string | null;
   set_count: number;
+  guest_count: number | null;
+  view_count: number | null;
+  like_count: number | null;
 };
 
 export type SetInEpisode = {
