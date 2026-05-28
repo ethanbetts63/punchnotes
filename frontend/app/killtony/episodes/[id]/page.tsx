@@ -134,7 +134,7 @@ export default async function EpisodeDetailPage({ params }: Props) {
             </p>
           </div>
           <a
-            href={`https://www.youtube.com/watch?v=${episode.url.split("v=")[1]}`}
+            href={episode.url}
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 rounded-lg border border-stone-200 px-4 py-2 text-sm font-medium text-stone-600 hover:border-stone-300 hover:text-stone-900 transition-colors"

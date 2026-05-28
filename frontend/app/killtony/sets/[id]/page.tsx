@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getServerSet } from "@/lib/serverApi";
 import { Badge } from "@/components/ui/badge";
+import VideoEmbed from "@/components/VideoEmbed";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -58,6 +59,10 @@ export default async function SetDetailPage({ params }: Props) {
           )}
         </div>
 
+        <div className="mb-8">
+          <VideoEmbed episodeUrl={set.episode.url} startSeconds={set.start_seconds} />
+        </div>
+
         {set.bits.length === 0 ? (
           <div className="rounded-xl border border-stone-200 bg-stone-50 p-8 text-center">
             <p className="text-stone-500">No beats annotated yet.</p>
@@ -83,25 +88,12 @@ export default async function SetDetailPage({ params }: Props) {
                           <Badge key={t} variant="stone">{t}</Badge>
                         ))}
                       </div>
-                      <p className="mb-4 text-sm italic text-stone-500">"{beat.premise}"</p>
-                      <div className="space-y-1">
-                        {beat.lines.map((line) => (
-                          <p
-                            key={line.id}
-                            className={
-                              line.label === "punchline"
-                                ? "font-semibold text-stone-900"
-                                : line.label === "setup"
-                                ? "text-stone-700"
-                                : line.label === "tag"
-                                ? "text-stone-600 pl-4 border-l-2 border-stone-200"
-                                : "text-stone-400 text-sm"
-                            }
-                          >
-                            {line.text}
-                          </p>
-                        ))}
-                      </div>
+                      {beat.premise && (
+                        <p className="mb-3 text-sm italic text-stone-500">"{beat.premise}"</p>
+                      )}
+                      <p className="text-stone-700 leading-relaxed">
+                        {beat.lines.map((l) => l.text).join(" ")}
+                      </p>
                     </div>
                   ))}
                 </div>

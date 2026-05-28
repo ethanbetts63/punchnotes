@@ -16,7 +16,7 @@ class Set(models.Model):
     )
 
     class Meta:
-        ordering = ['set_number']
+        ordering = ['start_seconds']
         unique_together = [['episode', 'set_number']]
 
     def __str__(self):

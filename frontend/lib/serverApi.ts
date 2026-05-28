@@ -91,9 +91,11 @@ export type Line = {
 
 export type Set = {
   id: number;
-  comedian: Comedian;
-  episode: Episode;
+  set_number: number;
+  comedian: { id: number; name: string; slug: string };
+  episode: { id: number; number: number; title: string; url: string; date: string | null };
   joke_book_award: "small" | "medium" | "large" | null;
+  start_seconds: number;
   bits: Bit[];
 };
 
