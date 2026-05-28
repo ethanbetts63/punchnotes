@@ -134,13 +134,31 @@ export type Line = {
   label: "setup" | "punchline" | "tag" | "fluff";
 };
 
+export type SetComedian = {
+  id: number;
+  name: string;
+  slug: string;
+  comedian_type: ComedianType | "";
+  set_count: number;
+  appearances: number;
+  avg_bits_per_set: number | null;
+  avg_beats_per_set: number | null;
+  avg_hit_ratio: number | null;
+  avg_punchline_tag_ratio: number | null;
+  has_small_joke_book: boolean;
+  has_medium_joke_book: boolean;
+  has_large_joke_book: boolean;
+};
+
 export type Set = {
   id: number;
   set_number: number;
-  comedian: { id: number; name: string; slug: string };
+  comedian: SetComedian;
   episode: { id: number; number: number; title: string; youtube_id: string; date: string | null };
   joke_book_award: "small" | "medium" | "large" | null;
   start_seconds: number;
+  hit_ratio: number | null;
+  punchline_tag_ratio: number | null;
   bits: Bit[];
 };
 
