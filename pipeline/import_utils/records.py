@@ -1,6 +1,8 @@
 import re
 from collections import defaultdict
 
+from django.db.models import Avg, Count, Q
+
 from pipeline.models import Beat, Bit, Comedian, Episode, Line, Set
 
 
@@ -66,6 +68,38 @@ def upsert_set(episode: Episode, set_number: int, comedian: Comedian, meta: dict
     return set_obj
 
 
+def refresh_set_ratios(set_obj: Set) -> None:
+    counts = set_obj.lines.aggregate(
+        punchlines=Count('id', filter=Q(label='punchline')),
+        tags=Count('id', filter=Q(label='tag')),
+        setups=Count('id', filter=Q(label='setup')),
+        fluffs=Count('id', filter=Q(label='fluff')),
+    )
+    p, t, s, f = counts['punchlines'], counts['tags'], counts['setups'], counts['fluffs']
+    denominator = s + f
+    set_obj.hit_ratio = (p + t) / denominator if denominator > 0 else None
+    set_obj.punchline_tag_ratio = p / t if t > 0 else None
+    set_obj.save(update_fields=['hit_ratio', 'punchline_tag_ratio'])
+
+
+def refresh_comedian_stats(comedian: Comedian) -> None:
+    sets = comedian.sets.all()
+    agg = sets.aggregate(
+        avg_hit=Avg('hit_ratio'),
+        avg_pt=Avg('punchline_tag_ratio'),
+    )
+    comedian.joke_count = Bit.objects.filter(set__comedian=comedian).count()
+    comedian.avg_hit_ratio = agg['avg_hit']
+    comedian.avg_punchline_tag_ratio = agg['avg_pt']
+    comedian.has_small_joke_book = sets.filter(joke_book='small').exists()
+    comedian.has_medium_joke_book = sets.filter(joke_book='medium').exists()
+    comedian.has_large_joke_book = sets.filter(joke_book='large').exists()
+    comedian.save(update_fields=[
+        'joke_count', 'avg_hit_ratio', 'avg_punchline_tag_ratio',
+        'has_small_joke_book', 'has_medium_joke_book', 'has_large_joke_book',
+    ])
+
+
 def import_lines(set_obj: Set, lines_data: list) -> list:
     deleted, _ = set_obj.lines.all().delete()
     lines = [
@@ -79,6 +113,8 @@ def import_lines(set_obj: Set, lines_data: list) -> list:
         for line in lines_data
     ]
     Line.objects.bulk_create(lines)
+    refresh_set_ratios(set_obj)
+    refresh_comedian_stats(set_obj.comedian)
     return lines
 
 

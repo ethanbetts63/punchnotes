@@ -15,6 +15,10 @@ class Set(models.Model):
         null=True,
     )
 
+    # Computed from lines after import
+    hit_ratio = models.FloatField(null=True, blank=True)
+    punchline_tag_ratio = models.FloatField(null=True, blank=True)
+
     class Meta:
         ordering = ['start_seconds']
         unique_together = [['episode', 'set_number']]

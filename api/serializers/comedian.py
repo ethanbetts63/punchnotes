@@ -9,7 +9,7 @@ class SetInComedianSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Set
-        fields = ["id", "set_number", "episode", "joke_book"]
+        fields = ["id", "set_number", "episode", "joke_book", "hit_ratio", "punchline_tag_ratio"]
 
 
 class ComedianListSerializer(serializers.ModelSerializer):
@@ -18,7 +18,12 @@ class ComedianListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comedian
-        fields = ["id", "name", "slug", "comedian_type", "set_count", "appearances"]
+        fields = [
+            "id", "name", "slug", "comedian_type",
+            "set_count", "appearances", "joke_count",
+            "has_small_joke_book", "has_medium_joke_book", "has_large_joke_book",
+            "avg_hit_ratio", "avg_punchline_tag_ratio",
+        ]
 
 
 class ComedianDetailSerializer(serializers.ModelSerializer):
@@ -26,4 +31,8 @@ class ComedianDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comedian
-        fields = ["id", "name", "slug", "comedian_type", "sets"]
+        fields = [
+            "id", "name", "slug", "comedian_type",
+            "joke_count", "avg_hit_ratio", "avg_punchline_tag_ratio",
+            "sets",
+        ]
