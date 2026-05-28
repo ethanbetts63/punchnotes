@@ -29,7 +29,7 @@ export async function getServerComedians() {
 }
 
 export async function getServerComedian(slug: string) {
-  return serverFetch<Comedian>(`/api/killtony/comedians/${slug}/`);
+  return serverFetch<ComedianDetail>(`/api/killtony/comedians/${slug}/`);
 }
 
 export async function getServerSet(id: string) {
@@ -98,12 +98,26 @@ export type Comedian = {
   comedian_type: ComedianType | "";
   set_count: number;
   appearances: number;
-  joke_count: number;
   has_small_joke_book: boolean;
   has_medium_joke_book: boolean;
   has_large_joke_book: boolean;
   avg_hit_ratio: number | null;
   avg_punchline_tag_ratio: number | null;
+  avg_bits_per_set: number | null;
+  avg_beats_per_set: number | null;
+};
+
+export type SetInComedian = {
+  id: number;
+  set_number: number;
+  episode: { id: number; number: number; title: string; youtube_id: string; date: string | null };
+  joke_book: "small" | "medium" | "large" | null;
+  hit_ratio: number | null;
+  punchline_tag_ratio: number | null;
+};
+
+export type ComedianDetail = Comedian & {
+  sets: SetInComedian[];
 };
 
 export type Beat = {

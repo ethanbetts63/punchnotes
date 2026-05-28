@@ -83,19 +83,27 @@ def refresh_set_ratios(set_obj: Set) -> None:
 
 
 def refresh_comedian_stats(comedian: Comedian) -> None:
-    sets = comedian.sets.all()
+    sets = comedian.sets.annotate(
+        n_bits=Count('bits', distinct=True),
+        n_beats=Count('bits__beats', distinct=True),
+    )
     agg = sets.aggregate(
         avg_hit=Avg('hit_ratio'),
         avg_pt=Avg('punchline_tag_ratio'),
+        avg_bits=Avg('n_bits'),
+        avg_beats=Avg('n_beats'),
     )
     comedian.joke_count = Bit.objects.filter(set__comedian=comedian).count()
     comedian.avg_hit_ratio = agg['avg_hit']
     comedian.avg_punchline_tag_ratio = agg['avg_pt']
+    comedian.avg_bits_per_set = agg['avg_bits']
+    comedian.avg_beats_per_set = agg['avg_beats']
     comedian.has_small_joke_book = sets.filter(joke_book='small').exists()
     comedian.has_medium_joke_book = sets.filter(joke_book='medium').exists()
     comedian.has_large_joke_book = sets.filter(joke_book='large').exists()
     comedian.save(update_fields=[
         'joke_count', 'avg_hit_ratio', 'avg_punchline_tag_ratio',
+        'avg_bits_per_set', 'avg_beats_per_set',
         'has_small_joke_book', 'has_medium_joke_book', 'has_large_joke_book',
     ])
 

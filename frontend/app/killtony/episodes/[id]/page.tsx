@@ -55,12 +55,14 @@ const comedianTypeLabel: Record<ComedianType, string> = {
   bucket_pull:   "Bucket Pull",
   regular:       "Regular",
   golden_ticket: "Golden Ticket",
+  special:       "Special",
 };
 
 const comedianTypeColor: Record<ComedianType, string> = {
   bucket_pull:   "bg-stone-100 text-stone-500",
   regular:       "bg-blue-50 text-blue-600",
   golden_ticket: "bg-amber-100 text-amber-700",
+  special:       "bg-purple-50 text-purple-600",
 };
 
 function SetTile({ set, duration }: { set: SetInEpisode; duration: number | null }) {
