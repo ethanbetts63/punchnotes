@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getServerEpisodes, getServerComedians } from "@/lib/serverApi";
+import { getServerEpisodes, getServerComedians, getServerJokes } from "@/lib/serverApi";
 
 export const metadata = {
   title: "Kill Tony — JokeScore",
@@ -7,13 +7,16 @@ export const metadata = {
 };
 
 export default async function KillTonyPage() {
-  const [episodes, comedians] = await Promise.all([
+  const [episodes, comedians, jokes] = await Promise.all([
     getServerEpisodes(),
     getServerComedians(),
+    getServerJokes(),
   ]);
 
   const episodeCount = episodes?.length ?? 0;
   const comedianCount = comedians?.length ?? 0;
+  const setCount = episodes?.reduce((sum, ep) => sum + (ep.set_count ?? 0), 0) ?? 0;
+  const jokeCount = jokes?.length ?? 0;
 
   return (
     <div className="bg-white">
@@ -50,8 +53,8 @@ export default async function KillTonyPage() {
             {[
               { label: "Episodes", value: episodeCount || "—" },
               { label: "Comedians", value: comedianCount || "—" },
-              { label: "Sets", value: "—" },
-              { label: "Jokes", value: "—" },
+              { label: "Sets", value: setCount || "—" },
+              { label: "Jokes", value: jokeCount || "—" },
             ].map(({ label, value }) => (
               <div key={label} className="text-center">
                 <dt className="text-sm text-stone-500">{label}</dt>

@@ -38,6 +38,10 @@ export async function getServerJokes(params?: string) {
   return serverFetch<Joke[]>(`/api/killtony/jokes/${qs}`);
 }
 
+export async function getServerTopics() {
+  return serverFetch<string[]>("/api/killtony/topics/");
+}
+
 // --- types (minimal, expand as backend solidifies) ---
 
 export type Episode = {

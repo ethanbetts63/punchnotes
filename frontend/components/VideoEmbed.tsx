@@ -10,13 +10,14 @@ function fmtSeconds(s: number): string {
   return `${m}:${String(sec).padStart(2, "0")}`;
 }
 
-function extractVideoId(url: string): string | null {
+function extractVideoId(url: string | undefined | null): string | null {
+  if (!url) return null;
   const m = url.match(/[?&]v=([^&]+)/);
   return m ? m[1] : null;
 }
 
 type Props = {
-  episodeUrl: string;
+  episodeUrl: string | undefined | null;
   startSeconds: number;
 };
 

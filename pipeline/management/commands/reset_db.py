@@ -7,16 +7,10 @@ from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
-    help = "Wipe the database, delete all migrations, clear caches, then rebuild from scratch"
+    help = "Wipe migrations, rebuild schema, then reload base fixtures"
 
     def handle(self, *args, **options):
         base_dir = settings.BASE_DIR
-
-        # Delete the SQLite database
-        db_path = base_dir / "db.sqlite3"
-        if db_path.exists():
-            db_path.unlink()
-            self.stdout.write("Deleted db.sqlite3")
 
         # Delete migration files (keep __init__.py)
         migrations_dir = base_dir / "pipeline" / "migrations"
@@ -32,11 +26,16 @@ class Command(BaseCommand):
             shutil.rmtree(cache_dir)
             self.stdout.write(f"Cleared cache: {cache_dir.relative_to(base_dir)}")
 
-        # Rebuild
         self.stdout.write("\nRunning makemigrations...")
         call_command("makemigrations")
 
         self.stdout.write("\nRunning migrate...")
         call_command("migrate")
+
+        # Load base fixtures
+        fixtures_dir = base_dir / "data" / "fixtures"
+        for fixture in sorted(fixtures_dir.glob("*.json")):
+            self.stdout.write(f"\nLoading fixture: {fixture.name}...")
+            call_command("loaddata", str(fixture))
 
         self.stdout.write(self.style.SUCCESS("\nDatabase reset complete."))

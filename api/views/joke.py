@@ -18,6 +18,7 @@ class JokeListView(APIView):
         if joke_type:
             beats = beats.filter(joke_type=joke_type)
         topic = request.query_params.get("topic")
+        evaluated = list(beats)
         if topic:
-            beats = beats.filter(topics__contains=topic)
-        return Response(JokeSerializer(beats, many=True).data)
+            evaluated = [b for b in evaluated if topic in (b.topics or [])]
+        return Response(JokeSerializer(evaluated, many=True).data)
