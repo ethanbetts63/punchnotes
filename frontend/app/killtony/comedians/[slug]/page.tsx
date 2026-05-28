@@ -53,18 +53,18 @@ const comedianTypeColor: Record<ComedianType, string> = {
 
 function SetCard({ set }: { set: SetInComedian }) {
   return (
-    <div className="rounded-xl border border-stone-200 bg-white p-5">
+    <Link
+      href={`/killtony/sets/${set.id}`}
+      className="group block rounded-xl border border-stone-200 bg-white p-5 transition-all hover:border-primary/40 hover:shadow-sm"
+    >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="text-xs font-medium uppercase tracking-wide text-stone-400 mb-0.5">
             Set {set.set_number}
           </p>
-          <Link
-            href={`/killtony/episodes/${set.episode.id}`}
-            className="font-semibold text-stone-900 hover:text-primary transition-colors leading-snug line-clamp-2"
-          >
+          <p className="font-semibold text-stone-900 group-hover:text-primary transition-colors leading-snug line-clamp-2">
             KT #{set.episode.number} — {set.episode.title?.replace(/^KT\s*#\d+\s*[-–]\s*/i, "") ?? ""}
-          </Link>
+          </p>
           {set.episode.date && (
             <p className="mt-0.5 text-xs text-stone-400">{set.episode.date}</p>
           )}
@@ -76,32 +76,17 @@ function SetCard({ set }: { set: SetInComedian }) {
         )}
       </div>
 
-      {(set.hit_ratio != null || set.punchline_tag_ratio != null) && (
-        <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-stone-400">
-          {set.hit_ratio != null && (
-            <span>
-              Setup/punch ratio{" "}
-              <span className="font-medium text-stone-600">{fmt2(set.hit_ratio)}</span>
-            </span>
-          )}
-          {set.punchline_tag_ratio != null && (
-            <span>
-              Punch/tag ratio{" "}
-              <span className="font-medium text-stone-600">{fmt2(set.punchline_tag_ratio)}</span>
-            </span>
-          )}
-        </div>
-      )}
-
-      <div className="mt-3 flex justify-end">
-        <Link
-          href={`/killtony/sets/${set.id}`}
-          className="text-xs font-medium text-stone-400 hover:text-primary transition-colors"
-        >
-          View set →
-        </Link>
+      <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-stone-400">
+        <span>
+          Setup/punch ratio{" "}
+          <span className="font-medium text-stone-600">{fmt2(set.hit_ratio)}</span>
+        </span>
+        <span>
+          Punch/tag ratio{" "}
+          <span className="font-medium text-stone-600">{fmt2(set.punchline_tag_ratio)}</span>
+        </span>
       </div>
-    </div>
+    </Link>
   );
 }
 

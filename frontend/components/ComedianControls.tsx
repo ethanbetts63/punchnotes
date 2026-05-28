@@ -54,8 +54,8 @@ export default function ComedianControls({ comedians }: Props) {
   const [query, setQuery] = useState("");
   const [typeFilter, setTypeFilter] = useState<ComedianType | "">("");
   const [jokeBooks, setJokeBooks] = useState<Set<string>>(new Set());
-  const [sort, setSort] = useState<SortKey>("name");
-  const [asc, setAsc] = useState(true);
+  const [sort, setSort] = useState<SortKey>("avg_bits_per_set");
+  const [asc, setAsc] = useState(false);
   const [page, setPage] = useState(1);
 
   function handleQuery(q: string) { setQuery(q); setPage(1); }

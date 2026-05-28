@@ -164,6 +164,7 @@ export type Set = {
 
 export type Bit = {
   id: number;
+  premise?: string;
   beats: Beat[];
 };
 
