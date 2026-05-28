@@ -30,7 +30,7 @@ const SORT_OPTIONS: { key: SortKey; label: string }[] = [
   { key: "regulars",         label: "Regulars" },
   { key: "view_count",       label: "View count" },
   { key: "like_count",       label: "Like count" },
-  { key: "like_ratio",       label: "Like ratio" },
+  { key: "like_ratio",       label: "View/like ratio" },
 ];
 
 function getValue(ep: Episode, key: SortKey): number {
@@ -213,7 +213,8 @@ export default function EpisodeControls({ episodes }: Props) {
                       <Stat label="Regulars" value={ep.regular_count} />
                       {ep.view_count != null && <Stat label="Views" value={fmt(ep.view_count)} />}
                       {ep.like_count != null && <Stat label="Likes" value={fmt(ep.like_count)} />}
-                      {likeRatio && <Stat label="Like ratio" value={likeRatio} />}
+                      {ep.comment_count != null && <Stat label="Comments" value={fmt(ep.comment_count)} />}
+                      {likeRatio && <Stat label="View/like ratio" value={likeRatio} />}
                     </div>
                   </div>
                 </Link>

@@ -41,6 +41,11 @@ export async function getServerJokes(params?: string) {
   return serverFetch<Joke[]>(`/api/killtony/jokes/${qs}`);
 }
 
+export async function getServerBits(params?: string) {
+  const qs = params ? `?${params}` : "";
+  return serverFetch<BitListItem[]>(`/api/killtony/bits/${qs}`);
+}
+
 export async function getServerTopics() {
   return serverFetch<string[]>("/api/killtony/topics/");
 }
@@ -62,6 +67,7 @@ export type Episode = {
   // populated when YouTube engagement data is fetched
   view_count: number | null;
   like_count: number | null;
+  comment_count: number | null;
 };
 
 export type ComedianType = "bucket_pull" | "regular" | "golden_ticket" | "special";
@@ -88,6 +94,9 @@ export type EpisodeDetail = {
   golden_ticket_count: number;
   regular_count: number;
   large_joke_book_count: number;
+  view_count: number | null;
+  like_count: number | null;
+  comment_count: number | null;
   sets: SetInEpisode[];
 };
 
@@ -166,6 +175,18 @@ export type Bit = {
   id: number;
   premise?: string;
   beats: Beat[];
+};
+
+export type BitListItem = {
+  id: number;
+  comedian: string;
+  comedian_slug: string;
+  episode_number: number;
+  set_id: number;
+  premise: string;
+  topics: string[];
+  joke_types: string[];
+  beats_summary: { premise: string; joke_type: string }[];
 };
 
 export type Joke = {

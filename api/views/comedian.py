@@ -11,7 +11,7 @@ class ComedianListView(APIView):
     def get(self, request):
         comedians = (
             Comedian.objects
-            .annotate(set_count=Count("sets"), appearances=Count("guest_appearances"))
+            .annotate(set_count=Count("sets"), appearances=Count("sets__episode", distinct=True))
             .order_by("name")
         )
         return Response(ComedianListSerializer(comedians, many=True).data)

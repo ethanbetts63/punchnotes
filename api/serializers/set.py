@@ -22,7 +22,7 @@ class ComedianForSetSerializer(serializers.ModelSerializer):
         return obj.sets.count()
 
     def get_appearances(self, obj):
-        return obj.guest_appearances.count()
+        return obj.sets.values("episode").distinct().count()
 
 
 class LineSerializer(serializers.ModelSerializer):

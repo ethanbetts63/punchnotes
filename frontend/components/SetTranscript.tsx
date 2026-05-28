@@ -13,46 +13,30 @@ const labelBadge: Record<string, string> = {
 };
 
 function BeatPanel({
-  beat, bit, bitIdx, beatIdx, onClose,
+  beat, bit, bitIdx, beatIdx,
 }: {
-  beat: Beat; bit: Bit; bitIdx: number; beatIdx: number; onClose: () => void;
+  beat: Beat; bit: Bit; bitIdx: number; beatIdx: number;
 }) {
   return (
     <div className="rounded-xl border border-stone-200 bg-white overflow-hidden shadow-sm">
-      <div className="flex items-start justify-between bg-stone-50 px-4 py-3 border-b border-stone-200">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-stone-400">
-            Bit {bitIdx + 1} · Beat {beatIdx + 1}
-          </p>
-          <p className="text-sm font-semibold text-stone-900 mt-0.5">Beat Details</p>
-        </div>
-        <button
-          onClick={onClose}
-          className="ml-4 mt-0.5 text-stone-400 hover:text-stone-700 text-xl leading-none transition-colors"
-          aria-label="Close panel"
-        >
-          ×
-        </button>
+      <div className="bg-stone-50 px-4 py-3 border-b border-stone-200">
+        <p className="text-xs font-semibold uppercase tracking-wider text-stone-400">
+          Bit {bitIdx + 1} · Beat {beatIdx + 1}
+        </p>
+        <p className="text-sm font-semibold text-stone-900 mt-0.5">Beat Details</p>
       </div>
 
       <div className="p-4 space-y-4">
-        {bit.premise && (
-          <div>
-            <p className="text-xs uppercase tracking-wider font-semibold text-stone-400 mb-1">Bit Premise</p>
-            <p className="text-sm italic text-stone-500">&ldquo;{bit.premise}&rdquo;</p>
-          </div>
-        )}
-
         {beat.premise && (
           <div>
-            <p className="text-xs uppercase tracking-wider font-semibold text-stone-400 mb-1">Premise</p>
+            <p className="text-xs uppercase tracking-wider font-semibold text-stone-400 mb-1">Beat Premise</p>
             <p className="text-sm italic text-stone-600">&ldquo;{beat.premise}&rdquo;</p>
           </div>
         )}
 
         {beat.joke_type && (
           <div>
-            <p className="text-xs uppercase tracking-wider font-semibold text-stone-400 mb-1.5">Type</p>
+            <p className="text-xs uppercase tracking-wider font-semibold text-stone-400 mb-1.5">Joke Type</p>
             <span className="inline-block text-xs font-semibold bg-stone-900 text-white px-2.5 py-1 rounded-full">
               {beat.joke_type}
             </span>
@@ -75,7 +59,7 @@ function BeatPanel({
         <div>
           <p className="text-xs uppercase tracking-wider font-semibold text-stone-400 mb-2">Lines</p>
           <div className="space-y-2">
-            {beat.lines.map((line) => (
+            {beat.lines.filter((l) => l.label !== "fluff").map((line) => (
               <div key={line.id} className="flex gap-2 items-start">
                 <span className={`shrink-0 text-[10px] font-bold uppercase px-1.5 py-0.5 rounded ${labelBadge[line.label]}`}>
                   {line.label}
@@ -107,9 +91,7 @@ export default function SetTranscript({ bits }: { bits: Bit[] }) {
   const [selected, setSelected] = useState<Selected | null>(() => firstAnnotatedBeat(bits));
 
   function handleBeatClick(beat: Beat, bit: Bit, bitIdx: number, beatIdx: number) {
-    setSelected((prev) =>
-      prev?.beat.id === beat.id ? null : { beat, bit, bitIdx, beatIdx }
-    );
+    setSelected({ beat, bit, bitIdx, beatIdx });
   }
 
   if (bits.length === 0) {
@@ -174,7 +156,7 @@ export default function SetTranscript({ bits }: { bits: Bit[] }) {
                       <div
                         key={line.id}
                         className={[
-                          "py-0.5 text-xl leading-relaxed select-none",
+                          "py-0.5 text-xl leading-relaxed",
                           "text-stone-900",
                         ].join(" ")}
                       >
@@ -189,19 +171,14 @@ export default function SetTranscript({ bits }: { bits: Bit[] }) {
         </div>
 
         {/* Right panel — sticks to viewport as you scroll */}
-        <div className="hidden md:block w-80 xl:w-96 shrink-0 sticky top-6 self-start">
-          {selected ? (
+        <div className="hidden md:block w-80 xl:w-96 shrink-0 sticky top-20 self-start">
+          {selected && (
             <BeatPanel
               beat={selected.beat}
               bit={selected.bit}
               bitIdx={selected.bitIdx}
               beatIdx={selected.beatIdx}
-              onClose={() => setSelected(null)}
             />
-          ) : (
-            <div className="rounded-xl border border-stone-200 p-8 text-center text-stone-400 text-sm">
-              Click a highlighted section to see beat details
-            </div>
           )}
         </div>
       </div>
@@ -214,7 +191,6 @@ export default function SetTranscript({ bits }: { bits: Bit[] }) {
             bit={selected.bit}
             bitIdx={selected.bitIdx}
             beatIdx={selected.beatIdx}
-            onClose={() => setSelected(null)}
           />
         </div>
       )}

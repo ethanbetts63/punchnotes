@@ -11,6 +11,11 @@ class Episode(models.Model):
     guests = models.ManyToManyField('pipeline.Comedian', related_name='guest_appearances', blank=True)
     scraped_at = models.DateTimeField(auto_now_add=True)
 
+    view_count = models.PositiveBigIntegerField(null=True, blank=True)
+    like_count = models.PositiveBigIntegerField(null=True, blank=True)
+    comment_count = models.PositiveBigIntegerField(null=True, blank=True)
+    tags = models.JSONField(null=True, blank=True)
+
     # Denormalised counts updated by import_lines after each set is imported
     bucket_pull_count = models.PositiveSmallIntegerField(default=0)
     golden_ticket_count = models.PositiveSmallIntegerField(default=0)

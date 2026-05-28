@@ -27,6 +27,7 @@ class EpisodeListSerializer(serializers.ModelSerializer):
             "duration_seconds",
             "bucket_pull_count", "golden_ticket_count",
             "regular_count", "large_joke_book_count",
+            "view_count", "like_count", "comment_count",
         ]
 
 
@@ -45,6 +46,7 @@ class EpisodeDetailSerializer(serializers.ModelSerializer):
             "duration_seconds",
             "bucket_pull_count", "golden_ticket_count",
             "regular_count", "large_joke_book_count",
+            "view_count", "like_count", "comment_count",
             "sets",
         ]
 

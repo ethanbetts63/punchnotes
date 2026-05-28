@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getServerEpisode } from "@/lib/serverApi";
 import type { SetInEpisode, ComedianType } from "@/lib/serverApi";
-import VideoEmbed from "@/components/VideoEmbed";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -10,9 +9,7 @@ export async function generateMetadata({ params }: Props) {
   const { id } = await params;
   const episode = await getServerEpisode(id);
   if (!episode) return { title: "Episode Not Found | JokeScore" };
-  return {
-    title: `KT #${episode.number} — Kill Tony | JokeScore`,
-  };
+  return { title: `KT #${episode.number} — Kill Tony | JokeScore` };
 }
 
 function fmtSeconds(s: number): string {
@@ -23,20 +20,17 @@ function fmtSeconds(s: number): string {
   return `${m}:${String(sec).padStart(2, "0")}`;
 }
 
+function fmt(n: number): string {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
+  return String(n);
+}
+
 function fmtDuration(seconds: number | null): string {
   if (!seconds) return "—";
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
   return h > 0 ? `${h}h ${m}m` : `${m}m`;
-}
-
-function Stat({ label, value }: { label: string; value: string | number }) {
-  return (
-    <div className="flex flex-col items-center rounded-md border border-stone-100 bg-stone-50 px-3 py-2 text-center">
-      <span className="text-sm font-semibold leading-tight tabular-nums text-stone-800">{value}</span>
-      <span className="mt-0.5 whitespace-nowrap text-[11px] leading-tight text-stone-400">{label}</span>
-    </div>
-  );
 }
 
 const jokeBookLabel: Record<string, string> = {
@@ -114,16 +108,11 @@ function SetTile({ set, duration }: { set: SetInEpisode; duration: number | null
         )}
       </div>
 
-      <div className="flex items-center justify-between text-sm">
-        <span className="text-stone-400">
-          {set.bit_count === 0
-            ? "No bits annotated"
-            : `${set.bit_count} bit${set.bit_count === 1 ? "" : "s"}`}
-        </span>
-        <span className="text-stone-300 group-hover:text-primary transition-colors text-xs font-medium">
-          View set →
-        </span>
-      </div>
+      <p className="text-sm text-stone-400">
+        {set.bit_count === 0
+          ? "No bits annotated"
+          : `${set.bit_count} bit${set.bit_count === 1 ? "" : "s"}`}
+      </p>
     </Link>
   );
 }
@@ -134,40 +123,102 @@ export default async function EpisodeDetailPage({ params }: Props) {
   if (!episode) notFound();
 
   const sets = episode.sets ?? [];
+  const viewLikeRatio =
+    episode.view_count && episode.like_count != null && episode.view_count > 0
+      ? ((episode.like_count / episode.view_count) * 100).toFixed(1) + "%"
+      : null;
 
   return (
     <div className="bg-white min-h-screen">
-      <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
-        <div className="mb-2 text-sm text-stone-400">
-          <Link href="/killtony/episodes" className="hover:text-stone-600 transition-colors">
-            ← Episodes
-          </Link>
-        </div>
+      {/* Dark hero */}
+      <div className="bg-stone-900 text-white">
+        <div className="mx-auto max-w-5xl px-6 py-10">
+          <div className="flex gap-8 items-start">
 
-        <div className="mb-6">
-          <p className="text-sm font-medium text-primary uppercase tracking-wide">
-            Episode {episode.number}
-          </p>
-          <h1 className="mt-1 text-3xl font-bold text-stone-900">
-            {episode.title || `Kill Tony #${episode.number}`}
-          </h1>
-          <p className="mt-1 text-stone-400">{episode.date ?? "Date unknown"}</p>
-        </div>
+            {/* YouTube thumbnail */}
+            {episode.youtube_id && (
+              <div className="hidden sm:block w-36 md:w-48 shrink-0">
+                <a
+                  href={`https://www.youtube.com/watch?v=${episode.youtube_id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-lg overflow-hidden shadow-xl ring-1 ring-white/10 hover:ring-yellow-400/50 transition-all group relative"
+                >
+                  <img
+                    src={`https://img.youtube.com/vi/${episode.youtube_id}/hqdefault.jpg`}
+                    alt={`Episode ${episode.number} thumbnail`}
+                    className="w-full aspect-video object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-stone-900 ml-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.841z" />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+                {episode.date && (
+                  <p className="mt-2 text-xs text-stone-500">{episode.date}</p>
+                )}
+              </div>
+            )}
 
-        <div className="mb-6">
-          <VideoEmbed youtubeId={episode.youtube_id} startSeconds={0} className="max-w-sm" />
-        </div>
+            {/* Info */}
+            <div className="flex-1 min-w-0">
+              <h1 className="text-3xl md:text-4xl font-bold text-white mb-1">
+                {episode.title || `Kill Tony #${episode.number}`}
+              </h1>
 
-        {/* Episode stats */}
-        <div className="mb-8 flex flex-wrap gap-2">
-          <Stat label="Duration" value={fmtDuration(episode.duration_seconds)} />
-          <Stat label="Sets" value={sets.length} />
-          <Stat label="Bucket pulls" value={episode.bucket_pull_count} />
-          <Stat label="Golden tickets" value={episode.golden_ticket_count} />
-          <Stat label="Regulars" value={episode.regular_count} />
-          <Stat label="Big joke books" value={episode.large_joke_book_count} />
-        </div>
+              <p className="text-stone-400 text-sm mb-5">
+                Episode {episode.number}
+                {episode.date ? ` · ${episode.date}` : ""}
+              </p>
 
+              <p className="text-sm text-stone-400">
+                <span className="text-white">{sets.length}</span> set{sets.length !== 1 ? "s" : ""}
+                <span className="mx-2 text-stone-700">·</span>
+                <span className="text-white">{fmtDuration(episode.duration_seconds)}</span>
+                <span className="mx-2 text-stone-700">·</span>
+                <span className="text-white">{episode.bucket_pull_count}</span> bucket pull{episode.bucket_pull_count !== 1 ? "s" : ""}
+                <span className="mx-2 text-stone-700">·</span>
+                <span className="text-white">{episode.golden_ticket_count}</span> golden ticket{episode.golden_ticket_count !== 1 ? "s" : ""}
+                <span className="mx-2 text-stone-700">·</span>
+                <span className="text-white">{episode.regular_count}</span> regular{episode.regular_count !== 1 ? "s" : ""}
+                <span className="mx-2 text-stone-700">·</span>
+                <span className="text-white">{episode.large_joke_book_count}</span> big joke book{episode.large_joke_book_count !== 1 ? "s" : ""}
+                {episode.view_count != null && (
+                  <>
+                    <span className="mx-2 text-stone-700">·</span>
+                    <span className="text-white">{fmt(episode.view_count)}</span> views
+                  </>
+                )}
+                {episode.like_count != null && (
+                  <>
+                    <span className="mx-2 text-stone-700">·</span>
+                    <span className="text-white">{fmt(episode.like_count)}</span> likes
+                  </>
+                )}
+                {episode.comment_count != null && (
+                  <>
+                    <span className="mx-2 text-stone-700">·</span>
+                    <span className="text-white">{fmt(episode.comment_count)}</span> comments
+                  </>
+                )}
+                {viewLikeRatio && (
+                  <>
+                    <span className="mx-2 text-stone-700">·</span>
+                    <span className="text-white">{viewLikeRatio}</span> view/like ratio
+                  </>
+                )}
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* Sets grid */}
+      <div className="mx-auto max-w-5xl px-6 py-10">
         {sets.length === 0 ? (
           <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
             <p className="text-stone-500">No sets indexed for this episode yet.</p>

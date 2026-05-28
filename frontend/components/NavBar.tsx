@@ -8,7 +8,7 @@ const navLinks = [
   { href: "/killtony", label: "Kill Tony" },
   { href: "/killtony/episodes", label: "Episodes" },
   { href: "/killtony/comedians", label: "Comedians" },
-  { href: "/killtony/jokes", label: "Jokes" },
+  { href: "/killtony/bits", label: "Bits" },
   { href: "/about", label: "About" },
 ];
 

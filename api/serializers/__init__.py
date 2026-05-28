@@ -3,3 +3,4 @@ from .set import LineSerializer, BeatSerializer, BitSerializer, SetDetailSeriali
 from .episode import SetInEpisodeSerializer, EpisodeListSerializer, EpisodeDetailSerializer
 from .comedian import SetInComedianSerializer, ComedianListSerializer, ComedianDetailSerializer
 from .joke import JokeSerializer
+from .bit import BitListSerializer
