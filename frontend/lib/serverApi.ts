@@ -2,13 +2,16 @@ const API_BASE_URL = process.env.DJANGO_API_URL ?? "http://localhost:8000";
 const REVALIDATE_SECONDS = 300;
 
 async function serverFetch<T>(path: string): Promise<T | null> {
+  const url = `${API_BASE_URL}${path}`;
   try {
-    const res = await fetch(`${API_BASE_URL}${path}`, {
-      next: { revalidate: REVALIDATE_SECONDS },
-    });
-    if (!res.ok) return null;
+    const res = await fetch(url, { next: { revalidate: REVALIDATE_SECONDS } });
+    if (!res.ok) {
+      console.error(`[serverFetch] ${res.status} ${res.statusText} — ${url}`);
+      return null;
+    }
     return res.json() as Promise<T>;
-  } catch {
+  } catch (err) {
+    console.error(`[serverFetch] fetch failed — ${url}`, err);
     return null;
   }
 }
@@ -49,6 +52,7 @@ export type Episode = {
   number: number;
   title: string;
   date: string | null;
+  youtube_id: string | null;
   set_count: number;
   duration_seconds: number | null;
   bucket_pull_count: number;
@@ -60,10 +64,12 @@ export type Episode = {
   like_count: number | null;
 };
 
+export type ComedianType = "bucket_pull" | "regular" | "golden_ticket";
+
 export type SetInEpisode = {
   id: number;
   set_number: number;
-  comedian: { id: number; name: string; slug: string };
+  comedian: { id: number; name: string; slug: string; comedian_type: ComedianType };
   joke_book: "small" | "medium" | "large" | null;
   bit_count: number;
   start_seconds: number;
@@ -75,7 +81,13 @@ export type EpisodeDetail = {
   number: number;
   title: string;
   url: string;
+  youtube_id: string;
   date: string | null;
+  duration_seconds: number | null;
+  bucket_pull_count: number;
+  golden_ticket_count: number;
+  regular_count: number;
+  large_joke_book_count: number;
   sets: SetInEpisode[];
 };
 
@@ -105,7 +117,7 @@ export type Set = {
   id: number;
   set_number: number;
   comedian: { id: number; name: string; slug: string };
-  episode: { id: number; number: number; title: string; url: string; date: string | null };
+  episode: { id: number; number: number; title: string; youtube_id: string; date: string | null };
   joke_book_award: "small" | "medium" | "large" | null;
   start_seconds: number;
   bits: Bit[];

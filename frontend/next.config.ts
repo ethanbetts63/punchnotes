@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
         port: "8000",
         pathname: "/media/**",
       },
+      {
+        protocol: "https",
+        hostname: "img.youtube.com",
+        pathname: "/vi/**",
+      },
     ],
     minimumCacheTTL: 60 * 60 * 24 * 31,
   },

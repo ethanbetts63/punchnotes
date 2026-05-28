@@ -1,8 +1,7 @@
-import Link from "next/link";
 import { Suspense } from "react";
 import { getServerJokes, getServerTopics } from "@/lib/serverApi";
-import { Badge } from "@/components/ui/badge";
 import JokesFilters from "@/components/JokesFilters";
+import JokesList from "@/components/JokesList";
 
 export const metadata = {
   title: "Jokes — Kill Tony | JokeScore",
@@ -17,6 +16,8 @@ export default async function JokesPage({ searchParams }: Props) {
     getServerJokes(qs),
     getServerTopics(),
   ]);
+
+  const filterKey = qs;
 
   return (
     <div className="bg-white min-h-screen">
@@ -35,43 +36,14 @@ export default async function JokesPage({ searchParams }: Props) {
           <JokesFilters topics={topics ?? []} />
         </Suspense>
 
-        {!jokes || jokes.length === 0 ? (
+        {!jokes ? (
           <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
             <p className="text-stone-500">No jokes found.</p>
           </div>
         ) : (
-          <div className="space-y-3">
-            {jokes.map((joke) => (
-              <Link
-                key={joke.id}
-                href={`/killtony/sets/${joke.set_id}`}
-                className="group block rounded-xl border border-stone-200 bg-white p-5 hover:border-primary/40 hover:shadow-sm transition-all"
-              >
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="text-sm font-semibold text-stone-900 group-hover:text-primary transition-colors">
-                    {joke.comedian}
-                  </span>
-                  <span className="text-stone-300">·</span>
-                  <span className="text-xs text-stone-400">Ep {joke.episode_number}</span>
-                  <Badge variant="default">{joke.joke_type}</Badge>
-                  {joke.topics.map((t) => (
-                    <Badge key={t} variant="stone">{t}</Badge>
-                  ))}
-                </div>
-                {joke.premise && (
-                  <p className="mb-3 text-sm italic text-stone-500">"{joke.premise}"</p>
-                )}
-                <div className="space-y-1">
-                  {joke.setup_lines.map((line, i) => (
-                    <p key={i} className="text-sm text-stone-600">{line}</p>
-                  ))}
-                  {joke.punchline && (
-                    <p className="font-semibold text-stone-900">{joke.punchline}</p>
-                  )}
-                </div>
-              </Link>
-            ))}
-          </div>
+          <Suspense>
+            <JokesList jokes={jokes} filterKey={filterKey} />
+          </Suspense>
         )}
       </div>
     </div>

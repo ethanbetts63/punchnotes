@@ -60,7 +60,7 @@ export default async function SetDetailPage({ params }: Props) {
         </div>
 
         <div className="mb-8">
-          <VideoEmbed episodeUrl={set.episode.url} startSeconds={set.start_seconds} />
+          <VideoEmbed youtubeId={set.episode.youtube_id} startSeconds={Math.max(0, set.start_seconds - 10)} className="max-w-sm" />
         </div>
 
         {set.bits.length === 0 ? (

@@ -17,12 +17,13 @@ class EpisodeListSerializer(serializers.ModelSerializer):
     number = serializers.IntegerField(source="episode_number")
     title = serializers.CharField(source="episode_title")
     date = serializers.DateField(source="published_at")
+    youtube_id = serializers.CharField(source="video_id")
     set_count = serializers.IntegerField()
 
     class Meta:
         model = Episode
         fields = [
-            "id", "number", "title", "date", "set_count",
+            "id", "number", "title", "date", "youtube_id", "set_count",
             "duration_seconds",
             "bucket_pull_count", "golden_ticket_count",
             "regular_count", "large_joke_book_count",
@@ -33,12 +34,19 @@ class EpisodeDetailSerializer(serializers.ModelSerializer):
     number = serializers.IntegerField(source="episode_number")
     title = serializers.CharField(source="episode_title")
     url = serializers.URLField(source="episode_url")
+    youtube_id = serializers.CharField(source="video_id")
     date = serializers.DateField(source="published_at")
     sets = serializers.SerializerMethodField()
 
     class Meta:
         model = Episode
-        fields = ["id", "number", "title", "url", "date", "sets"]
+        fields = [
+            "id", "number", "title", "url", "youtube_id", "date",
+            "duration_seconds",
+            "bucket_pull_count", "golden_ticket_count",
+            "regular_count", "large_joke_book_count",
+            "sets",
+        ]
 
     def get_sets(self, episode):
         ordered = sorted(episode.sets.all(), key=lambda s: s.start_seconds)

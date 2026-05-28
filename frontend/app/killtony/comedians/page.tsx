@@ -1,5 +1,6 @@
-import Link from "next/link";
+import { Suspense } from "react";
 import { getServerComedians } from "@/lib/serverApi";
+import ComedianControls from "@/components/ComedianControls";
 
 export const metadata = {
   title: "Comedians — Kill Tony | JokeScore",
@@ -23,22 +24,9 @@ export default async function ComediansPage() {
             <p className="text-stone-500">No comedians indexed yet.</p>
           </div>
         ) : (
-          <div className="grid gap-4 sm:grid-cols-2">
-            {comedians.map((c) => (
-              <Link
-                key={c.id}
-                href={`/killtony/comedians/${c.slug}`}
-                className="group rounded-xl border border-stone-200 bg-white p-5 hover:border-primary/40 hover:shadow-sm transition-all"
-              >
-                <p className="font-semibold text-stone-900 group-hover:text-primary transition-colors">
-                  {c.name}
-                </p>
-                <p className="mt-1 text-sm text-stone-400">
-                  {c.appearances} appearance{c.appearances !== 1 ? "s" : ""} · {c.set_count} set{c.set_count !== 1 ? "s" : ""}
-                </p>
-              </Link>
-            ))}
-          </div>
+          <Suspense>
+            <ComedianControls comedians={comedians} />
+          </Suspense>
         )}
       </div>
     </div>

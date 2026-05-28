@@ -6,15 +6,15 @@ from pipeline.models import Comedian, Episode
 class ComedianMinimalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comedian
-        fields = ["id", "name", "slug"]
+        fields = ["id", "name", "slug", "comedian_type"]
 
 
 class EpisodeMinimalSerializer(serializers.ModelSerializer):
     number = serializers.IntegerField(source="episode_number")
     title = serializers.CharField(source="episode_title")
-    url = serializers.URLField(source="episode_url")
+    youtube_id = serializers.CharField(source="video_id")
     date = serializers.DateField(source="published_at")
 
     class Meta:
         model = Episode
-        fields = ["id", "number", "title", "url", "date"]
+        fields = ["id", "number", "title", "youtube_id", "date"]

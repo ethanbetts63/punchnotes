@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getServerEpisode } from "@/lib/serverApi";
-import type { SetInEpisode } from "@/lib/serverApi";
+import type { SetInEpisode, ComedianType } from "@/lib/serverApi";
+import VideoEmbed from "@/components/VideoEmbed";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -22,6 +23,22 @@ function fmtSeconds(s: number): string {
   return `${m}:${String(sec).padStart(2, "0")}`;
 }
 
+function fmtDuration(seconds: number | null): string {
+  if (!seconds) return "—";
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  return h > 0 ? `${h}h ${m}m` : `${m}m`;
+}
+
+function Stat({ label, value }: { label: string; value: string | number }) {
+  return (
+    <div className="flex flex-col items-center rounded-md border border-stone-100 bg-stone-50 px-3 py-2 text-center">
+      <span className="text-sm font-semibold leading-tight tabular-nums text-stone-800">{value}</span>
+      <span className="mt-0.5 whitespace-nowrap text-[11px] leading-tight text-stone-400">{label}</span>
+    </div>
+  );
+}
+
 const jokeBookLabel: Record<string, string> = {
   small: "Small Joke Book",
   medium: "Medium Joke Book",
@@ -34,13 +51,20 @@ const jokeBookColor: Record<string, string> = {
   large: "bg-red-100 text-primary",
 };
 
-function SetTile({
-  set,
-  duration,
-}: {
-  set: SetInEpisode;
-  duration: number | null;
-}) {
+const comedianTypeLabel: Record<ComedianType, string> = {
+  bucket_pull:   "Bucket Pull",
+  regular:       "Regular",
+  golden_ticket: "Golden Ticket",
+};
+
+const comedianTypeColor: Record<ComedianType, string> = {
+  bucket_pull:   "bg-stone-100 text-stone-500",
+  regular:       "bg-blue-50 text-blue-600",
+  golden_ticket: "bg-amber-100 text-amber-700",
+};
+
+function SetTile({ set, duration }: { set: SetInEpisode; duration: number | null }) {
+  const ct = set.comedian.comedian_type;
   return (
     <Link
       href={`/killtony/sets/${set.id}`}
@@ -55,13 +79,18 @@ function SetTile({
             {set.comedian.name}
           </p>
         </div>
-        {set.joke_book && (
-          <span
-            className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ${jokeBookColor[set.joke_book]}`}
-          >
-            {jokeBookLabel[set.joke_book]}
-          </span>
-        )}
+        <div className="flex shrink-0 flex-col items-end gap-1.5">
+          {ct && (
+            <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${comedianTypeColor[ct]}`}>
+              {comedianTypeLabel[ct]}
+            </span>
+          )}
+          {set.joke_book && (
+            <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${jokeBookColor[set.joke_book]}`}>
+              {jokeBookLabel[set.joke_book]}
+            </span>
+          )}
+        </div>
       </div>
 
       <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-stone-500">
@@ -71,10 +100,8 @@ function SetTile({
         </span>
         {set.interview_end_seconds != null && (
           <span>
-            <span className="text-stone-400">Set</span>{" "}
-            <span className="font-medium tabular-nums">
-              {fmtSeconds(set.interview_end_seconds)}
-            </span>
+            <span className="text-stone-400">End</span>{" "}
+            <span className="font-medium tabular-nums">{fmtSeconds(set.interview_end_seconds)}</span>
           </span>
         )}
         {duration != null && (
@@ -115,32 +142,28 @@ export default async function EpisodeDetailPage({ params }: Props) {
           </Link>
         </div>
 
-        <div className="mb-8 flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <p className="text-sm font-medium text-primary uppercase tracking-wide">
-              Episode {episode.number}
-            </p>
-            <h1 className="mt-1 text-3xl font-bold text-stone-900">
-              {episode.title || `Kill Tony #${episode.number}`}
-            </h1>
-            <p className="mt-1 text-stone-400">
-              {episode.date ?? "Date unknown"}
-              {sets.length > 0 && (
-                <span className="ml-3 text-stone-300">·</span>
-              )}
-              {sets.length > 0 && (
-                <span className="ml-3">{sets.length} sets</span>
-              )}
-            </p>
-          </div>
-          <a
-            href={episode.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 rounded-lg border border-stone-200 px-4 py-2 text-sm font-medium text-stone-600 hover:border-stone-300 hover:text-stone-900 transition-colors"
-          >
-            Watch on YouTube ↗
-          </a>
+        <div className="mb-6">
+          <p className="text-sm font-medium text-primary uppercase tracking-wide">
+            Episode {episode.number}
+          </p>
+          <h1 className="mt-1 text-3xl font-bold text-stone-900">
+            {episode.title || `Kill Tony #${episode.number}`}
+          </h1>
+          <p className="mt-1 text-stone-400">{episode.date ?? "Date unknown"}</p>
+        </div>
+
+        <div className="mb-6">
+          <VideoEmbed youtubeId={episode.youtube_id} startSeconds={0} className="max-w-sm" />
+        </div>
+
+        {/* Episode stats */}
+        <div className="mb-8 flex flex-wrap gap-2">
+          <Stat label="Duration" value={fmtDuration(episode.duration_seconds)} />
+          <Stat label="Sets" value={sets.length} />
+          <Stat label="Bucket pulls" value={episode.bucket_pull_count} />
+          <Stat label="Golden tickets" value={episode.golden_ticket_count} />
+          <Stat label="Regulars" value={episode.regular_count} />
+          <Stat label="Big joke books" value={episode.large_joke_book_count} />
         </div>
 
         {sets.length === 0 ? (
@@ -152,9 +175,7 @@ export default async function EpisodeDetailPage({ params }: Props) {
             {sets.map((set, i) => {
               const nextStart = sets[i + 1]?.start_seconds ?? null;
               const duration = nextStart != null ? nextStart - set.start_seconds : null;
-              return (
-                <SetTile key={set.id} set={set} duration={duration} />
-              );
+              return <SetTile key={set.id} set={set} duration={duration} />;
             })}
           </div>
         )}
