@@ -58,4 +58,7 @@ class Command(BaseCommand):
         else:
             self.stdout.write("\nNo archived sets to import.")
 
+        self.stdout.write("\nFetching episodes from YouTube playlist...")
+        call_command("fetch_episodes")
+
         self.stdout.write(self.style.SUCCESS("\nDatabase reset complete."))
