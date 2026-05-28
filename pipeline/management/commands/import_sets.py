@@ -1,6 +1,7 @@
 import json
 import re
 import shutil
+from pathlib import Path
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
@@ -18,23 +19,43 @@ from pipeline.import_utils.records import (
 
 
 class Command(BaseCommand):
-    help = "Import bit-annotated set JSON files from data/4_bit_annotated_set_inbox/"
+    help = "Import bit-annotated set JSON files into the database"
+
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "--dir",
+            dest="source_dir",
+            default=None,
+            help=(
+                "Directory to read JSON files from. "
+                "Defaults to data/4_bit_annotated_set_inbox/ and moves processed files to the archive. "
+                "When --dir is supplied the files are read in place and not moved."
+            ),
+        )
 
     def handle(self, *args, **options):
         data_dir = settings.BASE_DIR / "data"
-        inbox = data_dir / "4_bit_annotated_set_inbox"
-        archive = data_dir / "bit_annotated_set_archive"
-        archive.mkdir(exist_ok=True)
 
-        files = sorted(inbox.glob("*.json"))
+        if options["source_dir"]:
+            source = Path(options["source_dir"])
+            archive = None  # don't move files when reading from a custom dir
+        else:
+            source = data_dir / "4_bit_annotated_set_inbox"
+            archive = data_dir / "bit_annotated_set_archive"
+            archive.mkdir(exist_ok=True)
+
+        files = sorted(source.glob("*.json"))
         if not files:
-            self.stdout.write("No files in 4_bit_annotated_set_inbox.")
+            self.stdout.write(f"No JSON files found in {source}")
             return
+
+        self.stdout.write(f"Importing {len(files)} file(s) from {source}...")
 
         for path in files:
             try:
                 self._import(path)
-                shutil.move(str(path), archive / path.name)
+                if archive:
+                    shutil.move(str(path), archive / path.name)
             except Exception as e:
                 self.stdout.write(self.style.ERROR(f"  Failed {path.name}: {e}"))
 

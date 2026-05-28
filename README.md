@@ -208,3 +208,9 @@ Most comedy analysis stops at transcripts or high-level audience reaction. JokeS
 Because the dataset includes both strong and weak performances, it can support deeper analysis of why material succeeds or fails. The same system can eventually compare joke writing, delivery, crowd work, room energy, originality, and audience response at scale.
 
 Even at this stage in the development the differences in annotating a good vs a bad set are quite interesting. The better the writing, the harder it is to figure out the premise but the easier line labeling becomes. I think this is becuase well written sets are well structured. Hence, its quite easy to tell a setup from a punch. But the complexity of the joke is often greater which means distilling the essence down into a premise line can often be quite tricky. 
+
+
+
+RESET DB
+  python manage.py reset_db          # offline: drop → migrate → import archived sets
+  python manage.py fetch_episodes    # online:  sync episode metadata from YouTube
