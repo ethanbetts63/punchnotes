@@ -7,8 +7,15 @@ class Episode(models.Model):
     episode_title = models.CharField(max_length=500)
     episode_url = models.URLField()
     published_at = models.DateField(null=True, blank=True)
+    duration_seconds = models.PositiveIntegerField(null=True, blank=True)
     guests = models.ManyToManyField('pipeline.Comedian', related_name='guest_appearances', blank=True)
     scraped_at = models.DateTimeField(auto_now_add=True)
+
+    # Denormalised counts updated by import_lines after each set is imported
+    bucket_pull_count = models.PositiveSmallIntegerField(default=0)
+    golden_ticket_count = models.PositiveSmallIntegerField(default=0)
+    regular_count = models.PositiveSmallIntegerField(default=0)
+    large_joke_book_count = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
         ordering = ['-episode_number']

@@ -50,7 +50,12 @@ export type Episode = {
   title: string;
   date: string | null;
   set_count: number;
-  guest_count: number | null;
+  duration_seconds: number | null;
+  bucket_pull_count: number;
+  golden_ticket_count: number;
+  regular_count: number;
+  large_joke_book_count: number;
+  // populated when YouTube engagement data is fetched
   view_count: number | null;
   like_count: number | null;
 };

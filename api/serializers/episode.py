@@ -21,7 +21,12 @@ class EpisodeListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Episode
-        fields = ["id", "number", "title", "date", "set_count"]
+        fields = [
+            "id", "number", "title", "date", "set_count",
+            "duration_seconds",
+            "bucket_pull_count", "golden_ticket_count",
+            "regular_count", "large_joke_book_count",
+        ]
 
 
 class EpisodeDetailSerializer(serializers.ModelSerializer):

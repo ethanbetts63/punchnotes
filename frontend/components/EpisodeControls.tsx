@@ -4,24 +4,39 @@ import Link from "next/link";
 import { useState, useMemo } from "react";
 import type { Episode } from "@/lib/serverApi";
 
-type SortKey = "date" | "like_count" | "view_count" | "set_count" | "guest_count" | "like_ratio";
+type SortKey =
+  | "date"
+  | "duration"
+  | "set_count"
+  | "bucket_pulls"
+  | "golden_tickets"
+  | "large_joke_books"
+  | "view_count"
+  | "like_count"
+  | "like_ratio";
 
 const SORT_OPTIONS: { key: SortKey; label: string }[] = [
-  { key: "date",        label: "Date" },
-  { key: "like_count",  label: "Like count" },
-  { key: "view_count",  label: "View count" },
-  { key: "set_count",   label: "Set count" },
-  { key: "guest_count", label: "Guest count" },
-  { key: "like_ratio",  label: "Like ratio" },
+  { key: "date",            label: "Date" },
+  { key: "duration",        label: "Duration" },
+  { key: "set_count",       label: "Set count" },
+  { key: "bucket_pulls",    label: "Bucket pulls" },
+  { key: "golden_tickets",  label: "Golden tickets" },
+  { key: "large_joke_books", label: "Big joke books" },
+  { key: "view_count",      label: "View count" },
+  { key: "like_count",      label: "Like count" },
+  { key: "like_ratio",      label: "Like ratio" },
 ];
 
 function getValue(ep: Episode, key: SortKey): number {
   switch (key) {
-    case "date":        return ep.number;
-    case "like_count":  return ep.like_count ?? 0;
-    case "view_count":  return ep.view_count ?? 0;
-    case "set_count":   return ep.set_count;
-    case "guest_count": return ep.guest_count ?? 0;
+    case "date":            return ep.number;
+    case "duration":        return ep.duration_seconds ?? 0;
+    case "set_count":       return ep.set_count;
+    case "bucket_pulls":    return ep.bucket_pull_count;
+    case "golden_tickets":  return ep.golden_ticket_count;
+    case "large_joke_books": return ep.large_joke_book_count;
+    case "view_count":      return ep.view_count ?? 0;
+    case "like_count":      return ep.like_count ?? 0;
     case "like_ratio":
       return ep.view_count ? (ep.like_count ?? 0) / ep.view_count : 0;
   }
