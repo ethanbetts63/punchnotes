@@ -3,6 +3,11 @@ import re
 import shutil
 from collections import defaultdict
 
+
+def _parse_episode_number(title: str) -> int | None:
+    m = re.search(r"#(\d+)", title)
+    return int(m.group(1)) if m else None
+
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
@@ -56,11 +61,15 @@ class Command(BaseCommand):
         episode, _ = Episode.objects.get_or_create(
             video_id=video_id,
             defaults={
+                "episode_number": _parse_episode_number(meta["episode_title"]),
                 "episode_title": meta["episode_title"],
                 "episode_url": meta["episode_url"],
                 "published_at": meta.get("publish_date"),
             },
         )
+        if episode.episode_number is None:
+            episode.episode_number = _parse_episode_number(episode.episode_title)
+            episode.save(update_fields=["episode_number"])
 
         comedian, _ = Comedian.objects.get_or_create(
             slug=slug,
