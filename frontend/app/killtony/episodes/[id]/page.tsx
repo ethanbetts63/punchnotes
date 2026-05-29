@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getServerEpisode } from "@/lib/serverApi";
-import type { SetInEpisode, ComedianAttribute, ComedianType } from "@/lib/serverApi";
+import type { SetInEpisode, ComedianAttribute } from "@/lib/serverApi";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -45,19 +45,27 @@ const jokeBookColor: Record<string, string> = {
   large: "bg-red-100 text-primary",
 };
 
-const comedianTypeLabel: Record<ComedianType, string> = {
+type AppearanceAttribute = "bucket_pull" | "regular" | "golden_ticket" | "special";
+
+const appearanceAttributes: AppearanceAttribute[] = ["bucket_pull", "regular", "golden_ticket", "special"];
+
+const comedianTypeLabel: Record<AppearanceAttribute, string> = {
   bucket_pull:   "Bucket Pull",
   regular:       "Regular",
   golden_ticket: "Golden Ticket",
   special:       "Special",
 };
 
-const comedianTypeColor: Record<ComedianType, string> = {
+const comedianTypeColor: Record<AppearanceAttribute, string> = {
   bucket_pull:   "bg-stone-100 text-stone-500",
   regular:       "bg-blue-50 text-blue-600",
   golden_ticket: "bg-amber-100 text-amber-700",
   special:       "bg-purple-50 text-purple-600",
 };
+
+function getAppearanceType(attributes: readonly ComedianAttribute[]): AppearanceAttribute | null {
+  return appearanceAttributes.find((attr) => attributes.includes(attr)) ?? null;
+}
 
 const comedianAttributeLabel: Record<ComedianAttribute, string> = {
   gay:             "Gay",
@@ -78,7 +86,7 @@ const comedianAttributeLabel: Record<ComedianAttribute, string> = {
 };
 
 function SetTile({ set, duration }: { set: SetInEpisode; duration: number | null }) {
-  const ct = set.comedian.comedian_type;
+  const ct = getAppearanceType(set.comedian.attributes);
   const attributes = set.comedian.attributes.filter(
     (attr): attr is ComedianAttribute => attr in comedianAttributeLabel
   );

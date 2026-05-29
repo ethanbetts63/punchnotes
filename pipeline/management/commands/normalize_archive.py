@@ -7,7 +7,7 @@ from django.core.management.base import BaseCommand
 
 SET_FIELD_ORDER = [
     "type", "video_id", "episode_title", "episode_url", "publish_date",
-    "guests", "comedian_name", "comedian_type",
+    "guests", "comedian_name",
     "start_seconds", "interview_end_line", "interview_end_seconds",
     "joke_book", "attributes", "bit_meta", "lines",
 ]

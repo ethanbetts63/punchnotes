@@ -15,7 +15,7 @@ Music-window inbox files intentionally overlap: a window starts 25 lines before 
 Read the current inbox file and identify each comedian's ~1-minute stand-up set. For each set, run the extraction command immediately:
 
 ```powershell
-python manage.py extract_set --transcript <path> --start-line <N> --end-line <N> --comedian-name "<Name>" --comedian-type <bucket_pull|regular|golden_ticket> --interview-end-line <N> --joke-book <small|medium|large|null> --comedian-attributes "<attributes>"
+python manage.py extract_set --transcript <path> --start-line <N> --end-line <N> --comedian-name "<Name>" --interview-end-line <N> --joke-book <small|medium|large|null> --comedian-attributes "<attributes>"
 ```
 You should run this everytime you identify a set boundary not in bulk at the end.
 
@@ -29,7 +29,7 @@ Audience reaction lines are filtered automatically by the command.
 
 Also identify the final line of the comic's post-set interview and the joke book size Tony gives the comic at the end of the interview when it is clear. Use only the current appearance's award, not discussion of a previous appearance.
 
-Also identify any clear comedian attributes stated or strongly supported by the transcript. Pass them as a comma-separated list with `--comedian-attributes`, or pass an empty string if none are clear.
+Also identify the comedian appearance type and any clear comedian attributes stated or strongly supported by the transcript. Pass them as a comma-separated list with `--comedian-attributes`. Always include exactly one of `bucket_pull`, `regular`, or `golden_ticket`. If no other attributes are clear, pass only the appearance type.
 
 Some inbox files are short music-window fragments and may contain no complete set. If the current file is very short or has no complete set, delete it from `1_transcript_inbox` and move on.
 
@@ -105,6 +105,9 @@ Only use attributes that are clear from the transcript. If unsure, leave the att
 
 Allowed attribute values:
 
+- `bucket_pull`
+- `regular`
+- `golden_ticket`
 - `gay`
 - `lesbian`
 - `bisexual`
@@ -120,9 +123,8 @@ Allowed attribute values:
 - `old`
 - `young`
 - `middle-age`
-- `nationality:<country>` when a country is explicitly stated or very clear, for example `nationality:canada`
 
-Do not infer attributes from name, accent, or a US city/state alone.
+Do not infer attributes from name, accent, nationality, or a city/state alone.
 
 ---
 
@@ -136,4 +138,4 @@ For every extracted set, pass `--interview-end-line` as the last transcript line
 
 - Sets are monologues. Back-and-forth short-answer dialogue is usually interview, not set.
 - Prefer Tony's introduced spelling for `--comedian-name`.
-- Use `bucket_pull`, `regular`, or `golden_ticket` for `--comedian-type`.
+- Use `bucket_pull`, `regular`, or `golden_ticket` in `--comedian-attributes`.

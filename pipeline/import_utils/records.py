@@ -43,15 +43,22 @@ def merge_attributes(existing, incoming):
     return merged
 
 
+def meta_attributes(meta):
+    incoming = list(meta.get("attributes", []) or [])
+    legacy_type = meta.get("comedian_type")
+    if legacy_type and legacy_type not in incoming:
+        incoming.insert(0, legacy_type)
+    return incoming
+
+
 def upsert_comedian(slug: str, meta: dict) -> Comedian:
     comedian, _ = Comedian.objects.get_or_create(
         slug=slug,
         defaults={
             "name": meta["comedian_name"],
-            "comedian_type": meta["comedian_type"],
         },
     )
-    incoming_attributes = meta.get("attributes", [])
+    incoming_attributes = meta_attributes(meta)
     merged_attributes = merge_attributes(comedian.attributes, incoming_attributes)
     update_fields = []
     if merged_attributes != comedian.attributes:
@@ -211,9 +218,9 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
 def refresh_episode_counts(episode: Episode) -> None:
     """Recompute denormalised counts from the episode's current sets."""
     sets = list(episode.sets.select_related("comedian").all())
-    episode.bucket_pull_count = sum(1 for s in sets if s.comedian.comedian_type == "bucket_pull")
-    episode.golden_ticket_count = sum(1 for s in sets if s.comedian.comedian_type == "golden_ticket")
-    episode.regular_count = sum(1 for s in sets if s.comedian.comedian_type == "regular")
+    episode.bucket_pull_count = sum(1 for s in sets if "bucket_pull" in (s.comedian.attributes or []))
+    episode.golden_ticket_count = sum(1 for s in sets if "golden_ticket" in (s.comedian.attributes or []))
+    episode.regular_count = sum(1 for s in sets if "regular" in (s.comedian.attributes or []))
     episode.large_joke_book_count = sum(1 for s in sets if s.joke_book == "large")
     episode.save(update_fields=[
         "bucket_pull_count", "golden_ticket_count",

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useMemo } from "react";
-import type { Comedian, ComedianAttribute, ComedianType } from "@/lib/serverApi";
+import type { Comedian, ComedianAttribute } from "@/lib/serverApi";
 import Paginator from "@/components/Paginator";
 
 const PAGE_SIZE = 24;
@@ -18,7 +18,7 @@ const SORT_OPTIONS: { key: SortKey; label: string }[] = [
   { key: "avg_punchline_tag_ratio", label: "Punch/tag ratio" },
 ];
 
-const TYPE_OPTIONS: { value: ComedianType | ""; label: string }[] = [
+const TYPE_OPTIONS: { value: ComedianAttribute | ""; label: string }[] = [
   { value: "",               label: "All types" },
   { value: "bucket_pull",    label: "Bucket Pull" },
   { value: "regular",        label: "Regular" },
@@ -27,6 +27,10 @@ const TYPE_OPTIONS: { value: ComedianType | ""; label: string }[] = [
 ];
 
 const ATTRIBUTE_OPTIONS: { value: ComedianAttribute; label: string }[] = [
+  { value: "bucket_pull",     label: "Bucket Pull" },
+  { value: "regular",         label: "Regular" },
+  { value: "golden_ticket",   label: "Golden Ticket" },
+  { value: "special",         label: "Special" },
   { value: "gay",             label: "Gay" },
   { value: "lesbian",         label: "Lesbian" },
   { value: "bisexual",        label: "Bisexual" },
@@ -74,7 +78,7 @@ type Props = { comedians: Comedian[] };
 
 export default function ComedianControls({ comedians }: Props) {
   const [query, setQuery] = useState("");
-  const [typeFilter, setTypeFilter] = useState<ComedianType | "">("");
+  const [typeFilter, setTypeFilter] = useState<ComedianAttribute | "">("");
   const [attributeFilters, setAttributeFilters] = useState<Set<ComedianAttribute>>(new Set());
   const [jokeBooks, setJokeBooks] = useState<Set<string>>(new Set());
   const [sort, setSort] = useState<SortKey>("avg_bits_per_set");
@@ -82,7 +86,7 @@ export default function ComedianControls({ comedians }: Props) {
   const [page, setPage] = useState(1);
 
   function handleQuery(q: string) { setQuery(q); setPage(1); }
-  function handleType(v: ComedianType | "") { setTypeFilter(v); setPage(1); }
+  function handleType(v: ComedianAttribute | "") { setTypeFilter(v); setPage(1); }
   function handleSort(key: SortKey) {
     if (key === sort) { setAsc((v) => !v); }
     else { setSort(key); setAsc(key === "name"); }
@@ -110,7 +114,7 @@ export default function ComedianControls({ comedians }: Props) {
   const results = useMemo(() => {
     let list = comedians;
 
-    if (typeFilter) list = list.filter((c) => c.comedian_type === typeFilter);
+    if (typeFilter) list = list.filter((c) => c.attributes.includes(typeFilter));
 
     if (attributeFilters.size > 0) {
       list = list.filter((c) =>

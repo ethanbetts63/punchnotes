@@ -3,6 +3,10 @@ from django.core.exceptions import ValidationError
 
 
 ATTRIBUTE_CHOICES = [
+    ('bucket_pull', 'Bucket Pull'),
+    ('regular', 'Regular'),
+    ('golden_ticket', 'Golden Ticket'),
+    ('special', 'Special'),
     ('gay', 'Gay'),
     ('lesbian', 'Lesbian'),
     ('bisexual', 'Bisexual'),
@@ -21,7 +25,6 @@ ATTRIBUTE_CHOICES = [
 ]
 
 ATTRIBUTE_VALUES = {value for value, _label in ATTRIBUTE_CHOICES}
-NATIONALITY_ATTRIBUTE_PREFIX = "nationality:"
 
 
 def validate_attributes(value):
@@ -31,29 +34,18 @@ def validate_attributes(value):
     invalid = [
         item for item in value
         if not isinstance(item, str)
-        or (
-            item not in ATTRIBUTE_VALUES
-            and not item.startswith(NATIONALITY_ATTRIBUTE_PREFIX)
-        )
+        or item not in ATTRIBUTE_VALUES
     ]
     if invalid:
         allowed = ", ".join(sorted(ATTRIBUTE_VALUES))
         raise ValidationError(
-            "Comedian attributes must use allowed values "
-            f"({allowed}) or nationality:<country>."
+            f"Comedian attributes must use allowed values ({allowed})."
         )
 
 
 class Comedian(models.Model):
-    COMEDIAN_TYPE_CHOICES = [
-        ('bucket_pull', 'Bucket Pull'),
-        ('regular', 'Regular'),
-        ('golden_ticket', 'Golden Ticket'),
-        ('special', 'Special'),
-    ]
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
-    comedian_type = models.CharField(max_length=20, choices=COMEDIAN_TYPE_CHOICES, blank=True)
     attributes = models.JSONField(
         default=list,
         blank=True,

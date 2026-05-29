@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getServerComedian } from "@/lib/serverApi";
-import type { ComedianType, SetInComedian } from "@/lib/serverApi";
+import type { ComedianAttribute, SetInComedian } from "@/lib/serverApi";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -28,19 +28,27 @@ const jokeBookColor: Record<string, string> = {
   large: "bg-red-100 text-primary",
 };
 
-const comedianTypeLabel: Record<ComedianType, string> = {
+type AppearanceAttribute = "bucket_pull" | "regular" | "golden_ticket" | "special";
+
+const appearanceAttributes: AppearanceAttribute[] = ["bucket_pull", "regular", "golden_ticket", "special"];
+
+const comedianTypeLabel: Record<AppearanceAttribute, string> = {
   bucket_pull:   "Bucket Pull",
   regular:       "Regular",
   golden_ticket: "Golden Ticket",
   special:       "Special",
 };
 
-const comedianTypeBadge: Record<ComedianType, string> = {
+const comedianTypeBadge: Record<AppearanceAttribute, string> = {
   bucket_pull:   "bg-stone-700 text-stone-300",
   regular:       "bg-blue-900/60 text-blue-200",
   golden_ticket: "bg-yellow-800/60 text-yellow-200",
   special:       "bg-purple-900/60 text-purple-200",
 };
+
+function getAppearanceType(attributes: readonly ComedianAttribute[]): AppearanceAttribute | null {
+  return appearanceAttributes.find((attr) => attributes.includes(attr)) ?? null;
+}
 
 const jokeBookBadgeDark: Record<string, string> = {
   small:  "bg-stone-700 text-stone-300",
@@ -92,7 +100,7 @@ export default async function ComedianDetailPage({ params }: Props) {
   const comedian = await getServerComedian(slug);
   if (!comedian) notFound();
 
-  const ct = comedian.comedian_type as ComedianType | "";
+  const ct = getAppearanceType(comedian.attributes);
   const sets = [...(comedian.sets ?? [])].sort(
     (a, b) => b.episode.number - a.episode.number
   );

@@ -70,25 +70,28 @@ def normalize_joke_book(value):
     raise CommandError("--joke-book must be one of small, medium, large, or null")
 
 
-def normalize_attributes(value):
-    if not value:
+def normalize_attributes(value, comedian_type=None):
+    if not value and not comedian_type:
         return []
 
     attributes = []
     seen = set()
-    for raw_part in value.split(","):
+    parts = value.split(",") if value else []
+    if comedian_type:
+        parts.insert(0, comedian_type)
+
+    for raw_part in parts:
         part = raw_part.strip().lower().replace(" ", "_")
         if part == "middle_age":
             part = "middle-age"
         if not part:
             continue
 
-        is_nationality = part.startswith("nationality:")
-        if not is_nationality and part not in ATTRIBUTE_VALUES:
+        if part not in ATTRIBUTE_VALUES:
             allowed = ", ".join(sorted(ATTRIBUTE_VALUES))
             raise CommandError(
                 "--comedian-attributes must be a comma-separated list using "
-                f"{allowed}, or nationality:<country>"
+                f"{allowed}"
             )
 
         if part not in seen:
@@ -127,9 +130,9 @@ class Command(BaseCommand):
         parser.add_argument("--comedian-name", required=True, help="Comedian name for metadata and filename")
         parser.add_argument(
             "--comedian-type",
-            required=True,
+            required=False,
             choices=["bucket_pull", "regular", "golden_ticket"],
-            help="Type of Kill Tony appearance",
+            help="Deprecated; use --comedian-attributes bucket_pull|regular|golden_ticket.",
         )
         parser.add_argument(
             "--set-number",
@@ -155,10 +158,11 @@ class Command(BaseCommand):
         )
         parser.add_argument(
             "--comedian-attributes",
+            dest="attributes",
             default="",
             help=(
                 "Comma-separated explicit comic attributes from the transcript, e.g. "
-                "gay,black,nationality:canada"
+                "bucket_pull,gay,black"
             ),
         )
 
@@ -225,12 +229,11 @@ class Command(BaseCommand):
             "publish_date": transcript.get("publish_date"),
             "guests": parse_guests(transcript["episode_title"]),
             "comedian_name": comedian_name,
-            "comedian_type": options["comedian_type"],
             "start_seconds": selected_lines[0]["start"],
             "interview_end_line": interview_end_line,
             "interview_end_seconds": interview_end_seconds,
             "joke_book": normalize_joke_book(options["joke_book"]),
-            "attributes": normalize_attributes(options["attributes"]),
+            "attributes": normalize_attributes(options["attributes"], options["comedian_type"]),
             "lines": selected_lines,
         }
 

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getServerSet } from "@/lib/serverApi";
-import type { ComedianType } from "@/lib/serverApi";
+import type { ComedianAttribute } from "@/lib/serverApi";
 import SetTranscript from "@/components/SetTranscript";
 
 type Props = { params: Promise<{ id: string }> };
@@ -23,19 +23,27 @@ const jokeBookLabel: Record<string, string> = {
   large:  "Large Joke Book",
 };
 
-const comedianTypeLabel: Record<ComedianType, string> = {
+type AppearanceAttribute = "bucket_pull" | "regular" | "golden_ticket" | "special";
+
+const appearanceAttributes: AppearanceAttribute[] = ["bucket_pull", "regular", "golden_ticket", "special"];
+
+const comedianTypeLabel: Record<AppearanceAttribute, string> = {
   bucket_pull:   "Bucket Pull",
   regular:       "Regular",
   golden_ticket: "Golden Ticket",
   special:       "Special",
 };
 
-const comedianTypeBadge: Record<ComedianType, string> = {
+const comedianTypeBadge: Record<AppearanceAttribute, string> = {
   bucket_pull:   "bg-stone-700 text-stone-300",
   regular:       "bg-blue-900/60 text-blue-200",
   golden_ticket: "bg-yellow-800/60 text-yellow-200",
   special:       "bg-purple-900/60 text-purple-200",
 };
+
+function getAppearanceType(attributes: readonly ComedianAttribute[]): AppearanceAttribute | null {
+  return appearanceAttributes.find((attr) => attributes.includes(attr)) ?? null;
+}
 
 const jokeBookBadge: Record<string, string> = {
   small:  "bg-stone-700 text-stone-200",
@@ -50,7 +58,7 @@ export default async function SetDetailPage({ params }: Props) {
   if (!set) notFound();
 
   const { comedian } = set;
-  const ct = comedian.comedian_type as ComedianType | "";
+  const ct = getAppearanceType(comedian.attributes);
 
   const bitCount = set.bits.length;
   const beatCount = set.bits.reduce((sum, bit) => sum + bit.beats.length, 0);

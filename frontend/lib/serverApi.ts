@@ -70,8 +70,11 @@ export type Episode = {
   comment_count: number | null;
 };
 
-export type ComedianType = "bucket_pull" | "regular" | "golden_ticket" | "special";
 export type ComedianAttribute =
+  | "bucket_pull"
+  | "regular"
+  | "golden_ticket"
+  | "special"
   | "gay"
   | "lesbian"
   | "bisexual"
@@ -87,12 +90,12 @@ export type ComedianAttribute =
   | "old"
   | "young"
   | "middle-age";
-export type ComedianAttributeValue = ComedianAttribute | `nationality:${string}`;
+export type ComedianAttributeValue = ComedianAttribute;
 
 export type SetInEpisode = {
   id: number;
   set_number: number;
-  comedian: { id: number; name: string; slug: string; comedian_type: ComedianType; attributes: ComedianAttributeValue[] };
+  comedian: { id: number; name: string; slug: string; attributes: ComedianAttributeValue[] };
   joke_book: "small" | "medium" | "large" | null;
   bit_count: number;
   start_seconds: number;
@@ -121,7 +124,6 @@ export type Comedian = {
   id: number;
   name: string;
   slug: string;
-  comedian_type: ComedianType | "";
   attributes: ComedianAttributeValue[];
   set_count: number;
   appearances: number;
@@ -165,7 +167,6 @@ export type SetComedian = {
   id: number;
   name: string;
   slug: string;
-  comedian_type: ComedianType | "";
   attributes: ComedianAttributeValue[];
   set_count: number;
   appearances: number;
