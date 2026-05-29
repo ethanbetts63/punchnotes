@@ -11,6 +11,7 @@ class Comedian(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
     comedian_type = models.CharField(max_length=20, choices=COMEDIAN_TYPE_CHOICES, blank=True)
+    comedian_attributes = models.JSONField(default=list, blank=True)
 
     # Denormalised counts updated by refresh_comedian_stats
     joke_count = models.PositiveIntegerField(default=0)

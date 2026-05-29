@@ -11,7 +11,7 @@ class ComedianForSetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comedian
         fields = [
-            "id", "name", "slug", "comedian_type",
+            "id", "name", "slug", "comedian_type", "comedian_attributes",
             "set_count", "appearances",
             "avg_bits_per_set", "avg_beats_per_set",
             "avg_hit_ratio", "avg_punchline_tag_ratio",

@@ -14,6 +14,20 @@ AUDIENCE_REACTION_RE = re.compile(
 )
 
 JOKE_BOOK_VALUES = {"small", "medium", "large"}
+COMEDIAN_ATTRIBUTE_VALUES = {
+    "gay",
+    "lesbian",
+    "bisexual",
+    "man",
+    "woman",
+    "trans",
+    "white",
+    "black",
+    "asian",
+    "latino",
+    "middle_eastern",
+    "disabled",
+}
 
 
 def dump_set(doc):
@@ -71,6 +85,32 @@ def normalize_joke_book(value):
     raise CommandError("--joke-book must be one of small, medium, large, or null")
 
 
+def normalize_comedian_attributes(value):
+    if not value:
+        return []
+
+    attributes = []
+    seen = set()
+    for raw_part in value.split(","):
+        part = raw_part.strip().lower().replace("-", "_").replace(" ", "_")
+        if not part:
+            continue
+
+        is_nationality = part.startswith("nationality:")
+        if not is_nationality and part not in COMEDIAN_ATTRIBUTE_VALUES:
+            allowed = ", ".join(sorted(COMEDIAN_ATTRIBUTE_VALUES))
+            raise CommandError(
+                "--comedian-attributes must be a comma-separated list using "
+                f"{allowed}, or nationality:<country>"
+            )
+
+        if part not in seen:
+            attributes.append(part)
+            seen.add(part)
+
+    return attributes
+
+
 def find_source_line(source_lines, target_line_number):
     for i, line in enumerate(source_lines, start=1):
         if line.get("line_number", i) == target_line_number:
@@ -120,6 +160,14 @@ class Command(BaseCommand):
             type=int,
             default=None,
             help="Last source line number belonging to this comic's post-set interview",
+        )
+        parser.add_argument(
+            "--comedian-attributes",
+            default="",
+            help=(
+                "Comma-separated explicit comic attributes from the transcript, e.g. "
+                "gay,black,nationality:canada"
+            ),
         )
 
     def handle(self, *args, **options):
@@ -192,6 +240,7 @@ class Command(BaseCommand):
             "interview_end_line": interview_end_line,
             "interview_end_seconds": interview_end_seconds,
             "joke_book": normalize_joke_book(options["joke_book"]),
+            "comedian_attributes": normalize_comedian_attributes(options["comedian_attributes"]),
             "lines": selected_lines,
         }
 

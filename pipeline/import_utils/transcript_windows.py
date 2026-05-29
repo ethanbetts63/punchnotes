@@ -30,7 +30,11 @@ def dump_transcript(doc: dict) -> str:
     return "\n".join(parts)
 
 
-def build_transcript_windows(doc: dict, overlap: int = 25) -> list[dict]:
+def build_transcript_windows(
+    doc: dict,
+    overlap: int = 25,
+    min_lines: int = 20,
+) -> list[dict]:
     lines = doc.get("lines")
     if not isinstance(lines, list):
         return []
@@ -44,23 +48,22 @@ def build_transcript_windows(doc: dict, overlap: int = 25) -> list[dict]:
 
     windows = []
     overlap = max(overlap, 0)
-    for window_num, cue_index in enumerate(cue_indexes, start=1):
+    for cue_pos, cue_index in enumerate(cue_indexes):
         start_index = max(cue_index - overlap, 0)
-        if window_num < len(cue_indexes):
-            next_cue_index = cue_indexes[window_num]
-            end_index = max(next_cue_index - overlap, cue_index + 1)
-            end_index = min(end_index, len(lines))
+        if cue_pos < len(cue_indexes) - 1:
+            next_cue_index = cue_indexes[cue_pos + 1]
+            end_index = next_cue_index + 1
         else:
             end_index = len(lines)
 
         window_lines = lines[start_index:end_index]
-        if not window_lines:
+        if len(window_lines) < min_lines:
             continue
 
         windows.append(
             {
                 **{k: v for k, v in doc.items() if k != "lines"},
-                "window_number": window_num,
+                "window_number": len(windows) + 1,
                 "window_start_line": window_lines[0].get("line_number", start_index + 1),
                 "window_end_line": window_lines[-1].get("line_number", end_index),
                 "music_cue_line": lines[cue_index].get("line_number", cue_index + 1),
@@ -76,6 +79,7 @@ def write_inbox_transcript_windows(
     inbox_dir: Path,
     *,
     overlap: int = 25,
+    min_lines: int = 20,
     overwrite: bool = True,
 ) -> list[Path]:
     video_id = doc.get("video_id") or "unknown"
@@ -85,7 +89,7 @@ def write_inbox_transcript_windows(
         for path in inbox_dir.glob(f"{video_id}*.json"):
             path.unlink()
 
-    windows = build_transcript_windows(doc, overlap=overlap)
+    windows = build_transcript_windows(doc, overlap=overlap, min_lines=min_lines)
     if not windows:
         out_path = inbox_dir / f"{video_id}.json"
         out_path.write_text(dump_transcript(doc), encoding="utf-8")

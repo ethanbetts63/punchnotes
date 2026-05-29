@@ -33,6 +33,16 @@ def upsert_episode(video_id: str, meta: dict) -> Episode:
     return episode
 
 
+def merge_attributes(existing, incoming):
+    merged = []
+    seen = set()
+    for value in [*(existing or []), *(incoming or [])]:
+        if value and value not in seen:
+            merged.append(value)
+            seen.add(value)
+    return merged
+
+
 def upsert_comedian(slug: str, meta: dict) -> Comedian:
     comedian, _ = Comedian.objects.get_or_create(
         slug=slug,
@@ -41,6 +51,14 @@ def upsert_comedian(slug: str, meta: dict) -> Comedian:
             "comedian_type": meta["comedian_type"],
         },
     )
+    incoming_attributes = meta.get("comedian_attributes", [])
+    merged_attributes = merge_attributes(comedian.comedian_attributes, incoming_attributes)
+    update_fields = []
+    if merged_attributes != comedian.comedian_attributes:
+        comedian.comedian_attributes = merged_attributes
+        update_fields.append("comedian_attributes")
+    if update_fields:
+        comedian.save(update_fields=update_fields)
     return comedian
 
 

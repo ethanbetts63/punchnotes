@@ -75,7 +75,7 @@ export type ComedianType = "bucket_pull" | "regular" | "golden_ticket" | "specia
 export type SetInEpisode = {
   id: number;
   set_number: number;
-  comedian: { id: number; name: string; slug: string; comedian_type: ComedianType };
+  comedian: { id: number; name: string; slug: string; comedian_type: ComedianType; comedian_attributes: string[] };
   joke_book: "small" | "medium" | "large" | null;
   bit_count: number;
   start_seconds: number;
@@ -105,6 +105,7 @@ export type Comedian = {
   name: string;
   slug: string;
   comedian_type: ComedianType | "";
+  comedian_attributes: string[];
   set_count: number;
   appearances: number;
   has_small_joke_book: boolean;
@@ -148,6 +149,7 @@ export type SetComedian = {
   name: string;
   slug: string;
   comedian_type: ComedianType | "";
+  comedian_attributes: string[];
   set_count: number;
   appearances: number;
   avg_bits_per_set: number | null;

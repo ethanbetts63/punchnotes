@@ -6,6 +6,8 @@ Only process the first JSON file in `C:\Users\ethan\coding\punchpedia\pipeline\d
 
 Each transcript line has a stable `line_number`. Use those original line numbers as the source of truth.
 
+Music-window inbox files intentionally overlap: a window starts 25 lines before a music cue and ends on the next music cue line itself. The end of a window should include the post-set interview and any joke-book award before the next transition. It may include the introduction to a new set but not the set itself. in this case ignore the cut off set. it will appear in full in another file.  
+
 ---
 
 ## Your task
@@ -13,7 +15,7 @@ Each transcript line has a stable `line_number`. Use those original line numbers
 Read the current inbox file and identify each comedian's ~1-minute stand-up set. For each set, run the extraction command immediately:
 
 ```powershell
-python manage.py extract_set --transcript <path> --start-line <N> --end-line <N> --comedian-name "<Name>" --comedian-type <bucket_pull|regular|golden_ticket> --set-number <N> --interview-end-line <N> --joke-book <small|medium|large|null>
+python manage.py extract_set --transcript <path> --start-line <N> --end-line <N> --comedian-name "<Name>" --comedian-type <bucket_pull|regular|golden_ticket> --set-number <N> --interview-end-line <N> --joke-book <small|medium|large|null> --comedian-attributes "<attributes>"
 ```
 You should run this everytime you identify a set boundary not in bulk at the end.
 
@@ -26,6 +28,10 @@ If a line inside the range is clearly Tony, a panel member, or other non-comedia
 Audience reaction lines are filtered automatically by the command.
 
 Also identify the final line of the comic's post-set interview and the joke book size Tony gives the comic at the end of the interview when it is clear. Use only the current appearance's award, not discussion of a previous appearance.
+
+Also identify any clear comedian attributes stated or strongly supported by the transcript. Pass them as a comma-separated list with `--comedian-attributes`, or pass an empty string if none are clear.
+
+Some inbox files are short music-window fragments and may contain no complete set. If the current file is very short or has no complete set, delete it from `1_transcript_inbox` and move on.
 
 After all complete sets in the current inbox file are extracted successfully, delete that processed JSON file from `1_transcript_inbox`.
 
@@ -90,6 +96,33 @@ Useful award cues:
 - "Here's the smallest joke book I could find."
 
 Do not count prior-appearance questions or answers, such as "What size joke book did you get last time?", "Did you get a big joke book last time?", or "No, I got a big joke book." Do not count sponsor or meta mentions like "Bonsai makes our amazing joke books."
+
+---
+
+## Comedian attributes
+
+Only use attributes that are clear from the transcript. If unsure, leave the attribute out.
+
+Allowed attribute values:
+
+- `gay`
+- `lesbian`
+- `bisexual`
+- `man`
+- `woman`
+- `trans`
+- `white`
+- `black`
+- `asian`
+- `latino`
+- `middle_eastern`
+- `disabled`
+- `old`
+- `young`
+- `middle-age`
+- `nationality:<country>` when a country is explicitly stated or very clear, for example `nationality:canada`
+
+Do not infer attributes from name, accent, or a US city/state alone.
 
 ---
 
