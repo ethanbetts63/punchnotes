@@ -2,7 +2,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 
 
-COMEDIAN_ATTRIBUTE_CHOICES = [
+ATTRIBUTE_CHOICES = [
     ('gay', 'Gay'),
     ('lesbian', 'Lesbian'),
     ('bisexual', 'Bisexual'),
@@ -20,11 +20,11 @@ COMEDIAN_ATTRIBUTE_CHOICES = [
     ('middle-age', 'Middle-Age'),
 ]
 
-COMEDIAN_ATTRIBUTE_VALUES = {value for value, _label in COMEDIAN_ATTRIBUTE_CHOICES}
+ATTRIBUTE_VALUES = {value for value, _label in ATTRIBUTE_CHOICES}
 NATIONALITY_ATTRIBUTE_PREFIX = "nationality:"
 
 
-def validate_comedian_attributes(value):
+def validate_attributes(value):
     if not isinstance(value, list):
         raise ValidationError("Comedian attributes must be a list.")
 
@@ -32,12 +32,12 @@ def validate_comedian_attributes(value):
         item for item in value
         if not isinstance(item, str)
         or (
-            item not in COMEDIAN_ATTRIBUTE_VALUES
+            item not in ATTRIBUTE_VALUES
             and not item.startswith(NATIONALITY_ATTRIBUTE_PREFIX)
         )
     ]
     if invalid:
-        allowed = ", ".join(sorted(COMEDIAN_ATTRIBUTE_VALUES))
+        allowed = ", ".join(sorted(ATTRIBUTE_VALUES))
         raise ValidationError(
             "Comedian attributes must use allowed values "
             f"({allowed}) or nationality:<country>."
@@ -54,10 +54,10 @@ class Comedian(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
     comedian_type = models.CharField(max_length=20, choices=COMEDIAN_TYPE_CHOICES, blank=True)
-    comedian_attributes = models.JSONField(
+    attributes = models.JSONField(
         default=list,
         blank=True,
-        validators=[validate_comedian_attributes],
+        validators=[validate_attributes],
     )
 
     # Denormalised counts updated by refresh_comedian_stats

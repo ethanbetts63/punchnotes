@@ -4,7 +4,7 @@ from pathlib import Path
 
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
-from pipeline.models.comedian import COMEDIAN_ATTRIBUTE_VALUES
+from pipeline.models.comedian import ATTRIBUTE_VALUES
 
 
 AUDIENCE_REACTION_RE = re.compile(
@@ -70,7 +70,7 @@ def normalize_joke_book(value):
     raise CommandError("--joke-book must be one of small, medium, large, or null")
 
 
-def normalize_comedian_attributes(value):
+def normalize_attributes(value):
     if not value:
         return []
 
@@ -84,8 +84,8 @@ def normalize_comedian_attributes(value):
             continue
 
         is_nationality = part.startswith("nationality:")
-        if not is_nationality and part not in COMEDIAN_ATTRIBUTE_VALUES:
-            allowed = ", ".join(sorted(COMEDIAN_ATTRIBUTE_VALUES))
+        if not is_nationality and part not in ATTRIBUTE_VALUES:
+            allowed = ", ".join(sorted(ATTRIBUTE_VALUES))
             raise CommandError(
                 "--comedian-attributes must be a comma-separated list using "
                 f"{allowed}, or nationality:<country>"
@@ -230,7 +230,7 @@ class Command(BaseCommand):
             "interview_end_line": interview_end_line,
             "interview_end_seconds": interview_end_seconds,
             "joke_book": normalize_joke_book(options["joke_book"]),
-            "comedian_attributes": normalize_comedian_attributes(options["comedian_attributes"]),
+            "attributes": normalize_attributes(options["attributes"]),
             "lines": selected_lines,
         }
 

@@ -114,7 +114,7 @@ export default function ComedianControls({ comedians }: Props) {
 
     if (attributeFilters.size > 0) {
       list = list.filter((c) =>
-        [...attributeFilters].every((attr) => c.comedian_attributes.includes(attr))
+        [...attributeFilters].every((attr) => c.attributes.includes(attr))
       );
     }
 
@@ -264,9 +264,9 @@ export default function ComedianControls({ comedians }: Props) {
                     {c.has_large_joke_book && <span className="rounded-full bg-red-100 px-2 py-0.5 text-[10px] font-medium text-primary">Large Joke Book</span>}
                   </div>
                 )}
-                {c.comedian_attributes.length > 0 && (
+                {c.attributes.length > 0 && (
                   <div className="mt-2 flex flex-wrap gap-1">
-                    {c.comedian_attributes
+                    {c.attributes
                       .filter((attr): attr is ComedianAttribute => ATTRIBUTE_LABELS.has(attr as ComedianAttribute))
                       .map((attr) => (
                         <span key={attr} className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-medium text-stone-500">

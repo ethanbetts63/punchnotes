@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getServerEpisode } from "@/lib/serverApi";
-import type { SetInEpisode, ComedianType } from "@/lib/serverApi";
+import type { SetInEpisode, ComedianAttribute, ComedianType } from "@/lib/serverApi";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -59,8 +59,30 @@ const comedianTypeColor: Record<ComedianType, string> = {
   special:       "bg-purple-50 text-purple-600",
 };
 
+const comedianAttributeLabel: Record<ComedianAttribute, string> = {
+  gay:             "Gay",
+  lesbian:         "Lesbian",
+  bisexual:        "Bisexual",
+  man:             "Man",
+  woman:           "Woman",
+  trans:           "Trans",
+  white:           "White",
+  black:           "Black",
+  asian:           "Asian",
+  latino:          "Latino",
+  middle_eastern:  "Middle Eastern",
+  disabled:        "Disabled",
+  old:             "Old",
+  young:           "Young",
+  "middle-age":    "Middle-Age",
+};
+
 function SetTile({ set, duration }: { set: SetInEpisode; duration: number | null }) {
   const ct = set.comedian.comedian_type;
+  const attributes = set.comedian.attributes.filter(
+    (attr): attr is ComedianAttribute => attr in comedianAttributeLabel
+  );
+
   return (
     <Link
       href={`/killtony/sets/${set.id}`}
@@ -74,6 +96,15 @@ function SetTile({ set, duration }: { set: SetInEpisode; duration: number | null
           <p className="text-lg font-bold text-stone-900 group-hover:text-primary transition-colors leading-tight truncate">
             {set.comedian.name}
           </p>
+          {attributes.length > 0 && (
+            <div className="mt-2 flex flex-wrap gap-1">
+              {attributes.map((attr) => (
+                <span key={attr} className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-medium text-stone-500">
+                  {comedianAttributeLabel[attr]}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
         <div className="flex shrink-0 flex-col items-end gap-1.5">
           {ct && (

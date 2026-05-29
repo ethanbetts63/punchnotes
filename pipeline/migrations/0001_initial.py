@@ -40,12 +40,12 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 (
-                    "comedian_attributes",
+                    "attributes",
                     models.JSONField(
                         blank=True,
                         default=list,
                         validators=[
-                            pipeline.models.comedian.validate_comedian_attributes
+                            pipeline.models.comedian.validate_attributes
                         ],
                     ),
                 ),

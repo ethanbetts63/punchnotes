@@ -3,7 +3,7 @@ from django.test import SimpleTestCase, TestCase
 
 from pipeline.import_utils.records import merge_attributes, upsert_comedian, upsert_episode, upsert_set
 from pipeline.models import Set
-from pipeline.models.comedian import validate_comedian_attributes
+from pipeline.models.comedian import validate_attributes
 
 
 class MergeAttributesTests(TestCase):
@@ -39,23 +39,23 @@ class UpsertComedianAttributesTests(TestCase):
     }
 
     def test_creates_comedian_with_attributes(self):
-        meta = {**self._base_meta, "comedian_attributes": ["gay", "black"]}
+        meta = {**self._base_meta, "attributes": ["gay", "black"]}
         comedian = upsert_comedian("test-comic", meta)
-        self.assertEqual(comedian.comedian_attributes, ["gay", "black"])
+        self.assertEqual(comedian.attributes, ["gay", "black"])
 
     def test_merges_new_attributes_on_reimport(self):
-        upsert_comedian("test-comic", {**self._base_meta, "comedian_attributes": ["gay"]})
-        comedian = upsert_comedian("test-comic", {**self._base_meta, "comedian_attributes": ["black"]})
-        self.assertEqual(comedian.comedian_attributes, ["gay", "black"])
+        upsert_comedian("test-comic", {**self._base_meta, "attributes": ["gay"]})
+        comedian = upsert_comedian("test-comic", {**self._base_meta, "attributes": ["black"]})
+        self.assertEqual(comedian.attributes, ["gay", "black"])
 
     def test_no_duplicate_attributes_on_reimport(self):
-        upsert_comedian("test-comic", {**self._base_meta, "comedian_attributes": ["gay"]})
-        comedian = upsert_comedian("test-comic", {**self._base_meta, "comedian_attributes": ["gay"]})
-        self.assertEqual(comedian.comedian_attributes, ["gay"])
+        upsert_comedian("test-comic", {**self._base_meta, "attributes": ["gay"]})
+        comedian = upsert_comedian("test-comic", {**self._base_meta, "attributes": ["gay"]})
+        self.assertEqual(comedian.attributes, ["gay"])
 
     def test_missing_attributes_key_is_tolerated(self):
         comedian = upsert_comedian("test-comic", self._base_meta)
-        self.assertEqual(comedian.comedian_attributes, [])
+        self.assertEqual(comedian.attributes, [])
 
 
 class UpsertSetOrderingTests(TestCase):
@@ -132,12 +132,12 @@ class UpsertSetOrderingTests(TestCase):
 
 class ValidateComedianAttributesTests(SimpleTestCase):
     def test_accepts_allowed_attributes_and_nationality(self):
-        validate_comedian_attributes(["gay", "middle-age", "young", "nationality:canada"])
+        validate_attributes(["gay", "middle-age", "young", "nationality:canada"])
 
     def test_rejects_unknown_attribute(self):
         with self.assertRaises(ValidationError):
-            validate_comedian_attributes(["funny"])
+            validate_attributes(["funny"])
 
     def test_rejects_non_list_value(self):
         with self.assertRaises(ValidationError):
-            validate_comedian_attributes("gay")
+            validate_attributes("gay")

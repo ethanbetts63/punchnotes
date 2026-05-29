@@ -51,12 +51,12 @@ def upsert_comedian(slug: str, meta: dict) -> Comedian:
             "comedian_type": meta["comedian_type"],
         },
     )
-    incoming_attributes = meta.get("comedian_attributes", [])
-    merged_attributes = merge_attributes(comedian.comedian_attributes, incoming_attributes)
+    incoming_attributes = meta.get("attributes", [])
+    merged_attributes = merge_attributes(comedian.attributes, incoming_attributes)
     update_fields = []
-    if merged_attributes != comedian.comedian_attributes:
-        comedian.comedian_attributes = merged_attributes
-        update_fields.append("comedian_attributes")
+    if merged_attributes != comedian.attributes:
+        comedian.attributes = merged_attributes
+        update_fields.append("attributes")
     if update_fields:
         comedian.save(update_fields=update_fields)
     return comedian

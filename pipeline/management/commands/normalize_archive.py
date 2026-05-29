@@ -9,7 +9,7 @@ SET_FIELD_ORDER = [
     "type", "video_id", "episode_title", "episode_url", "publish_date",
     "guests", "comedian_name", "comedian_type",
     "start_seconds", "interview_end_line", "interview_end_seconds",
-    "joke_book", "comedian_attributes", "bit_meta", "lines",
+    "joke_book", "attributes", "bit_meta", "lines",
 ]
 
 LINE_FIELD_ORDER = ["text", "label", "bit", "beat", "line_number", "start"]

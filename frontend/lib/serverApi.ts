@@ -92,7 +92,7 @@ export type ComedianAttributeValue = ComedianAttribute | `nationality:${string}`
 export type SetInEpisode = {
   id: number;
   set_number: number;
-  comedian: { id: number; name: string; slug: string; comedian_type: ComedianType; comedian_attributes: ComedianAttributeValue[] };
+  comedian: { id: number; name: string; slug: string; comedian_type: ComedianType; attributes: ComedianAttributeValue[] };
   joke_book: "small" | "medium" | "large" | null;
   bit_count: number;
   start_seconds: number;
@@ -122,7 +122,7 @@ export type Comedian = {
   name: string;
   slug: string;
   comedian_type: ComedianType | "";
-  comedian_attributes: ComedianAttributeValue[];
+  attributes: ComedianAttributeValue[];
   set_count: number;
   appearances: number;
   has_small_joke_book: boolean;
@@ -166,7 +166,7 @@ export type SetComedian = {
   name: string;
   slug: string;
   comedian_type: ComedianType | "";
-  comedian_attributes: ComedianAttributeValue[];
+  attributes: ComedianAttributeValue[];
   set_count: number;
   appearances: number;
   avg_bits_per_set: number | null;
