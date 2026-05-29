@@ -5,6 +5,7 @@ from pathlib import Path
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
+from django.db import transaction
 
 from pipeline.models import Comedian
 from pipeline.import_utils.cleaning import clean_fluff_bit_beat
@@ -17,6 +18,10 @@ from pipeline.import_utils.records import (
     upsert_episode,
     upsert_set,
 )
+
+
+def slugify(value):
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-") or "unknown"
 
 
 class Command(BaseCommand):
@@ -61,37 +66,33 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.ERROR(f"  Failed {path.name}: {e}"))
 
     def _import(self, path):
-        match = re.match(r"^(.+)_set(\d+)_(.+)$", path.stem)
-        if not match:
-            raise ValueError(f"Filename does not match expected pattern: {path.name}")
-
-        video_id = match.group(1)
-        set_number = int(match.group(2))
-        slug = match.group(3)
-
         meta = json.loads(path.read_text(encoding="utf-8-sig"))
         meta = clean_fluff_bit_beat(meta)
         validate_bit_meta(meta)
 
+        video_id = meta["video_id"]
+        slug = slugify(meta["comedian_name"])
+
         episode = upsert_episode(video_id, meta)
         comedian = upsert_comedian(slug, meta)
-        set_obj = upsert_set(episode, set_number, comedian, meta)
+        with transaction.atomic():
+            set_obj = upsert_set(episode, comedian, meta)
 
-        for guest_name in meta.get("guests", []):
-            guest_slug = re.sub(r"[^a-z0-9]+", "-", guest_name.lower()).strip("-")
-            guest, _ = Comedian.objects.get_or_create(
-                slug=guest_slug,
-                defaults={"name": guest_name},
-            )
-            episode.guests.add(guest)
+            for guest_name in meta.get("guests", []):
+                guest_slug = slugify(guest_name)
+                guest, _ = Comedian.objects.get_or_create(
+                    slug=guest_slug,
+                    defaults={"name": guest_name},
+                )
+                episode.guests.add(guest)
 
-        lines = import_lines(set_obj, meta["lines"])
-        import_bits(set_obj, meta["lines"], meta.get("bit_meta", {}))
-        refresh_episode_counts(episode)
+            lines = import_lines(set_obj, meta["lines"])
+            import_bits(set_obj, meta["lines"], meta.get("bit_meta", {}))
+            refresh_episode_counts(episode)
 
         self.stdout.write(
             self.style.SUCCESS(
-                f"  {video_id} set{set_number:02d} {meta['comedian_name']}: "
+                f"  {video_id} set{set_obj.set_number:02d} {meta['comedian_name']}: "
                 f"{len(lines)} lines, {len(meta.get('bit_meta', {}))} bits"
             )
         )

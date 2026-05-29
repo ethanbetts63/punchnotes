@@ -15,7 +15,7 @@ Music-window inbox files intentionally overlap: a window starts 25 lines before 
 Read the current inbox file and identify each comedian's ~1-minute stand-up set. For each set, run the extraction command immediately:
 
 ```powershell
-python manage.py extract_set --transcript <path> --start-line <N> --end-line <N> --comedian-name "<Name>" --comedian-type <bucket_pull|regular|golden_ticket> --set-number <N> --interview-end-line <N> --joke-book <small|medium|large|null> --comedian-attributes "<attributes>"
+python manage.py extract_set --transcript <path> --start-line <N> --end-line <N> --comedian-name "<Name>" --comedian-type <bucket_pull|regular|golden_ticket> --interview-end-line <N> --joke-book <small|medium|large|null> --comedian-attributes "<attributes>"
 ```
 You should run this everytime you identify a set boundary not in bulk at the end.
 
@@ -137,4 +137,3 @@ For every extracted set, pass `--interview-end-line` as the last transcript line
 - Sets are monologues. Back-and-forth short-answer dialogue is usually interview, not set.
 - Prefer Tony's introduced spelling for `--comedian-name`.
 - Use `bucket_pull`, `regular`, or `golden_ticket` for `--comedian-type`.
-- `--set-number` is 1-indexed in show order.

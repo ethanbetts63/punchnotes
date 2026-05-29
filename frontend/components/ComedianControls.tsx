@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useMemo } from "react";
-import type { Comedian, ComedianType } from "@/lib/serverApi";
+import type { Comedian, ComedianAttribute, ComedianType } from "@/lib/serverApi";
 import Paginator from "@/components/Paginator";
 
 const PAGE_SIZE = 24;
@@ -25,6 +25,28 @@ const TYPE_OPTIONS: { value: ComedianType | ""; label: string }[] = [
   { value: "golden_ticket",  label: "Golden Ticket" },
   { value: "special",        label: "Special" },
 ];
+
+const ATTRIBUTE_OPTIONS: { value: ComedianAttribute; label: string }[] = [
+  { value: "gay",             label: "Gay" },
+  { value: "lesbian",         label: "Lesbian" },
+  { value: "bisexual",        label: "Bisexual" },
+  { value: "man",             label: "Man" },
+  { value: "woman",           label: "Woman" },
+  { value: "trans",           label: "Trans" },
+  { value: "white",           label: "White" },
+  { value: "black",           label: "Black" },
+  { value: "asian",           label: "Asian" },
+  { value: "latino",          label: "Latino" },
+  { value: "middle_eastern",  label: "Middle Eastern" },
+  { value: "disabled",        label: "Disabled" },
+  { value: "old",             label: "Old" },
+  { value: "young",           label: "Young" },
+  { value: "middle-age",      label: "Middle-Age" },
+];
+
+const ATTRIBUTE_LABELS = new Map(
+  ATTRIBUTE_OPTIONS.map(({ value, label }) => [value, label])
+);
 
 const JOKE_BOOK_OPTIONS: { key: "has_small_joke_book" | "has_medium_joke_book" | "has_large_joke_book"; label: string }[] = [
   { key: "has_small_joke_book",  label: "Small Joke Book" },
@@ -53,6 +75,7 @@ type Props = { comedians: Comedian[] };
 export default function ComedianControls({ comedians }: Props) {
   const [query, setQuery] = useState("");
   const [typeFilter, setTypeFilter] = useState<ComedianType | "">("");
+  const [attributeFilters, setAttributeFilters] = useState<Set<ComedianAttribute>>(new Set());
   const [jokeBooks, setJokeBooks] = useState<Set<string>>(new Set());
   const [sort, setSort] = useState<SortKey>("avg_bits_per_set");
   const [asc, setAsc] = useState(false);
@@ -68,7 +91,17 @@ export default function ComedianControls({ comedians }: Props) {
   function toggleJokeBook(key: string) {
     setJokeBooks((prev) => {
       const next = new Set(prev);
-      next.has(key) ? next.delete(key) : next.add(key);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+    setPage(1);
+  }
+  function toggleAttribute(value: ComedianAttribute) {
+    setAttributeFilters((prev) => {
+      const next = new Set(prev);
+      if (next.has(value)) next.delete(value);
+      else next.add(value);
       return next;
     });
     setPage(1);
@@ -78,6 +111,12 @@ export default function ComedianControls({ comedians }: Props) {
     let list = comedians;
 
     if (typeFilter) list = list.filter((c) => c.comedian_type === typeFilter);
+
+    if (attributeFilters.size > 0) {
+      list = list.filter((c) =>
+        [...attributeFilters].every((attr) => c.comedian_attributes.includes(attr))
+      );
+    }
 
     if (jokeBooks.size > 0) {
       list = list.filter((c) =>
@@ -98,7 +137,7 @@ export default function ComedianControls({ comedians }: Props) {
         : (va as number) - (vb as number);
       return asc ? cmp : -cmp;
     });
-  }, [comedians, query, typeFilter, jokeBooks, sort, asc]);
+  }, [comedians, query, typeFilter, attributeFilters, jokeBooks, sort, asc]);
 
   const totalPages = Math.ceil(results.length / PAGE_SIZE);
   const pageItems = results.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
@@ -135,6 +174,19 @@ export default function ComedianControls({ comedians }: Props) {
       <div className="mb-3 flex flex-wrap gap-2">
         {TYPE_OPTIONS.map(({ value, label }) => (
           <button key={value} onClick={() => handleType(value)} className={chip(typeFilter === value)}>
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {/* Comedian attribute filter */}
+      <div className="mb-3 flex flex-wrap gap-2">
+        {ATTRIBUTE_OPTIONS.map(({ value, label }) => (
+          <button
+            key={value}
+            onClick={() => toggleAttribute(value)}
+            className={chip(attributeFilters.has(value))}
+          >
             {label}
           </button>
         ))}
@@ -210,6 +262,17 @@ export default function ComedianControls({ comedians }: Props) {
                     {c.has_small_joke_book && <span className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-medium text-stone-500">Small Joke Book</span>}
                     {c.has_medium_joke_book && <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-medium text-amber-700">Medium Joke Book</span>}
                     {c.has_large_joke_book && <span className="rounded-full bg-red-100 px-2 py-0.5 text-[10px] font-medium text-primary">Large Joke Book</span>}
+                  </div>
+                )}
+                {c.comedian_attributes.length > 0 && (
+                  <div className="mt-2 flex flex-wrap gap-1">
+                    {c.comedian_attributes
+                      .filter((attr): attr is ComedianAttribute => ATTRIBUTE_LABELS.has(attr as ComedianAttribute))
+                      .map((attr) => (
+                        <span key={attr} className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-medium text-stone-500">
+                          {ATTRIBUTE_LABELS.get(attr)}
+                        </span>
+                      ))}
                   </div>
                 )}
               </Link>

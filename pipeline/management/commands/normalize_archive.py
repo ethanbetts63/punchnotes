@@ -7,7 +7,7 @@ from django.core.management.base import BaseCommand
 
 SET_FIELD_ORDER = [
     "type", "video_id", "episode_title", "episode_url", "publish_date",
-    "guests", "comedian_name", "comedian_type", "set_number",
+    "guests", "comedian_name", "comedian_type",
     "start_seconds", "interview_end_line", "interview_end_seconds",
     "joke_book", "comedian_attributes", "bit_meta", "lines",
 ]
@@ -98,6 +98,8 @@ def serialize_set(data: dict) -> str:
             out[key] = data[key]
     # Preserve any unrecognised keys at the end
     for key, val in data.items():
+        if key == "set_number":
+            continue
         if key not in out:
             out[key] = val
 

@@ -4,6 +4,7 @@ from pathlib import Path
 
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
+from pipeline.models.comedian import COMEDIAN_ATTRIBUTE_VALUES
 
 
 AUDIENCE_REACTION_RE = re.compile(
@@ -14,22 +15,6 @@ AUDIENCE_REACTION_RE = re.compile(
 )
 
 JOKE_BOOK_VALUES = {"small", "medium", "large"}
-COMEDIAN_ATTRIBUTE_VALUES = {
-    "gay",
-    "lesbian",
-    "bisexual",
-    "man",
-    "woman",
-    "trans",
-    "white",
-    "black",
-    "asian",
-    "latino",
-    "middle_eastern",
-    "disabled",
-}
-
-
 def dump_set(doc):
     """Pretty-print set metadata with one compact JSON object per line."""
     non_lines = [(k, v) for k, v in doc.items() if k != "lines"]
@@ -92,7 +77,9 @@ def normalize_comedian_attributes(value):
     attributes = []
     seen = set()
     for raw_part in value.split(","):
-        part = raw_part.strip().lower().replace("-", "_").replace(" ", "_")
+        part = raw_part.strip().lower().replace(" ", "_")
+        if part == "middle_age":
+            part = "middle-age"
         if not part:
             continue
 
@@ -144,7 +131,12 @@ class Command(BaseCommand):
             choices=["bucket_pull", "regular", "golden_ticket"],
             help="Type of Kill Tony appearance",
         )
-        parser.add_argument("--set-number", required=True, type=int, help="1-indexed set number in show order")
+        parser.add_argument(
+            "--set-number",
+            required=False,
+            type=int,
+            help="Deprecated; import derives set order from start_seconds.",
+        )
         parser.add_argument(
             "--omit-lines",
             default="",
@@ -219,9 +211,8 @@ class Command(BaseCommand):
             interview_end_seconds = line_end_seconds(find_source_line(source_lines, interview_end_line))
 
         video_id = transcript["video_id"]
-        set_number = options["set_number"]
         comedian_name = options["comedian_name"]
-        output_name = f"{video_id}_set{set_number:02d}_{slugify(comedian_name)}.json"
+        output_name = f"{video_id}_line{start_line:05d}_{slugify(comedian_name)}.json"
         output_dir = settings.PIPELINE_DATA_DIR / "2_set_inbox"
         output_dir.mkdir(parents=True, exist_ok=True)
         output_path = output_dir / output_name
@@ -235,7 +226,6 @@ class Command(BaseCommand):
             "guests": parse_guests(transcript["episode_title"]),
             "comedian_name": comedian_name,
             "comedian_type": options["comedian_type"],
-            "set_number": set_number,
             "start_seconds": selected_lines[0]["start"],
             "interview_end_line": interview_end_line,
             "interview_end_seconds": interview_end_seconds,

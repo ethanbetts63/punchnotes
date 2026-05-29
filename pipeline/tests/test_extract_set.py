@@ -7,8 +7,8 @@ from pipeline.management.commands.extract_set import normalize_comedian_attribut
 class ExtractSetTests(SimpleTestCase):
     def test_normalizes_comedian_attributes(self):
         self.assertEqual(
-            normalize_comedian_attributes("Gay, black, middle eastern, nationality:Canada"),
-            ["gay", "black", "middle_eastern", "nationality:canada"],
+            normalize_comedian_attributes("Gay, black, middle eastern, middle-age, old, young, nationality:Canada"),
+            ["gay", "black", "middle_eastern", "middle-age", "old", "young", "nationality:canada"],
         )
 
     def test_comedian_attributes_are_deduplicated(self):

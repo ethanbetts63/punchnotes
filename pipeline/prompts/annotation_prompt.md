@@ -230,7 +230,6 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
   "guests": ["Theo Von", "Jelly Roll"],
   "comedian_name": "Ari Mati",
   "comedian_type": "regular",
-  "set_number": 13,
   "start_seconds": 7160,
   "bit_meta": {
     "1": {

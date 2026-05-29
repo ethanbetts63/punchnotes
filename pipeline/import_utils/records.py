@@ -62,20 +62,42 @@ def upsert_comedian(slug: str, meta: dict) -> Comedian:
     return comedian
 
 
-def upsert_set(episode: Episode, set_number: int, comedian: Comedian, meta: dict) -> Set:
-    set_obj, _ = Set.objects.get_or_create(
-        episode=episode,
-        set_number=set_number,
-        defaults={
-            "comedian": comedian,
-            "start_seconds": meta["start_seconds"],
-            "interview_end_line": meta.get("interview_end_line"),
-            "interview_end_seconds": meta.get("interview_end_seconds"),
-            "joke_book": meta.get("joke_book"),
-        },
-    )
+def resequence_episode_sets(episode: Episode) -> None:
+    """Assign 1-indexed set numbers by source start time."""
+    sets = list(episode.sets.order_by("start_seconds", "id"))
+    if not sets:
+        return
+
+    max_set_number = max(set_obj.set_number for set_obj in sets)
+    offset = max_set_number + len(sets) + 1
+    for i, set_obj in enumerate(sets, start=1):
+        if set_obj.set_number != offset + i:
+            set_obj.set_number = offset + i
+            set_obj.save(update_fields=["set_number"])
+
+    for i, set_obj in enumerate(sets, start=1):
+        if set_obj.set_number != i:
+            set_obj.set_number = i
+            set_obj.save(update_fields=["set_number"])
+
+
+def upsert_set(episode: Episode, comedian: Comedian, meta: dict) -> Set:
+    start_seconds = meta["start_seconds"]
+    set_obj = episode.sets.filter(start_seconds=start_seconds).first()
+    if set_obj is None:
+        last_set_number = episode.sets.order_by("-set_number").values_list("set_number", flat=True).first()
+        next_set_number = (last_set_number or 0) + 1
+        set_obj = Set.objects.create(
+            episode=episode,
+            set_number=next_set_number,
+            comedian=comedian,
+            start_seconds=start_seconds,
+            interview_end_line=meta.get("interview_end_line"),
+            interview_end_seconds=meta.get("interview_end_seconds"),
+            joke_book=meta.get("joke_book"),
+        )
     set_obj.comedian = comedian
-    set_obj.start_seconds = meta["start_seconds"]
+    set_obj.start_seconds = start_seconds
     set_obj.interview_end_line = meta.get("interview_end_line")
     set_obj.interview_end_seconds = meta.get("interview_end_seconds")
     set_obj.joke_book = meta.get("joke_book")
@@ -83,8 +105,9 @@ def upsert_set(episode: Episode, set_number: int, comedian: Comedian, meta: dict
         "comedian", "start_seconds", "interview_end_line",
         "interview_end_seconds", "joke_book",
     ])
+    resequence_episode_sets(episode)
+    set_obj.refresh_from_db()
     return set_obj
-
 
 def refresh_set_ratios(set_obj: Set) -> None:
     counts = set_obj.lines.aggregate(
