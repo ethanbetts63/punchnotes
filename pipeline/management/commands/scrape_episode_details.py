@@ -1,6 +1,5 @@
 import json
 import time
-from pathlib import Path
 
 import yt_dlp
 from django.conf import settings
@@ -15,7 +14,7 @@ class Command(BaseCommand):
     help = "Fetch per-video engagement stats (views, likes, comments, tags) and write to inbox"
 
     def handle(self, *args, **options):
-        inbox = Path(settings.BASE_DIR) / "data" / "episode_details_inbox"
+        inbox = settings.PIPELINE_DATA_DIR / "episode_details_inbox"
         inbox.mkdir(parents=True, exist_ok=True)
 
         episodes = list(

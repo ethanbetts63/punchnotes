@@ -28,13 +28,13 @@ class Command(BaseCommand):
             default=None,
             help=(
                 "Directory to read JSON files from. "
-                "Defaults to data/4_bit_annotated_set_inbox/ and moves processed files to the archive. "
+                "Defaults to pipeline/data/4_bit_annotated_set_inbox/ and moves processed files to the archive. "
                 "When --dir is supplied the files are read in place and not moved."
             ),
         )
 
     def handle(self, *args, **options):
-        data_dir = settings.BASE_DIR / "data"
+        data_dir = settings.PIPELINE_DATA_DIR
 
         if options["source_dir"]:
             source = Path(options["source_dir"])
@@ -42,7 +42,7 @@ class Command(BaseCommand):
         else:
             source = data_dir / "4_bit_annotated_set_inbox"
             archive = data_dir / "bit_annotated_set_archive"
-            archive.mkdir(exist_ok=True)
+            archive.mkdir(parents=True, exist_ok=True)
 
         files = sorted(source.glob("*.json"))
         if not files:

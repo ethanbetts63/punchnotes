@@ -6,7 +6,7 @@ You are coordinating the Kill Tony annotation pipeline. Work through the phases 
 
 ## Phase 1 — Transcript Analysis
 
-Check `C:\Users\ethan\coding\punchpedia\data\1_transcript_inbox\`.
+Check `C:\Users\ethan\coding\punchpedia\pipeline\data\1_transcript_inbox\`.
 
 If there are any `.json` files there:
 
@@ -21,7 +21,7 @@ If `1_transcript_inbox` is empty, proceed to Phase 2.
 
 ## Phase 2 — Annotation
 
-Check `C:\Users\ethan\coding\punchpedia\data\2_set_inbox\`.
+Check `C:\Users\ethan\coding\punchpedia\pipeline\data\2_set_inbox\`.
 
 If there are any `.json` files there:
 

@@ -1,6 +1,5 @@
 import json
 import shutil
-from pathlib import Path
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
@@ -12,7 +11,7 @@ class Command(BaseCommand):
     help = "Import scraped episode engagement stats from inbox into the database"
 
     def handle(self, *args, **options):
-        data_dir = Path(settings.BASE_DIR) / "data"
+        data_dir = settings.PIPELINE_DATA_DIR
         inbox = data_dir / "episode_details_inbox"
         archive = data_dir / "episode_details_archive"
         archive.mkdir(parents=True, exist_ok=True)

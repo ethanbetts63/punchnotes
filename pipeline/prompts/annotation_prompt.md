@@ -8,7 +8,7 @@ Annotate only the files you are explicitly given — do not process any files be
 
 ## Input
 
-Each input file is a set JSON from `data/2_set_inbox/`. Lines have an empty `label` field:
+Each input file is a set JSON from `pipeline/data/2_set_inbox/`. Lines have an empty `label` field:
 
 ```json
 {
@@ -26,7 +26,7 @@ Each input file is a set JSON from `data/2_set_inbox/`. Lines have an empty `lab
 
 ## Output
 
-Write the annotated file to `data/4_bit_annotated_set_inbox/<same-filename>.json`. The output adds `bit_meta` before `lines`, and each line gets `label`, `bit`, and `beat` fields.
+Write the annotated file to `pipeline/data/4_bit_annotated_set_inbox/<same-filename>.json`. The output adds `bit_meta` before `lines`, and each line gets `label`, `bit`, and `beat` fields.
 
 Every beat has its own `premise`, `joke_type`, and `topics`. A bit gets its own `premise` **only when it has more than one beat** — the bit premise is the umbrella that ties multiple beats together. Single-beat bits don't need a bit premise because the beat premise already captures the joke's logic.
 
@@ -71,7 +71,7 @@ Write valid JSON in any standard format — formatting is normalised automatical
 }
 ```
 
-After writing, delete the source file from `data/2_set_inbox/`.
+After writing, delete the source file from `pipeline/data/2_set_inbox/`.
 
 ---
 
@@ -284,8 +284,8 @@ Joke type: `reframe`
 2. For each file:
    - Read the whole set.
    - Annotate: label every line, assign bit/beat numbers, write bit_meta.
-   - Write the output to `data/4_bit_annotated_set_inbox/<same-filename>.json`.
-   - Delete the source file from `data/2_set_inbox/`.
+   - Write the output to `pipeline/data/4_bit_annotated_set_inbox/<same-filename>.json`.
+   - Delete the source file from `pipeline/data/2_set_inbox/`.
 3. Move to the next file. Repeat until all given files are done.
 
 ---

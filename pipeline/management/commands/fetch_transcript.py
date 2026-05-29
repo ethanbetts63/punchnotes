@@ -79,14 +79,15 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         local_only = options["local_only"]
         download_only = options["download_only"]
-        data_dir = settings.BASE_DIR / "data"
+        data_dir = settings.PIPELINE_DATA_DIR
         todo_path = data_dir / "transcript_todos.jsonl"
         history_path = data_dir / "scrape_history.jsonl"
         inbox_path = data_dir / "1_transcript_inbox"
         archive_path = data_dir / "transcript_archive"
         audio_dir = data_dir / "audio"
-        audio_dir.mkdir(exist_ok=True)
-        archive_path.mkdir(exist_ok=True)
+        inbox_path.mkdir(parents=True, exist_ok=True)
+        audio_dir.mkdir(parents=True, exist_ok=True)
+        archive_path.mkdir(parents=True, exist_ok=True)
 
         lines = [l for l in todo_path.read_text().splitlines() if l.strip()]
         if not lines:

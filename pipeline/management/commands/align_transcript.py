@@ -126,7 +126,7 @@ def _fetch_podscripts_lines(
 ) -> list[dict]:
     """
     Return podscripts transcript lines for the given episode number.
-    Uses data/podscripts_index.json if available; otherwise crawls listing pages.
+    Uses pipeline/data/podscripts_index.json if available; otherwise crawls listing pages.
     """
     session = requests.Session()
     session.headers.update(HEADERS)
@@ -318,7 +318,7 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-        data_dir = settings.BASE_DIR / "data"
+        data_dir = settings.PIPELINE_DATA_DIR
 
         transcript_path = Path(options["transcript"])
         if not transcript_path.is_absolute():

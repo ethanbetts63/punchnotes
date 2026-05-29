@@ -77,7 +77,7 @@ def dump_episode(doc: dict) -> str:
 
 
 class Command(BaseCommand):
-    help = "Scrape Kill Tony transcripts from podscripts.co into data/1_transcript_inbox/"
+    help = "Scrape Kill Tony transcripts from podscripts.co into pipeline/data/1_transcript_inbox/"
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -111,9 +111,9 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-        data_dir = settings.BASE_DIR / "data"
+        data_dir = settings.PIPELINE_DATA_DIR
         inbox_path = data_dir / "1_transcript_inbox"
-        inbox_path.mkdir(exist_ok=True)
+        inbox_path.mkdir(parents=True, exist_ok=True)
         index_path = data_dir / "podscripts_index.json"
         delay = options["delay"]
 
