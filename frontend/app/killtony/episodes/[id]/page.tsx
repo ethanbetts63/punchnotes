@@ -88,7 +88,7 @@ const comedianAttributeLabel: Record<ComedianAttribute, string> = {
 function SetTile({ set, duration }: { set: SetInEpisode; duration: number | null }) {
   const ct = getAppearanceType(set.comedian.attributes);
   const attributes = set.comedian.attributes.filter(
-    (attr): attr is ComedianAttribute => attr in comedianAttributeLabel
+    (attr): attr is ComedianAttribute => attr in comedianAttributeLabel && attr !== ct
   );
 
   return (
@@ -104,8 +104,13 @@ function SetTile({ set, duration }: { set: SetInEpisode; duration: number | null
           <p className="text-lg font-bold text-stone-900 group-hover:text-primary transition-colors leading-tight truncate">
             {set.comedian.name}
           </p>
-          {attributes.length > 0 && (
+          {(ct || attributes.length > 0) && (
             <div className="mt-2 flex flex-wrap gap-1">
+              {ct && (
+                <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${comedianTypeColor[ct]}`}>
+                  {comedianTypeLabel[ct]}
+                </span>
+              )}
               {attributes.map((attr) => (
                 <span key={attr} className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-medium text-stone-500">
                   {comedianAttributeLabel[attr]}
@@ -115,11 +120,6 @@ function SetTile({ set, duration }: { set: SetInEpisode; duration: number | null
           )}
         </div>
         <div className="flex shrink-0 flex-col items-end gap-1.5">
-          {ct && (
-            <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${comedianTypeColor[ct]}`}>
-              {comedianTypeLabel[ct]}
-            </span>
-          )}
           {set.joke_book && (
             <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${jokeBookColor[set.joke_book]}`}>
               {jokeBookLabel[set.joke_book]}

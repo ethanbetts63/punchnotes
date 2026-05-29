@@ -6,7 +6,7 @@ from django.core.management.base import BaseCommand
 
 from pipeline.models import Episode
 
-PLAYLIST_URL = "https://www.youtube.com/playlist?list=PLckDfvgNRRkhpzJ0bJW2NrPvFXMRbgn5N"
+PLAYLIST_URL = "https://www.youtube.com/playlist?list=PLy4mvfOQOs8Aw527rECOiIwvqXn525c8s"
 KT_PATTERN = re.compile(r"KT\s*#(\d+)", re.IGNORECASE)
 
 
