@@ -35,6 +35,7 @@ from bs4 import BeautifulSoup
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
+from pipeline.import_utils.transcript_windows import write_inbox_transcript_windows
 from pipeline.models import Episode
 
 BASE_URL = "https://podscripts.co"
@@ -113,7 +114,9 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         data_dir = settings.PIPELINE_DATA_DIR
         inbox_path = data_dir / "1_transcript_inbox"
+        archive_path = data_dir / "transcript_archive"
         inbox_path.mkdir(parents=True, exist_ok=True)
+        archive_path.mkdir(parents=True, exist_ok=True)
         index_path = data_dir / "podscripts_index.json"
         delay = options["delay"]
 
@@ -165,8 +168,9 @@ class Command(BaseCommand):
                 failed += 1
                 continue
 
-            out_file = inbox_path / f"{ep_obj.video_id}.json"
-            if out_file.exists() and not options["overwrite"]:
+            archive_file = archive_path / f"{ep_obj.video_id}.json"
+            existing_inbox_files = list(inbox_path.glob(f"{ep_obj.video_id}*.json"))
+            if (archive_file.exists() or existing_inbox_files) and not options["overwrite"]:
                 self.stdout.write(f"  #{ep_num}: already exists, skipping (--overwrite to redo)")
                 skipped += 1
                 continue
@@ -188,9 +192,13 @@ class Command(BaseCommand):
                 "publish_date": ep_obj.published_at.isoformat() if ep_obj.published_at else None,
                 "lines": lines,
             }
-            out_file.write_text(dump_episode(doc), encoding="utf-8")
+            archive_file.write_text(dump_episode(doc), encoding="utf-8")
+            inbox_files = write_inbox_transcript_windows(doc, inbox_path, overlap=25)
             self.stdout.write(
-                self.style.SUCCESS(f"  #{ep_num}: {len(lines)} lines → {out_file.name}")
+                self.style.SUCCESS(
+                    f"  #{ep_num}: {len(lines)} lines archived; "
+                    f"{len(inbox_files)} inbox transcript window(s)"
+                )
             )
             ok += 1
 

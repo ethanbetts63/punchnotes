@@ -1,8 +1,8 @@
 # Kill Tony Set Boundary Prompt
 
-You are finding stand-up **set boundaries** in one *Kill Tony* episode transcript.
+You are finding stand-up **set boundaries** in one *Kill Tony* transcript inbox file. Inbox files may be full transcripts or music-cue windows generated from a full transcript.
 
-Only process the first JSON file in `C:\Users\ethan\coding\punchpedia\pipeline\data\1_transcript_inbox\`. Do not process multiple episodes in one run.
+Only process the first JSON file in `C:\Users\ethan\coding\punchpedia\pipeline\data\1_transcript_inbox\`. Do not process multiple inbox files in one run.
 
 Each transcript line has a stable `line_number`. Use those original line numbers as the source of truth.
 
@@ -10,11 +10,12 @@ Each transcript line has a stable `line_number`. Use those original line numbers
 
 ## Your task
 
-Read the transcript and identify each comedian's ~1-minute stand-up set. For each set, run the extraction command:
+Read the current inbox file and identify each comedian's ~1-minute stand-up set. For each set, run the extraction command immediately:
 
 ```powershell
 python manage.py extract_set --transcript <path> --start-line <N> --end-line <N> --comedian-name "<Name>" --comedian-type <bucket_pull|regular|golden_ticket> --set-number <N> --interview-end-line <N> --joke-book <small|medium|large|null>
 ```
+You should run this everytime you identify a set boundary not in bulk at the end.
 
 If a line inside the range is clearly Tony, a panel member, or other non-comedian speech, omit it with:
 
@@ -26,7 +27,7 @@ Audience reaction lines are filtered automatically by the command.
 
 Also identify the final line of the comic's post-set interview and the joke book size Tony gives the comic at the end of the interview when it is clear. Use only the current appearance's award, not discussion of a previous appearance.
 
-After all sets in the episode are extracted successfully, delete the processed transcript file from `1_transcript_inbox`.
+After all complete sets in the current inbox file are extracted successfully, delete that processed JSON file from `1_transcript_inbox`.
 
 ---
 
@@ -96,10 +97,6 @@ Do not count prior-appearance questions or answers, such as "What size joke book
 
 For every extracted set, pass `--interview-end-line` as the last transcript line belonging to that comic's post-set interview or exit. This is usually the line where Tony thanks the comic, says their name to the crowd, hands them a joke book, or immediately before Tony introduces the next comic, returns to show banter, or starts a sponsor/transition block.
 
-If the interview end is uncertain, use the clearest last line before the next set starts. Do not include the next comic's intro or material.
-
-For Timmy No-Breaks, use the final line of his included appearance.
-
 ---
 
 ## Rules
@@ -108,4 +105,3 @@ For Timmy No-Breaks, use the final line of his included appearance.
 - Prefer Tony's introduced spelling for `--comedian-name`.
 - Use `bucket_pull`, `regular`, or `golden_ticket` for `--comedian-type`.
 - `--set-number` is 1-indexed in show order.
-- If a boundary is uncertain, skip that set instead of extracting a bad range.

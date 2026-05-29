@@ -6,6 +6,8 @@ import yt_dlp
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
+from pipeline.import_utils.transcript_windows import write_inbox_transcript_windows
+
 # YouTube video IDs are always 11 characters.
 # Audio files are named "{video_id} - {YYYY-MM-DD} - {title}.{ext}" so both
 # the publish date and title can be recovered offline without a network call.
@@ -201,9 +203,12 @@ class Command(BaseCommand):
                     for i, line in enumerate(transcript_lines, start=1)
                 ],
             }
-            inbox_file = inbox_path / f"{video_id}.json"
-            inbox_file.write_text(dump_episode(inbox_doc), encoding="utf-8")
-            self.stdout.write(self.style.SUCCESS(f"[{video_id}] Saved {len(transcript_lines)} lines to {inbox_file}"))
+            inbox_files = write_inbox_transcript_windows(inbox_doc, inbox_path, overlap=25)
+            self.stdout.write(
+                self.style.SUCCESS(
+                    f"[{video_id}] Saved {len(inbox_files)} inbox transcript window(s)"
+                )
+            )
 
             with open(history_path, "a", encoding="utf-8") as f:
                 f.write(json.dumps({**entry, "episode_title": episode_title}) + "\n")
