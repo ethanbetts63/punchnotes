@@ -28,48 +28,7 @@ Each input file is a set JSON from `pipeline/data/2_set_inbox/`. Lines have an e
 
 Write the annotated file to `pipeline/data/4_bit_annotated_set_inbox/<same-filename>.json`. The output adds `bit_meta` before `lines`, and each line gets `label`, `bit`, and `beat` fields.
 
-Every beat has its own `premise`, `joke_type`, and `topics`. A bit gets its own `premise` **only when it has more than one beat** — the bit premise is the umbrella that ties multiple beats together. Single-beat bits don't need a bit premise because the beat premise already captures the joke's logic.
-
-Write valid JSON in any standard format — formatting is normalised automatically downstream.
-
-```json
-{
-  "type": "set_meta",
-  "video_id": "...",
-  "comedian_name": "...",
-  ...
-  "bit_meta": {
-    "1": {
-      "beats": {
-        "1": {
-          "premise": "New partners hate hearing about an ex's sexual preferences.",
-          "joke_type": "reframe",
-          "topics": ["exes", "relationships"]
-        }
-      }
-    },
-    "2": {
-      "premise": "Estonia drafts everyone America excludes.",
-      "beats": {
-        "1": {
-          "premise": "A wheelchair soldier could be a suicide grenade carrier.",
-          "joke_type": "reframe",
-          "topics": ["Estonia", "wheelchairs", "grenades"]
-        },
-        "2": {
-          "premise": "'Special forces' can mean special-needs rather than elite.",
-          "joke_type": "double-meaning",
-          "topics": ["special forces", "down syndrome", "wordplay"]
-        }
-      }
-    }
-  },
-  "lines": [
-    {"text": "My ex-girlfriend...", "label": "setup", "bit": 1, "beat": 1, "line_number": 101, "start": 450},
-    {"text": "Thank you.", "label": "fluff", "bit": null, "beat": null, "line_number": 115, "start": 490}
-  ]
-}
-```
+Every beat has its own `premise`, `joke_type`, and `topics`. A bit gets a `summary` **only when it has more than one beat**. The summary is a **short as possible** umbrella description of the shared frame that makes those beats belong together. Single-beat bits must not have a summary because the beat premise already explains the whole bit.
 
 After writing, delete the source file from `pipeline/data/2_set_inbox/`.
 
@@ -108,7 +67,7 @@ Everything that is not setup, punchline, or tag: greetings, sign-offs, name intr
 ### Hierarchy
 
 - **Bit**: one or more beats that share a premise. Every bit has at least one beat.
-- **Beat**: one setup/punchline/tags unit with its own specific comedic logic.
+- **Beat**: one setup/punchline/tags unit with its own specific comedic logic. Every beat must contain at least one `punchline` line.
 
 ### Bit numbers and beat numbers
 
@@ -126,9 +85,9 @@ The test: **can you extract a beat alone and still have it make sense?**
 
 ### `bit_meta`
 
-Every beat has `premise`, `joke_type`, and `topics`. A bit has its own `premise` **only when it has multiple beats** — the bit premise is the umbrella across them.
+Every beat has `premise`, `joke_type`, and `topics`. A bit has a `summary` **only when it has multiple beats**. Single-beat bits must not have `summary`.
 
-For multi-beat bits, every beat must still have its own premise. The bit premise is the broad theme; each beat premise is the specific comedic mechanism of that beat.
+For multi-beat bits, every beat must still have its own premise. The bit summary is the broad shared frame; each beat premise is the specific comedic mechanism of that beat.
 
 **Premise rules:**
 - **Be as succinct as possible.** A premise should be one short sentence. If it runs over ~15 words, you're describing the joke instead of stating it. Cut every word that isn't load-bearing.
@@ -145,11 +104,9 @@ Do not use joke types outside this list. If a joke seems to need a type that is 
 
 ### Joke types and premise formulas
 
-Most jokes should be assigned one of these mechanisms. Each type has a preferred premise shape. The value in the `joke_type` field uses the lowercase/hyphenated form shown next to each name. **The way you write the premise must exactly match the formula given for each joke type. VERY IMPORTANT** Bit level premesis should just be done as simply as possible.
+All jokes must be assigned one of these types. **The way you write each beat premise must exactly match the formula given for its joke type. VERY IMPORTANT** 
 
-Beat premises are checked before database import. If the required phrase markers for the selected joke type are missing, the file will be rejected and will not go into the database.
-
-**Misdirect** (`misdirect`) — an assumption is planted, then subverted.
+**misdirect** — an assumption is planted, then subverted.
 Formula: *[setup] implies [expected interpretation], but [punchline reveals unexpected interpretation].*
 Required phrase markers: `implies`, `but`.
 
@@ -160,7 +117,7 @@ Example:
 
 Premise: `"Refusing to call a transitioning child your son implies a new title, but reveals disownment."`
 
-**Reframe** (`reframe`) — a known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required; the joke surfaces an alternate perspective to understand the same fact, object, behavior, or situation.
+**reframe** — a known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required; the joke surfaces an alternate perspective to understand the same fact, object, behavior, or situation.
 Formula: *[known thing] could be [unexpected interpretation].*
 Required phrase marker: `could be`.
 
@@ -171,7 +128,7 @@ Example:
 
 Premise: `"Puberty blockers could be beneficial to pedophiles."`
 
-**Phonetic match** (`phonetic-match`) — two *different* words sound alike, and both independently fit the context. Basic versions of phonetic-match might literally just have two words that sound similar without any contextual link.
+**phonetic-match** — two *different* words sound alike, and both independently fit the context. Basic versions of phonetic-match might literally just have two words that sound similar without any contextual link.
 Formula: *"[word A]" sounds like "[word B]", and [word B] fits because [reason].*
 Required phrase markers: `sounds like`, `and`.
 
@@ -181,7 +138,7 @@ Example:
 
 Premise: `"'Midget' sounds like 'fidget', and 'fidget' fits ADHD."`
 
-**Double-meaning** (`double-meaning`) — the *same* word or phrase admits two readings, and the comedian deliberately picks the non-standard one. Hinges on semantic ambiguity, not phonetic similarity.
+**double-meaning** — the *same* word or phrase admits two readings, and the comedian deliberately picks the non-standard one. Hinges on semantic ambiguity, not phonetic similarity.
 Formula: *"[phrase]" can mean [meaning A] or [meaning B].*
 Required phrase markers: `can mean`, `or`.
 
@@ -191,7 +148,7 @@ Example:
 
 Premise: `"'Use stairs' can mean take the stairs or use stairs as the tool."`
 
-**Analogy** (`analogy`) — two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
+**analogy**  — two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
 Formula: *[X] is like [Y] because both [shared structure].*
 Required phrase markers: `is like`, `because both`.
 
@@ -204,7 +161,7 @@ Example:
 
 Premise: `"Golf is like marriage because both are difficult, expensive and repetitious."`
 
-**Hyperbole** (`hyperbole`) — a feeling, trait, preference, or consequence is exaggerated past plausibility. The laugh comes from the excess of degree, scale, or intensity.
+**hyperbole** — a feeling, trait, preference, or consequence is exaggerated past plausibility. The laugh comes from the excess of degree, scale, or intensity.
 Formula: *[thing] is so [extreme quality] that [impossible or disproportionate result].*
 Required phrase markers: `so`, `that`.
 
@@ -216,7 +173,7 @@ Example:
 Premise: `"A porn collection is so large that you could run out of sperm."`
 
 
-**Elephant-in-the-room** (`elephant-in-the-room`) — a taboo or socially avoided observation is said aloud. The audience already recognizes the conclusion; the laugh comes from breaking the silence.
+**elephant-in-the-room** — a taboo or socially avoided observation is said aloud. The audience already recognizes the conclusion; the laugh comes from breaking the silence.
 Formula: *[observation] is widely understood about [topic] but rarely said aloud.*
 Required phrase markers: `widely understood`, `but rarely`.
 
@@ -226,40 +183,13 @@ Example:
 
 Premise: `"White shooters are widely associated with school shootings but rarely named aloud."`
 
-
-### Not valid joke types
-
-**Prop** (`prop`) — a literal object used or presented onstage. A prop can be the setup, punchline, or evidence, but the underlying joke type should still be one of the valid mechanisms above.
-
-Example:
-- setup: `"It's a mouse trap to trap gay mice, see"`
-- punchline: `"[Pulls out mouse trap with a disco ball attached]"`
-
-Premise: `"A mousetrap for gay mice could use nightlife stereotypes as bait."`
-Joke type: `reframe`
-
-
-**Act-out** (`act-out`) — embodied performance: a voice, scream, facial expression, mime, posture, movement, or physical imitation. An act-out can carry the setup or punchline, but the underlying joke type should still be one of the valid mechanisms above.
-
-Example:
-- setup: `"Wheelchair people, we send them."`
-- setup: `"Oh yeah, we put a grenade in your lap and..."`
-- punchline: `"Come on! [acts out racing a wheelchair into battle]"`
-
-Premise: `"A wheelchair with a grenade could become a form of military charge."`
-Joke type: `reframe`
-
-**What-if** (`what-if`) — a premise framing, not a joke type. Almost any joke can be rewritten as "what if..." Omitting `what-if` forces the annotator to name the more precise mechanism: `reframe`, `hyperbole`, `analogy`, `double-meaning`, or another valid type.
-
-
 ### Boundary rules
 
-- A new bit starts when the comedian introduces a new standalone premise that doesn't depend on the prior bit.
-- A new beat starts when the comedian develops another setup/punchline unit under the current bit's premise.
+- A bit is the smallest standalone segment of material that can be lifted out of the set and still make sense as its own joke sequence. 
+- A new beat starts when the comedian at the first setup line following a punchline.
 - Multi-beat bits typically have a shared setup at the start that establishes the umbrella premise, then each beat is a different application of that premise.
 - Do not merge separate bits just because they share a broad topic.
-- Do not split a bit just because a new setup line appears after a punchline — decide whether it depends on the existing premise.
-- Fluff that sits inside a bit's flow can receive that bit's number.
+- Fluff that sits inside a bit's flow  receive that bit's number.
 - Stage context can supply setup, but choose the joke type by mechanism. Most "I look like..." jokes are `analogy`, not `prop`.
 - Do not use `act-out` as the `joke_type`. If a transcript includes embodied performance, choose the underlying text-visible mechanism.
 
@@ -273,7 +203,7 @@ Joke type: `reframe`
 4. Mark everything else fluff.
 5. For each beat, identify the joke type (`misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `analogy`, `hyperbole`, `elephant-in-the-room`) and write a premise using its formula. Record the type in the beat's `joke_type` field. Do not invent other `joke_type` values.
 6. Group beats into bits by shared premise. Apply the extraction test: if a beat would survive standalone, it's its own bit.
-7. For multi-beat bits, write a bit premise that captures the umbrella the beats share.
+7. For multi-beat bits, write a short `summary` that captures the shared frame. Do not add `summary` to single-beat bits.
 8. Write the output JSON with `bit_meta` and fully labeled lines.
 
 ---
@@ -294,7 +224,7 @@ Joke type: `reframe`
 
 ### Full annotated set — Ari Mati (Estonia draft)
 
-This set has three bits. Bits 1 and 2 are single-beat, so the premise lives on the beat. Bit 3 is multi-beat — a shared setup establishes "Estonia drafts everyone America excludes" as the umbrella, then four beats each apply that premise to a different group (wheelchair users, down syndrome people, reluctant conscripts, gay soldiers).
+This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only on the beat. Bit 3 is multi-beat, so it has a summary: "Estonia drafts everyone America excludes." The beats each apply that shared frame to a different group (wheelchair users, down syndrome people, reluctant conscripts, gay soldiers).
 
 ```json
 {
@@ -327,7 +257,7 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives on t
       }
     },
     "3": {
-      "premise": "Estonia drafts everyone America excludes.",
+      "summary": "Estonia drafts everyone America excludes.",
       "beats": {
         "1": {
           "premise": "Wheelchair soldiers with a grenade could be kamikaze rollers.",
@@ -369,7 +299,7 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives on t
     {"text": "Everyone goes.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 3351, "start": 7228},
     {"text": "Wheelchair people, we send them.", "label": "setup", "bit": 3, "beat": 1, "line_number": 3352, "start": 7231},
     {"text": "Oh yeah, we put a grenade in your lap and...", "label": "setup", "bit": 3, "beat": 1, "line_number": 3353, "start": 7234},
-    {"text": "Come on!", "label": "punchline", "bit": null, "beat": null, "line_number": 3355, "start": 7239},
+    {"text": "Come on!", "label": "punchline", "bit": 3, "beat": 1, "line_number": 3355, "start": 7239},
     {"text": "Down syndrome people, we send them.", "label": "setup", "bit": 3, "beat": 2, "line_number": 3356, "start": 7246},
     {"text": "Oh yeah, we have a whole squad.", "label": "setup", "bit": 3, "beat": 2, "line_number": 3357, "start": 7250},
     {"text": "Estonian special forces.", "label": "punchline", "bit": 3, "beat": 2, "line_number": 3358, "start": 7252},

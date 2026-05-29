@@ -50,8 +50,8 @@ export default function BitsList({ bits, filterKey }: Props) {
               ))}
             </div>
 
-            {bit.premise && (
-              <p className="mb-3 text-sm italic text-stone-500">"{bit.premise}"</p>
+            {bit.summary && (
+              <p className="mb-3 text-sm italic text-stone-500">"{bit.summary}"</p>
             )}
 
             {bit.beats_summary.length > 0 && (

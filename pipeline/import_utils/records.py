@@ -147,7 +147,7 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
         bit = Bit.objects.create(
             set=set_obj,
             bit_id=f"bit_{bit_num:03d}",
-            premise=bit_data.get("premise"),
+            summary=bit_data.get("summary"),
             line_start=min(lns),
             line_end=max(lns),
         )

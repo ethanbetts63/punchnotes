@@ -18,8 +18,7 @@ VALID_JOKE_TYPES = frozenset(PREMISE_STRUCTURE_RULES)
 
 
 def validate_bit_meta(meta: dict) -> None:
-    """Raises ValueError if any beat has an invalid joke_type, malformed premise, or no punchline,
-    or if any text field contains encoded characters (HTML entities or URL encoding)."""
+    """Raises ValueError for invalid beat metadata or line-to-beat structure."""
     # Build label list per (bit, beat) from the lines array
     beat_labels: dict[tuple[int, int], list[str]] = defaultdict(list)
     for line in meta.get("lines", []):
@@ -37,8 +36,37 @@ def validate_bit_meta(meta: dict) -> None:
         if match:
             errors.append(f"line {i + 1}: encoded character {match.group()!r} in text {text!r}")
 
+        label = line.get("label")
+        bit = line.get("bit")
+        beat = line.get("beat")
+        line_ref = line.get("line_number", i + 1)
+
+        if (bit is None) != (beat is None):
+            errors.append(
+                f"line {line_ref}: bit and beat must both be set or both be null"
+            )
+
+        if label != "fluff" and (bit is None or beat is None):
+            errors.append(
+                f"line {line_ref}: {label!r} lines must have bit and beat values"
+            )
+
     for bit_num, bit_data in meta.get("bit_meta", {}).items():
-        for beat_num, beat_data in bit_data.get("beats", {}).items():
+        beats = bit_data.get("beats", {})
+        summary = bit_data.get("summary")
+        beat_count = len(beats)
+        bit_location = f"bit {bit_num}"
+
+        if beat_count > 1 and (not isinstance(summary, str) or not summary.strip()):
+            errors.append(f"{bit_location}: multi-beat bits must have a summary")
+
+        if beat_count <= 1 and summary not in (None, ""):
+            errors.append(f"{bit_location}: summary is only allowed on multi-beat bits")
+
+        if "premise" in bit_data:
+            errors.append(f"{bit_location}: use summary for multi-beat bits, not premise")
+
+        for beat_num, beat_data in beats.items():
             location = f"bit {bit_num} beat {beat_num}"
             joke_type = beat_data.get("joke_type")
             premise = beat_data.get("premise")

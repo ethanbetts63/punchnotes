@@ -49,7 +49,7 @@ class BitSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Bit
-        fields = ["id", "bit_id", "premise", "line_start", "line_end", "beats"]
+        fields = ["id", "bit_id", "summary", "line_start", "line_end", "beats"]
 
 
 class SetDetailSerializer(serializers.ModelSerializer):
