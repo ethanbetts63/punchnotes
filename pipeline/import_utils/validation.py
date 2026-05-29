@@ -59,7 +59,7 @@ def validate_bit_meta(meta: dict) -> None:
                     f"line {line_ref}: bit and beat must both be set or both be null"
                 )
 
-        if label != "fluff" and (bit is None or beat is None):
+        if label == "punchline" and (bit is None or beat is None):
             errors.append(
                 f"line {line_ref}: {label!r} lines must have bit and beat values"
             )

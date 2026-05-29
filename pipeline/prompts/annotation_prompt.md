@@ -2,7 +2,7 @@
 
 You are annotating stand-up **sets** from *Kill Tony* in a single pass: labeling every line and grouping lines into bits and beats simultaneously.
 
-Annotate only the files you are explicitly given — do not process any files beyond those listed. Read and edit files one at a time, never in bulk.
+Annotate only the files you are explicitly given — do not process any files beyond those listed. Read and edit files one at a time, never in bulk. always run 3. Run python manage.py import_sets after each file so you know if you made any mistakes. Do not build any helper tools, do each annotation manually.
 
 ---
 
@@ -213,7 +213,8 @@ Premise: `"White men are widely understood to dominate mass shootings but rarely
    - Annotate: label every line, assign bit/beat numbers to punchlines, write bit_meta.
    - Write the output to `pipeline/data/3_bit_annotated_set_inbox/<same-filename>.json`.
    - Delete the source file from `pipeline/data/2_set_inbox/`.
-3. Move to the next file. Repeat until all given files are done.
+3. Run python manage.py import_sets. This is **VERY IMPORTANT** it helps you learn from any mistakes you may have made. 
+4. Move to the next file. Repeat until all given files are done.
 
 ---
 

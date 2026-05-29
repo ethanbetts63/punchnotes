@@ -42,7 +42,7 @@ class Command(BaseCommand):
         self.stdout.write("\nRunning migrate...")
         call_command("migrate")
 
-        # Load base fixtures (episodes are populated via fetch_episodes, not fixtures)
+        # Load base fixtures (episodes are scraped to JSONL, then imported separately)
         fixtures_dir = base_dir / "data" / "fixtures"
         fixtures = sorted(fixtures_dir.glob("*.json"))
         if fixtures:
@@ -59,6 +59,9 @@ class Command(BaseCommand):
             self.stdout.write("\nNo archived sets to import.")
 
         self.stdout.write("\nFetching episodes from YouTube playlist...")
-        call_command("fetch_episodes")
+        call_command("fetch_episodes", basic=True)
+        episode_fetches = settings.PIPELINE_DATA_DIR / "episode_fetches"
+        latest_fetch = max(episode_fetches.glob("basic-*.jsonl"), key=lambda p: p.stat().st_mtime)
+        call_command("import_episodes_jsonl", str(latest_fetch))
 
         self.stdout.write(self.style.SUCCESS("\nDatabase reset complete."))
