@@ -80,6 +80,8 @@ The test: **can you extract a beat alone and still have it make sense?**
 
 ### `bit_meta`
 
+> **IMPORTANT:** `bit_meta` MUST be a JSON object keyed by bit number as a string (e.g. `"1"`, `"2"`), NOT a JSON array. `beats` within each bit must also be a JSON object keyed by beat number as a string. Never use `[...]` for `bit_meta` or `beats`.
+
 Every beat has `premise`, `joke_type`, and `topics`. A bit has a `summary` **only when it has multiple beats**. Single-beat bits must not have `summary`.
 
 For multi-beat bits, every beat must still have its own premise. The bit summary is the broad shared frame; each beat premise is the specific comedic mechanism of that beat.
@@ -176,7 +178,7 @@ Example:
 - setup: `"You know, these shootings are often done by the same race."`
 - punchline: `"I'm looking at you, honkies."`
 
-Premise: `"White shooters are widely associated with school shootings but rarely named aloud."`
+Premise: `"White men are widely understood to dominate mass shootings but rarely named aloud by race."`
 
 ### Boundary rules
 
@@ -235,7 +237,7 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
     "1": {
       "beats": {
         "1": {
-          "premise": "Earning citizenship right before a draft turns the milestone into a curse.",
+          "premise": "Earning citizenship implies a personal milestone, but the timing reveals it as a draft sentence.",
           "joke_type": "misdirect",
           "topics": ["war", "citizenship", "draft"]
         }
@@ -244,7 +246,7 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
     "2": {
       "beats": {
         "1": {
-          "premise": "Expanding draft eligibility to older stoners produces a pathetic army.",
+          "premise": "Expanding draft eligibility to middle-aged stoners could be the worst army ever assembled.",
           "joke_type": "reframe",
           "topics": ["draft age", "marijuana convictions", "army"]
         }
@@ -259,17 +261,17 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
           "topics": ["Estonia", "wheelchairs", "grenades"]
         },
         "2": {
-          "premise": "'Special forces' fits literally when the soldiers are special-needs.",
+          "premise": "'Special forces' can mean elite operatives or literally special-needs soldiers.",
           "joke_type": "double-meaning",
           "topics": ["special forces", "down syndrome", "wordplay"]
         },
         "3": {
-          "premise": "Telling a down syndrome person someone killed Santa would make them mad.",
+          "premise": "A dead Santa lie could be the most effective conscription tool for special-needs soldiers.",
           "joke_type": "reframe",
           "topics": ["Santa Claus", "down syndrome", "conscription"]
         },
         "4": {
-          "premise": "Without women in the military, straight soldiers would protect gay soldiers.",
+          "premise": "A gay soldier could be the best-protected person on base among sex-starved straight men.",
           "joke_type": "reframe",
           "topics": ["gay soldiers", "base life", "military"]
         }
