@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "api.jokescore.com",
+        hostname: "api.punchpedia.com",
         pathname: "/media/**",
       },
       {

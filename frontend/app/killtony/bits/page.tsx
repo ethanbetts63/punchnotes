@@ -4,7 +4,7 @@ import BitsFilters from "@/components/BitsFilters";
 import BitsList from "@/components/BitsList";
 
 export const metadata = {
-  title: "Bits — Kill Tony | JokeScore",
+  title: "Bits — Kill Tony | PunchPedia",
 };
 
 type Props = { searchParams: Promise<Record<string, string>> };

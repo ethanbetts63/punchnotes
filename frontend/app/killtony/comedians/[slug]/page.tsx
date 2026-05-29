@@ -8,8 +8,8 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const comedian = await getServerComedian(slug);
-  if (!comedian) return { title: "Comedian Not Found | JokeScore" };
-  return { title: `${comedian.name} — Kill Tony | JokeScore` };
+  if (!comedian) return { title: "Comedian Not Found | PunchPedia" };
+  return { title: `${comedian.name} — Kill Tony | PunchPedia` };
 }
 
 function fmt2(n: number | null): string {

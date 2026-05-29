@@ -4,11 +4,13 @@ __pycache__/
 *.pyo
 .env
 db.sqlite3
-data/1_transcript_inbox/
-data/2_set_inbox/
-data/3_annotated_set_inbox/
-data/4_bit_annotated_set_inbox/
-data/transcript_todos.jsonl
-data/scrape_history.jsonl
-data/transcript_archive/
-data/audio/
+
+# Pipeline working data
+/pipeline/data/1_transcript_inbox/
+/pipeline/data/2_set_inbox/
+/pipeline/data/3_annotated_set_inbox/
+/pipeline/data/4_bit_annotated_set_inbox/
+/pipeline/data/transcript_todos.jsonl
+/pipeline/data/scrape_history.jsonl
+/pipeline/data/transcript_archive/
+/pipeline/data/audio/

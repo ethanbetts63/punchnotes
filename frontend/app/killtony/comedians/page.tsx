@@ -3,7 +3,7 @@ import { getServerComedians } from "@/lib/serverApi";
 import ComedianControls from "@/components/ComedianControls";
 
 export const metadata = {
-  title: "Comedians — Kill Tony | JokeScore",
+  title: "Comedians — Kill Tony | PunchPedia",
 };
 
 export default async function ComediansPage() {

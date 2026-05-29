@@ -3,7 +3,7 @@ import { getServerEpisodes } from "@/lib/serverApi";
 import EpisodeControls from "@/components/EpisodeControls";
 
 export const metadata = {
-  title: "Episodes — Kill Tony | JokeScore",
+  title: "Episodes — Kill Tony | PunchPedia",
 };
 
 export default async function EpisodesPage() {

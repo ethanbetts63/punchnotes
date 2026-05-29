@@ -1,12 +1,12 @@
-# JokeScore
+# PunchPedia
 
-JokeScore is a system for analyzing/annotating stand-up comedy 
+PunchPedia is a system for analyzing/annotating stand-up comedy 
 
 The project starts with Kill Tony because it provides a uniquely useful dataset: short standardized sets, high performance variance, recurring comedians, live audience reactions, and explicit quality signals like joke book awards. From there, the system can expand into broader stand-up datasets and eventually become both a comedy analytics platform and a training dataset for AI systems that learn humor from actual audience response rather than text alone.
 
 ## Goals
 
-JokeScore is designed to connect comedic structure to measurable audience response.
+PunchPedia is designed to connect comedic structure to measurable audience response.
 
 Short-term goals:
 - Extract stand-up sets from full Kill Tony episode transcripts.
@@ -28,7 +28,7 @@ Long-term goals:
 
 ## Data Model
 
-JokeScore represents stand-up as a hierarchy:
+PunchPedia represents stand-up as a hierarchy:
 
 - **Set**: one recorded appearance by a comic.
 - **Bit**: one or more beats that share a premise.
@@ -203,7 +203,7 @@ The current workflow is:
 
 ## Why This Matters
 
-Most comedy analysis stops at transcripts or high-level audience reaction. JokeScore is aimed at the semantic layer: how jokes are built, how often similar premises appear, and which structures reliably produce laughter.
+Most comedy analysis stops at transcripts or high-level audience reaction. PunchPedia is aimed at the semantic layer: how jokes are built, how often similar premises appear, and which structures reliably produce laughter.
 
 Because the dataset includes both strong and weak performances, it can support deeper analysis of why material succeeds or fails. The same system can eventually compare joke writing, delivery, crowd work, room energy, originality, and audience response at scale.
 

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getServerEpisodes, getServerComedians, getServerJokes } from "@/lib/serverApi";
 
 export const metadata = {
-  title: "Kill Tony — JokeScore",
+  title: "Kill Tony — PunchPedia",
   description: "Structured comedy analytics for Kill Tony. Browse episodes, comedians, and jokes broken down by premise, mechanism, and audience response.",
 };
 
