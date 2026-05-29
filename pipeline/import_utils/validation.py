@@ -21,11 +21,21 @@ def validate_bit_meta(meta: dict) -> None:
     """Raises ValueError for invalid beat metadata or line-to-beat structure."""
     # Build label list per (bit, beat) from the lines array
     beat_labels: dict[tuple[int, int], list[str]] = defaultdict(list)
+    bit_spans: dict[int, list[int]] = defaultdict(list)
+    beat_spans: dict[tuple[int, int], list[int]] = defaultdict(list)
     for line in meta.get("lines", []):
+        if line.get("label") == "fluff":
+            continue
+
         b = line.get("bit")
         bt = line.get("beat")
         if b is not None and bt is not None:
-            beat_labels[(int(b), int(bt))].append(line.get("label", ""))
+            bit_num = int(b)
+            beat_num = int(bt)
+            line_number = int(line.get("line_number", 0))
+            beat_labels[(bit_num, beat_num)].append(line.get("label", ""))
+            bit_spans[bit_num].append(line_number)
+            beat_spans[(bit_num, beat_num)].append(line_number)
 
     errors = []
 
@@ -42,14 +52,38 @@ def validate_bit_meta(meta: dict) -> None:
         line_ref = line.get("line_number", i + 1)
 
         if (bit is None) != (beat is None):
-            errors.append(
-                f"line {line_ref}: bit and beat must both be set or both be null"
-            )
+            if label == "fluff" and bit is not None and beat is None:
+                pass
+            else:
+                errors.append(
+                    f"line {line_ref}: bit and beat must both be set or both be null"
+                )
 
         if label != "fluff" and (bit is None or beat is None):
             errors.append(
                 f"line {line_ref}: {label!r} lines must have bit and beat values"
             )
+
+        if label == "fluff":
+            line_number = int(line_ref)
+            expected_bit = None
+            expected_beat = None
+
+            for bit_num, line_numbers in bit_spans.items():
+                if min(line_numbers) < line_number < max(line_numbers):
+                    expected_bit = bit_num
+                    break
+
+            if expected_bit is not None:
+                for (bit_num, beat_num), line_numbers in beat_spans.items():
+                    if bit_num == expected_bit and min(line_numbers) < line_number < max(line_numbers):
+                        expected_beat = beat_num
+                        break
+
+            if bit != expected_bit or beat != expected_beat:
+                errors.append(
+                    f"line {line_ref}: fluff must be bit={expected_bit!r}, beat={expected_beat!r}"
+                )
 
     for bit_num, bit_data in meta.get("bit_meta", {}).items():
         beats = bit_data.get("beats", {})

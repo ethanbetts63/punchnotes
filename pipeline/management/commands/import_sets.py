@@ -7,6 +7,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 
 from pipeline.models import Comedian
+from pipeline.import_utils.cleaning import clean_fluff_bit_beat
 from pipeline.import_utils.validation import validate_bit_meta
 from pipeline.import_utils.records import (
     import_bits,
@@ -69,6 +70,7 @@ class Command(BaseCommand):
         slug = match.group(3)
 
         meta = json.loads(path.read_text(encoding="utf-8-sig"))
+        meta = clean_fluff_bit_beat(meta)
         validate_bit_meta(meta)
 
         episode = upsert_episode(video_id, meta)

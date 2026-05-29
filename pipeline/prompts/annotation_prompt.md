@@ -10,18 +10,6 @@ Annotate only the files you are explicitly given — do not process any files be
 
 Each input file is a set JSON from `pipeline/data/2_set_inbox/`. Lines have an empty `label` field:
 
-```json
-{
-  "type": "set_meta",
-  "video_id": "...",
-  "comedian_name": "...",
-  ...
-  "lines": [
-    {"line_number": 101, "text": "My ex-girlfriend...", "start": 450, "label": ""}
-  ]
-}
-```
-
 ---
 
 ## Output
@@ -71,7 +59,9 @@ Everything that is not setup, punchline, or tag: greetings, sign-offs, name intr
 
 ### Bit numbers and beat numbers
 
-Use sequential integers starting from 1. Assign `"bit": N` and `"beat": N` on each line. Lines outside all bits (opening greetings, sign-offs) get `"bit": null, "beat": null`.
+Use sequential integers starting from 1. Assign `"bit": N` and `"beat": N` on every setup, punchline, and tag line.
+
+Set every `fluff` line to `"bit": null, "beat": null`. 
 
 ### Bit vs. multiple bits
 
@@ -189,7 +179,7 @@ Premise: `"White shooters are widely associated with school shootings but rarely
 - A new beat starts when the comedian at the first setup line following a punchline.
 - Multi-beat bits typically have a shared setup at the start that establishes the umbrella premise, then each beat is a different application of that premise.
 - Do not merge separate bits just because they share a broad topic.
-- Fluff that sits inside a bit's flow  receive that bit's number.
+- Set all fluff to `"bit": null, "beat": null`; the import pipeline normalises fluff bit/beat values.
 - Stage context can supply setup, but choose the joke type by mechanism. Most "I look like..." jokes are `analogy`, not `prop`.
 - Do not use `act-out` as the `joke_type`. If a transcript includes embodied performance, choose the underlying text-visible mechanism.
 
