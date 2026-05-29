@@ -26,7 +26,7 @@ Check `C:\Users\ethan\coding\punchpedia\pipeline\data\2_set_inbox\`.
 If there are any `.json` files there:
 
 - Pick the first 10 files (sorted by filename). If fewer than 10 remain, take all of them.
-- Spin up one medium/high level agent, tell it which files to process, and give it the prompt at `C:\Users\ethan\coding\punchpedia\pipeline\prompts\annotation_prompt.md`.
+- Spin up one medium level agent, tell it which files to process, and give it the prompt at `C:\Users\ethan\coding\punchpedia\pipeline\prompts\annotation_prompt.md`.
 - Wait for it to finish, then repeat for the next batch of 10.
 - Continue until `2_set_inbox` is empty.
 
