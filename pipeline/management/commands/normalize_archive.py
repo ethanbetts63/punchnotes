@@ -1,4 +1,6 @@
 import json
+from pathlib import Path
+
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
@@ -169,19 +171,40 @@ def normalize_path(path, serializer):
 class Command(BaseCommand):
     help = "Normalize JSON formatting of archived annotated sets and transcripts."
 
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "--sets-path",
+            type=Path,
+            help="Directory of annotated set JSON files to normalize.",
+        )
+        parser.add_argument(
+            "--transcripts-path",
+            type=Path,
+            help="Directory of transcript JSON files to normalize.",
+        )
+
     def handle(self, *args, **options):
-        archives = [
-            (
-                "bit annotated sets",
-                settings.PIPELINE_DATA_DIR / "bit_annotated_set_archive",
-                serialize_set,
-            ),
-            (
-                "transcripts",
-                settings.PIPELINE_DATA_DIR / "transcript_archive",
-                serialize_transcript,
-            ),
-        ]
+        sets_path = options.get("sets_path")
+        transcripts_path = options.get("transcripts_path")
+        if sets_path or transcripts_path:
+            archives = []
+            if sets_path:
+                archives.append(("bit annotated sets", sets_path, serialize_set))
+            if transcripts_path:
+                archives.append(("transcripts", transcripts_path, serialize_transcript))
+        else:
+            archives = [
+                (
+                    "bit annotated sets",
+                    settings.PIPELINE_DATA_DIR / "bit_annotated_set_archive",
+                    serialize_set,
+                ),
+                (
+                    "transcripts",
+                    settings.PIPELINE_DATA_DIR / "transcript_archive",
+                    serialize_transcript,
+                ),
+            ]
 
         total_changed = 0
         total_paths = 0

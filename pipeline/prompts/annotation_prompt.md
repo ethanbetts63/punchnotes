@@ -59,9 +59,14 @@ Everything that is not setup, punchline, or tag: greetings, sign-offs, name intr
 
 ### Bit numbers and beat numbers
 
-Use sequential integers starting from 1. Assign `"bit": N` and `"beat": N` on every setup, punchline, and tag line.
+Use sequential integers starting from 1. Assign `"bit": N` and `"beat": N` on every `punchline` line.
 
-Set every `fluff` line to `"bit": null, "beat": null`. 
+Set every `setup`, `tag`, and `fluff` line to `"bit": null, "beat": null`.
+
+The import pipeline infers non-punchline ownership:
+- A `setup` belongs to the next `punchline`.
+- A `tag` belongs to the most recent `punchline` or `tag`.
+- A `fluff` line stays null unless it falls inside a bit or beat span created by setup/punchline/tag lines.
 
 ### Bit vs. multiple bits
 
@@ -176,10 +181,10 @@ Premise: `"White shooters are widely associated with school shootings but rarely
 ### Boundary rules
 
 - A bit is the smallest standalone segment of material that can be lifted out of the set and still make sense as its own joke sequence. 
-- A new beat starts when the comedian at the first setup line following a punchline.
+- A new beat starts at the first setup line following a punchline.
 - Multi-beat bits typically have a shared setup at the start that establishes the umbrella premise, then each beat is a different application of that premise.
 - Do not merge separate bits just because they share a broad topic.
-- Set all fluff to `"bit": null, "beat": null`; the import pipeline normalises fluff bit/beat values.
+- Set all setup, tag, and fluff lines to `"bit": null, "beat": null`; the import pipeline normalises them from punchline anchors.
 - Stage context can supply setup, but choose the joke type by mechanism. Most "I look like..." jokes are `analogy`, not `prop`.
 - Do not use `act-out` as the `joke_type`. If a transcript includes embodied performance, choose the underlying text-visible mechanism.
 
@@ -194,7 +199,7 @@ Premise: `"White shooters are widely associated with school shootings but rarely
 5. For each beat, identify the joke type (`misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `analogy`, `hyperbole`, `elephant-in-the-room`) and write a premise using its formula. Record the type in the beat's `joke_type` field. Do not invent other `joke_type` values.
 6. Group beats into bits by shared premise. Apply the extraction test: if a beat would survive standalone, it's its own bit.
 7. For multi-beat bits, write a short `summary` that captures the shared frame. Do not add `summary` to single-beat bits.
-8. Write the output JSON with `bit_meta` and fully labeled lines.
+8. Write the output JSON with `bit_meta`, fully labeled lines, and bit/beat numbers only on punchlines.
 
 ---
 
@@ -203,7 +208,7 @@ Premise: `"White shooters are widely associated with school shootings but rarely
 1. Process only the files you were given. 
 2. For each file:
    - Read the whole set.
-   - Annotate: label every line, assign bit/beat numbers, write bit_meta.
+   - Annotate: label every line, assign bit/beat numbers to punchlines, write bit_meta.
    - Write the output to `pipeline/data/4_bit_annotated_set_inbox/<same-filename>.json`.
    - Delete the source file from `pipeline/data/2_set_inbox/`.
 3. Move to the next file. Repeat until all given files are done.
@@ -273,44 +278,44 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
     }
   },
   "lines": [
-    {"text": "Are we doing good?", "label": "setup", "bit": 1, "beat": 1, "line_number": 3336, "start": 7160},
+    {"text": "Are we doing good?", "label": "setup", "bit": null, "beat": null, "line_number": 3336, "start": 7160},
     {"text": "You shouldn't.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 3338, "start": 7164},
-    {"text": "The war is coming!", "label": "tag", "bit": 1, "beat": 1, "line_number": 3340, "start": 7168},
-    {"text": "Fuck!", "label": "fluff", "bit": 1, "beat": 1, "line_number": 3341, "start": 7173},
-    {"text": "Just my luck.", "label": "setup", "bit": 1, "beat": 1, "line_number": 3342, "start": 7175},
-    {"text": "As soon as I get citizenship,", "label": "setup", "bit": 1, "beat": 1, "line_number": 3343, "start": 7178},
+    {"text": "The war is coming!", "label": "tag", "bit": null, "beat": null, "line_number": 3340, "start": 7168},
+    {"text": "Fuck!", "label": "fluff", "bit": null, "beat": null, "line_number": 3341, "start": 7173},
+    {"text": "Just my luck.", "label": "setup", "bit": null, "beat": null, "line_number": 3342, "start": 7175},
+    {"text": "As soon as I get citizenship,", "label": "setup", "bit": null, "beat": null, "line_number": 3343, "start": 7178},
     {"text": "drafted.", "label": "punchline", "bit": 1, "beat": 1, "line_number": 3344, "start": 7180},
-    {"text": "Just yesterday you guys know that America raised its age limit", "label": "setup", "bit": 2, "beat": 1, "line_number": 3345, "start": 7193},
-    {"text": "to 42 for the draft and prior marijuana convictions don't matter.", "label": "setup", "bit": 2, "beat": 1, "line_number": 3346, "start": 7197},
+    {"text": "Just yesterday you guys know that America raised its age limit", "label": "setup", "bit": null, "beat": null, "line_number": 3345, "start": 7193},
+    {"text": "to 42 for the draft and prior marijuana convictions don't matter.", "label": "setup", "bit": null, "beat": null, "line_number": 3346, "start": 7197},
     {"text": "Wow what an army you're building.", "label": "punchline", "bit": 2, "beat": 1, "line_number": 3347, "start": 7205},
-    {"text": "Some fourty-year-old losers.", "label": "tag", "bit": 2, "beat": 1, "line_number": 3348, "start": 7208},
-    {"text": "You know in Estonia we don't have any limits. We have compulsory military service.", "label": "setup", "bit": 3, "beat": 1, "line_number": 3349, "start": 7215},
-    {"text": "We're too small to pick.", "label": "setup", "bit": 3, "beat": 1, "line_number": 3350, "start": 7226},
+    {"text": "Some fourty-year-old losers.", "label": "tag", "bit": null, "beat": null, "line_number": 3348, "start": 7208},
+    {"text": "You know in Estonia we don't have any limits. We have compulsory military service.", "label": "setup", "bit": null, "beat": null, "line_number": 3349, "start": 7215},
+    {"text": "We're too small to pick.", "label": "setup", "bit": null, "beat": null, "line_number": 3350, "start": 7226},
     {"text": "Everyone goes.", "label": "punchline", "bit": 3, "beat": 1, "line_number": 3351, "start": 7228},
-    {"text": "Wheelchair people, we send them.", "label": "setup", "bit": 3, "beat": 1, "line_number": 3352, "start": 7231},
-    {"text": "Oh yeah, we put a grenade in your lap and...", "label": "setup", "bit": 3, "beat": 1, "line_number": 3353, "start": 7234},
+    {"text": "Wheelchair people, we send them.", "label": "setup", "bit": null, "beat": null, "line_number": 3352, "start": 7231},
+    {"text": "Oh yeah, we put a grenade in your lap and...", "label": "setup", "bit": null, "beat": null, "line_number": 3353, "start": 7234},
     {"text": "Come on!", "label": "punchline", "bit": 3, "beat": 1, "line_number": 3355, "start": 7239},
-    {"text": "Down syndrome people, we send them.", "label": "setup", "bit": 3, "beat": 2, "line_number": 3356, "start": 7246},
-    {"text": "Oh yeah, we have a whole squad.", "label": "setup", "bit": 3, "beat": 2, "line_number": 3357, "start": 7250},
+    {"text": "Down syndrome people, we send them.", "label": "setup", "bit": null, "beat": null, "line_number": 3356, "start": 7246},
+    {"text": "Oh yeah, we have a whole squad.", "label": "setup", "bit": null, "beat": null, "line_number": 3357, "start": 7250},
     {"text": "Estonian special forces.", "label": "punchline", "bit": 3, "beat": 2, "line_number": 3358, "start": 7252},
-    {"text": "You think special forces mean somebody repels down", "label": "setup", "bit": 3, "beat": 2, "line_number": 3360, "start": 7261},
-    {"text": "and has night vision knives,", "label": "setup", "bit": 3, "beat": 2, "line_number": 3361, "start": 7263},
+    {"text": "You think special forces mean somebody repels down", "label": "setup", "bit": null, "beat": null, "line_number": 3360, "start": 7261},
+    {"text": "and has night vision knives,", "label": "setup", "bit": null, "beat": null, "line_number": 3361, "start": 7263},
     {"text": "Nicholas with a soft serve ice cream?", "label": "punchline", "bit": 3, "beat": 2, "line_number": 3362, "start": 7266},
-    {"text": "We send them!", "label": "tag", "bit": 3, "beat": 2, "line_number": 3364, "start": 7274},
-    {"text": "We get them all together in a parking lot,", "label": "setup", "bit": 3, "beat": 3, "line_number": 3365, "start": 7276},
-    {"text": "we connect them with a rope.", "label": "setup", "bit": 3, "beat": 3, "line_number": 3366, "start": 7278},
-    {"text": "We look them in the eyes and we tell them,", "label": "setup", "bit": 3, "beat": 3, "line_number": 3368, "start": 7283},
+    {"text": "We send them!", "label": "tag", "bit": null, "beat": null, "line_number": 3364, "start": 7274},
+    {"text": "We get them all together in a parking lot,", "label": "setup", "bit": null, "beat": null, "line_number": 3365, "start": 7276},
+    {"text": "we connect them with a rope.", "label": "setup", "bit": null, "beat": null, "line_number": 3366, "start": 7278},
+    {"text": "We look them in the eyes and we tell them,", "label": "setup", "bit": null, "beat": null, "line_number": 3368, "start": 7283},
     {"text": "Listen, they killed Santa Claus.", "label": "punchline", "bit": 3, "beat": 3, "line_number": 3369, "start": 7284},
-    {"text": "Everybody goes!", "label": "tag", "bit": 3, "beat": 3, "line_number": 3371, "start": 7296},
-    {"text": "Cripples, mentally challenged, even women.", "label": "tag", "bit": 3, "beat": 3, "line_number": 3372, "start": 7298},
-    {"text": "Gay people, we send them.", "label": "setup", "bit": 3, "beat": 4, "line_number": 3374, "start": 7308},
-    {"text": "I know you guys don't do that.", "label": "fluff", "bit": 3, "beat": 4, "line_number": 3375, "start": 7311},
-    {"text": "By the way, the only way I'm going to war is if I have a gay squad mate.", "label": "setup", "bit": 3, "beat": 4, "line_number": 3376, "start": 7313},
-    {"text": "I'm protecting that motherfucker more than the medic.", "label": "setup", "bit": 3, "beat": 4, "line_number": 3377, "start": 7320},
+    {"text": "Everybody goes!", "label": "tag", "bit": null, "beat": null, "line_number": 3371, "start": 7296},
+    {"text": "Cripples, mentally challenged, even women.", "label": "tag", "bit": null, "beat": null, "line_number": 3372, "start": 7298},
+    {"text": "Gay people, we send them.", "label": "setup", "bit": null, "beat": null, "line_number": 3374, "start": 7308},
+    {"text": "I know you guys don't do that.", "label": "fluff", "bit": null, "beat": null, "line_number": 3375, "start": 7311},
+    {"text": "By the way, the only way I'm going to war is if I have a gay squad mate.", "label": "setup", "bit": null, "beat": null, "line_number": 3376, "start": 7313},
+    {"text": "I'm protecting that motherfucker more than the medic.", "label": "setup", "bit": null, "beat": null, "line_number": 3377, "start": 7320},
     {"text": "He's the only one sucking dick back at the base.", "label": "punchline", "bit": 3, "beat": 4, "line_number": 3378, "start": 7324},
-    {"text": "Dylan get behind me!", "label": "tag", "bit": 3, "beat": 4, "line_number": 3379, "start": 7328},
-    {"text": "I'm saving Dylan's life.", "label": "tag", "bit": 3, "beat": 4, "line_number": 3380, "start": 7331},
-    {"text": "No faggot left behind.", "label": "tag", "bit": 3, "beat": 4, "line_number": 3381, "start": 7334},
+    {"text": "Dylan get behind me!", "label": "tag", "bit": null, "beat": null, "line_number": 3379, "start": 7328},
+    {"text": "I'm saving Dylan's life.", "label": "tag", "bit": null, "beat": null, "line_number": 3380, "start": 7331},
+    {"text": "No faggot left behind.", "label": "tag", "bit": null, "beat": null, "line_number": 3381, "start": 7334},
     {"text": "Thank you so much. That's my time.", "label": "fluff", "bit": null, "beat": null, "line_number": 3382, "start": 7339}
   ]
 }

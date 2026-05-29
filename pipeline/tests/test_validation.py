@@ -22,6 +22,46 @@ def valid_meta_with_line(line):
 
 
 class CleanFluffBitBeatTests(SimpleTestCase):
+    def test_setup_gets_next_punchline_bit_and_beat(self):
+        meta = {
+            "lines": [
+                {"line_number": 1, "text": "Setup.", "label": "setup", "bit": None, "beat": None},
+                {"line_number": 2, "text": "Payoff.", "label": "punchline", "bit": 1, "beat": 1},
+            ],
+        }
+
+        cleaned = clean_fluff_bit_beat(meta)
+
+        self.assertEqual(cleaned["lines"][0]["bit"], 1)
+        self.assertEqual(cleaned["lines"][0]["beat"], 1)
+
+    def test_tag_gets_previous_punchline_bit_and_beat(self):
+        meta = {
+            "lines": [
+                {"line_number": 1, "text": "Payoff.", "label": "punchline", "bit": 1, "beat": 1},
+                {"line_number": 2, "text": "Tag.", "label": "tag", "bit": None, "beat": None},
+            ],
+        }
+
+        cleaned = clean_fluff_bit_beat(meta)
+
+        self.assertEqual(cleaned["lines"][1]["bit"], 1)
+        self.assertEqual(cleaned["lines"][1]["beat"], 1)
+
+    def test_fluff_inside_beat_can_be_inferred_from_punchline_anchor(self):
+        meta = {
+            "lines": [
+                {"line_number": 1, "text": "Setup.", "label": "setup", "bit": None, "beat": None},
+                {"line_number": 2, "text": "Pause.", "label": "fluff", "bit": None, "beat": None},
+                {"line_number": 3, "text": "Payoff.", "label": "punchline", "bit": 1, "beat": 1},
+            ],
+        }
+
+        cleaned = clean_fluff_bit_beat(meta)
+
+        self.assertEqual(cleaned["lines"][1]["bit"], 1)
+        self.assertEqual(cleaned["lines"][1]["beat"], 1)
+
     def test_fluff_between_beats_gets_bit_and_null_beat(self):
         meta = {
             "lines": [
