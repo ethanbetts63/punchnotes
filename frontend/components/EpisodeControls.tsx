@@ -80,10 +80,10 @@ function Stat({ label, value }: { label: string; value: string | number }) {
   );
 }
 
-type Props = { episodes: Episode[] };
+type Props = { episodes: Episode[]; initialQuery?: string };
 
-export default function EpisodeControls({ episodes }: Props) {
-  const [query, setQuery] = useState("");
+export default function EpisodeControls({ episodes, initialQuery = "" }: Props) {
+  const [query, setQuery] = useState(initialQuery);
   const [sort, setSort] = useState<SortKey>("date");
   const [asc, setAsc] = useState(false);
   const [page, setPage] = useState(1);

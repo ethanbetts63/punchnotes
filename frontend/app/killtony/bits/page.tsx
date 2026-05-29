@@ -26,6 +26,7 @@ export default async function BitsPage({ searchParams }: Props) {
           <h1 className="text-3xl font-bold text-stone-900">Bits</h1>
           <p className="mt-2 text-stone-500">
             {bits ? `${bits.length} bit${bits.length !== 1 ? "s" : ""}` : ""}
+            {sp.q ? ` matching "${sp.q}"` : ""}
             {sp.topic ? ` tagged "${sp.topic}"` : ""}
             {sp.joke_type ? ` · ${sp.joke_type}` : ""}
             {!bits ? "Loading…" : ""}

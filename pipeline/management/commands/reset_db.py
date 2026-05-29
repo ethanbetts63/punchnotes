@@ -42,7 +42,7 @@ class Command(BaseCommand):
         self.stdout.write("\nRunning migrate...")
         call_command("migrate")
 
-        # Load base fixtures (episodes are scraped to JSONL, then imported separately)
+        # Load base fixtures (episodes are imported from scraped JSONL below)
         fixtures_dir = base_dir / "data" / "fixtures"
         fixtures = sorted(fixtures_dir.glob("*.json"))
         if fixtures:
@@ -58,8 +58,15 @@ class Command(BaseCommand):
         else:
             self.stdout.write("\nNo archived sets to import.")
 
-        self.stdout.write("\nFetching episodes from YouTube playlist...")
-        call_command("fetch_episodes", basic=True)
-        call_command("import_episodes_jsonl", str(settings.PIPELINE_DATA_DIR / "basic_kt_episodes.jsonl"))
+        full_episode_jsonl = settings.PIPELINE_DATA_DIR / "full_kt_episodes.jsonl"
+        basic_episode_jsonl = settings.PIPELINE_DATA_DIR / "basic_kt_episodes.jsonl"
+        if full_episode_jsonl.exists():
+            self.stdout.write("\nImporting full episode metadata...")
+            call_command("import_episodes_jsonl", str(full_episode_jsonl))
+        elif basic_episode_jsonl.exists():
+            self.stdout.write("\nImporting basic episode metadata...")
+            call_command("import_episodes_jsonl", str(basic_episode_jsonl))
+        else:
+            self.stdout.write(self.style.WARNING("\nNo episode JSONL found; skipping episode import."))
 
         self.stdout.write(self.style.SUCCESS("\nDatabase reset complete."))

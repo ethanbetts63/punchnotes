@@ -26,6 +26,7 @@ export default async function JokesPage({ searchParams }: Props) {
           <h1 className="text-3xl font-bold text-stone-900">Jokes</h1>
           <p className="mt-2 text-stone-500">
             {jokes ? `${jokes.length} jokes` : ""}
+            {sp.q ? ` matching "${sp.q}"` : ""}
             {sp.topic ? ` tagged "${sp.topic}"` : ""}
             {sp.joke_type ? ` · ${sp.joke_type}` : ""}
             {!jokes ? "Loading…" : ""}

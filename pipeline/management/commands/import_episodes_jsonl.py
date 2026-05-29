@@ -2,11 +2,13 @@ import json
 import re
 from pathlib import Path
 
+from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 
 from pipeline.models import Episode
 
 
+DEFAULT_JSONL_NAME = "full_kt_episodes.jsonl"
 EPISODE_NUMBER_PATTERN = re.compile(r"#\s*(\d+)")
 
 FIELD_MAP = {
@@ -32,10 +34,18 @@ class Command(BaseCommand):
     help = "Import episode metadata from a JSONL file produced by fetch_episodes"
 
     def add_arguments(self, parser):
-        parser.add_argument("jsonl_path", help="Path to a fetch_episodes JSONL output file.")
+        parser.add_argument(
+            "jsonl_path",
+            nargs="?",
+            help=f"Path to a fetch_episodes JSONL output file. Defaults to pipeline/data/{DEFAULT_JSONL_NAME}.",
+        )
 
     def handle(self, *args, **options):
-        jsonl_path = Path(options["jsonl_path"])
+        jsonl_path = (
+            Path(options["jsonl_path"])
+            if options["jsonl_path"]
+            else settings.PIPELINE_DATA_DIR / DEFAULT_JSONL_NAME
+        )
         if not jsonl_path.exists():
             raise CommandError(f"File not found: {jsonl_path}")
 

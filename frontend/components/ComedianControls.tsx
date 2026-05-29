@@ -74,10 +74,10 @@ function fmt2(n: number | null): string {
   return n.toFixed(2);
 }
 
-type Props = { comedians: Comedian[] };
+type Props = { comedians: Comedian[]; initialQuery?: string };
 
-export default function ComedianControls({ comedians }: Props) {
-  const [query, setQuery] = useState("");
+export default function ComedianControls({ comedians, initialQuery = "" }: Props) {
+  const [query, setQuery] = useState(initialQuery);
   const [typeFilter, setTypeFilter] = useState<ComedianAttribute | "">("");
   const [attributeFilters, setAttributeFilters] = useState<Set<ComedianAttribute>>(new Set());
   const [jokeBooks, setJokeBooks] = useState<Set<string>>(new Set());

@@ -15,10 +15,13 @@ export default function JokesFilters({ topics }: Props) {
   const sp = useSearchParams();
   const currentType = sp.get("joke_type") ?? "";
   const currentTopic = sp.get("topic") ?? "";
+  const currentQuery = sp.get("q") ?? "";
   const [topicSearch, setTopicSearch] = useState("");
+  const [query, setQuery] = useState(currentQuery);
 
-  function navigate(type: string, topic: string) {
+  function navigate(type: string, topic: string, nextQuery = currentQuery) {
     const params = new URLSearchParams();
+    if (nextQuery.trim()) params.set("q", nextQuery.trim());
     if (type) params.set("joke_type", type);
     if (topic) params.set("topic", topic);
     const qs = params.toString();
@@ -33,6 +36,37 @@ export default function JokesFilters({ topics }: Props) {
 
   return (
     <div className="mb-6 space-y-4">
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          navigate(currentType, currentTopic, query);
+        }}
+        className="flex items-center gap-2 rounded-xl border border-stone-200 px-3 py-2 transition-colors focus-within:border-stone-400"
+      >
+        <svg className="h-3.5 w-3.5 shrink-0 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+        </svg>
+        <input
+          type="search"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="Search jokes..."
+          className="flex-1 bg-transparent text-sm text-stone-900 placeholder-stone-400 focus:outline-none"
+        />
+        {currentQuery && (
+          <button
+            type="button"
+            onClick={() => {
+              setQuery("");
+              navigate(currentType, currentTopic, "");
+            }}
+            className="text-xs text-stone-400 transition-colors hover:text-stone-600"
+          >
+            Clear x
+          </button>
+        )}
+      </form>
+
       {/* Joke type chips */}
       <div className="flex flex-wrap gap-2">
         <button

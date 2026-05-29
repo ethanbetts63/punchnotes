@@ -6,7 +6,12 @@ export const metadata = {
   title: "Comedians — Kill Tony | PunchPedia",
 };
 
-export default async function ComediansPage() {
+type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
+
+export default async function ComediansPage({ searchParams }: Props) {
+  const params = await searchParams;
+  const rawQuery = params.q;
+  const query = Array.isArray(rawQuery) ? rawQuery[0] ?? "" : rawQuery ?? "";
   const comedians = await getServerComedians();
 
   return (
@@ -25,7 +30,7 @@ export default async function ComediansPage() {
           </div>
         ) : (
           <Suspense>
-            <ComedianControls comedians={comedians} />
+            <ComedianControls comedians={comedians} initialQuery={query} />
           </Suspense>
         )}
       </div>
