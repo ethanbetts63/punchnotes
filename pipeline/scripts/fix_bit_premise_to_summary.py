@@ -5,7 +5,7 @@ import json
 import sys
 from pathlib import Path
 
-INBOX = Path(__file__).parent.parent / "data" / "4_bit_annotated_set_inbox"
+INBOX = Path(__file__).parent.parent / "data" / "3_bit_annotated_set_inbox"
 ARCHIVE = Path(__file__).parent.parent / "data" / "bit_annotated_set_archive"
 
 

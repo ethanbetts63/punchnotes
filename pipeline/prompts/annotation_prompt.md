@@ -14,7 +14,7 @@ Each input file is a set JSON from `pipeline/data/2_set_inbox/`. Lines have an e
 
 ## Output
 
-Write the annotated file to `pipeline/data/4_bit_annotated_set_inbox/<same-filename>.json`. The output adds `bit_meta` before `lines`, and each line gets `label`, `bit`, and `beat` fields.
+Write the annotated file to `pipeline/data/3_bit_annotated_set_inbox/<same-filename>.json`. The output adds `bit_meta` before `lines`, and each line gets `label`, `bit`, and `beat` fields.
 
 Every beat has its own `premise`, `joke_type`, and `topics`. A bit gets a `summary` **only when it has more than one beat**. The summary is a **short as possible** umbrella description of the shared frame that makes those beats belong together. Single-beat bits must not have a summary because the beat premise already explains the whole bit.
 
@@ -209,7 +209,7 @@ Premise: `"White shooters are widely associated with school shootings but rarely
 2. For each file:
    - Read the whole set.
    - Annotate: label every line, assign bit/beat numbers to punchlines, write bit_meta.
-   - Write the output to `pipeline/data/4_bit_annotated_set_inbox/<same-filename>.json`.
+   - Write the output to `pipeline/data/3_bit_annotated_set_inbox/<same-filename>.json`.
    - Delete the source file from `pipeline/data/2_set_inbox/`.
 3. Move to the next file. Repeat until all given files are done.
 

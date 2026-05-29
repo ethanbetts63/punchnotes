@@ -29,7 +29,7 @@ class Command(BaseCommand):
         else:
             directories = [
                 settings.PIPELINE_DATA_DIR / "2_set_inbox",
-                settings.PIPELINE_DATA_DIR / "4_bit_annotated_set_inbox",
+                settings.PIPELINE_DATA_DIR / "3_bit_annotated_set_inbox",
                 settings.PIPELINE_DATA_DIR / "bit_annotated_set_archive",
             ]
 

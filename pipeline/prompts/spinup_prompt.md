@@ -11,8 +11,8 @@ Check `C:\Users\ethan\coding\punchpedia\pipeline\data\1_transcript_inbox\`.
 If there are any `.json` files there:
 
 - Select the first 10 files.
-- Spin up one low/medium size agent and give it the prompt at `C:\Users\ethan\coding\punchpedia\pipeline\prompts\transcript_analysis_prompt.md`.
-- Wait for it to finish all 10 files, then repeat for the next file.
+- Spin up one small sized agent and give it the prompt at `C:\Users\ethan\coding\punchpedia\pipeline\prompts\transcript_analysis_prompt.md`.
+- Wait for it to finish all 10 files, then repeat for the next files.
 - Continue until `1_transcript_inbox` is empty.
 
 If `1_transcript_inbox` is empty, proceed to Phase 2.
@@ -40,7 +40,7 @@ Once `2_set_inbox` is empty and all Phase 2 agents are done, run:
 python manage.py import_lines
 ```
 
-This will import everything from `4_bit_annotated_set_inbox` into the database and archive the files to `bit_annotated_set_archive`.
+This will import everything from `3_bit_annotated_set_inbox` into the database and archive the files to `bit_annotated_set_archive`.
 
 ---
 
