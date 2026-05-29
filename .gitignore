@@ -6,11 +6,13 @@ __pycache__/
 db.sqlite3
 
 # Pipeline working data
+/pipeline/data/0_audio_inbox/
 /pipeline/data/1_transcript_inbox/
 /pipeline/data/2_set_inbox/
 /pipeline/data/3_annotated_set_inbox/
 /pipeline/data/3_bit_annotated_set_inbox/
 /pipeline/data/transcript_todos.jsonl
 /pipeline/data/scrape_history.jsonl
+/pipeline/data/audio_fetch_history.jsonl
 /pipeline/data/transcript_archive/
-/pipeline/data/audio/
+/pipeline/data/audio_archive/

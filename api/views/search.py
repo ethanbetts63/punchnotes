@@ -92,7 +92,15 @@ class SearchView(APIView):
         rows = (
             Comedian.objects
             .annotate(set_count=Count("sets"), appearances=Count("sets__episode", distinct=True))
-            .filter(Q(name__icontains=query) | Q(slug__icontains=query))
+            .filter(
+                Q(name__icontains=query)
+                | Q(slug__icontains=query)
+                | Q(sets__episode__episode_title__icontains=query)
+                | Q(sets__bits__summary__icontains=query)
+                | Q(sets__bits__beats__premise__icontains=query)
+                | Q(sets__lines__text__icontains=query)
+            )
+            .distinct()
         )
         results = []
         for comedian in rows[:50]:
@@ -103,6 +111,8 @@ class SearchView(APIView):
             if comedian.has_large_joke_book:
                 meta.append("large joke book")
             score = text_score(query, comedian.name, comedian.slug) + min(comedian.set_count, 20)
+            if score < 25:
+                score = 25 + min(comedian.set_count, 20)
             results.append(result(
                 "comedian",
                 comedian.name,
@@ -120,6 +130,13 @@ class SearchView(APIView):
             filters |= Q(episode_number=int(number))
 
         rows = Episode.objects.annotate(set_count=Count("sets")).filter(filters)
+        rows = rows | Episode.objects.annotate(set_count=Count("sets")).filter(
+            Q(sets__comedian__name__icontains=query)
+            | Q(sets__bits__summary__icontains=query)
+            | Q(sets__bits__beats__premise__icontains=query)
+            | Q(sets__lines__text__icontains=query)
+        )
+        rows = rows.distinct()
         results = []
         for episode in rows[:50]:
             meta = [
@@ -132,6 +149,8 @@ class SearchView(APIView):
                 meta.append(f"{episode.view_count:,} views")
             score = text_score(query, episode.episode_title, str(episode.episode_number or ""))
             score += min((episode.view_count or 0) // 100_000, 20)
+            if score < 25:
+                score = 25 + min(episode.set_count, 20)
             results.append(result(
                 "episode",
                 episode.episode_title,

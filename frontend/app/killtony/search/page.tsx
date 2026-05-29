@@ -62,85 +62,105 @@ function ResultMark({ item, compact = false }: { item: SearchResult; compact?: b
   );
 }
 
-function ResultRow({ item }: { item: SearchResult }) {
+function ResultTile({
+  item,
+  variant,
+}: {
+  item: SearchResult;
+  variant: SearchGroupKey;
+}) {
+  const cardClass = {
+    comedians: "min-h-44",
+    episodes: "min-h-36 sm:min-h-40",
+    sets: "min-h-52",
+    bits: "min-h-48",
+    jokes: "min-h-32",
+    topics: "min-h-28",
+  }[variant];
+  const titleClass = {
+    comedians: "text-xl",
+    episodes: "text-2xl",
+    sets: "text-lg",
+    bits: "text-xl",
+    jokes: "text-base",
+    topics: "text-lg",
+  }[variant];
+  const markSize = variant === "episodes" || variant === "bits" ? false : true;
+
   return (
     <Link
       href={item.href}
-      className="group flex gap-3 border-t border-stone-200 py-3 transition-colors first:border-t-0 hover:bg-stone-50 sm:gap-4"
+      className={`group flex flex-col justify-between border border-stone-200 bg-white p-4 transition-colors hover:border-stone-950 hover:bg-stone-50 ${cardClass}`}
     >
-      <ResultMark item={item} compact />
-      <div className="min-w-0 flex-1 pr-2">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-[10px] font-bold uppercase tracking-wide text-stone-400">
-            {typeLabel(item.type)}
-          </span>
-          {item.meta.slice(0, 1).map((meta) => (
-            <span key={meta} className="text-[10px] font-semibold uppercase tracking-wide text-stone-300">
-              {meta}
-            </span>
-          ))}
+      <div>
+        <div className="mb-4 flex items-start justify-between gap-3">
+          <ResultMark item={item} compact={markSize} />
+          <ArrowUpRight className="h-4 w-4 shrink-0 text-stone-300 transition-colors group-hover:text-stone-700" />
         </div>
-        <p className="mt-0.5 truncate text-base font-bold leading-tight text-stone-950 transition-colors group-hover:text-primary">
+        <span className="text-[10px] font-black uppercase tracking-wide text-stone-400">
+          {typeLabel(item.type)}
+        </span>
+        <p className={`mt-1 font-black leading-none tracking-tight text-stone-950 transition-colors group-hover:text-primary ${titleClass}`}>
           {item.title}
         </p>
         {item.subtitle && (
-          <p className="mt-0.5 truncate text-sm font-medium text-stone-500">{item.subtitle}</p>
-        )}
-        {item.meta.length > 1 && (
-          <p className="mt-1 flex flex-wrap gap-x-2 gap-y-0.5 text-xs text-stone-400">
-            {item.meta.slice(1).map((meta) => (
-              <span key={meta}>{meta}</span>
-            ))}
+          <p className="mt-2 line-clamp-2 text-sm font-medium text-stone-500">
+            {item.subtitle}
           </p>
         )}
       </div>
-      <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-stone-300 transition-colors group-hover:text-stone-600" />
+      {item.meta.length > 0 && (
+        <p className="mt-5 flex flex-wrap gap-x-3 gap-y-1 text-[10px] font-bold uppercase tracking-wide text-stone-400">
+          {item.meta.slice(0, variant === "episodes" || variant === "bits" ? 4 : 3).map((meta) => (
+            <span key={meta}>{meta}</span>
+          ))}
+        </p>
+      )}
     </Link>
   );
 }
 
-function TopResult({ item }: { item: SearchResult }) {
-  return (
-    <section className="border-b border-stone-300 pb-8">
-      <h2 className="mb-3 text-xs font-black uppercase tracking-wide text-stone-950">Top result</h2>
-      <Link href={item.href} className="group flex gap-4 transition-colors sm:gap-5">
-        <ResultMark item={item} />
-        <div className="min-w-0 flex-1">
-          <span className="inline-flex bg-stone-950 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-white">
-            {typeLabel(item.type)}
-          </span>
-          <p className="mt-2 text-2xl font-black leading-none tracking-tight text-stone-950 transition-colors group-hover:text-primary sm:text-3xl">
-            {item.title}
-          </p>
-          {item.subtitle && (
-            <p className="mt-2 text-sm font-semibold text-stone-500 sm:text-base">{item.subtitle}</p>
-          )}
-          {item.meta.length > 0 && (
-            <p className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-wide text-stone-400">
-              {item.meta.map((meta) => (
-                <span key={meta}>{meta}</span>
-              ))}
-            </p>
-          )}
-        </div>
-        <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-stone-300 transition-colors group-hover:text-stone-700" />
-      </Link>
-    </section>
-  );
+function sectionGridClass(groupKey: SearchGroupKey): string {
+  switch (groupKey) {
+    case "comedians":
+      return "grid gap-3 sm:grid-cols-4";
+    case "episodes":
+      return "grid gap-3 sm:grid-cols-2";
+    case "sets":
+      return "grid gap-3 sm:grid-cols-3";
+    case "bits":
+      return "grid gap-3 sm:grid-cols-2";
+    case "jokes":
+      return "grid gap-3";
+    case "topics":
+      return "grid gap-3 sm:grid-cols-4";
+  }
 }
 
-function ResultSection({ title, items }: { title: string; items: SearchResult[] }) {
+function ResultSection({
+  groupKey,
+  title,
+  items,
+}: {
+  groupKey: SearchGroupKey;
+  title: string;
+  items: SearchResult[];
+}) {
   if (items.length === 0) return null;
 
   return (
     <section className="border-b border-stone-300 pb-6">
-      <div className="mb-1 flex items-end justify-between gap-4">
+      <div className="mb-4 flex items-end justify-between gap-4">
         <h2 className="text-xs font-black uppercase tracking-wide text-stone-950">{title}</h2>
         <span className="text-xs font-bold text-stone-400">{items.length}</span>
       </div>
-      <div>
+      <div className={sectionGridClass(groupKey)}>
         {items.map((item) => (
-          <ResultRow key={`${item.type}-${item.href}-${item.title}`} item={item} />
+          <ResultTile
+            key={`${item.type}-${item.href}-${item.title}`}
+            item={item}
+            variant={groupKey}
+          />
         ))}
       </div>
     </section>
@@ -180,22 +200,22 @@ function refinedHref(key: SearchGroupKey, query: string): string {
   }
 }
 
-function BrowseRail({ results, query }: { results: SearchResponse | null; query: string }) {
+function BrowseResults({ results, query }: { results: SearchResponse | null; query: string }) {
   const counts = GROUPS.map((group) => ({
     ...group,
     count: results ? results[group.key].length : 0,
   }));
 
   return (
-    <aside className="lg:sticky lg:top-20 lg:self-start">
+    <section className="border-b border-stone-300 pb-6">
       <div className="border-t-4 border-stone-950 pt-4">
         <h2 className="text-xs font-black uppercase tracking-wide text-stone-950">Browse results</h2>
-        <div className="mt-3 divide-y divide-stone-200 border-y border-stone-200">
+        <div className="mt-3 grid gap-3 sm:grid-cols-3">
           {counts.map((group) => (
             <Link
               key={group.key}
               href={refinedHref(group.key, query)}
-              className="flex items-center justify-between gap-3 py-3 text-sm transition-colors hover:text-primary"
+              className="flex min-h-24 items-start justify-between gap-3 border border-stone-200 bg-white p-3 text-sm transition-colors hover:border-stone-950 hover:bg-stone-50"
             >
               <span>
                 <span className="block font-bold text-stone-950">{group.title}</span>
@@ -206,17 +226,7 @@ function BrowseRail({ results, query }: { results: SearchResponse | null; query:
           ))}
         </div>
       </div>
-
-      <div className="mt-8 border-t-4 border-primary pt-4">
-        <h2 className="text-xs font-black uppercase tracking-wide text-stone-950">Quick links</h2>
-        <div className="mt-3 grid gap-2 text-sm font-bold">
-          <Link href="/killtony/episodes" className="hover:text-primary">Episodes</Link>
-          <Link href="/killtony/comedians" className="hover:text-primary">Comedians</Link>
-          <Link href="/killtony/bits" className="hover:text-primary">Bits</Link>
-          <Link href="/killtony/jokes" className="hover:text-primary">Jokes</Link>
-        </div>
-      </div>
-    </aside>
+    </section>
   );
 }
 
@@ -261,7 +271,7 @@ export default async function SearchPage({ searchParams }: Props) {
         </div>
       </section>
 
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_280px]">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
         <main className="grid gap-8">
           {!trimmedQuery && <SearchEmptyState query="" />}
           {trimmedQuery && !results && (
@@ -270,19 +280,18 @@ export default async function SearchPage({ searchParams }: Props) {
             </div>
           )}
           {results && !hasResults && <SearchEmptyState query={trimmedQuery} />}
-          {results?.top_result && <TopResult item={results.top_result} />}
           {results && hasResults && (
             <>
+              <BrowseResults results={results} query={trimmedQuery} />
               {GROUPS.map(({ key, title }) => (
                 <div id={key} key={key} className="scroll-mt-24">
-                  <ResultSection title={title} items={results[key]} />
+                  <ResultSection groupKey={key} title={title} items={results[key]} />
                 </div>
               ))}
             </>
           )}
         </main>
 
-        <BrowseRail results={results} query={trimmedQuery} />
       </div>
     </div>
   );
