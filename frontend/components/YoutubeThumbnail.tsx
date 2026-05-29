@@ -2,9 +2,15 @@ type Props = {
   videoId: string | null | undefined;
   alt?: string;
   className?: string;
+  fit?: "cover" | "contain";
 };
 
-export default function YoutubeThumbnail({ videoId, alt = "Episode thumbnail", className = "" }: Props) {
+export default function YoutubeThumbnail({
+  videoId,
+  alt = "Episode thumbnail",
+  className = "",
+  fit = "cover",
+}: Props) {
   return (
     <div className={`relative overflow-hidden bg-stone-100 ${className}`}>
       {videoId ? (
@@ -12,7 +18,7 @@ export default function YoutubeThumbnail({ videoId, alt = "Episode thumbnail", c
         <img
           src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`}
           alt={alt}
-          className="absolute inset-0 h-full w-full object-cover"
+          className={`absolute inset-0 h-full w-full ${fit === "contain" ? "object-contain" : "object-cover"}`}
         />
       ) : (
         <div className="absolute inset-0 flex items-center justify-center">

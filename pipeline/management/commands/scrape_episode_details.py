@@ -11,7 +11,7 @@ SLEEP_BETWEEN = 2  # seconds between requests
 
 
 class Command(BaseCommand):
-    help = "Fetch per-video engagement stats (views, likes, comments, tags) and write to inbox"
+    help = "Fetch per-video engagement stats (views, likes, comments) and write to inbox"
 
     def handle(self, *args, **options):
         inbox = settings.PIPELINE_DATA_DIR / "episode_details_inbox"
@@ -48,13 +48,12 @@ class Command(BaseCommand):
                     "view_count": info.get("view_count"),
                     "like_count": info.get("like_count"),
                     "comment_count": info.get("comment_count"),
-                    "tags": info.get("tags") or [],
                 }
                 out_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
                 self.stdout.write(
                     self.style.SUCCESS(
                         f"    views={payload['view_count']}  likes={payload['like_count']}  "
-                        f"comments={payload['comment_count']}  tags={len(payload['tags'])}"
+                        f"comments={payload['comment_count']}"
                     )
                 )
             except Exception as e:

@@ -50,6 +50,11 @@ export async function getServerTopics() {
   return serverFetch<string[]>("/api/killtony/topics/");
 }
 
+export async function getServerSearch(query: string) {
+  const qs = new URLSearchParams({ q: query }).toString();
+  return serverFetch<SearchResponse>(`/api/killtony/search/?${qs}`);
+}
+
 // --- types (minimal, expand as backend solidifies) ---
 
 export type Episode = {
@@ -220,4 +225,26 @@ export type Joke = {
   topics: string[];
   setup_lines: string[];
   punchline: string;
+};
+
+export type SearchResultType = "comedian" | "episode" | "set" | "bit" | "joke" | "topic";
+
+export type SearchResult = {
+  type: SearchResultType;
+  title: string;
+  subtitle: string;
+  href: string;
+  meta: string[];
+  score: number;
+};
+
+export type SearchResponse = {
+  query: string;
+  top_result: SearchResult | null;
+  comedians: SearchResult[];
+  episodes: SearchResult[];
+  sets: SearchResult[];
+  bits: SearchResult[];
+  jokes: SearchResult[];
+  topics: SearchResult[];
 };

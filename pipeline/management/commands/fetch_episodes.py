@@ -21,11 +21,13 @@ from django.core.management.base import BaseCommand, CommandError
 #   page with yt-dlp. It is slower, but captures engagement fields needed by the
 #   frontend sort controls: view_count, like_count, and comment_count.
 #
-# Runs are resumable per mode. If a matching JSONL file already exists, the
-# command appends to the newest one and skips any video_id already present in
-# that file. For example, interrupting `python manage.py fetch_episodes --full`
-# and rerunning it will continue writing to the newest `full-*.jsonl` file
-# instead of starting the scrape from episode 1 again.
+# Runs are resumable per mode. Basic records always go to
+# pipeline/data/basic_kt_episodes.jsonl, and full records always go to
+# pipeline/data/full_kt_episodes.jsonl. If the target file already exists, the
+# command appends to it and skips any video_id already present in that file. For
+# example, interrupting `python manage.py fetch_episodes --full` and rerunning
+# it will continue writing to full_kt_episodes.jsonl instead of starting the
+# scrape from episode 1 again.
 #
 # To load the saved records into the database, run import_episodes_jsonl against
 # the emitted JSONL file. Keeping scrape and import separate makes the raw scrape
@@ -33,7 +35,7 @@ from django.core.management.base import BaseCommand, CommandError
 # partway through a run.
 
 PLAYLIST_URL = "https://www.youtube.com/playlist?list=PLy4mvfOQOs8Aw527rECOiIwvqXn525c8s"
-KT_PATTERN = re.compile(r"KT\s*#(\d+)", re.IGNORECASE)
+EPISODE_NUMBER_PATTERN = re.compile(r"#\s*(\d+)")
 
 
 def _parse_upload_date(raw: str | None) -> str | None:
@@ -43,7 +45,7 @@ def _parse_upload_date(raw: str | None) -> str | None:
 
 
 def _episode_number(title: str) -> int | None:
-    match = KT_PATTERN.search(title)
+    match = EPISODE_NUMBER_PATTERN.search(title)
     return int(match.group(1)) if match else None
 
 
@@ -63,8 +65,9 @@ def _record_from_entry(entry: dict, mode: str) -> dict:
     }
 
 
-def _latest_output_path(output_dir, mode: str):
-    return max(output_dir.glob(f"{mode}-*.jsonl"), key=lambda p: p.stat().st_mtime, default=None)
+def _output_path(mode: str):
+    filename = "full_kt_episodes.jsonl" if mode == "full" else "basic_kt_episodes.jsonl"
+    return settings.PIPELINE_DATA_DIR / filename
 
 
 def _seen_video_ids(path) -> set[str]:
@@ -104,11 +107,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         mode = "full" if options["full"] else "basic"
-        output_dir = settings.PIPELINE_DATA_DIR / "episode_fetches"
-        output_dir.mkdir(parents=True, exist_ok=True)
-        output_path = _latest_output_path(output_dir, mode)
-        if output_path is None:
-            output_path = output_dir / f"{mode}-{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')}.jsonl"
+        output_path = _output_path(mode)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
         seen_video_ids = _seen_video_ids(output_path)
 
         self.stdout.write(f"Scanning playlist ({mode})...")
@@ -160,7 +160,7 @@ class Command(BaseCommand):
                 else:
                     self.stdout.write(f"  [{i}/{len(entries)}] {video_id}")
 
-                output.write(json.dumps(record, ensure_ascii=False) + "\n")
+                output.write(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n")
                 output.flush()
                 written += 1
                 seen_video_ids.add(video_id)

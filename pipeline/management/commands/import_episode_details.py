@@ -33,7 +33,6 @@ class Command(BaseCommand):
                     view_count=data.get("view_count"),
                     like_count=data.get("like_count"),
                     comment_count=data.get("comment_count"),
-                    tags=data.get("tags") or [],
                 )
                 if rows:
                     self.stdout.write(self.style.SUCCESS(f"  {video_id} — updated"))

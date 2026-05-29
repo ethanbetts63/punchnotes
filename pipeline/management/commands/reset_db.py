@@ -60,8 +60,6 @@ class Command(BaseCommand):
 
         self.stdout.write("\nFetching episodes from YouTube playlist...")
         call_command("fetch_episodes", basic=True)
-        episode_fetches = settings.PIPELINE_DATA_DIR / "episode_fetches"
-        latest_fetch = max(episode_fetches.glob("basic-*.jsonl"), key=lambda p: p.stat().st_mtime)
-        call_command("import_episodes_jsonl", str(latest_fetch))
+        call_command("import_episodes_jsonl", str(settings.PIPELINE_DATA_DIR / "basic_kt_episodes.jsonl"))
 
         self.stdout.write(self.style.SUCCESS("\nDatabase reset complete."))

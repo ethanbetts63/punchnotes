@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Search } from "lucide-react";
+import { FormEvent, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -14,6 +16,15 @@ const navLinks = [
 
 export default function NavBar() {
   const pathname = usePathname();
+  const router = useRouter();
+  const [query, setQuery] = useState("");
+
+  function submitSearch(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const trimmed = query.trim();
+    if (!trimmed) return;
+    router.push(`/killtony/search?q=${encodeURIComponent(trimmed)}`);
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-sm">
@@ -23,6 +34,20 @@ export default function NavBar() {
             Punch<span className="text-primary">pedia</span>
           </span>
         </Link>
+
+        <form
+          onSubmit={submitSearch}
+          className="hidden min-w-44 max-w-sm flex-1 items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2.5 py-1.5 transition-colors focus-within:border-white/25 md:flex"
+        >
+          <Search className="h-3.5 w-3.5 shrink-0 text-stone-500" aria-hidden="true" />
+          <input
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Search Kill Tony"
+            className="min-w-0 flex-1 bg-transparent text-sm text-white placeholder:text-stone-500 focus:outline-none"
+          />
+        </form>
 
         <nav className="flex items-center gap-1 overflow-x-auto">
           {navLinks.map(({ href, label }) => (

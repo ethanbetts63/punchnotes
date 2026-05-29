@@ -1,10 +1,13 @@
 import json
+import re
 from pathlib import Path
 
 from django.core.management.base import BaseCommand, CommandError
 
 from pipeline.models import Episode
 
+
+EPISODE_NUMBER_PATTERN = re.compile(r"#\s*(\d+)")
 
 FIELD_MAP = {
     "episode_number": "episode_number",
@@ -16,6 +19,13 @@ FIELD_MAP = {
     "like_count": "like_count",
     "comment_count": "comment_count",
 }
+
+
+def _episode_number(title: str | None) -> int | None:
+    if not title:
+        return None
+    match = EPISODE_NUMBER_PATTERN.search(title)
+    return int(match.group(1)) if match else None
 
 
 class Command(BaseCommand):
@@ -50,6 +60,10 @@ class Command(BaseCommand):
                         defaults["episode_url"] = f"https://www.youtube.com/watch?v={video_id}"
                     if "episode_title" not in defaults:
                         defaults["episode_title"] = data.get("title") or video_id
+                    if "episode_number" not in defaults:
+                        parsed_number = _episode_number(defaults.get("episode_title"))
+                        if parsed_number is not None:
+                            defaults["episode_number"] = parsed_number
 
                     _, was_created = Episode.objects.update_or_create(
                         video_id=video_id,
