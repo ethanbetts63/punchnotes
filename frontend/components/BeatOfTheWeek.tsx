@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { Beat, Bit, ComedianAttribute, Set } from "@/lib/serverApi";
@@ -59,9 +60,10 @@ type Props = {
   set: Set;
   bitIndex: number;
   beatIndex: number;
+  sidebar?: React.ReactNode;
 };
 
-export default function BeatOfTheWeek({ set, bitIndex, beatIndex }: Props) {
+export default function BeatOfTheWeek({ set, bitIndex, beatIndex, sidebar }: Props) {
   const selected = selectedBeat(set, bitIndex, beatIndex);
   if (!selected) return null;
 
@@ -71,7 +73,8 @@ export default function BeatOfTheWeek({ set, bitIndex, beatIndex }: Props) {
 
   return (
     <section className="border-b border-stone-200 bg-white px-4 py-8">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto flex max-w-6xl items-start gap-6">
+        <div className="min-w-0 flex-1">
         <Link
           href={`/killtony/sets/${set.id}`}
           className="group block max-w-3xl rounded-lg border border-stone-200 bg-white p-4 shadow-sm transition-colors hover:border-primary/40 hover:shadow-md"
@@ -142,6 +145,10 @@ export default function BeatOfTheWeek({ set, bitIndex, beatIndex }: Props) {
             ))}
           </div>
         </Link>
+        </div>
+        {sidebar && (
+          <div className="hidden w-72 shrink-0 lg:block">{sidebar}</div>
+        )}
       </div>
     </section>
   );

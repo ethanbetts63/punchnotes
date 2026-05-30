@@ -4,6 +4,36 @@ import FeaturedEpisodesCarousel from "@/components/FeaturedEpisodesCarousel";
 import CuratedSetsSection from "@/components/CuratedSetsSection";
 import BeatOfTheWeek from "@/components/BeatOfTheWeek";
 
+const BROWSE_SECTIONS = [
+  { title: "Comedians", description: "Guest comics and bucket pulls", href: "/killtony/comedians" },
+  { title: "Episodes", description: "KT numbers, titles, and metadata", href: "/killtony/episodes" },
+  { title: "Sets", description: "Individual minutes and interviews", href: "/killtony/sets" },
+  { title: "Bits", description: "Larger joke ideas and recurring angles", href: "/killtony/bits" },
+  { title: "Topics", description: "Subject tags across the archive", href: "/killtony/search#topics" },
+];
+
+function BrowseNav() {
+  return (
+    <div className="bg-white p-4 text-black">
+      <h2 className="text-xs font-bold uppercase text-stone-500">Browse</h2>
+      <div className="mt-3 grid gap-1">
+        {BROWSE_SECTIONS.map((section) => (
+          <Link
+            key={section.href}
+            href={section.href}
+            className="flex items-center gap-3 px-0 py-2 text-sm transition-colors hover:text-[#ff1464]"
+          >
+            <span className="min-w-0">
+              <span className="block truncate font-bold">{section.title}</span>
+              <span className="block truncate text-xs text-stone-500">{section.description}</span>
+            </span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export const metadata = {
   title: "Kill Tony — PunchPedia",
   description: "Structured comedy analytics for Kill Tony. Browse episodes, comedians, and jokes broken down by premise, mechanism, and audience response.",
@@ -36,6 +66,7 @@ export default async function KillTonyPage() {
           set={featuredBeatSet}
           bitIndex={FEATURED_BEAT_BIT_INDEX}
           beatIndex={FEATURED_BEAT_INDEX}
+          sidebar={<BrowseNav />}
         />
       )}
 
