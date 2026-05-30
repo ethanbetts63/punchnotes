@@ -32,19 +32,7 @@ If there are any `.json` files there:
 
 ---
 
-## Phase 3 — Database Import
-
-Once `2_set_inbox` is empty and all Phase 2 agents are done, run:
-
-```powershell
-python manage.py import_lines
-```
-
-This will import everything from `3_bit_annotated_set_inbox` into the database and archive the files to `bit_annotated_set_archive`.
-
----
-
-## Phase 4 — Normalize Archive
+## Phase 3 — Normalize Archive
 
 Once Phase 3 is complete, run:
 
