@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { ComedianAttribute, SetListItem } from "@/lib/serverApi";
 import Paginator from "@/components/Paginator";
-import YoutubeThumbnail from "@/components/YoutubeThumbnail";
+import SetImage from "@/components/SetImage";
 
 const PAGE_SIZE = 20;
 
@@ -281,11 +281,11 @@ export default function SetControls({ sets, initialQuery = "" }: Props) {
                 href={`/killtony/sets/${set.id}`}
                 className="group flex overflow-hidden rounded-xl border border-stone-200 bg-white transition-colors hover:border-primary/40 hover:shadow-sm"
               >
-                <YoutubeThumbnail
-                  videoId={set.episode.youtube_id}
-                  alt={set.episode.title}
+                <SetImage
+                  imageUrl={set.image_url}
+                  fallbackVideoId={set.episode.youtube_id}
+                  alt={`${set.comedian.name} set image`}
                   className="hidden w-32 shrink-0 bg-stone-950 sm:block"
-                  fit="cover"
                 />
                 <div className="min-w-0 flex-1 p-4">
                   <div className="flex items-start justify-between gap-3">

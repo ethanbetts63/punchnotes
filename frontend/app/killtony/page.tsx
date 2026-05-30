@@ -1,55 +1,43 @@
 import Link from "next/link";
-import { getServerEpisodes, getServerComedians, getServerJokes, getServerSets } from "@/lib/serverApi";
+import { getServerBits, getServerEpisodes, getServerComedians, getServerSet, getServerSets } from "@/lib/serverApi";
 import FeaturedEpisodesCarousel from "@/components/FeaturedEpisodesCarousel";
 import CuratedSetsSection from "@/components/CuratedSetsSection";
+import BeatOfTheWeek from "@/components/BeatOfTheWeek";
 
 export const metadata = {
   title: "Kill Tony — PunchPedia",
   description: "Structured comedy analytics for Kill Tony. Browse episodes, comedians, and jokes broken down by premise, mechanism, and audience response.",
 };
 
+const FEATURED_BEAT_SET_ID = "138";
+const FEATURED_BEAT_BIT_INDEX = 3;
+const FEATURED_BEAT_INDEX = 0;
+
 export default async function KillTonyPage() {
-  const [episodes, comedians, jokes, sets] = await Promise.all([
+  const [episodes, comedians, bits, sets, featuredBeatSet] = await Promise.all([
     getServerEpisodes(),
     getServerComedians(),
-    getServerJokes(),
+    getServerBits(),
     getServerSets(),
+    getServerSet(FEATURED_BEAT_SET_ID),
   ]);
 
   const episodeCount = episodes?.length ?? 0;
   const comedianCount = comedians?.length ?? 0;
   const setCount = episodes?.reduce((sum, ep) => sum + (ep.set_count ?? 0), 0) ?? 0;
-  const jokeCount = jokes?.length ?? 0;
+  const bitCount = bits?.length ?? 0;
 
   return (
     <div className="bg-white">
-      {/* Hero */}
-      <section className="bg-stone-900 py-20 px-4">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Kill Tony
-          </h1>
-          <p className="mt-4 text-lg text-stone-400 max-w-2xl mx-auto">
-            Every set. Every joke. Broken down by premise, mechanism, and what actually made the audience laugh.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/killtony/comedians"
-              className="rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors"
-            >
-              Browse Comedians
-            </Link>
-            <Link
-              href="/killtony/episodes"
-              className="rounded-md bg-white/10 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
-            >
-              Browse Episodes
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {episodes && <FeaturedEpisodesCarousel episodes={episodes} />}
+
+      {featuredBeatSet && (
+        <BeatOfTheWeek
+          set={featuredBeatSet}
+          bitIndex={FEATURED_BEAT_BIT_INDEX}
+          beatIndex={FEATURED_BEAT_INDEX}
+        />
+      )}
 
       {sets && <CuratedSetsSection sets={sets} />}
 
@@ -61,7 +49,7 @@ export default async function KillTonyPage() {
               { label: "Episodes", value: episodeCount || "—" },
               { label: "Comedians", value: comedianCount || "—" },
               { label: "Sets", value: setCount || "—" },
-              { label: "Jokes", value: jokeCount || "—" },
+              { label: "Bits", value: bitCount || "—" },
             ].map(({ label, value }) => (
               <div key={label} className="text-center">
                 <dt className="text-sm text-stone-500">{label}</dt>

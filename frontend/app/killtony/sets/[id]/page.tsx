@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getServerSet } from "@/lib/serverApi";
 import type { ComedianAttribute } from "@/lib/serverApi";
 import SetTranscript from "@/components/SetTranscript";
+import SetImage from "@/components/SetImage";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -69,7 +70,7 @@ export default async function SetDetailPage({ params }: Props) {
         <div className="mx-auto max-w-5xl px-6 py-10">
           <div className="flex gap-8 items-start">
 
-            {/* YouTube thumbnail + episode info beneath */}
+            {/* Set image + episode info beneath */}
             {set.episode.youtube_id && (
               <div className="hidden sm:block w-36 md:w-48 shrink-0">
                 <a
@@ -78,10 +79,11 @@ export default async function SetDetailPage({ params }: Props) {
                   rel="noopener noreferrer"
                   className="block rounded-lg overflow-hidden shadow-xl ring-1 ring-white/10 hover:ring-yellow-400/50 transition-all group relative"
                 >
-                  <img
-                    src={`https://img.youtube.com/vi/${set.episode.youtube_id}/hqdefault.jpg`}
-                    alt={`Episode ${set.episode.number} thumbnail`}
-                    className="w-full aspect-video object-cover"
+                  <SetImage
+                    imageUrl={set.image_url}
+                    fallbackVideoId={set.episode.youtube_id}
+                    alt={`${set.comedian.name} set image`}
+                    className="w-full aspect-video"
                   />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity">
                     <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center">
@@ -157,7 +159,7 @@ export default async function SetDetailPage({ params }: Props) {
                   <span className="mx-2 text-stone-700">·</span>
                   <span className="text-white">{fmt2(comedian.avg_punchline_tag_ratio)}</span> punch/tag
                   <span className="mx-2 text-stone-700">·</span>
-                  {comedian.appearances} appearance{comedian.appearances !== 1 ? "s" : ""}
+                  {comedian.set_count} set{comedian.set_count !== 1 ? "s" : ""}
                 </p>
                 <p>
                   <span className="text-stone-500 font-medium">This set</span>

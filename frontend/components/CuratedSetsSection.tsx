@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Play } from "lucide-react";
 import { useMemo, useState } from "react";
 import type { ComedianAttribute, SetListItem } from "@/lib/serverApi";
-import YoutubeThumbnail from "@/components/YoutubeThumbnail";
+import SetImage from "@/components/SetImage";
 
 type PlaylistKey = "regulars" | "golden_tickets";
 
@@ -51,10 +51,6 @@ function fmtSeconds(seconds: number): string {
   const s = Math.floor(seconds % 60);
   if (h > 0) return `${h}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
   return `${m}:${String(s).padStart(2, "0")}`;
-}
-
-function fmt2(value: number | null): string {
-  return value == null ? "-" : value.toFixed(2);
 }
 
 function firstSetsFor(sets: SetListItem[], attribute: ComedianAttribute): SetListItem[] {
@@ -137,11 +133,12 @@ export default function CuratedSetsSection({ sets }: Props) {
               href={`/killtony/sets/${set.id}`}
               className="group flex overflow-hidden rounded-lg border border-stone-200 bg-white transition-colors hover:border-primary/40 hover:shadow-sm"
             >
-              <YoutubeThumbnail
-                videoId={set.episode.youtube_id}
-                alt={set.episode.title}
-                className="w-28 shrink-0 bg-stone-950"
-                fit="cover"
+              <SetImage
+                imageUrl={set.image_url}
+                fallbackVideoId={set.episode.youtube_id}
+                alt={`${set.comedian.name} set image`}
+                className="aspect-video w-32 shrink-0 bg-stone-950"
+                fit="contain"
               />
               <div className="min-w-0 flex-1 p-3">
                 <div className="flex items-start justify-between gap-2">
@@ -158,19 +155,13 @@ export default function CuratedSetsSection({ sets }: Props) {
                 <p className="mt-1 truncate text-xs text-stone-500">
                   KT #{set.episode.number} / Set {set.set_number} / {fmtSeconds(set.start_seconds)}
                 </p>
-                <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                  <span className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-bold text-stone-700">
-                    {set.bit_count} bit{set.bit_count === 1 ? "" : "s"}
-                  </span>
-                  <span className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-bold text-stone-700">
-                    Setup/punch {fmt2(set.hit_ratio)}
-                  </span>
-                  {set.joke_book_award && (
+                {set.joke_book_award && (
+                  <div className="mt-2 flex flex-wrap items-center gap-1.5">
                     <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${jokeBookClassName[set.joke_book_award]}`}>
                       {jokeBookLabel[set.joke_book_award]}
                     </span>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
             </Link>
           ))}

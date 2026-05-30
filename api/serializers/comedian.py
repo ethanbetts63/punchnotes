@@ -33,12 +33,22 @@ class ComedianListSerializer(serializers.ModelSerializer):
 
 class ComedianDetailSerializer(serializers.ModelSerializer):
     sets = SetInComedianSerializer(many=True)
+    set_count = serializers.SerializerMethodField()
+    appearances = serializers.SerializerMethodField()
 
     class Meta:
         model = Comedian
         fields = [
             "id", "name", "slug", "attributes",
+            "set_count", "appearances",
             "avg_hit_ratio", "avg_punchline_tag_ratio",
             "avg_bits_per_set", "avg_beats_per_set",
+            "has_small_joke_book", "has_medium_joke_book", "has_large_joke_book",
             "sets",
         ]
+
+    def get_set_count(self, obj):
+        return obj.sets.count()
+
+    def get_appearances(self, obj):
+        return obj.sets.values("episode").distinct().count()

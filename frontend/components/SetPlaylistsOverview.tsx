@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { ComedianAttribute, SetListItem } from "@/lib/serverApi";
-import YoutubeThumbnail from "@/components/YoutubeThumbnail";
+import SetImage from "@/components/SetImage";
 
 type Playlist = {
   title: string;
@@ -67,16 +67,16 @@ export default function SetPlaylistsOverview({ sets }: Props) {
   if (playlists.length === 0) return null;
 
   return (
-    <section className="mb-8 border-b border-stone-200 pb-8">
-      <div className="mb-4">
+    <section className="mb-6 border-b border-stone-200 pb-6">
+      <div className="mb-3">
         <p className="text-xs font-bold uppercase tracking-wide text-primary">Playlists</p>
-        <h2 className="mt-1 text-xl font-bold tracking-tight text-stone-950">Curated ways into the set archive</h2>
+        <h2 className="mt-1 text-lg font-bold tracking-tight text-stone-950">Curated ways into the set archive</h2>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         {playlists.map((playlist) => (
           <div key={playlist.title}>
-            <div className="mb-3 flex items-end justify-between gap-3">
+            <div className="mb-2 flex items-end justify-between gap-3">
               <div>
                 <h3 className="text-sm font-bold text-stone-950">{playlist.title}</h3>
                 <p className="mt-0.5 text-xs text-stone-500">{playlist.description}</p>
@@ -89,15 +89,15 @@ export default function SetPlaylistsOverview({ sets }: Props) {
                 <Link
                   key={set.id}
                   href={`/killtony/sets/${set.id}`}
-                  className="group w-64 shrink-0 overflow-hidden rounded-lg border border-stone-200 bg-white transition-colors hover:border-primary/40 hover:shadow-sm"
+                  className="group w-52 shrink-0 overflow-hidden rounded-lg border border-stone-200 bg-white transition-colors hover:border-primary/40 hover:shadow-sm"
                 >
-                  <YoutubeThumbnail
-                    videoId={set.episode.youtube_id}
-                    alt={set.episode.title}
-                    className="aspect-video w-full bg-stone-950"
-                    fit="cover"
+                  <SetImage
+                    imageUrl={set.image_url}
+                    fallbackVideoId={set.episode.youtube_id}
+                    alt={`${set.comedian.name} set image`}
+                    className="h-24 w-full bg-stone-950"
                   />
-                  <div className="p-3">
+                  <div className="p-2.5">
                     <p className="text-[11px] font-bold uppercase tracking-wide text-primary">{playlist.label}</p>
                     <p className="mt-1 truncate font-bold leading-tight text-stone-950 transition-colors group-hover:text-primary">
                       {set.comedian.name}
@@ -105,7 +105,7 @@ export default function SetPlaylistsOverview({ sets }: Props) {
                     <p className="mt-1 truncate text-xs text-stone-500">
                       KT #{set.episode.number} / Set {set.set_number} / {fmtSeconds(set.start_seconds)}
                     </p>
-                    <div className="mt-2 flex flex-wrap gap-1.5">
+                    <div className="mt-1.5 flex flex-wrap gap-1.5">
                       <span className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-bold text-stone-700">
                         {set.bit_count} bit{set.bit_count === 1 ? "" : "s"}
                       </span>

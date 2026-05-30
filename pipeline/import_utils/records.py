@@ -214,6 +214,8 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
                 topics=beat_data.get("topics", []),
             )
 
+    refresh_comedian_stats(set_obj.comedian)
+
 
 def refresh_episode_counts(episode: Episode) -> None:
     """Recompute denormalised counts from the episode's current sets."""

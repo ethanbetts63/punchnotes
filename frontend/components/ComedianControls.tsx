@@ -250,7 +250,7 @@ export default function ComedianControls({ comedians, initialQuery = "" }: Props
                   {c.name}
                 </p>
                 <p className="mt-1 text-sm text-stone-400">
-                  {c.appearances} ep{c.appearances !== 1 ? "s" : ""} · {c.set_count} set{c.set_count !== 1 ? "s" : ""}
+                  {c.set_count} set{c.set_count !== 1 ? "s" : ""}
                   {c.avg_bits_per_set != null && <> · <span className="font-medium">{fmt2(c.avg_bits_per_set)}</span> bits/set</>}
                   {c.avg_beats_per_set != null && <> · <span className="font-medium">{fmt2(c.avg_beats_per_set)}</span> beats/set</>}
                 </p>

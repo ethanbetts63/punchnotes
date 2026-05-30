@@ -158,8 +158,6 @@ export default async function ComedianDetailPage({ params }: Props) {
 
               {/* Stats */}
               <p className="text-sm text-stone-400">
-                <span className="text-white">{comedian.appearances}</span> appearance{comedian.appearances !== 1 ? "s" : ""}
-                <span className="mx-2 text-stone-700">·</span>
                 <span className="text-white">{comedian.set_count}</span> set{comedian.set_count !== 1 ? "s" : ""}
                 <span className="mx-2 text-stone-700">·</span>
                 <span className="text-white">{fmt2(comedian.avg_bits_per_set)}</span> bits/set
