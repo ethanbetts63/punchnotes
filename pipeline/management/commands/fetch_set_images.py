@@ -14,7 +14,6 @@ from pipeline.scripts.grab_set_image import (
     default_output_path,
     download_clip,
     grab_frame,
-    write_metadata,
     youtube_url,
 )
 
@@ -138,6 +137,7 @@ class Command(BaseCommand):
                 set_obj.episode.episode_number,
                 set_obj.set_number,
                 set_obj.comedian.name,
+                set_obj.id,
             )
             filename = output_path.name
             latest = history.get(set_obj.id)
@@ -175,7 +175,6 @@ class Command(BaseCommand):
                 quality=options["quality"],
                 cookies_from_browser=options["cookies_from_browser"],
                 cookies=options["cookies"],
-                no_metadata=False,
             )
             source_url = youtube_url(video_id=set_obj.episode.video_id)
 
@@ -249,5 +248,3 @@ class Command(BaseCommand):
         with tempfile.TemporaryDirectory(prefix="punchpedia_frame_") as tmp:
             clip_path = download_clip(source_url, args, clip_start, clip_end, Path(tmp))
             grab_frame(clip_path, relative_seconds, output_path, args.width, args.quality)
-
-        write_metadata(output_path, args, source_url, capture_seconds)

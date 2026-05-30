@@ -1,5 +1,4 @@
 import argparse
-import json
 import re
 import shutil
 import subprocess
@@ -66,7 +65,19 @@ def slugify(value):
     return SLUG_RE.sub("-", value.lower()).strip("-") or "unknown"
 
 
-def default_output_path(video_id, capture_seconds, episode_number=None, set_number=None, comic_name=None):
+def default_output_path(
+    video_id,
+    capture_seconds,
+    episode_number=None,
+    set_number=None,
+    comic_name=None,
+    set_id=None,
+):
+    if set_id is not None and episode_number is not None and set_number is not None and comic_name:
+        return DEFAULT_OUTPUT_DIR / (
+            f"set{set_id:06d}_KT{episode_number}_set{set_number:02d}_{slugify(comic_name)}.jpg"
+        )
+
     if episode_number is not None and set_number is not None and comic_name:
         return DEFAULT_OUTPUT_DIR / f"KT{episode_number}_set{set_number:02d}_{slugify(comic_name)}.jpg"
 
@@ -141,30 +152,6 @@ def grab_frame(video_path, relative_seconds, output_path, width, quality):
     subprocess.run(command, check=True)
 
 
-def write_metadata(output_path, args, source_url, capture_seconds):
-    if args.no_metadata:
-        return
-
-    metadata = {
-        "video_id": args.video_id,
-        "url": source_url,
-        "episode_number": args.episode_number,
-        "set_number": args.set_number,
-        "comic_name": args.comic_name,
-        "timestamp": args.timestamp,
-        "offset": args.offset,
-        "capture_seconds": capture_seconds,
-        "clip_duration": args.clip_duration,
-        "width": args.width,
-        "quality": args.quality,
-        "image_filename": output_path.name,
-    }
-    output_path.with_suffix(output_path.suffix + ".json").write_text(
-        json.dumps(metadata, indent=2, sort_keys=True),
-        encoding="utf-8",
-    )
-
-
 def build_parser():
     parser = argparse.ArgumentParser(
         description="Grab a small still image from a YouTube video at a specific timestamp."
@@ -198,6 +185,7 @@ def build_parser():
     parser.add_argument("--episode-number", type=int, help="KT episode number for deterministic filename.")
     parser.add_argument("--set-number", type=int, help="Set number for deterministic filename.")
     parser.add_argument("--comic-name", help="Comic name for deterministic filename.")
+    parser.add_argument("--set-id", type=int, help="Set database ID for deterministic filename.")
     parser.add_argument("--width", type=int, default=480, help="Output width in pixels.")
     parser.add_argument(
         "--quality",
@@ -211,7 +199,6 @@ def build_parser():
         help="Pass browser cookies to yt-dlp for age-gated videos.",
     )
     parser.add_argument("--cookies", help="Path to a Netscape cookies.txt file for yt-dlp.")
-    parser.add_argument("--no-metadata", action="store_true", help="Do not write a JSON metadata sidecar.")
     return parser
 
 
@@ -231,6 +218,8 @@ def main():
     filename_parts = [args.episode_number is not None, args.set_number is not None, bool(args.comic_name)]
     if any(filename_parts) and not all(filename_parts):
         parser.error("--episode-number, --set-number, and --comic-name must be supplied together")
+    if args.set_id is not None and not all(filename_parts):
+        parser.error("--set-id filename mode also requires --episode-number, --set-number, and --comic-name")
 
     source_url = youtube_url(video_id=args.video_id, url=args.url)
     output_path = args.output or default_output_path(
@@ -239,6 +228,7 @@ def main():
         args.episode_number,
         args.set_number,
         args.comic_name,
+        args.set_id,
     )
 
     half_clip = args.clip_duration / 2
@@ -250,7 +240,6 @@ def main():
         clip_path = download_clip(source_url, args, clip_start, clip_end, Path(tmp))
         grab_frame(clip_path, relative_seconds, output_path, args.width, args.quality)
 
-    write_metadata(output_path, args, source_url, capture_seconds)
     print(f"Wrote {output_path}")
 
 
