@@ -8,6 +8,8 @@ class Set(models.Model):
     start_seconds = models.FloatField()
     interview_end_line = models.PositiveSmallIntegerField(blank=True, null=True)
     interview_end_seconds = models.FloatField(blank=True, null=True)
+    image_url = models.CharField(max_length=1000, blank=True, null=True)
+    image_capture_seconds = models.FloatField(blank=True, null=True)
     joke_book = models.CharField(
         max_length=10,
         choices=[('small', 'Small'), ('medium', 'Medium'), ('large', 'Large')],

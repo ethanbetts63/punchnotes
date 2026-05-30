@@ -109,6 +109,8 @@ export type SetInEpisode = {
   bit_count: number;
   start_seconds: number;
   interview_end_seconds: number | null;
+  image_url: string | null;
+  image_capture_seconds: number | null;
 };
 
 export type EpisodeDetail = {
@@ -152,6 +154,8 @@ export type SetInComedian = {
   joke_book: "small" | "medium" | "large" | null;
   hit_ratio: number | null;
   punchline_tag_ratio: number | null;
+  image_url: string | null;
+  image_capture_seconds: number | null;
 };
 
 export type ComedianDetail = Comedian & {
@@ -180,6 +184,8 @@ export type SetListItem = {
   joke_book_award: "small" | "medium" | "large" | null;
   start_seconds: number;
   interview_end_seconds: number | null;
+  image_url: string | null;
+  image_capture_seconds: number | null;
   hit_ratio: number | null;
   punchline_tag_ratio: number | null;
   bit_count: number;
@@ -222,6 +228,8 @@ export type Set = {
   episode: { id: number; number: number; title: string; youtube_id: string; date: string | null };
   joke_book_award: "small" | "medium" | "large" | null;
   start_seconds: number;
+  image_url: string | null;
+  image_capture_seconds: number | null;
   hit_ratio: number | null;
   punchline_tag_ratio: number | null;
   bits: Bit[];

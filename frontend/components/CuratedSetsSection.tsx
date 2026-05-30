@@ -33,12 +33,28 @@ const PLAYLISTS: Playlist[] = [
   },
 ];
 
+const jokeBookLabel: Record<string, string> = {
+  small: "Small Joke Book",
+  medium: "Medium Joke Book",
+  large: "Large Joke Book",
+};
+
+const jokeBookClassName: Record<string, string> = {
+  small: "bg-stone-100 text-stone-600",
+  medium: "bg-amber-100 text-amber-700",
+  large: "bg-red-100 text-primary",
+};
+
 function fmtSeconds(seconds: number): string {
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
   const s = Math.floor(seconds % 60);
   if (h > 0) return `${h}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
   return `${m}:${String(s).padStart(2, "0")}`;
+}
+
+function fmt2(value: number | null): string {
+  return value == null ? "-" : value.toFixed(2);
 }
 
 function firstSetsFor(sets: SetListItem[], attribute: ComedianAttribute): SetListItem[] {
@@ -142,15 +158,19 @@ export default function CuratedSetsSection({ sets }: Props) {
                 <p className="mt-1 truncate text-xs text-stone-500">
                   KT #{set.episode.number} / Set {set.set_number} / {fmtSeconds(set.start_seconds)}
                 </p>
-                <p className="mt-2 text-xs text-stone-500">
-                  <span className="font-bold text-stone-800">{set.bit_count}</span> bits
+                <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                  <span className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-bold text-stone-700">
+                    {set.bit_count} bit{set.bit_count === 1 ? "" : "s"}
+                  </span>
+                  <span className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-bold text-stone-700">
+                    Setup/punch {fmt2(set.hit_ratio)}
+                  </span>
                   {set.joke_book_award && (
-                    <>
-                      <span className="mx-1.5 text-stone-300">/</span>
-                      {set.joke_book_award} joke book
-                    </>
+                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${jokeBookClassName[set.joke_book_award]}`}>
+                      {jokeBookLabel[set.joke_book_award]}
+                    </span>
                   )}
-                </p>
+                </div>
               </div>
             </Link>
           ))}

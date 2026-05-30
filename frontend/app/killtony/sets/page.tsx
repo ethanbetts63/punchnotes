@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { getServerSets } from "@/lib/serverApi";
 import SetControls from "@/components/SetControls";
+import SetPlaylistsOverview from "@/components/SetPlaylistsOverview";
 
 export const metadata = {
   title: "Sets - Kill Tony | PunchPedia",
@@ -29,9 +30,12 @@ export default async function SetsPage({ searchParams }: Props) {
             <p className="text-stone-500">No sets indexed yet.</p>
           </div>
         ) : (
-          <Suspense>
-            <SetControls sets={sets} initialQuery={query} />
-          </Suspense>
+          <>
+            <SetPlaylistsOverview sets={sets} />
+            <Suspense>
+              <SetControls sets={sets} initialQuery={query} />
+            </Suspense>
+          </>
         )}
       </div>
     </div>

@@ -10,7 +10,11 @@ class SetInEpisodeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Set
-        fields = ["id", "set_number", "comedian", "joke_book", "bit_count", "start_seconds", "interview_end_seconds"]
+        fields = [
+            "id", "set_number", "comedian", "joke_book", "bit_count",
+            "start_seconds", "interview_end_seconds",
+            "image_url", "image_capture_seconds",
+        ]
 
 
 class EpisodeListSerializer(serializers.ModelSerializer):

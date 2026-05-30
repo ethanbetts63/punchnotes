@@ -74,6 +74,7 @@ class SetDetailSerializer(serializers.ModelSerializer):
         fields = [
             "id", "set_number", "comedian", "episode",
             "joke_book_award", "start_seconds",
+            "image_url", "image_capture_seconds",
             "hit_ratio", "punchline_tag_ratio",
             "bits",
         ]
@@ -95,5 +96,6 @@ class SetListSerializer(serializers.ModelSerializer):
         fields = [
             "id", "set_number", "comedian", "episode",
             "joke_book_award", "start_seconds", "interview_end_seconds",
+            "image_url", "image_capture_seconds",
             "hit_ratio", "punchline_tag_ratio", "bit_count",
         ]
