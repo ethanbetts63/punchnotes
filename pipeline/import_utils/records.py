@@ -44,11 +44,7 @@ def merge_attributes(existing, incoming):
 
 
 def meta_attributes(meta):
-    incoming = list(meta.get("attributes", []) or [])
-    legacy_type = meta.get("comedian_type")
-    if legacy_type and legacy_type not in incoming:
-        incoming.insert(0, legacy_type)
-    return incoming
+    return list(meta.get("attributes", []) or [])
 
 
 def upsert_comedian(slug: str, meta: dict) -> Comedian:

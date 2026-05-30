@@ -9,7 +9,7 @@ export default function YoutubeThumbnail({
   videoId,
   alt = "Episode thumbnail",
   className = "",
-  fit = "cover",
+  fit = "contain",
 }: Props) {
   return (
     <div className={`relative overflow-hidden bg-stone-100 ${className}`}>

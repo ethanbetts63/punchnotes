@@ -70,15 +70,13 @@ def normalize_joke_book(value):
     raise CommandError("--joke-book must be one of small, medium, large, or null")
 
 
-def normalize_attributes(value, comedian_type=None):
-    if not value and not comedian_type:
+def normalize_attributes(value):
+    if not value:
         return []
 
     attributes = []
     seen = set()
-    parts = value.split(",") if value else []
-    if comedian_type:
-        parts.insert(0, comedian_type)
+    parts = value.split(",")
 
     for raw_part in parts:
         part = raw_part.strip().lower().replace(" ", "_")
@@ -128,12 +126,6 @@ class Command(BaseCommand):
         parser.add_argument("--start-line", required=True, type=int, help="First source line number to include")
         parser.add_argument("--end-line", required=True, type=int, help="Last source line number to include")
         parser.add_argument("--comedian-name", required=True, help="Comedian name for metadata and filename")
-        parser.add_argument(
-            "--comedian-type",
-            required=False,
-            choices=["bucket_pull", "regular", "golden_ticket"],
-            help="Deprecated; use --comedian-attributes bucket_pull|regular|golden_ticket.",
-        )
         parser.add_argument(
             "--set-number",
             required=False,
@@ -233,7 +225,7 @@ class Command(BaseCommand):
             "interview_end_line": interview_end_line,
             "interview_end_seconds": interview_end_seconds,
             "joke_book": normalize_joke_book(options["joke_book"]),
-            "attributes": normalize_attributes(options["attributes"], options["comedian_type"]),
+            "attributes": normalize_attributes(options["attributes"]),
             "lines": selected_lines,
         }
 

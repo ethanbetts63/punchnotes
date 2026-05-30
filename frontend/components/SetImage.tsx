@@ -8,7 +8,7 @@ type Props = {
   fit?: "cover" | "contain";
 };
 
-export default function SetImage({ imageUrl, fallbackVideoId, alt, className = "", fit = "cover" }: Props) {
+export default function SetImage({ imageUrl, fallbackVideoId, alt, className = "", fit = "contain" }: Props) {
   if (!imageUrl) {
     return <YoutubeThumbnail videoId={fallbackVideoId} alt={alt} className={className} fit={fit} />;
   }

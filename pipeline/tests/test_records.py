@@ -35,7 +35,6 @@ class MergeAttributesTests(TestCase):
 class UpsertComedianAttributesTests(TestCase):
     _base_meta = {
         "comedian_name": "Test Comic",
-        "comedian_type": "regular",
     }
 
     def test_creates_comedian_with_attributes(self):
@@ -69,7 +68,6 @@ class UpsertSetOrderingTests(TestCase):
         return {
             **self._episode_meta,
             "comedian_name": name,
-            "comedian_type": "bucket_pull",
             "start_seconds": start_seconds,
             "interview_end_line": None,
             "interview_end_seconds": None,
