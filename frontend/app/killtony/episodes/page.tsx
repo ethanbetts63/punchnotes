@@ -36,13 +36,11 @@ export default async function EpisodesPage({ searchParams }: Props) {
             <Suspense>
               <BrowseSearchBar placeholder={`Search ${episodes.length} episodes…`} />
             </Suspense>
-            {trimmedQuery ? (
-              <Suspense>
-                <EpisodeControls episodes={episodes} initialQuery={trimmedQuery} hideSearch />
-              </Suspense>
-            ) : (
-              <EpisodePlaylists episodes={episodes} />
-            )}
+            <Suspense>
+              <EpisodeControls episodes={episodes} initialQuery={trimmedQuery} hideSearch>
+                <EpisodePlaylists episodes={episodes} />
+              </EpisodeControls>
+            </Suspense>
           </>
         )}
       </div>

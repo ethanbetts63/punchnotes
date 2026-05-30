@@ -108,9 +108,10 @@ type Props = {
   sets: SetListItem[];
   initialQuery?: string;
   hideSearch?: boolean;
+  children?: React.ReactNode;
 };
 
-export default function SetControls({ sets, initialQuery = "", hideSearch = false }: Props) {
+export default function SetControls({ sets, initialQuery = "", hideSearch = false, children }: Props) {
   const [query, setQuery] = useState(initialQuery);
   const [typeFilter, setTypeFilter] = useState<ComedianAttribute | "">("");
   const [attributeFilters, setAttributeFilters] = useState<Set<ComedianAttribute>>(new Set());
@@ -265,20 +266,19 @@ export default function SetControls({ sets, initialQuery = "", hideSearch = fals
         ))}
       </div>
 
-      {(query.trim() || typeFilter || attributeFilters.size > 0 || jokeBooks.size > 0) && (
-        <p className="mb-3 text-sm text-stone-400">
-          {results.length} result{results.length !== 1 ? "s" : ""}
-        </p>
-      )}
-
-      {results.length === 0 ? (
-        <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
-          <p className="text-stone-500">No sets match.</p>
-        </div>
-      ) : (
+      {query.trim() ? (
         <>
-          <div className="flex flex-col gap-3">
-            {pageItems.map((set) => (
+          <p className="mb-3 text-sm text-stone-400">
+            {results.length} result{results.length !== 1 ? "s" : ""}
+          </p>
+          {results.length === 0 ? (
+            <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
+              <p className="text-stone-500">No sets match.</p>
+            </div>
+          ) : (
+            <>
+              <div className="flex flex-col gap-3">
+                {pageItems.map((set) => (
               <Link
                 key={set.id}
                 href={`/killtony/sets/${set.id}`}
@@ -327,10 +327,14 @@ export default function SetControls({ sets, initialQuery = "", hideSearch = fals
                   )}
                 </div>
               </Link>
-            ))}
-          </div>
-          <Paginator page={page} totalPages={totalPages} onPage={setPage} />
+                ))}
+              </div>
+              <Paginator page={page} totalPages={totalPages} onPage={setPage} />
+            </>
+          )}
         </>
+      ) : (
+        children
       )}
     </div>
   );

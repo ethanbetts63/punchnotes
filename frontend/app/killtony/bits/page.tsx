@@ -42,21 +42,20 @@ export default async function BitsPage({ searchParams }: Props) {
           <BrowseSearchBar placeholder="Search bits…" />
         </Suspense>
 
+        <Suspense>
+          <BitsFilters topics={topics ?? []} hideSearch />
+        </Suspense>
+
         {trimmedQuery ? (
-          <>
+          !bits ? (
+            <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
+              <p className="text-stone-500">No bits found.</p>
+            </div>
+          ) : (
             <Suspense>
-              <BitsFilters topics={topics ?? []} hideSearch />
+              <BitsList bits={bits} filterKey={filterKey} />
             </Suspense>
-            {!bits ? (
-              <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
-                <p className="text-stone-500">No bits found.</p>
-              </div>
-            ) : (
-              <Suspense>
-                <BitsList bits={bits} filterKey={filterKey} />
-              </Suspense>
-            )}
-          </>
+          )
         ) : (
           bits && <BitPlaylists bits={bits} />
         )}

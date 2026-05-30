@@ -36,13 +36,11 @@ export default async function ComediansPage({ searchParams }: Props) {
             <Suspense>
               <BrowseSearchBar placeholder={`Search ${comedians.length} comedians…`} />
             </Suspense>
-            {trimmedQuery ? (
-              <Suspense>
-                <ComedianControls comedians={comedians} initialQuery={trimmedQuery} hideSearch />
-              </Suspense>
-            ) : (
-              <ComedianPlaylists comedians={comedians} />
-            )}
+            <Suspense>
+              <ComedianControls comedians={comedians} initialQuery={trimmedQuery} hideSearch>
+                <ComedianPlaylists comedians={comedians} />
+              </ComedianControls>
+            </Suspense>
           </>
         )}
       </div>

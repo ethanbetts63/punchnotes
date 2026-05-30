@@ -80,9 +80,9 @@ function Stat({ label, value }: { label: string; value: string | number }) {
   );
 }
 
-type Props = { episodes: Episode[]; initialQuery?: string; hideSearch?: boolean };
+type Props = { episodes: Episode[]; initialQuery?: string; hideSearch?: boolean; children?: React.ReactNode };
 
-export default function EpisodeControls({ episodes, initialQuery = "", hideSearch = false }: Props) {
+export default function EpisodeControls({ episodes, initialQuery = "", hideSearch = false, children }: Props) {
   const [query, setQuery] = useState(initialQuery);
   const [sort, setSort] = useState<SortKey>("date");
   const [asc, setAsc] = useState(false);
@@ -157,22 +157,19 @@ export default function EpisodeControls({ episodes, initialQuery = "", hideSearc
         ))}
       </div>
 
-      {/* Result count */}
-      {query && (
-        <p className="mb-3 text-sm text-stone-400">
-          {results.length} result{results.length !== 1 ? "s" : ""}
-        </p>
-      )}
-
-      {/* Cards */}
-      {results.length === 0 ? (
-        <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
-          <p className="text-stone-500">No episodes match.</p>
-        </div>
-      ) : (
+      {query.trim() ? (
         <>
-          <div className="flex flex-col gap-3">
-            {pageItems.map((ep) => {
+          <p className="mb-3 text-sm text-stone-400">
+            {results.length} result{results.length !== 1 ? "s" : ""}
+          </p>
+          {results.length === 0 ? (
+            <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
+              <p className="text-stone-500">No episodes match.</p>
+            </div>
+          ) : (
+            <>
+              <div className="flex flex-col gap-3">
+                {pageItems.map((ep) => {
               const likeRatio =
                 ep.view_count && ep.like_count != null && ep.view_count > 0
                   ? ((ep.like_count / ep.view_count) * 100).toFixed(1) + "%"
@@ -220,11 +217,15 @@ export default function EpisodeControls({ episodes, initialQuery = "", hideSearc
                     </div>
                   </div>
                 </Link>
-              );
-            })}
-          </div>
-          <Paginator page={page} totalPages={totalPages} onPage={setPage} />
+                  );
+                })}
+              </div>
+              <Paginator page={page} totalPages={totalPages} onPage={setPage} />
+            </>
+          )}
         </>
+      ) : (
+        children
       )}
     </div>
   );

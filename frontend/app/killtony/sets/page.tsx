@@ -36,13 +36,11 @@ export default async function SetsPage({ searchParams }: Props) {
             <Suspense>
               <BrowseSearchBar placeholder={`Search ${sets.length} sets…`} />
             </Suspense>
-            {trimmedQuery ? (
-              <Suspense>
-                <SetControls sets={sets} initialQuery={trimmedQuery} hideSearch />
-              </Suspense>
-            ) : (
-              <SetPlaylists sets={sets} />
-            )}
+            <Suspense>
+              <SetControls sets={sets} initialQuery={trimmedQuery} hideSearch>
+                <SetPlaylists sets={sets} />
+              </SetControls>
+            </Suspense>
           </>
         )}
       </div>
