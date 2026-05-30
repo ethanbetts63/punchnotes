@@ -14,7 +14,7 @@ type Props = { searchParams: Promise<Record<string, string>> };
 export default async function BitsPage({ searchParams }: Props) {
   const sp = await searchParams;
   const trimmedQuery = (sp.q ?? "").trim();
-  const isFiltered = !!(trimmedQuery || sp.joke_type || sp.topic);
+  const isFiltered = !!(trimmedQuery || sp.joke_type || sp.topic || sp.view);
 
   // In filtered mode pass all active params; in browse mode fetch all for playlists.
   const qs = isFiltered ? new URLSearchParams(sp).toString() : "";

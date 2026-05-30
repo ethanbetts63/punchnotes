@@ -16,6 +16,7 @@ export default function BitsFilters({ topics, hideSearch = false }: Props) {
   const currentType = sp.get("joke_type") ?? "";
   const currentTopic = sp.get("topic") ?? "";
   const currentQuery = sp.get("q") ?? "";
+  const isListMode = !!(currentQuery || currentType || currentTopic || sp.get("view"));
   const [topicSearch, setTopicSearch] = useState("");
   const [query, setQuery] = useState(currentQuery);
 
@@ -26,6 +27,15 @@ export default function BitsFilters({ topics, hideSearch = false }: Props) {
     if (topic) params.set("topic", topic);
     const qs = params.toString();
     router.push(`/killtony/bits${qs ? `?${qs}` : ""}`);
+  }
+
+  function navigateListView() {
+    const params = new URLSearchParams();
+    if (currentQuery.trim()) params.set("q", currentQuery.trim());
+    if (currentType) params.set("joke_type", currentType);
+    if (currentTopic) params.set("topic", currentTopic);
+    params.set("view", "list");
+    router.push(`/killtony/bits?${params.toString()}`);
   }
 
   const filteredTopics = useMemo(() => {
@@ -77,8 +87,8 @@ export default function BitsFilters({ topics, hideSearch = false }: Props) {
       )}
 
       <div className="flex flex-wrap gap-2">
-        <button onClick={() => navigate("", currentTopic)} className={chip(!currentType)}>
-          All types
+        <button onClick={navigateListView} className={chip(!currentType && isListMode)}>
+          List view
         </button>
         {JOKE_TYPES.map((jt) => (
           <button key={jt} onClick={() => navigate(jt, currentTopic)} className={chip(currentType === jt)}>

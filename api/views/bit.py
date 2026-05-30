@@ -30,13 +30,8 @@ class BitListView(APIView):
                 | Q(set__episode__episode_title__icontains=query)
             ).distinct()
 
-        evaluated = list(bits)
-
         topic = request.query_params.get("topic")
         if topic:
-            evaluated = [
-                b for b in evaluated
-                if any(topic in (beat.topics or []) for beat in b.beats.all())
-            ]
+            bits = bits.filter(beats__topics__contains=[topic]).distinct()
 
-        return Response(BitListSerializer(evaluated, many=True).data)
+        return Response(BitListSerializer(list(bits), many=True).data)

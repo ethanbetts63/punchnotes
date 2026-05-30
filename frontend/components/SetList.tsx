@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState, useMemo } from "react";
-import type { ComedianAttribute, SetListItem } from "@/lib/serverApi";
+import type { SetListItem } from "@/lib/serverApi";
+import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 import Paginator from "@/components/Paginator";
 import SetImage from "@/components/SetImage";
 
@@ -18,14 +19,6 @@ const SORT_OPTIONS: { key: SortKey; label: string }[] = [
   { key: "punchline_tag_ratio", label: "Punch/tag ratio" },
   { key: "start_seconds",       label: "Start time" },
 ];
-
-const ATTRIBUTE_LABELS: Record<string, string> = {
-  bucket_pull: "Bucket Pull", regular: "Regular", golden_ticket: "Golden Ticket",
-  special: "Special", gay: "Gay", lesbian: "Lesbian", bisexual: "Bisexual",
-  man: "Man", woman: "Woman", trans: "Trans", white: "White", black: "Black",
-  asian: "Asian", latino: "Latino", middle_eastern: "Middle Eastern",
-  disabled: "Disabled", old: "Old", young: "Young", "middle-age": "Middle-Age",
-};
 
 const jokeBookColor: Record<string, string> = {
   small: "bg-stone-100 text-stone-600",

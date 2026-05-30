@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { getServerSets } from "@/lib/serverApi";
-import SetFilters from "@/components/SetFilters";
+import AttributeFilters from "@/components/AttributeFilters";
 import SetList from "@/components/SetList";
 import SetPlaylists from "@/components/SetPlaylists";
 import BrowseSearchBar from "@/components/BrowseSearchBar";
@@ -40,7 +40,7 @@ export default async function SetsPage({ searchParams }: Props) {
         </Suspense>
 
         <Suspense>
-          <SetFilters />
+          <AttributeFilters />
         </Suspense>
 
         {isFiltered ? (

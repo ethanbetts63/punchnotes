@@ -171,7 +171,11 @@ class SearchView(APIView):
                 Q(comedian__name__icontains=query)
                 | Q(episode__episode_title__icontains=query)
                 | Q(joke_book__icontains=query)
+                | Q(bits__summary__icontains=query)
+                | Q(bits__beats__premise__icontains=query)
+                | Q(lines__text__icontains=query)
             )
+            .distinct()
         )
         results = []
         for set_obj in rows[:50]:

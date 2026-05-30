@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState, useMemo } from "react";
-import type { Comedian, ComedianAttribute } from "@/lib/serverApi";
+import type { Comedian } from "@/lib/serverApi";
+import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 import Paginator from "@/components/Paginator";
 import ComedianImage from "@/components/ComedianImage";
 
@@ -18,14 +19,6 @@ const SORT_OPTIONS: { key: SortKey; label: string }[] = [
   { key: "avg_hit_ratio",           label: "Setup/punch ratio" },
   { key: "avg_punchline_tag_ratio", label: "Punch/tag ratio" },
 ];
-
-const ATTRIBUTE_LABELS: Record<string, string> = {
-  bucket_pull: "Bucket Pull", regular: "Regular", golden_ticket: "Golden Ticket",
-  special: "Special", gay: "Gay", lesbian: "Lesbian", bisexual: "Bisexual",
-  man: "Man", woman: "Woman", trans: "Trans", white: "White", black: "Black",
-  asian: "Asian", latino: "Latino", middle_eastern: "Middle Eastern",
-  disabled: "Disabled", old: "Old", young: "Young", "middle-age": "Middle-Age",
-};
 
 function getSortValue(c: Comedian, key: SortKey): number | string {
   switch (key) {

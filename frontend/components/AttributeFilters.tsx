@@ -15,7 +15,7 @@ const JOKE_BOOK_OPTIONS = [
   { value: "large", label: "Large Joke Book" },
 ];
 
-export default function SetFilters() {
+export default function AttributeFilters() {
   const router = useRouter();
   const pathname = usePathname();
   const sp = useSearchParams();
@@ -23,6 +23,14 @@ export default function SetFilters() {
   const currentJokeBook = sp.get("joke_book") ?? "";
   const currentQ = sp.get("q") ?? "";
   const isListMode = !!(currentQ || currentAttribute || currentJokeBook || sp.get("view"));
+
+  function navigateListView() {
+    const params = new URLSearchParams();
+    if (currentQ) params.set("q", currentQ);
+    if (currentJokeBook) params.set("joke_book", currentJokeBook);
+    params.set("view", "list");
+    router.push(`${pathname}?${params.toString()}`);
+  }
 
   function navigateAttribute(attribute: string) {
     const params = new URLSearchParams();
@@ -38,14 +46,6 @@ export default function SetFilters() {
     if (currentAttribute) params.set("attribute", currentAttribute);
     if (jokeBook) params.set("joke_book", jokeBook);
     if (!currentAttribute && !currentQ && !jokeBook) params.set("view", "list");
-    router.push(`${pathname}?${params.toString()}`);
-  }
-
-  function navigateListView() {
-    const params = new URLSearchParams();
-    if (currentQ) params.set("q", currentQ);
-    if (currentJokeBook) params.set("joke_book", currentJokeBook);
-    params.set("view", "list");
     router.push(`${pathname}?${params.toString()}`);
   }
 

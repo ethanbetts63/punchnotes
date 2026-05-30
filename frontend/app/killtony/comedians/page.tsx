@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { getServerComedians } from "@/lib/serverApi";
-import ComedianFilters from "@/components/ComedianFilters";
+import AttributeFilters from "@/components/AttributeFilters";
 import ComedianList from "@/components/ComedianList";
 import ComedianPlaylists from "@/components/ComedianPlaylists";
 import BrowseSearchBar from "@/components/BrowseSearchBar";
@@ -40,7 +40,7 @@ export default async function ComediansPage({ searchParams }: Props) {
         </Suspense>
 
         <Suspense>
-          <ComedianFilters />
+          <AttributeFilters />
         </Suspense>
 
         {isFiltered ? (
