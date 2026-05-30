@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { getServerBits, getServerTopics } from "@/lib/serverApi";
+import { getServerBits } from "@/lib/serverApi";
 import BitsFilters from "@/components/BitsFilters";
 import BitsList from "@/components/BitsList";
 import BitPlaylists from "@/components/BitPlaylists";
@@ -18,10 +18,7 @@ export default async function BitsPage({ searchParams }: Props) {
 
   // In filtered mode pass all active params; in browse mode fetch all for playlists.
   const qs = isFiltered ? new URLSearchParams(sp).toString() : "";
-  const [bits, topics] = await Promise.all([
-    getServerBits(qs),
-    getServerTopics(),
-  ]);
+  const bits = await getServerBits(qs);
 
   const filterKey = qs;
 
@@ -44,7 +41,7 @@ export default async function BitsPage({ searchParams }: Props) {
         </Suspense>
 
         <Suspense>
-          <BitsFilters topics={topics ?? []} hideSearch />
+          <BitsFilters hideSearch />
         </Suspense>
 
         {isFiltered ? (

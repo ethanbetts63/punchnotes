@@ -27,7 +27,6 @@ export default function AttributeFilters() {
   function navigateListView() {
     const params = new URLSearchParams();
     if (currentQ) params.set("q", currentQ);
-    if (currentJokeBook) params.set("joke_book", currentJokeBook);
     params.set("view", "list");
     router.push(`${pathname}?${params.toString()}`);
   }

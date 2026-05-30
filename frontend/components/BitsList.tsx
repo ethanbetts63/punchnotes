@@ -50,16 +50,10 @@ export default function BitsList({ bits, filterKey }: Props) {
               ))}
             </div>
 
-            {bit.summary && (
-              <p className="mb-3 text-sm italic text-stone-500">"{bit.summary}"</p>
-            )}
-
-            {bit.beats_summary.length > 0 && (
-              <div className="space-y-1">
-                {bit.beats_summary.map((beat, i) => (
-                  <p key={i} className="text-sm text-stone-600">"{beat.premise}"</p>
-                ))}
-              </div>
+            {(bit.summary ?? bit.beats_summary[0]?.premise) && (
+              <p className="mb-3 text-sm italic text-stone-500">
+                &ldquo;{bit.summary ?? bit.beats_summary[0]?.premise}&rdquo;
+              </p>
             )}
           </Link>
         ))}
