@@ -24,6 +24,7 @@ class ComedianListSerializer(serializers.ModelSerializer):
         model = Comedian
         fields = [
             "id", "name", "slug", "attributes",
+            "image_url",
             "set_count", "appearances",
             "has_small_joke_book", "has_medium_joke_book", "has_large_joke_book",
             "avg_hit_ratio", "avg_punchline_tag_ratio",
@@ -40,6 +41,7 @@ class ComedianDetailSerializer(serializers.ModelSerializer):
         model = Comedian
         fields = [
             "id", "name", "slug", "attributes",
+            "image_url",
             "set_count", "appearances",
             "avg_hit_ratio", "avg_punchline_tag_ratio",
             "avg_bits_per_set", "avg_beats_per_set",

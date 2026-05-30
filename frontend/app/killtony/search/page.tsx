@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { getServerSearch, type SearchResponse, type SearchResult } from "@/lib/serverApi";
 import YoutubeThumbnail from "@/components/YoutubeThumbnail";
+import ComedianImage from "@/components/ComedianImage";
 
 export const metadata = {
   title: "Search - Kill Tony | PunchPedia",
@@ -79,6 +80,16 @@ function ResultMark({ item, featured = false }: { item: SearchResult; featured?:
         videoId={item.youtube_id}
         alt={item.title}
         className={featured ? "h-24 w-40 shrink-0 sm:h-28 sm:w-48" : "h-[75px] w-[133px] shrink-0"}
+      />
+    );
+  }
+
+  if (item.type === "comedian" && item.image_url) {
+    return (
+      <ComedianImage
+        imageUrl={item.image_url}
+        name={item.title}
+        className={featured ? "h-24 w-24 shrink-0 sm:h-28 sm:w-28" : "h-[75px] w-[75px] shrink-0"}
       />
     );
   }

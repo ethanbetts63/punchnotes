@@ -8,6 +8,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
 from pipeline.models import Set
+from pipeline.import_utils.records import refresh_comedian_image
 
 
 HISTORY_NAME = "set_image_fetch_history.jsonl"
@@ -183,6 +184,8 @@ class Command(BaseCommand):
 
         if set_obj.image_url and not replace:
             self.stdout.write(f"Skipping {image_path.name}: Set already has image_url={set_obj.image_url}")
+            if not dry_run:
+                refresh_comedian_image(set_obj.comedian)
             return "skipped"
 
         public_path = public_dir / image_path.name
@@ -208,6 +211,7 @@ class Command(BaseCommand):
             set_obj.image_url = image_url
             set_obj.image_capture_seconds = capture_seconds
             set_obj.save(update_fields=["image_url", "image_capture_seconds"])
+            refresh_comedian_image(set_obj.comedian)
 
             shutil.move(str(image_path), archive_dir / image_path.name)
 

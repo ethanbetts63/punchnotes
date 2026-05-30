@@ -120,6 +120,7 @@ class SearchView(APIView):
                 f"/killtony/comedians/{comedian.slug}",
                 meta,
                 score,
+                image_url=comedian.image_url,
             ))
         return sorted(results, key=lambda item: item["score"], reverse=True)[:GROUP_LIMIT]
 

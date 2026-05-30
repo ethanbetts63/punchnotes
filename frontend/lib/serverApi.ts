@@ -104,7 +104,7 @@ export type ComedianAttributeValue = ComedianAttribute;
 export type SetInEpisode = {
   id: number;
   set_number: number;
-  comedian: { id: number; name: string; slug: string; attributes: ComedianAttributeValue[] };
+  comedian: { id: number; name: string; slug: string; attributes: ComedianAttributeValue[]; image_url: string | null };
   joke_book: "small" | "medium" | "large" | null;
   bit_count: number;
   start_seconds: number;
@@ -136,6 +136,7 @@ export type Comedian = {
   name: string;
   slug: string;
   attributes: ComedianAttributeValue[];
+  image_url: string | null;
   set_count: number;
   appearances: number;
   has_small_joke_book: boolean;
@@ -196,6 +197,7 @@ export type SetListComedian = {
   name: string;
   slug: string;
   attributes: ComedianAttributeValue[];
+  image_url: string | null;
   avg_bits_per_set: number | null;
   avg_beats_per_set: number | null;
   avg_hit_ratio: number | null;
@@ -210,6 +212,7 @@ export type SetComedian = {
   name: string;
   slug: string;
   attributes: ComedianAttributeValue[];
+  image_url: string | null;
   set_count: number;
   appearances: number;
   avg_bits_per_set: number | null;
@@ -276,6 +279,7 @@ export type SearchResult = {
   meta: string[];
   score: number;
   youtube_id?: string | null;
+  image_url?: string | null;
 };
 
 export type SearchResponse = {

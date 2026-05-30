@@ -156,6 +156,24 @@ def refresh_comedian_stats(comedian: Comedian) -> None:
     ])
 
 
+def refresh_comedian_image(comedian: Comedian) -> None:
+    latest = (
+        comedian.sets
+        .exclude(image_url__isnull=True)
+        .exclude(image_url="")
+        .select_related("episode")
+        .order_by("-episode__episode_number", "-start_seconds", "-id")
+        .first()
+    )
+    image_url = latest.image_url if latest else None
+    image_set_id = latest.id if latest else None
+    if comedian.image_url == image_url and comedian.image_set_id == image_set_id:
+        return
+    comedian.image_url = image_url
+    comedian.image_set_id = image_set_id
+    comedian.save(update_fields=["image_url", "image_set"])
+
+
 def import_lines(set_obj: Set, lines_data: list) -> list:
     deleted, _ = set_obj.lines.all().delete()
     lines = [

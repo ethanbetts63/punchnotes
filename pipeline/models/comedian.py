@@ -64,5 +64,15 @@ class Comedian(models.Model):
     avg_bits_per_set = models.FloatField(null=True, blank=True)
     avg_beats_per_set = models.FloatField(null=True, blank=True)
 
+    # Display image derived from the comedian's latest image-bearing set.
+    image_url = models.CharField(max_length=1000, blank=True, null=True)
+    image_set = models.ForeignKey(
+        'pipeline.Set',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name='+',
+    )
+
     def __str__(self):
         return self.name

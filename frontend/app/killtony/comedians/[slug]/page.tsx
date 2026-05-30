@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getServerComedian } from "@/lib/serverApi";
 import type { ComedianAttribute, SetInComedian } from "@/lib/serverApi";
+import ComedianImage from "@/components/ComedianImage";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -105,13 +106,6 @@ export default async function ComedianDetailPage({ params }: Props) {
     (a, b) => b.episode.number - a.episode.number
   );
 
-  const initials = comedian.name
-    .split(" ")
-    .filter(Boolean)
-    .map((w) => w[0].toUpperCase())
-    .slice(0, 2)
-    .join("");
-
   return (
     <div className="bg-white min-h-screen">
       {/* Dark hero */}
@@ -119,12 +113,11 @@ export default async function ComedianDetailPage({ params }: Props) {
         <div className="mx-auto max-w-5xl px-6 py-10">
           <div className="flex gap-8 items-start">
 
-            {/* Initials placeholder — replace with <img> when profile images exist */}
-            <div className="hidden sm:flex w-36 md:w-48 shrink-0 aspect-video items-center justify-center rounded-lg bg-stone-800 ring-1 ring-white/10 shadow-xl">
-              <span className="text-3xl md:text-4xl font-bold text-stone-500 tracking-wider select-none">
-                {initials}
-              </span>
-            </div>
+            <ComedianImage
+              imageUrl={comedian.image_url}
+              name={comedian.name}
+              className="hidden aspect-video w-36 shrink-0 rounded-lg bg-stone-800 shadow-xl ring-1 ring-white/10 sm:block md:w-48"
+            />
 
             {/* Info */}
             <div className="flex-1 min-w-0">

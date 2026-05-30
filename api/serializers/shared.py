@@ -6,7 +6,7 @@ from pipeline.models import Comedian, Episode
 class ComedianMinimalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comedian
-        fields = ["id", "name", "slug", "attributes"]
+        fields = ["id", "name", "slug", "attributes", "image_url"]
 
 
 class EpisodeMinimalSerializer(serializers.ModelSerializer):
