@@ -14,8 +14,9 @@ export default function BrowseSearchBar({ placeholder }: Props) {
   useEffect(() => { setValue(urlQuery); }, [urlQuery]);
 
   function navigate(q: string) {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(sp.toString());
     if (q.trim()) params.set("q", q.trim());
+    else params.delete("q");
     const qs = params.toString();
     router.push(`${window.location.pathname}${qs ? `?${qs}` : ""}`);
   }

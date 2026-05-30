@@ -1,0 +1,14 @@
+import { getAllArticleMeta } from '@/lib/articles';
+import { buildMetadata } from '@/lib/seo';
+import ArticleListingPage from '@/components/ArticleListingPage';
+
+export const metadata = buildMetadata({
+  title: 'Articles | PunchPedia',
+  description: 'Comedy analysis, breakdowns, and commentary on Kill Tony and stand-up comedy.',
+  canonicalPath: '/articles',
+});
+
+export default function Page() {
+  const articles = getAllArticleMeta();
+  return <ArticleListingPage articles={articles} />;
+}

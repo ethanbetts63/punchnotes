@@ -14,9 +14,10 @@ type Props = { searchParams: Promise<Record<string, string>> };
 export default async function BitsPage({ searchParams }: Props) {
   const sp = await searchParams;
   const trimmedQuery = (sp.q ?? "").trim();
+  const isFiltered = !!(trimmedQuery || sp.joke_type || sp.topic);
 
-  // In search mode fetch filtered bits; in browse mode fetch all for playlists.
-  const qs = trimmedQuery ? new URLSearchParams(sp).toString() : "";
+  // In filtered mode pass all active params; in browse mode fetch all for playlists.
+  const qs = isFiltered ? new URLSearchParams(sp).toString() : "";
   const [bits, topics] = await Promise.all([
     getServerBits(qs),
     getServerTopics(),
@@ -46,8 +47,8 @@ export default async function BitsPage({ searchParams }: Props) {
           <BitsFilters topics={topics ?? []} hideSearch />
         </Suspense>
 
-        {trimmedQuery ? (
-          !bits ? (
+        {isFiltered ? (
+          !bits || bits.length === 0 ? (
             <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
               <p className="text-stone-500">No bits found.</p>
             </div>

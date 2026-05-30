@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { getServerComedians } from "@/lib/serverApi";
-import ComedianControls from "@/components/ComedianControls";
+import ComedianFilters from "@/components/ComedianFilters";
+import ComedianList from "@/components/ComedianList";
 import ComedianPlaylists from "@/components/ComedianPlaylists";
 import BrowseSearchBar from "@/components/BrowseSearchBar";
 
@@ -8,14 +9,17 @@ export const metadata = {
   title: "Comedians — Kill Tony | PunchPedia",
 };
 
-type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
+type Props = { searchParams: Promise<Record<string, string>> };
 
 export default async function ComediansPage({ searchParams }: Props) {
-  const params = await searchParams;
-  const rawQuery = params.q;
-  const query = Array.isArray(rawQuery) ? rawQuery[0] ?? "" : rawQuery ?? "";
-  const trimmedQuery = query.trim();
-  const comedians = await getServerComedians();
+  const sp = await searchParams;
+  const trimmedQuery = (sp.q ?? "").trim();
+  const isFiltered = !!(trimmedQuery || sp.attribute || sp.joke_book);
+
+  const qs = isFiltered ? new URLSearchParams(sp).toString() : "";
+  const comedians = await getServerComedians(qs || undefined);
+
+  const filterKey = qs;
 
   return (
     <div className="bg-white min-h-screen">
@@ -23,25 +27,34 @@ export default async function ComediansPage({ searchParams }: Props) {
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-stone-900">Comedians</h1>
           <p className="mt-2 text-stone-500">
-            {comedians ? `${comedians.length} comedians` : "Loading…"}
+            {comedians ? `${comedians.length} comedian${comedians.length !== 1 ? "s" : ""}` : ""}
+            {trimmedQuery ? ` matching "${trimmedQuery}"` : ""}
+            {sp.attribute ? ` · ${sp.attribute.replace(/_/g, " ")}` : ""}
+            {sp.joke_book ? ` · ${sp.joke_book} joke book` : ""}
+            {!comedians ? "Loading…" : ""}
           </p>
         </div>
 
-        {!comedians || comedians.length === 0 ? (
-          <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
-            <p className="text-stone-500">No comedians indexed yet.</p>
-          </div>
+        <Suspense>
+          <BrowseSearchBar placeholder="Search comedians…" />
+        </Suspense>
+
+        <Suspense>
+          <ComedianFilters />
+        </Suspense>
+
+        {isFiltered ? (
+          !comedians || comedians.length === 0 ? (
+            <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
+              <p className="text-stone-500">No comedians found.</p>
+            </div>
+          ) : (
+            <Suspense>
+              <ComedianList comedians={comedians} filterKey={filterKey} />
+            </Suspense>
+          )
         ) : (
-          <>
-            <Suspense>
-              <BrowseSearchBar placeholder={`Search ${comedians.length} comedians…`} />
-            </Suspense>
-            <Suspense>
-              <ComedianControls comedians={comedians} initialQuery={trimmedQuery} hideSearch>
-                <ComedianPlaylists comedians={comedians} />
-              </ComedianControls>
-            </Suspense>
-          </>
+          comedians && <ComedianPlaylists comedians={comedians} />
         )}
       </div>
     </div>

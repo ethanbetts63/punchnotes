@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { getServerEpisodes } from "@/lib/serverApi";
-import EpisodeControls from "@/components/EpisodeControls";
+import EpisodeList from "@/components/EpisodeList";
 import EpisodePlaylists from "@/components/EpisodePlaylists";
 import BrowseSearchBar from "@/components/BrowseSearchBar";
 
@@ -8,14 +8,17 @@ export const metadata = {
   title: "Episodes — Kill Tony | PunchPedia",
 };
 
-type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
+type Props = { searchParams: Promise<Record<string, string>> };
 
 export default async function EpisodesPage({ searchParams }: Props) {
-  const params = await searchParams;
-  const rawQuery = params.q;
-  const query = Array.isArray(rawQuery) ? rawQuery[0] ?? "" : rawQuery ?? "";
-  const trimmedQuery = query.trim();
-  const episodes = await getServerEpisodes();
+  const sp = await searchParams;
+  const trimmedQuery = (sp.q ?? "").trim();
+  const isFiltered = !!trimmedQuery;
+
+  const qs = isFiltered ? new URLSearchParams(sp).toString() : "";
+  const episodes = await getServerEpisodes(qs || undefined);
+
+  const filterKey = qs;
 
   return (
     <div className="bg-white min-h-screen">
@@ -23,25 +26,28 @@ export default async function EpisodesPage({ searchParams }: Props) {
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-stone-900">Episodes</h1>
           <p className="mt-2 text-stone-500">
-            {episodes ? `${episodes.length} episodes indexed` : "Loading episodes…"}
+            {episodes ? `${episodes.length} episode${episodes.length !== 1 ? "s" : ""}` : ""}
+            {trimmedQuery ? ` matching "${trimmedQuery}"` : ""}
+            {!episodes ? "Loading…" : ""}
           </p>
         </div>
 
-        {!episodes || episodes.length === 0 ? (
-          <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
-            <p className="text-stone-500">No episodes indexed yet.</p>
-          </div>
+        <Suspense>
+          <BrowseSearchBar placeholder="Search episodes…" />
+        </Suspense>
+
+        {isFiltered ? (
+          !episodes || episodes.length === 0 ? (
+            <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
+              <p className="text-stone-500">No episodes found.</p>
+            </div>
+          ) : (
+            <Suspense>
+              <EpisodeList episodes={episodes} filterKey={filterKey} />
+            </Suspense>
+          )
         ) : (
-          <>
-            <Suspense>
-              <BrowseSearchBar placeholder={`Search ${episodes.length} episodes…`} />
-            </Suspense>
-            <Suspense>
-              <EpisodeControls episodes={episodes} initialQuery={trimmedQuery} hideSearch>
-                <EpisodePlaylists episodes={episodes} />
-              </EpisodeControls>
-            </Suspense>
-          </>
+          episodes && <EpisodePlaylists episodes={episodes} />
         )}
       </div>
     </div>

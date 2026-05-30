@@ -17,6 +17,23 @@ class ComedianListView(APIView):
             )
             .order_by("name")
         )
+
+        q = request.query_params.get("q", "").strip()
+        if q:
+            comedians = comedians.filter(name__icontains=q)
+
+        attribute = request.query_params.get("attribute", "").strip()
+        if attribute:
+            comedians = comedians.filter(attributes__contains=[attribute])
+
+        joke_book = request.query_params.get("joke_book", "").strip()
+        if joke_book == "small":
+            comedians = comedians.filter(has_small_joke_book=True)
+        elif joke_book == "medium":
+            comedians = comedians.filter(has_medium_joke_book=True)
+        elif joke_book == "large":
+            comedians = comedians.filter(has_large_joke_book=True)
+
         return Response(ComedianListSerializer(comedians, many=True).data)
 
 

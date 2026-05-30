@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/killtony/comedians", label: "Comedians" },
   { href: "/killtony/sets", label: "Sets" },
   { href: "/killtony/bits", label: "Bits" },
+  { href: "/articles", label: "Articles" },
   { href: "/about", label: "About" },
 ];
 

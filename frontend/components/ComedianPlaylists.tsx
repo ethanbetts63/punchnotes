@@ -33,7 +33,7 @@ export default function ComedianPlaylists({ comedians }: Props) {
                 <ComedianImage
                   imageUrl={c.image_url}
                   name={c.name}
-                  className="h-40 w-full"
+                  className="aspect-video w-full bg-stone-950"
                 />
                 <div className="p-2.5">
                   <p className="truncate text-sm font-bold leading-tight text-stone-950 transition-colors group-hover:text-primary">

@@ -16,16 +16,18 @@ async function serverFetch<T>(path: string): Promise<T | null> {
   }
 }
 
-export async function getServerEpisodes() {
-  return serverFetch<Episode[]>("/api/killtony/episodes/");
+export async function getServerEpisodes(params?: string) {
+  const qs = params ? `?${params}` : "";
+  return serverFetch<Episode[]>(`/api/killtony/episodes/${qs}`);
 }
 
 export async function getServerEpisode(id: string) {
   return serverFetch<EpisodeDetail>(`/api/killtony/episodes/${id}/`);
 }
 
-export async function getServerComedians() {
-  return serverFetch<Comedian[]>("/api/killtony/comedians/");
+export async function getServerComedians(params?: string) {
+  const qs = params ? `?${params}` : "";
+  return serverFetch<Comedian[]>(`/api/killtony/comedians/${qs}`);
 }
 
 export async function getServerComedian(slug: string) {
@@ -36,8 +38,9 @@ export async function getServerSet(id: string) {
   return serverFetch<Set>(`/api/killtony/sets/${id}/`);
 }
 
-export async function getServerSets() {
-  return serverFetch<SetListItem[]>("/api/killtony/sets/");
+export async function getServerSets(params?: string) {
+  const qs = params ? `?${params}` : "";
+  return serverFetch<SetListItem[]>(`/api/killtony/sets/${qs}`);
 }
 
 export async function getServerJokes(params?: string) {

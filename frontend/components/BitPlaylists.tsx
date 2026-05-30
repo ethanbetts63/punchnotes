@@ -33,9 +33,9 @@ export default function BitPlaylists({ bits }: Props) {
                   {bit.comedian}
                 </p>
                 <p className="mt-0.5 text-xs text-stone-500">Ep {bit.episode_number}</p>
-                {bit.summary && (
+                {(bit.summary ?? bit.beats_summary[0]?.premise) && (
                   <p className="mt-2 line-clamp-3 text-sm italic text-stone-600 transition-colors group-hover:text-stone-900">
-                    &ldquo;{bit.summary}&rdquo;
+                    &ldquo;{bit.summary ?? bit.beats_summary[0]?.premise}&rdquo;
                   </p>
                 )}
               </Link>

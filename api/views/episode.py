@@ -1,4 +1,4 @@
-from django.db.models import Count, Prefetch
+from django.db.models import Count, Prefetch, Q
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -14,6 +14,15 @@ class EpisodeListView(APIView):
             .annotate(set_count=Count("sets"))
             .order_by("-episode_number")
         )
+
+        q = request.query_params.get("q", "").strip()
+        if q:
+            number = q.upper().removeprefix("KT").strip().removeprefix("#").strip()
+            f = Q(episode_title__icontains=q)
+            if number.isdigit():
+                f |= Q(episode_number=int(number))
+            episodes = episodes.filter(f)
+
         return Response(EpisodeListSerializer(episodes, many=True).data)
 
 
