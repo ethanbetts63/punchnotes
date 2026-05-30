@@ -36,6 +36,10 @@ export async function getServerSet(id: string) {
   return serverFetch<Set>(`/api/killtony/sets/${id}/`);
 }
 
+export async function getServerSets() {
+  return serverFetch<SetListItem[]>("/api/killtony/sets/");
+}
+
 export async function getServerJokes(params?: string) {
   const qs = params ? `?${params}` : "";
   return serverFetch<Joke[]>(`/api/killtony/jokes/${qs}`);
@@ -166,6 +170,33 @@ export type Line = {
   id: number;
   text: string;
   label: "setup" | "punchline" | "tag" | "fluff";
+};
+
+export type SetListItem = {
+  id: number;
+  set_number: number;
+  comedian: SetListComedian;
+  episode: { id: number; number: number; title: string; youtube_id: string; date: string | null };
+  joke_book_award: "small" | "medium" | "large" | null;
+  start_seconds: number;
+  interview_end_seconds: number | null;
+  hit_ratio: number | null;
+  punchline_tag_ratio: number | null;
+  bit_count: number;
+};
+
+export type SetListComedian = {
+  id: number;
+  name: string;
+  slug: string;
+  attributes: ComedianAttributeValue[];
+  avg_bits_per_set: number | null;
+  avg_beats_per_set: number | null;
+  avg_hit_ratio: number | null;
+  avg_punchline_tag_ratio: number | null;
+  has_small_joke_book: boolean;
+  has_medium_joke_book: boolean;
+  has_large_joke_book: boolean;
 };
 
 export type SetComedian = {

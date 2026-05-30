@@ -25,6 +25,17 @@ class ComedianForSetSerializer(serializers.ModelSerializer):
         return obj.sets.values("episode").distinct().count()
 
 
+class ComedianForSetListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comedian
+        fields = [
+            "id", "name", "slug", "attributes",
+            "avg_bits_per_set", "avg_beats_per_set",
+            "avg_hit_ratio", "avg_punchline_tag_ratio",
+            "has_small_joke_book", "has_medium_joke_book", "has_large_joke_book",
+        ]
+
+
 class LineSerializer(serializers.ModelSerializer):
     class Meta:
         model = Line
@@ -71,3 +82,18 @@ class SetDetailSerializer(serializers.ModelSerializer):
         lines = list(set_obj.lines.all())
         context = {**self.context, "set_lines": lines}
         return BitSerializer(set_obj.bits.prefetch_related("beats"), many=True, context=context).data
+
+
+class SetListSerializer(serializers.ModelSerializer):
+    comedian = ComedianForSetListSerializer()
+    episode = EpisodeMinimalSerializer()
+    joke_book_award = serializers.CharField(source="joke_book", allow_null=True)
+    bit_count = serializers.IntegerField()
+
+    class Meta:
+        model = Set
+        fields = [
+            "id", "set_number", "comedian", "episode",
+            "joke_book_award", "start_seconds", "interview_end_seconds",
+            "hit_ratio", "punchline_tag_ratio", "bit_count",
+        ]

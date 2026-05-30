@@ -6,6 +6,7 @@ urlpatterns = [
     path("killtony/episodes/<int:pk>/", views.EpisodeDetailView.as_view()),
     path("killtony/comedians/", views.ComedianListView.as_view()),
     path("killtony/comedians/<slug:slug>/", views.ComedianDetailView.as_view()),
+    path("killtony/sets/", views.SetListView.as_view()),
     path("killtony/sets/<int:pk>/", views.SetDetailView.as_view()),
     path("killtony/jokes/", views.JokeListView.as_view()),
     path("killtony/bits/", views.BitListView.as_view()),
