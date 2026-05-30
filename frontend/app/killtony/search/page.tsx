@@ -313,12 +313,12 @@ export default async function SearchPage({ searchParams }: Props) {
 
   return (
     <div className="min-h-screen bg-[#f7f7f7] text-black">
-      <section className="bg-black text-white">
+      <section className="bg-[#f7f7f7] text-black">
         <div className="mx-auto max-w-6xl px-4 py-8 text-center sm:px-6">
-          <h1 className="break-words text-4xl font-bold leading-none tracking-normal text-white sm:text-5xl">
-            {trimmedQuery || "Search"}
+          <h1 className="break-words text-4xl font-bold leading-none tracking-normal text-black sm:text-5xl">
+            {trimmedQuery ? `"${trimmedQuery}"` : "Search"}
           </h1>
-          <p className="mt-3 text-sm font-bold uppercase text-[#ffff64]">All results</p>
+          <p className="mt-3 text-sm font-bold uppercase text-stone-500">All results</p>
         </div>
       </section>
 
