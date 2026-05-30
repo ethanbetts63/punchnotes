@@ -14,7 +14,7 @@ type Props = { searchParams: Promise<Record<string, string>> };
 export default async function ComediansPage({ searchParams }: Props) {
   const sp = await searchParams;
   const trimmedQuery = (sp.q ?? "").trim();
-  const isFiltered = !!(trimmedQuery || sp.attribute || sp.joke_book);
+  const isFiltered = !!(trimmedQuery || sp.attribute || sp.joke_book || sp.view);
 
   const qs = isFiltered ? new URLSearchParams(sp).toString() : "";
   const comedians = await getServerComedians(qs || undefined);
