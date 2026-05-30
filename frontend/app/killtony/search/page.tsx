@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowUpRight, Search } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { getServerSearch, type SearchResponse, type SearchResult } from "@/lib/serverApi";
+import YoutubeThumbnail from "@/components/YoutubeThumbnail";
 
 export const metadata = {
   title: "Search - Kill Tony | PunchPedia",
@@ -9,23 +10,36 @@ export const metadata = {
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
 type SearchGroupKey = Exclude<keyof SearchResponse, "query" | "top_result">;
+type DisplaySearchGroupKey = Exclude<SearchGroupKey, "jokes">;
 
-const GROUPS: { key: SearchGroupKey; title: string; description: string }[] = [
+const GROUPS: { key: DisplaySearchGroupKey; title: string; description: string }[] = [
   { key: "comedians", title: "Comedians", description: "Guest comics and bucket pulls" },
   { key: "episodes", title: "Episodes", description: "KT numbers, titles, and metadata" },
   { key: "sets", title: "Sets", description: "Individual minutes and interviews" },
   { key: "bits", title: "Bits", description: "Larger joke ideas and recurring angles" },
-  { key: "jokes", title: "Jokes", description: "Premises, punchlines, and tags" },
   { key: "topics", title: "Topics", description: "Subject tags across the archive" },
 ];
 
+const MAIN_GROUPS: { key: DisplaySearchGroupKey; title: string }[] = [
+  { key: "episodes", title: "Episodes" },
+  { key: "comedians", title: "Comedians" },
+  { key: "bits", title: "Bits" },
+];
+
+const SIDEBAR_GROUPS: { key: DisplaySearchGroupKey; title: string }[] = [
+  { key: "sets", title: "Sets" },
+  { key: "topics", title: "Topics" },
+];
+
+const ALWAYS_VISIBLE_GROUPS = new Set<DisplaySearchGroupKey>(["comedians", "episodes"]);
+
 const TYPE_STYLES: Record<SearchResult["type"], string> = {
-  comedian: "bg-red-600 text-white",
-  episode: "bg-stone-950 text-white",
-  set: "bg-amber-400 text-stone-950",
-  bit: "bg-sky-500 text-white",
-  joke: "bg-emerald-500 text-stone-950",
-  topic: "bg-violet-500 text-white",
+  comedian: "bg-[#ff1464] text-white",
+  episode: "bg-black text-white",
+  set: "bg-[#ffff64] text-black",
+  bit: "bg-cyan-500 text-black",
+  joke: "bg-emerald-400 text-black",
+  topic: "bg-indigo-500 text-white",
 };
 
 function typeLabel(type: SearchResult["type"]): string {
@@ -46,121 +60,172 @@ function typeLabel(type: SearchResult["type"]): string {
 }
 
 function resultInitial(item: SearchResult): string {
+  if (item.type === "episode") {
+    const episodeNumber = item.meta[0]?.match(/#(\d+)/)?.[1] ?? item.title.match(/#(\d+)/)?.[1];
+    if (episodeNumber) return episodeNumber;
+  }
   const label = item.title.trim() || typeLabel(item.type);
   return label.charAt(0).toUpperCase();
 }
 
-function ResultMark({ item, compact = false }: { item: SearchResult; compact?: boolean }) {
+function formattedMeta(item: SearchResult): string {
+  return [typeLabel(item.type), ...item.meta].filter(Boolean).slice(0, 4).join(" / ");
+}
+
+function ResultMark({ item, featured = false }: { item: SearchResult; featured?: boolean }) {
+  if (item.type === "episode") {
+    return (
+      <YoutubeThumbnail
+        videoId={item.youtube_id}
+        alt={item.title}
+        className={featured ? "h-24 w-40 shrink-0 sm:h-28 sm:w-48" : "h-[75px] w-[133px] shrink-0"}
+      />
+    );
+  }
+
   return (
     <span
-      className={`flex shrink-0 items-center justify-center font-black uppercase ${TYPE_STYLES[item.type]} ${
-        compact ? "h-10 w-10 text-base" : "h-16 w-16 text-2xl sm:h-20 sm:w-20 sm:text-3xl"
-      }`}
+      className={`flex shrink-0 items-center justify-center overflow-hidden font-black uppercase ${
+        TYPE_STYLES[item.type]
+      } ${featured ? "h-24 w-24 text-4xl sm:h-28 sm:w-28" : "h-[75px] w-[75px] text-2xl"}`}
     >
       {resultInitial(item)}
     </span>
   );
 }
 
-function ResultTile({
+function ResultCard({
   item,
-  variant,
+  featured = false,
+  compact = false,
+  textOnly = false,
 }: {
   item: SearchResult;
-  variant: SearchGroupKey;
+  featured?: boolean;
+  compact?: boolean;
+  textOnly?: boolean;
 }) {
-  const cardClass = {
-    comedians: "min-h-44",
-    episodes: "min-h-36 sm:min-h-40",
-    sets: "min-h-52",
-    bits: "min-h-48",
-    jokes: "min-h-32",
-    topics: "min-h-28",
-  }[variant];
-  const titleClass = {
-    comedians: "text-xl",
-    episodes: "text-2xl",
-    sets: "text-lg",
-    bits: "text-xl",
-    jokes: "text-base",
-    topics: "text-lg",
-  }[variant];
-  const markSize = variant === "episodes" || variant === "bits" ? false : true;
+  const subtitle = item.subtitle === typeLabel(item.type) ? "" : item.subtitle;
+  const hideMark = compact || textOnly;
 
   return (
     <Link
       href={item.href}
-      className={`group flex flex-col justify-between border border-stone-200 bg-white p-4 transition-colors hover:border-stone-950 hover:bg-stone-50 ${cardClass}`}
+      className={`group flex min-w-0 bg-white text-black transition-colors hover:bg-[#e9e9e9] ${
+        compact ? "min-h-0" : featured ? "min-h-28" : "min-h-[75px]"
+      }`}
     >
-      <div>
-        <div className="mb-4 flex items-start justify-between gap-3">
-          <ResultMark item={item} compact={markSize} />
-          <ArrowUpRight className="h-4 w-4 shrink-0 text-stone-300 transition-colors group-hover:text-stone-700" />
+      {!hideMark && <ResultMark item={item} featured={featured} />}
+      <div
+        className={`flex min-w-0 flex-1 flex-col justify-between overflow-hidden ${
+          compact ? "px-3 py-2" : featured ? "px-3 py-2.5" : "px-2.5 py-2"
+        }`}
+      >
+        <div className="min-w-0">
+          <div className="flex min-w-0 items-start justify-between gap-2">
+            <p
+              className={`min-w-0 overflow-hidden text-ellipsis break-words font-bold leading-none text-black ${
+                compact ? "text-sm" : featured ? "text-xl sm:text-2xl" : "text-base"
+              }`}
+            >
+              {item.title}
+            </p>
+            <ArrowUpRight className="mt-0.5 h-3.5 w-3.5 shrink-0 text-stone-400 opacity-0 transition-opacity group-hover:opacity-100" />
+          </div>
+          {subtitle && (
+            <p
+              className={`mt-1 overflow-hidden text-ellipsis break-words text-stone-500 ${
+                featured ? "line-clamp-2 text-sm" : "line-clamp-1 text-xs"
+              }`}
+            >
+              {subtitle}
+            </p>
+          )}
         </div>
-        <span className="text-[10px] font-black uppercase tracking-wide text-stone-400">
-          {typeLabel(item.type)}
-        </span>
-        <p className={`mt-1 font-black leading-none tracking-tight text-stone-950 transition-colors group-hover:text-primary ${titleClass}`}>
-          {item.title}
+        <p className={`truncate text-xs text-stone-500 ${compact ? "mt-1" : "mt-2"}`}>
+          <span className="font-bold text-[#ff1464]">{typeLabel(item.type)}</span>
+          {item.meta.length > 0 && <span> / {item.meta.slice(0, 3).join(" / ")}</span>}
         </p>
-        {item.subtitle && (
-          <p className="mt-2 line-clamp-2 text-sm font-medium text-stone-500">
-            {item.subtitle}
-          </p>
-        )}
       </div>
-      {item.meta.length > 0 && (
-        <p className="mt-5 flex flex-wrap gap-x-3 gap-y-1 text-[10px] font-bold uppercase tracking-wide text-stone-400">
-          {item.meta.slice(0, variant === "episodes" || variant === "bits" ? 4 : 3).map((meta) => (
-            <span key={meta}>{meta}</span>
-          ))}
-        </p>
-      )}
     </Link>
   );
-}
-
-function sectionGridClass(groupKey: SearchGroupKey): string {
-  switch (groupKey) {
-    case "comedians":
-      return "grid gap-3 sm:grid-cols-4";
-    case "episodes":
-      return "grid gap-3 sm:grid-cols-2";
-    case "sets":
-      return "grid gap-3 sm:grid-cols-3";
-    case "bits":
-      return "grid gap-3 sm:grid-cols-2";
-    case "jokes":
-      return "grid gap-3";
-    case "topics":
-      return "grid gap-3 sm:grid-cols-4";
-  }
 }
 
 function ResultSection({
   groupKey,
   title,
   items,
+  query,
 }: {
-  groupKey: SearchGroupKey;
+  groupKey: DisplaySearchGroupKey;
   title: string;
   items: SearchResult[];
+  query: string;
+}) {
+  if (items.length === 0 && !ALWAYS_VISIBLE_GROUPS.has(groupKey)) return null;
+  const isBits = groupKey === "bits";
+
+  return (
+    <section className="scroll-mt-24" id={groupKey}>
+      <div className="mb-2 mt-5 flex items-end justify-between gap-4 px-4 sm:px-0">
+        <h2 className="text-xs font-bold uppercase text-stone-500">{title}</h2>
+        <div className="flex items-center gap-3">
+          <span className="text-xs text-stone-400">{items.length}</span>
+          {items.length > 0 && (
+            <Link
+              href={refinedHref(groupKey, query)}
+              className="text-xs font-bold text-stone-500 transition-colors hover:text-[#ff1464]"
+            >
+              Show more {title.toLowerCase()}
+            </Link>
+          )}
+        </div>
+      </div>
+      <div className={`grid gap-2 ${isBits ? "" : "min-[850px]:grid-cols-2"}`}>
+        {items.length > 0 ? (
+          items.map((item) => (
+            <ResultCard key={`${item.type}-${item.href}-${item.title}`} item={item} textOnly={isBits} />
+          ))
+        ) : (
+          <div className="bg-white px-4 py-5 text-sm text-stone-500">
+            No {title.toLowerCase()} matched this search.
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function SidebarResultSection({
+  groupKey,
+  title,
+  items,
+  query,
+}: {
+  groupKey: DisplaySearchGroupKey;
+  title: string;
+  items: SearchResult[];
+  query: string;
 }) {
   if (items.length === 0) return null;
 
   return (
-    <section className="border-b border-stone-300 pb-6">
-      <div className="mb-4 flex items-end justify-between gap-4">
-        <h2 className="text-xs font-black uppercase tracking-wide text-stone-950">{title}</h2>
-        <span className="text-xs font-bold text-stone-400">{items.length}</span>
+    <section className="mt-4 bg-white p-4 text-black" id={groupKey}>
+      <div className="mb-2 flex items-end justify-between gap-3">
+        <h2 className="text-xs font-bold uppercase text-stone-500">{title}</h2>
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-stone-400">{items.length}</span>
+          <Link
+            href={refinedHref(groupKey, query)}
+            className="text-xs font-bold text-stone-500 transition-colors hover:text-[#ff1464]"
+          >
+            More
+          </Link>
+        </div>
       </div>
-      <div className={sectionGridClass(groupKey)}>
+      <div className="grid gap-1.5">
         {items.map((item) => (
-          <ResultTile
-            key={`${item.type}-${item.href}-${item.title}`}
-            item={item}
-            variant={groupKey}
-          />
+          <ResultCard key={`${item.type}-${item.href}-${item.title}`} item={item} compact />
         ))}
       </div>
     </section>
@@ -169,18 +234,18 @@ function ResultSection({
 
 function SearchEmptyState({ query }: { query: string }) {
   return (
-    <div className="border-y border-stone-300 py-12 text-center">
-      <p className="text-lg font-black text-stone-950">
+    <div className="bg-white px-4 py-12 text-center text-black">
+      <p className="text-xl font-bold">
         {query ? "No results found." : "Search the Kill Tony archive."}
       </p>
       <p className="mt-2 text-sm text-stone-500">
-        Try a comedian, KT number, joke premise, bit summary, or topic.
+        Try a comedian, KT number, bit summary, set detail, or topic.
       </p>
     </div>
   );
 }
 
-function refinedHref(key: SearchGroupKey, query: string): string {
+function refinedHref(key: DisplaySearchGroupKey, query: string): string {
   const params = new URLSearchParams();
   if (query) params.set("q", query);
   const qs = params.toString();
@@ -192,8 +257,6 @@ function refinedHref(key: SearchGroupKey, query: string): string {
       return `/killtony/episodes${qs ? `?${qs}` : ""}`;
     case "bits":
       return `/killtony/bits${qs ? `?${qs}` : ""}`;
-    case "jokes":
-      return `/killtony/jokes${qs ? `?${qs}` : ""}`;
     case "sets":
     case "topics":
       return `/killtony/search${qs ? `?${qs}` : ""}#${key}`;
@@ -207,25 +270,35 @@ function BrowseResults({ results, query }: { results: SearchResponse | null; que
   }));
 
   return (
-    <section className="border-b border-stone-300 pb-6">
-      <div className="border-t-4 border-stone-950 pt-4">
-        <h2 className="text-xs font-black uppercase tracking-wide text-stone-950">Browse results</h2>
-        <div className="mt-3 grid gap-3 sm:grid-cols-3">
-          {counts.map((group) => (
-            <Link
-              key={group.key}
-              href={refinedHref(group.key, query)}
-              className="flex min-h-24 items-start justify-between gap-3 border border-stone-200 bg-white p-3 text-sm transition-colors hover:border-stone-950 hover:bg-stone-50"
-            >
-              <span>
-                <span className="block font-bold text-stone-950">{group.title}</span>
-                <span className="block text-xs text-stone-500">{group.description}</span>
-              </span>
-              <span className="shrink-0 text-xs font-black text-stone-400">{group.count}</span>
-            </Link>
-          ))}
-        </div>
+    <aside className="bg-white p-4 text-black">
+      <h2 className="text-xs font-bold uppercase text-stone-500">Refine results</h2>
+      <div className="mt-3 grid gap-1">
+        {counts.map((group) => (
+          <Link
+            key={group.key}
+            href={refinedHref(group.key, query)}
+            className="flex items-center justify-between gap-3 px-0 py-2 text-sm transition-colors hover:text-[#ff1464]"
+          >
+            <span className="min-w-0">
+              <span className="block truncate font-bold">{group.title}</span>
+              <span className="block truncate text-xs text-stone-500">{group.description}</span>
+            </span>
+            <span className="shrink-0 text-xs text-stone-400">{group.count}</span>
+          </Link>
+        ))}
       </div>
+    </aside>
+  );
+}
+
+function TopResult({ item }: { item: SearchResult }) {
+  return (
+    <section>
+      <div className="mb-2 px-4 sm:px-0">
+        <h2 className="text-xs font-bold uppercase text-stone-500">Top result</h2>
+      </div>
+      <ResultCard item={item} featured />
+      <p className="mt-2 px-4 text-xs text-stone-500 sm:px-0">{formattedMeta(item)}</p>
     </section>
   );
 }
@@ -236,62 +309,55 @@ export default async function SearchPage({ searchParams }: Props) {
   const query = Array.isArray(rawQuery) ? rawQuery[0] ?? "" : rawQuery ?? "";
   const trimmedQuery = query.trim();
   const results = trimmedQuery ? await getServerSearch(trimmedQuery) : null;
-  const hasResults = results
-    ? GROUPS.some(({ key }) => results[key].length > 0)
-    : false;
+  const hasResults = results ? GROUPS.some(({ key }) => results[key].length > 0) : false;
 
   return (
-    <div className="min-h-screen bg-white">
-      <section className="border-b border-stone-950 bg-amber-300">
-        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
-          <p className="text-xs font-black uppercase tracking-wide text-stone-950">Kill Tony search</p>
-          <h1 className="mt-2 text-3xl font-black leading-none tracking-tight text-stone-950 sm:text-5xl">
-            {trimmedQuery ? `Search results for "${trimmedQuery}"` : "Search the archive"}
+    <div className="min-h-screen bg-[#f7f7f7] text-black">
+      <section className="bg-black text-white">
+        <div className="mx-auto max-w-6xl px-4 py-8 text-center sm:px-6">
+          <h1 className="break-words text-4xl font-bold leading-none tracking-normal text-white sm:text-5xl">
+            {trimmedQuery || "Search"}
           </h1>
-          <form action="/killtony/search" className="mt-6 flex max-w-2xl border-2 border-stone-950 bg-white">
-            <label htmlFor="search-query" className="sr-only">Search query</label>
-            <div className="flex min-w-0 flex-1 items-center gap-2 px-3">
-              <Search className="h-4 w-4 shrink-0 text-stone-500" aria-hidden="true" />
-              <input
-                id="search-query"
-                name="q"
-                type="search"
-                defaultValue={trimmedQuery}
-                placeholder="Search comedians, episodes, bits, jokes..."
-                className="h-11 min-w-0 flex-1 bg-transparent text-base font-semibold text-stone-950 placeholder:text-stone-400 focus:outline-none"
-              />
-            </div>
-            <button
-              type="submit"
-              className="border-l-2 border-stone-950 bg-stone-950 px-4 text-sm font-black uppercase tracking-wide text-white transition-colors hover:bg-primary sm:px-6"
-            >
-              Search
-            </button>
-          </form>
+          <p className="mt-3 text-sm font-bold uppercase text-[#ffff64]">All results</p>
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
-        <main className="grid gap-8">
+      <div className="mx-auto grid max-w-6xl gap-6 px-0 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_300px]">
+        <main className="min-w-0">
           {!trimmedQuery && <SearchEmptyState query="" />}
           {trimmedQuery && !results && (
-            <div className="border-y border-stone-300 py-12 text-center">
-              <p className="text-lg font-black text-stone-950">Search is unavailable right now.</p>
+            <div className="bg-white px-4 py-12 text-center">
+              <p className="text-lg font-bold">Search is unavailable right now.</p>
             </div>
           )}
           {results && !hasResults && <SearchEmptyState query={trimmedQuery} />}
           {results && hasResults && (
             <>
-              <BrowseResults results={results} query={trimmedQuery} />
-              {GROUPS.map(({ key, title }) => (
-                <div id={key} key={key} className="scroll-mt-24">
-                  <ResultSection groupKey={key} title={title} items={results[key]} />
-                </div>
+              {results.top_result && <TopResult item={results.top_result} />}
+              {MAIN_GROUPS.map(({ key, title }) => (
+                <ResultSection
+                  key={key}
+                  groupKey={key}
+                  title={title}
+                  items={results[key]}
+                  query={trimmedQuery}
+                />
               ))}
             </>
           )}
         </main>
-
+        <aside className="px-4 sm:px-0">
+          <BrowseResults results={results} query={trimmedQuery} />
+          {results && hasResults && SIDEBAR_GROUPS.map(({ key, title }) => (
+            <SidebarResultSection
+              key={key}
+              groupKey={key}
+              title={title}
+              items={results[key]}
+              query={trimmedQuery}
+            />
+          ))}
+        </aside>
       </div>
     </div>
   );

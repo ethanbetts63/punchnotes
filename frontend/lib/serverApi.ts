@@ -236,6 +236,7 @@ export type SearchResult = {
   href: string;
   meta: string[];
   score: number;
+  youtube_id?: string | null;
 };
 
 export type SearchResponse = {

@@ -59,7 +59,7 @@ def hms_to_seconds(h: str, m: str, s: str) -> int:
 
 
 def dump_episode(doc: dict) -> str:
-    """Same compact format as fetch_transcript.py so downstream tools work unchanged."""
+    """Same compact format as generate_transcripts.py so downstream tools work unchanged."""
     non_line = [(k, v) for k, v in doc.items() if k != "lines"]
     has_lines = "lines" in doc
     parts = ["{"]
