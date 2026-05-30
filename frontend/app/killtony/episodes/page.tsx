@@ -1,6 +1,8 @@
 import { Suspense } from "react";
 import { getServerEpisodes } from "@/lib/serverApi";
 import EpisodeControls from "@/components/EpisodeControls";
+import EpisodePlaylists from "@/components/EpisodePlaylists";
+import BrowseSearchBar from "@/components/BrowseSearchBar";
 
 export const metadata = {
   title: "Episodes — Kill Tony | PunchPedia",
@@ -12,6 +14,7 @@ export default async function EpisodesPage({ searchParams }: Props) {
   const params = await searchParams;
   const rawQuery = params.q;
   const query = Array.isArray(rawQuery) ? rawQuery[0] ?? "" : rawQuery ?? "";
+  const trimmedQuery = query.trim();
   const episodes = await getServerEpisodes();
 
   return (
@@ -29,9 +32,18 @@ export default async function EpisodesPage({ searchParams }: Props) {
             <p className="text-stone-500">No episodes indexed yet.</p>
           </div>
         ) : (
-          <Suspense>
-            <EpisodeControls episodes={episodes} initialQuery={query} />
-          </Suspense>
+          <>
+            <Suspense>
+              <BrowseSearchBar placeholder={`Search ${episodes.length} episodes…`} />
+            </Suspense>
+            {trimmedQuery ? (
+              <Suspense>
+                <EpisodeControls episodes={episodes} initialQuery={trimmedQuery} hideSearch />
+              </Suspense>
+            ) : (
+              <EpisodePlaylists episodes={episodes} />
+            )}
+          </>
         )}
       </div>
     </div>

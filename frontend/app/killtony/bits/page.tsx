@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import { getServerBits, getServerTopics } from "@/lib/serverApi";
 import BitsFilters from "@/components/BitsFilters";
 import BitsList from "@/components/BitsList";
+import BitPlaylists from "@/components/BitPlaylists";
+import BrowseSearchBar from "@/components/BrowseSearchBar";
 
 export const metadata = {
   title: "Bits — Kill Tony | PunchPedia",
@@ -11,7 +13,10 @@ type Props = { searchParams: Promise<Record<string, string>> };
 
 export default async function BitsPage({ searchParams }: Props) {
   const sp = await searchParams;
-  const qs = new URLSearchParams(sp).toString();
+  const trimmedQuery = (sp.q ?? "").trim();
+
+  // In search mode fetch filtered bits; in browse mode fetch all for playlists.
+  const qs = trimmedQuery ? new URLSearchParams(sp).toString() : "";
   const [bits, topics] = await Promise.all([
     getServerBits(qs),
     getServerTopics(),
@@ -26,7 +31,7 @@ export default async function BitsPage({ searchParams }: Props) {
           <h1 className="text-3xl font-bold text-stone-900">Bits</h1>
           <p className="mt-2 text-stone-500">
             {bits ? `${bits.length} bit${bits.length !== 1 ? "s" : ""}` : ""}
-            {sp.q ? ` matching "${sp.q}"` : ""}
+            {trimmedQuery ? ` matching "${trimmedQuery}"` : ""}
             {sp.topic ? ` tagged "${sp.topic}"` : ""}
             {sp.joke_type ? ` · ${sp.joke_type}` : ""}
             {!bits ? "Loading…" : ""}
@@ -34,17 +39,26 @@ export default async function BitsPage({ searchParams }: Props) {
         </div>
 
         <Suspense>
-          <BitsFilters topics={topics ?? []} />
+          <BrowseSearchBar placeholder="Search bits…" />
         </Suspense>
 
-        {!bits ? (
-          <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
-            <p className="text-stone-500">No bits found.</p>
-          </div>
+        {trimmedQuery ? (
+          <>
+            <Suspense>
+              <BitsFilters topics={topics ?? []} hideSearch />
+            </Suspense>
+            {!bits ? (
+              <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
+                <p className="text-stone-500">No bits found.</p>
+              </div>
+            ) : (
+              <Suspense>
+                <BitsList bits={bits} filterKey={filterKey} />
+              </Suspense>
+            )}
+          </>
         ) : (
-          <Suspense>
-            <BitsList bits={bits} filterKey={filterKey} />
-          </Suspense>
+          bits && <BitPlaylists bits={bits} />
         )}
       </div>
     </div>

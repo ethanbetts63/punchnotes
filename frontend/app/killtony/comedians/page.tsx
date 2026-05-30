@@ -1,6 +1,8 @@
 import { Suspense } from "react";
 import { getServerComedians } from "@/lib/serverApi";
 import ComedianControls from "@/components/ComedianControls";
+import ComedianPlaylists from "@/components/ComedianPlaylists";
+import BrowseSearchBar from "@/components/BrowseSearchBar";
 
 export const metadata = {
   title: "Comedians — Kill Tony | PunchPedia",
@@ -12,6 +14,7 @@ export default async function ComediansPage({ searchParams }: Props) {
   const params = await searchParams;
   const rawQuery = params.q;
   const query = Array.isArray(rawQuery) ? rawQuery[0] ?? "" : rawQuery ?? "";
+  const trimmedQuery = query.trim();
   const comedians = await getServerComedians();
 
   return (
@@ -29,9 +32,18 @@ export default async function ComediansPage({ searchParams }: Props) {
             <p className="text-stone-500">No comedians indexed yet.</p>
           </div>
         ) : (
-          <Suspense>
-            <ComedianControls comedians={comedians} initialQuery={query} />
-          </Suspense>
+          <>
+            <Suspense>
+              <BrowseSearchBar placeholder={`Search ${comedians.length} comedians…`} />
+            </Suspense>
+            {trimmedQuery ? (
+              <Suspense>
+                <ComedianControls comedians={comedians} initialQuery={trimmedQuery} hideSearch />
+              </Suspense>
+            ) : (
+              <ComedianPlaylists comedians={comedians} />
+            )}
+          </>
         )}
       </div>
     </div>

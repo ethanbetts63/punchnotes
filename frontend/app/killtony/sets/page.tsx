@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import { getServerSets } from "@/lib/serverApi";
 import SetControls from "@/components/SetControls";
-import SetPlaylistsOverview from "@/components/SetPlaylistsOverview";
+import SetPlaylists from "@/components/SetPlaylists";
+import BrowseSearchBar from "@/components/BrowseSearchBar";
 
 export const metadata = {
   title: "Sets - Kill Tony | PunchPedia",
@@ -13,6 +14,7 @@ export default async function SetsPage({ searchParams }: Props) {
   const params = await searchParams;
   const rawQuery = params.q;
   const query = Array.isArray(rawQuery) ? rawQuery[0] ?? "" : rawQuery ?? "";
+  const trimmedQuery = query.trim();
   const sets = await getServerSets();
 
   return (
@@ -31,10 +33,16 @@ export default async function SetsPage({ searchParams }: Props) {
           </div>
         ) : (
           <>
-            <SetPlaylistsOverview sets={sets} />
             <Suspense>
-              <SetControls sets={sets} initialQuery={query} />
+              <BrowseSearchBar placeholder={`Search ${sets.length} sets…`} />
             </Suspense>
+            {trimmedQuery ? (
+              <Suspense>
+                <SetControls sets={sets} initialQuery={trimmedQuery} hideSearch />
+              </Suspense>
+            ) : (
+              <SetPlaylists sets={sets} />
+            )}
           </>
         )}
       </div>

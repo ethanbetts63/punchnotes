@@ -107,9 +107,10 @@ function getSortValue(set: SetListItem, key: SortKey): number | string {
 type Props = {
   sets: SetListItem[];
   initialQuery?: string;
+  hideSearch?: boolean;
 };
 
-export default function SetControls({ sets, initialQuery = "" }: Props) {
+export default function SetControls({ sets, initialQuery = "", hideSearch = false }: Props) {
   const [query, setQuery] = useState(initialQuery);
   const [typeFilter, setTypeFilter] = useState<ComedianAttribute | "">("");
   const [attributeFilters, setAttributeFilters] = useState<Set<ComedianAttribute>>(new Set());
@@ -203,23 +204,25 @@ export default function SetControls({ sets, initialQuery = "" }: Props) {
 
   return (
     <div>
-      <div className="mb-4 flex items-center gap-2 rounded-xl border border-stone-200 px-3 py-2 transition-colors focus-within:border-stone-400">
-        <svg className="h-3.5 w-3.5 shrink-0 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
-        </svg>
-        <input
-          type="text"
-          value={query}
-          onChange={(event) => handleQuery(event.target.value)}
-          placeholder={`Search ${sets.length} sets...`}
-          className="flex-1 bg-transparent text-sm text-stone-900 placeholder-stone-400 focus:outline-none"
-        />
-        {query && (
-          <button onClick={() => handleQuery("")} className="text-xs text-stone-400 transition-colors hover:text-stone-600">
-            Clear x
-          </button>
-        )}
-      </div>
+      {!hideSearch && (
+        <div className="mb-4 flex items-center gap-2 rounded-xl border border-stone-200 px-3 py-2 transition-colors focus-within:border-stone-400">
+          <svg className="h-3.5 w-3.5 shrink-0 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+          </svg>
+          <input
+            type="text"
+            value={query}
+            onChange={(event) => handleQuery(event.target.value)}
+            placeholder={`Search ${sets.length} sets...`}
+            className="flex-1 bg-transparent text-sm text-stone-900 placeholder-stone-400 focus:outline-none"
+          />
+          {query && (
+            <button onClick={() => handleQuery("")} className="text-xs text-stone-400 transition-colors hover:text-stone-600">
+              Clear x
+            </button>
+          )}
+        </div>
+      )}
 
       <div className="mb-3 flex flex-wrap gap-2">
         {TYPE_OPTIONS.map(({ value, label }) => (
