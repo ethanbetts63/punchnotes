@@ -1,4 +1,4 @@
-APPEARANCE_ATTRIBUTES = frozenset({"bucket_pull", "regular", "golden_ticket"})
+APPEARANCE_ATTRIBUTES = frozenset({"bucket_pull", "regular", "golden_ticket", "special"})
 
 
 KNOWN_GOLDEN_TICKET_SLUGS = frozenset(
@@ -70,14 +70,25 @@ KNOWN_REGULAR_SLUGS = frozenset(
 )
 
 
-KNOWN_COMEDIAN_OVERLAP = KNOWN_GOLDEN_TICKET_SLUGS & KNOWN_REGULAR_SLUGS
+KNOWN_SPECIAL_SLUGS = frozenset(
+    {
+        "ron-white",
+    }
+)
+
+
+KNOWN_COMEDIAN_OVERLAP = (
+    (KNOWN_GOLDEN_TICKET_SLUGS & KNOWN_REGULAR_SLUGS)
+    | (KNOWN_GOLDEN_TICKET_SLUGS & KNOWN_SPECIAL_SLUGS)
+    | (KNOWN_REGULAR_SLUGS & KNOWN_SPECIAL_SLUGS)
+)
 if KNOWN_COMEDIAN_OVERLAP:
     names = ", ".join(sorted(KNOWN_COMEDIAN_OVERLAP))
-    raise ValueError(f"Known comedian slugs cannot be both regular and golden ticket: {names}")
+    raise ValueError(f"Known comedian slugs cannot have multiple appearance types: {names}")
 
 
 def normalize_known_appearance_attributes(slug: str, attributes: list[str] | None) -> list[str]:
-    """Make regular/golden_ticket authoritative from known slug lists."""
+    """Make appearance type authoritative from known slug lists."""
     values = attributes or []
     had_appearance_attribute = any(value in APPEARANCE_ATTRIBUTES for value in values)
 
@@ -93,6 +104,8 @@ def normalize_known_appearance_attributes(slug: str, attributes: list[str] | Non
         appearance_attribute = "regular"
     elif slug in KNOWN_GOLDEN_TICKET_SLUGS:
         appearance_attribute = "golden_ticket"
+    elif slug in KNOWN_SPECIAL_SLUGS:
+        appearance_attribute = "special"
     elif had_appearance_attribute:
         appearance_attribute = "bucket_pull"
     else:

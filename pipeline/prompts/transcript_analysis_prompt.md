@@ -29,7 +29,7 @@ Audience reaction lines are filtered automatically by the command.
 
 Also identify the final line of the comic's post-set interview and the joke book size Tony gives the comic at the end of the interview when it is clear. Use only the current appearance's award, not discussion of a previous appearance.
 
-Also identify the comedian appearance type and any clear comedian attributes stated or strongly supported by the transcript. Pass them as a comma-separated list with `--comedian-attributes`. Always include exactly one of `bucket_pull`, `regular`, or `golden_ticket`. If no other attributes are clear, pass only the appearance type.
+Also identify the comedian appearance type and any clear comedian attributes stated or strongly supported by the transcript. Pass them as a comma-separated list with `--comedian-attributes`. Always include exactly one of `bucket_pull`, `regular`, `golden_ticket`, or `special`. If no other attributes are clear, pass only the appearance type.
 
 Some inbox files are short music-window fragments and may contain no complete set. If the current file is very short or has no complete set, delete it from `1_transcript_inbox` and move on.
 
@@ -103,7 +103,7 @@ Do not count prior-appearance questions or answers, such as "What size joke book
 
 Only use attributes that are clear from the transcript. If unsure, leave the attribute out.
 
-The appearance type must be exactly one of `bucket_pull`, `regular`, or `golden_ticket`.
+The appearance type must be exactly one of `bucket_pull`, `regular`, `golden_ticket`, or `special`.
 Use `regular` only for these comics:
 
 - Ari Matti
@@ -167,6 +167,10 @@ Use `golden_ticket` only for these comics:
 - Randolph Davies
 - Pat O'Neill
 
+Use `special` only for these comics:
+
+- Ron White
+
 For any comic not listed above, use `bucket_pull`.
 
 Allowed attribute values:
@@ -174,6 +178,7 @@ Allowed attribute values:
 - `bucket_pull`
 - `regular`
 - `golden_ticket`
+- `special`
 - `gay`
 - `lesbian`
 - `bisexual`
@@ -204,4 +209,4 @@ For every extracted set, pass `--interview-end-line` as the last transcript line
 
 - Sets are monologues. Back-and-forth short-answer dialogue is usually interview, not set.
 - Prefer Tony's introduced spelling for `--comedian-name`.
-- Use `bucket_pull`, `regular`, or `golden_ticket` in `--comedian-attributes`.
+- Use `bucket_pull`, `regular`, `golden_ticket`, or `special` in `--comedian-attributes`.

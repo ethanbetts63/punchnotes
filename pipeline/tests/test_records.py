@@ -71,6 +71,11 @@ class UpsertComedianAttributesTests(TestCase):
         comedian = upsert_comedian("jack-shaw", meta)
         self.assertEqual(comedian.attributes, ["golden_ticket", "man"])
 
+    def test_known_special_overrides_incoming_appearance_attribute(self):
+        meta = {**self._base_meta, "comedian_name": "Ron White", "attributes": ["regular", "man"]}
+        comedian = upsert_comedian("ron-white", meta)
+        self.assertEqual(comedian.attributes, ["special", "man"])
+
     def test_unknown_comedian_regular_is_normalized_to_bucket_pull(self):
         meta = {**self._base_meta, "attributes": ["regular", "woman"]}
         comedian = upsert_comedian("test-comic", meta)
@@ -80,6 +85,11 @@ class UpsertComedianAttributesTests(TestCase):
         meta = {**self._base_meta, "attributes": ["golden_ticket", "disabled"]}
         comedian = upsert_comedian("test-comic", meta)
         self.assertEqual(comedian.attributes, ["bucket_pull", "disabled"])
+
+    def test_unknown_comedian_special_is_normalized_to_bucket_pull(self):
+        meta = {**self._base_meta, "attributes": ["special", "man"]}
+        comedian = upsert_comedian("test-comic", meta)
+        self.assertEqual(comedian.attributes, ["bucket_pull", "man"])
 
 
 class UpsertSetOrderingTests(TestCase):

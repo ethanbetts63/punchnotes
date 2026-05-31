@@ -32,9 +32,7 @@ export const COMEDIAN_LISTS: ListDef[] = [
     title: "Regulars",
     description: "Comics who earned a regular spot on the show.",
     ids: [
-      167, 6, 34, 35, 229, 56, 196, 401, 53, 205, 1, 415, 233, 110, 20,
-      317, 180, 161, 407, 74, 451, 525, 431, 172, 85, 538, 4, 276, 122,
-      147, 52, 13, 113, 48, 112, 107, 129, 191, 435, 217, 249, 80, 70, 255,
+      53, 29, 192, 20, 54, 40,
     ],
   },
   {
@@ -42,8 +40,7 @@ export const COMEDIAN_LISTS: ListDef[] = [
     title: "Golden Ticket Winners",
     description: "Comics who earned a golden ticket from Tony.",
     ids: [
-      290, 102, 174, 1, 392, 7, 239, 280, 45, 119, 50, 71, 147, 464, 13,
-      217, 116, 92, 187, 58, 255,
+      306, 32, 257, 58, 41, 77, 169, 13, 93, 245, 120, 97, 215,
     ],
   },
 ];
@@ -54,8 +51,7 @@ export const SET_LISTS: ListDef[] = [
     title: "Golden Ticket Debuts",
     description: "The first appearance of every comedian who went on to win a golden ticket.",
     ids: [
-      516, 93, 177, 644, 456, 5, 246, 296, 134, 109, 43, 122, 660, 544,
-      78, 656, 107, 83, 188, 52, 592,
+      346, 26, 282, 55, 145, 156, 491, 90, 89, 489, 119, 95, 235,
     ],
   },
   {
@@ -63,10 +59,7 @@ export const SET_LISTS: ListDef[] = [
     title: "Regular Debuts",
     description: "The first appearance of every comedian who became a regular.",
     ids: [
-      168, 4, 51, 31, 234, 49, 197, 464, 137, 207, 644, 482, 240, 520,
-      318, 638, 182, 330, 470, 67, 528, 620, 500, 174, 74, 640, 171, 290,
-      113, 660, 45, 78, 103, 41, 102, 195, 121, 192, 504, 656, 630, 71,
-      116, 592,
+      142, 25, 211, 421, 51, 37,
     ],
   },
 ];
