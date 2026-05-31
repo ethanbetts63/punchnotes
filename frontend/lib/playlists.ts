@@ -3,9 +3,20 @@ export type ListDef = {
   title: string;
   description: string;
   ids: number[];
+  matchBy?: "id" | "number";
 };
 
 export const EPISODE_LISTS: ListDef[] = [
+  {
+    id: "adam-ray-totally-not-adam-ray",
+    title: "Adam Ray + Totally Not Adam Ray",
+    description: "Adam Ray appearances and character episodes.",
+    matchBy: "number",
+    ids: [
+      18, 141, 210, 417, 502, 594, 608, 620, 630, 647, 660, 663,
+      666, 672, 682, 684, 689, 712, 725, 739, 746, 755, 758, 761,
+    ],
+  },
   {
     id: "milestone-episodes",
     title: "Milestone Episodes",

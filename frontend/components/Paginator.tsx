@@ -1,3 +1,5 @@
+"use client";
+
 type Props = {
   page: number;
   totalPages: number;
@@ -20,11 +22,16 @@ export default function Paginator({ page, totalPages, onPage }: Props) {
   if (totalPages <= 1) return null;
 
   const btn = "flex h-8 min-w-[2rem] items-center justify-center rounded-lg border px-2 text-sm font-medium transition-colors";
+  const goToPage = (nextPage: number) => {
+    if (nextPage === page || nextPage < 1 || nextPage > totalPages) return;
+    onPage(nextPage);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="mt-6 flex items-center justify-center gap-1.5">
       <button
-        onClick={() => onPage(page - 1)}
+        onClick={() => goToPage(page - 1)}
         disabled={page === 1}
         className={`${btn} border-stone-200 text-stone-500 hover:border-stone-400 disabled:cursor-not-allowed disabled:opacity-40`}
       >
@@ -36,7 +43,7 @@ export default function Paginator({ page, totalPages, onPage }: Props) {
         ) : (
           <button
             key={p}
-            onClick={() => onPage(p)}
+            onClick={() => goToPage(p)}
             className={`${btn} ${
               p === page
                 ? "border-stone-900 bg-stone-900 text-white"
@@ -48,7 +55,7 @@ export default function Paginator({ page, totalPages, onPage }: Props) {
         )
       )}
       <button
-        onClick={() => onPage(page + 1)}
+        onClick={() => goToPage(page + 1)}
         disabled={page === totalPages}
         className={`${btn} border-stone-200 text-stone-500 hover:border-stone-400 disabled:cursor-not-allowed disabled:opacity-40`}
       >

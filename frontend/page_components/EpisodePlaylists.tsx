@@ -16,10 +16,13 @@ type Props = { episodes: Episode[] };
 
 export default function EpisodePlaylists({ episodes }: Props) {
   const byId = new Map(episodes.map((ep) => [ep.id, ep]));
+  const byNumber = new Map(episodes.map((ep) => [ep.number, ep]));
 
   const lists = EPISODE_LISTS.map((list) => ({
     ...list,
-    items: list.ids.map((id) => byId.get(id)).filter(Boolean) as Episode[],
+    items: list.ids
+      .map((id) => (list.matchBy === "number" ? byNumber : byId).get(id))
+      .filter(Boolean) as Episode[],
   })).filter((list) => list.items.length > 0);
 
   if (lists.length === 0) return null;
