@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getServerBits } from "@/lib/serverApi";
 import BrowseSearchBar from "@/components/BrowseSearchBar";
 import BitSearchFilters from "@/components/BitSearchFilters";
-import BitsList from "@/components/BitsList";
+import BitsList from "@/page_components/BitsList";
 
 export const metadata = {
   title: "Search Bits — Kill Tony | PunchPedia",

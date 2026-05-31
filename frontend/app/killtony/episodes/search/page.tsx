@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getServerEpisodes } from "@/lib/serverApi";
 import BrowseSearchBar from "@/components/BrowseSearchBar";
 import EpisodeSearchFilters from "@/components/EpisodeSearchFilters";
-import EpisodeList from "@/components/EpisodeList";
+import EpisodeList from "@/page_components/EpisodeList";
 
 export const metadata = {
   title: "Search Episodes — Kill Tony | PunchPedia",

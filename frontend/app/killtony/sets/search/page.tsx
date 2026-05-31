@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getServerSets } from "@/lib/serverApi";
 import BrowseSearchBar from "@/components/BrowseSearchBar";
 import SetSearchFilters from "@/components/SetSearchFilters";
-import SetList from "@/components/SetList";
+import SetList from "@/page_components/SetList";
 
 export const metadata = {
   title: "Search Sets — Kill Tony | PunchPedia",

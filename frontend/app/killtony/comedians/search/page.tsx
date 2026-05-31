@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getServerComedians } from "@/lib/serverApi";
 import BrowseSearchBar from "@/components/BrowseSearchBar";
 import ComedianSearchFilters from "@/components/ComedianSearchFilters";
-import ComedianList from "@/components/ComedianList";
+import ComedianList from "@/page_components/ComedianList";
 
 export const metadata = {
   title: "Search Comedians — Kill Tony | PunchPedia",

@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { getServerJokes, getServerTopics } from "@/lib/serverApi";
 import JokesFilters from "@/components/JokesFilters";
-import JokesList from "@/components/JokesList";
+import JokesList from "@/page_components/JokesList";
 
 export const metadata = {
   title: "Jokes — Kill Tony | PunchPedia",

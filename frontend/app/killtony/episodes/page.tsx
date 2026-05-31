@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { getServerEpisodes } from "@/lib/serverApi";
-import EpisodePlaylists from "@/components/EpisodePlaylists";
+import EpisodePlaylists from "@/page_components/EpisodePlaylists";
 import BrowseSearchBar from "@/components/BrowseSearchBar";
 import EpisodeSearchFilters from "@/components/EpisodeSearchFilters";
 

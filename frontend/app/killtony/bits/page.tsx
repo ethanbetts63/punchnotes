@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { getServerBits } from "@/lib/serverApi";
-import BitPlaylists from "@/components/BitPlaylists";
+import BitPlaylists from "@/page_components/BitPlaylists";
 import BrowseSearchBar from "@/components/BrowseSearchBar";
 import BitSearchFilters from "@/components/BitSearchFilters";
 
