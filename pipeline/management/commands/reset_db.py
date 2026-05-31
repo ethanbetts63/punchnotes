@@ -51,12 +51,22 @@ class Command(BaseCommand):
                 call_command("loaddata", str(fixture))
 
         # Re-import all archived sets
-        archive_dir = base_dir / "data" / "bit_annotated_set_archive"
-        if archive_dir.exists() and any(archive_dir.glob("*.json")):
+        data_dir = settings.PIPELINE_DATA_DIR
+        sets_archive = data_dir / "bit_annotated_set_archive"
+        if sets_archive.exists() and any(sets_archive.glob("*.json")):
             self.stdout.write("\nImporting sets from archive...")
-            call_command("import_sets", source_dir=str(archive_dir))
+            call_command("import_sets", source_dir=str(sets_archive))
         else:
             self.stdout.write("\nNo archived sets to import.")
+
+        # Re-link set images (public files survive the reset; DB records need repopulating)
+        images_archive = data_dir / "set_images_archive"
+        image_exts = {".jpg", ".jpeg", ".png", ".webp"}
+        if images_archive.exists() and any(p.suffix.lower() in image_exts for p in images_archive.iterdir()):
+            self.stdout.write("\nRe-linking set images from archive...")
+            call_command("import_set_images", source_dir=str(images_archive), replace=True)
+        else:
+            self.stdout.write("\nNo archived set images to re-link.")
 
         full_episode_jsonl = settings.PIPELINE_DATA_DIR / "full_kt_episodes.jsonl"
         basic_episode_jsonl = settings.PIPELINE_DATA_DIR / "basic_kt_episodes.jsonl"
