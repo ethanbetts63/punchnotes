@@ -4,6 +4,7 @@ from pathlib import Path
 
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
+from pipeline.import_utils.comedian_aliases import canonicalize_comedian_name
 from pipeline.models.comedian import ATTRIBUTE_VALUES
 
 
@@ -39,10 +40,6 @@ def parse_guests(episode_title):
     guest_text = re.sub(r"^KT\s*#?\d+\s*", "", guest_text, flags=re.IGNORECASE).strip()
     names = re.split(r"\s*(?:\+|&|,)\s*", guest_text)
     return [name.title() for name in names if name.strip()]
-
-
-def slugify(value):
-    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-") or "unknown"
 
 
 def parse_line_numbers(value):
@@ -207,8 +204,9 @@ class Command(BaseCommand):
             interview_end_seconds = line_end_seconds(find_source_line(source_lines, interview_end_line))
 
         video_id = transcript["video_id"]
-        comedian_name = options["comedian_name"]
-        output_name = f"{video_id}_line{start_line:05d}_{slugify(comedian_name)}.json"
+        canonical_comedian = canonicalize_comedian_name(options["comedian_name"])
+        comedian_name = canonical_comedian.name
+        output_name = f"{video_id}_line{start_line:05d}_{canonical_comedian.slug}.json"
         output_dir = settings.PIPELINE_DATA_DIR / "2_set_inbox"
         output_dir.mkdir(parents=True, exist_ok=True)
         output_path = output_dir / output_name

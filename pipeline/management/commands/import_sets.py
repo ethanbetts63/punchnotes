@@ -1,13 +1,14 @@
 import json
-import re
 import shutil
 from pathlib import Path
 
 from django.conf import settings
+from django.core.management import call_command
 from django.core.management.base import BaseCommand
 from django.db import transaction
 
 from pipeline.models import Comedian
+from pipeline.import_utils.comedian_aliases import canonicalize_comedian_name, load_relationships
 from pipeline.import_utils.cleaning import clean_fluff_bit_beat
 from pipeline.import_utils.validation import validate_bit_meta
 from pipeline.import_utils.records import (
@@ -18,10 +19,6 @@ from pipeline.import_utils.records import (
     upsert_episode,
     upsert_set,
 )
-
-
-def slugify(value):
-    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-") or "unknown"
 
 
 class Command(BaseCommand):
@@ -56,33 +53,41 @@ class Command(BaseCommand):
             return
 
         self.stdout.write(f"Importing {len(files)} file(s) from {source}...")
+        relationships = load_relationships()
 
         for path in files:
             try:
-                self._import(path)
+                self._import(path, relationships)
                 if archive:
                     shutil.move(str(path), archive / path.name)
             except Exception as e:
                 self.stdout.write(self.style.ERROR(f"  Failed {path.name}: {e}"))
 
-    def _import(self, path):
+        self.stdout.write("\nFinding similar comedian names...")
+        call_command("find_similar_comedians", stdout=self.stdout)
+
+    def _import(self, path, relationships):
         meta = json.loads(path.read_text(encoding="utf-8-sig"))
         meta = clean_fluff_bit_beat(meta)
         validate_bit_meta(meta)
 
         video_id = meta["video_id"]
-        slug = slugify(meta["comedian_name"])
+        canonical_comedian = canonicalize_comedian_name(meta["comedian_name"], relationships)
+        meta = {
+            **meta,
+            "comedian_name": canonical_comedian.name,
+        }
 
         episode = upsert_episode(video_id, meta)
-        comedian = upsert_comedian(slug, meta)
+        comedian = upsert_comedian(canonical_comedian.slug, meta)
         with transaction.atomic():
             set_obj = upsert_set(episode, comedian, meta)
 
             for guest_name in meta.get("guests", []):
-                guest_slug = slugify(guest_name)
+                canonical_guest = canonicalize_comedian_name(guest_name, relationships)
                 guest, _ = Comedian.objects.get_or_create(
-                    slug=guest_slug,
-                    defaults={"name": guest_name},
+                    slug=canonical_guest.slug,
+                    defaults={"name": canonical_guest.name},
                 )
                 episode.guests.add(guest)
 

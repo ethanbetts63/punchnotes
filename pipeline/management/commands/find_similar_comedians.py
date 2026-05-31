@@ -5,12 +5,21 @@ import sys
 from dataclasses import dataclass
 from difflib import SequenceMatcher
 
+from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 
+from pipeline.import_utils.comedian_aliases import (
+    decided_pair_keys,
+    load_relationships,
+    pair_key,
+    resolved_alias_slug,
+)
 from pipeline.models import Comedian
 
 
 TOKEN_RE = re.compile(r"[a-z0-9]+")
+THRESHOLD = 80.0
+CANDIDATE_REPORT_FILENAME = "similar_comedian_candidates.json"
 
 
 @dataclass(frozen=True)
@@ -60,10 +69,20 @@ def pair_score(first: tuple[str, str], second: tuple[str, str]) -> Candidate:
     )
 
 
-def find_candidates(comedians: list[tuple[str, str]], threshold: float) -> list[Candidate]:
+def find_candidates(
+    comedians: list[tuple[str, str]],
+    threshold: float,
+    relationships: dict | None = None,
+) -> list[Candidate]:
+    relationships = relationships or load_relationships()
+    decided_pairs = decided_pair_keys(relationships)
     candidates = []
     for index, first in enumerate(comedians):
         for second in comedians[index + 1:]:
+            if pair_key(first[1], second[1]) in decided_pairs:
+                continue
+            if resolved_alias_slug(first[1], relationships) == resolved_alias_slug(second[1], relationships):
+                continue
             candidate = pair_score(first, second)
             if candidate.score >= threshold:
                 candidates.append(candidate)
@@ -77,22 +96,40 @@ def find_candidates(comedians: list[tuple[str, str]], threshold: float) -> list[
     )
 
 
+def candidate_dict(candidate: Candidate) -> dict:
+    return {
+        "score": round(candidate.score, 1),
+        "scores": {
+            "name": round(candidate.name_score, 1),
+            "token_sort": round(candidate.token_sort_score, 1),
+            "slug": round(candidate.slug_score, 1),
+        },
+        "first": {
+            "name": candidate.first_name,
+            "slug": candidate.first_slug,
+        },
+        "second": {
+            "name": candidate.second_name,
+            "slug": candidate.second_slug,
+        },
+    }
+
+
+def write_candidate_report(candidates: list[Candidate]) -> str:
+    path = settings.PIPELINE_DATA_DIR / CANDIDATE_REPORT_FILENAME
+    payload = {
+        "threshold": THRESHOLD,
+        "candidate_count": len(candidates),
+        "candidates": [candidate_dict(candidate) for candidate in candidates],
+    }
+    path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    return str(path)
+
+
 class Command(BaseCommand):
     help = "Find likely duplicate comedian names using fuzzy matching."
 
     def add_arguments(self, parser):
-        parser.add_argument(
-            "--threshold",
-            type=float,
-            default=85.0,
-            help="Minimum fuzzy score from 0-100. Higher is stricter. Default: 85.",
-        )
-        parser.add_argument(
-            "--limit",
-            type=int,
-            default=100,
-            help="Maximum number of candidate pairs to print. Use 0 for no limit. Default: 100.",
-        )
         parser.add_argument(
             "--format",
             choices=("text", "csv", "json"),
@@ -101,20 +138,16 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-        threshold = options["threshold"]
+        threshold = THRESHOLD
         if threshold < 0 or threshold > 100:
-            raise CommandError("--threshold must be between 0 and 100")
-
-        limit = options["limit"]
-        if limit < 0:
-            raise CommandError("--limit must be 0 or greater")
+            raise CommandError("THRESHOLD must be between 0 and 100")
 
         comedians = list(Comedian.objects.order_by("slug").values_list("name", "slug"))
         candidates = find_candidates(comedians, threshold)
-        visible = candidates if limit == 0 else candidates[:limit]
+        report_path = write_candidate_report(candidates)
 
         if options["format"] == "json":
-            self.stdout.write(json.dumps([candidate.__dict__ for candidate in visible], indent=2))
+            self.stdout.write(json.dumps([candidate_dict(candidate) for candidate in candidates], indent=2))
             return
 
         if options["format"] == "csv":
@@ -131,7 +164,7 @@ class Command(BaseCommand):
                     "second_slug",
                 ]
             )
-            for candidate in visible:
+            for candidate in candidates:
                 writer.writerow(
                     [
                         f"{candidate.score:.1f}",
@@ -149,11 +182,10 @@ class Command(BaseCommand):
         self.stdout.write(f"Comedians scanned: {len(comedians)}")
         self.stdout.write(f"Threshold: {threshold:.1f}")
         self.stdout.write(f"Candidate pairs: {len(candidates)}")
-        if limit and len(candidates) > limit:
-            self.stdout.write(f"Showing first {limit}. Use --limit 0 to show all.")
+        self.stdout.write(f"Report written: {report_path}")
         self.stdout.write("")
 
-        for candidate in visible:
+        for candidate in candidates:
             self.stdout.write(
                 f"{candidate.score:5.1f} "
                 f"(name {candidate.name_score:5.1f}, "
