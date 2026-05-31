@@ -1,0 +1,103 @@
+APPEARANCE_ATTRIBUTES = frozenset({"bucket_pull", "regular", "golden_ticket"})
+
+
+KNOWN_GOLDEN_TICKET_SLUGS = frozenset(
+    {
+        "steve-lee",
+        "enrique-chacon",
+        "john-callaghan",
+        "caroline-smith",
+        "tristan-bowling",
+        "todd-royce",
+        "aloe-mean",
+        "ryan-middendorf",
+        "colt",
+        "nicole-tran",
+        "liam-o-brian",
+        "martin-phillips",
+        "jared-nathan",
+        "aya-amarir",
+        "gary-falcon",
+        "ahren-belisle",
+        "ric-diez",
+        "heath-cordes",
+        "carlos-lopez",
+        "drew-nickens",
+        "fiona-cauley",
+        "jack-shaw",
+        "jeremy",
+        "collin-sledge",
+        "kansei-yasuda",
+        "charlie-mac",
+        "timmy-no-brakes",
+        "chris-silio",
+        "jj-alexander",
+        "mason-bird",
+        "yaqiao-yang",
+        "tony-scar",
+        "angel-diaz",
+        "orhun-timur",
+        "randolph-davies",
+        "pat-o-neill",
+    }
+)
+
+
+KNOWN_REGULAR_SLUGS = frozenset(
+    {
+        "ari-matti",
+        "casey-rocket",
+        "david-lucas",
+        "dedrick-flynn",
+        "george-perez",
+        "hans-kim",
+        "iron-patriot",
+        "jeremiah-watkins",
+        "joel-jimenez",
+        "john-deas",
+        "josh-martin",
+        "jules-durel",
+        "kam-patterson",
+        "kimberly-congdon",
+        "kino-loasis",
+        "melissa-eslinger",
+        "pat-regan",
+        "paul-deemer",
+        "sara-weinshenk",
+        "vanessa-johnston",
+        "william-montgomery",
+    }
+)
+
+
+KNOWN_COMEDIAN_OVERLAP = KNOWN_GOLDEN_TICKET_SLUGS & KNOWN_REGULAR_SLUGS
+if KNOWN_COMEDIAN_OVERLAP:
+    names = ", ".join(sorted(KNOWN_COMEDIAN_OVERLAP))
+    raise ValueError(f"Known comedian slugs cannot be both regular and golden ticket: {names}")
+
+
+def normalize_known_appearance_attributes(slug: str, attributes: list[str] | None) -> list[str]:
+    """Make regular/golden_ticket authoritative from known slug lists."""
+    values = attributes or []
+    had_appearance_attribute = any(value in APPEARANCE_ATTRIBUTES for value in values)
+
+    non_appearance_attributes = []
+    seen = set()
+    for value in values:
+        if not value or value in APPEARANCE_ATTRIBUTES or value in seen:
+            continue
+        non_appearance_attributes.append(value)
+        seen.add(value)
+
+    if slug in KNOWN_REGULAR_SLUGS:
+        appearance_attribute = "regular"
+    elif slug in KNOWN_GOLDEN_TICKET_SLUGS:
+        appearance_attribute = "golden_ticket"
+    elif had_appearance_attribute:
+        appearance_attribute = "bucket_pull"
+    else:
+        appearance_attribute = None
+
+    if appearance_attribute is None:
+        return non_appearance_attributes
+    return [appearance_attribute, *non_appearance_attributes]

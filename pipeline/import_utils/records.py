@@ -4,6 +4,7 @@ from collections import defaultdict
 from django.db.models import Avg, Count, Q
 
 from pipeline.models import Beat, Bit, Comedian, Episode, Line, Set
+from pipeline.import_utils.known_comedians import normalize_known_appearance_attributes
 
 
 def parse_episode_number(title: str) -> int | None:
@@ -56,6 +57,7 @@ def upsert_comedian(slug: str, meta: dict) -> Comedian:
     )
     incoming_attributes = meta_attributes(meta)
     merged_attributes = merge_attributes(comedian.attributes, incoming_attributes)
+    merged_attributes = normalize_known_appearance_attributes(slug, merged_attributes)
     update_fields = []
     if merged_attributes != comedian.attributes:
         comedian.attributes = merged_attributes

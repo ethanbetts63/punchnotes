@@ -103,6 +103,72 @@ Do not count prior-appearance questions or answers, such as "What size joke book
 
 Only use attributes that are clear from the transcript. If unsure, leave the attribute out.
 
+The appearance type must be exactly one of `bucket_pull`, `regular`, or `golden_ticket`.
+Use `regular` only for these comics:
+
+- Ari Matti
+- Casey Rocket
+- David Lucas
+- Dedrick Flynn
+- George Perez
+- Hans Kim
+- Iron Patriot
+- Jeremiah Watkins
+- Joel Jimenez
+- John Deas
+- Josh Martin
+- Jules Durel
+- Kam Patterson
+- Kimberly Congdon
+- Kino Loasis
+- Melissa Eslinger
+- Pat Regan
+- Paul Deemer
+- Sara Weinshenk
+- Vanessa Johnston
+- William Montgomery
+
+Use `golden_ticket` only for these comics:
+
+- Steve Lee
+- Enrique Chacon
+- John Callaghan
+- Caroline Smith
+- Tristan Bowling
+- Todd Royce
+- Aloe Mean
+- Ryan Middendorf
+- Colt
+- Nicole Tran
+- Liam O'Brian
+- Martin Phillips
+- Jared Nathan
+- Aya Amarir
+- Gary Falcon
+- Ahren Belisle
+- Ric Diez
+- Heath Cordes
+- Carlos Lopez
+- Drew Nickens
+- Fiona Cauley
+- Jack Shaw
+- Jeremy
+- Collin Sledge
+- Kansei Yasuda
+- Charlie Mac
+- Timmy No Brakes
+- Chris Silio
+- JJ Alexander
+- Mason Bird
+- Yaqiao Yang
+- Tony Scar
+- Angel Diaz
+- Orhun Timur
+- Randolph Davies
+- Pat O'Neill
+
+For any comic not listed above, use `bucket_pull`.
+
 Allowed attribute values:
 
 - `bucket_pull`

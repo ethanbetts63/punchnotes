@@ -56,6 +56,31 @@ class UpsertComedianAttributesTests(TestCase):
         comedian = upsert_comedian("test-comic", self._base_meta)
         self.assertEqual(comedian.attributes, [])
 
+    def test_known_regular_overrides_incoming_appearance_attribute(self):
+        meta = {**self._base_meta, "comedian_name": "William Montgomery", "attributes": ["bucket_pull", "man"]}
+        comedian = upsert_comedian("william-montgomery", meta)
+        self.assertEqual(comedian.attributes, ["regular", "man"])
+
+    def test_known_regular_is_added_when_missing_from_incoming_attributes(self):
+        meta = {**self._base_meta, "comedian_name": "William Montgomery", "attributes": ["man"]}
+        comedian = upsert_comedian("william-montgomery", meta)
+        self.assertEqual(comedian.attributes, ["regular", "man"])
+
+    def test_known_golden_ticket_overrides_incoming_appearance_attribute(self):
+        meta = {**self._base_meta, "comedian_name": "Jack Shaw", "attributes": ["regular", "man"]}
+        comedian = upsert_comedian("jack-shaw", meta)
+        self.assertEqual(comedian.attributes, ["golden_ticket", "man"])
+
+    def test_unknown_comedian_regular_is_normalized_to_bucket_pull(self):
+        meta = {**self._base_meta, "attributes": ["regular", "woman"]}
+        comedian = upsert_comedian("test-comic", meta)
+        self.assertEqual(comedian.attributes, ["bucket_pull", "woman"])
+
+    def test_unknown_comedian_golden_ticket_is_normalized_to_bucket_pull(self):
+        meta = {**self._base_meta, "attributes": ["golden_ticket", "disabled"]}
+        comedian = upsert_comedian("test-comic", meta)
+        self.assertEqual(comedian.attributes, ["bucket_pull", "disabled"])
+
 
 class UpsertSetOrderingTests(TestCase):
     _episode_meta = {
