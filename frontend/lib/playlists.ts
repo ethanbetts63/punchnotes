@@ -8,23 +8,13 @@ export type ListDef = {
 
 export const EPISODE_LISTS: ListDef[] = [
   {
-    id: "adam-ray-totally-not-adam-ray",
-    title: "Adam Ray + Totally Not Adam Ray",
-    description: "Adam Ray appearances and character episodes.",
-    matchBy: "number",
-    ids: [
-      18, 141, 210, 417, 502, 594, 608, 620, 630, 647, 660, 663,
-      666, 672, 682, 684, 689, 712, 725, 739, 746, 755, 758, 761,
-    ],
-  },
-  {
     id: "allstar-guests",
     title: "Allstar Guests",
     description: "Stacked guest lineups and major-name appearances.",
     matchBy: "number",
     ids: [
-      670, 625, 679, 738, 677, 658, 650, 629, 740, 733, 659, 764,
-      688, 735, 632, 717, 627, 614, 510, 122, 222,
+      764, 740, 738, 735, 733, 717, 688, 679, 677, 670, 659, 658,
+      650, 632, 629, 627, 625, 614, 510, 222, 122,
     ],
   },
   {
@@ -32,7 +22,7 @@ export const EPISODE_LISTS: ListDef[] = [
     title: "Kill Tony Lore",
     description: "Key episodes from the show's history and recurring storylines.",
     matchBy: "number",
-    ids: [564, 244, 498, 1, 499, 518, 487, 484, 200, 578],
+    ids: [578, 564, 518, 499, 498, 487, 484, 244, 200, 1],
   },
   {
     id: "comedians-pretending-to-be-other-people",
@@ -45,23 +35,23 @@ export const EPISODE_LISTS: ListDef[] = [
     ],
   },
   {
-    id: "milestone-episodes",
-    title: "Milestone Episodes",
-    description: "Big number episodes and live specials.",
-    ids: [1, 10, 20, 30, 40, 50, 60, 70],
-  },
-  {
     id: "golden-ticket-episodes",
     title: "Golden Ticket Episodes",
     description: "Episodes where Tony handed out a golden ticket.",
-    ids: [2, 7, 12, 18, 28, 35, 42, 55],
+    matchBy: "number",
+    ids: [55, 42, 35, 28, 18, 12, 7, 2],
   },
-  {
-    id: "biggest-lineups",
-    title: "Biggest Lineups",
-    description: "Episodes with the most sets on the night.",
-    ids: [5, 15, 25, 35, 45, 55, 65, 75],
+    {
+    id: "adam-ray-totally-not-adam-ray",
+    title: "Adam Ray + Totally Not Adam Ray",
+    description: "Adam Ray appearances and character episodes.",
+    matchBy: "number",
+    ids: [
+      761, 758, 755, 746, 739, 725, 712, 689, 684, 682, 672, 666,
+      663, 660, 647, 630, 620, 608, 594, 502, 417, 210, 141, 18,
+    ],
   },
+
 ];
 
 export const COMEDIAN_LISTS: ListDef[] = [
