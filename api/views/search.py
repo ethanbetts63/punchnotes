@@ -91,7 +91,7 @@ class SearchView(APIView):
     def search_comedians(self, query):
         rows = (
             Comedian.objects
-            .annotate(set_count=Count("sets", distinct=True), appearances=Count("sets__episode", distinct=True))
+            .annotate(set_count=Count("sets", distinct=True))
             .filter(
                 Q(name__icontains=query)
                 | Q(slug__icontains=query)
@@ -105,7 +105,7 @@ class SearchView(APIView):
         results = []
         for comedian in rows[:50]:
             meta = [
-                fmt_count(comedian.appearances, "appearance"),
+                fmt_count(comedian.appearance_count, "appearance"),
                 fmt_count(comedian.set_count, "set"),
             ]
             if comedian.has_large_joke_book:
@@ -130,8 +130,8 @@ class SearchView(APIView):
         if number.isdigit():
             filters |= Q(episode_number=int(number))
 
-        rows = Episode.objects.annotate(set_count=Count("sets", distinct=True)).filter(filters)
-        rows = rows | Episode.objects.annotate(set_count=Count("sets", distinct=True)).filter(
+        rows = Episode.objects.filter(filters)
+        rows = rows | Episode.objects.filter(
             Q(sets__comedian__name__icontains=query)
             | Q(sets__bits__summary__icontains=query)
             | Q(sets__bits__beats__premise__icontains=query)
@@ -166,7 +166,6 @@ class SearchView(APIView):
         rows = (
             Set.objects
             .select_related("comedian", "episode")
-            .annotate(bit_count=Count("bits"))
             .filter(
                 Q(comedian__name__icontains=query)
                 | Q(episode__episode_title__icontains=query)

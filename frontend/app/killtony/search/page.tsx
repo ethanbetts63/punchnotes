@@ -1,8 +1,10 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { getServerSearch, type SearchResponse, type SearchResult } from "@/lib/serverApi";
 import YoutubeThumbnail from "@/components/YoutubeThumbnail";
 import ComedianImage from "@/components/ComedianImage";
+import BrowseSearchBar from "@/components/BrowseSearchBar";
 
 export const metadata = {
   title: "Search - Kill Tony | PunchNotes",
@@ -263,14 +265,15 @@ function refinedHref(key: DisplaySearchGroupKey, query: string): string {
 
   switch (key) {
     case "comedians":
-      return `/killtony/comedians${qs ? `?${qs}` : ""}`;
+      return `/killtony/comedians/search${qs ? `?${qs}` : ""}`;
     case "episodes":
-      return `/killtony/episodes${qs ? `?${qs}` : ""}`;
+      return `/killtony/episodes/search${qs ? `?${qs}` : ""}`;
     case "bits":
-      return `/killtony/bits${qs ? `?${qs}` : ""}`;
+      return `/killtony/bits/search${qs ? `?${qs}` : ""}`;
     case "sets":
+      return `/killtony/sets/search${qs ? `?${qs}` : ""}`;
     case "topics":
-      return `/killtony/search${qs ? `?${qs}` : ""}#${key}`;
+      return `/killtony/search${qs ? `?${qs}` : ""}#topics`;
   }
 }
 
@@ -325,11 +328,16 @@ export default async function SearchPage({ searchParams }: Props) {
   return (
     <div className="min-h-screen bg-[#f7f7f7] text-black">
       <section className="bg-[#f7f7f7] text-black">
-        <div className="mx-auto max-w-6xl px-4 py-8 text-center sm:px-6">
-          <h1 className="break-words text-4xl font-bold leading-none tracking-normal text-black sm:text-5xl">
+        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+          <h1 className="break-words text-center text-4xl font-bold leading-none tracking-normal text-black sm:text-5xl">
             {trimmedQuery ? `"${trimmedQuery}"` : "Search"}
           </h1>
-          <p className="mt-3 text-sm font-bold uppercase text-stone-500">All results</p>
+          <p className="mt-3 text-center text-sm font-bold uppercase text-stone-500">All results</p>
+          <div className="mx-auto mt-6 max-w-xl">
+            <Suspense>
+              <BrowseSearchBar placeholder="Search Kill Tony…" />
+            </Suspense>
+          </div>
         </div>
       </section>
 
