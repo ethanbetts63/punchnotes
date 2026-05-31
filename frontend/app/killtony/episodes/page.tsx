@@ -5,7 +5,7 @@ import BrowseSearchBar from "@/components/BrowseSearchBar";
 import EpisodeSearchFilters from "@/components/EpisodeSearchFilters";
 
 export const metadata = {
-  title: "Episodes — Kill Tony | PunchPedia",
+  title: "Episodes — Kill Tony | PunchNotes",
 };
 
 export default async function EpisodesPage() {

@@ -244,6 +244,6 @@ class Command(BaseCommand):
         clip_end = capture_seconds + half_clip
         relative_seconds = capture_seconds - clip_start
 
-        with tempfile.TemporaryDirectory(prefix="punchpedia_frame_") as tmp:
+        with tempfile.TemporaryDirectory(prefix="punchnotes_frame_") as tmp:
             clip_path = download_clip(source_url, args, clip_start, clip_end, Path(tmp))
             grab_frame(clip_path, relative_seconds, output_path, args.width, args.quality)

@@ -6,7 +6,7 @@ import ComedianSearchFilters from "@/components/ComedianSearchFilters";
 import ComedianList from "@/page_components/ComedianList";
 
 export const metadata = {
-  title: "Search Comedians — Kill Tony | PunchPedia",
+  title: "Search Comedians — Kill Tony | PunchNotes",
 };
 
 type Props = { searchParams: Promise<Record<string, string>> };

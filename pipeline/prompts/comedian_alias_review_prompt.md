@@ -1,23 +1,23 @@
 # Kill Tony Comedian Alias Review Prompt
 
-You are reviewing likely duplicate comedian names from Punchpedia's Kill Tony database.
+You are reviewing likely duplicate comedian names from punchnotes's Kill Tony database.
 
 Read:
 
 ```text
-C:\Users\ethan\coding\punchpedia\pipeline\data\similar_comedian_candidates.json
+C:\Users\ethan\coding\punchnotes\pipeline\data\similar_comedian_candidates.json
 ```
 
 Update:
 
 ```text
-C:\Users\ethan\coding\punchpedia\pipeline\data\comedian_name_relationships.json
+C:\Users\ethan\coding\punchnotes\pipeline\data\comedian_name_relationships.json
 ```
 
 Do not edit any files in:
 
 ```text
-C:\Users\ethan\coding\punchpedia\pipeline\data\bit_annotated_set_archive
+C:\Users\ethan\coding\punchnotes\pipeline\data\bit_annotated_set_archive
 ```
 
 The archive is intentionally raw source data. Name cleanup happens through the relationship file so mistakes can be undone by editing that file and re-importing.

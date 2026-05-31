@@ -9,8 +9,8 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const comedian = await getServerComedian(slug);
-  if (!comedian) return { title: "Comedian Not Found | PunchPedia" };
-  return { title: `${comedian.name} — Kill Tony | PunchPedia` };
+  if (!comedian) return { title: "Comedian Not Found | PunchNotes" };
+  return { title: `${comedian.name} — Kill Tony | PunchNotes` };
 }
 
 function fmt2(n: number | null): string {

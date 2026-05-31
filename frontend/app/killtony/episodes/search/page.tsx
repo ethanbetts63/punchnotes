@@ -6,7 +6,7 @@ import EpisodeSearchFilters from "@/components/EpisodeSearchFilters";
 import EpisodeList from "@/page_components/EpisodeList";
 
 export const metadata = {
-  title: "Search Episodes — Kill Tony | PunchPedia",
+  title: "Search Episodes — Kill Tony | PunchNotes",
 };
 
 type Props = { searchParams: Promise<Record<string, string>> };

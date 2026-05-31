@@ -6,7 +6,7 @@ import BitSearchFilters from "@/components/BitSearchFilters";
 import BitsList from "@/page_components/BitsList";
 
 export const metadata = {
-  title: "Search Bits — Kill Tony | PunchPedia",
+  title: "Search Bits — Kill Tony | PunchNotes",
 };
 
 type Props = { searchParams: Promise<Record<string, string>> };

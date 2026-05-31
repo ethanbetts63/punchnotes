@@ -5,7 +5,7 @@ import YoutubeThumbnail from "@/components/YoutubeThumbnail";
 import ComedianImage from "@/components/ComedianImage";
 
 export const metadata = {
-  title: "Search - Kill Tony | PunchPedia",
+  title: "Search - Kill Tony | PunchNotes",
 };
 
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };

@@ -5,7 +5,7 @@ import BrowseSearchBar from "@/components/BrowseSearchBar";
 import SetSearchFilters from "@/components/SetSearchFilters";
 
 export const metadata = {
-  title: "Sets — Kill Tony | PunchPedia",
+  title: "Sets — Kill Tony | PunchNotes",
 };
 
 export default async function SetsPage() {

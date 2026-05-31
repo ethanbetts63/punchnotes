@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import type { FaqItem } from '@/types/FaqItem';
 
-export const SITE_URL = 'https://www.punchpedia.com';
-export const SITE_NAME = 'PunchPedia';
+export const SITE_URL = 'https://www.punchnotes.com';
+export const SITE_NAME = 'PunchNotes';
 
 interface MetadataOptions {
   title: string;

@@ -35,7 +35,7 @@ function BrowseNav() {
 }
 
 export const metadata = {
-  title: "Kill Tony — PunchPedia",
+  title: "Kill Tony — PunchNotes",
   description: "Structured comedy analytics for Kill Tony. Browse episodes, comedians, and jokes broken down by premise, mechanism, and audience response.",
 };
 

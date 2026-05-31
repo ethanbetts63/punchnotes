@@ -5,7 +5,7 @@ import BrowseSearchBar from "@/components/BrowseSearchBar";
 import BitSearchFilters from "@/components/BitSearchFilters";
 
 export const metadata = {
-  title: "Bits — Kill Tony | PunchPedia",
+  title: "Bits — Kill Tony | PunchNotes",
 };
 
 export default async function BitsPage() {

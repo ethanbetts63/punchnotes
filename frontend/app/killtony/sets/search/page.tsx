@@ -6,7 +6,7 @@ import SetSearchFilters from "@/components/SetSearchFilters";
 import SetList from "@/page_components/SetList";
 
 export const metadata = {
-  title: "Search Sets — Kill Tony | PunchPedia",
+  title: "Search Sets — Kill Tony | PunchNotes",
 };
 
 type Props = { searchParams: Promise<Record<string, string>> };

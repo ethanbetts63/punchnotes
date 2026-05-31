@@ -8,8 +8,8 @@ type Props = { params: Promise<{ id: string }> };
 export async function generateMetadata({ params }: Props) {
   const { id } = await params;
   const episode = await getServerEpisode(id);
-  if (!episode) return { title: "Episode Not Found | PunchPedia" };
-  return { title: `KT #${episode.number} — Kill Tony | PunchPedia` };
+  if (!episode) return { title: "Episode Not Found | PunchNotes" };
+  return { title: `KT #${episode.number} — Kill Tony | PunchNotes` };
 }
 
 function fmtSeconds(s: number): string {

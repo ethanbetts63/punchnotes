@@ -10,8 +10,8 @@ type Props = { params: Promise<{ id: string }> };
 export async function generateMetadata({ params }: Props) {
   const { id } = await params;
   const set = await getServerSet(id);
-  if (!set) return { title: "Set Not Found | PunchPedia" };
-  return { title: `${set.comedian.name} — Ep ${set.episode.number} | PunchPedia` };
+  if (!set) return { title: "Set Not Found | PunchNotes" };
+  return { title: `${set.comedian.name} — Ep ${set.episode.number} | PunchNotes` };
 }
 
 function fmt2(n: number | null): string {

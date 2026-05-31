@@ -1,12 +1,12 @@
-# PunchPedia
+# PunchNotes
 
-PunchPedia is a system for analyzing/annotating stand-up comedy 
+PunchNotes is a system for analyzing/annotating stand-up comedy 
 
 The project starts with Kill Tony because it provides a uniquely useful dataset: short standardized sets, high performance variance, recurring comedians, live audience reactions, and explicit quality signals like joke book awards. From there, the system can expand into broader stand-up datasets and eventually become both a comedy analytics platform and a training dataset for AI systems that learn humor from actual audience response rather than text alone.
 
 ## Goals
 
-PunchPedia is designed to connect comedic structure to measurable audience response.
+PunchNotes is designed to connect comedic structure to measurable audience response.
 
 Short-term goals:
 - Extract stand-up sets from full Kill Tony episode transcripts.
@@ -28,7 +28,7 @@ Long-term goals:
 
 ## Data Model
 
-PunchPedia represents stand-up as a hierarchy:
+PunchNotes represents stand-up as a hierarchy:
 
 - **Set**: one recorded appearance by a comic.
 - **Bit**: one or more beats that share a premise.

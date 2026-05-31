@@ -2,7 +2,7 @@
 
 You are finding stand-up **set boundaries** in one *Kill Tony* transcript inbox file. Inbox files may be full transcripts or music-cue windows generated from a full transcript.
 
-Only process the first JSON file in `C:\Users\ethan\coding\punchpedia\pipeline\data\1_transcript_inbox\`. Do not process multiple inbox files in one run.
+Only process the first JSON file in `C:\Users\ethan\coding\punchnotes\pipeline\data\1_transcript_inbox\`. Do not process multiple inbox files in one run.
 
 Each transcript line has a stable `line_number`. Use those original line numbers as the source of truth.
 

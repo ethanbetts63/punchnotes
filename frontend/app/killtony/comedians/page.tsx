@@ -5,7 +5,7 @@ import BrowseSearchBar from "@/components/BrowseSearchBar";
 import ComedianSearchFilters from "@/components/ComedianSearchFilters";
 
 export const metadata = {
-  title: "Comedians — Kill Tony | PunchPedia",
+  title: "Comedians — Kill Tony | PunchNotes",
 };
 
 export default async function ComediansPage() {

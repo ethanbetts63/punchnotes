@@ -4,7 +4,7 @@ import JokesFilters from "@/components/JokesFilters";
 import JokesList from "@/page_components/JokesList";
 
 export const metadata = {
-  title: "Jokes — Kill Tony | PunchPedia",
+  title: "Jokes — Kill Tony | PunchNotes",
 };
 
 type Props = { searchParams: Promise<Record<string, string>> };
