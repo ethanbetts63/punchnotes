@@ -137,7 +137,6 @@ class Command(BaseCommand):
                 set_obj.episode.episode_number,
                 set_obj.set_number,
                 set_obj.comedian.name,
-                set_obj.id,
             )
             filename = output_path.name
             latest = history.get(set_obj.id)

@@ -12,49 +12,31 @@ from pipeline.import_utils.records import refresh_comedian_image
 
 
 HISTORY_NAME = "set_image_fetch_history.jsonl"
-SET_ID_IMAGE_NAME_RE = re.compile(
-    r"^set(?P<set_id>\d+)_KT(?P<episode_number>\d+)_set(?P<set_number>\d+)_"
-    r"(?P<comic_slug>[a-z0-9][a-z0-9_-]*)\.(?P<ext>jpe?g|png|webp)$",
-    re.IGNORECASE,
-)
 IMAGE_NAME_RE = re.compile(
-    r"^KT(?P<episode_number>\d+)_(?:set(?P<padded_set_number>\d+)|(?P<set_number>\d+))_"
+    r"^KT(?P<episode_number>\d+)_set(?P<set_number>\d+)_"
     r"(?P<comic_slug>[a-z0-9][a-z0-9_-]*)\.(?P<ext>jpe?g|png|webp)$",
     re.IGNORECASE,
 )
 
 
 def parse_image_name(path):
-    set_id_match = SET_ID_IMAGE_NAME_RE.match(path.name)
-    if set_id_match:
-        return {
-            "set_id": int(set_id_match.group("set_id")),
-            "episode_number": int(set_id_match.group("episode_number")),
-            "set_number": int(set_id_match.group("set_number")),
-            "comic_slug": set_id_match.group("comic_slug").lower().replace("_", "-"),
-        }
-
     match = IMAGE_NAME_RE.match(path.name)
     if not match:
         raise CommandError(
             f"Invalid image filename: {path.name}. Expected "
-            "set000093_KT768_set01_martin-phillips.jpg."
+            "KT{episode}_set{number}_{slug}.jpg."
         )
-
-    set_number = match.group("padded_set_number") or match.group("set_number")
     return {
-        "set_id": None,
         "episode_number": int(match.group("episode_number")),
-        "set_number": int(set_number),
+        "set_number": int(match.group("set_number")),
         "comic_slug": match.group("comic_slug").lower().replace("_", "-"),
     }
 
 
 def load_capture_history(history_path):
     by_output = {}
-    by_set_id = {}
     if not history_path.exists():
-        return by_output, by_set_id
+        return by_output
 
     for line in history_path.read_text(encoding="utf-8").splitlines():
         if not line.strip():
@@ -66,11 +48,8 @@ def load_capture_history(history_path):
         output = record.get("output")
         if output and record.get("status") == "captured":
             by_output[output] = record.get("capture_seconds")
-        set_id = record.get("set_id")
-        if set_id is not None and record.get("status") == "captured":
-            by_set_id[int(set_id)] = record.get("capture_seconds")
 
-    return by_output, by_set_id
+    return by_output
 
 
 def public_image_url(filename):
@@ -113,7 +92,7 @@ class Command(BaseCommand):
         source_dir = Path(options["source_dir"]) if options["source_dir"] else data_dir / "4_set_images_inbox"
         public_dir = Path(options["public_dir"]) if options["public_dir"] else settings.BASE_DIR / "frontend" / "public" / "set-images"
         archive_dir = Path(options["archive_dir"]) if options["archive_dir"] else data_dir / "set_images_archive"
-        capture_seconds_by_output, capture_seconds_by_set_id = load_capture_history(data_dir / HISTORY_NAME)
+        capture_seconds_by_output = load_capture_history(data_dir / HISTORY_NAME)
 
         files = sorted(
             path for path in source_dir.glob("*")
@@ -137,7 +116,6 @@ class Command(BaseCommand):
                     replace=options["replace"],
                     dry_run=options["dry_run"],
                     capture_seconds_by_output=capture_seconds_by_output,
-                    capture_seconds_by_set_id=capture_seconds_by_set_id,
                 )
             except Exception as exc:
                 failed += 1
@@ -163,16 +141,12 @@ class Command(BaseCommand):
         replace,
         dry_run,
         capture_seconds_by_output,
-        capture_seconds_by_set_id,
     ):
         parsed = parse_image_name(image_path)
-        if parsed["set_id"] is not None:
-            set_obj = Set.objects.select_related("episode", "comedian").get(id=parsed["set_id"])
-        else:
-            set_obj = Set.objects.select_related("episode", "comedian").get(
-                episode__episode_number=parsed["episode_number"],
-                set_number=parsed["set_number"],
-            )
+        set_obj = Set.objects.select_related("episode", "comedian").get(
+            episode__episode_number=parsed["episode_number"],
+            set_number=parsed["set_number"],
+        )
 
         if set_obj.comedian.slug != parsed["comic_slug"]:
             self.stdout.write(
@@ -194,8 +168,6 @@ class Command(BaseCommand):
             return "skipped"
 
         capture_seconds = capture_seconds_by_output.get(image_path.name)
-        if capture_seconds is None:
-            capture_seconds = capture_seconds_by_set_id.get(set_obj.id)
         image_url = public_image_url(image_path.name)
 
         self.stdout.write(

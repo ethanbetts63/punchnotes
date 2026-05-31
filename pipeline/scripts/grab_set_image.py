@@ -71,13 +71,7 @@ def default_output_path(
     episode_number=None,
     set_number=None,
     comic_name=None,
-    set_id=None,
 ):
-    if set_id is not None and episode_number is not None and set_number is not None and comic_name:
-        return DEFAULT_OUTPUT_DIR / (
-            f"set{set_id:06d}_KT{episode_number}_set{set_number:02d}_{slugify(comic_name)}.jpg"
-        )
-
     if episode_number is not None and set_number is not None and comic_name:
         return DEFAULT_OUTPUT_DIR / f"KT{episode_number}_set{set_number:02d}_{slugify(comic_name)}.jpg"
 
@@ -185,7 +179,6 @@ def build_parser():
     parser.add_argument("--episode-number", type=int, help="KT episode number for deterministic filename.")
     parser.add_argument("--set-number", type=int, help="Set number for deterministic filename.")
     parser.add_argument("--comic-name", help="Comic name for deterministic filename.")
-    parser.add_argument("--set-id", type=int, help="Set database ID for deterministic filename.")
     parser.add_argument("--width", type=int, default=480, help="Output width in pixels.")
     parser.add_argument(
         "--quality",
@@ -218,8 +211,6 @@ def main():
     filename_parts = [args.episode_number is not None, args.set_number is not None, bool(args.comic_name)]
     if any(filename_parts) and not all(filename_parts):
         parser.error("--episode-number, --set-number, and --comic-name must be supplied together")
-    if args.set_id is not None and not all(filename_parts):
-        parser.error("--set-id filename mode also requires --episode-number, --set-number, and --comic-name")
 
     source_url = youtube_url(video_id=args.video_id, url=args.url)
     output_path = args.output or default_output_path(
@@ -228,7 +219,6 @@ def main():
         args.episode_number,
         args.set_number,
         args.comic_name,
-        args.set_id,
     )
 
     half_clip = args.clip_duration / 2

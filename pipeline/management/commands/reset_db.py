@@ -59,7 +59,14 @@ class Command(BaseCommand):
         else:
             self.stdout.write("\nNo archived sets to import.")
 
-        # Re-link set images (public files survive the reset; DB records need repopulating)
+        # Wipe public set-images so stale files don't accumulate across resets
+        public_images_dir = settings.BASE_DIR / "frontend" / "public" / "set-images"
+        if public_images_dir.exists():
+            self.stdout.write("\nWiping public set-images directory...")
+            shutil.rmtree(public_images_dir)
+            public_images_dir.mkdir()
+
+        # Re-copy set images from archive and repopulate DB image_url fields
         images_archive = data_dir / "set_images_archive"
         image_exts = {".jpg", ".jpeg", ".png", ".webp"}
         if images_archive.exists() and any(p.suffix.lower() in image_exts for p in images_archive.iterdir()):
