@@ -4,13 +4,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 const SEARCH_PATH = "/killtony/episodes/search";
 
-const HAS_OPTIONS = [
-  { value: "bucket_pull",     label: "Bucket Pull" },
-  { value: "golden_ticket",   label: "Golden Ticket" },
-  { value: "regular",         label: "Regular" },
-  { value: "large_joke_book", label: "Large Joke Book" },
-];
-
 const SORT_OPTIONS = [
   { key: "date",              label: "Date" },
   { key: "duration",          label: "Duration" },
@@ -29,7 +22,6 @@ type SortKey = typeof SORT_OPTIONS[number]["key"];
 export default function EpisodeSearchFilters() {
   const router = useRouter();
   const sp = useSearchParams();
-  const currentHas = sp.get("has") ?? "";
   const currentQ = sp.get("q") ?? "";
   const currentSort = (sp.get("sort") ?? "date") as SortKey;
   const currentAsc = sp.get("asc") === "1";
@@ -37,7 +29,6 @@ export default function EpisodeSearchFilters() {
   function build(overrides: Record<string, string>) {
     const params = new URLSearchParams();
     if (currentQ) params.set("q", currentQ);
-    if (currentHas) params.set("has", currentHas);
     params.set("sort", currentSort);
     if (currentAsc) params.set("asc", "1");
     for (const [k, v] of Object.entries(overrides)) {
@@ -55,21 +46,7 @@ export default function EpisodeSearchFilters() {
     }`;
 
   return (
-    <div className="mb-6 space-y-4">
-      <div>
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-400">Filter</p>
-        <div className="flex flex-wrap gap-2">
-          {HAS_OPTIONS.map(({ value, label }) => (
-            <button
-              key={value}
-              onClick={() => router.push(build({ has: currentHas === value ? "" : value }))}
-              className={chip(currentHas === value)}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-      </div>
+    <div className="mb-6">
       <div>
         <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-400">Sort</p>
         <div className="flex flex-wrap items-center gap-2">

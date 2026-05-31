@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import type { SetListItem } from "@/lib/serverApi";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 import Paginator from "@/components/Paginator";
@@ -11,14 +12,6 @@ const PAGE_SIZE = 20;
 
 type SortKey = "episode" | "comedian" | "bit_count" | "hit_ratio" | "punchline_tag_ratio" | "start_seconds";
 
-const SORT_OPTIONS: { key: SortKey; label: string }[] = [
-  { key: "episode",             label: "Episode" },
-  { key: "comedian",            label: "Comedian" },
-  { key: "bit_count",           label: "Bits" },
-  { key: "hit_ratio",           label: "Setup/punch ratio" },
-  { key: "punchline_tag_ratio", label: "Punch/tag ratio" },
-  { key: "start_seconds",       label: "Start time" },
-];
 
 const jokeBookColor: Record<string, string> = {
   small: "bg-stone-100 text-stone-600",
@@ -58,18 +51,13 @@ function getSortValue(set: SetListItem, key: SortKey): number | string {
 type Props = { sets: SetListItem[]; filterKey?: string };
 
 export default function SetList({ sets, filterKey }: Props) {
-  const [sort, setSort] = useState<SortKey>("episode");
-  const [asc, setAsc] = useState(false);
+  const sp = useSearchParams();
+  const sort = (sp.get("sort") ?? "episode") as SortKey;
+  const asc = sp.get("asc") === "1";
   const [page, setPage] = useState(1);
 
   const [prevKey, setPrevKey] = useState(filterKey);
   if (filterKey !== prevKey) { setPrevKey(filterKey); setPage(1); }
-
-  function handleSort(key: SortKey) {
-    if (key === sort) setAsc((v) => !v);
-    else { setSort(key); setAsc(key === "comedian" || key === "start_seconds"); }
-    setPage(1);
-  }
 
   const sorted = useMemo(() => (
     [...sets].sort((a, b) => {
@@ -83,32 +71,8 @@ export default function SetList({ sets, filterKey }: Props) {
   const totalPages = Math.ceil(sorted.length / PAGE_SIZE);
   const pageItems = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
-  const chip = (active: boolean) =>
-    `rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
-      active
-        ? "border-stone-900 bg-stone-900 text-white"
-        : "border-stone-200 bg-white text-stone-600 hover:border-stone-400"
-    }`;
-
   return (
     <>
-      <div className="mb-6 flex flex-wrap items-center gap-2">
-        <button
-          onClick={() => { setAsc((v) => !v); setPage(1); }}
-          title={asc ? "Ascending" : "Descending"}
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-500 transition-colors hover:border-stone-400 hover:text-stone-800"
-        >
-          <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ transform: asc ? "scaleY(-1)" : undefined }}>
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4" />
-          </svg>
-        </button>
-        {SORT_OPTIONS.map(({ key, label }) => (
-          <button key={key} onClick={() => handleSort(key)} className={chip(sort === key)}>
-            {label}
-          </button>
-        ))}
-      </div>
-
       <div className="flex flex-col gap-3">
         {pageItems.map((set) => (
           <Link

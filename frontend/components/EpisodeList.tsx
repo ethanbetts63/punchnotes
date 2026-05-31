@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import type { Episode } from "@/lib/serverApi";
 import Paginator from "@/components/Paginator";
 import YoutubeThumbnail from "@/components/YoutubeThumbnail";
@@ -10,18 +11,6 @@ const PAGE_SIZE = 20;
 
 type SortKey = "date" | "duration" | "set_count" | "bucket_pulls" | "golden_tickets" | "large_joke_books" | "regulars" | "view_count" | "like_count" | "like_ratio";
 
-const SORT_OPTIONS: { key: SortKey; label: string }[] = [
-  { key: "date",             label: "Date" },
-  { key: "duration",         label: "Duration" },
-  { key: "set_count",        label: "Set count" },
-  { key: "bucket_pulls",     label: "Bucket pulls" },
-  { key: "golden_tickets",   label: "Golden tickets" },
-  { key: "large_joke_books", label: "Big joke books" },
-  { key: "regulars",         label: "Regulars" },
-  { key: "view_count",       label: "View count" },
-  { key: "like_count",       label: "Like count" },
-  { key: "like_ratio",       label: "View/like ratio" },
-];
 
 function getValue(ep: Episode, key: SortKey): number {
   switch (key) {
@@ -68,15 +57,13 @@ function Stat({ label, value }: { label: string; value: string | number }) {
 type Props = { episodes: Episode[]; filterKey?: string };
 
 export default function EpisodeList({ episodes, filterKey }: Props) {
-  const [sort, setSort] = useState<SortKey>("date");
-  const [asc, setAsc] = useState(false);
+  const sp = useSearchParams();
+  const sort = (sp.get("sort") ?? "date") as SortKey;
+  const asc = sp.get("asc") === "1";
   const [page, setPage] = useState(1);
 
   const [prevKey, setPrevKey] = useState(filterKey);
   if (filterKey !== prevKey) { setPrevKey(filterKey); setPage(1); }
-
-  function handleSort(key: SortKey) { setSort(key); setPage(1); }
-  function handleAsc() { setAsc((v) => !v); setPage(1); }
 
   const sorted = useMemo(() => (
     [...episodes].sort((a, b) => {
@@ -90,31 +77,6 @@ export default function EpisodeList({ episodes, filterKey }: Props) {
 
   return (
     <>
-      <div className="mb-6 flex flex-wrap items-center gap-2">
-        <button
-          onClick={handleAsc}
-          title={asc ? "Ascending — click to switch to descending" : "Descending — click to switch to ascending"}
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-500 transition-colors hover:border-stone-400 hover:text-stone-800"
-        >
-          <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ transform: asc ? "scaleY(-1)" : undefined }}>
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4" />
-          </svg>
-        </button>
-        {SORT_OPTIONS.map(({ key, label }) => (
-          <button
-            key={key}
-            onClick={() => handleSort(key)}
-            className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
-              sort === key
-                ? "border-stone-900 bg-stone-900 text-white"
-                : "border-stone-200 bg-white text-stone-600 hover:border-stone-400"
-            }`}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
-
       <div className="flex flex-col gap-3">
         {pageItems.map((ep) => {
           const likeRatio =
