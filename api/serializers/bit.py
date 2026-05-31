@@ -17,6 +17,7 @@ class BitListSerializer(serializers.ModelSerializer):
         fields = [
             "id", "comedian", "comedian_slug", "episode_number", "set_id",
             "summary", "topics", "joke_types", "beats_summary",
+            "hit_ratio", "punchline_tag_ratio",
         ]
 
     def get_topics(self, bit):

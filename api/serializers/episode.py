@@ -6,7 +6,6 @@ from .shared import ComedianMinimalSerializer
 
 class SetInEpisodeSerializer(serializers.ModelSerializer):
     comedian = ComedianMinimalSerializer()
-    bit_count = serializers.IntegerField()
 
     class Meta:
         model = Set
@@ -22,7 +21,6 @@ class EpisodeListSerializer(serializers.ModelSerializer):
     title = serializers.CharField(source="episode_title")
     date = serializers.DateField(source="published_at")
     youtube_id = serializers.CharField(source="video_id")
-    set_count = serializers.IntegerField()
 
     class Meta:
         model = Episode
@@ -31,7 +29,7 @@ class EpisodeListSerializer(serializers.ModelSerializer):
             "duration_seconds",
             "bucket_pull_count", "golden_ticket_count",
             "regular_count", "large_joke_book_count",
-            "view_count", "like_count", "comment_count",
+            "view_count", "like_count", "comment_count", "view_like_ratio",
         ]
 
 

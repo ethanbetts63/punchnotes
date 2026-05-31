@@ -17,10 +17,14 @@ class Episode(models.Model):
     tags = models.JSONField(null=True, blank=True)
 
     # Denormalised counts updated by import_lines after each set is imported
+    set_count = models.PositiveSmallIntegerField(default=0)
     bucket_pull_count = models.PositiveSmallIntegerField(default=0)
     golden_ticket_count = models.PositiveSmallIntegerField(default=0)
     regular_count = models.PositiveSmallIntegerField(default=0)
     large_joke_book_count = models.PositiveSmallIntegerField(default=0)
+
+    # Denormalised engagement ratio updated by import_episode_details
+    view_like_ratio = models.FloatField(null=True, blank=True)
 
     class Meta:
         ordering = ['-episode_number']

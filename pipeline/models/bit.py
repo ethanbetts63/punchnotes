@@ -8,6 +8,10 @@ class Bit(models.Model):
     line_start = models.PositiveSmallIntegerField()
     line_end = models.PositiveSmallIntegerField()
 
+    # Computed from lines in this bit's range after import
+    hit_ratio = models.FloatField(null=True, blank=True)
+    punchline_tag_ratio = models.FloatField(null=True, blank=True)
+
     class Meta:
         ordering = ['line_start']
         unique_together = [['set', 'bit_id']]

@@ -17,7 +17,8 @@ class Set(models.Model):
         null=True,
     )
 
-    # Computed from lines after import
+    # Computed from lines and bits after import
+    bit_count = models.PositiveSmallIntegerField(default=0)
     hit_ratio = models.FloatField(null=True, blank=True)
     punchline_tag_ratio = models.FloatField(null=True, blank=True)
 

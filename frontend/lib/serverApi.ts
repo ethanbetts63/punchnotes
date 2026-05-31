@@ -80,6 +80,7 @@ export type Episode = {
   view_count: number | null;
   like_count: number | null;
   comment_count: number | null;
+  view_like_ratio: number | null;
 };
 
 export type ComedianAttribute =
@@ -257,6 +258,8 @@ export type BitListItem = {
   topics: string[];
   joke_types: string[];
   beats_summary: { premise: string; joke_type: string }[];
+  hit_ratio: number | null;
+  punchline_tag_ratio: number | null;
 };
 
 export type Joke = {

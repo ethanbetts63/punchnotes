@@ -23,7 +23,7 @@ class ComedianForSetSerializer(serializers.ModelSerializer):
         return obj.sets.count()
 
     def get_appearances(self, obj):
-        return obj.sets.values("episode").distinct().count()
+        return obj.appearance_count
 
 
 class ComedianForSetListSerializer(serializers.ModelSerializer):
@@ -91,7 +91,6 @@ class SetListSerializer(serializers.ModelSerializer):
     comedian = ComedianForSetListSerializer()
     episode = EpisodeMinimalSerializer()
     joke_book_award = serializers.CharField(source="joke_book", allow_null=True)
-    bit_count = serializers.IntegerField()
 
     class Meta:
         model = Set

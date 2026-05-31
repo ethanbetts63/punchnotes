@@ -18,7 +18,7 @@ class SetInComedianSerializer(serializers.ModelSerializer):
 
 class ComedianListSerializer(serializers.ModelSerializer):
     set_count = serializers.IntegerField()
-    appearances = serializers.IntegerField()
+    appearances = serializers.IntegerField(source="appearance_count")
 
     class Meta:
         model = Comedian
@@ -53,4 +53,4 @@ class ComedianDetailSerializer(serializers.ModelSerializer):
         return obj.sets.count()
 
     def get_appearances(self, obj):
-        return obj.sets.values("episode").distinct().count()
+        return obj.appearance_count

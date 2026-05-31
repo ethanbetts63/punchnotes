@@ -58,6 +58,9 @@ class Comedian(models.Model):
     has_medium_joke_book = models.BooleanField(default=False)
     has_large_joke_book = models.BooleanField(default=False)
 
+    # Denormalised counts updated by refresh_comedian_stats
+    appearance_count = models.PositiveSmallIntegerField(default=0)
+
     # Denormalised ratio averages updated by refresh_comedian_stats
     avg_hit_ratio = models.FloatField(null=True, blank=True)
     avg_punchline_tag_ratio = models.FloatField(null=True, blank=True)

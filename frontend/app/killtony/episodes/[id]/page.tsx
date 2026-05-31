@@ -68,6 +68,10 @@ function getAppearanceType(attributes: readonly ComedianAttribute[]): Appearance
 }
 
 const comedianAttributeLabel: Record<ComedianAttribute, string> = {
+  bucket_pull:    "Bucket Pull",
+  regular:        "Regular",
+  golden_ticket:  "Golden Ticket",
+  special:        "Special",
   gay:             "Gay",
   lesbian:         "Lesbian",
   bisexual:        "Bisexual",

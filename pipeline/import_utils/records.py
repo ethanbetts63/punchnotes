@@ -137,6 +137,7 @@ def refresh_comedian_stats(comedian: Comedian) -> None:
         avg_bits=Avg('n_bits'),
         avg_beats=Avg('n_beats'),
     )
+    comedian.appearance_count = comedian.sets.values('episode_id').distinct().count()
     comedian.joke_count = Bit.objects.filter(set__comedian=comedian).count()
     comedian.avg_hit_ratio = agg['avg_hit']
     comedian.avg_punchline_tag_ratio = agg['avg_pt']
@@ -146,7 +147,7 @@ def refresh_comedian_stats(comedian: Comedian) -> None:
     comedian.has_medium_joke_book = sets.filter(joke_book='medium').exists()
     comedian.has_large_joke_book = sets.filter(joke_book='large').exists()
     comedian.save(update_fields=[
-        'joke_count', 'avg_hit_ratio', 'avg_punchline_tag_ratio',
+        'appearance_count', 'joke_count', 'avg_hit_ratio', 'avg_punchline_tag_ratio',
         'avg_bits_per_set', 'avg_beats_per_set',
         'has_small_joke_book', 'has_medium_joke_book', 'has_large_joke_book',
     ])
@@ -188,6 +189,19 @@ def import_lines(set_obj: Set, lines_data: list) -> list:
     return lines
 
 
+def _bit_ratios(lines_data: list, line_numbers: set) -> tuple[float | None, float | None]:
+    """Compute hit_ratio and punchline_tag_ratio for a subset of lines."""
+    counts: dict[str, int] = {"setup": 0, "punchline": 0, "tag": 0, "fluff": 0}
+    for line in lines_data:
+        if line["line_number"] in line_numbers:
+            counts[line["label"]] = counts.get(line["label"], 0) + 1
+    p, t, s, f = counts["punchline"], counts["tag"], counts["setup"], counts["fluff"]
+    denominator = s + f
+    hit_ratio = (p + t) / denominator if denominator > 0 else None
+    punchline_tag_ratio = p / t if t > 0 else None
+    return hit_ratio, punchline_tag_ratio
+
+
 def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
     set_obj.bits.all().delete()
 
@@ -206,12 +220,15 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
         lns = bit_lines.get(bit_num, [])
         if not lns:
             continue
+        hit_ratio, punchline_tag_ratio = _bit_ratios(lines_data, set(lns))
         bit = Bit.objects.create(
             set=set_obj,
             bit_id=f"bit_{bit_num:03d}",
             summary=bit_data.get("summary"),
             line_start=min(lns),
             line_end=max(lns),
+            hit_ratio=hit_ratio,
+            punchline_tag_ratio=punchline_tag_ratio,
         )
         for beat_num_str, beat_data in bit_data.get("beats", {}).items():
             beat_num = int(beat_num_str)
@@ -228,17 +245,20 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
                 topics=beat_data.get("topics", []),
             )
 
+    set_obj.bit_count = set_obj.bits.count()
+    set_obj.save(update_fields=["bit_count"])
     refresh_comedian_stats(set_obj.comedian)
 
 
 def refresh_episode_counts(episode: Episode) -> None:
     """Recompute denormalised counts from the episode's current sets."""
     sets = list(episode.sets.select_related("comedian").all())
+    episode.set_count = len(sets)
     episode.bucket_pull_count = sum(1 for s in sets if "bucket_pull" in (s.comedian.attributes or []))
     episode.golden_ticket_count = sum(1 for s in sets if "golden_ticket" in (s.comedian.attributes or []))
     episode.regular_count = sum(1 for s in sets if "regular" in (s.comedian.attributes or []))
     episode.large_joke_book_count = sum(1 for s in sets if s.joke_book == "large")
     episode.save(update_fields=[
-        "bucket_pull_count", "golden_ticket_count",
+        "set_count", "bucket_pull_count", "golden_ticket_count",
         "regular_count", "large_joke_book_count",
     ])

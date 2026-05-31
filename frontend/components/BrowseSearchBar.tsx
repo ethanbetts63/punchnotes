@@ -3,17 +3,24 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-type Props = { placeholder: string };
+type Props = { placeholder: string; searchPath?: string };
 
-export default function BrowseSearchBar({ placeholder }: Props) {
+export default function BrowseSearchBar({ placeholder, searchPath }: Props) {
   const router = useRouter();
   const sp = useSearchParams();
   const urlQuery = sp.get("q") ?? "";
   const [value, setValue] = useState(urlQuery);
 
-  useEffect(() => { setValue(urlQuery); }, [urlQuery]);
+  useEffect(() => { if (!searchPath) setValue(urlQuery); }, [urlQuery, searchPath]);
 
   function navigate(q: string) {
+    if (searchPath) {
+      const params = new URLSearchParams();
+      if (q.trim()) params.set("q", q.trim());
+      const qs = params.toString();
+      router.push(`${searchPath}${qs ? `?${qs}` : ""}`);
+      return;
+    }
     const params = new URLSearchParams(sp.toString());
     if (q.trim()) params.set("q", q.trim());
     else params.delete("q");
@@ -21,10 +28,12 @@ export default function BrowseSearchBar({ placeholder }: Props) {
     router.push(`${window.location.pathname}${qs ? `?${qs}` : ""}`);
   }
 
+  const showClear = searchPath ? value.length > 0 : !!urlQuery;
+
   return (
     <form
       onSubmit={(e) => { e.preventDefault(); navigate(value); }}
-      className="mb-8 flex items-center gap-2 rounded-xl border border-stone-200 px-3 py-2.5 transition-colors focus-within:border-stone-400"
+      className="mb-6 flex items-center gap-2 rounded-xl border border-stone-200 px-3 py-2.5 transition-colors focus-within:border-stone-400"
     >
       <svg className="h-3.5 w-3.5 shrink-0 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
@@ -36,7 +45,7 @@ export default function BrowseSearchBar({ placeholder }: Props) {
         placeholder={placeholder}
         className="flex-1 bg-transparent text-sm text-stone-900 placeholder-stone-400 focus:outline-none"
       />
-      {urlQuery && (
+      {showClear && (
         <button
           type="button"
           onClick={() => { setValue(""); navigate(""); }}
