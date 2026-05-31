@@ -33,7 +33,7 @@ export default function NavBar() {
       <div className="mx-auto flex h-14 max-w-7xl items-center gap-6 px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-1.5 shrink-0">
           <span className="text-lg font-bold text-white tracking-tight">
-            Punch<span className="text-primary">pedia</span>
+            Punch<span className="text-primary">Notes</span>
           </span>
         </Link>
 

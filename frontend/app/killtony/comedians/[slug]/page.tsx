@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getServerComedian } from "@/lib/serverApi";
-import type { ComedianAttribute, SetInComedian } from "@/lib/serverApi";
+import type { ComedianAttribute } from "@/lib/serverApi";
 import ComedianImage from "@/components/ComedianImage";
+import ComedianSetList from "@/page_components/ComedianSetList";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -16,18 +17,6 @@ export async function generateMetadata({ params }: Props) {
 function fmt2(n: number | null): string {
   return n == null ? "—" : n.toFixed(2);
 }
-
-const jokeBookLabel: Record<string, string> = {
-  small: "Small Joke Book",
-  medium: "Medium Joke Book",
-  large: "Large Joke Book",
-};
-
-const jokeBookColor: Record<string, string> = {
-  small: "bg-stone-100 text-stone-600",
-  medium: "bg-amber-100 text-amber-700",
-  large: "bg-red-100 text-primary",
-};
 
 type AppearanceAttribute = "bucket_pull" | "regular" | "golden_ticket" | "special";
 
@@ -56,45 +45,6 @@ const jokeBookBadgeDark: Record<string, string> = {
   medium: "bg-amber-900/60 text-amber-300",
   large:  "bg-red-900/60 text-red-300",
 };
-
-function SetCard({ set }: { set: SetInComedian }) {
-  return (
-    <Link
-      href={`/killtony/sets/${set.id}`}
-      className="group block rounded-xl border border-stone-200 bg-white p-5 transition-all hover:border-primary/40 hover:shadow-sm"
-    >
-      <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0">
-          <p className="text-xs font-medium uppercase tracking-wide text-stone-400 mb-0.5">
-            Set {set.set_number}
-          </p>
-          <p className="font-semibold text-stone-900 group-hover:text-primary transition-colors leading-snug line-clamp-2">
-            KT #{set.episode.number} — {set.episode.title?.replace(/^KT\s*#\d+\s*[-–]\s*/i, "") ?? ""}
-          </p>
-          {set.episode.date && (
-            <p className="mt-0.5 text-xs text-stone-400">{set.episode.date}</p>
-          )}
-        </div>
-        {set.joke_book && (
-          <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ${jokeBookColor[set.joke_book]}`}>
-            {jokeBookLabel[set.joke_book]}
-          </span>
-        )}
-      </div>
-
-      <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-stone-400">
-        <span>
-          Setup/punch ratio{" "}
-          <span className="font-medium text-stone-600">{fmt2(set.hit_ratio)}</span>
-        </span>
-        <span>
-          Punch/tag ratio{" "}
-          <span className="font-medium text-stone-600">{fmt2(set.punchline_tag_ratio)}</span>
-        </span>
-      </div>
-    </Link>
-  );
-}
 
 export default async function ComedianDetailPage({ params }: Props) {
   const { slug } = await params;
@@ -175,11 +125,7 @@ export default async function ComedianDetailPage({ params }: Props) {
             <p className="text-stone-500">No sets indexed yet.</p>
           </div>
         ) : (
-          <div className="grid gap-4 sm:grid-cols-2">
-            {sets.map((set) => (
-              <SetCard key={set.id} set={set} />
-            ))}
-          </div>
+          <ComedianSetList sets={sets} />
         )}
       </div>
     </div>
