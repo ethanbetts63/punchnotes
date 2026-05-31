@@ -7,10 +7,18 @@ type Props = {
 };
 
 function getPageNums(current: number, total: number): (number | "…")[] {
-  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+  if (total <= 9) return Array.from({ length: total }, (_, i) => i + 1);
   const nums: (number | "…")[] = [1];
-  const start = Math.max(2, current - 1);
-  const end = Math.min(total - 1, current + 1);
+  let start = Math.max(2, current - 2);
+  let end = Math.min(total - 1, current + 2);
+
+  if (current <= 3) {
+    start = 2;
+    end = 5;
+  } else if (current >= total - 2) {
+    start = total - 4;
+    end = total - 1;
+  }
   if (start > 2) nums.push("…");
   for (let i = start; i <= end; i++) nums.push(i);
   if (end < total - 1) nums.push("…");

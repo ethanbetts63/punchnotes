@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import type { BitListItem } from "@/lib/serverApi";
+import { useUrlPagination } from "@/lib/useUrlPagination";
 import { Badge } from "@/components/ui/badge";
 import Paginator from "@/components/Paginator";
 
@@ -10,13 +10,8 @@ const PAGE_SIZE = 20;
 
 type Props = { bits: BitListItem[]; filterKey?: string };
 
-export default function BitsList({ bits, filterKey }: Props) {
-  const [page, setPage] = useState(1);
-
-  const [prevKey, setPrevKey] = useState(filterKey);
-  if (filterKey !== prevKey) { setPrevKey(filterKey); setPage(1); }
-
-  const totalPages = Math.ceil(bits.length / PAGE_SIZE);
+export default function BitsList({ bits }: Props) {
+  const { page, totalPages, setPage } = useUrlPagination(bits.length, PAGE_SIZE);
   const pageItems = bits.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   if (bits.length === 0) {

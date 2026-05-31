@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import type { Joke } from "@/lib/serverApi";
+import { useUrlPagination } from "@/lib/useUrlPagination";
 import { Badge } from "@/components/ui/badge";
 import Paginator from "@/components/Paginator";
 
@@ -10,14 +10,8 @@ const PAGE_SIZE = 20;
 
 type Props = { jokes: Joke[]; filterKey?: string };
 
-export default function JokesList({ jokes, filterKey }: Props) {
-  const [page, setPage] = useState(1);
-
-  // reset to page 1 when filters change (filterKey changes on filter navigation)
-  const [prevKey, setPrevKey] = useState(filterKey);
-  if (filterKey !== prevKey) { setPrevKey(filterKey); setPage(1); }
-
-  const totalPages = Math.ceil(jokes.length / PAGE_SIZE);
+export default function JokesList({ jokes }: Props) {
+  const { page, totalPages, setPage } = useUrlPagination(jokes.length, PAGE_SIZE);
   const pageItems = jokes.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   if (jokes.length === 0) {
@@ -49,7 +43,7 @@ export default function JokesList({ jokes, filterKey }: Props) {
               ))}
             </div>
             {joke.premise && (
-              <p className="mb-3 text-sm italic text-stone-500">"{joke.premise}"</p>
+              <p className="mb-3 text-sm italic text-stone-500">&ldquo;{joke.premise}&rdquo;</p>
             )}
             <div className="space-y-1">
               {joke.setup_lines.map((line, i) => (

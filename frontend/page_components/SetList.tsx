@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import type { SetListItem } from "@/lib/serverApi";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
+import { useUrlPagination } from "@/lib/useUrlPagination";
 import Paginator from "@/components/Paginator";
 import SetImage from "@/components/SetImage";
 
@@ -50,14 +51,10 @@ function getSortValue(set: SetListItem, key: SortKey): number | string {
 
 type Props = { sets: SetListItem[]; filterKey?: string };
 
-export default function SetList({ sets, filterKey }: Props) {
+export default function SetList({ sets }: Props) {
   const sp = useSearchParams();
   const sort = (sp.get("sort") ?? "episode") as SortKey;
   const asc = sp.get("asc") === "1";
-  const [page, setPage] = useState(1);
-
-  const [prevKey, setPrevKey] = useState(filterKey);
-  if (filterKey !== prevKey) { setPrevKey(filterKey); setPage(1); }
 
   const sorted = useMemo(() => (
     [...sets].sort((a, b) => {
@@ -68,7 +65,7 @@ export default function SetList({ sets, filterKey }: Props) {
     })
   ), [sets, sort, asc]);
 
-  const totalPages = Math.ceil(sorted.length / PAGE_SIZE);
+  const { page, totalPages, setPage } = useUrlPagination(sorted.length, PAGE_SIZE);
   const pageItems = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (

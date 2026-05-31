@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import type { Comedian } from "@/lib/serverApi";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
+import { useUrlPagination } from "@/lib/useUrlPagination";
 import Paginator from "@/components/Paginator";
 import ComedianImage from "@/components/ComedianImage";
 
@@ -31,14 +32,10 @@ function fmt2(n: number | null): string {
 
 type Props = { comedians: Comedian[]; filterKey?: string };
 
-export default function ComedianList({ comedians, filterKey }: Props) {
+export default function ComedianList({ comedians }: Props) {
   const sp = useSearchParams();
   const sort = (sp.get("sort") ?? "avg_bits_per_set") as SortKey;
   const asc = sp.get("asc") === "1";
-  const [page, setPage] = useState(1);
-
-  const [prevKey, setPrevKey] = useState(filterKey);
-  if (filterKey !== prevKey) { setPrevKey(filterKey); setPage(1); }
 
   const sorted = useMemo(() => (
     [...comedians].sort((a, b) => {
@@ -49,7 +46,7 @@ export default function ComedianList({ comedians, filterKey }: Props) {
     })
   ), [comedians, sort, asc]);
 
-  const totalPages = Math.ceil(sorted.length / PAGE_SIZE);
+  const { page, totalPages, setPage } = useUrlPagination(sorted.length, PAGE_SIZE);
   const pageItems = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (

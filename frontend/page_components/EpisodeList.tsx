@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import type { Episode } from "@/lib/serverApi";
+import { useUrlPagination } from "@/lib/useUrlPagination";
 import Paginator from "@/components/Paginator";
 import YoutubeThumbnail from "@/components/YoutubeThumbnail";
 
@@ -56,14 +57,10 @@ function Stat({ label, value }: { label: string; value: string | number }) {
 
 type Props = { episodes: Episode[]; filterKey?: string };
 
-export default function EpisodeList({ episodes, filterKey }: Props) {
+export default function EpisodeList({ episodes }: Props) {
   const sp = useSearchParams();
   const sort = (sp.get("sort") ?? "date") as SortKey;
   const asc = sp.get("asc") === "1";
-  const [page, setPage] = useState(1);
-
-  const [prevKey, setPrevKey] = useState(filterKey);
-  if (filterKey !== prevKey) { setPrevKey(filterKey); setPage(1); }
 
   const sorted = useMemo(() => (
     [...episodes].sort((a, b) => {
@@ -72,7 +69,7 @@ export default function EpisodeList({ episodes, filterKey }: Props) {
     })
   ), [episodes, sort, asc]);
 
-  const totalPages = Math.ceil(sorted.length / PAGE_SIZE);
+  const { page, totalPages, setPage } = useUrlPagination(sorted.length, PAGE_SIZE);
   const pageItems = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (

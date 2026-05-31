@@ -18,6 +18,33 @@ export const EPISODE_LISTS: ListDef[] = [
     ],
   },
   {
+    id: "allstar-guests",
+    title: "Allstar Guests",
+    description: "Stacked guest lineups and major-name appearances.",
+    matchBy: "number",
+    ids: [
+      670, 625, 679, 738, 677, 658, 650, 629, 740, 733, 659, 764,
+      688, 735, 632, 717, 627, 614, 510, 122, 222,
+    ],
+  },
+  {
+    id: "kill-tony-lore",
+    title: "Kill Tony Lore",
+    description: "Key episodes from the show's history and recurring storylines.",
+    matchBy: "number",
+    ids: [564, 244, 498, 1, 499, 518, 487, 484, 200, 578],
+  },
+  {
+    id: "comedians-pretending-to-be-other-people",
+    title: "Comedians Pretending to Be Other People",
+    description: "Character episodes, impressions, and comics showing up as somebody else.",
+    matchBy: "number",
+    ids: [
+      758, 749, 739, 705, 704, 689, 684, 682, 680, 675, 672, 666,
+      663, 660, 635, 630,
+    ],
+  },
+  {
     id: "milestone-episodes",
     title: "Milestone Episodes",
     description: "Big number episodes and live specials.",
