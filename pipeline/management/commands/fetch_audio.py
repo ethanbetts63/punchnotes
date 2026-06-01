@@ -11,6 +11,7 @@ from pipeline.models import Episode
 
 INVALID_FILENAME_CHARS = re.compile(r'[<>:"/\\|?*\x00-\x1f]')
 HISTORY_NAME = "audio_fetch_history.jsonl"
+DEFAULT_COOKIES_NAME = "www.youtube.com_cookies.txt"
 
 
 def safe_filename_part(value):
@@ -64,11 +65,17 @@ def ydl_options(options, extra=None):
     ydl_opts = {
         "quiet": True,
         "no_warnings": True,
+        "js_runtimes": {"node": {}},
+        "remote_components": ["ejs:github"],
     }
     if options.get("cookies_from_browser"):
         ydl_opts["cookiesfrombrowser"] = (options["cookies_from_browser"],)
     if options.get("cookies"):
         ydl_opts["cookiefile"] = options["cookies"]
+    elif not options.get("cookies_from_browser"):
+        default_cookies = settings.PIPELINE_DATA_DIR / DEFAULT_COOKIES_NAME
+        if default_cookies.exists():
+            ydl_opts["cookiefile"] = str(default_cookies)
     if extra:
         ydl_opts.update(extra)
     return ydl_opts
@@ -91,7 +98,7 @@ class Command(BaseCommand):
         )
         parser.add_argument(
             "--cookies",
-            help="Path to a Netscape cookies.txt file for yt-dlp.",
+            help=f"Path to a Netscape cookies.txt file for yt-dlp. Defaults to pipeline/data/{DEFAULT_COOKIES_NAME} if present.",
         )
         parser.add_argument(
             "--retry-failures",

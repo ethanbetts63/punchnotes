@@ -16,6 +16,7 @@ db.sqlite3
 /pipeline/data/transcript_todos.jsonl
 /pipeline/data/scrape_history.jsonl
 /pipeline/data/set_image_fetch_history.jsonl
+/pipeline/data/www.youtube.com_cookies.txt
 /pipeline/data/transcript_archive/
 /pipeline/data/audio_archive/
 /pipeline/data/set_images_archive/
