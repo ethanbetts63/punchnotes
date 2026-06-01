@@ -28,9 +28,13 @@ export default async function ComediansPage() {
         <Suspense>
           <ComedianSearchFilters />
         </Suspense>
-
-        {comedians && <ComedianPlaylists comedians={comedians} />}
       </div>
+
+      {comedians && (
+        <div className="pb-12">
+          <ComedianPlaylists comedians={comedians} />
+        </div>
+      )}
     </div>
   );
 }

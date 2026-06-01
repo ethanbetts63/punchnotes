@@ -28,9 +28,13 @@ export default async function SetsPage() {
         <Suspense>
           <SetSearchFilters />
         </Suspense>
-
-        {sets && <SetPlaylists sets={sets} />}
       </div>
+
+      {sets && (
+        <div className="pb-12">
+          <SetPlaylists sets={sets} />
+        </div>
+      )}
     </div>
   );
 }

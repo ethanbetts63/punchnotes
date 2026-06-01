@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { getServerBits, getServerEpisodes, getServerComedians, getServerSet, getServerSets } from "@/lib/serverApi";
-import FeaturedEpisodesCarousel from "@/components/FeaturedEpisodesCarousel";
-import CuratedSetsSection from "@/components/CuratedSetsSection";
 import BeatOfTheWeek from "@/components/BeatOfTheWeek";
+import SetPlaylists from "@/page_components/SetPlaylists";
+import EpisodePlaylists from "@/page_components/EpisodePlaylists";
 
 const BROWSE_SECTIONS = [
   { title: "Comedians", description: "Guest comics and bucket pulls", href: "/killtony/comedians" },
@@ -59,8 +59,6 @@ export default async function KillTonyPage() {
 
   return (
     <div className="bg-white">
-      {episodes && <FeaturedEpisodesCarousel episodes={episodes} />}
-
       {featuredBeatSet && (
         <BeatOfTheWeek
           set={featuredBeatSet}
@@ -70,10 +68,20 @@ export default async function KillTonyPage() {
         />
       )}
 
-      {sets && <CuratedSetsSection sets={sets} />}
+      {sets && (
+        <div className="py-10">
+          <SetPlaylists sets={sets} />
+        </div>
+      )}
+
+      {episodes && (
+        <div className="border-t border-stone-100 py-10">
+          <EpisodePlaylists episodes={episodes} />
+        </div>
+      )}
 
       {/* Stats */}
-      <section className="border-b border-stone-200 bg-stone-50 py-10 px-4">
+      <section className="border-t border-stone-200 bg-stone-50 py-10 px-4">
         <div className="mx-auto max-w-4xl">
           <dl className="grid grid-cols-2 gap-6 sm:grid-cols-4">
             {[

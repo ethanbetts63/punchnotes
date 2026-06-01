@@ -28,9 +28,13 @@ export default async function EpisodesPage() {
         <Suspense>
           <EpisodeSearchFilters />
         </Suspense>
-
-        {episodes && <EpisodePlaylists episodes={episodes} />}
       </div>
+
+      {episodes && (
+        <div className="pb-12">
+          <EpisodePlaylists episodes={episodes} />
+        </div>
+      )}
     </div>
   );
 }

@@ -1,0 +1,111 @@
+"use client";
+
+import { useRef, useState, useEffect, useCallback } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import type { TileData } from "@/lib/tiles";
+import MediaTile from "@/components/MediaTile";
+
+type Props = {
+  title: string;
+  description?: string;
+  href?: string;
+  items: TileData[];
+};
+
+export default function MediaCarousel({ title, description, href, items }: Props) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const updateArrows = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 4);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    updateArrows();
+    el.addEventListener("scroll", updateArrows, { passive: true });
+    const ro = new ResizeObserver(updateArrows);
+    ro.observe(el);
+    return () => {
+      el.removeEventListener("scroll", updateArrows);
+      ro.disconnect();
+    };
+  }, [updateArrows]);
+
+  function scroll(dir: 1 | -1) {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * el.clientWidth, behavior: "smooth" });
+  }
+
+  if (items.length === 0) return null;
+
+  return (
+    <section>
+      <div className="mb-3 flex items-baseline justify-between px-6">
+        <div>
+          <h2 className="text-lg font-bold text-stone-950">{title}</h2>
+          {description && <p className="mt-0.5 text-sm text-stone-500">{description}</p>}
+        </div>
+        {href && (
+          <Link
+            href={href}
+            className="shrink-0 text-xs font-bold text-stone-400 transition-colors hover:text-stone-950"
+          >
+            See all
+          </Link>
+        )}
+      </div>
+
+      <div className="relative">
+        {canScrollLeft && (
+          <button
+            type="button"
+            onClick={() => scroll(-1)}
+            aria-label="Scroll left"
+            className="absolute bottom-0 top-0 z-10 flex w-10 items-center justify-center"
+            style={{ left: "1rem" }}
+          >
+            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 bg-white shadow-md text-stone-600 hover:text-stone-950 transition-colors">
+              <ChevronLeft className="h-5 w-5" />
+            </span>
+          </button>
+        )}
+
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-scroll [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {items.map((item) => (
+            <div
+              key={item.href}
+              className="w-1/2 shrink-0 px-1.5 first:pl-6 last:pr-6 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6"
+            >
+              <MediaTile item={item} />
+            </div>
+          ))}
+        </div>
+
+        {canScrollRight && (
+          <button
+            type="button"
+            onClick={() => scroll(1)}
+            aria-label="Scroll right"
+            className="absolute bottom-0 top-0 z-10 flex w-10 items-center justify-center"
+            style={{ right: "1rem" }}
+          >
+            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 bg-white shadow-md text-stone-600 hover:text-stone-950 transition-colors">
+              <ChevronRight className="h-5 w-5" />
+            </span>
+          </button>
+        )}
+      </div>
+    </section>
+  );
+}
