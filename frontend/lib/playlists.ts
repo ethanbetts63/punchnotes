@@ -30,8 +30,19 @@ export const EPISODE_LISTS: ListDef[] = [
     description: "Character episodes, impressions, and comics showing up as somebody else.",
     matchBy: "number",
     ids: [
-      758, 749, 739, 705, 704, 689, 684, 682, 680, 675, 672, 666,
+      758, 749, 739, 709, 705, 704, 697, 689, 684, 682, 680, 675, 672, 666,
       663, 660, 635, 630,
+    ],
+  },
+    {
+    id: "For-the-Skanks",
+    title: "For the Skanks",
+    description: "Episodes at skankfest / featuring a LOS member.",
+    matchBy: "number",
+    ids: [
+      767, 762, 743, 726, 714, 709, 702, 699, 698, 690, 686, 671, 669, 652, 651, 642, 638, 629,
+       619, 606, 582, 581, 574, 566, 561, 544, 509, 425, 414, 398, 394, 387, 386, 372, 371, 338, 335, 314, 288, 
+       280, 277, 218, 215, 190, 186, 161, 152, 88, 42
     ],
   },
   {
