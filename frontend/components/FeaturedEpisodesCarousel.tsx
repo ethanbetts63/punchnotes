@@ -7,10 +7,7 @@ import type { Episode } from "@/lib/serverApi";
 import YoutubeThumbnail from "@/components/YoutubeThumbnail";
 
 type CategoryKey =
-  | "views"
-  | "likes"
   | "ratio"
-  | "duration"
   | "bucket_pulls"
   | "golden_tickets"
   | "joke_books"
@@ -35,50 +32,14 @@ type FeaturedEpisode = {
 const MIN_RATIO_VIEWS = 100_000;
 
 const CATEGORIES: Category[] = [
+
   {
-    key: "views",
-    label: "Most viewed",
-    eyebrow: "Most viewed episode",
-    metricLabel: "views",
-    metricValue: (episode) => episode.view_count ?? 0,
-    metricDisplay: (episode) => fmtNumber(episode.view_count ?? 0),
-    eligible: (episode) => episode.view_count != null,
-  },
-  {
-    key: "likes",
-    label: "Most liked",
-    eyebrow: "Most liked episode",
-    metricLabel: "likes",
-    metricValue: (episode) => episode.like_count ?? 0,
-    metricDisplay: (episode) => fmtNumber(episode.like_count ?? 0),
-    eligible: (episode) => episode.like_count != null,
-  },
-  {
-    key: "ratio",
-    label: "Best ratio",
-    eyebrow: "Best view/like ratio",
-    metricLabel: "view/like ratio",
-    metricValue: (episode) =>
-      episode.view_count && episode.like_count != null
-        ? episode.like_count / episode.view_count
-        : 0,
-    metricDisplay: (episode) =>
-      episode.view_count && episode.like_count != null
-        ? `${((episode.like_count / episode.view_count) * 100).toFixed(1)}%`
-        : "-",
-    eligible: (episode) =>
-      episode.view_count != null &&
-      episode.view_count >= MIN_RATIO_VIEWS &&
-      episode.like_count != null,
-  },
-  {
-    key: "duration",
-    label: "Longest",
-    eyebrow: "Longest episode",
-    metricLabel: "runtime",
-    metricValue: (episode) => episode.duration_seconds ?? 0,
-    metricDisplay: (episode) => fmtDuration(episode.duration_seconds),
-    eligible: (episode) => episode.duration_seconds != null,
+    key: "golden_tickets",
+    label: "Most golden tickets",
+    eyebrow: "Most golden ticket winners",
+    metricLabel: "golden ticket winners",
+    metricValue: (episode) => episode.golden_ticket_count,
+    metricDisplay: (episode) => String(episode.golden_ticket_count),
   },
   {
     key: "bucket_pulls",
@@ -87,14 +48,6 @@ const CATEGORIES: Category[] = [
     metricLabel: "bucket pulls",
     metricValue: (episode) => episode.bucket_pull_count,
     metricDisplay: (episode) => String(episode.bucket_pull_count),
-  },
-  {
-    key: "golden_tickets",
-    label: "Most golden tickets",
-    eyebrow: "Most golden ticket winners",
-    metricLabel: "golden ticket winners",
-    metricValue: (episode) => episode.golden_ticket_count,
-    metricDisplay: (episode) => String(episode.golden_ticket_count),
   },
   {
     key: "joke_books",
@@ -119,6 +72,24 @@ const CATEGORIES: Category[] = [
     metricLabel: "sets",
     metricValue: (episode) => episode.set_count,
     metricDisplay: (episode) => String(episode.set_count),
+  },
+    {
+    key: "ratio",
+    label: "Best like/view ratio",
+    eyebrow: "Best like/view ratio",
+    metricLabel: "like/view ratio",
+    metricValue: (episode) =>
+      episode.view_count && episode.like_count != null
+        ? episode.like_count / episode.view_count
+        : 0,
+    metricDisplay: (episode) =>
+      episode.view_count && episode.like_count != null
+        ? `${((episode.like_count / episode.view_count) * 100).toFixed(1)}%`
+        : "-",
+    eligible: (episode) =>
+      episode.view_count != null &&
+      episode.view_count >= MIN_RATIO_VIEWS &&
+      episode.like_count != null,
   },
 ];
 
