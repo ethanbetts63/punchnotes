@@ -13,6 +13,7 @@ export default function MediaTile({ item }: { item: TileData }) {
           <img
             src={item.imageUrl}
             alt={item.title}
+            loading="lazy"
             className="absolute inset-0 h-full w-full object-contain"
           />
         ) : item.videoId ? (
@@ -20,6 +21,7 @@ export default function MediaTile({ item }: { item: TileData }) {
           <img
             src={`https://img.youtube.com/vi/${item.videoId}/mqdefault.jpg`}
             alt={item.title}
+            loading="lazy"
             className="absolute inset-0 h-full w-full object-contain"
           />
         ) : (

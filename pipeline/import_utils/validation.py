@@ -16,6 +16,8 @@ PREMISE_STRUCTURE_RULES: dict[str, tuple[str, ...]] = {
 
 VALID_JOKE_TYPES = frozenset(PREMISE_STRUCTURE_RULES)
 
+PREMISE_MAX_WORDS = 20
+
 
 def validate_bit_meta(meta: dict) -> None:
     """Raises ValueError for invalid beat metadata or line-to-beat structure."""
@@ -119,6 +121,13 @@ def validate_bit_meta(meta: dict) -> None:
             match = _ENCODED.search(premise)
             if match:
                 errors.append(f"{location}: encoded character {match.group()!r} in premise")
+
+            word_count = len(premise.split())
+            if word_count > PREMISE_MAX_WORDS:
+                errors.append(
+                    f"{location}: premise is {word_count} words (max {PREMISE_MAX_WORDS}); "
+                    f"condense without losing the comedic mechanism: {premise!r}"
+                )
 
             missing = [
                 phrase

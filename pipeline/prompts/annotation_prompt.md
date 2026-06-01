@@ -87,7 +87,7 @@ Every beat has `premise`, `joke_type`, and `topics`. A bit has a `summary` **onl
 For multi-beat bits, every beat must still have its own premise. The bit summary is the broad shared frame; each beat premise is the specific comedic mechanism of that beat.
 
 **Premise rules:**
-- **Be as succinct as possible.** A premise should be one short sentence. If it runs over ~15 words, you're describing the joke instead of stating it. Cut every word that isn't load-bearing.
+- **Hard limit: 20 words maximum.** If your premise exceeds 20 words, you are describing the joke rather than stating its mechanism. Count the words and cut until you are at or under 20. Every word must be load-bearing.
 - State the abstract comedic logic — *why is this funny*, not a summary of what was said.
 - No pronouns tied to the comedian — no "he", "she", "they", "the comic".
 - Use the most general form: `"Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."`
@@ -95,6 +95,16 @@ For multi-beat bits, every beat must still have its own premise. The bit summary
 **Joke type:** one of the seven accepted labels defined in the next section: `misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `analogy`, `hyperbole`, `elephant-in-the-room`. Pick the mechanism that best describes how the joke gets its laugh — the same mechanism the premise formula is built around.
 
 Do not use joke types outside this list. If a joke seems to need a type that is not allowed, choose the closest allowed type and mention the uncertainty in your closing comments.
+
+When multiple joke types seem plausible, use this priority order:
+
+1. If the laugh depends on sound similarity, use `phonetic-match`.
+2. If the laugh depends on semantic ambiguity, use `double-meaning`.
+3. If the laugh depends on expectation reversal, use `misdirect`.
+4. If the laugh depends on comparison, use `analogy`.
+5. If the laugh depends on reinterpretation without comparison, use `reframe`.
+6. If the laugh depends on absurd degree, use `hyperbole`.
+7. If the laugh depends mainly on saying a taboo truth aloud, use `elephant-in-the-room`.
 
 **Topics:** 1–4 short, specific, searchable nouns per beat. Prefer `"crackheads"` over `"people doing drugs"`.
 
