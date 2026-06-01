@@ -19,6 +19,14 @@ function fmt2(n: number | null): string {
   return n == null ? "—" : n.toFixed(2);
 }
 
+function fmtSeconds(s: number): string {
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const sec = Math.floor(s % 60);
+  if (h > 0) return `${h}:${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
+  return `${m}:${String(sec).padStart(2, "0")}`;
+}
+
 const jokeBookLabel: Record<string, string> = {
   small:  "Small Joke Book",
   medium: "Medium Joke Book",
@@ -43,8 +51,8 @@ const comedianTypeBadge: Record<AppearanceAttribute, string> = {
   special:       "bg-purple-900/60 text-purple-200",
 };
 
-function getAppearanceType(attributes: readonly ComedianAttribute[]): AppearanceAttribute | null {
-  return appearanceAttributes.find((attr) => attributes.includes(attr)) ?? null;
+function getAppearanceType(attributes: readonly ComedianAttribute[] | undefined): AppearanceAttribute | null {
+  return appearanceAttributes.find((attr) => (attributes ?? []).includes(attr)) ?? null;
 }
 
 const jokeBookBadge: Record<string, string> = {
@@ -74,14 +82,17 @@ export default async function SetDetailPage({ params }: Props) {
             {/* Set image + episode info beneath */}
             {(set.image_url || set.episode.youtube_id) && (
               <div className="hidden sm:block w-36 md:w-48 shrink-0">
-                <div className="rounded-lg overflow-hidden shadow-xl ring-1 ring-white/10">
+                <Link
+                  href={`/killtony/episodes/${set.episode.id}`}
+                  className="block rounded-lg overflow-hidden shadow-xl ring-1 ring-white/10 hover:ring-white/30 transition-all"
+                >
                   <SetImage
                     imageUrl={set.image_url}
                     fallbackVideoId={set.episode.youtube_id}
                     alt={`${set.comedian.name} set image`}
                     className="w-full aspect-video"
                   />
-                </div>
+                </Link>
                 <div className="mt-2 space-y-0.5">
                   <p className="text-xs text-stone-300 leading-snug">
                     <Link
@@ -100,6 +111,10 @@ export default async function SetDetailPage({ params }: Props) {
 
             {/* Info */}
             <div className="flex-1 min-w-0">
+
+              <p className="text-xs font-medium text-stone-400 uppercase tracking-wide mb-1">
+                Set {set.set_number} · <Link href={`/killtony/episodes/${set.episode.id}`} className="hover:text-stone-200 transition-colors">Episode {set.episode.number}</Link>
+              </p>
 
               {/* Comedian name */}
               <h1 className="text-3xl md:text-4xl font-bold text-white mb-1">
@@ -179,9 +194,13 @@ export default async function SetDetailPage({ params }: Props) {
       {set.episode.youtube_id && (
         <div className="bg-stone-950">
           <div className="mx-auto max-w-5xl px-6 py-8">
+            <div className="mb-3 flex items-baseline justify-between">
+              <p className="text-sm font-medium text-white">Watch {comedian.name}'s set</p>
+              <p className="text-xs text-stone-400">Skips to {fmtSeconds(Math.max(0, set.start_seconds - 20))} in the episode</p>
+            </div>
             <VideoEmbed
               youtubeId={set.episode.youtube_id}
-              startSeconds={Math.max(0, set.start_seconds - 10)}
+              startSeconds={Math.max(0, set.start_seconds - 20)}
             />
           </div>
         </div>
