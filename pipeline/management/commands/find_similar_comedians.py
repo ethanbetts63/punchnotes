@@ -118,12 +118,6 @@ def find_candidates(
 
 def candidate_dict(candidate: Candidate) -> dict:
     return {
-        "score": round(candidate.score, 1),
-        "scores": {
-            "name": round(candidate.name_score, 1),
-            "token_sort": round(candidate.token_sort_score, 1),
-            "slug": round(candidate.slug_score, 1),
-        },
         "first": {
             "name": candidate.first_name,
             "slug": candidate.first_slug,

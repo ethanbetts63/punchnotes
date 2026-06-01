@@ -56,20 +56,17 @@ The relationship file must stay valid JSON with this shape:
   "aliases": {
     "wrong-or-alternate-slug": {
       "canonical_slug": "correct-canonical-slug",
-      "canonical_name": "Correct Canonical Name",
-      "notes": "Short reason or source summary."
+      "canonical_name": "Correct Canonical Name"
     }
   },
   "not_aliases": [
     {
-      "slugs": ["first-slug", "second-slug"],
-      "notes": "Short reason."
+      "slugs": ["first-slug", "second-slug"]
     }
   ],
   "uncertain": [
     {
-      "slugs": ["first-slug", "second-slug"],
-      "notes": "What remains unclear."
+      "slugs": ["first-slug", "second-slug"]
     }
   ]
 }
@@ -84,4 +81,3 @@ Rules:
 - Do not create cycles, such as `a -> b` and `b -> a`.
 - Do not map a slug to itself.
 - Preserve existing relationship decisions unless you have a clear reason to correct them.
-- Keep notes short.

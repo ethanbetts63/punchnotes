@@ -4,6 +4,7 @@ import { getServerSet } from "@/lib/serverApi";
 import type { ComedianAttribute } from "@/lib/serverApi";
 import SetTranscript from "@/components/SetTranscript";
 import SetImage from "@/components/SetImage";
+import VideoEmbed from "@/components/VideoEmbed";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -71,28 +72,16 @@ export default async function SetDetailPage({ params }: Props) {
           <div className="flex gap-8 items-start">
 
             {/* Set image + episode info beneath */}
-            {set.episode.youtube_id && (
+            {(set.image_url || set.episode.youtube_id) && (
               <div className="hidden sm:block w-36 md:w-48 shrink-0">
-                <a
-                  href={`https://www.youtube.com/watch?v=${set.episode.youtube_id}&t=${Math.max(0, set.start_seconds - 10)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block rounded-lg overflow-hidden shadow-xl ring-1 ring-white/10 hover:ring-yellow-400/50 transition-all group relative"
-                >
+                <div className="rounded-lg overflow-hidden shadow-xl ring-1 ring-white/10">
                   <SetImage
                     imageUrl={set.image_url}
                     fallbackVideoId={set.episode.youtube_id}
                     alt={`${set.comedian.name} set image`}
                     className="w-full aspect-video"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center">
-                      <svg className="w-4 h-4 text-stone-900 ml-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.841z" />
-                      </svg>
-                    </div>
-                  </div>
-                </a>
+                </div>
                 <div className="mt-2 space-y-0.5">
                   <p className="text-xs text-stone-300 leading-snug">
                     <Link
@@ -185,6 +174,18 @@ export default async function SetDetailPage({ params }: Props) {
           </div>
         </div>
       </div>
+
+      {/* Video */}
+      {set.episode.youtube_id && (
+        <div className="bg-stone-950">
+          <div className="mx-auto max-w-5xl px-6 py-8">
+            <VideoEmbed
+              youtubeId={set.episode.youtube_id}
+              startSeconds={Math.max(0, set.start_seconds - 10)}
+            />
+          </div>
+        </div>
+      )}
 
       {/* Transcript */}
       <SetTranscript bits={set.bits} />
