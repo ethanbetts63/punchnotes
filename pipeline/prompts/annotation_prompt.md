@@ -116,8 +116,8 @@ When multiple joke types seem plausible, use this priority order:
 **Keys:** 1-4 short, specific, searchable nouns or noun phrases per beat. Keys are chosen last from the premise fields, never directly from the transcript. Prefer `"crackheads"` over `"people doing drugs"`.
 
 Key source rules:
-- `analogy`: copy `a` and `b`; exclude `shared`.
-- `hyperbole`: copy `subject`; exclude `extreme`.
+- `analogy`: copy `a`, `b`, and the core searchable phrase from `shared`. If `shared` begins with a helper verb like "involve", omit that helper verb from the key.
+- `hyperbole`: copy `subject` and `extreme`. The `extreme` must be the shortest phrase that preserves the exaggerated endpoint.
 - `phonetic-match`: copy `heard`; also copy `reason` when present; exclude `reheard`.
 - `double-meaning`: copy `phrase`; exclude `senses`.
 - `contradiction`: pick concrete nouns from `subject`, `a`, and `b`.
@@ -209,21 +209,21 @@ Example:
 - tag: `"And then waking up the next morning"`
 - tag: `"and deciding to try again, 'cause I like the challenge."`
 
-Premise: `"Golf is like marriage because both are difficult, expensive and repetitious."`
-JSON fields: `{ "premise": "Golf is like marriage because both are difficult, expensive and repetitious.", "joke_type": "analogy", "a": "golf", "b": "marriage", "shared": "difficult, expensive and repetitious", "keys": ["golf", "marriage"] }`
+Premise: `"Golf is like marriage because both involve expensive repeated failure."`
+JSON fields: `{ "premise": "Golf is like marriage because both involve expensive repeated failure.", "joke_type": "analogy", "a": "golf", "b": "marriage", "shared": "expensive repeated failure", "keys": ["golf", "marriage", "expensive repeated failure"] }`
 
 **hyperbole** - one dimension of a subject is stretched past plausibility. The laugh comes from excess degree, scale, or intensity.
 Fields: `subject`, `extreme`.
-Formula: *[subject] taken so far that [extreme].*
-Required phrase marker: `taken so far that`.
+Formula: *[subject] becomes so extreme that [extreme].*
+Required phrase marker: `becomes so extreme that`.
 
 Example:
 - setup: `"So I've already seen a third of this collection"`
 - setup: `"and I don't have enough bodily fluids"`
 - punchline: `"for the other two thirds of this collection."`
 
-Premise: `"A porn collection taken so far that you could run out of sperm."`
-JSON fields: `{ "premise": "A porn collection taken so far that you could run out of sperm.", "joke_type": "hyperbole", "subject": "a porn collection", "extreme": "you could run out of sperm", "keys": ["porn collection"] }`
+Premise: `"A porn collection becomes so extreme that you run out of sperm."`
+JSON fields: `{ "premise": "A porn collection becomes so extreme that you run out of sperm.", "joke_type": "hyperbole", "subject": "a porn collection", "extreme": "running out of sperm", "keys": ["porn collection", "running out of sperm"] }`
 
 **elephant-in-the-room** - a taboo or socially avoided observation is said aloud. The audience already recognizes the conclusion; the laugh comes from breaking the silence.
 Fields: `elephant`.
