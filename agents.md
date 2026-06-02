@@ -1,0 +1,1 @@
+do not write migrations files. you should just run python manage.py makemigrations

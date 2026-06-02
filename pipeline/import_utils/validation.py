@@ -22,7 +22,7 @@ VALID_JOKE_TYPES = frozenset(PREMISE_STRUCTURE_RULES)
 
 PREMISE_MAX_WORDS = 20
 
-BASE_BEAT_FIELDS = frozenset({"premise", "joke_type", "topics"})
+BASE_BEAT_FIELDS = frozenset({"premise", "joke_type", "keys"})
 
 JOKE_TYPE_FIELDS: dict[str, tuple[str, ...]] = {
     "misdirect": ("bait", "implication", "reveal"),
@@ -40,7 +40,7 @@ OPTIONAL_JOKE_TYPE_FIELDS: dict[str, tuple[str, ...]] = {
     "phonetic-match": ("reason",),
 }
 
-FULL_AUTO_TOPIC_FIELDS: dict[str, tuple[str, ...]] = {
+FULL_AUTO_KEY_FIELDS: dict[str, tuple[str, ...]] = {
     "analogy": ("a", "b"),
     "hyperbole": ("subject",),
     "double-meaning": ("phrase",),
@@ -80,7 +80,7 @@ def _flatten_strings(value) -> list[str]:
     return []
 
 
-def _allowed_topic_text(joke_type: str, beat_data: dict) -> str:
+def _allowed_key_text(joke_type: str, beat_data: dict) -> str:
     fields_by_type = {
         "misdirect": ("bait",),
         "reframe": ("subject", "reframe"),
@@ -98,14 +98,14 @@ def _allowed_topic_text(joke_type: str, beat_data: dict) -> str:
     return " ".join(values).lower()
 
 
-def _expected_full_auto_topics(joke_type: str, beat_data: dict) -> list[str] | None:
+def _expected_full_auto_keys(joke_type: str, beat_data: dict) -> list[str] | None:
     if joke_type == "phonetic-match":
         expected = [beat_data.get("heard")]
         if _is_non_empty_string(beat_data.get("reason")):
             expected.append(beat_data.get("reason"))
-        return [topic for topic in expected if isinstance(topic, str)]
+        return [key for key in expected if isinstance(key, str)]
 
-    fields = FULL_AUTO_TOPIC_FIELDS.get(joke_type)
+    fields = FULL_AUTO_KEY_FIELDS.get(joke_type)
     if not fields:
         return None
     return [beat_data[field] for field in fields if isinstance(beat_data.get(field), str)]
@@ -235,7 +235,7 @@ def validate_bit_meta(meta: dict) -> None:
 
             joke_type = beat_data.get("joke_type")
             premise = beat_data.get("premise")
-            topics = beat_data.get("topics")
+            keys = beat_data.get("keys")
 
             if joke_type not in PREMISE_STRUCTURE_RULES:
                 accepted = ", ".join(sorted(PREMISE_STRUCTURE_RULES))
@@ -309,27 +309,27 @@ def validate_bit_meta(meta: dict) -> None:
                         f"{location}: phonetic-match premise contains 'fits because' but has no reason field"
                     )
 
-            if not isinstance(topics, list):
-                errors.append(f"{location}: topics must be a JSON array of 1-4 short strings")
-            elif not 1 <= len(topics) <= 4:
-                errors.append(f"{location}: topics must contain 1-4 items, got {len(topics)}")
+            if not isinstance(keys, list):
+                errors.append(f"{location}: keys must be a JSON array of 1-4 short strings")
+            elif not 1 <= len(keys) <= 4:
+                errors.append(f"{location}: keys must contain 1-4 items, got {len(keys)}")
             else:
-                expected_topics = _expected_full_auto_topics(joke_type, beat_data)
-                if expected_topics is not None and topics != expected_topics:
+                expected_keys = _expected_full_auto_keys(joke_type, beat_data)
+                if expected_keys is not None and keys != expected_keys:
                     errors.append(
-                        f"{location}: topics for {joke_type} must be copied from premise fields "
-                        f"as {expected_topics!r}, got {topics!r}"
+                        f"{location}: keys for {joke_type} must be copied from premise fields "
+                        f"as {expected_keys!r}, got {keys!r}"
                     )
 
-                allowed_topic_text = _allowed_topic_text(joke_type, beat_data)
-                for topic_index, topic in enumerate(topics, start=1):
-                    if not isinstance(topic, str) or not topic.strip():
-                        errors.append(f"{location}: topic {topic_index} must be a non-empty string")
-                    elif len(topic.split()) > 4:
-                        errors.append(f"{location}: topic {topic_index} is too long; use a short searchable noun phrase")
-                    elif expected_topics is None and topic.lower() not in allowed_topic_text:
+                allowed_key_text = _allowed_key_text(joke_type, beat_data)
+                for key_index, key in enumerate(keys, start=1):
+                    if not isinstance(key, str) or not key.strip():
+                        errors.append(f"{location}: key {key_index} must be a non-empty string")
+                    elif len(key.split()) > 4:
+                        errors.append(f"{location}: key {key_index} is too long; use a short searchable noun phrase")
+                    elif expected_keys is None and key.lower() not in allowed_key_text:
                         errors.append(
-                            f"{location}: topic {topic_index} {topic!r} must come from allowed "
+                            f"{location}: key {key_index} {key!r} must come from allowed "
                             f"{joke_type} premise field(s), not transcript-only wording"
                         )
 

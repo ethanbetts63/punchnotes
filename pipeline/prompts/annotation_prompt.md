@@ -70,7 +70,7 @@ The import pipeline infers non-punchline ownership:
 
 ### Bit vs. multiple bits
 
-**Shared topic ≠ shared premise.** Don't group beats just because they're about the same subject. Group them only when removing one would orphan the others.
+**Shared subject matter does not equal shared premise.** Don't group beats just because they're about the same subject. Group them only when removing one would orphan the others.
 
 The test: **can you extract a beat alone and still have it make sense?**
 - If yes → it's its own bit
@@ -255,7 +255,7 @@ JSON fields: `{ "frame": "an animal asking a business for service", "answer": "t
 - A bit is the smallest standalone segment of material that can be lifted out of the set and still make sense as its own joke sequence. 
 - A new beat starts at the first setup line following a punchline.
 - Multi-beat bits typically have a shared setup at the start that establishes the umbrella premise, then each beat is a different application of that premise.
-- Do not merge separate bits just because they share a broad topic.
+- Do not merge separate bits just because they share broad subject matter.
 - Set all setup, tag, and fluff lines to `"bit": null, "beat": null`; the import pipeline normalises them from punchline anchors.
 - Stage context can supply setup, but choose the joke type by mechanism. Most "I look like..." jokes are `analogy`, not `prop`.
 - Do not use `act-out` as the `joke_type`. If a transcript includes embodied performance, choose the underlying text-visible mechanism.
@@ -315,7 +315,7 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
           "bait": "earning citizenship",
           "implication": "a personal milestone",
           "reveal": "a draft sentence",
-          "topics": ["citizenship"]
+          "keys": ["citizenship"]
         }
       }
     },
@@ -326,7 +326,7 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
           "joke_type": "reframe",
           "subject": "expanding draft eligibility to middle-aged stoners",
           "reframe": "the worst army ever assembled",
-          "topics": ["draft age", "marijuana convictions", "army"]
+          "keys": ["draft age", "marijuana convictions", "army"]
         }
       }
     },
@@ -334,32 +334,32 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
       "summary": "Estonia drafts everyone America excludes.",
       "beats": {
         "1": {
-          "premise": "Wheelchair soldiers with a grenade could be kamikaze rollers.",
+          "premise": "Wheelchair soldiers with a grenade could be terrifying.",
           "joke_type": "reframe",
           "subject": "wheelchair soldiers with a grenade",
           "reframe": "kamikaze rollers",
-          "topics": ["wheelchair soldiers", "grenades", "kamikaze rollers"]
+          "keys": ["wheelchair soldiers", "grenades"]
         },
         "2": {
           "premise": "'Special forces' can mean elite operatives or literally special-needs soldiers.",
           "joke_type": "double-meaning",
           "phrase": "special forces",
           "senses": ["elite operatives", "literally special-needs soldiers"],
-          "topics": ["special forces"]
+          "keys": ["special forces"]
         },
         "3": {
           "premise": "A dead Santa lie could be the most effective conscription tool for special-needs soldiers.",
           "joke_type": "reframe",
           "subject": "a dead Santa lie",
           "reframe": "the most effective conscription tool for special-needs soldiers",
-          "topics": ["Santa Claus", "conscription", "special-needs soldiers"]
+          "keys": ["Santa Claus", "conscription", "special-needs soldiers"]
         },
         "4": {
           "premise": "A gay soldier could be the best-protected person on base among sex-starved straight men.",
           "joke_type": "reframe",
           "subject": "a gay soldier",
           "reframe": "the best-protected person on base among sex-starved straight men",
-          "topics": ["gay soldiers", "base life", "straight men"]
+          "keys": ["gay soldiers", "base life", "straight men"]
         }
       }
     }

@@ -12,7 +12,9 @@ def valid_meta_with_line(line):
                     "1": {
                         "premise": "A thing could be an unexpected thing.",
                         "joke_type": "reframe",
-                        "topics": ["thing"],
+                        "subject": "a thing",
+                        "reframe": "an unexpected thing",
+                        "keys": ["thing"],
                     }
                 }
             }
@@ -134,9 +136,12 @@ class ValidateBitMetaTests(SimpleTestCase):
             }
         )
         meta["bit_meta"]["1"]["beats"]["1"] = {
-            "premise": "Financial responsibility conflicts with payday loans because both cannot comfortably be true.",
+            "premise": "Financial responsibility both means avoiding debt and yet includes payday loans.",
             "joke_type": "contradiction",
-            "topics": ["payday loans"],
+            "subject": "financial responsibility",
+            "a": "means avoiding debt",
+            "b": "includes payday loans",
+            "keys": ["payday loans"],
         }
 
         validate_bit_meta(meta)
@@ -181,7 +186,9 @@ class ValidateBitMetaTests(SimpleTestCase):
                         "1": {
                             "premise": "One thing could be another thing.",
                             "joke_type": "reframe",
-                            "topics": ["one"],
+                            "subject": "one thing",
+                            "reframe": "another thing",
+                            "keys": ["one"],
                         }
                     }
                 }
@@ -206,7 +213,9 @@ class ValidateBitMetaTests(SimpleTestCase):
                         "1": {
                             "premise": "One thing could be another thing.",
                             "joke_type": "reframe",
-                            "topics": ["one"],
+                            "subject": "one thing",
+                            "reframe": "another thing",
+                            "keys": ["one"],
                         }
                     }
                 }
@@ -232,12 +241,16 @@ class ValidateBitMetaTests(SimpleTestCase):
                         "1": {
                             "premise": "One thing could be another thing.",
                             "joke_type": "reframe",
-                            "topics": ["one"],
+                            "subject": "one thing",
+                            "reframe": "another thing",
+                            "keys": ["one"],
                         },
                         "2": {
                             "premise": "Another thing could be a third thing.",
                             "joke_type": "reframe",
-                            "topics": ["two"],
+                            "subject": "another thing",
+                            "reframe": "a third thing",
+                            "keys": ["another"],
                         },
                     }
                 }
@@ -317,7 +330,9 @@ class ValidateBitMetaTests(SimpleTestCase):
                         "1": {
                             "premise": "One thing could be another thing.",
                             "joke_type": "reframe",
-                            "topics": ["one"],
+                            "subject": "one thing",
+                            "reframe": "another thing",
+                            "keys": ["one"],
                         }
                     }
                 }
@@ -333,7 +348,7 @@ class ValidateBitMetaTests(SimpleTestCase):
         ):
             validate_bit_meta(meta)
 
-    def test_topics_must_have_one_to_four_short_strings(self):
+    def test_keys_must_have_one_to_four_short_strings(self):
         meta = valid_meta_with_line(
             {
                 "line_number": 10,
@@ -343,7 +358,7 @@ class ValidateBitMetaTests(SimpleTestCase):
                 "beat": 1,
             }
         )
-        meta["bit_meta"]["1"]["beats"]["1"]["topics"] = []
+        meta["bit_meta"]["1"]["beats"]["1"]["keys"] = []
 
-        with self.assertRaisesRegex(ValueError, "bit 1 beat 1: topics must contain 1-4 items, got 0"):
+        with self.assertRaisesRegex(ValueError, "bit 1 beat 1: keys must contain 1-4 items, got 0"):
             validate_bit_meta(meta)
