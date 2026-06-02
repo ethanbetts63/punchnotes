@@ -96,6 +96,9 @@ For multi-beat bits, every beat must still have its own premise. The bit summary
 
 Do not use joke types outside this list. If a joke seems to need a type that is not allowed, choose the closest allowed type and mention the uncertainty in your closing comments.
 
+For every specific token in the setup, ask: swap it for another member of a broader class — does the joke still land via the identical mechanism? If yes, replace
+the token with the class. Repeat until the next swap up would break the joke. Duck→cow→horse all survive → animal. Beak-rash→foot-cream survive → medicine.
+
 When multiple joke types seem plausible, use this priority order:
 
 1. If the laugh depends on sound similarity, use `phonetic-match`.
