@@ -144,7 +144,7 @@ Example:
 - punchline: `"Now that he's dead to me,"`
 
 Premise: `"Refusing to call a transitioning child your son implies a new title, but reveals disownment."`
-JSON fields: `{ "bait": "refusing to call a transitioning child your son", "implication": "a new title", "reveal": "disownment" }`
+JSON fields: `{ "premise": "Refusing to call a transitioning child your son implies a new title, but reveals disownment.", "joke_type": "misdirect", "bait": "refusing to call a transitioning child your son", "implication": "a new title", "reveal": "disownment", "keys": ["transitioning child"] }`
 
 **reframe** - a known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required; the joke surfaces an alternate perspective to understand the same fact, object, behavior, or situation.
 Fields: `subject`, `reframe`.
@@ -157,7 +157,7 @@ Example:
 - tag: `"Fucking miracle medicine."`
 
 Premise: `"Puberty blockers could be beneficial to pedophiles."`
-JSON fields: `{ "subject": "puberty blockers", "reframe": "beneficial to pedophiles" }`
+JSON fields: `{ "premise": "Puberty blockers could be beneficial to pedophiles.", "joke_type": "reframe", "subject": "puberty blockers", "reframe": "beneficial to pedophiles", "keys": ["puberty blockers", "pedophiles"] }`
 
 **phonetic-match** - two *different* words sound alike. Often both fit the context, but sometimes the resemblance alone is the joke.
 Fields: `heard`, `reheard`, optional `reason`.
@@ -170,7 +170,7 @@ Example:
 - punchline: `"That's right, a fidget."`
 
 Premise: `"'Midget' sounds like 'fidget', and 'fidget' fits because ADHD."`
-JSON fields: `{ "heard": "midget", "reheard": "fidget", "reason": "ADHD" }`
+JSON fields: `{ "premise": "'Midget' sounds like 'fidget', and 'fidget' fits because ADHD.", "joke_type": "phonetic-match", "heard": "midget", "reheard": "fidget", "reason": "ADHD", "keys": ["midget", "ADHD"] }`
 
 **double-meaning** - the *same* word or phrase admits two or more readings, and the comedian deliberately picks the non-standard one. Hinges on semantic ambiguity, not phonetic similarity.
 Fields: `phrase`, `senses`.
@@ -182,7 +182,7 @@ Example:
 - punchline: `"Fuck that, let's use water."`
 
 Premise: `"'Use stairs' can mean take the stairs or use stairs as the tool."`
-JSON fields: `{ "phrase": "use stairs", "senses": ["take the stairs", "use stairs as the tool"] }`
+JSON fields: `{ "premise": "'Use stairs' can mean take the stairs or use stairs as the tool.", "joke_type": "double-meaning", "phrase": "use stairs", "senses": ["take the stairs", "use stairs as the tool"], "keys": ["use stairs"] }`
 
 **contradiction** - one subject holds two positions that cannot both be true; the joke is the hypocrisy or exposed inconsistency.
 Fields: `subject`, `a`, `b`.
@@ -195,7 +195,7 @@ Example:
 - punchline: `"That's diversification."`
 
 Premise: `"Financial responsibility both means avoiding debt and yet includes payday loans."`
-JSON fields: `{ "subject": "financial responsibility", "a": "means avoiding debt", "b": "includes payday loans" }`
+JSON fields: `{ "premise": "Financial responsibility both means avoiding debt and yet includes payday loans.", "joke_type": "contradiction", "subject": "financial responsibility", "a": "means avoiding debt", "b": "includes payday loans", "keys": ["financial responsibility", "debt", "payday loans"] }`
 
 **analogy**  - two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
 Fields: `a`, `b`, `shared`.
@@ -210,7 +210,7 @@ Example:
 - tag: `"and deciding to try again, 'cause I like the challenge."`
 
 Premise: `"Golf is like marriage because both are difficult, expensive and repetitious."`
-JSON fields: `{ "a": "golf", "b": "marriage", "shared": "difficult, expensive and repetitious" }`
+JSON fields: `{ "premise": "Golf is like marriage because both are difficult, expensive and repetitious.", "joke_type": "analogy", "a": "golf", "b": "marriage", "shared": "difficult, expensive and repetitious", "keys": ["golf", "marriage"] }`
 
 **hyperbole** - one dimension of a subject is stretched past plausibility. The laugh comes from excess degree, scale, or intensity.
 Fields: `subject`, `extreme`.
@@ -223,7 +223,7 @@ Example:
 - punchline: `"for the other two thirds of this collection."`
 
 Premise: `"A porn collection taken so far that you could run out of sperm."`
-JSON fields: `{ "subject": "a porn collection", "extreme": "you could run out of sperm" }`
+JSON fields: `{ "premise": "A porn collection taken so far that you could run out of sperm.", "joke_type": "hyperbole", "subject": "a porn collection", "extreme": "you could run out of sperm", "keys": ["porn collection"] }`
 
 **elephant-in-the-room** - a taboo or socially avoided observation is said aloud. The audience already recognizes the conclusion; the laugh comes from breaking the silence.
 Fields: `elephant`.
@@ -235,7 +235,7 @@ Example:
 - punchline: `"I'm looking at you, honkies."`
 
 Premise: `"White men dominate mass shootings is widely understood but rarely said aloud."`
-JSON fields: `{ "elephant": "white men dominate mass shootings" }`
+JSON fields: `{ "premise": "White men dominate mass shootings is widely understood but rarely said aloud.", "joke_type": "elephant-in-the-room", "elephant": "white men dominate mass shootings", "keys": ["white men", "mass shootings"] }`
 
 **anti-humor** - a joke form promises a payoff, then delivers the banal truth; the joke is that there is no joke.
 Fields: `frame`, `answer`.
@@ -248,7 +248,7 @@ Example:
 - punchline: `"Sorry, we don't have medicine for ducks here."`
 
 Premise: `"An animal asking a business for service implies a punchline, but reveals only that the business does not serve animals."`
-JSON fields: `{ "frame": "an animal asking a business for service", "answer": "that the business does not serve animals" }`
+JSON fields: `{ "premise": "An animal asking a business for service implies a punchline, but reveals only that the business does not serve animals.", "joke_type": "anti-humor", "frame": "an animal asking a business for service", "answer": "that the business does not serve animals", "keys": ["animal", "business"] }`
 
 ### Boundary rules
 
@@ -326,7 +326,7 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
           "joke_type": "reframe",
           "subject": "expanding draft eligibility to middle-aged stoners",
           "reframe": "the worst army ever assembled",
-          "keys": ["draft age", "marijuana convictions", "army"]
+          "keys": ["draft eligibility", "middle-aged stoners", "army"]
         }
       }
     },
@@ -352,14 +352,14 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
           "joke_type": "reframe",
           "subject": "a dead Santa lie",
           "reframe": "the most effective conscription tool for special-needs soldiers",
-          "keys": ["Santa Claus", "conscription", "special-needs soldiers"]
+          "keys": ["Santa", "conscription", "special-needs soldiers"]
         },
         "4": {
           "premise": "A gay soldier could be the best-protected person on base among sex-starved straight men.",
           "joke_type": "reframe",
           "subject": "a gay soldier",
           "reframe": "the best-protected person on base among sex-starved straight men",
-          "keys": ["gay soldiers", "base life", "straight men"]
+          "keys": ["gay soldier", "base", "straight men"]
         }
       }
     }

@@ -362,3 +362,39 @@ class ValidateBitMetaTests(SimpleTestCase):
 
         with self.assertRaisesRegex(ValueError, "bit 1 beat 1: keys must contain 1-4 items, got 0"):
             validate_bit_meta(meta)
+
+    def test_keys_are_not_required_during_topics_transition(self):
+        meta = valid_meta_with_line(
+            {
+                "line_number": 10,
+                "text": "Payoff.",
+                "label": "punchline",
+                "bit": 1,
+                "beat": 1,
+            }
+        )
+        beat = meta["bit_meta"]["1"]["beats"]["1"]
+        beat.pop("keys")
+        beat["topics"] = ["thing"]
+
+        validate_bit_meta(meta)
+
+    def test_double_meaning_key_can_be_longer_than_four_words(self):
+        meta = valid_meta_with_line(
+            {
+                "line_number": 10,
+                "text": "Payoff.",
+                "label": "punchline",
+                "bit": 1,
+                "beat": 1,
+            }
+        )
+        meta["bit_meta"]["1"]["beats"]["1"] = {
+            "premise": "'In case of fire use stairs' can mean escape or extinguish.",
+            "joke_type": "double-meaning",
+            "phrase": "in case of fire use stairs",
+            "senses": ["escape", "extinguish"],
+            "keys": ["in case of fire use stairs"],
+        }
+
+        validate_bit_meta(meta)
