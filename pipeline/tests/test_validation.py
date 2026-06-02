@@ -173,7 +173,7 @@ class ValidateBitMetaTests(SimpleTestCase):
 
         validate_bit_meta(meta)
 
-    def test_fluff_inside_beat_rejects_null_beat(self):
+    def test_non_punchline_line_rejects_bit_and_beat_values(self):
         meta = {
             "bit_meta": {
                 "1": {
@@ -188,12 +188,40 @@ class ValidateBitMetaTests(SimpleTestCase):
             },
             "lines": [
                 {"line_number": 1, "text": "Setup.", "label": "setup", "bit": 1, "beat": 1},
-                {"line_number": 2, "text": "Pause.", "label": "fluff", "bit": 1, "beat": None},
+                {"line_number": 2, "text": "Payoff.", "label": "punchline", "bit": 1, "beat": 1},
+            ],
+        }
+
+        with self.assertRaisesRegex(
+            ValueError,
+            "line 1: 'setup' lines must leave bit and beat null",
+        ):
+            validate_bit_meta(meta)
+
+    def test_tag_must_follow_punchline_or_tag(self):
+        meta = {
+            "bit_meta": {
+                "1": {
+                    "beats": {
+                        "1": {
+                            "premise": "One thing could be another thing.",
+                            "joke_type": "reframe",
+                            "topics": ["one"],
+                        }
+                    }
+                }
+            },
+            "lines": [
+                {"line_number": 1, "text": "Setup.", "label": "setup", "bit": None, "beat": None},
+                {"line_number": 2, "text": "Tag.", "label": "tag", "bit": None, "beat": None},
                 {"line_number": 3, "text": "Payoff.", "label": "punchline", "bit": 1, "beat": 1},
             ],
         }
 
-        with self.assertRaisesRegex(ValueError, "line 2: fluff must be bit=1, beat=1"):
+        with self.assertRaisesRegex(
+            ValueError,
+            "line 2: tag must immediately follow a punchline or tag; previous label is 'setup'",
+        ):
             validate_bit_meta(meta)
 
     def test_multi_beat_bit_requires_summary(self):
@@ -251,4 +279,71 @@ class ValidateBitMetaTests(SimpleTestCase):
         meta["bit_meta"]["1"]["premise"] = "Old bit-level field."
 
         with self.assertRaisesRegex(ValueError, "bit 1: use summary for multi-beat bits, not premise"):
+            validate_bit_meta(meta)
+
+    def test_bit_meta_must_be_object_not_array(self):
+        meta = {
+            "bit_meta": [],
+            "lines": [
+                {"line_number": 1, "text": "Payoff.", "label": "punchline", "bit": 1, "beat": 1},
+            ],
+        }
+
+        with self.assertRaisesRegex(
+            ValueError,
+            "bit_meta must be a JSON object keyed by bit number strings, not an array",
+        ):
+            validate_bit_meta(meta)
+
+    def test_beats_must_be_object_not_array(self):
+        meta = {
+            "bit_meta": {"1": {"beats": []}},
+            "lines": [
+                {"line_number": 1, "text": "Payoff.", "label": "punchline", "bit": 1, "beat": 1},
+            ],
+        }
+
+        with self.assertRaisesRegex(
+            ValueError,
+            "bit 1: beats must be a JSON object keyed by beat number strings, not an array",
+        ):
+            validate_bit_meta(meta)
+
+    def test_punchline_anchor_requires_matching_bit_meta_beat(self):
+        meta = {
+            "bit_meta": {
+                "1": {
+                    "beats": {
+                        "1": {
+                            "premise": "One thing could be another thing.",
+                            "joke_type": "reframe",
+                            "topics": ["one"],
+                        }
+                    }
+                }
+            },
+            "lines": [
+                {"line_number": 1, "text": "Payoff.", "label": "punchline", "bit": 2, "beat": 1},
+            ],
+        }
+
+        with self.assertRaisesRegex(
+            ValueError,
+            "line\\(s\\) 1: punchline references bit 2 beat 1, but bit_meta has no matching beat",
+        ):
+            validate_bit_meta(meta)
+
+    def test_topics_must_have_one_to_four_short_strings(self):
+        meta = valid_meta_with_line(
+            {
+                "line_number": 10,
+                "text": "Payoff.",
+                "label": "punchline",
+                "bit": 1,
+                "beat": 1,
+            }
+        )
+        meta["bit_meta"]["1"]["beats"]["1"]["topics"] = []
+
+        with self.assertRaisesRegex(ValueError, "bit 1 beat 1: topics must contain 1-4 items, got 0"):
             validate_bit_meta(meta)

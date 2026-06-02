@@ -68,8 +68,8 @@ class Command(BaseCommand):
 
     def _import(self, path, relationships):
         meta = json.loads(path.read_text(encoding="utf-8-sig"))
-        meta = clean_fluff_bit_beat(meta)
         validate_bit_meta(meta)
+        meta = clean_fluff_bit_beat(meta)
 
         video_id = meta["video_id"]
         canonical_comedian = canonicalize_comedian_name(meta["comedian_name"], relationships)

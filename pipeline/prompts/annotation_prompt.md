@@ -16,7 +16,7 @@ Each input file is a set JSON from `pipeline/data/2_set_inbox/`. Lines have an e
 
 Write the annotated file to `pipeline/data/3_bit_annotated_set_inbox/<same-filename>.json`. The output adds `bit_meta` before `lines`, and each line gets `label`, `bit`, and `beat` fields.
 
-Every beat has its own `premise`, `joke_type`, and `topics`. A bit gets a `summary` **only when it has more than one beat**. The summary is a **short as possible** umbrella description of the shared frame that makes those beats belong together. Single-beat bits must not have a summary because the beat premise already explains the whole bit.
+Every beat has its own `premise`, `joke_type`, joke-type-specific premise fields, and `keys`. A bit gets a `summary` **only when it has more than one beat**. The summary is a **short as possible** umbrella description of the shared frame that makes those beats belong together. Single-beat bits must not have a summary because the beat premise already explains the whole bit.
 
 After writing, delete the source file from `pipeline/data/2_set_inbox/`.
 
@@ -82,17 +82,19 @@ The test: **can you extract a beat alone and still have it make sense?**
 
 > **IMPORTANT:** `bit_meta` MUST be a JSON object keyed by bit number as a string (e.g. `"1"`, `"2"`), NOT a JSON array. `beats` within each bit must also be a JSON object keyed by beat number as a string. Never use `[...]` for `bit_meta` or `beats`.
 
-Every beat has `premise`, `joke_type`, and `topics`. A bit has a `summary` **only when it has multiple beats**. Single-beat bits must not have `summary`.
+Every beat has `premise`, `joke_type`, the required fields for that joke type, and `keys`. A bit has a `summary` **only when it has multiple beats**. Single-beat bits must not have `summary`.
 
 For multi-beat bits, every beat must still have its own premise. The bit summary is the broad shared frame; each beat premise is the specific comedic mechanism of that beat.
 
 **Premise rules:**
 - **Hard limit: 20 words maximum.** If your premise exceeds 20 words, you are describing the joke rather than stating its mechanism. Count the words and cut until you are at or under 20. Every word must be load-bearing.
-- State the abstract comedic logic — *why is this funny*, not a summary of what was said.
-- No pronouns tied to the comedian — no "he", "she", "they", "the comic".
+- State the abstract comedic logic - *why is this funny*, not a summary of what was said.
+- No pronouns tied to the comedian - no "he", "she", "they", "the comic".
 - Use the most general form: `"Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."`
+- Build the premise from the required fields plus that joke type's formula words. Do not add extra explanation words.
+- After writing the premise, copy those same field values into the beat JSON. The field values are the source of the premise.
 
-**Joke type:** one of the eight accepted labels defined in the next section: `misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `contradiction`, `analogy`, `hyperbole`, `elephant-in-the-room`. Pick the mechanism that best describes how the joke gets its laugh — the same mechanism the premise formula is built around.
+**Joke type:** one of the nine accepted labels defined in the next section: `misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `contradiction`, `analogy`, `hyperbole`, `elephant-in-the-room`, `anti-humor`. Pick the mechanism that best describes how the joke gets its laugh - the same mechanism the premise formula is built around.
 
 Do not use joke types outside this list. If a joke seems to need a type that is not allowed, choose the closest allowed type and mention the uncertainty in your closing comments.
 
@@ -103,23 +105,38 @@ When multiple joke types seem plausible, use this priority order:
 
 1. If the laugh depends on sound similarity, use `phonetic-match`.
 2. If the laugh depends on semantic ambiguity, use `double-meaning`.
-3. If the laugh depends on expectation reversal, use `misdirect`.
-4. If the laugh depends on a claim conflicting with evidence, use `contradiction`.
-5. If the laugh depends on comparison, use `analogy`.
-6. If the laugh depends on reinterpretation without comparison, use `reframe`.
-7. If the laugh depends on absurd degree, use `hyperbole`.
-8. If the laugh depends mainly on saying a taboo truth aloud, use `elephant-in-the-room`.
+3. If the laugh depends on a joke form refusing to deliver a clever payoff, use `anti-humor`.
+4. If the laugh depends on expectation reversal, use `misdirect`.
+5. If the laugh depends on a claim conflicting with evidence, use `contradiction`.
+6. If the laugh depends on comparison, use `analogy`.
+7. If the laugh depends on reinterpretation without comparison, use `reframe`.
+8. If the laugh depends on absurd degree, use `hyperbole`.
+9. If the laugh depends mainly on saying a taboo truth aloud, use `elephant-in-the-room`.
 
-**Topics:** 1–4 short, specific, searchable nouns per beat. Prefer `"crackheads"` over `"people doing drugs"`.
+**Keys:** 1-4 short, specific, searchable nouns or noun phrases per beat. Keys are chosen last from the premise fields, never directly from the transcript. Prefer `"crackheads"` over `"people doing drugs"`.
+
+Key source rules:
+- `analogy`: copy `a` and `b`; exclude `shared`.
+- `hyperbole`: copy `subject`; exclude `extreme`.
+- `phonetic-match`: copy `heard`; also copy `reason` when present; exclude `reheard`.
+- `double-meaning`: copy `phrase`; exclude `senses`.
+- `contradiction`: pick concrete nouns from `subject`, `a`, and `b`.
+- `reframe`: pick concrete nouns from `subject` and `reframe`.
+- `misdirect`: pick concrete nouns from `bait`; exclude `implication` and `reveal`.
+- `elephant-in-the-room`: pick concrete nouns from `elephant`.
+- `anti-humor`: pick concrete nouns from `frame`; exclude `answer`.
 
 
 ### Joke types and premise formulas
 
-All jokes must be assigned one of these types. **The way you write each beat premise must exactly match the formula given for its joke type. VERY IMPORTANT** 
+All jokes must be assigned one of these types. **The way you write each beat premise must exactly match the formula given for its joke type. VERY IMPORTANT**
 
-**misdirect** — an assumption is planted, then subverted.
-Formula: *[setup] implies [expected interpretation], but [punchline reveals unexpected interpretation].*
-Required phrase markers: `implies`, `but`.
+After writing the premise, include the required field keys shown for that joke type. Field values must be the same distilled wording used in the premise.
+
+**misdirect** - an assumption is planted, then subverted.
+Fields: `bait`, `implication`, `reveal`.
+Formula: *[bait] implies [implication], but reveals [reveal].*
+Required phrase markers: `implies`, `but reveals`.
 
 Example:
 - setup: `"My son just came out as trans."`
@@ -127,9 +144,11 @@ Example:
 - punchline: `"Now that he's dead to me,"`
 
 Premise: `"Refusing to call a transitioning child your son implies a new title, but reveals disownment."`
+JSON fields: `{ "bait": "refusing to call a transitioning child your son", "implication": "a new title", "reveal": "disownment" }`
 
-**reframe** — a known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required; the joke surfaces an alternate perspective to understand the same fact, object, behavior, or situation.
-Formula: *[known thing] could be [unexpected interpretation].*
+**reframe** - a known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required; the joke surfaces an alternate perspective to understand the same fact, object, behavior, or situation.
+Fields: `subject`, `reframe`.
+Formula: *[subject] could be [reframe].*
 Required phrase marker: `could be`.
 
 Example:
@@ -138,19 +157,24 @@ Example:
 - tag: `"Fucking miracle medicine."`
 
 Premise: `"Puberty blockers could be beneficial to pedophiles."`
+JSON fields: `{ "subject": "puberty blockers", "reframe": "beneficial to pedophiles" }`
 
-**phonetic-match** — two *different* words sound alike, and both independently fit the context. Basic versions of phonetic-match might literally just have two words that sound similar without any contextual link.
-Formula: *"[word A]" sounds like "[word B]", and [word B] fits because [reason].*
-Required phrase markers: `sounds like`, `and`.
+**phonetic-match** - two *different* words sound alike. Often both fit the context, but sometimes the resemblance alone is the joke.
+Fields: `heard`, `reheard`, optional `reason`.
+Formula without reason: *"[heard]" sounds like "[reheard]".*
+Formula with reason: *"[heard]" sounds like "[reheard]", and "[reheard]" fits because [reason].*
+Required phrase marker: `sounds like`. Add `fits because` only when `reason` is present.
 
 Example:
 - setup: `"what do you call a little person with ADHD?"`
 - punchline: `"That's right, a fidget."`
 
-Premise: `"'Midget' sounds like 'fidget', and 'fidget' fits ADHD."`
+Premise: `"'Midget' sounds like 'fidget', and 'fidget' fits because ADHD."`
+JSON fields: `{ "heard": "midget", "reheard": "fidget", "reason": "ADHD" }`
 
-**double-meaning** — the *same* word or phrase admits two readings, and the comedian deliberately picks the non-standard one. Hinges on semantic ambiguity, not phonetic similarity.
-Formula: *"[phrase]" can mean [meaning A] or [meaning B].*
+**double-meaning** - the *same* word or phrase admits two or more readings, and the comedian deliberately picks the non-standard one. Hinges on semantic ambiguity, not phonetic similarity.
+Fields: `phrase`, `senses`.
+Formula: *"[phrase]" can mean [sense 1] or [sense 2].*
 Required phrase markers: `can mean`, `or`.
 
 Example:
@@ -158,19 +182,23 @@ Example:
 - punchline: `"Fuck that, let's use water."`
 
 Premise: `"'Use stairs' can mean take the stairs or use stairs as the tool."`
+JSON fields: `{ "phrase": "use stairs", "senses": ["take the stairs", "use stairs as the tool"] }`
 
-**contradiction** — a stated claim, identity, value, or expectation is undercut by incompatible evidence. The laugh comes from the exposed inconsistency rather than a hidden second meaning or expectation reversal.
-Formula: *[claim] conflicts with [evidence] because both cannot comfortably be true.*
-Required phrase markers: `conflicts with`, `because both`.
+**contradiction** - one subject holds two positions that cannot both be true; the joke is the hypocrisy or exposed inconsistency.
+Fields: `subject`, `a`, `b`.
+Formula: *[subject] both [a] and yet [b].*
+Required phrase markers: `both`, `and yet`.
 
 Example:
 - setup: `"I'm very financially responsible."`
 - setup: `"I only have seven payday loans."`
 - punchline: `"That's diversification."`
 
-Premise: `"Financial responsibility conflicts with payday loans because both cannot comfortably be true."`
+Premise: `"Financial responsibility both means avoiding debt and yet includes payday loans."`
+JSON fields: `{ "subject": "financial responsibility", "a": "means avoiding debt", "b": "includes payday loans" }`
 
-**analogy**  — two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
+**analogy**  - two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
+Fields: `a`, `b`, `shared`.
 Formula: *[X] is like [Y] because both [shared structure].*
 Required phrase markers: `is like`, `because both`.
 
@@ -182,28 +210,45 @@ Example:
 - tag: `"and deciding to try again, 'cause I like the challenge."`
 
 Premise: `"Golf is like marriage because both are difficult, expensive and repetitious."`
+JSON fields: `{ "a": "golf", "b": "marriage", "shared": "difficult, expensive and repetitious" }`
 
-**hyperbole** — a feeling, trait, preference, or consequence is exaggerated past plausibility. The laugh comes from the excess of degree, scale, or intensity.
-Formula: *[thing] is so [extreme quality] that [impossible or disproportionate result].*
-Required phrase markers: `so`, `that`.
+**hyperbole** - one dimension of a subject is stretched past plausibility. The laugh comes from excess degree, scale, or intensity.
+Fields: `subject`, `extreme`.
+Formula: *[subject] taken so far that [extreme].*
+Required phrase marker: `taken so far that`.
 
 Example:
 - setup: `"So I've already seen a third of this collection"`
 - setup: `"and I don't have enough bodily fluids"`
 - punchline: `"for the other two thirds of this collection."`
 
-Premise: `"A porn collection is so large that you could run out of sperm."`
+Premise: `"A porn collection taken so far that you could run out of sperm."`
+JSON fields: `{ "subject": "a porn collection", "extreme": "you could run out of sperm" }`
 
-
-**elephant-in-the-room** — a taboo or socially avoided observation is said aloud. The audience already recognizes the conclusion; the laugh comes from breaking the silence.
-Formula: *[observation] is widely understood about [topic] but rarely said aloud.*
+**elephant-in-the-room** - a taboo or socially avoided observation is said aloud. The audience already recognizes the conclusion; the laugh comes from breaking the silence.
+Fields: `elephant`.
+Formula: *[elephant] is widely understood but rarely said aloud.*
 Required phrase markers: `widely understood`, `but rarely`.
 
 Example:
 - setup: `"You know, these shootings are often done by the same race."`
 - punchline: `"I'm looking at you, honkies."`
 
-Premise: `"White men are widely understood to dominate mass shootings but rarely named aloud by race."`
+Premise: `"White men dominate mass shootings is widely understood but rarely said aloud."`
+JSON fields: `{ "elephant": "white men dominate mass shootings" }`
+
+**anti-humor** - a joke form promises a payoff, then delivers the banal truth; the joke is that there is no joke.
+Fields: `frame`, `answer`.
+Formula: *[frame] implies a punchline, but reveals only [answer].*
+Required phrase marker: `implies a punchline, but reveals only`.
+
+Example:
+- setup: `"A duck walks into a pharmacy with a rash on his beak."`
+- setup: `"He asks the pharmacist for some ointment."`
+- punchline: `"Sorry, we don't have medicine for ducks here."`
+
+Premise: `"An animal asking a business for service implies a punchline, but reveals only that the business does not serve animals."`
+JSON fields: `{ "frame": "an animal asking a business for service", "answer": "that the business does not serve animals" }`
 
 ### Boundary rules
 
@@ -223,10 +268,12 @@ Premise: `"White men are widely understood to dominate mass shootings but rarely
 2. Identify each punchline — that's the anchor for each beat.
 3. Walk backwards from each punchline labeling setup; walk forwards labeling tags.
 4. Mark everything else fluff.
-5. For each beat, identify the joke type (`misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `contradiction`, `analogy`, `hyperbole`, `elephant-in-the-room`) and write a premise using its formula. Record the type in the beat's `joke_type` field. Do not invent other `joke_type` values.
-6. Group beats into bits by shared premise. Apply the extraction test: if a beat would survive standalone, it's its own bit.
-7. For multi-beat bits, write a short `summary` that captures the shared frame. Do not add `summary` to single-beat bits.
-8. Write the output JSON with `bit_meta`, fully labeled lines, and bit/beat numbers only on punchlines.
+5. For each beat, identify the joke type (`misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `contradiction`, `analogy`, `hyperbole`, `elephant-in-the-room`, `anti-humor`) and write a premise using its formula. Record the type in the beat's `joke_type` field. Do not invent other `joke_type` values.
+6. Add the required field keys for that joke type using the same distilled wording from the premise.
+7. Choose keys last from the allowed premise fields for that joke type.
+8. Group beats into bits by shared premise. Apply the extraction test: if a beat would survive standalone, it's its own bit.
+9. For multi-beat bits, write a short `summary` that captures the shared frame. Do not add `summary` to single-beat bits.
+10. Write the output JSON with `bit_meta`, fully labeled lines, and bit/beat numbers only on punchlines.
 
 ---
 
@@ -265,7 +312,10 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
         "1": {
           "premise": "Earning citizenship implies a personal milestone, but the timing reveals it as a draft sentence.",
           "joke_type": "misdirect",
-          "topics": ["war", "citizenship", "draft"]
+          "bait": "earning citizenship",
+          "implication": "a personal milestone",
+          "reveal": "a draft sentence",
+          "topics": ["citizenship"]
         }
       }
     },
@@ -274,6 +324,8 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
         "1": {
           "premise": "Expanding draft eligibility to middle-aged stoners could be the worst army ever assembled.",
           "joke_type": "reframe",
+          "subject": "expanding draft eligibility to middle-aged stoners",
+          "reframe": "the worst army ever assembled",
           "topics": ["draft age", "marijuana convictions", "army"]
         }
       }
@@ -284,22 +336,30 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
         "1": {
           "premise": "Wheelchair soldiers with a grenade could be kamikaze rollers.",
           "joke_type": "reframe",
-          "topics": ["Estonia", "wheelchairs", "grenades"]
+          "subject": "wheelchair soldiers with a grenade",
+          "reframe": "kamikaze rollers",
+          "topics": ["wheelchair soldiers", "grenades", "kamikaze rollers"]
         },
         "2": {
           "premise": "'Special forces' can mean elite operatives or literally special-needs soldiers.",
           "joke_type": "double-meaning",
-          "topics": ["special forces", "down syndrome", "wordplay"]
+          "phrase": "special forces",
+          "senses": ["elite operatives", "literally special-needs soldiers"],
+          "topics": ["special forces"]
         },
         "3": {
           "premise": "A dead Santa lie could be the most effective conscription tool for special-needs soldiers.",
           "joke_type": "reframe",
-          "topics": ["Santa Claus", "down syndrome", "conscription"]
+          "subject": "a dead Santa lie",
+          "reframe": "the most effective conscription tool for special-needs soldiers",
+          "topics": ["Santa Claus", "conscription", "special-needs soldiers"]
         },
         "4": {
           "premise": "A gay soldier could be the best-protected person on base among sex-starved straight men.",
           "joke_type": "reframe",
-          "topics": ["gay soldiers", "base life", "military"]
+          "subject": "a gay soldier",
+          "reframe": "the best-protected person on base among sex-starved straight men",
+          "topics": ["gay soldiers", "base life", "straight men"]
         }
       }
     }
