@@ -123,6 +123,24 @@ class CleanFluffBitBeatTests(SimpleTestCase):
 
 
 class ValidateBitMetaTests(SimpleTestCase):
+    def test_contradiction_joke_type_is_valid(self):
+        meta = valid_meta_with_line(
+            {
+                "line_number": 10,
+                "text": "Payoff.",
+                "label": "punchline",
+                "bit": 1,
+                "beat": 1,
+            }
+        )
+        meta["bit_meta"]["1"]["beats"]["1"] = {
+            "premise": "Financial responsibility conflicts with payday loans because both cannot comfortably be true.",
+            "joke_type": "contradiction",
+            "topics": ["payday loans"],
+        }
+
+        validate_bit_meta(meta)
+
     def test_non_fluff_line_requires_bit_and_beat(self):
         meta = valid_meta_with_line(
             {

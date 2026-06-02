@@ -7,6 +7,7 @@ class Beat(models.Model):
         ('reframe', 'Reframe'),
         ('phonetic-match', 'Phonetic match'),
         ('double-meaning', 'Double-meaning'),
+        ('contradiction', 'Contradiction'),
         ('what-if', 'What-if'),
         ('analogy', 'Analogy'),
         ('hyperbole', 'Hyperbole'),

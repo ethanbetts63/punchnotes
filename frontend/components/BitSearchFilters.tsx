@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 const SEARCH_PATH = "/killtony/bits/search";
 
 const JOKE_TYPE_OPTIONS = [
-  "misdirect", "reframe", "phonetic-match", "double-meaning", "what-if",
+  "misdirect", "reframe", "phonetic-match", "double-meaning", "contradiction", "what-if",
   "analogy", "hyperbole", "act-out", "elephant-in-the-room", "prop",
 ];
 

@@ -5,7 +5,7 @@ import { useState, useMemo } from "react";
 
 const JOKE_TYPES = [
   "misdirect", "reframe", "phonetic-match", "double-meaning",
-  "analogy", "hyperbole", "elephant-in-the-room",
+  "contradiction", "analogy", "hyperbole", "elephant-in-the-room",
 ];
 
 type Props = { topics: string[] };

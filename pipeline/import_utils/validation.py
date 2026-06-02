@@ -9,6 +9,7 @@ PREMISE_STRUCTURE_RULES: dict[str, tuple[str, ...]] = {
     "reframe": ("could be",),
     "phonetic-match": ("sounds like", "and"),
     "double-meaning": ("can mean", "or"),
+    "contradiction": ("conflicts with", "because both"),
     "analogy": ("is like", "because both"),
     "hyperbole": ("so", "that"),
     "elephant-in-the-room": ("widely understood", "but rarely"),

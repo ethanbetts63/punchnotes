@@ -92,7 +92,7 @@ For multi-beat bits, every beat must still have its own premise. The bit summary
 - No pronouns tied to the comedian — no "he", "she", "they", "the comic".
 - Use the most general form: `"Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."`
 
-**Joke type:** one of the seven accepted labels defined in the next section: `misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `analogy`, `hyperbole`, `elephant-in-the-room`. Pick the mechanism that best describes how the joke gets its laugh — the same mechanism the premise formula is built around.
+**Joke type:** one of the eight accepted labels defined in the next section: `misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `contradiction`, `analogy`, `hyperbole`, `elephant-in-the-room`. Pick the mechanism that best describes how the joke gets its laugh — the same mechanism the premise formula is built around.
 
 Do not use joke types outside this list. If a joke seems to need a type that is not allowed, choose the closest allowed type and mention the uncertainty in your closing comments.
 
@@ -101,10 +101,11 @@ When multiple joke types seem plausible, use this priority order:
 1. If the laugh depends on sound similarity, use `phonetic-match`.
 2. If the laugh depends on semantic ambiguity, use `double-meaning`.
 3. If the laugh depends on expectation reversal, use `misdirect`.
-4. If the laugh depends on comparison, use `analogy`.
-5. If the laugh depends on reinterpretation without comparison, use `reframe`.
-6. If the laugh depends on absurd degree, use `hyperbole`.
-7. If the laugh depends mainly on saying a taboo truth aloud, use `elephant-in-the-room`.
+4. If the laugh depends on a claim conflicting with evidence, use `contradiction`.
+5. If the laugh depends on comparison, use `analogy`.
+6. If the laugh depends on reinterpretation without comparison, use `reframe`.
+7. If the laugh depends on absurd degree, use `hyperbole`.
+8. If the laugh depends mainly on saying a taboo truth aloud, use `elephant-in-the-room`.
 
 **Topics:** 1–4 short, specific, searchable nouns per beat. Prefer `"crackheads"` over `"people doing drugs"`.
 
@@ -154,6 +155,17 @@ Example:
 - punchline: `"Fuck that, let's use water."`
 
 Premise: `"'Use stairs' can mean take the stairs or use stairs as the tool."`
+
+**contradiction** — a stated claim, identity, value, or expectation is undercut by incompatible evidence. The laugh comes from the exposed inconsistency rather than a hidden second meaning or expectation reversal.
+Formula: *[claim] conflicts with [evidence] because both cannot comfortably be true.*
+Required phrase markers: `conflicts with`, `because both`.
+
+Example:
+- setup: `"I'm very financially responsible."`
+- setup: `"I only have seven payday loans."`
+- punchline: `"That's diversification."`
+
+Premise: `"Financial responsibility conflicts with payday loans because both cannot comfortably be true."`
 
 **analogy**  — two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
 Formula: *[X] is like [Y] because both [shared structure].*
@@ -208,7 +220,7 @@ Premise: `"White men are widely understood to dominate mass shootings but rarely
 2. Identify each punchline — that's the anchor for each beat.
 3. Walk backwards from each punchline labeling setup; walk forwards labeling tags.
 4. Mark everything else fluff.
-5. For each beat, identify the joke type (`misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `analogy`, `hyperbole`, `elephant-in-the-room`) and write a premise using its formula. Record the type in the beat's `joke_type` field. Do not invent other `joke_type` values.
+5. For each beat, identify the joke type (`misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `contradiction`, `analogy`, `hyperbole`, `elephant-in-the-room`) and write a premise using its formula. Record the type in the beat's `joke_type` field. Do not invent other `joke_type` values.
 6. Group beats into bits by shared premise. Apply the extraction test: if a beat would survive standalone, it's its own bit.
 7. For multi-beat bits, write a short `summary` that captures the shared frame. Do not add `summary` to single-beat bits.
 8. Write the output JSON with `bit_meta`, fully labeled lines, and bit/beat numbers only on punchlines.
