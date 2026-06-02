@@ -118,11 +118,11 @@ When multiple joke types seem plausible, use this priority order:
 Key source rules:
 - `analogy`: copy `a`, `b`, and the core searchable phrase from `shared`. If `shared` begins with a helper verb like "involve", omit that helper verb from the key.
 - `hyperbole`: copy `subject` and `extreme`. The `extreme` must be the shortest phrase that preserves the exaggerated endpoint.
-- `phonetic-match`: copy `heard`; also copy `reason` when present; exclude `reheard`.
-- `double-meaning`: copy `phrase`; exclude `senses`.
+- `phonetic-match`: copy `heard` and `reheard`; also copy `reason` when present.
+- `double-meaning`: copy exact `phrase` and `comic`; exclude `expected`.
 - `contradiction`: pick concrete nouns from `subject`, `a`, and `b`.
 - `reframe`: pick concrete nouns from `subject` and `reframe`.
-- `misdirect`: pick concrete nouns from `bait`; exclude `implication` and `reveal`.
+- `misdirect`: pick the shortest searchable phrase from each of `bait`, `implication`, and `reveal`.
 - `elephant-in-the-room`: pick concrete nouns from `elephant`.
 - `anti-humor`: pick concrete nouns from `frame`; exclude `answer`.
 
@@ -144,7 +144,7 @@ Example:
 - punchline: `"Now that he's dead to me,"`
 
 Premise: `"Refusing to call a transitioning child your son implies a new title, but reveals disownment."`
-JSON fields: `{ "premise": "Refusing to call a transitioning child your son implies a new title, but reveals disownment.", "joke_type": "misdirect", "bait": "refusing to call a transitioning child your son", "implication": "a new title", "reveal": "disownment", "keys": ["transitioning child"] }`
+JSON fields: `{ "premise": "Refusing to call a transitioning child your son implies a new title, but reveals disownment.", "joke_type": "misdirect", "bait": "refusing to call a transitioning child your son", "implication": "a new title", "reveal": "disownment", "keys": ["transitioning child", "new title", "disownment"] }`
 
 **reframe** - a known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required; the joke surfaces an alternate perspective to understand the same fact, object, behavior, or situation.
 Fields: `subject`, `reframe`.
@@ -154,7 +154,6 @@ Required phrase marker: `could be`.
 Example:
 - setup: `"they got him on puberty blockers"`
 - punchline: `"or as pedophiles call them preservatives."`
-- tag: `"Fucking miracle medicine."`
 
 Premise: `"Puberty blockers could be beneficial to pedophiles."`
 JSON fields: `{ "premise": "Puberty blockers could be beneficial to pedophiles.", "joke_type": "reframe", "subject": "puberty blockers", "reframe": "beneficial to pedophiles", "keys": ["puberty blockers", "pedophiles"] }`
@@ -170,19 +169,19 @@ Example:
 - punchline: `"That's right, a fidget."`
 
 Premise: `"'Midget' sounds like 'fidget', and 'fidget' fits because ADHD."`
-JSON fields: `{ "premise": "'Midget' sounds like 'fidget', and 'fidget' fits because ADHD.", "joke_type": "phonetic-match", "heard": "midget", "reheard": "fidget", "reason": "ADHD", "keys": ["midget", "ADHD"] }`
+JSON fields: `{ "premise": "'Midget' sounds like 'fidget', and 'fidget' fits because ADHD.", "joke_type": "phonetic-match", "heard": "midget", "reheard": "fidget", "reason": "ADHD", "keys": ["midget", "fidget", "ADHD"] }`
 
-**double-meaning** - the *same* word or phrase admits two or more readings, and the comedian deliberately picks the non-standard one. Hinges on semantic ambiguity, not phonetic similarity.
-Fields: `phrase`, `senses`.
-Formula: *"[phrase]" can mean [sense 1] or [sense 2].*
+**double-meaning** - the *same* word or phrase admits two or more readings, and the comedian deliberately picks the non-standard one. Hinges on semantic ambiguity, not phonetic similarity. The `phrase` field must preserve the exact ambiguous word or phrase from the transcript. Do not generalize, paraphrase, shorten, or clean it up unless removing surrounding non-ambiguous words leaves the same complete ambiguity intact.
+Fields: `phrase`, `expected`, `comic`.
+Formula: *"[phrase]" can mean [expected] or [comic].*
 Required phrase markers: `can mean`, `or`.
 
 Example:
 - setup: `"'In case of fire, use stairs.'"`
 - punchline: `"Fuck that, let's use water."`
 
-Premise: `"'Use stairs' can mean take the stairs or use stairs as the tool."`
-JSON fields: `{ "premise": "'Use stairs' can mean take the stairs or use stairs as the tool.", "joke_type": "double-meaning", "phrase": "use stairs", "senses": ["take the stairs", "use stairs as the tool"], "keys": ["use stairs"] }`
+Premise: `"'In case of fire, use stairs' can mean use stairs during a fire or use stairs to fight a fire."`
+JSON fields: `{ "premise": "'In case of fire, use stairs' can mean use stairs during a fire or use stairs to fight a fire.", "joke_type": "double-meaning", "phrase": "In case of fire, use stairs", "expected": "use stairs during a fire", "comic": "use stairs to fight a fire", "keys": ["In case of fire, use stairs", "use stairs to fight a fire"] }`
 
 **contradiction** - one subject holds two positions that cannot both be true; the joke is the hypocrisy or exposed inconsistency.
 Fields: `subject`, `a`, `b`.
@@ -344,8 +343,9 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
           "premise": "'Special forces' can mean elite operatives or literally special-needs soldiers.",
           "joke_type": "double-meaning",
           "phrase": "special forces",
-          "senses": ["elite operatives", "literally special-needs soldiers"],
-          "keys": ["special forces"]
+          "expected": "elite operatives",
+          "comic": "literally special-needs soldiers",
+          "keys": ["special forces", "literally special-needs soldiers"]
         },
         "3": {
           "premise": "A dead Santa lie could be the most effective conscription tool for special-needs soldiers.",
