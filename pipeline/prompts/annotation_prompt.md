@@ -190,12 +190,12 @@ Formula: *[subject] both [a] and yet [b].*
 Required phrase markers: `both`, `and yet`.
 
 Example:
-- setup: `"I'm very financially responsible."`
-- setup: `"I only have seven payday loans."`
-- punchline: `"That's diversification."`
+- setup: `"My girlfriend thinks the godfather is too long,"`
+- setup: `"But her story about when her coworker was bitchy to her two years ago is..."`
+- punchline: `"the perfect length."`
 
-Premise: `"Financial responsibility both means avoiding debt and yet includes payday loans."`
-JSON fields: `{ "premise": "Financial responsibility both means avoiding debt and yet includes payday loans.", "joke_type": "contradiction", "subject": "financial responsibility", "a": "means avoiding debt", "b": "includes payday loans", "keys": ["financial responsibility", "debt", "payday loans"] }`
+Premise: `"Women both find good movies too long and yet tell long stories."`
+JSON fields: `{ "premise": "Women both find good movies too long and yet tell long stories.", "joke_type": "contradiction", "subject": "women", "a": "find good movies too long", "b": "tell long stories", "keys": ["women", "good movies", "long stories"] }`
 
 **analogy**  - two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
 Fields: `a`, `b`, `shared`.
