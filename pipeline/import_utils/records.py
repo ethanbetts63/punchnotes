@@ -312,7 +312,7 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
                 line_end=max(blns),
                 premise=beat_data.get("premise"),
                 joke_type=beat_data.get("joke_type") or None,
-                topics=beat_data.get("keys", []),
+                keys=beat_data.get("keys", []),
             )
 
     set_obj.bit_count = set_obj.bits.count()

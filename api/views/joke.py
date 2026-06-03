@@ -31,5 +31,5 @@ class JokeListView(APIView):
         topic = request.query_params.get("topic")
         evaluated = list(beats)
         if topic:
-            evaluated = [b for b in evaluated if topic in (b.topics or [])]
+            evaluated = [b for b in evaluated if topic in (b.keys or [])]
         return Response(JokeSerializer(evaluated, many=True).data)

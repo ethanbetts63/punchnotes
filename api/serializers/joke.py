@@ -15,7 +15,7 @@ class JokeSerializer(serializers.ModelSerializer):
         model = Beat
         fields = [
             "id", "comedian", "comedian_slug", "episode_number", "set_id",
-            "premise", "joke_type", "topics", "setup_lines", "punchline",
+            "premise", "joke_type", "keys", "setup_lines", "punchline",
         ]
 
     def get_setup_lines(self, beat):

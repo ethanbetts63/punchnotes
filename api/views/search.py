@@ -208,11 +208,11 @@ class SearchView(APIView):
         )
         results = []
         for bit in rows[:50]:
-            topics = set()
+            keys = set()
             joke_types = set()
             premise_score = 0
             for beat in bit.beats.all():
-                topics.update(beat.topics or [])
+                keys.update(beat.keys or [])
                 if beat.joke_type:
                     joke_types.add(beat.joke_type)
                 premise_score = max(premise_score, text_score(query, beat.premise))
@@ -222,7 +222,7 @@ class SearchView(APIView):
                 bit.summary or f"Bit {bit.bit_id}",
                 f"{bit.set.comedian.name} - KT #{bit.set.episode.episode_number}",
                 f"/killtony/sets/{bit.set.id}",
-                sorted(joke_types)[:3] + sorted(topics)[:3],
+                sorted(joke_types)[:3] + sorted(keys)[:3],
                 score,
             ))
         return sorted(results, key=lambda item: item["score"], reverse=True)[:GROUP_LIMIT]
@@ -251,15 +251,15 @@ class SearchView(APIView):
                 title,
                 f"{beat.bit.set.comedian.name} - KT #{beat.bit.set.episode.episode_number}",
                 f"/killtony/sets/{beat.bit.set.id}",
-                [beat.joke_type] + list(beat.topics or [])[:3],
+                [beat.joke_type] + list(beat.keys or [])[:3],
                 score,
             ))
         return sorted(results, key=lambda item: item["score"], reverse=True)[:GROUP_LIMIT]
 
     def search_topics(self, query):
         topics = {}
-        for beat in Beat.objects.exclude(topics=[]).only("topics"):
-            for topic in beat.topics or []:
+        for beat in Beat.objects.exclude(keys=[]).only("keys"):
+            for topic in beat.keys or []:
                 if query.lower() in topic.lower():
                     topics[topic] = topics.get(topic, 0) + 1
 
