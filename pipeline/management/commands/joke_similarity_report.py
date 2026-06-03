@@ -32,6 +32,23 @@
 #    versions of existing jokes (same mechanism, different wording) and confirm
 #    they surface at the top of the report. Until that test passes the scoring
 #    approach should be treated as unproven.
+#
+# NEXT STEPS — two directions worth pursuing:
+#
+# 1. N-gram fingerprinting on punchline text. This is the proven core of tools
+#    like Turnitin and Grammarly. Shingle each beat's punchline line(s) into
+#    overlapping N-word chunks, hash them, and compare hash sets across the corpus.
+#    High hash overlap = near-verbatim copying, which is what actual joke theft
+#    looks like in practice. Comedians who steal tend to keep the punchline wording
+#    close even when they change the setup. This would give a hard "definite match"
+#    tier that embeddings cannot provide.
+#
+# 2. Combined premise + punchline embedding. The premise captures the abstract
+#    mechanism; the raw punchline text captures the specific wording. Averaging
+#    their cosine similarities would reward jokes that are both structurally similar
+#    AND land on similar language — a much tighter definition of "same joke" than
+#    premise alone. Punchline embeddings would need to be added to the Beat model
+#    and populated via embed_keys.
 
 import json
 from itertools import combinations
