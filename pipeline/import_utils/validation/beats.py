@@ -177,7 +177,7 @@ class BeatMetaValidation:
         for key_index, key in enumerate(keys, start=1):
             if not isinstance(key, str) or not key.strip():
                 self.errors.append(f"{location}: key {key_index} must be a non-empty string")
-            elif joke_type != "double-meaning" and len(key.split()) > 4:
+            elif joke_type != "double-meaning" and len(key.split()) > 3:
                 self.errors.append(f"{location}: key {key_index} is too long; use a short searchable noun phrase")
             elif expected_keys is None and key.lower() not in allowed_key_text:
                 self.errors.append(

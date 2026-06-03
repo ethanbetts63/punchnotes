@@ -356,6 +356,25 @@ class ValidateBitMetaTests(SimpleTestCase):
         with self.assertRaisesRegex(ValueError, "bit 1 beat 1: keys must contain 1-4 items, got 0"):
             validate_bit_meta(meta)
 
+    def test_non_double_meaning_key_must_not_exceed_three_words(self):
+        meta = valid_meta_with_line(
+            {
+                "line_number": 10,
+                "text": "Payoff.",
+                "label": "punchline",
+                "bit": 1,
+                "beat": 1,
+            }
+        )
+        meta["bit_meta"]["1"]["beats"]["1"]["subject"] = "one two three four"
+        meta["bit_meta"]["1"]["beats"]["1"]["keys"] = ["one two three four"]
+
+        with self.assertRaisesRegex(
+            ValueError,
+            "bit 1 beat 1: key 1 is too long; use a short searchable noun phrase",
+        ):
+            validate_bit_meta(meta)
+
     def test_double_meaning_key_can_be_longer_than_four_words(self):
         meta = valid_meta_with_line(
             {
@@ -409,11 +428,11 @@ class ValidateBitMetaTests(SimpleTestCase):
             }
         )
         meta["bit_meta"]["1"]["beats"]["1"] = {
-            "premise": "A porn collection becomes so extreme that you run out of sperm.",
+            "premise": "A porn collection becomes so extreme that sperm depletion happens.",
             "joke_type": "hyperbole",
             "subject": "a porn collection",
-            "extreme": "running out of sperm",
-            "keys": ["porn collection", "running out of sperm"],
+            "extreme": "sperm depletion",
+            "keys": ["porn collection", "sperm depletion"],
         }
 
         validate_bit_meta(meta)

@@ -198,4 +198,4 @@ Run the import command on the single file to validate and archive it:
 python manage.py import_sets --file pipeline/data/3_bit_annotated_set_inbox/<filename>.json
 ```
 
-Do not read or write to multiple files at once. Fix one file. run the command. Then move on if it worked. 
+Do not read or write to multiple files at once. Fix one file. run the command. Then move on if it worked. \\
