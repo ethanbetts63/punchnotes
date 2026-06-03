@@ -98,8 +98,7 @@ For multi-beat bits, every beat must still have its own premise. The bit summary
 
 Do not use joke types outside this list. If a joke seems to need a type that is not allowed, choose the closest allowed type and mention the uncertainty in your closing comments.
 
-For every specific token in the setup, ask: swap it for another member of a broader class — does the joke still land via the identical mechanism? If yes, replace
-the token with the class. Repeat until the next swap up would break the joke. Duck→cow→horse all survive → animal. Beak-rash→foot-cream survive → medicine.
+For every specific token in the setup, ask: swap it for another member of a broader class — does the joke still land via the identical mechanism? If yes, replace the token with the class. Repeat until the next swap up would break the joke. Duck→cow→horse all survive → animal. Beak-rash→foot-cream survive → medicine.
 
 When multiple joke types seem plausible, use this priority order:
 
@@ -309,12 +308,12 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
     "1": {
       "beats": {
         "1": {
-          "premise": "Earning citizenship implies a personal milestone, but reveals a draft sentence.",
+          "premise": "Earning citizenship implies a personal milestone, but reveals being drafted.",
           "joke_type": "misdirect",
           "bait": "earning citizenship",
-          "implication": "a personal milestone",
-          "reveal": "a draft sentence",
-          "keys": ["citizenship", "personal milestone", "draft sentence"]
+          "implication": "personal milestone",
+          "reveal": "being drafted",
+          "keys": ["citizenship", "personal milestone", "drafted"]
         }
       }
     },
@@ -325,7 +324,7 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
           "joke_type": "reframe",
           "subject": "expanding draft eligibility to middle-aged stoners",
           "reframe": "the worst army ever assembled",
-          "keys": ["draft eligibility", "middle-aged stoners", "army"]
+          "keys": ["draft", "stoners", "army"]
         }
       }
     },

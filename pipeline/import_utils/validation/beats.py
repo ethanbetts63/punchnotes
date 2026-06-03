@@ -236,7 +236,7 @@ class BeatMetaValidation:
             return None
 
         key = shared.strip()
-        for helper in ("involve ", "involves ", "are ", "is "):
+        for helper in ("involve ", "involves ", "are ", "is ", "could ", "would ", "can ", "might "):
             if key.lower().startswith(helper):
                 return key[len(helper):].strip()
         return key

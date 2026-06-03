@@ -34,9 +34,30 @@ class Command(BaseCommand):
                 "When --dir is supplied the files are read in place and not moved."
             ),
         )
+        parser.add_argument(
+            "--file",
+            dest="source_file",
+            default=None,
+            help="Path to a single JSON file to import. Moves the file to the archive on success.",
+        )
 
     def handle(self, *args, **options):
         data_dir = settings.PIPELINE_DATA_DIR
+        relationships = load_relationships()
+
+        if options["source_file"]:
+            path = Path(options["source_file"])
+            if not path.exists():
+                self.stdout.write(self.style.ERROR(f"File not found: {path}"))
+                return
+            archive = data_dir / "bit_annotated_set_archive"
+            archive.mkdir(parents=True, exist_ok=True)
+            try:
+                self._import(path, relationships)
+                shutil.move(str(path), archive / path.name)
+            except Exception as e:
+                self.stdout.write(self.style.ERROR(f"  Failed {path.name}: {e}"))
+            return
 
         if options["source_dir"]:
             source = Path(options["source_dir"])
@@ -52,7 +73,6 @@ class Command(BaseCommand):
             return
 
         self.stdout.write(f"Importing {len(files)} file(s) from {source}...")
-        relationships = load_relationships()
 
         for path in files:
             try:
