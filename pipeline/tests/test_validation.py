@@ -393,8 +393,71 @@ class ValidateBitMetaTests(SimpleTestCase):
             "premise": "'In case of fire use stairs' can mean escape or extinguish.",
             "joke_type": "double-meaning",
             "phrase": "in case of fire use stairs",
-            "senses": ["escape", "extinguish"],
-            "keys": ["in case of fire use stairs"],
+            "expected": "escape",
+            "comic": "extinguish",
+            "keys": ["in case of fire use stairs", "extinguish"],
+        }
+
+        validate_bit_meta(meta)
+
+    def test_phonetic_match_keys_include_both_words_and_reason(self):
+        meta = valid_meta_with_line(
+            {
+                "line_number": 10,
+                "text": "Payoff.",
+                "label": "punchline",
+                "bit": 1,
+                "beat": 1,
+            }
+        )
+        meta["bit_meta"]["1"]["beats"]["1"] = {
+            "premise": "'Midget' sounds like 'fidget', and 'fidget' fits because ADHD.",
+            "joke_type": "phonetic-match",
+            "heard": "midget",
+            "reheard": "fidget",
+            "reason": "ADHD",
+            "keys": ["midget", "fidget", "ADHD"],
+        }
+
+        validate_bit_meta(meta)
+
+    def test_hyperbole_keys_include_subject_and_extreme(self):
+        meta = valid_meta_with_line(
+            {
+                "line_number": 10,
+                "text": "Payoff.",
+                "label": "punchline",
+                "bit": 1,
+                "beat": 1,
+            }
+        )
+        meta["bit_meta"]["1"]["beats"]["1"] = {
+            "premise": "A porn collection becomes so extreme that you run out of sperm.",
+            "joke_type": "hyperbole",
+            "subject": "a porn collection",
+            "extreme": "running out of sperm",
+            "keys": ["porn collection", "running out of sperm"],
+        }
+
+        validate_bit_meta(meta)
+
+    def test_analogy_key_omits_helper_verb_from_shared(self):
+        meta = valid_meta_with_line(
+            {
+                "line_number": 10,
+                "text": "Payoff.",
+                "label": "punchline",
+                "bit": 1,
+                "beat": 1,
+            }
+        )
+        meta["bit_meta"]["1"]["beats"]["1"] = {
+            "premise": "Golf is like marriage because both involve expensive repeated failure.",
+            "joke_type": "analogy",
+            "a": "golf",
+            "b": "marriage",
+            "shared": "involve expensive repeated failure",
+            "keys": ["golf", "marriage", "expensive repeated failure"],
         }
 
         validate_bit_meta(meta)

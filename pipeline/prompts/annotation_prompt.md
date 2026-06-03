@@ -209,7 +209,7 @@ Example:
 - tag: `"and deciding to try again, 'cause I like the challenge."`
 
 Premise: `"Golf is like marriage because both involve expensive repeated failure."`
-JSON fields: `{ "premise": "Golf is like marriage because both involve expensive repeated failure.", "joke_type": "analogy", "a": "golf", "b": "marriage", "shared": "expensive repeated failure", "keys": ["golf", "marriage", "expensive repeated failure"] }`
+JSON fields: `{ "premise": "Golf is like marriage because both involve expensive repeated failure.", "joke_type": "analogy", "a": "golf", "b": "marriage", "shared": "involve expensive repeated failure", "keys": ["golf", "marriage", "expensive repeated failure"] }`
 
 **hyperbole** - one dimension of a subject is stretched past plausibility. The laugh comes from excess degree, scale, or intensity.
 Fields: `subject`, `extreme`.
@@ -309,12 +309,12 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
     "1": {
       "beats": {
         "1": {
-          "premise": "Earning citizenship implies a personal milestone, but the timing reveals it as a draft sentence.",
+          "premise": "Earning citizenship implies a personal milestone, but reveals a draft sentence.",
           "joke_type": "misdirect",
           "bait": "earning citizenship",
           "implication": "a personal milestone",
           "reveal": "a draft sentence",
-          "keys": ["citizenship"]
+          "keys": ["citizenship", "personal milestone", "draft sentence"]
         }
       }
     },
@@ -336,16 +336,16 @@ This set has three bits. Bits 1 and 2 are single-beat, so the premise lives only
           "premise": "Wheelchair soldiers with a grenade could be terrifying.",
           "joke_type": "reframe",
           "subject": "wheelchair soldiers with a grenade",
-          "reframe": "kamikaze rollers",
-          "keys": ["wheelchair soldiers", "grenades"]
+          "reframe": "terrifying",
+          "keys": ["wheelchair soldiers", "grenade"]
         },
         "2": {
-          "premise": "'Special forces' can mean elite operatives or literally special-needs soldiers.",
+          "premise": "'Special forces' can mean elite operatives or special-needs.",
           "joke_type": "double-meaning",
           "phrase": "special forces",
           "expected": "elite operatives",
-          "comic": "literally special-needs soldiers",
-          "keys": ["special forces", "literally special-needs soldiers"]
+          "comic": "special-needs",
+          "keys": ["special forces", "special-needs"]
         },
         "3": {
           "premise": "A dead Santa lie could be the most effective conscription tool for special-needs soldiers.",

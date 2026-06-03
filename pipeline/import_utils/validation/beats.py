@@ -105,24 +105,13 @@ class BeatMetaValidation:
 
         for field in required_fields:
             value = beat_data.get(field)
-            if field == "senses":
-                self._validate_senses(location, value)
-            elif not is_non_empty_string(value):
+            if not is_non_empty_string(value):
                 self.errors.append(f"{location}: field {field!r} is required for joke_type {joke_type!r}")
 
         for field in optional_fields:
             value = beat_data.get(field)
             if value is not None and not is_non_empty_string(value):
                 self.errors.append(f"{location}: optional field {field!r} must be a non-empty string when present")
-
-    def _validate_senses(self, location: str, value) -> None:
-        if not isinstance(value, list) or len(value) < 2:
-            self.errors.append(f"{location}: field 'senses' must be an array with at least 2 strings")
-            return
-
-        for sense_index, sense in enumerate(value, start=1):
-            if not is_non_empty_string(sense):
-                self.errors.append(f"{location}: senses item {sense_index} must be a non-empty string")
 
     def _validate_premise(self, location: str, joke_type: str, beat_data: dict) -> None:
         premise = beat_data.get("premise")
@@ -198,13 +187,13 @@ class BeatMetaValidation:
 
     def _allowed_key_text(self, joke_type: str, beat_data: dict) -> str:
         fields_by_type = {
-            "misdirect": ("bait",),
+            "misdirect": ("bait", "implication", "reveal"),
             "reframe": ("subject", "reframe"),
-            "phonetic-match": ("heard", "reason"),
-            "double-meaning": ("phrase",),
+            "phonetic-match": ("heard", "reheard", "reason"),
+            "double-meaning": ("phrase", "comic"),
             "contradiction": ("subject", "a", "b"),
-            "analogy": ("a", "b"),
-            "hyperbole": ("subject",),
+            "analogy": ("a", "b", "shared"),
+            "hyperbole": ("subject", "extreme"),
             "elephant-in-the-room": ("elephant",),
             "anti-humor": ("frame",),
         }
@@ -215,15 +204,52 @@ class BeatMetaValidation:
 
     def _expected_full_auto_keys(self, joke_type: str, beat_data: dict) -> list[str] | None:
         if joke_type == "phonetic-match":
-            expected = [beat_data.get("heard")]
+            expected = [beat_data.get("heard"), beat_data.get("reheard")]
             if is_non_empty_string(beat_data.get("reason")):
                 expected.append(beat_data.get("reason"))
             return [key for key in expected if isinstance(key, str)]
+
+        if joke_type == "analogy":
+            expected = [beat_data.get("a"), beat_data.get("b")]
+            shared_key = self._analogy_shared_key(beat_data.get("shared"))
+            if shared_key:
+                expected.append(shared_key)
+            return [key for key in expected if isinstance(key, str)]
+
+        if joke_type == "hyperbole":
+            expected = []
+            subject = self._strip_leading_article(beat_data.get("subject"))
+            if subject:
+                expected.append(subject)
+            extreme = beat_data.get("extreme")
+            if is_non_empty_string(extreme):
+                expected.append(extreme)
+            return expected
 
         fields = FULL_AUTO_KEY_FIELDS.get(joke_type)
         if not fields:
             return None
         return [beat_data[field] for field in fields if isinstance(beat_data.get(field), str)]
+
+    def _analogy_shared_key(self, shared) -> str | None:
+        if not is_non_empty_string(shared):
+            return None
+
+        key = shared.strip()
+        for helper in ("involve ", "involves ", "are ", "is "):
+            if key.lower().startswith(helper):
+                return key[len(helper):].strip()
+        return key
+
+    def _strip_leading_article(self, value) -> str | None:
+        if not is_non_empty_string(value):
+            return None
+
+        key = value.strip()
+        for article in ("a ", "an ", "the "):
+            if key.lower().startswith(article):
+                return key[len(article):].strip()
+        return key
 
     def _validate_punchline_metadata_links(self) -> None:
         for bit_num, beat_num in sorted(self.punchline_lines):

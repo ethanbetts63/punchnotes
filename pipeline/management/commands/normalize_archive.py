@@ -23,7 +23,7 @@ BEAT_FIELD_ORDER = [
     "bait", "implication", "reveal",
     "subject", "reframe", "extreme",
     "heard", "reheard", "reason",
-    "phrase", "senses",
+    "phrase", "expected", "comic",
     "a", "b", "shared",
     "elephant", "frame", "answer",
     "keys",

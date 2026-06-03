@@ -19,7 +19,7 @@ PREMISE_STRUCTURE_RULES: dict[str, tuple[str, ...]] = {
     "double-meaning": ("can mean", "or"),
     "contradiction": ("both", "and yet"),
     "analogy": ("is like", "because both"),
-    "hyperbole": ("taken so far that",),
+    "hyperbole": ("becomes so extreme that",),
     "elephant-in-the-room": ("widely understood", "but rarely"),
     "anti-humor": ("implies a punchline, but reveals only",),
 }
@@ -35,7 +35,7 @@ JOKE_TYPE_FIELDS: dict[str, tuple[str, ...]] = {
     "misdirect": ("bait", "implication", "reveal"),
     "reframe": ("subject", "reframe"),
     "phonetic-match": ("heard", "reheard"),
-    "double-meaning": ("phrase", "senses"),
+    "double-meaning": ("phrase", "expected", "comic"),
     "contradiction": ("subject", "a", "b"),
     "analogy": ("a", "b", "shared"),
     "hyperbole": ("subject", "extreme"),
@@ -48,7 +48,5 @@ OPTIONAL_JOKE_TYPE_FIELDS: dict[str, tuple[str, ...]] = {
 }
 
 FULL_AUTO_KEY_FIELDS: dict[str, tuple[str, ...]] = {
-    "analogy": ("a", "b"),
-    "hyperbole": ("subject",),
-    "double-meaning": ("phrase",),
+    "double-meaning": ("phrase", "comic"),
 }
