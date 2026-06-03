@@ -272,6 +272,25 @@ def _infer_line_ownership(lines_data: list) -> dict[int, tuple[int | None, int |
     return ownership
 
 
+JOKE_TYPE_FIELDS = {
+    "misdirect":           ["bait", "implication", "reveal"],
+    "reframe":             ["subject", "reframe"],
+    "phonetic-match":      ["heard", "reheard", "reason"],
+    "double-meaning":      ["phrase", "expected", "comic"],
+    "contradiction":       ["subject", "a", "b"],
+    "analogy":             ["a", "b", "shared"],
+    "hyperbole":           ["subject", "extreme"],
+    "elephant-in-the-room": ["elephant"],
+    "anti-humor":          ["frame", "answer"],
+}
+
+
+def _extract_joke_fields(beat_data: dict) -> dict:
+    joke_type = beat_data.get("joke_type") or ""
+    fields = JOKE_TYPE_FIELDS.get(joke_type, [])
+    return {f: beat_data[f] for f in fields if f in beat_data}
+
+
 def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
     set_obj.bits.all().delete()
 
@@ -313,6 +332,7 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
                 premise=beat_data.get("premise"),
                 joke_type=beat_data.get("joke_type") or None,
                 keys=beat_data.get("keys", []),
+                joke_fields=_extract_joke_fields(beat_data),
             )
 
     set_obj.bit_count = set_obj.bits.count()

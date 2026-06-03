@@ -20,8 +20,10 @@ class Beat(models.Model):
     premise = models.TextField(null=True, blank=True)
     joke_type = models.CharField(max_length=30, choices=JOKE_TYPE_CHOICES, null=True, blank=True)
     keys = models.JSONField(default=list)
+    joke_fields = models.JSONField(default=dict)
     key_embeddings = models.JSONField(default=list)
     premise_embedding = models.JSONField(default=list)
+    diagnostic_embedding = models.JSONField(default=list)
 
     class Meta:
         ordering = ['line_start']
