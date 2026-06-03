@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 
-from pipeline.import_utils.cleaning import clean_fluff_bit_beat
+from pipeline.import_utils.records import _infer_line_ownership
 from pipeline.import_utils.validation import validate_bit_meta
 
 
@@ -23,7 +23,7 @@ def valid_meta_with_line(line):
     }
 
 
-class CleanFluffBitBeatTests(SimpleTestCase):
+class InferLineOwnershipTests(SimpleTestCase):
     def test_setup_gets_next_punchline_bit_and_beat(self):
         meta = {
             "lines": [
@@ -32,10 +32,9 @@ class CleanFluffBitBeatTests(SimpleTestCase):
             ],
         }
 
-        cleaned = clean_fluff_bit_beat(meta)
+        ownership = _infer_line_ownership(meta["lines"])
 
-        self.assertEqual(cleaned["lines"][0]["bit"], 1)
-        self.assertEqual(cleaned["lines"][0]["beat"], 1)
+        self.assertEqual(ownership[1], (1, 1))
 
     def test_tag_gets_previous_punchline_bit_and_beat(self):
         meta = {
@@ -45,10 +44,9 @@ class CleanFluffBitBeatTests(SimpleTestCase):
             ],
         }
 
-        cleaned = clean_fluff_bit_beat(meta)
+        ownership = _infer_line_ownership(meta["lines"])
 
-        self.assertEqual(cleaned["lines"][1]["bit"], 1)
-        self.assertEqual(cleaned["lines"][1]["beat"], 1)
+        self.assertEqual(ownership[2], (1, 1))
 
     def test_fluff_inside_beat_can_be_inferred_from_punchline_anchor(self):
         meta = {
@@ -59,10 +57,9 @@ class CleanFluffBitBeatTests(SimpleTestCase):
             ],
         }
 
-        cleaned = clean_fluff_bit_beat(meta)
+        ownership = _infer_line_ownership(meta["lines"])
 
-        self.assertEqual(cleaned["lines"][1]["bit"], 1)
-        self.assertEqual(cleaned["lines"][1]["beat"], 1)
+        self.assertEqual(ownership[2], (1, 1))
 
     def test_fluff_between_beats_gets_bit_and_null_beat(self):
         meta = {
@@ -73,10 +70,9 @@ class CleanFluffBitBeatTests(SimpleTestCase):
             ],
         }
 
-        cleaned = clean_fluff_bit_beat(meta)
+        ownership = _infer_line_ownership(meta["lines"])
 
-        self.assertEqual(cleaned["lines"][1]["bit"], 1)
-        self.assertIsNone(cleaned["lines"][1]["beat"])
+        self.assertEqual(ownership[2], (1, None))
 
     def test_fluff_inside_beat_gets_bit_and_beat(self):
         meta = {
@@ -87,10 +83,9 @@ class CleanFluffBitBeatTests(SimpleTestCase):
             ],
         }
 
-        cleaned = clean_fluff_bit_beat(meta)
+        ownership = _infer_line_ownership(meta["lines"])
 
-        self.assertEqual(cleaned["lines"][1]["bit"], 1)
-        self.assertEqual(cleaned["lines"][1]["beat"], 1)
+        self.assertEqual(ownership[2], (1, 1))
 
     def test_fluff_outside_bit_stays_null(self):
         meta = {
@@ -102,14 +97,12 @@ class CleanFluffBitBeatTests(SimpleTestCase):
             ],
         }
 
-        cleaned = clean_fluff_bit_beat(meta)
+        ownership = _infer_line_ownership(meta["lines"])
 
-        self.assertIsNone(cleaned["lines"][0]["bit"])
-        self.assertIsNone(cleaned["lines"][0]["beat"])
-        self.assertIsNone(cleaned["lines"][3]["bit"])
-        self.assertIsNone(cleaned["lines"][3]["beat"])
+        self.assertEqual(ownership[1], (None, None))
+        self.assertEqual(ownership[4], (None, None))
 
-    def test_cleaner_does_not_mutate_original_meta(self):
+    def test_inference_does_not_mutate_original_meta(self):
         meta = {
             "lines": [
                 {"line_number": 1, "text": "Setup.", "label": "setup", "bit": 1, "beat": 1},
@@ -118,7 +111,7 @@ class CleanFluffBitBeatTests(SimpleTestCase):
             ],
         }
 
-        clean_fluff_bit_beat(meta)
+        _infer_line_ownership(meta["lines"])
 
         self.assertIsNone(meta["lines"][1]["bit"])
         self.assertIsNone(meta["lines"][1]["beat"])
@@ -362,22 +355,6 @@ class ValidateBitMetaTests(SimpleTestCase):
 
         with self.assertRaisesRegex(ValueError, "bit 1 beat 1: keys must contain 1-4 items, got 0"):
             validate_bit_meta(meta)
-
-    def test_keys_are_not_required_during_topics_transition(self):
-        meta = valid_meta_with_line(
-            {
-                "line_number": 10,
-                "text": "Payoff.",
-                "label": "punchline",
-                "bit": 1,
-                "beat": 1,
-            }
-        )
-        beat = meta["bit_meta"]["1"]["beats"]["1"]
-        beat.pop("keys")
-        beat["topics"] = ["thing"]
-
-        validate_bit_meta(meta)
 
     def test_double_meaning_key_can_be_longer_than_four_words(self):
         meta = valid_meta_with_line(

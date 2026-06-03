@@ -28,8 +28,7 @@ VALID_JOKE_TYPES = frozenset(PREMISE_STRUCTURE_RULES)
 
 PREMISE_MAX_WORDS = 20
 
-# `topics` is tolerated during the transition, but key checks only read `keys`.
-BASE_BEAT_FIELDS = frozenset({"premise", "joke_type", "keys", "topics"})
+BASE_BEAT_FIELDS = frozenset({"premise", "joke_type", "keys"})
 
 JOKE_TYPE_FIELDS: dict[str, tuple[str, ...]] = {
     "misdirect": ("bait", "implication", "reveal"),

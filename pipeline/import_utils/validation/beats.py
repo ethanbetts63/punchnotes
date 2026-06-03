@@ -2,7 +2,7 @@
 
 This validator enforces joke-type-specific premise structure and field shape.
 When a beat provides `keys`, it validates those keys against the premise fields;
-it does not require `keys` or reject transitional `topics` fields.
+it does not require `keys`.
 """
 
 from collections import defaultdict

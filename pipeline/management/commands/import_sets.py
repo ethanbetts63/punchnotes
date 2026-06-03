@@ -9,7 +9,6 @@ from django.db import transaction
 
 from pipeline.models import Comedian
 from pipeline.import_utils.comedian_aliases import canonicalize_comedian_name, load_relationships
-from pipeline.import_utils.cleaning import clean_fluff_bit_beat
 from pipeline.import_utils.validation import validate_bit_meta
 from pipeline.import_utils.records import (
     import_bits,
@@ -69,7 +68,6 @@ class Command(BaseCommand):
     def _import(self, path, relationships):
         meta = json.loads(path.read_text(encoding="utf-8-sig"))
         validate_bit_meta(meta)
-        meta = clean_fluff_bit_beat(meta)
 
         video_id = meta["video_id"]
         canonical_comedian = canonicalize_comedian_name(meta["comedian_name"], relationships)

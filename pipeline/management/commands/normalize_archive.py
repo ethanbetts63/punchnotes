@@ -4,9 +4,6 @@ from pathlib import Path
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from pipeline.import_utils.cleaning import clean_fluff_bit_beat
-
-
 SET_FIELD_ORDER = [
     "type", "video_id", "episode_title", "episode_url", "publish_date",
     "guests", "comedian_name",
@@ -172,8 +169,6 @@ def serialize_transcript(data: dict) -> str:
 def normalize_path(path, serializer):
     raw = path.read_text(encoding="utf-8-sig")
     data = json.loads(raw)
-    if data.get("type") == "set_meta":
-        data = clean_fluff_bit_beat(data)
     new = serializer(data)
     if new == raw.replace("\r\n", "\n"):
         return False
