@@ -16,8 +16,10 @@ class Command(BaseCommand):
             self.stdout.write("No beats need embedding.")
             return
 
-        self.stdout.write(f"Loading {MODEL_NAME}...")
+        self.stdout.write(f"Loading {MODEL_NAME} (downloading ~420MB on first run)...")
         from sentence_transformers import SentenceTransformer
+        from huggingface_hub import snapshot_download
+        snapshot_download(f"sentence-transformers/{MODEL_NAME}")
         model = SentenceTransformer(MODEL_NAME)
 
         # Flatten all keys across all beats so we encode in one pass
