@@ -199,3 +199,8 @@ python manage.py import_sets --file pipeline/data/3_bit_annotated_set_inbox/<fil
 ```
 
 Do not read or write to multiple files at once. Fix one file. run the command. Then move on if it worked. \\
+
+
+A note on premises: 
+          "premise": "A solemn colonoscopy moment implies the asshole will say something profound, but the doctor turns it into a comedy bit instead.",
+this is a really badly written premise. this is just a summary of the joke. it does not actually serve the role of a premise. avoid writing summaries. 
