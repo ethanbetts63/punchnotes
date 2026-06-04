@@ -283,7 +283,8 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
    - Annotate: label every line, assign bit/beat numbers to punchlines, write bit_meta.
    - Write the output to `pipeline/data/3_bit_annotated_set_inbox/<same-filename>.json`.
    - Delete the source file from `pipeline/data/2_set_inbox/`.
-3. Run python manage.py import_sets. This is **VERY IMPORTANT** it helps you learn from any mistakes you may have made. 
+3. python manage.py import_sets --file pipeline/data/3_bit_annotated_set_inbox/<filename>.json
+ This is **VERY IMPORTANT** it helps you learn from any mistakes you may have made.  you must specify the file. 
 4. Move to the next file. Repeat until all given files are done.
 
 ---
