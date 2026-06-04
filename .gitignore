@@ -21,3 +21,4 @@ db.sqlite3
 /pipeline/data/audio_archive/
 /pipeline/data/set_images_archive/
 /pipeline/data/joke_similarity_report.json
+/pipeline/data/combo_similarity_report.json
