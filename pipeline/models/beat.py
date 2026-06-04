@@ -24,6 +24,8 @@ class Beat(models.Model):
     key_embeddings = models.JSONField(default=list)
     premise_embedding = models.JSONField(default=list)
     diagnostic_embedding = models.JSONField(default=list)
+    punchline_embedding = models.JSONField(default=list)
+    combo_embedding = models.JSONField(default=list)
 
     class Meta:
         ordering = ['line_start']
