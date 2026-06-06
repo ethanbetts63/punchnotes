@@ -1,4 +1,12 @@
+# Supersedes joke_similarity_report, which compared jokes using diagnostic_embedding
+# (a single type-specific field, e.g. just the "reveal" for misdirection) plus a key
+# overlap confidence score. That approach was too reductive — collapsing a joke to one
+# structural field discarded too much context and produced noisy results. This version
+# embeds the full setup+punchline text together, which captures the whole joke and
+# surfaces much cleaner matches.
+
 import json
+import time
 from itertools import combinations
 
 import numpy as np
@@ -87,16 +95,33 @@ class Command(BaseCommand):
         for beat in beats:
             groups.setdefault(beat.joke_type or "unknown", []).append(beat)
 
+        REPORT_EVERY = 100_000
+
         raw_pairs = []
         for label, group in groups.items():
             n_pairs = len(group) * (len(group) - 1) // 2
-            self.stdout.write(f"  {label}: {len(group)} beats, {n_pairs} pairs")
+            self.stdout.write(f"\n  {label}: {len(group)} beats, {n_pairs:,} pairs")
+            group_start = time.time()
+            checked = 0
+            found = 0
             for a, b in combinations(group, 2):
+                checked += 1
                 if a.bit.set.comedian_id == b.bit.set.comedian_id:
                     continue
                 sim = round(cosine_sim(a.combo_embedding, b.combo_embedding), 4)
                 if sim >= threshold:
                     raw_pairs.append((sim, a, b))
+                    found += 1
+                if checked % REPORT_EVERY == 0:
+                    elapsed = time.time() - group_start
+                    rate = checked / elapsed
+                    remaining = (n_pairs - checked) / rate
+                    self.stdout.write(
+                        f"    {checked:,}/{n_pairs:,} ({100 * checked / n_pairs:.1f}%) | "
+                        f"{found} found | {elapsed:.0f}s elapsed | ~{remaining:.0f}s left"
+                    )
+            elapsed = time.time() - group_start
+            self.stdout.write(f"  Done: {found} pairs found in {elapsed:.1f}s")
 
         raw_pairs.sort(key=lambda p: p[0], reverse=True)
 
