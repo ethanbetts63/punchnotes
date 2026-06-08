@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Beat(models.Model):
@@ -26,6 +27,7 @@ class Beat(models.Model):
     diagnostic_embedding = models.JSONField(default=list)
     punchline_embedding = models.JSONField(default=list)
     combo_embedding = models.JSONField(default=list)
+    created_at = models.DateTimeField(default=timezone.now, db_index=True)
 
     class Meta:
         ordering = ['line_start']

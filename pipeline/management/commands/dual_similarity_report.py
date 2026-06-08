@@ -46,7 +46,8 @@ class Command(BaseCommand):
             ))
             return
 
-        pairs = json.loads(input_path.read_text(encoding="utf-8"))
+        payload = json.loads(input_path.read_text(encoding="utf-8"))
+        pairs = payload["pairs"] if isinstance(payload, dict) else payload
         self.stdout.write(f"Loaded {len(pairs)} pairs from {INPUT_FILENAME}.")
 
         beat_ids = {p["beat_a"]["id"] for p in pairs} | {p["beat_b"]["id"] for p in pairs}
