@@ -26,7 +26,7 @@ Check `C:\Users\ethan\coding\punchnotes\pipeline\data\2_set_inbox\`.
 If there are any `.json` files there:
 
 - Pick the first 20 files (sorted by filename). If fewer than 20 remain, take all of them.
-- Spin up one medium level agent, tell it which files to process, and give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\annotation_prompt.md`.
+- Spin up one medium level agent, tell it which files to process, and give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\simple_annotation_prompt.md`.
 - Wait for it to finish, then repeat for the next batch of 20.
 - Continue until `2_set_inbox` is empty.
 

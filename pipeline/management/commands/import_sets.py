@@ -30,7 +30,7 @@ class Command(BaseCommand):
             default=None,
             help=(
                 "Directory to read JSON files from. "
-                "Defaults to pipeline/data/3_bit_annotated_set_inbox/ and moves processed files to the archive. "
+                "Defaults to pipeline/data/2_set_inbox/ and moves processed files to the archive. "
                 "When --dir is supplied the files are read in place and not moved."
             ),
         )
@@ -63,7 +63,7 @@ class Command(BaseCommand):
             source = Path(options["source_dir"])
             archive = None  # don't move files when reading from a custom dir
         else:
-            source = data_dir / "3_bit_annotated_set_inbox"
+            source = data_dir / "2_set_inbox"
             archive = data_dir / "bit_annotated_set_archive"
             archive.mkdir(parents=True, exist_ok=True)
 

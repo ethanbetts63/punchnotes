@@ -10,7 +10,6 @@ db.sqlite3
 /pipeline/data/1_transcript_inbox/
 /pipeline/data/2_set_inbox/
 /pipeline/data/3_annotated_set_inbox/
-/pipeline/data/3_bit_annotated_set_inbox/
 /pipeline/data/4_set_images_inbox/
 /pipeline/data/set_images_test/
 /pipeline/data/transcript_todos.jsonl
