@@ -22,11 +22,7 @@ class Beat(models.Model):
     joke_type = models.CharField(max_length=30, choices=JOKE_TYPE_CHOICES, null=True, blank=True)
     keys = models.JSONField(default=list)
     joke_fields = models.JSONField(default=dict)
-    key_embeddings = models.JSONField(default=list)
-    premise_embedding = models.JSONField(default=list)
-    diagnostic_embedding = models.JSONField(default=list)
-    punchline_embedding = models.JSONField(default=list)
-    combo_embedding = models.JSONField(default=list)
+    embedding = models.JSONField(default=list)
     created_at = models.DateTimeField(default=timezone.now, db_index=True)
 
     class Meta:

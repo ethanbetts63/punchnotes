@@ -7,6 +7,7 @@
 
 import json
 import time
+from dataclasses import dataclass
 from datetime import datetime
 from itertools import combinations
 
@@ -17,8 +18,23 @@ from django.utils import timezone
 
 from pipeline.models import Beat, Line
 
-OUTPUT_FILENAME = "combo_similarity_report.json"
+OUTPUT_FILENAME = "embedding_similarity_report.json"
 DEFAULT_THRESHOLD = 0.70
+
+
+@dataclass(frozen=True)
+class BeatRecord:
+    id: int
+    joke_type: str | None
+    created_at: datetime
+    premise: str | None
+    keys: list
+    line_start: int
+    line_end: int
+    set_id: int
+    comedian_id: int
+    comedian_name: str
+    vector: np.ndarray
 
 
 def _fmt(obj, level=0):
@@ -38,8 +54,15 @@ def _fmt(obj, level=0):
 
 
 def cosine_sim(a, b):
-    a, b = np.array(a), np.array(b)
-    return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b)))
+    return float(np.dot(a, b))
+
+
+def _normalized_vector(embedding):
+    vector = np.asarray(embedding, dtype=np.float32)
+    norm = np.linalg.norm(vector)
+    if norm == 0:
+        return vector
+    return vector / norm
 
 
 def _parse_report(report_path):
@@ -66,27 +89,53 @@ def _parse_timestamp(value):
     return datetime.fromisoformat(value)
 
 
-def fetch_lines_for_beats(beat_ids):
-    beats = Beat.objects.filter(id__in=beat_ids).select_related("bit__set")
+def _build_beat_records(qs):
+    records = []
+    for beat in qs:
+        records.append(BeatRecord(
+            id=beat.id,
+            joke_type=beat.joke_type,
+            created_at=beat.created_at,
+            premise=beat.premise,
+            keys=beat.keys,
+            line_start=beat.line_start,
+            line_end=beat.line_end,
+            set_id=beat.bit.set_id,
+            comedian_id=beat.bit.set.comedian_id,
+            comedian_name=beat.bit.set.comedian.name,
+            vector=_normalized_vector(beat.embedding),
+        ))
+    return records
+
+
+def fetch_lines_for_beats(beats):
+    beats = list(beats)
+    if not beats:
+        return {}
+
+    set_ids = {beat.set_id for beat in beats}
+    lines_by_set = {}
+    lines = (
+        Line.objects
+        .filter(set_id__in=set_ids, label__in=("setup", "punchline", "tag"))
+        .order_by("set_id", "line_number")
+        .values("set_id", "line_number", "label", "text")
+    )
+    for line in lines:
+        lines_by_set.setdefault(line["set_id"], []).append(line)
+
     result = {}
     for beat in beats:
-        lines = (
-            Line.objects
-            .filter(
-                set=beat.bit.set,
-                label__in=("setup", "punchline", "tag"),
-                line_number__gte=beat.line_start,
-                line_number__lte=beat.line_end,
-            )
-            .order_by("line_number")
-            .values("label", "text")
-        )
-        result[beat.id] = list(lines)
+        beat_lines = []
+        for line in lines_by_set.get(beat.set_id, []):
+            if beat.line_start <= line["line_number"] <= beat.line_end:
+                beat_lines.append({"label": line["label"], "text": line["text"]})
+        result[beat.id] = beat_lines
     return result
 
 
 class Command(BaseCommand):
-    help = "Report similarity between jokes using joint setup+punchline embeddings"
+    help = "Report similarity between jokes using stored beat embeddings"
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -132,14 +181,14 @@ class Command(BaseCommand):
 
         qs = (
             Beat.objects
-            .exclude(combo_embedding=[])
+            .exclude(embedding=[])
             .select_related("bit__set__comedian")
         )
         if joke_type:
             qs = qs.filter(joke_type=joke_type)
 
-        beats = list(qs)
-        self.stdout.write(f"Loaded {len(beats)} beats with combo embeddings.")
+        beats = _build_beat_records(qs)
+        self.stdout.write(f"Loaded {len(beats)} beats with embeddings.")
 
         if not full_rebuild and last_generated_at is not None:
             new_beats = [beat for beat in beats if beat.created_at > last_generated_at]
@@ -192,9 +241,9 @@ class Command(BaseCommand):
             found = 0
             for a, b in candidate_pairs:
                 checked += 1
-                if a.bit.set.comedian_id == b.bit.set.comedian_id:
+                if a.comedian_id == b.comedian_id:
                     continue
-                sim = round(cosine_sim(a.combo_embedding, b.combo_embedding), 4)
+                sim = round(cosine_sim(a.vector, b.vector), 4)
                 if sim >= threshold:
                     raw_pairs.append((sim, a, b))
                     found += 1
@@ -222,11 +271,11 @@ class Command(BaseCommand):
                 if _pair_key(pair["beat_a"]["id"], pair["beat_b"]["id"]) in matched_new_pair_keys
             ]
 
-        matched_beat_ids = {a.id for _, a, _ in raw_pairs} | {b.id for _, _, b in raw_pairs}
         lines_by_beat = {}
-        if matched_beat_ids:
-            self.stdout.write(f"\nFetching lines for {len(matched_beat_ids)} matched beats...")
-            lines_by_beat = fetch_lines_for_beats(matched_beat_ids)
+        if raw_pairs:
+            matched_beats = {beat.id: beat for _, a, b in raw_pairs for beat in (a, b)}
+            self.stdout.write(f"\nFetching lines for {len(matched_beats)} matched beats...")
+            lines_by_beat = fetch_lines_for_beats(matched_beats.values())
 
         new_pairs = []
         for sim, a, b in raw_pairs:
@@ -235,7 +284,7 @@ class Command(BaseCommand):
                 "beat_a": {
                     "id": a.id,
                     "joke_type": a.joke_type,
-                    "comedian": a.bit.set.comedian.name,
+                    "comedian": a.comedian_name,
                     "premise": a.premise,
                     "keys": a.keys,
                     "lines": lines_by_beat.get(a.id, []),
@@ -243,7 +292,7 @@ class Command(BaseCommand):
                 "beat_b": {
                     "id": b.id,
                     "joke_type": b.joke_type,
-                    "comedian": b.bit.set.comedian.name,
+                    "comedian": b.comedian_name,
                     "premise": b.premise,
                     "keys": b.keys,
                     "lines": lines_by_beat.get(b.id, []),

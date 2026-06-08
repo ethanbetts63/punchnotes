@@ -5,7 +5,7 @@ from pipeline.models import Beat, Line
 MODEL_NAME = "all-mpnet-base-v2"
 
 
-def _combo_text(beat) -> str | None:
+def _embedding_text(beat) -> str | None:
     lines = (
         Line.objects
         .filter(
@@ -36,23 +36,23 @@ def _combo_text(beat) -> str | None:
 
 
 class Command(BaseCommand):
-    help = "Compute and store combo (setup+punchline) embeddings for beats that are missing them"
+    help = "Compute and store embeddings for beats that are missing them"
 
     def handle(self, *args, **options):
         all_beats = list(
             Beat.objects
             .exclude(joke_type=None)
             .exclude(joke_type="")
-            .filter(combo_embedding=[])
+            .filter(embedding=[])
             .select_related("bit__set")
         )
 
-        self.stdout.write(f"Checking {len(all_beats)} beats without combo embeddings...")
+        self.stdout.write(f"Checking {len(all_beats)} beats without embeddings...")
 
         texts = []
         beats_with_text = []
         for beat in all_beats:
-            t = _combo_text(beat)
+            t = _embedding_text(beat)
             if t:
                 texts.append(t)
                 beats_with_text.append(beat)
@@ -71,12 +71,12 @@ class Command(BaseCommand):
         snapshot_download(f"sentence-transformers/{MODEL_NAME}")
         model = SentenceTransformer(MODEL_NAME)
 
-        self.stdout.write(f"Encoding setup+punchline combos for {len(beats_with_text)} beats...")
+        self.stdout.write(f"Encoding setup+punchline text for {len(beats_with_text)} beats...")
         embeddings = model.encode(texts, batch_size=256, show_progress_bar=True).tolist()
         for beat, emb in zip(beats_with_text, embeddings):
-            beat.combo_embedding = emb
-        Beat.objects.bulk_update(beats_with_text, ["combo_embedding"], batch_size=500)
+            beat.embedding = emb
+        Beat.objects.bulk_update(beats_with_text, ["embedding"], batch_size=500)
 
         self.stdout.write(self.style.SUCCESS(
-            f"Combo embeddings stored for {len(beats_with_text)} beats."
+            f"Embeddings stored for {len(beats_with_text)} beats."
         ))
