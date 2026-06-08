@@ -57,13 +57,6 @@ class BeatMetaValidation:
             self._validate_beat(parsed_bit_num, bit_num, beat_num, beat_data)
 
     def _validate_bit_summary(self, bit_location: str, bit_data: dict, beat_count: int) -> None:
-        summary = bit_data.get("summary")
-        if beat_count > 1 and (not isinstance(summary, str) or not summary.strip()):
-            self.errors.append(f"{bit_location}: multi-beat bits must have a summary")
-
-        if beat_count <= 1 and summary not in (None, ""):
-            self.errors.append(f"{bit_location}: summary is only allowed on multi-beat bits")
-
         if "premise" in bit_data:
             self.errors.append(f"{bit_location}: use summary for multi-beat bits, not premise")
 
@@ -102,6 +95,9 @@ class BeatMetaValidation:
         extra_fields = sorted(set(beat_data) - allowed_fields)
         if extra_fields:
             self.errors.append(f"{location}: unexpected field(s) for {joke_type}: {', '.join(extra_fields)}")
+
+        if not any(f in beat_data for f in required_fields):
+            return
 
         for field in required_fields:
             value = beat_data.get(field)
@@ -142,7 +138,7 @@ class BeatMetaValidation:
                 f"missing {', '.join(repr(p) for p in missing)}"
             )
 
-        if joke_type == "phonetic-match":
+        if joke_type == "phonetic-match" and any(f in beat_data for f in JOKE_TYPE_FIELDS[joke_type]):
             self._validate_phonetic_reason(location, beat_data, premise)
 
     def _validate_phonetic_reason(self, location: str, beat_data: dict, premise: str) -> None:
@@ -164,6 +160,14 @@ class BeatMetaValidation:
 
         if not 1 <= len(keys) <= 4:
             self.errors.append(f"{location}: keys must contain 1-4 items, got {len(keys)}")
+            return
+
+        if not any(f in beat_data for f in JOKE_TYPE_FIELDS[joke_type]):
+            for key_index, key in enumerate(keys, start=1):
+                if not isinstance(key, str) or not key.strip():
+                    self.errors.append(f"{location}: key {key_index} must be a non-empty string")
+                elif joke_type != "double-meaning" and len(key.split()) > 3:
+                    self.errors.append(f"{location}: key {key_index} is too long; use a short searchable noun phrase")
             return
 
         expected_keys = self._expected_full_auto_keys(joke_type, beat_data)

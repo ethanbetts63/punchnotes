@@ -226,7 +226,7 @@ class ValidateBitMetaTests(SimpleTestCase):
         ):
             validate_bit_meta(meta)
 
-    def test_multi_beat_bit_requires_summary(self):
+    def test_multi_beat_bit_is_valid_without_summary(self):
         meta = {
             "bit_meta": {
                 "1": {
@@ -254,10 +254,9 @@ class ValidateBitMetaTests(SimpleTestCase):
             ],
         }
 
-        with self.assertRaisesRegex(ValueError, "bit 1: multi-beat bits must have a summary"):
-            validate_bit_meta(meta)
+        validate_bit_meta(meta)  # should not raise
 
-    def test_single_beat_bit_rejects_summary(self):
+    def test_single_beat_bit_summary_is_allowed(self):
         meta = valid_meta_with_line(
             {
                 "line_number": 10,
@@ -267,10 +266,9 @@ class ValidateBitMetaTests(SimpleTestCase):
                 "beat": 1,
             }
         )
-        meta["bit_meta"]["1"]["summary"] = "Duplicate single-beat summary."
+        meta["bit_meta"]["1"]["summary"] = "Optional summary on a single-beat bit."
 
-        with self.assertRaisesRegex(ValueError, "bit 1: summary is only allowed on multi-beat bits"):
-            validate_bit_meta(meta)
+        validate_bit_meta(meta)  # should not raise
 
     def test_bit_level_premise_is_rejected(self):
         meta = valid_meta_with_line(

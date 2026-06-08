@@ -85,9 +85,6 @@ class Command(BaseCommand):
         self.stdout.write("\nFinding similar comedian names...")
         call_command("find_similar_comedians", stdout=self.stdout)
 
-        self.stdout.write("\nEmbedding keys...")
-        call_command("embed_keys", stdout=self.stdout)
-
     def _import(self, path, relationships):
         meta = json.loads(path.read_text(encoding="utf-8-sig"))
         validate_bit_meta(meta)
