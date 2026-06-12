@@ -1,4 +1,5 @@
 import type { SetListItem, Episode, Comedian } from "@/lib/serverApi";
+import { fmtDate, getEpisodeGuestLabel } from "@/lib/killTonyDisplay";
 
 export type TileData = {
   href: string;
@@ -41,14 +42,8 @@ export function episodeToTile(ep: Episode): TileData {
     href: `/killtony/episodes/${ep.id}`,
     videoId: ep.youtube_id,
     eyebrow: `Episode ${ep.number}`,
-    title: ep.title || `Kill Tony #${ep.number}`,
-    meta: ep.date
-      ? new Date(ep.date).toLocaleDateString("en-AU", {
-          day: "numeric",
-          month: "short",
-          year: "numeric",
-        })
-      : undefined,
+    title: getEpisodeGuestLabel(ep, `Kill Tony #${ep.number}`),
+    meta: fmtDate(ep.date) || undefined,
   };
 }
 

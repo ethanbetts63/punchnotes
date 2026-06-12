@@ -1,22 +1,27 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getServerSet } from "@/lib/serverApi";
-import type { ComedianAttribute } from "@/lib/serverApi";
 import SetTranscript from "@/components/SetTranscript";
 import SetImage from "@/components/SetImage";
 import VideoEmbed from "@/components/VideoEmbed";
+import {
+  appearanceTypeLabel,
+  darkAppearanceBadge,
+  darkJokeBookBadge,
+  fmt2,
+  getAppearanceType,
+  jokeBookLabel,
+} from "@/lib/killTonyDisplay";
 
-type Props = { params: Promise<{ id: string }> };
+type Props = {
+  params: Promise<{ id: string }>;
+};
 
 export async function generateMetadata({ params }: Props) {
   const { id } = await params;
   const set = await getServerSet(id);
   if (!set) return { title: "Set Not Found | PunchNotes" };
-  return { title: `${set.comedian.name} — Ep ${set.episode.number} | PunchNotes` };
-}
-
-function fmt2(n: number | null): string {
-  return n == null ? "—" : n.toFixed(2);
+  return { title: `${set.comedian.name} - Ep ${set.episode.number} | PunchNotes` };
 }
 
 function fmtSeconds(s: number): string {
@@ -27,41 +32,6 @@ function fmtSeconds(s: number): string {
   return `${m}:${String(sec).padStart(2, "0")}`;
 }
 
-const jokeBookLabel: Record<string, string> = {
-  small:  "Small Joke Book",
-  medium: "Medium Joke Book",
-  large:  "Large Joke Book",
-};
-
-type AppearanceAttribute = "bucket_pull" | "regular" | "golden_ticket" | "special";
-
-const appearanceAttributes: AppearanceAttribute[] = ["bucket_pull", "regular", "golden_ticket", "special"];
-
-const comedianTypeLabel: Record<AppearanceAttribute, string> = {
-  bucket_pull:   "Bucket Pull",
-  regular:       "Regular",
-  golden_ticket: "Golden Ticket",
-  special:       "Special",
-};
-
-const comedianTypeBadge: Record<AppearanceAttribute, string> = {
-  bucket_pull:   "bg-stone-700 text-stone-300",
-  regular:       "bg-blue-900/60 text-blue-200",
-  golden_ticket: "bg-yellow-800/60 text-yellow-200",
-  special:       "bg-purple-900/60 text-purple-200",
-};
-
-function getAppearanceType(attributes: readonly ComedianAttribute[] | undefined): AppearanceAttribute | null {
-  return appearanceAttributes.find((attr) => (attributes ?? []).includes(attr)) ?? null;
-}
-
-const jokeBookBadge: Record<string, string> = {
-  small:  "bg-stone-700 text-stone-200",
-  medium: "bg-amber-800/70 text-amber-200",
-  large:  "bg-red-900/70 text-red-200",
-};
-
-
 export default async function SetDetailPage({ params }: Props) {
   const { id } = await params;
   const set = await getServerSet(id);
@@ -69,35 +39,31 @@ export default async function SetDetailPage({ params }: Props) {
 
   const { comedian } = set;
   const ct = getAppearanceType(comedian.attributes);
-
   const bitCount = set.bits.length;
   const beatCount = set.bits.reduce((sum, bit) => sum + bit.beats.length, 0);
-
   return (
-    <div className="bg-white min-h-screen">
+    <div className="min-h-screen bg-white">
       <div className="bg-stone-900 text-white">
         <div className="mx-auto max-w-5xl px-6 py-10">
-          <div className="flex gap-8 items-start">
-
-            {/* Set image + episode info beneath */}
+          <div className="flex items-start gap-8">
             {(set.image_url || set.episode.youtube_id) && (
-              <div className="hidden sm:block w-36 md:w-48 shrink-0">
+              <div className="hidden w-36 shrink-0 sm:block md:w-48">
                 <Link
                   href={`/killtony/episodes/${set.episode.id}`}
-                  className="block rounded-lg overflow-hidden shadow-xl ring-1 ring-white/10 hover:ring-white/30 transition-all"
+                  className="block overflow-hidden rounded-lg shadow-xl ring-1 ring-white/10 transition-all hover:ring-white/30"
                 >
                   <SetImage
                     imageUrl={set.image_url}
                     fallbackVideoId={set.episode.youtube_id}
                     alt={`${set.comedian.name} set image`}
-                    className="w-full aspect-video"
+                    className="aspect-video w-full"
                   />
                 </Link>
                 <div className="mt-2 space-y-0.5">
-                  <p className="text-xs text-stone-300 leading-snug">
+                  <p className="text-xs leading-snug text-stone-300">
                     <Link
                       href={`/killtony/episodes/${set.episode.id}`}
-                      className="hover:text-white transition-colors"
+                      className="transition-colors hover:text-white"
                     >
                       {set.episode.title}
                     </Link>
@@ -109,28 +75,24 @@ export default async function SetDetailPage({ params }: Props) {
               </div>
             )}
 
-            {/* Info */}
-            <div className="flex-1 min-w-0">
-
-              <p className="text-xs font-medium text-stone-400 uppercase tracking-wide mb-1">
-                Set {set.set_number} · <Link href={`/killtony/episodes/${set.episode.id}`} className="hover:text-stone-200 transition-colors">Episode {set.episode.number}</Link>
+            <div className="min-w-0 flex-1">
+              <p className="mb-1 text-xs font-medium uppercase tracking-wide text-stone-400">
+                Set {set.set_number} · <Link href={`/killtony/episodes/${set.episode.id}`} className="transition-colors hover:text-stone-200">Episode {set.episode.number}</Link>
               </p>
 
-              {/* Comedian name */}
-              <h1 className="text-3xl md:text-4xl font-bold text-white mb-1">
+              <h1 className="mb-1 text-3xl font-bold text-white md:text-4xl">
                 <Link
                   href={`/killtony/comedians/${comedian.slug}`}
-                  className="hover:text-yellow-300 transition-colors"
+                  className="transition-colors hover:text-yellow-300"
                 >
                   {comedian.name}
                 </Link>
               </h1>
 
-              {/* Type + joke book badges on one row */}
-              <div className="flex flex-wrap gap-1.5 mb-5">
+              <div className="mb-5 flex flex-wrap gap-1.5">
                 {ct && (
-                  <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${comedianTypeBadge[ct]}`}>
-                    {comedianTypeLabel[ct]}
+                  <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${darkAppearanceBadge[ct]}`}>
+                    {appearanceTypeLabel[ct]}
                   </span>
                 )}
                 {comedian.has_small_joke_book && (
@@ -150,10 +112,9 @@ export default async function SetDetailPage({ params }: Props) {
                 )}
               </div>
 
-              {/* Stats */}
               <div className="space-y-1.5 text-sm text-stone-400">
                 <p>
-                  <span className="text-stone-500 font-medium">Career avg</span>
+                  <span className="font-medium text-stone-500">Career avg</span>
                   <span className="mx-2 text-stone-700">·</span>
                   <span className="text-white">{fmt2(comedian.avg_bits_per_set)}</span> bits/set
                   <span className="mx-2 text-stone-700">·</span>
@@ -166,7 +127,7 @@ export default async function SetDetailPage({ params }: Props) {
                   {comedian.set_count} set{comedian.set_count !== 1 ? "s" : ""}
                 </p>
                 <p>
-                  <span className="text-stone-500 font-medium">This set</span>
+                  <span className="font-medium text-stone-500">This set</span>
                   <span className="mx-2 text-stone-700">·</span>
                   <span className="text-white">{bitCount}</span> bit{bitCount !== 1 ? "s" : ""}
                   <span className="mx-2 text-stone-700">·</span>
@@ -178,7 +139,7 @@ export default async function SetDetailPage({ params }: Props) {
                   {set.joke_book_award && (
                     <>
                       <span className="mx-2 text-stone-700">·</span>
-                      <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${jokeBookBadge[set.joke_book_award]}`}>
+                      <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${darkJokeBookBadge[set.joke_book_award]}`}>
                         {jokeBookLabel[set.joke_book_award]}
                       </span>
                     </>
@@ -190,12 +151,11 @@ export default async function SetDetailPage({ params }: Props) {
         </div>
       </div>
 
-      {/* Video */}
       {set.episode.youtube_id && (
         <div className="bg-stone-950">
           <div className="mx-auto max-w-5xl px-6 py-8">
             <div className="mb-3 flex items-baseline justify-between">
-              <p className="text-sm font-medium text-white">Watch {comedian.name}'s set</p>
+              <p className="text-sm font-medium text-white">Watch {comedian.name}&rsquo;s set</p>
               <p className="text-xs text-stone-400">Skips to {fmtSeconds(Math.max(0, set.start_seconds - 20))} in the episode</p>
             </div>
             <VideoEmbed
@@ -206,7 +166,6 @@ export default async function SetDetailPage({ params }: Props) {
         </div>
       )}
 
-      {/* Transcript */}
       <SetTranscript bits={set.bits} />
     </div>
   );

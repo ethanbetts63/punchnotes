@@ -5,6 +5,7 @@ import type { BitListItem } from "@/lib/serverApi";
 import { useUrlPagination } from "@/lib/useUrlPagination";
 import { Badge } from "@/components/ui/badge";
 import Paginator from "@/components/Paginator";
+import { buildBitSetHref } from "@/lib/bitLinks";
 
 const PAGE_SIZE = 20;
 
@@ -17,7 +18,7 @@ export default function BitsList({ bits }: Props) {
   if (bits.length === 0) {
     return (
       <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
-        <p className="text-stone-500">No bits found.</p>
+        <p className="text-stone-500">No jokes found.</p>
       </div>
     );
   }
@@ -28,7 +29,7 @@ export default function BitsList({ bits }: Props) {
         {pageItems.map((bit) => (
           <Link
             key={bit.id}
-            href={`/killtony/sets/${bit.set_id}`}
+            href={buildBitSetHref(bit)}
             className="group block rounded-xl border border-stone-200 bg-white p-5 transition-all hover:border-primary/40 hover:shadow-sm"
           >
             <div className="mb-3 flex flex-wrap items-center gap-2">

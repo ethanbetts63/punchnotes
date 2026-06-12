@@ -22,7 +22,7 @@ SORT_FIELDS = {
 
 class EpisodeListView(APIView):
     def get(self, request):
-        episodes = Episode.objects.all()
+        episodes = Episode.objects.prefetch_related("guests")
 
         q = request.query_params.get("q", "").strip()
         if q:
@@ -59,7 +59,7 @@ class EpisodeDetailView(APIView):
             .order_by("start_seconds")
         )
         episode = get_object_or_404(
-            Episode.objects.prefetch_related(Prefetch("sets", queryset=sets_qs)),
+            Episode.objects.prefetch_related("guests", Prefetch("sets", queryset=sets_qs)),
             pk=pk,
         )
         return Response(EpisodeDetailSerializer(episode).data)

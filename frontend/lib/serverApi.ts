@@ -66,6 +66,7 @@ export type Episode = {
   title: string;
   date: string | null;
   youtube_id: string | null;
+  guests: string[];
   set_count: number;
   duration_seconds: number | null;
   bucket_pull_count: number;
@@ -120,6 +121,7 @@ export type EpisodeDetail = {
   url: string;
   youtube_id: string;
   date: string | null;
+  guests: string[];
   duration_seconds: number | null;
   bucket_pull_count: number;
   golden_ticket_count: number;

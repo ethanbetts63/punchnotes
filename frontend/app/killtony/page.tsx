@@ -1,50 +1,11 @@
 import Link from "next/link";
-import BeatOfTheWeek, { type BeatOfTheWeekEntry } from "@/components/BeatOfTheWeek";
+import BeatOfTheWeek from "@/components/BeatOfTheWeek";
 import HowItWorksPanel from "@/components/HowItWorksPanel";
 import KillTonyHero from "@/components/KillTonyHero";
 import ComedianPlaylists from "@/page_components/ComedianPlaylists";
 import EpisodePlaylists from "@/page_components/EpisodePlaylists";
-import { BIT_LISTS } from "@/lib/playlists";
-import { getServerBits, getServerComedians, getServerEpisodes, getServerSet } from "@/lib/serverApi";
-
-const FEATURED_BIT_CANDIDATES = BIT_LISTS.flatMap((list) => list.ids);
-const FEATURED_BEAT_LIMIT = 5;
-
-async function getFeaturedBeatEntries() {
-  const bits = await getServerBits();
-  if (!bits?.length) return [];
-
-  const priorityBits = [
-    ...bits.filter((bit) => FEATURED_BIT_CANDIDATES.includes(bit.id)),
-    ...bits.filter((bit) => !FEATURED_BIT_CANDIDATES.includes(bit.id)),
-  ].filter((bit) => bit.set_id != null);
-
-  const candidateBits = priorityBits.slice(0, FEATURED_BEAT_LIMIT * 3);
-  const uniqueSetIds = [...new Set(candidateBits.map((bit) => bit.set_id))];
-  const sets = await Promise.all(uniqueSetIds.map((setId) => getServerSet(String(setId))));
-  const setById = new Map(
-    sets
-      .filter((set): set is NonNullable<typeof set> => set != null)
-      .map((set) => [set.id, set])
-  );
-
-  const entries: BeatOfTheWeekEntry[] = [];
-  for (const bit of candidateBits) {
-    const set = setById.get(bit.set_id);
-    if (!set) continue;
-
-    const bitIndex = set.bits.findIndex((setBit) => setBit.id === bit.id);
-    if (bitIndex < 0) continue;
-
-    const beatCount = set.bits[bitIndex]?.beats.length ?? 0;
-    if (beatCount === 0) continue;
-
-    entries.push({ set, bitIndex, beatIndex: 0 });
-    if (entries.length >= FEATURED_BEAT_LIMIT) break;
-  }
-
-  return entries;
-}
+import { getFeaturedBeatEntries } from "@/lib/featuredBeats";
+import { getServerComedians, getServerEpisodes } from "@/lib/serverApi";
 
 function SectionHeader({
   eyebrow,

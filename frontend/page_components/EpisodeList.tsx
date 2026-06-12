@@ -4,27 +4,47 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import type { Episode } from "@/lib/serverApi";
+import { fmtDate, getEpisodeGuestLabel } from "@/lib/killTonyDisplay";
 import { useUrlPagination } from "@/lib/useUrlPagination";
 import Paginator from "@/components/Paginator";
 import YoutubeThumbnail from "@/components/YoutubeThumbnail";
 
 const PAGE_SIZE = 20;
 
-type SortKey = "date" | "duration" | "set_count" | "bucket_pulls" | "golden_tickets" | "large_joke_books" | "regulars" | "view_count" | "like_count" | "like_ratio";
-
+type SortKey =
+  | "date"
+  | "duration"
+  | "set_count"
+  | "bucket_pulls"
+  | "golden_tickets"
+  | "large_joke_books"
+  | "regulars"
+  | "view_count"
+  | "like_count"
+  | "like_ratio";
 
 function getValue(ep: Episode, key: SortKey): number {
   switch (key) {
-    case "date":             return ep.number;
-    case "duration":         return ep.duration_seconds ?? 0;
-    case "set_count":        return ep.set_count;
-    case "bucket_pulls":     return ep.bucket_pull_count;
-    case "golden_tickets":   return ep.golden_ticket_count;
-    case "large_joke_books": return ep.large_joke_book_count;
-    case "regulars":         return ep.regular_count;
-    case "view_count":       return ep.view_count ?? 0;
-    case "like_count":       return ep.like_count ?? 0;
-    case "like_ratio":       return ep.view_count ? (ep.like_count ?? 0) / ep.view_count : 0;
+    case "date":
+      return ep.number;
+    case "duration":
+      return ep.duration_seconds ?? 0;
+    case "set_count":
+      return ep.set_count;
+    case "bucket_pulls":
+      return ep.bucket_pull_count;
+    case "golden_tickets":
+      return ep.golden_ticket_count;
+    case "large_joke_books":
+      return ep.large_joke_book_count;
+    case "regulars":
+      return ep.regular_count;
+    case "view_count":
+      return ep.view_count ?? 0;
+    case "like_count":
+      return ep.like_count ?? 0;
+    case "like_ratio":
+      return ep.view_count ? (ep.like_count ?? 0) / ep.view_count : 0;
   }
 }
 
@@ -35,15 +55,10 @@ function fmt(n: number): string {
 }
 
 function fmtDuration(seconds: number | null): string {
-  if (!seconds) return "—";
+  if (!seconds) return "-";
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
   return h > 0 ? `${h}h ${m}m` : `${m}m`;
-}
-
-function fmtDate(date: string | null): string {
-  if (!date) return "—";
-  return new Date(date).toLocaleDateString("en-AU", { day: "numeric", month: "short", year: "numeric" });
 }
 
 function Stat({ label, value }: { label: string; value: string | number }) {
@@ -62,12 +77,14 @@ export default function EpisodeList({ episodes }: Props) {
   const sort = (sp.get("sort") ?? "date") as SortKey;
   const asc = sp.get("asc") === "1";
 
-  const sorted = useMemo(() => (
-    [...episodes].sort((a, b) => {
-      const diff = getValue(b, sort) - getValue(a, sort);
-      return asc ? -diff : diff;
-    })
-  ), [episodes, sort, asc]);
+  const sorted = useMemo(
+    () =>
+      [...episodes].sort((a, b) => {
+        const diff = getValue(b, sort) - getValue(a, sort);
+        return asc ? -diff : diff;
+      }),
+    [episodes, sort, asc]
+  );
 
   const { page, totalPages, setPage } = useUrlPagination(sorted.length, PAGE_SIZE);
   const pageItems = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
@@ -78,8 +95,10 @@ export default function EpisodeList({ episodes }: Props) {
         {pageItems.map((ep) => {
           const likeRatio =
             ep.view_count && ep.like_count != null && ep.view_count > 0
-              ? ((ep.like_count / ep.view_count) * 100).toFixed(1) + "%"
+              ? `${((ep.like_count / ep.view_count) * 100).toFixed(1)}%`
               : null;
+          const guestLabel = getEpisodeGuestLabel(ep, `Kill Tony #${ep.number}`);
+
           return (
             <Link
               key={ep.id}
@@ -88,8 +107,8 @@ export default function EpisodeList({ episodes }: Props) {
             >
               <YoutubeThumbnail
                 videoId={ep.youtube_id}
-                alt={ep.title || `Kill Tony #${ep.number}`}
-                className="w-36 shrink-0 aspect-video sm:w-52"
+                alt={`Episode ${ep.number} - ${guestLabel}`}
+                className="aspect-video w-36 shrink-0 sm:w-52"
               />
               <div className="min-w-0 flex-1 px-4 py-3">
                 <div className="flex items-start justify-between gap-2">
@@ -98,11 +117,16 @@ export default function EpisodeList({ episodes }: Props) {
                       Episode {ep.number}
                     </span>
                     <p className="mt-0.5 truncate font-semibold leading-snug text-stone-900">
-                      {ep.title || `Kill Tony #${ep.number}`}
+                      {guestLabel}
                     </p>
-                    <p className="mt-0.5 text-xs text-stone-400">{fmtDate(ep.date)}</p>
+                    <p className="mt-0.5 text-xs text-stone-400">{fmtDate(ep.date) || "-"}</p>
                   </div>
-                  <svg className="mt-1 h-4 w-4 shrink-0 text-stone-300 transition-colors group-hover:text-stone-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    className="mt-1 h-4 w-4 shrink-0 text-stone-300 transition-colors group-hover:text-stone-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>

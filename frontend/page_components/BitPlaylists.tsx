@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { BitListItem } from "@/lib/serverApi";
 import { BIT_LISTS } from "@/lib/playlists";
+import { buildBitSetHref } from "@/lib/bitLinks";
 
 type Props = { bits: BitListItem[] };
 
@@ -26,7 +27,7 @@ export default function BitPlaylists({ bits }: Props) {
             {list.items.map((bit) => (
               <Link
                 key={bit.id}
-                href={`/killtony/sets/${bit.set_id}`}
+                href={buildBitSetHref(bit)}
                 className="group w-64 shrink-0 overflow-hidden rounded-lg border border-stone-200 bg-white p-3 transition-colors hover:border-primary/40 hover:shadow-sm"
               >
                 <p className="text-[11px] font-bold uppercase tracking-wide text-primary">

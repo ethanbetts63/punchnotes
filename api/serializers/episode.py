@@ -21,11 +21,12 @@ class EpisodeListSerializer(serializers.ModelSerializer):
     title = serializers.CharField(source="episode_title")
     date = serializers.DateField(source="published_at")
     youtube_id = serializers.CharField(source="video_id")
+    guests = serializers.SlugRelatedField(many=True, read_only=True, slug_field="name")
 
     class Meta:
         model = Episode
         fields = [
-            "id", "number", "title", "date", "youtube_id", "set_count",
+            "id", "number", "title", "date", "youtube_id", "guests", "set_count",
             "duration_seconds",
             "bucket_pull_count", "golden_ticket_count",
             "regular_count", "large_joke_book_count",
@@ -39,12 +40,13 @@ class EpisodeDetailSerializer(serializers.ModelSerializer):
     url = serializers.URLField(source="episode_url")
     youtube_id = serializers.CharField(source="video_id")
     date = serializers.DateField(source="published_at")
+    guests = serializers.SlugRelatedField(many=True, read_only=True, slug_field="name")
     sets = serializers.SerializerMethodField()
 
     class Meta:
         model = Episode
         fields = [
-            "id", "number", "title", "url", "youtube_id", "date",
+            "id", "number", "title", "url", "youtube_id", "date", "guests",
             "duration_seconds",
             "bucket_pull_count", "golden_ticket_count",
             "regular_count", "large_joke_book_count",
