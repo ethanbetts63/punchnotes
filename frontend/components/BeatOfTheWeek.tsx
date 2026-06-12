@@ -69,7 +69,9 @@ export default function BeatOfTheWeek({ set, bitIndex, beatIndex, entries, sideb
         <div className="min-w-0 flex-1">
           <div className="mb-4 flex max-w-3xl items-center justify-between gap-4">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.24em] text-primary">Featured Joke</p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Featured Joke
+              </h2>
             </div>
             {canCycle && (
               <div className="flex items-center gap-2">

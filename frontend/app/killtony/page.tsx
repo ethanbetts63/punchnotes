@@ -8,24 +8,20 @@ import { getFeaturedBeatEntries } from "@/lib/featuredBeats";
 import { getServerComedians, getServerEpisodes } from "@/lib/serverApi";
 
 function SectionHeader({
-  eyebrow,
   title,
-  description,
   href,
   cta,
 }: {
-  eyebrow: string;
   title: string;
-  description: string;
   href: string;
   cta: string;
 }) {
   return (
     <div className="mb-6 flex items-end justify-between gap-4 px-6">
       <div className="max-w-2xl">
-        <p className="text-xs font-bold uppercase tracking-[0.24em] text-primary">{eyebrow}</p>
-        <h2 className="mt-2 text-2xl font-bold tracking-tight text-stone-950 sm:text-3xl">{title}</h2>
-        <p className="mt-2 text-sm leading-relaxed text-stone-600">{description}</p>
+        <h2 className="text-2xl font-bold tracking-tight text-stone-950 sm:text-3xl">
+          {title}
+        </h2>
       </div>
       <Link
         href={href}
@@ -56,6 +52,9 @@ export default async function KillTonyPage() {
 
       <section className="border-b border-stone-200 bg-white px-4 py-8">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
+          <div className="lg:col-span-1">
+            <HowItWorksPanel />
+          </div>
           <div className="lg:col-span-2">
             {featuredBeatEntries.length > 0 && (
               <BeatOfTheWeek
@@ -66,9 +65,6 @@ export default async function KillTonyPage() {
               />
             )}
           </div>
-          <div className="lg:col-span-1">
-            <HowItWorksPanel />
-          </div>
         </div>
       </section>
 
@@ -76,9 +72,7 @@ export default async function KillTonyPage() {
         <section className="border-b border-stone-200 bg-white py-12">
           <div className="mx-auto max-w-6xl">
             <SectionHeader
-              eyebrow="Episodes"
-              title="Open an episode, then drill into the full night."
-              description="Click any episode and you will land on that episode's page with the full lineup of sets and comedians from that night."
+              title="Episode Playlists"
               href="/killtony/episodes"
               cta="See more "
             />
@@ -91,9 +85,7 @@ export default async function KillTonyPage() {
         <section className="border-b border-stone-200 bg-stone-50 py-12">
           <div className="mx-auto max-w-6xl">
             <SectionHeader
-              eyebrow="Comedians"
-              title="Jump into a comic's full run on the show."
-              description="Click any comedian to see all of their Kill Tony sets across every episode in the archive."
+              title="Comic Playlists"
               href="/killtony/comedians"
               cta="See all comics"
             />

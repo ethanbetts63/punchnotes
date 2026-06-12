@@ -51,10 +51,9 @@ export default function HowItWorksPanel() {
     <aside className="rounded-2xl border border-white/10 bg-[linear-gradient(180deg,#0b1020_0%,#171d2c_100%)] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.16)]">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.24em] text-primary">How It Works</p>
-          <h3 className="mt-2 text-xl font-black tracking-tight text-white">
-            Navigate the archive fast.
-          </h3>
+          <h2 className="font-bold uppercase tracking-[0.24em] text-primary">
+            How it works
+          </h2>
         </div>
         <span className="text-xs font-semibold text-white/55">
           {activeIndex + 1} / {steps.length}

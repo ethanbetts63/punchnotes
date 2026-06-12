@@ -36,7 +36,7 @@ export default function KillTonyHero() {
       <div className="mb-4 flex items-center justify-center gap-3 md:justify-start">
         <span className="inline-block h-px w-8 bg-primary/60" />
         <span className="text-xs font-bold uppercase tracking-[0.24em] text-primary">
-          Built for better browsing
+          Made by fans. Free to use.
         </span>
         <span className="inline-block h-px w-8 bg-primary/60" />
       </div>
@@ -138,7 +138,7 @@ export default function KillTonyHero() {
 
           <div className="absolute bottom-10 left-10 rounded-3xl border border-white/10 bg-black/60 p-5 shadow-2xl backdrop-blur-md">
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-primary">
-              Fan made. free to use.
+              100% free.
             </p>
             <p className="mt-2 max-w-xs text-lg font-semibold text-white">
               Made by comedy nerds and Reddit consensus.
