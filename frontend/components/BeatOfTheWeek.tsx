@@ -110,8 +110,8 @@ export default function BeatOfTheWeek({ set, bitIndex, beatIndex, entries, sideb
   }
 
   return (
-    <section className="border-b border-stone-200 bg-white px-4 py-8">
-      <div className="mx-auto flex max-w-6xl items-start gap-6">
+    <section className="bg-white">
+      <div className="flex items-start gap-6">
         <div className="min-w-0 flex-1">
           <div className="mb-4 flex max-w-3xl items-center justify-between gap-4">
             <div>

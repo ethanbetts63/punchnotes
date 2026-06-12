@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BeatOfTheWeek, { type BeatOfTheWeekEntry } from "@/components/BeatOfTheWeek";
+import HowItWorksPanel from "@/components/HowItWorksPanel";
 import KillTonyHero from "@/components/KillTonyHero";
 import ComedianPlaylists from "@/page_components/ComedianPlaylists";
 import EpisodePlaylists from "@/page_components/EpisodePlaylists";
@@ -92,14 +93,23 @@ export default async function KillTonyPage() {
     <div className="bg-white">
       <KillTonyHero />
 
-      {featuredBeatEntries.length > 0 && (
-        <BeatOfTheWeek
-          set={featuredBeatEntries[0].set}
-          bitIndex={featuredBeatEntries[0].bitIndex}
-          beatIndex={featuredBeatEntries[0].beatIndex}
-          entries={featuredBeatEntries.slice(1)}
-        />
-      )}
+      <section className="border-b border-stone-200 bg-white px-4 py-8">
+        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
+          <div className="lg:col-span-2">
+            {featuredBeatEntries.length > 0 && (
+              <BeatOfTheWeek
+                set={featuredBeatEntries[0].set}
+                bitIndex={featuredBeatEntries[0].bitIndex}
+                beatIndex={featuredBeatEntries[0].beatIndex}
+                entries={featuredBeatEntries.slice(1)}
+              />
+            )}
+          </div>
+          <div className="lg:col-span-1">
+            <HowItWorksPanel />
+          </div>
+        </div>
+      </section>
 
       {episodes && (
         <section className="border-b border-stone-200 bg-white py-12">

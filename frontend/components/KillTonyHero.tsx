@@ -36,18 +36,17 @@ export default function KillTonyHero() {
       <div className="mb-4 flex items-center justify-center gap-3 md:justify-start">
         <span className="inline-block h-px w-8 bg-primary/60" />
         <span className="text-xs font-bold uppercase tracking-[0.24em] text-primary">
-          Kill Tony Analytics
+          Built for better browsing
         </span>
         <span className="inline-block h-px w-8 bg-primary/60" />
       </div>
 
       <h1 className="text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
-        Read the room, set by set.
+        The Kill Tony Archive
       </h1>
 
       <p className="mt-5 text-base leading-relaxed text-stone-300 sm:text-lg">
-        Browse the Kill Tony archive through structured joke analysis, searchable sets,
-        comedian profiles, and standout beats pulled from the stage.
+        Browse curated Kill Tony playlists or deepdive the archive to search your favorite sets, comedians, and jokes.
       </p>
 
       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
@@ -61,7 +60,7 @@ export default function KillTonyHero() {
           <span className="text-left">
             <span className="block text-sm leading-tight">Browse Episodes</span>
             <span className="block text-xs font-normal text-white/80">
-              Start with the archive
+              Fan made playlists and search.
             </span>
           </span>
         </Link>
@@ -76,7 +75,7 @@ export default function KillTonyHero() {
           <span className="text-left">
             <span className="block text-sm leading-tight">Browse Jokes</span>
             <span className="block text-xs font-normal text-stone-300">
-              Explore the bit archive
+              Set transcripts, seachable and annotated.
             </span>
           </span>
         </Link>
@@ -139,13 +138,13 @@ export default function KillTonyHero() {
 
           <div className="absolute bottom-10 left-10 rounded-3xl border border-white/10 bg-black/60 p-5 shadow-2xl backdrop-blur-md">
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-primary">
-              Live Archive
+              Fan made. free to use.
             </p>
             <p className="mt-2 max-w-xs text-lg font-semibold text-white">
-              From stage chaos to searchable structure.
+              Made by comedy nerds and Reddit consensus.
             </p>
             <p className="mt-1 text-sm text-stone-300">
-              Episodes, sets, bits, and joke anatomy in one place.
+              Explore playlists of comedians, episodes, and jokes. 
             </p>
           </div>
         </div>
