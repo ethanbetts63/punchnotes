@@ -1,11 +1,49 @@
 import Link from "next/link";
-import BeatOfTheWeek from "@/components/BeatOfTheWeek";
+import BeatOfTheWeek, { type BeatOfTheWeekEntry } from "@/components/BeatOfTheWeek";
+import KillTonyHero from "@/components/KillTonyHero";
 import ComedianPlaylists from "@/page_components/ComedianPlaylists";
 import EpisodePlaylists from "@/page_components/EpisodePlaylists";
 import { BIT_LISTS } from "@/lib/playlists";
 import { getServerBits, getServerComedians, getServerEpisodes, getServerSet } from "@/lib/serverApi";
 
 const FEATURED_BIT_CANDIDATES = BIT_LISTS.flatMap((list) => list.ids);
+const FEATURED_BEAT_LIMIT = 5;
+
+async function getFeaturedBeatEntries() {
+  const bits = await getServerBits();
+  if (!bits?.length) return [];
+
+  const priorityBits = [
+    ...bits.filter((bit) => FEATURED_BIT_CANDIDATES.includes(bit.id)),
+    ...bits.filter((bit) => !FEATURED_BIT_CANDIDATES.includes(bit.id)),
+  ].filter((bit) => bit.set_id != null);
+
+  const candidateBits = priorityBits.slice(0, FEATURED_BEAT_LIMIT * 3);
+  const uniqueSetIds = [...new Set(candidateBits.map((bit) => bit.set_id))];
+  const sets = await Promise.all(uniqueSetIds.map((setId) => getServerSet(String(setId))));
+  const setById = new Map(
+    sets
+      .filter((set): set is NonNullable<typeof set> => set != null)
+      .map((set) => [set.id, set])
+  );
+
+  const entries: BeatOfTheWeekEntry[] = [];
+  for (const bit of candidateBits) {
+    const set = setById.get(bit.set_id);
+    if (!set) continue;
+
+    const bitIndex = set.bits.findIndex((setBit) => setBit.id === bit.id);
+    if (bitIndex < 0) continue;
+
+    const beatCount = set.bits[bitIndex]?.beats.length ?? 0;
+    if (beatCount === 0) continue;
+
+    entries.push({ set, bitIndex, beatIndex: 0 });
+    if (entries.length >= FEATURED_BEAT_LIMIT) break;
+  }
+
+  return entries;
+}
 
 function SectionHeader({
   eyebrow,
@@ -44,37 +82,34 @@ export const metadata = {
 };
 
 export default async function KillTonyPage() {
-  const [episodes, comedians, bits] = await Promise.all([
+  const [episodes, comedians, featuredBeatEntries] = await Promise.all([
     getServerEpisodes(),
     getServerComedians(),
-    getServerBits(),
+    getFeaturedBeatEntries(),
   ]);
-
-  const featuredBit =
-    bits?.find((bit) => FEATURED_BIT_CANDIDATES.includes(bit.id)) ??
-    bits?.find((bit) => bit.set_id != null);
-  const featuredBeatSet = featuredBit ? await getServerSet(String(featuredBit.set_id)) : null;
-  const featuredBeatBitIndex = featuredBeatSet?.bits.findIndex((bit) => bit.id === featuredBit?.id) ?? -1;
-  const hasFeaturedBeat =
-    featuredBeatSet != null &&
-    featuredBeatBitIndex >= 0 &&
-    featuredBeatSet.bits[featuredBeatBitIndex]?.beats.length > 0;
 
   return (
     <div className="bg-white">
-      {hasFeaturedBeat && featuredBeatSet && (
-        <BeatOfTheWeek set={featuredBeatSet} bitIndex={featuredBeatBitIndex} beatIndex={0} />
+      <KillTonyHero />
+
+      {featuredBeatEntries.length > 0 && (
+        <BeatOfTheWeek
+          set={featuredBeatEntries[0].set}
+          bitIndex={featuredBeatEntries[0].bitIndex}
+          beatIndex={featuredBeatEntries[0].beatIndex}
+          entries={featuredBeatEntries.slice(1)}
+        />
       )}
 
       {episodes && (
         <section className="border-b border-stone-200 bg-white py-12">
           <div className="mx-auto max-w-6xl">
             <SectionHeader
-              eyebrow="Episode Playlists"
-              title="Start with a strong entry point into the archive."
-              description="Lead with Kill Tony lore and all-star guests here, then let the full archive page handle the rest."
+              eyebrow="Episodes"
+              title="Open an episode, then drill into the full night."
+              description="Click any episode and you will land on that episode's page with the full lineup of sets and comedians from that night."
               href="/killtony/episodes"
-              cta="See more episode playlists"
+              cta="See more "
             />
             <EpisodePlaylists episodes={episodes} limit={2} />
           </div>
@@ -85,11 +120,11 @@ export default async function KillTonyPage() {
         <section className="border-b border-stone-200 bg-stone-50 py-12">
           <div className="mx-auto max-w-6xl">
             <SectionHeader
-              eyebrow="Comedian Playlists"
-              title="Browse the roster through grouped lists, not just one giant index."
-              description="Use regulars and golden ticket winners as the two homepage comedian entry points."
+              eyebrow="Comedians"
+              title="Jump into a comic's full run on the show."
+              description="Click any comedian to see all of their Kill Tony sets across every episode in the archive."
               href="/killtony/comedians"
-              cta="See more comedian playlists"
+              cta="See all comics"
             />
             <ComedianPlaylists comedians={comedians} limit={2} />
           </div>
