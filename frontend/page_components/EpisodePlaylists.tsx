@@ -3,9 +3,12 @@ import { EPISODE_LISTS } from "@/lib/playlists";
 import { episodeToTile } from "@/lib/tiles";
 import MediaCarousel from "@/components/MediaCarousel";
 
-type Props = { episodes: Episode[] };
+type Props = {
+  episodes: Episode[];
+  limit?: number;
+};
 
-export default function EpisodePlaylists({ episodes }: Props) {
+export default function EpisodePlaylists({ episodes, limit }: Props) {
   const byId = new Map(episodes.map((ep) => [ep.id, ep]));
   const byNumber = new Map(episodes.map((ep) => [ep.number, ep]));
 
@@ -14,7 +17,9 @@ export default function EpisodePlaylists({ episodes }: Props) {
     items: list.ids
       .map((id) => (list.matchBy === "number" ? byNumber : byId).get(id))
       .filter(Boolean) as Episode[],
-  })).filter((list) => list.items.length > 0);
+  }))
+    .filter((list) => list.items.length > 0)
+    .slice(0, limit);
 
   if (lists.length === 0) return null;
 

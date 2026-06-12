@@ -40,9 +40,6 @@ export default function BitsList({ bits }: Props) {
               {bit.joke_types.map((jt) => (
                 <Badge key={jt} variant="default">{jt}</Badge>
               ))}
-              {bit.topics.map((t) => (
-                <Badge key={t} variant="stone">{t}</Badge>
-              ))}
             </div>
 
             {(bit.summary ?? bit.beats_summary[0]?.premise) && (

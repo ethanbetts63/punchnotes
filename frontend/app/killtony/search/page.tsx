@@ -20,7 +20,6 @@ const GROUPS: { key: DisplaySearchGroupKey; title: string; description: string }
   { key: "episodes", title: "Episodes", description: "KT numbers, titles, and metadata" },
   { key: "sets", title: "Sets", description: "Individual minutes and interviews" },
   { key: "bits", title: "Bits", description: "Larger joke ideas and recurring angles" },
-  { key: "topics", title: "Topics", description: "Subject tags across the archive" },
 ];
 
 const MAIN_GROUPS: { key: DisplaySearchGroupKey; title: string }[] = [
@@ -31,19 +30,26 @@ const MAIN_GROUPS: { key: DisplaySearchGroupKey; title: string }[] = [
 
 const SIDEBAR_GROUPS: { key: DisplaySearchGroupKey; title: string }[] = [
   { key: "sets", title: "Sets" },
-  { key: "topics", title: "Topics" },
 ];
 
 const ALWAYS_VISIBLE_GROUPS = new Set<DisplaySearchGroupKey>(["comedians", "episodes"]);
 
-const TYPE_STYLES: Record<SearchResult["type"], string> = {
-  comedian: "bg-[#ff1464] text-white",
-  episode: "bg-black text-white",
-  set: "bg-[#ffff64] text-black",
-  bit: "bg-cyan-500 text-black",
-  joke: "bg-emerald-400 text-black",
-  topic: "bg-indigo-500 text-white",
-};
+function typeStyle(type: SearchResult["type"]): string {
+  switch (type) {
+    case "comedian":
+      return "bg-[#ff1464] text-white";
+    case "episode":
+      return "bg-black text-white";
+    case "set":
+      return "bg-[#ffff64] text-black";
+    case "bit":
+      return "bg-cyan-500 text-black";
+    case "joke":
+      return "bg-emerald-400 text-black";
+    default:
+      return "bg-indigo-500 text-white";
+  }
+}
 
 function typeLabel(type: SearchResult["type"]): string {
   switch (type) {
@@ -57,9 +63,13 @@ function typeLabel(type: SearchResult["type"]): string {
       return "Bit";
     case "joke":
       return "Joke";
-    case "topic":
-      return "Topic";
+    default:
+      return "Search result";
   }
+}
+
+function isVisibleResultType(type: SearchResult["type"]): boolean {
+  return type === "comedian" || type === "episode" || type === "set" || type === "bit" || type === "joke";
 }
 
 function resultInitial(item: SearchResult): string {
@@ -99,7 +109,7 @@ function ResultMark({ item, featured = false }: { item: SearchResult; featured?:
   return (
     <span
       className={`flex shrink-0 items-center justify-center overflow-hidden font-black uppercase ${
-        TYPE_STYLES[item.type]
+        typeStyle(item.type)
       } ${featured ? "h-24 w-24 text-4xl sm:h-28 sm:w-28" : "h-[75px] w-[75px] text-2xl"}`}
     >
       {resultInitial(item)}
@@ -252,7 +262,7 @@ function SearchEmptyState({ query }: { query: string }) {
         {query ? "No results found." : "Search the Kill Tony archive."}
       </p>
       <p className="mt-2 text-sm text-stone-500">
-        Try a comedian, KT number, bit summary, set detail, or topic.
+        Try a comedian, KT number, bit summary, or set detail.
       </p>
     </div>
   );
@@ -272,8 +282,6 @@ function refinedHref(key: DisplaySearchGroupKey, query: string): string {
       return `/killtony/bits/search${qs ? `?${qs}` : ""}`;
     case "sets":
       return `/killtony/sets/search${qs ? `?${qs}` : ""}`;
-    case "topics":
-      return `/killtony/search${qs ? `?${qs}` : ""}#topics`;
   }
 }
 
@@ -323,6 +331,7 @@ export default async function SearchPage({ searchParams }: Props) {
   const query = Array.isArray(rawQuery) ? rawQuery[0] ?? "" : rawQuery ?? "";
   const trimmedQuery = query.trim();
   const results = trimmedQuery ? await getServerSearch(trimmedQuery) : null;
+  const topResult = results?.top_result && isVisibleResultType(results.top_result.type) ? results.top_result : null;
   const hasResults = results ? GROUPS.some(({ key }) => results[key].length > 0) : false;
 
   return (
@@ -335,7 +344,7 @@ export default async function SearchPage({ searchParams }: Props) {
           <p className="mt-3 text-center text-sm font-bold uppercase text-stone-500">All results</p>
           <div className="mx-auto mt-6 max-w-xl">
             <Suspense>
-              <BrowseSearchBar placeholder="Search Kill Tony…" />
+              <BrowseSearchBar placeholder="Search Kill Tony..." />
             </Suspense>
           </div>
         </div>
@@ -352,7 +361,7 @@ export default async function SearchPage({ searchParams }: Props) {
           {results && !hasResults && <SearchEmptyState query={trimmedQuery} />}
           {results && hasResults && (
             <>
-              {results.top_result && <TopResult item={results.top_result} />}
+              {topResult && <TopResult item={topResult} />}
               {MAIN_GROUPS.map(({ key, title }) => (
                 <ResultSection
                   key={key}

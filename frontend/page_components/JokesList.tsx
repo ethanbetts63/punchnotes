@@ -38,9 +38,6 @@ export default function JokesList({ jokes }: Props) {
               <span className="text-stone-300">·</span>
               <span className="text-xs text-stone-400">Ep {joke.episode_number}</span>
               <Badge variant="default">{joke.joke_type}</Badge>
-              {joke.topics.map((t) => (
-                <Badge key={t} variant="stone">{t}</Badge>
-              ))}
             </div>
             {joke.premise && (
               <p className="mb-3 text-sm italic text-stone-500">&ldquo;{joke.premise}&rdquo;</p>

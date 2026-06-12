@@ -3,15 +3,20 @@ import { COMEDIAN_LISTS } from "@/lib/playlists";
 import { comedianToTile } from "@/lib/tiles";
 import MediaCarousel from "@/components/MediaCarousel";
 
-type Props = { comedians: Comedian[] };
+type Props = {
+  comedians: Comedian[];
+  limit?: number;
+};
 
-export default function ComedianPlaylists({ comedians }: Props) {
+export default function ComedianPlaylists({ comedians, limit }: Props) {
   const byId = new Map(comedians.map((c) => [c.id, c]));
 
   const lists = COMEDIAN_LISTS.map((list) => ({
     ...list,
     items: list.ids.map((id) => byId.get(id)).filter(Boolean) as Comedian[],
-  })).filter((list) => list.items.length > 0);
+  }))
+    .filter((list) => list.items.length > 0)
+    .slice(0, limit);
 
   if (lists.length === 0) return null;
 

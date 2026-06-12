@@ -13,9 +13,9 @@ const labelBadge: Record<string, string> = {
 };
 
 function BeatPanel({
-  beat, bit, bitIdx, beatIdx,
+  beat, bitIdx, beatIdx,
 }: {
-  beat: Beat; bit: Bit; bitIdx: number; beatIdx: number;
+  beat: Beat; bitIdx: number; beatIdx: number;
 }) {
   return (
     <div className="rounded-xl border border-stone-200 bg-white overflow-hidden shadow-sm">
@@ -40,19 +40,6 @@ function BeatPanel({
             <span className="inline-block text-xs font-semibold bg-stone-900 text-white px-2.5 py-1 rounded-full">
               {beat.joke_type}
             </span>
-          </div>
-        )}
-
-        {beat.topics.length > 0 && (
-          <div>
-            <p className="text-xs uppercase tracking-wider font-semibold text-stone-400 mb-1.5">Topics</p>
-            <div className="flex flex-wrap gap-1.5">
-              {beat.topics.map((t) => (
-                <span key={t} className="text-xs font-medium bg-blue-50 text-blue-600 border border-blue-200 px-2 py-0.5 rounded-full">
-                  {t}
-                </span>
-              ))}
-            </div>
           </div>
         )}
 
@@ -175,7 +162,6 @@ export default function SetTranscript({ bits }: { bits: Bit[] }) {
           {selected && (
             <BeatPanel
               beat={selected.beat}
-              bit={selected.bit}
               bitIdx={selected.bitIdx}
               beatIdx={selected.beatIdx}
             />
@@ -188,7 +174,6 @@ export default function SetTranscript({ bits }: { bits: Bit[] }) {
         <div className="md:hidden mt-8">
           <BeatPanel
             beat={selected.beat}
-            bit={selected.bit}
             bitIdx={selected.bitIdx}
             beatIdx={selected.beatIdx}
           />

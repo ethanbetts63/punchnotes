@@ -1,137 +1,100 @@
 import Link from "next/link";
-import { getServerBits, getServerEpisodes, getServerComedians, getServerSet, getServerSets } from "@/lib/serverApi";
 import BeatOfTheWeek from "@/components/BeatOfTheWeek";
-import SetPlaylists from "@/page_components/SetPlaylists";
+import ComedianPlaylists from "@/page_components/ComedianPlaylists";
 import EpisodePlaylists from "@/page_components/EpisodePlaylists";
+import { BIT_LISTS } from "@/lib/playlists";
+import { getServerBits, getServerComedians, getServerEpisodes, getServerSet } from "@/lib/serverApi";
 
-const BROWSE_SECTIONS = [
-  { title: "Comedians", description: "Guest comics and bucket pulls", href: "/killtony/comedians" },
-  { title: "Episodes", description: "KT numbers, titles, and metadata", href: "/killtony/episodes" },
-  { title: "Sets", description: "Individual minutes and interviews", href: "/killtony/sets" },
-  { title: "Bits", description: "Larger joke ideas and recurring angles", href: "/killtony/bits" },
-  { title: "Topics", description: "Subject tags across the archive", href: "/killtony/search#topics" },
-];
+const FEATURED_BIT_CANDIDATES = BIT_LISTS.flatMap((list) => list.ids);
 
-function BrowseNav() {
+function SectionHeader({
+  eyebrow,
+  title,
+  description,
+  href,
+  cta,
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+  href: string;
+  cta: string;
+}) {
   return (
-    <div className="bg-white p-4 text-black">
-      <h2 className="text-xs font-bold uppercase text-stone-500">Browse</h2>
-      <div className="mt-3 grid gap-1">
-        {BROWSE_SECTIONS.map((section) => (
-          <Link
-            key={section.href}
-            href={section.href}
-            className="flex items-center gap-3 px-0 py-2 text-sm transition-colors hover:text-[#ff1464]"
-          >
-            <span className="min-w-0">
-              <span className="block truncate font-bold">{section.title}</span>
-              <span className="block truncate text-xs text-stone-500">{section.description}</span>
-            </span>
-          </Link>
-        ))}
+    <div className="mb-6 flex items-end justify-between gap-4 px-6">
+      <div className="max-w-2xl">
+        <p className="text-xs font-bold uppercase tracking-[0.24em] text-primary">{eyebrow}</p>
+        <h2 className="mt-2 text-2xl font-bold tracking-tight text-stone-950 sm:text-3xl">{title}</h2>
+        <p className="mt-2 text-sm leading-relaxed text-stone-600">{description}</p>
       </div>
+      <Link
+        href={href}
+        className="shrink-0 text-sm font-semibold text-stone-500 transition-colors hover:text-primary"
+      >
+        {cta}
+      </Link>
     </div>
   );
 }
 
 export const metadata = {
-  title: "Kill Tony — PunchNotes",
-  description: "Structured comedy analytics for Kill Tony. Browse episodes, comedians, and jokes broken down by premise, mechanism, and audience response.",
+  title: "Kill Tony - PunchNotes",
+  description:
+    "Structured comedy analytics for Kill Tony. Browse episodes, comedians, and jokes broken down by premise, mechanism, and audience response.",
 };
 
-const FEATURED_BEAT_SET_ID = "138";
-const FEATURED_BEAT_BIT_INDEX = 3;
-const FEATURED_BEAT_INDEX = 0;
-
 export default async function KillTonyPage() {
-  const [episodes, comedians, bits, sets, featuredBeatSet] = await Promise.all([
+  const [episodes, comedians, bits] = await Promise.all([
     getServerEpisodes(),
     getServerComedians(),
     getServerBits(),
-    getServerSets(),
-    getServerSet(FEATURED_BEAT_SET_ID),
   ]);
 
-  const episodeCount = episodes?.length ?? 0;
-  const comedianCount = comedians?.length ?? 0;
-  const setCount = episodes?.reduce((sum, ep) => sum + (ep.set_count ?? 0), 0) ?? 0;
-  const bitCount = bits?.length ?? 0;
+  const featuredBit =
+    bits?.find((bit) => FEATURED_BIT_CANDIDATES.includes(bit.id)) ??
+    bits?.find((bit) => bit.set_id != null);
+  const featuredBeatSet = featuredBit ? await getServerSet(String(featuredBit.set_id)) : null;
+  const featuredBeatBitIndex = featuredBeatSet?.bits.findIndex((bit) => bit.id === featuredBit?.id) ?? -1;
+  const hasFeaturedBeat =
+    featuredBeatSet != null &&
+    featuredBeatBitIndex >= 0 &&
+    featuredBeatSet.bits[featuredBeatBitIndex]?.beats.length > 0;
 
   return (
     <div className="bg-white">
-      {featuredBeatSet && (
-        <BeatOfTheWeek
-          set={featuredBeatSet}
-          bitIndex={FEATURED_BEAT_BIT_INDEX}
-          beatIndex={FEATURED_BEAT_INDEX}
-          sidebar={<BrowseNav />}
-        />
-      )}
-
-      {sets && (
-        <div className="py-10">
-          <SetPlaylists sets={sets} />
-        </div>
+      {hasFeaturedBeat && featuredBeatSet && (
+        <BeatOfTheWeek set={featuredBeatSet} bitIndex={featuredBeatBitIndex} beatIndex={0} />
       )}
 
       {episodes && (
-        <div className="border-t border-stone-100 py-10">
-          <EpisodePlaylists episodes={episodes} />
-        </div>
+        <section className="border-b border-stone-200 bg-white py-12">
+          <div className="mx-auto max-w-6xl">
+            <SectionHeader
+              eyebrow="Episode Playlists"
+              title="Start with a strong entry point into the archive."
+              description="Lead with Kill Tony lore and all-star guests here, then let the full archive page handle the rest."
+              href="/killtony/episodes"
+              cta="See more episode playlists"
+            />
+            <EpisodePlaylists episodes={episodes} limit={2} />
+          </div>
+        </section>
       )}
 
-      {/* Stats */}
-      <section className="border-t border-stone-200 bg-stone-50 py-10 px-4">
-        <div className="mx-auto max-w-4xl">
-          <dl className="grid grid-cols-2 gap-6 sm:grid-cols-4">
-            {[
-              { label: "Episodes", value: episodeCount || "—" },
-              { label: "Comedians", value: comedianCount || "—" },
-              { label: "Sets", value: setCount || "—" },
-              { label: "Bits", value: bitCount || "—" },
-            ].map(({ label, value }) => (
-              <div key={label} className="text-center">
-                <dt className="text-sm text-stone-500">{label}</dt>
-                <dd className="mt-1 text-3xl font-bold text-stone-900">{value}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
-      {/* Nav tiles */}
-      <section className="py-16 px-4">
-        <div className="mx-auto max-w-4xl grid gap-6 sm:grid-cols-3">
-          {[
-            {
-              href: "/killtony/episodes",
-              title: "Episodes",
-              description: "Every episode with its full lineup, dates, and set-by-set breakdown.",
-            },
-            {
-              href: "/killtony/comedians",
-              title: "Comedians",
-              description: "Every comedian who has performed, with their career arc and joke book history.",
-            },
-            {
-              href: "/killtony/jokes",
-              title: "Jokes",
-              description: "Search every joke by premise, topic, or mechanism type.",
-            },
-          ].map(({ href, title, description }) => (
-            <Link
-              key={href}
-              href={href}
-              className="group rounded-xl border border-stone-200 bg-white p-6 hover:border-primary/50 hover:shadow-sm transition-all"
-            >
-              <h2 className="text-lg font-semibold text-stone-900 group-hover:text-primary transition-colors">
-                {title}
-              </h2>
-              <p className="mt-2 text-sm text-stone-500 leading-relaxed">{description}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
+      {comedians && (
+        <section className="border-b border-stone-200 bg-stone-50 py-12">
+          <div className="mx-auto max-w-6xl">
+            <SectionHeader
+              eyebrow="Comedian Playlists"
+              title="Browse the roster through grouped lists, not just one giant index."
+              description="Use regulars and golden ticket winners as the two homepage comedian entry points."
+              href="/killtony/comedians"
+              cta="See more comedian playlists"
+            />
+            <ComedianPlaylists comedians={comedians} limit={2} />
+          </div>
+        </section>
+      )}
     </div>
   );
 }

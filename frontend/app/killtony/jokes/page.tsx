@@ -1,10 +1,10 @@
 import { Suspense } from "react";
-import { getServerJokes, getServerTopics } from "@/lib/serverApi";
+import { getServerJokes } from "@/lib/serverApi";
 import JokesFilters from "@/components/JokesFilters";
 import JokesList from "@/page_components/JokesList";
 
 export const metadata = {
-  title: "Jokes — Kill Tony | PunchNotes",
+  title: "Jokes - Kill Tony | PunchNotes",
 };
 
 type Props = { searchParams: Promise<Record<string, string>> };
@@ -12,10 +12,7 @@ type Props = { searchParams: Promise<Record<string, string>> };
 export default async function JokesPage({ searchParams }: Props) {
   const sp = await searchParams;
   const qs = new URLSearchParams(sp).toString();
-  const [jokes, topics] = await Promise.all([
-    getServerJokes(qs),
-    getServerTopics(),
-  ]);
+  const jokes = await getServerJokes(qs);
 
   const filterKey = qs;
 
@@ -27,14 +24,13 @@ export default async function JokesPage({ searchParams }: Props) {
           <p className="mt-2 text-stone-500">
             {jokes ? `${jokes.length} jokes` : ""}
             {sp.q ? ` matching "${sp.q}"` : ""}
-            {sp.topic ? ` tagged "${sp.topic}"` : ""}
             {sp.joke_type ? ` · ${sp.joke_type}` : ""}
-            {!jokes ? "Loading…" : ""}
+            {!jokes ? "Loading..." : ""}
           </p>
         </div>
 
         <Suspense>
-          <JokesFilters topics={topics ?? []} />
+          <JokesFilters />
         </Suspense>
 
         {!jokes ? (
