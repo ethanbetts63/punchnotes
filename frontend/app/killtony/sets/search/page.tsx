@@ -1,7 +1,6 @@
 import { Suspense } from "react";
-import Link from "next/link";
 import { getServerSets } from "@/lib/serverApi";
-import ListPageSearchBar from "@/components/ListPageSearchBar";
+import ListPageHeader from "@/components/ListPageHeader";
 import SetSearchFilters from "@/components/SetSearchFilters";
 import SetList from "@/page_components/SetList";
 
@@ -16,32 +15,22 @@ export default async function SetSearchPage({ searchParams }: Props) {
   const qs = new URLSearchParams(searchParamsValue).toString();
   const sets = await getServerSets(qs || undefined);
   const trimmedQuery = (searchParamsValue.q ?? "").trim();
+  const subtitle = sets
+    ? `${sets.length} set${sets.length !== 1 ? "s" : ""}${trimmedQuery ? ` matching "${trimmedQuery}"` : ""}`
+    : "Loading...";
 
   return (
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-        <Link
-          href="/killtony/sets"
-          className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-stone-500 transition-colors hover:text-stone-900"
-        >
-          {"<- Sets"}
-        </Link>
-
-        <div className="mb-6 mt-4">
-          <h1 className="text-3xl font-bold text-stone-900">Search Sets</h1>
-          <p className="mt-2 text-stone-500">
-            {sets
-              ? `${sets.length} set${sets.length !== 1 ? "s" : ""}${trimmedQuery ? ` matching "${trimmedQuery}"` : ""}`
-              : "Loading..."}
-          </p>
-        </div>
-
         <Suspense>
-          <ListPageSearchBar placeholder="Search sets..." />
-        </Suspense>
-
-        <Suspense>
-          <SetSearchFilters />
+          <ListPageHeader
+            backHref="/killtony/sets"
+            backLabel="Sets"
+            title="Search Sets"
+            subtitle={subtitle}
+            searchPlaceholder="Search sets..."
+            controls={<SetSearchFilters />}
+          />
         </Suspense>
 
         {!sets || sets.length === 0 ? (

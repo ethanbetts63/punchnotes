@@ -1,5 +1,5 @@
 import { authedFetch } from "@/apiClient";
-import type { Episode, Comedian, Set, Joke } from "@/lib/serverApi";
+import type { BeatSearchItem, Comedian, Episode, Set } from "@/lib/serverApi";
 
 async function handleResponse<T>(res: Response): Promise<T> {
   if (!res.ok) {
@@ -35,8 +35,8 @@ export async function getSet(id: number): Promise<Set> {
   return handleResponse<Set>(res);
 }
 
-export async function searchJokes(params: Record<string, string>): Promise<Joke[]> {
+export async function searchJokes(params: Record<string, string>): Promise<BeatSearchItem[]> {
   const qs = new URLSearchParams(params).toString();
   const res = await authedFetch(`/api/killtony/jokes/?${qs}`);
-  return handleResponse<Joke[]>(res);
+  return handleResponse<BeatSearchItem[]>(res);
 }

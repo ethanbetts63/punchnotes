@@ -123,3 +123,20 @@ export const BIT_LISTS: ListDef[] = [
     ids: [415, 304, 275, 324, 478, 152, 117, 93, 94, 162, 161, 346, 347],
   },
 ];
+
+export type FeaturedBeatSource = {
+  setId: number;
+  bitIndex: number;
+  beatIndex: number;
+};
+
+export const FEATURED_BEATS: FeaturedBeatSource[] = [
+  { setId: 346, bitIndex: 0, beatIndex: 0 },
+  { setId: 26, bitIndex: 0, beatIndex: 0 },
+  { setId: 282, bitIndex: 0, beatIndex: 0 },
+  { setId: 55, bitIndex: 0, beatIndex: 0 },
+  { setId: 145, bitIndex: 0, beatIndex: 0 },
+  { setId: 156, bitIndex: 0, beatIndex: 0 },
+  { setId: 491, bitIndex: 0, beatIndex: 0 },
+  { setId: 90, bitIndex: 0, beatIndex: 0 },
+];
