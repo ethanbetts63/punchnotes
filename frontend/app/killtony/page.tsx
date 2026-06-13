@@ -74,7 +74,7 @@ export default async function KillTonyPage() {
             <SectionHeader
               title="Episode Playlists"
               href="/killtony/episodes"
-              cta="See more "
+              cta="See all episodes"
             />
             <EpisodePlaylists episodes={episodes} limit={2} />
           </div>
@@ -85,9 +85,9 @@ export default async function KillTonyPage() {
         <section className="border-b border-stone-200 bg-stone-50 py-12">
           <div className="mx-auto max-w-6xl">
             <SectionHeader
-              title="Comic Playlists"
+              title="Comedians"
               href="/killtony/comedians"
-              cta="See all comics"
+              cta="See all comedians"
             />
             <ComedianPlaylists comedians={comedians} limit={2} />
           </div>

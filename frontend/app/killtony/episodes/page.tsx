@@ -31,7 +31,7 @@ export default async function EpisodesPage() {
       </div>
 
       {episodes && (
-        <div className="pb-12">
+        <div className="mx-auto max-w-6xl pb-12">
           <EpisodePlaylists episodes={episodes} />
         </div>
       )}
