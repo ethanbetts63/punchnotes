@@ -43,7 +43,7 @@ export default function NavBar() {
         >
           <Search className="h-3.5 w-3.5 shrink-0 text-stone-500" aria-hidden="true" />
           <input
-            type="search"
+            type="text"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search Kill Tony"

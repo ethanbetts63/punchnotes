@@ -1,10 +1,8 @@
-import { Suspense } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { getServerSearch, type SearchResponse, type SearchResult } from "@/lib/serverApi";
 import YoutubeThumbnail from "@/components/YoutubeThumbnail";
 import ComedianImage from "@/components/ComedianImage";
-import BrowseSearchBar from "@/components/BrowseSearchBar";
 
 export const metadata = {
   title: "Search - Kill Tony | PunchNotes",
@@ -13,19 +11,19 @@ export const metadata = {
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
 type SearchGroupKey = Exclude<keyof SearchResponse, "query" | "top_result">;
-type DisplaySearchGroupKey = Exclude<SearchGroupKey, "jokes">;
+type DisplaySearchGroupKey = SearchGroupKey;
 
 const GROUPS: { key: DisplaySearchGroupKey; title: string; description: string }[] = [
   { key: "comedians", title: "Comedians", description: "Guest comics and bucket pulls" },
   { key: "episodes", title: "Episodes", description: "KT numbers, titles, and metadata" },
   { key: "sets", title: "Sets", description: "Individual minutes and interviews" },
-  { key: "bits", title: "Bits", description: "Larger joke ideas and recurring angles" },
+  { key: "beats", title: "Jokes", description: "Beat-level setup, punch, and tag matches" },
 ];
 
 const MAIN_GROUPS: { key: DisplaySearchGroupKey; title: string }[] = [
   { key: "episodes", title: "Episodes" },
   { key: "comedians", title: "Comedians" },
-  { key: "bits", title: "Bits" },
+  { key: "beats", title: "Jokes" },
 ];
 
 const SIDEBAR_GROUPS: { key: DisplaySearchGroupKey; title: string }[] = [
@@ -42,9 +40,7 @@ function typeStyle(type: SearchResult["type"]): string {
       return "bg-black text-white";
     case "set":
       return "bg-[#ffff64] text-black";
-    case "bit":
-      return "bg-cyan-500 text-black";
-    case "joke":
+    case "beat":
       return "bg-emerald-400 text-black";
     default:
       return "bg-indigo-500 text-white";
@@ -59,9 +55,7 @@ function typeLabel(type: SearchResult["type"]): string {
       return "Episode";
     case "set":
       return "Set";
-    case "bit":
-      return "Bit";
-    case "joke":
+    case "beat":
       return "Joke";
     default:
       return "Search result";
@@ -69,7 +63,7 @@ function typeLabel(type: SearchResult["type"]): string {
 }
 
 function isVisibleResultType(type: SearchResult["type"]): boolean {
-  return type === "comedian" || type === "episode" || type === "set" || type === "bit" || type === "joke";
+  return type === "comedian" || type === "episode" || type === "set" || type === "beat";
 }
 
 function resultInitial(item: SearchResult): string {
@@ -117,19 +111,38 @@ function ResultMark({ item, featured = false }: { item: SearchResult; featured?:
   );
 }
 
+function HighlightedText({ text, query }: { text: string; query: string }) {
+  if (!query.trim()) return <>{text}</>;
+
+  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const pattern = new RegExp(`(${escaped})`, "ig");
+  const parts = text.split(pattern);
+
+  return (
+    <>
+      {parts.map((part, index) => (
+        part.toLowerCase() === query.toLowerCase() ? <strong key={`${part}-${index}`}>{part}</strong> : part
+      ))}
+    </>
+  );
+}
+
 function ResultCard({
   item,
+  query,
   featured = false,
   compact = false,
   textOnly = false,
 }: {
   item: SearchResult;
+  query: string;
   featured?: boolean;
   compact?: boolean;
   textOnly?: boolean;
 }) {
   const subtitle = item.subtitle === typeLabel(item.type) ? "" : item.subtitle;
   const hideMark = compact || textOnly;
+  const showHighlightedTitle = item.type === "beat" && Boolean(query.trim());
 
   return (
     <Link
@@ -151,7 +164,7 @@ function ResultCard({
                 compact ? "text-sm" : featured ? "text-xl sm:text-2xl" : "text-base"
               }`}
             >
-              {item.title}
+              {showHighlightedTitle ? <HighlightedText text={item.title} query={query} /> : item.title}
             </p>
             <ArrowUpRight className="mt-0.5 h-3.5 w-3.5 shrink-0 text-stone-400 opacity-0 transition-opacity group-hover:opacity-100" />
           </div>
@@ -186,7 +199,7 @@ function ResultSection({
   query: string;
 }) {
   if (items.length === 0 && !ALWAYS_VISIBLE_GROUPS.has(groupKey)) return null;
-  const isBits = groupKey === "bits";
+  const isBeats = groupKey === "beats";
 
   return (
     <section className="scroll-mt-24" id={groupKey}>
@@ -204,10 +217,10 @@ function ResultSection({
           )}
         </div>
       </div>
-      <div className={`grid gap-2 ${isBits ? "" : "min-[850px]:grid-cols-2"}`}>
+      <div className={`grid gap-2 ${isBeats ? "" : "min-[850px]:grid-cols-2"}`}>
         {items.length > 0 ? (
           items.map((item) => (
-            <ResultCard key={`${item.type}-${item.href}-${item.title}`} item={item} textOnly={isBits} />
+            <ResultCard key={`${item.type}-${item.href}-${item.title}`} item={item} query={query} textOnly={isBeats} />
           ))
         ) : (
           <div className="bg-white px-4 py-5 text-sm text-stone-500">
@@ -248,7 +261,7 @@ function SidebarResultSection({
       </div>
       <div className="grid gap-1.5">
         {items.map((item) => (
-          <ResultCard key={`${item.type}-${item.href}-${item.title}`} item={item} compact />
+          <ResultCard key={`${item.type}-${item.href}-${item.title}`} item={item} query={query} compact />
         ))}
       </div>
     </section>
@@ -262,7 +275,7 @@ function SearchEmptyState({ query }: { query: string }) {
         {query ? "No results found." : "Search the Kill Tony archive."}
       </p>
       <p className="mt-2 text-sm text-stone-500">
-        Try a comedian, KT number, bit summary, or set detail.
+        Try a comedian, KT number, set detail, or joke line.
       </p>
     </div>
   );
@@ -278,8 +291,8 @@ function refinedHref(key: DisplaySearchGroupKey, query: string): string {
       return `/killtony/comedians/search${qs ? `?${qs}` : ""}`;
     case "episodes":
       return `/killtony/episodes/search${qs ? `?${qs}` : ""}`;
-    case "bits":
-      return `/killtony/bits/search${qs ? `?${qs}` : ""}`;
+    case "beats":
+      return `/killtony/jokes${qs ? `?${qs}` : ""}`;
     case "sets":
       return `/killtony/sets/search${qs ? `?${qs}` : ""}`;
   }
@@ -313,13 +326,13 @@ function BrowseResults({ results, query }: { results: SearchResponse | null; que
   );
 }
 
-function TopResult({ item }: { item: SearchResult }) {
+function TopResult({ item, query }: { item: SearchResult; query: string }) {
   return (
     <section>
       <div className="mb-2 px-4 sm:px-0">
         <h2 className="text-xs font-bold uppercase text-stone-500">Top result</h2>
       </div>
-      <ResultCard item={item} featured />
+      <ResultCard item={item} query={query} featured />
       <p className="mt-2 px-4 text-xs text-stone-500 sm:px-0">{formattedMeta(item)}</p>
     </section>
   );
@@ -342,11 +355,6 @@ export default async function SearchPage({ searchParams }: Props) {
             {trimmedQuery ? `"${trimmedQuery}"` : "Search"}
           </h1>
           <p className="mt-3 text-center text-sm font-bold uppercase text-stone-500">All results</p>
-          <div className="mx-auto mt-6 max-w-xl">
-            <Suspense>
-              <BrowseSearchBar placeholder="Search Kill Tony..." />
-            </Suspense>
-          </div>
         </div>
       </section>
 
@@ -361,7 +369,7 @@ export default async function SearchPage({ searchParams }: Props) {
           {results && !hasResults && <SearchEmptyState query={trimmedQuery} />}
           {results && hasResults && (
             <>
-              {topResult && <TopResult item={topResult} />}
+              {topResult && <TopResult item={topResult} query={trimmedQuery} />}
               {MAIN_GROUPS.map(({ key, title }) => (
                 <ResultSection
                   key={key}

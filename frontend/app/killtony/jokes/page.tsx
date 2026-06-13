@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { getServerJokes } from "@/lib/serverApi";
+import { getServerBeats } from "@/lib/serverApi";
 import JokesFilters from "@/components/JokesFilters";
 import JokesList from "@/page_components/JokesList";
 
@@ -12,7 +12,8 @@ type Props = { searchParams: Promise<Record<string, string>> };
 export default async function JokesPage({ searchParams }: Props) {
   const sp = await searchParams;
   const qs = new URLSearchParams(sp).toString();
-  const jokes = await getServerJokes(qs);
+  const beats = await getServerBeats(qs);
+  const query = (sp.q ?? "").trim();
 
   const filterKey = qs;
 
@@ -22,10 +23,10 @@ export default async function JokesPage({ searchParams }: Props) {
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-stone-900">Jokes</h1>
           <p className="mt-2 text-stone-500">
-            {jokes ? `${jokes.length} jokes` : ""}
+            {beats ? `${beats.length} jokes` : ""}
             {sp.q ? ` matching "${sp.q}"` : ""}
             {sp.joke_type ? ` · ${sp.joke_type}` : ""}
-            {!jokes ? "Loading..." : ""}
+            {!beats ? "Loading..." : ""}
           </p>
         </div>
 
@@ -33,13 +34,13 @@ export default async function JokesPage({ searchParams }: Props) {
           <JokesFilters />
         </Suspense>
 
-        {!jokes ? (
+        {!beats ? (
           <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
             <p className="text-stone-500">No jokes found.</p>
           </div>
         ) : (
           <Suspense>
-            <JokesList jokes={jokes} filterKey={filterKey} />
+            <JokesList beats={beats} filterKey={filterKey} query={query} />
           </Suspense>
         )}
       </div>

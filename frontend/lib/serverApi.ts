@@ -43,9 +43,9 @@ export async function getServerSets(params?: string) {
   return serverFetch<SetListItem[]>(`/api/killtony/sets/${qs}`);
 }
 
-export async function getServerJokes(params?: string) {
+export async function getServerBeats(params?: string) {
   const qs = params ? `?${params}` : "";
-  return serverFetch<Joke[]>(`/api/killtony/jokes/${qs}`);
+  return serverFetch<BeatSearchItem[]>(`/api/killtony/jokes/${qs}`);
 }
 
 export async function getServerBits(params?: string) {
@@ -258,7 +258,7 @@ export type BitListItem = {
   punchline_tag_ratio: number | null;
 };
 
-export type Joke = {
+export type BeatSearchItem = {
   id: number;
   comedian: string;
   comedian_slug: string;
@@ -268,9 +268,11 @@ export type Joke = {
   joke_type: string;
   setup_lines: string[];
   punchline: string;
+  matched_line: string;
+  matched_line_label: string;
 };
 
-export type SearchResultType = "comedian" | "episode" | "set" | "bit" | "joke" | (string & {});
+export type SearchResultType = "comedian" | "episode" | "set" | "beat" | (string & {});
 
 export type SearchResult = {
   type: SearchResultType;
@@ -281,6 +283,7 @@ export type SearchResult = {
   score: number;
   youtube_id?: string | null;
   image_url?: string | null;
+  matched_line_label?: string | null;
 };
 
 export type SearchResponse = {
@@ -289,6 +292,5 @@ export type SearchResponse = {
   comedians: SearchResult[];
   episodes: SearchResult[];
   sets: SearchResult[];
-  bits: SearchResult[];
-  jokes: SearchResult[];
+  beats: SearchResult[];
 };
