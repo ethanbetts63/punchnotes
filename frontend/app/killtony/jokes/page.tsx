@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { getServerBeats } from "@/lib/serverApi";
 import JokesFilters from "@/components/JokesFilters";
 import JokesList from "@/page_components/JokesList";
+import ListPageHeader from "@/components/ListPageHeader";
 
 export const metadata = {
   title: "Jokes - Kill Tony | PunchNotes",
@@ -10,28 +11,28 @@ export const metadata = {
 type Props = { searchParams: Promise<Record<string, string>> };
 
 export default async function JokesPage({ searchParams }: Props) {
-  const sp = await searchParams;
-  const qs = new URLSearchParams(sp).toString();
+  const searchParamsValue = await searchParams;
+  const qs = new URLSearchParams(searchParamsValue).toString();
   const beats = await getServerBeats(qs);
-  const query = (sp.q ?? "").trim();
-
-  const filterKey = qs;
+  const query = (searchParamsValue.q ?? "").trim();
+  const subtitle = [
+    beats ? `${beats.length} jokes` : "",
+    searchParamsValue.q ? `matching "${searchParamsValue.q}"` : "",
+    searchParamsValue.joke_type ? searchParamsValue.joke_type : "",
+  ]
+    .filter(Boolean)
+    .join(" / ");
 
   return (
     <div className="bg-white min-h-screen">
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-stone-900">Jokes</h1>
-          <p className="mt-2 text-stone-500">
-            {beats ? `${beats.length} jokes` : ""}
-            {sp.q ? ` matching "${sp.q}"` : ""}
-            {sp.joke_type ? ` · ${sp.joke_type}` : ""}
-            {!beats ? "Loading..." : ""}
-          </p>
-        </div>
-
         <Suspense>
-          <JokesFilters />
+          <ListPageHeader
+            title="Jokes"
+            subtitle={subtitle || (!beats ? "Loading..." : undefined)}
+            searchPlaceholder="Search jokes..."
+            controls={<JokesFilters />}
+          />
         </Suspense>
 
         {!beats ? (
@@ -40,7 +41,7 @@ export default async function JokesPage({ searchParams }: Props) {
           </div>
         ) : (
           <Suspense>
-            <JokesList beats={beats} filterKey={filterKey} query={query} />
+            <JokesList beats={beats} query={query} />
           </Suspense>
         )}
       </div>

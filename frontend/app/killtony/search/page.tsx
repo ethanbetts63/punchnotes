@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { getServerSearch, type SearchResponse, type SearchResult } from "@/lib/serverApi";
+import { getServerNavSearch, type NavSearchResponse, type NavSearchResult } from "@/lib/serverApi";
 import YoutubeThumbnail from "@/components/YoutubeThumbnail";
 import ComedianImage from "@/components/ComedianImage";
 
@@ -10,29 +10,28 @@ export const metadata = {
 
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
-type SearchGroupKey = Exclude<keyof SearchResponse, "query" | "top_result">;
-type DisplaySearchGroupKey = SearchGroupKey;
+type NavSearchGroupKey = Exclude<keyof NavSearchResponse, "query" | "top_result">;
 
-const GROUPS: { key: DisplaySearchGroupKey; title: string; description: string }[] = [
+const GROUPS: { key: NavSearchGroupKey; title: string; description: string }[] = [
   { key: "comedians", title: "Comedians", description: "Guest comics and bucket pulls" },
   { key: "episodes", title: "Episodes", description: "KT numbers, titles, and metadata" },
   { key: "sets", title: "Sets", description: "Individual minutes and interviews" },
   { key: "beats", title: "Jokes", description: "Beat-level setup, punch, and tag matches" },
 ];
 
-const MAIN_GROUPS: { key: DisplaySearchGroupKey; title: string }[] = [
+const MAIN_GROUPS: { key: NavSearchGroupKey; title: string }[] = [
   { key: "episodes", title: "Episodes" },
   { key: "comedians", title: "Comedians" },
   { key: "beats", title: "Jokes" },
 ];
 
-const SIDEBAR_GROUPS: { key: DisplaySearchGroupKey; title: string }[] = [
+const SIDEBAR_GROUPS: { key: NavSearchGroupKey; title: string }[] = [
   { key: "sets", title: "Sets" },
 ];
 
-const ALWAYS_VISIBLE_GROUPS = new Set<DisplaySearchGroupKey>(["comedians", "episodes"]);
+const ALWAYS_VISIBLE_GROUPS = new Set<NavSearchGroupKey>(["comedians", "episodes"]);
 
-function typeStyle(type: SearchResult["type"]): string {
+function typeStyle(type: NavSearchResult["type"]): string {
   switch (type) {
     case "comedian":
       return "bg-[#ff1464] text-white";
@@ -47,7 +46,7 @@ function typeStyle(type: SearchResult["type"]): string {
   }
 }
 
-function typeLabel(type: SearchResult["type"]): string {
+function typeLabel(type: NavSearchResult["type"]): string {
   switch (type) {
     case "comedian":
       return "Comedian";
@@ -62,11 +61,11 @@ function typeLabel(type: SearchResult["type"]): string {
   }
 }
 
-function isVisibleResultType(type: SearchResult["type"]): boolean {
+function isVisibleNavSearchResult(type: NavSearchResult["type"]): boolean {
   return type === "comedian" || type === "episode" || type === "set" || type === "beat";
 }
 
-function resultInitial(item: SearchResult): string {
+function resultInitial(item: NavSearchResult): string {
   if (item.type === "episode") {
     const episodeNumber = item.meta[0]?.match(/#(\d+)/)?.[1] ?? item.title.match(/#(\d+)/)?.[1];
     if (episodeNumber) return episodeNumber;
@@ -75,11 +74,11 @@ function resultInitial(item: SearchResult): string {
   return label.charAt(0).toUpperCase();
 }
 
-function formattedMeta(item: SearchResult): string {
+function formattedMeta(item: NavSearchResult): string {
   return [typeLabel(item.type), ...item.meta].filter(Boolean).slice(0, 4).join(" / ");
 }
 
-function ResultMark({ item, featured = false }: { item: SearchResult; featured?: boolean }) {
+function NavSearchResultMark({ item, featured = false }: { item: NavSearchResult; featured?: boolean }) {
   if (item.type === "episode") {
     return (
       <YoutubeThumbnail
@@ -127,14 +126,14 @@ function HighlightedText({ text, query }: { text: string; query: string }) {
   );
 }
 
-function ResultCard({
+function NavSearchResultCard({
   item,
   query,
   featured = false,
   compact = false,
   textOnly = false,
 }: {
-  item: SearchResult;
+  item: NavSearchResult;
   query: string;
   featured?: boolean;
   compact?: boolean;
@@ -151,7 +150,7 @@ function ResultCard({
         compact ? "min-h-0" : featured ? "min-h-28" : "min-h-[75px]"
       }`}
     >
-      {!hideMark && <ResultMark item={item} featured={featured} />}
+      {!hideMark && <NavSearchResultMark item={item} featured={featured} />}
       <div
         className={`flex min-w-0 flex-1 flex-col justify-between overflow-hidden ${
           compact ? "px-3 py-2" : featured ? "px-3 py-2.5" : "px-2.5 py-2"
@@ -187,15 +186,15 @@ function ResultCard({
   );
 }
 
-function ResultSection({
+function NavSearchResultSection({
   groupKey,
   title,
   items,
   query,
 }: {
-  groupKey: DisplaySearchGroupKey;
+  groupKey: NavSearchGroupKey;
   title: string;
-  items: SearchResult[];
+  items: NavSearchResult[];
   query: string;
 }) {
   if (items.length === 0 && !ALWAYS_VISIBLE_GROUPS.has(groupKey)) return null;
@@ -220,7 +219,7 @@ function ResultSection({
       <div className={`grid gap-2 ${isBeats ? "" : "min-[850px]:grid-cols-2"}`}>
         {items.length > 0 ? (
           items.map((item) => (
-            <ResultCard key={`${item.type}-${item.href}-${item.title}`} item={item} query={query} textOnly={isBeats} />
+            <NavSearchResultCard key={`${item.type}-${item.href}-${item.title}`} item={item} query={query} textOnly={isBeats} />
           ))
         ) : (
           <div className="bg-white px-4 py-5 text-sm text-stone-500">
@@ -232,15 +231,15 @@ function ResultSection({
   );
 }
 
-function SidebarResultSection({
+function NavSearchSidebarSection({
   groupKey,
   title,
   items,
   query,
 }: {
-  groupKey: DisplaySearchGroupKey;
+  groupKey: NavSearchGroupKey;
   title: string;
-  items: SearchResult[];
+  items: NavSearchResult[];
   query: string;
 }) {
   if (items.length === 0) return null;
@@ -261,14 +260,14 @@ function SidebarResultSection({
       </div>
       <div className="grid gap-1.5">
         {items.map((item) => (
-          <ResultCard key={`${item.type}-${item.href}-${item.title}`} item={item} query={query} compact />
+          <NavSearchResultCard key={`${item.type}-${item.href}-${item.title}`} item={item} query={query} compact />
         ))}
       </div>
     </section>
   );
 }
 
-function SearchEmptyState({ query }: { query: string }) {
+function NavSearchEmptyState({ query }: { query: string }) {
   return (
     <div className="bg-white px-4 py-12 text-center text-black">
       <p className="text-xl font-bold">
@@ -281,7 +280,7 @@ function SearchEmptyState({ query }: { query: string }) {
   );
 }
 
-function refinedHref(key: DisplaySearchGroupKey, query: string): string {
+function refinedHref(key: NavSearchGroupKey, query: string): string {
   const params = new URLSearchParams();
   if (query) params.set("q", query);
   const qs = params.toString();
@@ -298,7 +297,7 @@ function refinedHref(key: DisplaySearchGroupKey, query: string): string {
   }
 }
 
-function BrowseResults({ results, query }: { results: SearchResponse | null; query: string }) {
+function NavSearchSidebar({ results, query }: { results: NavSearchResponse | null; query: string }) {
   const counts = GROUPS.map((group) => ({
     ...group,
     count: results ? results[group.key].length : 0,
@@ -326,25 +325,25 @@ function BrowseResults({ results, query }: { results: SearchResponse | null; que
   );
 }
 
-function TopResult({ item, query }: { item: SearchResult; query: string }) {
+function NavSearchTopResult({ item, query }: { item: NavSearchResult; query: string }) {
   return (
     <section>
       <div className="mb-2 px-4 sm:px-0">
         <h2 className="text-xs font-bold uppercase text-stone-500">Top result</h2>
       </div>
-      <ResultCard item={item} query={query} featured />
+      <NavSearchResultCard item={item} query={query} featured />
       <p className="mt-2 px-4 text-xs text-stone-500 sm:px-0">{formattedMeta(item)}</p>
     </section>
   );
 }
 
-export default async function SearchPage({ searchParams }: Props) {
-  const params = await searchParams;
-  const rawQuery = params.q;
+export default async function NavSearchPage({ searchParams }: Props) {
+  const searchParamsValue = await searchParams;
+  const rawQuery = searchParamsValue.q;
   const query = Array.isArray(rawQuery) ? rawQuery[0] ?? "" : rawQuery ?? "";
   const trimmedQuery = query.trim();
-  const results = trimmedQuery ? await getServerSearch(trimmedQuery) : null;
-  const topResult = results?.top_result && isVisibleResultType(results.top_result.type) ? results.top_result : null;
+  const results = trimmedQuery ? await getServerNavSearch(trimmedQuery) : null;
+  const topResult = results?.top_result && isVisibleNavSearchResult(results.top_result.type) ? results.top_result : null;
   const hasResults = results ? GROUPS.some(({ key }) => results[key].length > 0) : false;
 
   return (
@@ -360,18 +359,18 @@ export default async function SearchPage({ searchParams }: Props) {
 
       <div className="mx-auto grid max-w-6xl gap-6 px-0 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_300px]">
         <main className="min-w-0">
-          {!trimmedQuery && <SearchEmptyState query="" />}
+          {!trimmedQuery && <NavSearchEmptyState query="" />}
           {trimmedQuery && !results && (
             <div className="bg-white px-4 py-12 text-center">
               <p className="text-lg font-bold">Search is unavailable right now.</p>
             </div>
           )}
-          {results && !hasResults && <SearchEmptyState query={trimmedQuery} />}
+          {results && !hasResults && <NavSearchEmptyState query={trimmedQuery} />}
           {results && hasResults && (
             <>
-              {topResult && <TopResult item={topResult} query={trimmedQuery} />}
+              {topResult && <NavSearchTopResult item={topResult} query={trimmedQuery} />}
               {MAIN_GROUPS.map(({ key, title }) => (
-                <ResultSection
+                <NavSearchResultSection
                   key={key}
                   groupKey={key}
                   title={title}
@@ -383,9 +382,9 @@ export default async function SearchPage({ searchParams }: Props) {
           )}
         </main>
         <aside className="px-4 sm:px-0">
-          <BrowseResults results={results} query={trimmedQuery} />
+          <NavSearchSidebar results={results} query={trimmedQuery} />
           {results && hasResults && SIDEBAR_GROUPS.map(({ key, title }) => (
-            <SidebarResultSection
+            <NavSearchSidebarSection
               key={key}
               groupKey={key}
               title={title}

@@ -1,11 +1,11 @@
 import { Suspense } from "react";
 import { getServerSets } from "@/lib/serverApi";
 import SetPlaylists from "@/page_components/SetPlaylists";
-import BrowseSearchBar from "@/components/BrowseSearchBar";
 import SetSearchFilters from "@/components/SetSearchFilters";
+import ListPageHeader from "@/components/ListPageHeader";
 
 export const metadata = {
-  title: "Sets — Kill Tony | PunchNotes",
+  title: "Sets - Kill Tony | PunchNotes",
 };
 
 export default async function SetsPage() {
@@ -14,19 +14,13 @@ export default async function SetsPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold text-stone-900">Sets</h1>
-        </div>
-
         <Suspense>
-          <BrowseSearchBar
-            placeholder="Search sets…"
+          <ListPageHeader
+            title="Sets"
+            searchPlaceholder="Search sets..."
             searchPath="/killtony/sets/search"
+            controls={<SetSearchFilters />}
           />
-        </Suspense>
-
-        <Suspense>
-          <SetSearchFilters />
         </Suspense>
       </div>
 

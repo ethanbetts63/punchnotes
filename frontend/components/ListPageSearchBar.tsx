@@ -5,23 +5,23 @@ import { useState } from "react";
 
 type Props = { placeholder: string; searchPath?: string };
 
-export default function BrowseSearchBar({ placeholder, searchPath }: Props) {
+export default function ListPageSearchBar({ placeholder, searchPath }: Props) {
   const router = useRouter();
-  const sp = useSearchParams();
-  const urlQuery = sp.get("q") ?? "";
+  const searchParams = useSearchParams();
+  const urlQuery = searchParams.get("q") ?? "";
   const [value, setValue] = useState(urlQuery);
 
-  function navigate(q: string) {
+  function navigate(query: string) {
     if (searchPath) {
       const params = new URLSearchParams();
-      if (q.trim()) params.set("q", q.trim());
+      if (query.trim()) params.set("q", query.trim());
       const qs = params.toString();
       router.push(`${searchPath}${qs ? `?${qs}` : ""}`);
       return;
     }
 
-    const params = new URLSearchParams(sp.toString());
-    if (q.trim()) params.set("q", q.trim());
+    const params = new URLSearchParams(searchParams.toString());
+    if (query.trim()) params.set("q", query.trim());
     else params.delete("q");
     const qs = params.toString();
     router.push(`${window.location.pathname}${qs ? `?${qs}` : ""}`);

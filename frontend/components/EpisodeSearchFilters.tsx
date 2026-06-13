@@ -1,81 +1,46 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import {
+  ListPageFilterSection,
+  ListPageSortChipGrid,
+  useListPageFilterRouter,
+} from "@/components/ListPageFilterControls";
 
 const SEARCH_PATH = "/killtony/episodes/search";
 
 const SORT_OPTIONS = [
-  { key: "date",              label: "Date" },
-  { key: "duration",          label: "Duration" },
-  { key: "set_count",         label: "Set count" },
-  { key: "bucket_pulls",      label: "Bucket pulls" },
-  { key: "golden_tickets",    label: "Golden tickets" },
-  { key: "large_joke_books",  label: "Big joke books" },
-  { key: "regulars",          label: "Regulars" },
-  { key: "view_count",        label: "View count" },
-  { key: "like_count",        label: "Like count" },
-  { key: "like_ratio",        label: "View/like ratio" },
-] as const;
-
-type SortKey = typeof SORT_OPTIONS[number]["key"];
+  { value: "date", label: "Date" },
+  { value: "duration", label: "Duration" },
+  { value: "set_count", label: "Set count" },
+  { value: "bucket_pulls", label: "Bucket pulls" },
+  { value: "golden_tickets", label: "Golden tickets" },
+  { value: "large_joke_books", label: "Big joke books" },
+  { value: "regulars", label: "Regulars" },
+  { value: "view_count", label: "View count" },
+  { value: "like_count", label: "Like count" },
+  { value: "like_ratio", label: "View/like ratio" },
+];
 
 export default function EpisodeSearchFilters() {
-  const router = useRouter();
-  const sp = useSearchParams();
-  const currentQ = sp.get("q") ?? "";
-  const currentSort = (sp.get("sort") ?? "date") as SortKey;
-  const currentAsc = sp.get("asc") === "1";
+  const { getParam, push } = useListPageFilterRouter({
+    searchPath: SEARCH_PATH,
+    trackedParams: ["sort", "asc"],
+  });
 
-  function build(overrides: Record<string, string>) {
-    const params = new URLSearchParams();
-    if (currentQ) params.set("q", currentQ);
-    params.set("sort", currentSort);
-    if (currentAsc) params.set("asc", "1");
-    for (const [k, v] of Object.entries(overrides)) {
-      if (v) params.set(k, v);
-      else params.delete(k);
-    }
-    return `${SEARCH_PATH}?${params.toString()}`;
-  }
-
-  const chip = (active: boolean) =>
-    `rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
-      active
-        ? "border-stone-900 bg-stone-900 text-white"
-        : "border-stone-200 bg-white text-stone-600 hover:border-stone-400"
-    }`;
+  const currentSort = getParam("sort", "date");
+  const currentAsc = getParam("asc") === "1";
 
   return (
     <div className="mb-6">
-      <div>
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-400">Sort</p>
-        <div className="flex flex-wrap items-center gap-2">
-          <button
-            onClick={() => router.push(build({ asc: currentAsc ? "" : "1" }))}
-            title={currentAsc ? "Ascending — click for descending" : "Descending — click for ascending"}
-            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-500 transition-colors hover:border-stone-400 hover:text-stone-800"
-          >
-            <svg
-              className="h-3.5 w-3.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              style={{ transform: currentAsc ? "scaleY(-1)" : undefined }}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4" />
-            </svg>
-          </button>
-          {SORT_OPTIONS.map(({ key, label }) => (
-            <button
-              key={key}
-              onClick={() => router.push(build({ sort: key }))}
-              className={chip(currentSort === key)}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-      </div>
+      <ListPageFilterSection title="Sort">
+        <ListPageSortChipGrid
+          options={SORT_OPTIONS}
+          currentValue={currentSort}
+          currentAsc={currentAsc}
+          onToggleAsc={() => push({ asc: currentAsc ? "" : "1" })}
+          onSelect={(value) => push({ sort: value })}
+        />
+      </ListPageFilterSection>
     </div>
   );
 }

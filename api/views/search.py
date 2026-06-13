@@ -45,7 +45,7 @@ def fmt_count(value, singular, plural=None):
     return f"{value} {singular if value == 1 else plural}"
 
 
-class SearchView(APIView):
+class NavSearchView(APIView):
     def get(self, request):
         query = (request.query_params.get("q") or "").strip()
         if not query:

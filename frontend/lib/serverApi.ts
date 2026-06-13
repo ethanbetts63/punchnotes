@@ -53,9 +53,9 @@ export async function getServerBits(params?: string) {
   return serverFetch<BitListItem[]>(`/api/killtony/bits/${qs}`);
 }
 
-export async function getServerSearch(query: string) {
+export async function getServerNavSearch(query: string) {
   const qs = new URLSearchParams({ q: query }).toString();
-  return serverFetch<SearchResponse>(`/api/killtony/search/?${qs}`);
+  return serverFetch<NavSearchResponse>(`/api/killtony/search/?${qs}`);
 }
 
 // --- types (minimal, expand as backend solidifies) ---
@@ -272,10 +272,10 @@ export type BeatSearchItem = {
   matched_line_label: string;
 };
 
-export type SearchResultType = "comedian" | "episode" | "set" | "beat" | (string & {});
+export type NavSearchResultType = "comedian" | "episode" | "set" | "beat" | (string & {});
 
-export type SearchResult = {
-  type: SearchResultType;
+export type NavSearchResult = {
+  type: NavSearchResultType;
   title: string;
   subtitle: string;
   href: string;
@@ -286,11 +286,11 @@ export type SearchResult = {
   matched_line_label?: string | null;
 };
 
-export type SearchResponse = {
+export type NavSearchResponse = {
   query: string;
-  top_result: SearchResult | null;
-  comedians: SearchResult[];
-  episodes: SearchResult[];
-  sets: SearchResult[];
-  beats: SearchResult[];
+  top_result: NavSearchResult | null;
+  comedians: NavSearchResult[];
+  episodes: NavSearchResult[];
+  sets: NavSearchResult[];
+  beats: NavSearchResult[];
 };

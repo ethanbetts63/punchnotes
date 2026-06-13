@@ -1,21 +1,21 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { getServerComedians } from "@/lib/serverApi";
-import BrowseSearchBar from "@/components/BrowseSearchBar";
+import ListPageSearchBar from "@/components/ListPageSearchBar";
 import ComedianSearchFilters from "@/components/ComedianSearchFilters";
 import ComedianList from "@/page_components/ComedianList";
 
 export const metadata = {
-  title: "Search Comedians — Kill Tony | PunchNotes",
+  title: "Search Comedians - Kill Tony | PunchNotes",
 };
 
 type Props = { searchParams: Promise<Record<string, string>> };
 
 export default async function ComedianSearchPage({ searchParams }: Props) {
-  const sp = await searchParams;
-  const qs = new URLSearchParams(sp).toString();
+  const searchParamsValue = await searchParams;
+  const qs = new URLSearchParams(searchParamsValue).toString();
   const comedians = await getServerComedians(qs || undefined);
-  const trimmedQuery = (sp.q ?? "").trim();
+  const trimmedQuery = (searchParamsValue.q ?? "").trim();
 
   return (
     <div className="bg-white min-h-screen">
@@ -24,7 +24,7 @@ export default async function ComedianSearchPage({ searchParams }: Props) {
           href="/killtony/comedians"
           className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-stone-500 transition-colors hover:text-stone-900"
         >
-          ← Comedians
+          {"<- Comedians"}
         </Link>
 
         <div className="mb-6 mt-4">
@@ -32,12 +32,12 @@ export default async function ComedianSearchPage({ searchParams }: Props) {
           <p className="mt-2 text-stone-500">
             {comedians
               ? `${comedians.length} comedian${comedians.length !== 1 ? "s" : ""}${trimmedQuery ? ` matching "${trimmedQuery}"` : ""}`
-              : "Loading…"}
+              : "Loading..."}
           </p>
         </div>
 
         <Suspense>
-          <BrowseSearchBar placeholder="Search comedians…" />
+          <ListPageSearchBar placeholder="Search comedians..." />
         </Suspense>
 
         <Suspense>

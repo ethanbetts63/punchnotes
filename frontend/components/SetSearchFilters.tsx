@@ -1,114 +1,69 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import {
+  ListPageFilterChipGrid,
+  ListPageFilterSection,
+  ListPageSortChipGrid,
+  useListPageFilterRouter,
+} from "@/components/ListPageFilterControls";
 
 const SEARCH_PATH = "/killtony/sets/search";
 
 const ATTRIBUTE_OPTIONS = [
-  { value: "bucket_pull",   label: "Bucket Pull" },
-  { value: "regular",       label: "Regular" },
+  { value: "bucket_pull", label: "Bucket Pull" },
+  { value: "regular", label: "Regular" },
   { value: "golden_ticket", label: "Golden Ticket" },
-  { value: "special",       label: "Special" },
+  { value: "special", label: "Special" },
 ];
 
 const JOKE_BOOK_OPTIONS = [
-  { value: "small",  label: "Small Joke Book" },
+  { value: "small", label: "Small Joke Book" },
   { value: "medium", label: "Medium Joke Book" },
-  { value: "large",  label: "Large Joke Book" },
+  { value: "large", label: "Large Joke Book" },
 ];
 
 const SORT_OPTIONS = [
-  { key: "bit_count",           label: "Bits" },
-  { key: "hit_ratio",           label: "Hit ratio" },
-  { key: "punchline_tag_ratio", label: "Punch/tag ratio" },
+  { value: "bit_count", label: "Bits" },
+  { value: "hit_ratio", label: "Hit ratio" },
+  { value: "punchline_tag_ratio", label: "Punch/tag ratio" },
 ];
 
 export default function SetSearchFilters() {
-  const router = useRouter();
-  const sp = useSearchParams();
-  const currentAttribute = sp.get("attribute") ?? "";
-  const currentJokeBook = sp.get("joke_book") ?? "";
-  const currentSort = sp.get("sort") ?? "";
-  const currentAsc = sp.get("asc") === "1";
-  const currentQ = sp.get("q") ?? "";
+  const { getParam, push } = useListPageFilterRouter({
+    searchPath: SEARCH_PATH,
+    trackedParams: ["attribute", "joke_book", "sort", "asc"],
+  });
 
-  function build(overrides: Record<string, string>) {
-    const params = new URLSearchParams();
-    if (currentQ) params.set("q", currentQ);
-    if (currentAttribute) params.set("attribute", currentAttribute);
-    if (currentJokeBook) params.set("joke_book", currentJokeBook);
-    if (currentSort) params.set("sort", currentSort);
-    if (currentAsc) params.set("asc", "1");
-    for (const [k, v] of Object.entries(overrides)) {
-      if (v) params.set(k, v);
-      else params.delete(k);
-    }
-    return `${SEARCH_PATH}?${params.toString()}`;
-  }
-
-  const chip = (active: boolean) =>
-    `rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
-      active
-        ? "border-stone-900 bg-stone-900 text-white"
-        : "border-stone-200 bg-white text-stone-600 hover:border-stone-400"
-    }`;
+  const currentAttribute = getParam("attribute");
+  const currentJokeBook = getParam("joke_book");
+  const currentSort = getParam("sort");
+  const currentAsc = getParam("asc") === "1";
 
   return (
     <div className="mb-6 space-y-4">
-      <div>
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-400">Filter</p>
-        <div className="flex flex-wrap gap-2">
-          {ATTRIBUTE_OPTIONS.map(({ value, label }) => (
-            <button
-              key={value}
-              onClick={() => router.push(build({ attribute: currentAttribute === value ? "" : value }))}
-              className={chip(currentAttribute === value)}
-            >
-              {label}
-            </button>
-          ))}
+      <ListPageFilterSection title="Filter">
+        <ListPageFilterChipGrid
+          options={ATTRIBUTE_OPTIONS}
+          currentValue={currentAttribute}
+          onSelect={(value) => push({ attribute: currentAttribute === value ? "" : value })}
+        />
+        <div className="mt-2">
+          <ListPageFilterChipGrid
+            options={JOKE_BOOK_OPTIONS}
+            currentValue={currentJokeBook}
+            onSelect={(value) => push({ joke_book: currentJokeBook === value ? "" : value })}
+          />
         </div>
-        <div className="mt-2 flex flex-wrap gap-2">
-          {JOKE_BOOK_OPTIONS.map(({ value, label }) => (
-            <button
-              key={value}
-              onClick={() => router.push(build({ joke_book: currentJokeBook === value ? "" : value }))}
-              className={chip(currentJokeBook === value)}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-      </div>
-      <div>
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-400">Sort</p>
-        <div className="flex flex-wrap items-center gap-2">
-          <button
-            onClick={() => router.push(build({ asc: currentAsc ? "" : "1" }))}
-            title={currentAsc ? "Ascending — click for descending" : "Descending — click for ascending"}
-            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-500 transition-colors hover:border-stone-400 hover:text-stone-800"
-          >
-            <svg
-              className="h-3.5 w-3.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              style={{ transform: currentAsc ? "scaleY(-1)" : undefined }}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4" />
-            </svg>
-          </button>
-          {SORT_OPTIONS.map(({ key, label }) => (
-            <button
-              key={key}
-              onClick={() => router.push(build({ sort: currentSort === key ? "" : key }))}
-              className={chip(currentSort === key)}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-      </div>
+      </ListPageFilterSection>
+      <ListPageFilterSection title="Sort">
+        <ListPageSortChipGrid
+          options={SORT_OPTIONS}
+          currentValue={currentSort}
+          currentAsc={currentAsc}
+          onToggleAsc={() => push({ asc: currentAsc ? "" : "1" })}
+          onSelect={(value) => push({ sort: currentSort === value ? "" : value })}
+        />
+      </ListPageFilterSection>
     </div>
   );
 }

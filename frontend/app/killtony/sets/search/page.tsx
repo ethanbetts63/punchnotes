@@ -1,21 +1,21 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { getServerSets } from "@/lib/serverApi";
-import BrowseSearchBar from "@/components/BrowseSearchBar";
+import ListPageSearchBar from "@/components/ListPageSearchBar";
 import SetSearchFilters from "@/components/SetSearchFilters";
 import SetList from "@/page_components/SetList";
 
 export const metadata = {
-  title: "Search Sets — Kill Tony | PunchNotes",
+  title: "Search Sets - Kill Tony | PunchNotes",
 };
 
 type Props = { searchParams: Promise<Record<string, string>> };
 
 export default async function SetSearchPage({ searchParams }: Props) {
-  const sp = await searchParams;
-  const qs = new URLSearchParams(sp).toString();
+  const searchParamsValue = await searchParams;
+  const qs = new URLSearchParams(searchParamsValue).toString();
   const sets = await getServerSets(qs || undefined);
-  const trimmedQuery = (sp.q ?? "").trim();
+  const trimmedQuery = (searchParamsValue.q ?? "").trim();
 
   return (
     <div className="min-h-screen bg-white">
@@ -24,7 +24,7 @@ export default async function SetSearchPage({ searchParams }: Props) {
           href="/killtony/sets"
           className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-stone-500 transition-colors hover:text-stone-900"
         >
-          ← Sets
+          {"<- Sets"}
         </Link>
 
         <div className="mb-6 mt-4">
@@ -32,12 +32,12 @@ export default async function SetSearchPage({ searchParams }: Props) {
           <p className="mt-2 text-stone-500">
             {sets
               ? `${sets.length} set${sets.length !== 1 ? "s" : ""}${trimmedQuery ? ` matching "${trimmedQuery}"` : ""}`
-              : "Loading…"}
+              : "Loading..."}
           </p>
         </div>
 
         <Suspense>
-          <BrowseSearchBar placeholder="Search sets…" />
+          <ListPageSearchBar placeholder="Search sets..." />
         </Suspense>
 
         <Suspense>

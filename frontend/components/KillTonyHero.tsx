@@ -66,7 +66,7 @@ export default function KillTonyHero() {
         </Link>
 
         <Link
-          href="/killtony/bits"
+          href="/killtony/jokes"
           className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-semibold text-white backdrop-blur-sm transition-transform hover:scale-[1.02] hover:bg-white/10"
         >
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">

@@ -8,7 +8,7 @@ import Paginator from "@/components/Paginator";
 
 const PAGE_SIZE = 20;
 
-type Props = { beats: BeatSearchItem[]; filterKey?: string; query?: string };
+type Props = { beats: BeatSearchItem[]; query?: string };
 
 function HighlightedText({ text, query }: { text: string; query: string }) {
   if (!query.trim()) return <>{text}</>;
