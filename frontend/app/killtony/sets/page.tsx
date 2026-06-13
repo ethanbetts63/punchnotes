@@ -31,7 +31,7 @@ export default async function SetsPage() {
       </div>
 
       {sets && (
-        <div className="pb-12">
+        <div className="mx-auto max-w-6xl pb-12">
           <SetPlaylists sets={sets} />
         </div>
       )}

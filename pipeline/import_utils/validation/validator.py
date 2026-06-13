@@ -8,6 +8,7 @@ precise feedback in a single import attempt.
 
 from .beats import BeatMetaValidation
 from .lines import LineValidation
+from ..premises import populate_single_line_punchline_premises
 from .utils import sequential_error
 
 
@@ -22,12 +23,18 @@ def validate_bit_meta(meta: dict) -> None:
     line_validation = LineValidation(lines).run()
     errors.extend(line_validation.errors)
 
+    single_line_premises = populate_single_line_punchline_premises(meta)
+
     bit_meta = meta.get("bit_meta", {})
     if not isinstance(bit_meta, dict):
         errors.append("bit_meta must be a JSON object keyed by bit number strings, not an array")
         bit_meta = {}
 
-    beat_validation = BeatMetaValidation(bit_meta, line_validation.punchline_lines).run()
+    beat_validation = BeatMetaValidation(
+        bit_meta,
+        line_validation.punchline_lines,
+        single_line_premises=single_line_premises,
+    ).run()
     errors.extend(beat_validation.errors)
 
     bit_sequence_error = sequential_error(

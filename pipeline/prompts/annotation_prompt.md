@@ -16,7 +16,7 @@ Each input file is a set JSON from `pipeline/data/2_set_inbox/`. Lines have an e
 
 Write the annotated file back to `pipeline/data/2_set_inbox/<same-filename>.json`, overwriting the unannotated source. The output adds `bit_meta` before `lines`, and each line gets `label`, `bit`, and `beat` fields.
 
-Every beat has its own `premise`, `joke_type`, joke-type-specific premise fields, and `keys`. A bit gets a `summary` **only when it has more than one beat**. The summary is a **short as possible** umbrella description of the shared frame that makes those beats belong together. Single-beat bits must not have a summary because the beat premise already explains the whole bit.
+Every beat has its own `premise`, `joke_type`, joke-type-specific premise fields, and `keys`, except for the single special case below. A bit gets a `summary` **only when it has more than one beat**. The summary is a **short as possible** umbrella description of the shared frame that makes those beats belong together. Single-beat bits must not have a summary because the beat premise already explains the whole bit.
 
 After writing, delete the source file from `pipeline/data/2_set_inbox/`.
 
@@ -87,6 +87,7 @@ Every beat has `premise`, `joke_type`, the required fields for that joke type, a
 For multi-beat bits, every beat must still have its own premise. The bit summary is the broad shared frame; each beat premise is the specific comedic mechanism of that beat.
 
 **Premise rules:**
+- **Single-line exception:** if a beat's only non-`fluff` line is one `punchline`, you do not need to write a premise for that beat. 
 - **Hard limit: 20 words maximum.** If your premise exceeds 20 words, you are describing the joke rather than stating its mechanism. Count the words and cut until you are at or under 20. Every word must be load-bearing.
 - State the abstract comedic logic - *why is this funny*, not a summary of what was said.
 - No pronouns tied to the comedian - no "he", "she", "they", "the comic".

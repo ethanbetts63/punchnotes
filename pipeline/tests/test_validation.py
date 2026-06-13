@@ -455,3 +455,118 @@ class ValidateBitMetaTests(SimpleTestCase):
         }
 
         validate_bit_meta(meta)
+
+    def test_single_line_punchline_beat_can_omit_premise(self):
+        meta = {
+            "bit_meta": {
+                "1": {
+                    "beats": {
+                        "1": {
+                            "joke_type": "reframe",
+                            "subject": "seatbelts",
+                            "reframe": "wanting a hug",
+                            "keys": ["seatbelts"],
+                        }
+                    }
+                }
+            },
+            "lines": [
+                {
+                    "line_number": 10,
+                    "text": "I just wanna be held, please.",
+                    "label": "punchline",
+                    "bit": 1,
+                    "beat": 1,
+                }
+            ],
+        }
+
+        validate_bit_meta(meta)
+
+        self.assertEqual(
+            meta["bit_meta"]["1"]["beats"]["1"]["premise"],
+            "I just wanna be held, please.",
+        )
+
+    def test_setup_backed_beat_still_requires_structured_premise(self):
+        meta = {
+            "bit_meta": {
+                "1": {
+                    "beats": {
+                        "1": {
+                            "joke_type": "reframe",
+                            "subject": "seatbelts",
+                            "reframe": "wanting a hug",
+                            "keys": ["seatbelts"],
+                        }
+                    }
+                }
+            },
+            "lines": [
+                {"line_number": 9, "text": "I started wearing my seatbelt.", "label": "setup", "bit": None, "beat": None},
+                {"line_number": 10, "text": "I just wanna be held, please.", "label": "punchline", "bit": 1, "beat": 1},
+            ],
+        }
+
+        with self.assertRaisesRegex(ValueError, "bit 1 beat 1: premise is required for joke_type 'reframe'"):
+            validate_bit_meta(meta)
+
+    def test_fluff_plus_punchline_beat_can_omit_premise(self):
+        meta = {
+            "bit_meta": {
+                "1": {
+                    "beats": {
+                        "1": {
+                            "joke_type": "reframe",
+                            "subject": "a pause",
+                            "reframe": "part of the laugh",
+                            "keys": ["pause"],
+                        }
+                    }
+                }
+            },
+            "lines": [
+                {"line_number": 9, "text": "[pause]", "label": "fluff", "bit": None, "beat": None},
+                {"line_number": 10, "text": "I just wanna be held, please.", "label": "punchline", "bit": 1, "beat": 1},
+            ],
+        }
+
+        validate_bit_meta(meta)
+
+        self.assertEqual(
+            meta["bit_meta"]["1"]["beats"]["1"]["premise"],
+            "I just wanna be held, please.",
+        )
+
+    def test_single_line_punchline_beat_ignores_existing_written_premise(self):
+        meta = {
+            "bit_meta": {
+                "1": {
+                    "beats": {
+                        "1": {
+                            "premise": "Seatbelts could be emotional support.",
+                            "joke_type": "reframe",
+                            "subject": "seatbelts",
+                            "reframe": "wanting a hug",
+                            "keys": ["seatbelts"],
+                        }
+                    }
+                }
+            },
+            "lines": [
+                {
+                    "line_number": 10,
+                    "text": "I just wanna be held, please.",
+                    "label": "punchline",
+                    "bit": 1,
+                    "beat": 1,
+                }
+            ],
+        }
+
+        validate_bit_meta(meta)
+
+        self.assertEqual(
+            meta["bit_meta"]["1"]["beats"]["1"]["premise"],
+            "I just wanna be held, please.",
+        )

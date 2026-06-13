@@ -20,9 +20,15 @@ from .utils import flatten_strings, is_non_empty_string, positive_int
 
 
 class BeatMetaValidation:
-    def __init__(self, bit_meta: dict, punchline_lines: dict[tuple[int, int], list[int]]):
+    def __init__(
+        self,
+        bit_meta: dict,
+        punchline_lines: dict[tuple[int, int], list[int]],
+        single_line_premises: dict[tuple[int, int], str] | None = None,
+    ):
         self.bit_meta = bit_meta
         self.punchline_lines = punchline_lines
+        self.single_line_premises = single_line_premises or {}
         self.errors: list[str] = []
         self.meta_beat_keys: set[tuple[int, int]] = set()
         self.meta_bits: set[int] = set()
@@ -81,7 +87,7 @@ class BeatMetaValidation:
             return
 
         self._validate_fields(location, joke_type, beat_data)
-        self._validate_premise(location, joke_type, beat_data)
+        self._validate_premise(location, parsed_bit_num, parsed_beat_num, joke_type, beat_data)
         self._validate_keys(location, joke_type, beat_data)
 
         if (parsed_bit_num, parsed_beat_num) not in self.punchline_lines:
@@ -109,7 +115,14 @@ class BeatMetaValidation:
             if value is not None and not is_non_empty_string(value):
                 self.errors.append(f"{location}: optional field {field!r} must be a non-empty string when present")
 
-    def _validate_premise(self, location: str, joke_type: str, beat_data: dict) -> None:
+    def _validate_premise(
+        self,
+        location: str,
+        bit_num: int,
+        beat_num: int,
+        joke_type: str,
+        beat_data: dict,
+    ) -> None:
         premise = beat_data.get("premise")
         if not isinstance(premise, str) or not premise.strip():
             self.errors.append(f"{location}: premise is required for joke_type {joke_type!r}")
@@ -118,6 +131,9 @@ class BeatMetaValidation:
         match = ENCODED_PATTERN.search(premise)
         if match:
             self.errors.append(f"{location}: encoded character {match.group()!r} in premise")
+
+        if premise == self.single_line_premises.get((bit_num, beat_num)):
+            return
 
         word_count = len(premise.split())
         if word_count > PREMISE_MAX_WORDS:

@@ -51,7 +51,7 @@ export default function MediaTile({ item }: { item: TileData }) {
           {item.title}
         </p>
         {item.meta && (
-          <p className="mt-1 truncate text-xs text-stone-500">{item.meta}</p>
+          <p className="mt-1 text-xs leading-snug text-stone-500">{item.meta}</p>
         )}
       </div>
     </Link>
