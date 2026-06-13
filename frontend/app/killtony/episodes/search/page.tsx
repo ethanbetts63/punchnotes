@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { getServerEpisodes } from "@/lib/serverApi";
 import EpisodeSearchFilters from "@/components/EpisodeSearchFilters";
 import ListPageHeader from "@/components/ListPageHeader";
-import EpisodeList from "@/page_components/EpisodeList";
+import EpisodeSearchResults from "@/page_components/EpisodeSearchResults";
 
 export const metadata = {
   title: "Search Episodes - Kill Tony | PunchNotes",
@@ -39,7 +39,7 @@ export default async function EpisodeSearchPage({ searchParams }: Props) {
           </div>
         ) : (
           <Suspense>
-            <EpisodeList episodes={episodes} filterKey={qs} />
+            <EpisodeSearchResults episodes={episodes} />
           </Suspense>
         )}
       </div>

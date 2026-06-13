@@ -30,9 +30,7 @@ function fmt2(n: number | null): string {
   return n.toFixed(2);
 }
 
-type Props = { comedians: Comedian[]; filterKey?: string };
-
-export default function ComedianList({ comedians }: Props) {
+export default function ComedianSearchResults({ comedians }: { comedians: Comedian[] }) {
   const sp = useSearchParams();
   const sort = (sp.get("sort") ?? "avg_bits_per_set") as SortKey;
   const asc = sp.get("asc") === "1";

@@ -49,9 +49,7 @@ function getSortValue(set: SetListItem, key: SortKey): number | string {
   }
 }
 
-type Props = { sets: SetListItem[]; filterKey?: string };
-
-export default function SetList({ sets }: Props) {
+export default function SetSearchResults({ sets }: { sets: SetListItem[] }) {
   const sp = useSearchParams();
   const sort = (sp.get("sort") ?? "episode") as SortKey;
   const asc = sp.get("asc") === "1";

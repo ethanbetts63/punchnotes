@@ -70,9 +70,7 @@ function Stat({ label, value }: { label: string; value: string | number }) {
   );
 }
 
-type Props = { episodes: Episode[]; filterKey?: string };
-
-export default function EpisodeList({ episodes }: Props) {
+export default function EpisodeSearchResults({ episodes }: { episodes: Episode[] }) {
   const sp = useSearchParams();
   const sort = (sp.get("sort") ?? "date") as SortKey;
   const asc = sp.get("asc") === "1";

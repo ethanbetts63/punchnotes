@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { getServerComedians } from "@/lib/serverApi";
 import ComedianSearchFilters from "@/components/ComedianSearchFilters";
 import ListPageHeader from "@/components/ListPageHeader";
-import ComedianList from "@/page_components/ComedianList";
+import ComedianSearchResults from "@/page_components/ComedianSearchResults";
 
 export const metadata = {
   title: "Search Comedians - Kill Tony | PunchNotes",
@@ -39,7 +39,7 @@ export default async function ComedianSearchPage({ searchParams }: Props) {
           </div>
         ) : (
           <Suspense>
-            <ComedianList comedians={comedians} filterKey={qs} />
+            <ComedianSearchResults comedians={comedians} />
           </Suspense>
         )}
       </div>

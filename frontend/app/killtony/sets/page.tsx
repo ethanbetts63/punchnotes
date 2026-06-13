@@ -8,7 +8,7 @@ export const metadata = {
   title: "Sets - Kill Tony | PunchNotes",
 };
 
-export default async function SetsPage() {
+export default async function SetsBrowsePage() {
   const sets = await getServerSets();
 
   return (

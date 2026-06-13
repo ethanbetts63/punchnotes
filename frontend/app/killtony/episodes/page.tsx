@@ -8,7 +8,7 @@ export const metadata = {
   title: "Episodes - Kill Tony | PunchNotes",
 };
 
-export default async function EpisodesPage() {
+export default async function EpisodesBrowsePage() {
   const episodes = await getServerEpisodes();
 
   return (

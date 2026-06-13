@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { getServerSets } from "@/lib/serverApi";
 import ListPageHeader from "@/components/ListPageHeader";
 import SetSearchFilters from "@/components/SetSearchFilters";
-import SetList from "@/page_components/SetList";
+import SetSearchResults from "@/page_components/SetSearchResults";
 
 export const metadata = {
   title: "Search Sets - Kill Tony | PunchNotes",
@@ -39,7 +39,7 @@ export default async function SetSearchPage({ searchParams }: Props) {
           </div>
         ) : (
           <Suspense>
-            <SetList sets={sets} filterKey={qs} />
+            <SetSearchResults sets={sets} />
           </Suspense>
         )}
       </div>
