@@ -46,7 +46,7 @@ def merge_attributes(existing, incoming):
 
 
 def meta_attributes(meta):
-    return list(meta.get("attributes", []) or [])
+    return list(meta.get("comedian_attributes") or meta.get("attributes") or [])
 
 
 def upsert_comedian(slug: str, meta: dict) -> Comedian:

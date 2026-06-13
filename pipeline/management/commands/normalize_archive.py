@@ -8,7 +8,7 @@ SET_FIELD_ORDER = [
     "type", "video_id", "episode_title", "episode_url", "publish_date",
     "guests", "comedian_name",
     "start_seconds", "interview_end_line", "interview_end_seconds",
-    "set_attributes", "attributes", "bit_meta", "lines",
+    "set_attributes", "comedian_attributes", "bit_meta", "lines",
 ]
 
 LINE_FIELD_ORDER = ["text", "label", "bit", "beat", "line_number", "start"]
@@ -80,13 +80,17 @@ def serialize_set(data: dict) -> str:
                 if attr:
                     existing = [attr]
             out[key] = existing
+        elif key == "comedian_attributes":
+            # Migrate legacy "attributes" key to "comedian_attributes"
+            out[key] = list(data.get("comedian_attributes") or data.get("attributes") or [])
         elif key in {"interview_end_line", "interview_end_seconds"}:
             out[key] = data.get(key)
         elif key in data:
             out[key] = data[key]
-    # Preserve any unrecognised keys at the end (skip legacy joke_book — migrated into set_attributes)
+    # Skip legacy keys that have been migrated to new names
+    _skip = {"set_number", "joke_book", "attributes"}
     for key, val in data.items():
-        if key in ("set_number", "joke_book"):
+        if key in _skip:
             continue
         if key not in out:
             out[key] = val

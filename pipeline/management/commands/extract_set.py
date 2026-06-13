@@ -226,7 +226,7 @@ class Command(BaseCommand):
             "interview_end_line": interview_end_line,
             "interview_end_seconds": interview_end_seconds,
             "set_attributes": [joke_book_attr] if joke_book_attr else [],
-            "attributes": normalize_attributes(options["attributes"]),
+            "comedian_attributes": normalize_attributes(options["attributes"]),
             "lines": selected_lines,
         }
 
