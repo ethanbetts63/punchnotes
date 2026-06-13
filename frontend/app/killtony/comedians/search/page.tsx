@@ -1,7 +1,6 @@
-import { Suspense } from "react";
 import { getServerComedians } from "@/lib/serverApi";
+import ModelSearchLayout, { buildSearchSubtitle } from "@/components/ModelSearchLayout";
 import ComedianSearchFilters from "@/components/ComedianSearchFilters";
-import ListPageHeader from "@/components/ListPageHeader";
 import ComedianSearchResults from "@/page_components/ComedianSearchResults";
 
 export const metadata = {
@@ -14,35 +13,20 @@ export default async function ComedianSearchPage({ searchParams }: Props) {
   const searchParamsValue = await searchParams;
   const qs = new URLSearchParams(searchParamsValue).toString();
   const comedians = await getServerComedians(qs || undefined);
-  const trimmedQuery = (searchParamsValue.q ?? "").trim();
-  const subtitle = comedians
-    ? `${comedians.length} comedian${comedians.length !== 1 ? "s" : ""}${trimmedQuery ? ` matching "${trimmedQuery}"` : ""}`
-    : "Loading...";
+  const query = (searchParamsValue.q ?? "").trim();
 
   return (
-    <div className="bg-white min-h-screen">
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-        <Suspense>
-          <ListPageHeader
-            backHref="/killtony/comedians"
-            backLabel="Comedians"
-            title="Search Comedians"
-            subtitle={subtitle}
-            searchPlaceholder="Search comedians..."
-            controls={<ComedianSearchFilters />}
-          />
-        </Suspense>
-
-        {!comedians || comedians.length === 0 ? (
-          <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
-            <p className="text-stone-500">No comedians found.</p>
-          </div>
-        ) : (
-          <Suspense>
-            <ComedianSearchResults comedians={comedians} />
-          </Suspense>
-        )}
-      </div>
-    </div>
+    <ModelSearchLayout
+      title="Search Comedians"
+      backHref="/killtony/comedians"
+      backLabel="Comedians"
+      searchPlaceholder="Search comedians..."
+      subtitle={buildSearchSubtitle(comedians?.length ?? null, "comedian", "comedians", query)}
+      controls={<ComedianSearchFilters />}
+      isEmpty={!comedians || comedians.length === 0}
+      emptyMessage="No comedians found."
+    >
+      {comedians && <ComedianSearchResults comedians={comedians} />}
+    </ModelSearchLayout>
   );
 }

@@ -29,6 +29,7 @@ If there are any `.json` files there:
 - Spin up one medium level agent, tell it which files to process, and give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\annotation_prompt.md`.
 - Wait for it to finish, then repeat for the next batch of 20.
 - Continue until `2_set_inbox` is empty.
+- You can run phase 2 in parrel with with phase 1 as soon as phase 2
 
 ---
 
