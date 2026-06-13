@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  ListPageFilterChipGrid,
-  ListPageFilterSection,
-  ListPageSortChipGrid,
-  useListPageFilterRouter,
-} from "@/components/ListPageFilterControls";
+import { ListPageFilterChipGrid, useListPageFilterRouter } from "@/components/ListPageFilterControls";
 
 const SEARCH_PATH = "/killtony/sets/search";
 
@@ -41,29 +36,24 @@ export default function SetSearchFilters() {
 
   return (
     <div className="mb-6 space-y-4">
-      <ListPageFilterSection title="Filter">
-        <ListPageFilterChipGrid
-          options={ATTRIBUTE_OPTIONS}
-          currentValue={currentAttribute}
-          onSelect={(value) => push({ attribute: currentAttribute === value ? "" : value })}
-        />
-        <div className="mt-2">
-          <ListPageFilterChipGrid
-            options={JOKE_BOOK_OPTIONS}
-            currentValue={currentJokeBook}
-            onSelect={(value) => push({ joke_book: currentJokeBook === value ? "" : value })}
-          />
-        </div>
-      </ListPageFilterSection>
-      <ListPageFilterSection title="Sort">
-        <ListPageSortChipGrid
-          options={SORT_OPTIONS}
-          currentValue={currentSort}
-          currentAsc={currentAsc}
-          onToggleAsc={() => push({ asc: currentAsc ? "" : "1" })}
-          onSelect={(value) => push({ sort: currentSort === value ? "" : value })}
-        />
-      </ListPageFilterSection>
+      <ListPageFilterChipGrid
+        title="Filter"
+        options={[...ATTRIBUTE_OPTIONS, ...JOKE_BOOK_OPTIONS]}
+        currentValue={currentAttribute || currentJokeBook}
+        onSelect={(value) => {
+          const isAttribute = ATTRIBUTE_OPTIONS.some((o) => o.value === value);
+          if (isAttribute) push({ attribute: currentAttribute === value ? "" : value, joke_book: "" });
+          else push({ joke_book: currentJokeBook === value ? "" : value, attribute: "" });
+        }}
+      />
+      <ListPageFilterChipGrid
+        title="Sort"
+        options={SORT_OPTIONS}
+        currentValue={currentSort}
+        currentAsc={currentAsc}
+        onToggleAsc={() => push({ asc: currentAsc ? "" : "1" })}
+        onSelect={(value) => push({ sort: currentSort === value ? "" : value })}
+      />
     </div>
   );
 }

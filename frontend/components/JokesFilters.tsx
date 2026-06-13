@@ -1,6 +1,6 @@
 "use client";
 
-import { ListPageFilterSection, useListPageFilterRouter } from "@/components/ListPageFilterControls";
+import { ListPageFilterChipGrid, useListPageFilterRouter } from "@/components/ListPageFilterControls";
 
 const JOKE_TYPES = [
   { value: "", label: "All types" },
@@ -24,23 +24,12 @@ export default function JokesFilters() {
 
   return (
     <div className="mb-6">
-      <ListPageFilterSection title="Filter">
-        <div className="grid gap-2 [grid-template-columns:repeat(auto-fit,minmax(150px,1fr))]">
-          {JOKE_TYPES.map(({ value, label }) => (
-            <button
-              key={value || "all"}
-              onClick={() => push({ joke_type: currentType === value ? "" : value })}
-              className={`rounded-full border px-3 py-1.5 text-xs font-medium text-center transition-colors ${
-                currentType === value
-                  ? "border-stone-900 bg-stone-900 text-white"
-                  : "border-stone-200 bg-white text-stone-600 hover:border-stone-400"
-              }`}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-      </ListPageFilterSection>
+      <ListPageFilterChipGrid
+        title="Filter"
+        options={JOKE_TYPES}
+        currentValue={currentType}
+        onSelect={(value) => push({ joke_type: currentType === value ? "" : value })}
+      />
     </div>
   );
 }

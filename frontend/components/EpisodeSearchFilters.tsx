@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  ListPageFilterSection,
-  ListPageSortChipGrid,
-  useListPageFilterRouter,
-} from "@/components/ListPageFilterControls";
+import { ListPageFilterChipGrid, useListPageFilterRouter } from "@/components/ListPageFilterControls";
 
 const SEARCH_PATH = "/killtony/episodes/search";
 
@@ -32,15 +28,14 @@ export default function EpisodeSearchFilters() {
 
   return (
     <div className="mb-6">
-      <ListPageFilterSection title="Sort">
-        <ListPageSortChipGrid
-          options={SORT_OPTIONS}
-          currentValue={currentSort}
-          currentAsc={currentAsc}
-          onToggleAsc={() => push({ asc: currentAsc ? "" : "1" })}
-          onSelect={(value) => push({ sort: value })}
-        />
-      </ListPageFilterSection>
+      <ListPageFilterChipGrid
+        title="Sort"
+        options={SORT_OPTIONS}
+        currentValue={currentSort}
+        currentAsc={currentAsc}
+        onToggleAsc={() => push({ asc: currentAsc ? "" : "1" })}
+        onSelect={(value) => push({ sort: value })}
+      />
     </div>
   );
 }
