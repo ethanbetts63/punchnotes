@@ -1,8 +1,6 @@
 # Kill Tony Set Annotation Prompt
 
-You are annotating stand-up **sets** from *Kill Tony* in a single pass: labeling every line and grouping lines into bits and beats simultaneously.
-
-Annotate only the files you are explicitly given — do not process any files beyond those listed. Read and edit files one at a time, never in bulk. always run 3. Run python manage.py import_sets after each file so you know if you made any mistakes. Do not build any helper tools, do each annotation manually.
+You are annotating stand-up **sets** from *Kill Tony*
 
 ---
 
@@ -38,12 +36,11 @@ Everything that is not setup, punchline, or tag: greetings, sign-offs, name intr
 
 ## Labeling Rules
 
-- **One punchline per joke.** If two adjacent lines both look like punchlines, one is probably a tag or setup. Exception: a transcription split across two lines can have two consecutive punchline labels.
+- **One punchline per beat.** If two adjacent lines both look like punchlines, one is probably a tag or setup. Exception: a transcription split across two lines can have two consecutive punchline labels.
 - **Tags require an immediately preceding punchline or tag.** A line cannot tag a fluff or setup.
 - **Sound effects are fluff.** `[squeals]`, `[music]`, etc.
 - **Self-introductions are fluff** unless the name itself is the punchline.
 - **Closers are fluff.** `"That's my time."`, `"Thank you guys."`
-- **Sight-dependent jokes can have implicit setup.** If the audience can see the setup, the first spoken comparison or reveal may be the punchline even without a verbal setup.
 - **Misdirects turn on the frame-flip line.** Label the line where the audience realizes its assumption was wrong as the punchline.
 
 ---
@@ -132,7 +129,7 @@ Example:
 Premise: `"'Midget' sounds like 'fidget', and 'fidget' fits because ADHD."`
 JSON fields: `{ "premise": "'Midget' sounds like 'fidget', and 'fidget' fits because ADHD.", "joke_type": "phonetic-match" }`
 
-**double-meaning** - the *same* word or phrase admits two or more readings, and the comedian deliberately picks the non-standard one. Hinges on semantic ambiguity, not phonetic similarity. The ambiguous word or phrase must be preserved exactly from the transcript. Do not generalize, paraphrase, shorten, or clean it up unless removing surrounding non-ambiguous words leaves the same complete ambiguity intact.
+**double-meaning** - the *same* word or phrase admits two or more readings. Hinges on semantic ambiguity, not phonetic similarity. The ambiguous word or phrase must be preserved exactly from the transcript. Do not generalize, paraphrase, shorten, or clean it up unless removing surrounding non-ambiguous words leaves the same complete ambiguity intact.
 Formula: *"[phrase]" can mean [expected] or [comic].*
 Required phrase markers: `can mean`, `or`.
 
@@ -210,9 +207,7 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
 - A new beat starts at the first setup line following a punchline.
 - Multi-beat bits typically have a shared setup at the start that establishes the umbrella premise, then each beat is a different application of that premise.
 - Do not merge separate bits just because they share broad subject matter.
-- Set all setup, tag, and fluff lines to `"bit": null, "beat": null`; the import pipeline normalises them from punchline anchors.
-- Stage context can supply setup, but choose the joke type by mechanism. Most "I look like..." jokes are `analogy`, not `prop`.
-- Do not use `act-out` as the `joke_type`. If a transcript includes embodied performance, choose the underlying text-visible mechanism.
+- Set all setup, tag, and fluff lines to `"bit": null, "beat": null`.
 
 ---
 
@@ -222,7 +217,7 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
 2. Identify each punchline — that's the anchor for each beat.
 3. Walk backwards from each punchline labeling setup; walk forwards labeling tags.
 4. Mark everything else fluff.
-5. For each beat, identify the joke type (`misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `contradiction`, `analogy`, `hyperbole`, `elephant-in-the-room`, `anti-humor`) and write a premise using its formula. Record the type in the beat's `joke_type` field. Do not invent other `joke_type` values.
+5. For each beat, identify the joke type and write a premise using its formula. Record the type in the beat's `joke_type` field.
 6. Group beats into bits by shared premise. Apply the extraction test: if a beat would survive standalone, it's its own bit.
 7. Write the output JSON with `bit_meta`, fully labeled lines, and bit/beat numbers only on punchlines.
 
@@ -236,16 +231,12 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
    - Annotate: label every line, assign bit/beat numbers to punchlines, write bit_meta.
    - Write the annotated output back to `pipeline/data/2_set_inbox/<same-filename>.json`.
 3. python manage.py import_sets --file pipeline/data/2_set_inbox/<filename>.json
- This is **VERY IMPORTANT** it helps you learn from any mistakes you may have made.  you must specify the file. 
+ This is **VERY IMPORTANT** it helps you learn from any mistakes you may have made.  
 4. Move to the next file. Repeat until all given files are done.
 
 ---
 
-## Examples
-
-### Full annotated set — Ari Mati (Estonia draft)
-
-This set has three bits. Bits 1 and 2 are single-beat. Bit 3 is multi-beat, with four beats each applying a different joke mechanism to the same shared frame (Estonia drafts everyone America excludes).
+### Example Full annotated set
 
 ```json
 {
