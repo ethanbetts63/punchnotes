@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { getServerSets } from "@/lib/serverApi";
-import SetPlaylists from "@/page_components/SetPlaylists";
+import SetPlaylists from "./SetPlaylists";
 import SetSearchFilters from "@/components/SetSearchFilters";
 import ListPageHeader from "@/components/ListPageHeader";
 

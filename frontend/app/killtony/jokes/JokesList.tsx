@@ -3,7 +3,6 @@
 import Link from "next/link";
 import type { BeatSearchItem } from "@/lib/serverApi";
 import { useUrlPagination } from "@/lib/useUrlPagination";
-import { Badge } from "@/components/ui/badge";
 import Paginator from "@/components/Paginator";
 
 const PAGE_SIZE = 20;
@@ -54,7 +53,7 @@ export default function JokesList({ beats, query = "" }: Props) {
               </span>
               <span className="text-stone-300">·</span>
               <span className="text-xs text-stone-400">Ep {beat.episode_number}</span>
-              <Badge variant="default">{beat.joke_type}</Badge>
+              <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">{beat.joke_type}</span>
               {hasTextQuery && beat.matched_line_label && (
                 <span className="text-xs uppercase text-stone-400">{beat.matched_line_label}</span>
               )}

@@ -3,7 +3,7 @@ import { getAllArticleSlugs, getArticleBySlug } from '@/lib/articles';
 import { getArticleFaqs } from '@/lib/articleFaqs';
 import { getArticlePageMeta } from '@/lib/articleMeta';
 import { buildMetadata, buildArticleSchema, buildFaqSchema, SITE_URL } from '@/lib/seo';
-import ArticlePostPage from '@/page_components/ArticlePostPage';
+import ArticlePostPage from './ArticlePostPage';
 import type { Metadata } from 'next';
 
 export const dynamicParams = false;

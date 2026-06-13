@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { getServerBeats } from "@/lib/serverApi";
 import JokesFilters from "@/components/JokesFilters";
-import JokesList from "@/page_components/JokesList";
+import JokesList from "./JokesList";
 import ListPageHeader from "@/components/ListPageHeader";
 
 export const metadata = {

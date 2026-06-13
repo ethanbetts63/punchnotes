@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { getServerComedians } from "@/lib/serverApi";
-import ComedianPlaylists from "@/page_components/ComedianPlaylists";
+import ComedianPlaylists from "@/components/ComedianPlaylists";
 import ComedianSearchFilters from "@/components/ComedianSearchFilters";
 import ListPageHeader from "@/components/ListPageHeader";
 

@@ -1,7 +1,7 @@
 import { getServerComedians } from "@/lib/serverApi";
 import ModelSearchLayout, { buildSearchSubtitle } from "@/components/ModelSearchLayout";
 import ComedianSearchFilters from "@/components/ComedianSearchFilters";
-import ComedianSearchResults from "@/page_components/ComedianSearchResults";
+import ComedianSearchResults from "./ComedianSearchResults";
 
 export const metadata = {
   title: "Search Comedians - Kill Tony | PunchNotes",

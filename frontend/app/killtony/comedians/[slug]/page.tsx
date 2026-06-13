@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getServerComedian } from "@/lib/serverApi";
 import type { ComedianAttribute } from "@/lib/serverApi";
 import ComedianImage from "@/components/ComedianImage";
-import ComedianSetList from "@/page_components/ComedianSetList";
+import ComedianSetList from "./ComedianSetList";
 
 type Props = { params: Promise<{ slug: string }> };
 

@@ -1,6 +1,6 @@
 import { getAllArticleMeta } from '@/lib/articles';
 import { buildMetadata } from '@/lib/seo';
-import ArticleListingPage from '@/page_components/ArticleListingPage';
+import ArticleListingPage from './ArticleListingPage';
 
 export const metadata = buildMetadata({
   title: 'Articles | PunchNotes',

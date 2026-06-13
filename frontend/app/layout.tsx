@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -20,7 +19,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>
-        <Toaster position="top-center" richColors />
         <Analytics />
         <SpeedInsights />
       </body>

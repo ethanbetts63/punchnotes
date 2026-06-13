@@ -1,7 +1,7 @@
 import { getServerEpisodes } from "@/lib/serverApi";
 import ModelSearchLayout, { buildSearchSubtitle } from "@/components/ModelSearchLayout";
 import EpisodeSearchFilters from "@/components/EpisodeSearchFilters";
-import EpisodeSearchResults from "@/page_components/EpisodeSearchResults";
+import EpisodeSearchResults from "./EpisodeSearchResults";
 
 export const metadata = {
   title: "Search Episodes - Kill Tony | PunchNotes",

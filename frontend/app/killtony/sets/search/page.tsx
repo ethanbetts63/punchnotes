@@ -1,7 +1,7 @@
 import { getServerSets } from "@/lib/serverApi";
 import ModelSearchLayout, { buildSearchSubtitle } from "@/components/ModelSearchLayout";
 import SetSearchFilters from "@/components/SetSearchFilters";
-import SetSearchResults from "@/page_components/SetSearchResults";
+import SetSearchResults from "./SetSearchResults";
 
 export const metadata = {
   title: "Search Sets - Kill Tony | PunchNotes",

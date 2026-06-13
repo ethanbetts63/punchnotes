@@ -1,7 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -11,76 +8,15 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  /* custom */
-  --color-highlight: var(--highlight);
-  --color-highlight1: var(--highlight1);
-  --color-bg-light-primary: var(--bg-light-primary);
-  --color-bg-light-secondary: var(--bg-light-secondary);
-  --color-bg-dark-primary: var(--bg-dark-primary);
-  --color-bg-dark-secondary: var(--bg-dark-secondary);
-  --color-border-light: var(--border-light);
 }
 
 :root {
-  /* custom */
   --radius: 0.625rem;
-  --background: hsl(0, 0%, 9%);
-  --foreground: hsl(0, 0%, 14%);
-  --highlight: var(--color-amber-400);
-  --highlight1: var(--color-red-500);
-  --bg-light-primary: var(--color-white);
-  --bg-light-secondary: var(--color-stone-50);
-  --bg-dark-primary: var(--color-stone-900);
-  --bg-dark-secondary: var(--color-stone-800);
-  --text-light-primary: var(--color-white);
-  --text-light-secondary: var(--color-stone-200);
-  --text-dark-primary: hsl(0 0% 11%);
-  --text-dark-secondary: var(--color-stone-600);
-  --border-light: hsl(30, 6%, 87%);
-  /* shadcn */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
   --primary: hsl(4, 86%, 55%);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: hsl(357, 97%, 42%);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+  --text-dark-primary: hsl(0 0% 11%);
+  --border-light: hsl(30, 6%, 87%);
+  --bg-light-secondary: var(--color-stone-50);
 }
 
 /* Article markdown rendering */

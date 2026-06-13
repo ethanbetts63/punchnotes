@@ -2,8 +2,8 @@ import Link from "next/link";
 import BeatOfTheWeek from "@/components/BeatOfTheWeek";
 import HowItWorksPanel from "@/components/HowItWorksPanel";
 import KillTonyHero from "@/components/KillTonyHero";
-import ComedianPlaylists from "@/page_components/ComedianPlaylists";
-import EpisodePlaylists from "@/page_components/EpisodePlaylists";
+import ComedianPlaylists from "@/components/ComedianPlaylists";
+import EpisodePlaylists from "@/components/EpisodePlaylists";
 import { getFeaturedBeatEntries } from "@/lib/featuredBeats";
 import { getServerComedians, getServerEpisodes } from "@/lib/serverApi";
 

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Search } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/killtony", label: "Kill Tony" },
@@ -56,12 +55,7 @@ export default function NavBar() {
             <Link
               key={href}
               href={href}
-              className={cn(
-                "whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
-                pathname === href || pathname.startsWith(href + "/")
-                  ? "bg-white/10 text-white"
-                  : "text-stone-400 hover:text-white hover:bg-white/5"
-              )}
+              className={`whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${pathname === href || pathname.startsWith(href + "/") ? "bg-white/10 text-white" : "text-stone-400 hover:text-white hover:bg-white/5"}`}
             >
               {label}
             </Link>
