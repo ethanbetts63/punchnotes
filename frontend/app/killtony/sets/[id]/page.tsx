@@ -10,6 +10,7 @@ import {
   darkJokeBookBadge,
   fmt2,
   getAppearanceType,
+  getJokeBookSize,
   jokeBookLabel,
 } from "@/lib/killTonyDisplay";
 
@@ -136,14 +137,7 @@ export default async function SetDetailPage({ params }: Props) {
                   <span className="text-white">{fmt2(set.hit_ratio)}</span> setup/punch
                   <span className="mx-2 text-stone-700">·</span>
                   <span className="text-white">{fmt2(set.punchline_tag_ratio)}</span> punch/tag
-                  {set.joke_book_award && (
-                    <>
-                      <span className="mx-2 text-stone-700">·</span>
-                      <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${darkJokeBookBadge[set.joke_book_award]}`}>
-                        {jokeBookLabel[set.joke_book_award]}
-                      </span>
-                    </>
-                  )}
+                  {(() => { const jb = getJokeBookSize(set.attributes); return jb ? (<><span className="mx-2 text-stone-700">·</span><span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${darkJokeBookBadge[jb]}`}>{jokeBookLabel[jb]}</span></>) : null; })()}
                 </p>
               </div>
             </div>

@@ -130,10 +130,12 @@ class NavSearchView(APIView):
                 f"Set {set_obj.set_number}",
                 fmt_count(set_obj.bit_count, "bit"),
             ]
-            if set_obj.joke_book:
-                meta.append(f"{set_obj.joke_book} joke book")
-            score = text_score(query, set_obj.comedian.name, set_obj.episode.episode_title, set_obj.joke_book)
-            if set_obj.joke_book == "large":
+            attrs = set_obj.attributes or []
+            joke_book_sizes = [a.removesuffix("_joke_book") for a in attrs if a.endswith("_joke_book")]
+            for size in joke_book_sizes:
+                meta.append(f"{size} joke book")
+            score = text_score(query, set_obj.comedian.name, set_obj.episode.episode_title)
+            if "large_joke_book" in attrs:
                 score += 10
             results.append(result(
                 "set",

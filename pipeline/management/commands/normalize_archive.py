@@ -8,7 +8,7 @@ SET_FIELD_ORDER = [
     "type", "video_id", "episode_title", "episode_url", "publish_date",
     "guests", "comedian_name",
     "start_seconds", "interview_end_line", "interview_end_seconds",
-    "joke_book", "attributes", "bit_meta", "lines",
+    "set_attributes", "attributes", "bit_meta", "lines",
 ]
 
 LINE_FIELD_ORDER = ["text", "label", "bit", "beat", "line_number", "start"]
@@ -25,7 +25,7 @@ BEAT_FIELD_ORDER = [
     "elephant", "frame", "answer",
 ]
 
-JOKE_BOOK_VALUES = {"small", "medium", "large"}
+JOKE_BOOK_MIGRATION = {"small": "small_joke_book", "medium": "medium_joke_book", "large": "large_joke_book"}
 
 
 def _reorder(d, order):
@@ -33,32 +33,6 @@ def _reorder(d, order):
     out = {k: d[k] for k in order if k in d}
     out.update({k: v for k, v in d.items() if k not in out})
     return out
-
-
-def _normalize_joke_book(value):
-    """Canonicalize joke book size, leaving uncertain values as null."""
-    if value is None:
-        return None
-
-    if not isinstance(value, str):
-        return None
-
-    text = value.strip().lower()
-    if not text or text in {"null", "none", "unknown", "unclear"}:
-        return None
-
-    if text in JOKE_BOOK_VALUES:
-        return text
-
-    normalized = text.replace("-", " ")
-    if "medium" in normalized:
-        return "medium"
-    if any(word in normalized.split() for word in ["small", "little", "smallest"]):
-        return "small"
-    if any(word in normalized.split() for word in ["big", "large"]):
-        return "large"
-
-    return None
 
 
 def _fmt_nested(obj, depth):
@@ -90,22 +64,29 @@ def serialize_set(data: dict) -> str:
       - 'guests': compact array on one line
       - 'interview_end_line': always present (null if absent), after 'start_seconds'
       - 'interview_end_seconds': always present (null if absent), after 'interview_end_line'
-      - 'joke_book': always present (null if absent), after interview metadata
+      - 'set_attributes': always present ([] if absent), after interview metadata
       - 'bit_meta': expanded structure, but all arrays compact
       - 'lines': each element a compact single-line object
     """
     # Build ordered output dict; nullable metadata fields are inserted even if absent.
     out = {}
     for key in SET_FIELD_ORDER:
-        if key == "joke_book":
-            out[key] = _normalize_joke_book(data.get("joke_book"))  # null if absent or uncertain
+        if key == "set_attributes":
+            existing = list(data.get("set_attributes") or [])
+            # Migrate legacy joke_book field on first normalize run
+            old_joke_book = data.get("joke_book")
+            if old_joke_book and not existing:
+                attr = JOKE_BOOK_MIGRATION.get(old_joke_book)
+                if attr:
+                    existing = [attr]
+            out[key] = existing
         elif key in {"interview_end_line", "interview_end_seconds"}:
             out[key] = data.get(key)
         elif key in data:
             out[key] = data[key]
-    # Preserve any unrecognised keys at the end
+    # Preserve any unrecognised keys at the end (skip legacy joke_book — migrated into set_attributes)
     for key, val in data.items():
-        if key == "set_number":
+        if key in ("set_number", "joke_book"):
             continue
         if key not in out:
             out[key] = val

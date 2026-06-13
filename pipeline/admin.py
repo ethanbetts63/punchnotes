@@ -23,8 +23,7 @@ class EpisodeAdmin(admin.ModelAdmin):
 
 @admin.register(Set)
 class SetAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'episode', 'comedian', 'set_number', 'joke_book', 'hit_ratio', 'punchline_tag_ratio')
-    list_filter = ('joke_book',)
+    list_display = ('__str__', 'episode', 'comedian', 'set_number', 'attributes', 'hit_ratio', 'punchline_tag_ratio')
     search_fields = ('comedian__name', 'episode__episode_title')
     readonly_fields = ('hit_ratio', 'punchline_tag_ratio')
     raw_id_fields = ('episode', 'comedian')

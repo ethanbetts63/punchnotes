@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { SetInComedian } from "@/lib/serverApi";
+import { getJokeBookSize } from "@/lib/killTonyDisplay";
 import Paginator from "@/components/Paginator";
 import SetImage from "@/components/SetImage";
 
@@ -59,11 +60,7 @@ export default function ComedianSetList({ sets }: Props) {
                     {set.episode.title?.replace(/^KT\s*#\d+\s*[-–]\s*/i, "") ?? ""}
                   </p>
                 </div>
-                {set.joke_book && (
-                  <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ${jokeBookColor[set.joke_book]}`}>
-                    {jokeBookLabel[set.joke_book]}
-                  </span>
-                )}
+                {(() => { const jb = getJokeBookSize(set.attributes); return jb ? (<span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ${jokeBookColor[jb]}`}>{jokeBookLabel[jb]}</span>) : null; })()}
               </div>
               <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-stone-500">
                 <span>

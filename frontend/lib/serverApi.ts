@@ -106,7 +106,7 @@ export type SetInEpisode = {
   id: number;
   set_number: number;
   comedian: { id: number; name: string; slug: string; attributes: ComedianAttributeValue[]; image_url: string | null };
-  joke_book: "small" | "medium" | "large" | null;
+  attributes: string[];
   bit_count: number;
   start_seconds: number;
   interview_end_seconds: number | null;
@@ -154,7 +154,7 @@ export type SetInComedian = {
   id: number;
   set_number: number;
   episode: { id: number; number: number; title: string; youtube_id: string; date: string | null };
-  joke_book: "small" | "medium" | "large" | null;
+  attributes: string[];
   hit_ratio: number | null;
   punchline_tag_ratio: number | null;
   image_url: string | null;
@@ -183,7 +183,7 @@ export type SetListItem = {
   set_number: number;
   comedian: SetListComedian;
   episode: { id: number; number: number; title: string; youtube_id: string; date: string | null };
-  joke_book_award: "small" | "medium" | "large" | null;
+  attributes: string[];
   start_seconds: number;
   interview_end_seconds: number | null;
   image_url: string | null;
@@ -230,7 +230,7 @@ export type Set = {
   set_number: number;
   comedian: SetComedian;
   episode: { id: number; number: number; title: string; youtube_id: string; date: string | null };
-  joke_book_award: "small" | "medium" | "large" | null;
+  attributes: string[];
   start_seconds: number;
   image_url: string | null;
   image_capture_seconds: number | null;

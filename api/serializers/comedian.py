@@ -10,7 +10,7 @@ class SetInComedianSerializer(serializers.ModelSerializer):
     class Meta:
         model = Set
         fields = [
-            "id", "set_number", "episode", "joke_book",
+            "id", "set_number", "episode", "attributes",
             "hit_ratio", "punchline_tag_ratio",
             "image_url", "image_capture_seconds",
         ]

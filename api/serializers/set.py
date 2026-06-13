@@ -68,14 +68,13 @@ class BitSerializer(serializers.ModelSerializer):
 class SetDetailSerializer(serializers.ModelSerializer):
     comedian = ComedianForSetSerializer()
     episode = EpisodeMinimalSerializer()
-    joke_book_award = serializers.CharField(source="joke_book", allow_null=True)
     bits = serializers.SerializerMethodField()
 
     class Meta:
         model = Set
         fields = [
             "id", "set_number", "comedian", "episode",
-            "joke_book_award", "start_seconds",
+            "attributes", "start_seconds",
             "image_url", "image_capture_seconds",
             "hit_ratio", "punchline_tag_ratio",
             "bits",
@@ -90,13 +89,12 @@ class SetDetailSerializer(serializers.ModelSerializer):
 class SetListSerializer(serializers.ModelSerializer):
     comedian = ComedianForSetListSerializer()
     episode = EpisodeMinimalSerializer()
-    joke_book_award = serializers.CharField(source="joke_book", allow_null=True)
 
     class Meta:
         model = Set
         fields = [
             "id", "set_number", "comedian", "episode",
-            "joke_book_award", "start_seconds", "interview_end_seconds",
+            "attributes", "start_seconds", "interview_end_seconds",
             "image_url", "image_capture_seconds",
             "hit_ratio", "punchline_tag_ratio", "bit_count",
         ]

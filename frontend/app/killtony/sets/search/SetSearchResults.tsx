@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import type { SetListItem } from "@/lib/serverApi";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
+import { getJokeBookSize } from "@/lib/killTonyDisplay";
 import { useUrlPagination } from "@/lib/useUrlPagination";
 import Paginator from "@/components/Paginator";
 import SetImage from "@/components/SetImage";
@@ -92,11 +93,7 @@ export default function SetSearchResults({ sets }: { sets: SetListItem[] }) {
                   </p>
                   <p className="mt-1 truncate text-sm text-stone-500">{set.episode.title}</p>
                 </div>
-                {set.joke_book_award && (
-                  <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ${jokeBookColor[set.joke_book_award]}`}>
-                    {jokeBookLabel[set.joke_book_award]}
-                  </span>
-                )}
+                {(() => { const jb = getJokeBookSize(set.attributes); return jb ? (<span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ${jokeBookColor[jb]}`}>{jokeBookLabel[jb]}</span>) : null; })()}
               </div>
               <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-stone-500">
                 <span><span className="font-bold text-stone-800">{set.bit_count}</span> bits</span>

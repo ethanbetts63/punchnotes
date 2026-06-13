@@ -1,5 +1,5 @@
 import type { SetListItem, Episode, Comedian } from "@/lib/serverApi";
-import { getEpisodeGuestLabel } from "@/lib/killTonyDisplay";
+import { getEpisodeGuestLabel, getJokeBookSize } from "@/lib/killTonyDisplay";
 
 export type TileData = {
   href: string;
@@ -46,7 +46,7 @@ export function setToTile(set: SetListItem): TileData {
     eyebrow: `KT #${set.episode.number}`,
     title: set.comedian.name,
     meta: `Set ${set.set_number} · ${fmtSeconds(set.start_seconds)}`,
-    badges: set.joke_book_award ? [jokeBookBadge[set.joke_book_award]] : [],
+    badges: (() => { const jb = getJokeBookSize(set.attributes); return jb ? [jokeBookBadge[jb]] : []; })(),
   };
 }
 

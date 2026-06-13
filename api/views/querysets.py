@@ -110,7 +110,7 @@ def build_set_list_queryset(params):
 
     joke_book = (params.get("joke_book") or "").strip()
     if joke_book in ("small", "medium", "large"):
-        sets = sets.filter(joke_book=joke_book)
+        sets = sets.filter(attributes__contains=[f"{joke_book}_joke_book"])
 
     sort_key = (params.get("sort") or "").strip()
     field = SET_SORT_FIELDS.get(sort_key)

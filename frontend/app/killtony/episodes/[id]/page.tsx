@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getServerEpisode } from "@/lib/serverApi";
 import type { SetInEpisode, ComedianAttribute } from "@/lib/serverApi";
+import { getJokeBookSize } from "@/lib/killTonyDisplay";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -124,11 +125,7 @@ function SetTile({ set, duration }: { set: SetInEpisode; duration: number | null
           )}
         </div>
         <div className="flex shrink-0 flex-col items-end gap-1.5">
-          {set.joke_book && (
-            <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${jokeBookColor[set.joke_book]}`}>
-              {jokeBookLabel[set.joke_book]}
-            </span>
-          )}
+          {(() => { const jb = getJokeBookSize(set.attributes); return jb ? (<span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${jokeBookColor[jb]}`}>{jokeBookLabel[jb]}</span>) : null; })()}
         </div>
       </div>
 

@@ -106,7 +106,7 @@ class UpsertSetOrderingTests(TestCase):
             "start_seconds": start_seconds,
             "interview_end_line": None,
             "interview_end_seconds": None,
-            "joke_book": None,
+            "set_attributes": [],
         }
 
     def test_set_numbers_are_derived_from_start_seconds(self):
@@ -126,12 +126,12 @@ class UpsertSetOrderingTests(TestCase):
         comic = upsert_comedian("test-comic", self._set_meta("Test Comic", 100))
 
         first = upsert_set(episode, comic, self._set_meta("Test Comic", 100))
-        second = upsert_set(episode, comic, {**self._set_meta("Test Comic", 100), "joke_book": "large"})
+        second = upsert_set(episode, comic, {**self._set_meta("Test Comic", 100), "set_attributes": ["large_joke_book"]})
 
         self.assertEqual(first.id, second.id)
         self.assertEqual(Set.objects.filter(episode=episode).count(), 1)
         self.assertEqual(second.set_number, 1)
-        self.assertEqual(second.joke_book, "large")
+        self.assertEqual(second.attributes, ["large_joke_book"])
 
     def test_reimport_same_start_can_update_comedian(self):
         episode = upsert_episode("test123", self._episode_meta)

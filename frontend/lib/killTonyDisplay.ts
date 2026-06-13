@@ -88,3 +88,10 @@ export function getAppearanceType(
 ): AppearanceAttribute | null {
   return appearanceAttributes.find((attr) => (attributes ?? []).includes(attr)) ?? null;
 }
+
+export function getJokeBookSize(attributes: string[]): "small" | "medium" | "large" | null {
+  if (attributes.includes("large_joke_book")) return "large";
+  if (attributes.includes("medium_joke_book")) return "medium";
+  if (attributes.includes("small_joke_book")) return "small";
+  return null;
+}

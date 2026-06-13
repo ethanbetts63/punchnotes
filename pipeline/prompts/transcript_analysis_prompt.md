@@ -17,6 +17,7 @@ Read the current inbox file and identify each comedian's ~1-minute stand-up set.
 ```powershell
 python manage.py extract_set --transcript <path> --start-line <N> --end-line <N> --comedian-name "<Name>" --interview-end-line <N> --joke-book <small|medium|large|null> --comedian-attributes "<attributes>"
 ```
+
 You should run this everytime you identify a set boundary not in bulk at the end.
 
 If a line inside the range is clearly Tony, a panel member, or other non-comedian speech, omit it with:

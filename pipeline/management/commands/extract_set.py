@@ -15,7 +15,9 @@ AUDIENCE_REACTION_RE = re.compile(
     re.IGNORECASE,
 )
 
-JOKE_BOOK_VALUES = {"small", "medium", "large"}
+JOKE_BOOK_MAP = {"small": "small_joke_book", "medium": "medium_joke_book", "large": "large_joke_book"}
+
+
 def dump_set(doc):
     """Pretty-print set metadata with one compact JSON object per line."""
     non_lines = [(k, v) for k, v in doc.items() if k != "lines"]
@@ -55,16 +57,16 @@ def parse_line_numbers(value):
     return line_numbers
 
 
-def normalize_joke_book(value):
-    if value is None:
+def resolve_joke_book_attribute(value):
+    if not value:
         return None
-
     text = value.strip().lower()
     if not text or text in {"null", "none", "unknown", "unclear"}:
         return None
-    if text in JOKE_BOOK_VALUES:
-        return text
-    raise CommandError("--joke-book must be one of small, medium, large, or null")
+    attr = JOKE_BOOK_MAP.get(text)
+    if not attr:
+        raise CommandError("--joke-book must be one of small, medium, large, or null")
+    return attr
 
 
 def normalize_attributes(value):
@@ -211,6 +213,7 @@ class Command(BaseCommand):
         output_dir.mkdir(parents=True, exist_ok=True)
         output_path = output_dir / output_name
 
+        joke_book_attr = resolve_joke_book_attribute(options["joke_book"])
         set_doc = {
             "type": "set_meta",
             "video_id": video_id,
@@ -222,7 +225,7 @@ class Command(BaseCommand):
             "start_seconds": selected_lines[0]["start"],
             "interview_end_line": interview_end_line,
             "interview_end_seconds": interview_end_seconds,
-            "joke_book": normalize_joke_book(options["joke_book"]),
+            "set_attributes": [joke_book_attr] if joke_book_attr else [],
             "attributes": normalize_attributes(options["attributes"]),
             "lines": selected_lines,
         }

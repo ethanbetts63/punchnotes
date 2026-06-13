@@ -90,6 +90,7 @@ def resequence_episode_sets(episode: Episode) -> None:
 def upsert_set(episode: Episode, comedian: Comedian, meta: dict) -> Set:
     start_seconds = meta["start_seconds"]
     set_obj = episode.sets.filter(start_seconds=start_seconds).first()
+    set_attributes = list(meta.get("set_attributes") or [])
     if set_obj is None:
         last_set_number = episode.sets.order_by("-set_number").values_list("set_number", flat=True).first()
         next_set_number = (last_set_number or 0) + 1
@@ -100,16 +101,16 @@ def upsert_set(episode: Episode, comedian: Comedian, meta: dict) -> Set:
             start_seconds=start_seconds,
             interview_end_line=meta.get("interview_end_line"),
             interview_end_seconds=meta.get("interview_end_seconds"),
-            joke_book=meta.get("joke_book"),
+            attributes=set_attributes,
         )
     set_obj.comedian = comedian
     set_obj.start_seconds = start_seconds
     set_obj.interview_end_line = meta.get("interview_end_line")
     set_obj.interview_end_seconds = meta.get("interview_end_seconds")
-    set_obj.joke_book = meta.get("joke_book")
+    set_obj.attributes = set_attributes
     set_obj.save(update_fields=[
         "comedian", "start_seconds", "interview_end_line",
-        "interview_end_seconds", "joke_book",
+        "interview_end_seconds", "attributes",
     ])
     resequence_episode_sets(episode)
     set_obj.refresh_from_db()
@@ -146,9 +147,9 @@ def refresh_comedian_stats(comedian: Comedian) -> None:
     comedian.avg_punchline_tag_ratio = agg['avg_pt']
     comedian.avg_bits_per_set = agg['avg_bits']
     comedian.avg_beats_per_set = agg['avg_beats']
-    comedian.has_small_joke_book = sets.filter(joke_book='small').exists()
-    comedian.has_medium_joke_book = sets.filter(joke_book='medium').exists()
-    comedian.has_large_joke_book = sets.filter(joke_book='large').exists()
+    comedian.has_small_joke_book = sets.filter(attributes__contains=['small_joke_book']).exists()
+    comedian.has_medium_joke_book = sets.filter(attributes__contains=['medium_joke_book']).exists()
+    comedian.has_large_joke_book = sets.filter(attributes__contains=['large_joke_book']).exists()
     comedian.save(update_fields=[
         'appearance_count', 'joke_count', 'avg_hit_ratio', 'avg_punchline_tag_ratio',
         'avg_bits_per_set', 'avg_beats_per_set',
@@ -282,7 +283,7 @@ def refresh_episode_counts(episode: Episode) -> None:
     episode.bucket_pull_count = sum(1 for s in sets if "bucket_pull" in (s.comedian.attributes or []))
     episode.golden_ticket_count = sum(1 for s in sets if "golden_ticket" in (s.comedian.attributes or []))
     episode.regular_count = sum(1 for s in sets if "regular" in (s.comedian.attributes or []))
-    episode.large_joke_book_count = sum(1 for s in sets if s.joke_book == "large")
+    episode.large_joke_book_count = sum(1 for s in sets if "large_joke_book" in (s.attributes or []))
     episode.save(update_fields=[
         "set_count", "bucket_pull_count", "golden_ticket_count",
         "regular_count", "large_joke_book_count",
