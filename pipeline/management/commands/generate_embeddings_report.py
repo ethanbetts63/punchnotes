@@ -28,7 +28,6 @@ class BeatRecord:
     joke_type: str | None
     created_at: datetime
     premise: str | None
-    keys: list
     line_start: int
     line_end: int
     set_id: int
@@ -97,7 +96,6 @@ def _build_beat_records(qs):
             joke_type=beat.joke_type,
             created_at=beat.created_at,
             premise=beat.premise,
-            keys=beat.keys,
             line_start=beat.line_start,
             line_end=beat.line_end,
             set_id=beat.bit.set_id,
@@ -282,22 +280,20 @@ class Command(BaseCommand):
             new_pairs.append({
                 "similarity": sim,
                 "beat_a": {
-                    "id": a.id,
-                    "joke_type": a.joke_type,
-                    "comedian": a.comedian_name,
-                    "premise": a.premise,
-                    "keys": a.keys,
-                    "lines": lines_by_beat.get(a.id, []),
-                },
-                "beat_b": {
-                    "id": b.id,
-                    "joke_type": b.joke_type,
-                    "comedian": b.comedian_name,
-                    "premise": b.premise,
-                    "keys": b.keys,
-                    "lines": lines_by_beat.get(b.id, []),
-                },
-            })
+                "id": a.id,
+                "joke_type": a.joke_type,
+                "comedian": a.comedian_name,
+                "premise": a.premise,
+                "lines": lines_by_beat.get(a.id, []),
+            },
+            "beat_b": {
+                "id": b.id,
+                "joke_type": b.joke_type,
+                "comedian": b.comedian_name,
+                "premise": b.premise,
+                "lines": lines_by_beat.get(b.id, []),
+            },
+        })
 
         merged_pairs.extend(new_pairs)
         merged_pairs.sort(key=lambda p: p["similarity"], reverse=True)

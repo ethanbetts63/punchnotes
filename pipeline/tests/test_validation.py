@@ -14,7 +14,6 @@ def valid_meta_with_line(line):
                         "joke_type": "reframe",
                         "subject": "a thing",
                         "reframe": "an unexpected thing",
-                        "keys": ["thing"],
                     }
                 }
             }
@@ -134,7 +133,6 @@ class ValidateBitMetaTests(SimpleTestCase):
             "subject": "financial responsibility",
             "a": "means avoiding debt",
             "b": "includes payday loans",
-            "keys": ["payday loans"],
         }
 
         validate_bit_meta(meta)
@@ -181,7 +179,6 @@ class ValidateBitMetaTests(SimpleTestCase):
                             "joke_type": "reframe",
                             "subject": "one thing",
                             "reframe": "another thing",
-                            "keys": ["one"],
                         }
                     }
                 }
@@ -208,7 +205,6 @@ class ValidateBitMetaTests(SimpleTestCase):
                             "joke_type": "reframe",
                             "subject": "one thing",
                             "reframe": "another thing",
-                            "keys": ["one"],
                         }
                     }
                 }
@@ -236,14 +232,12 @@ class ValidateBitMetaTests(SimpleTestCase):
                             "joke_type": "reframe",
                             "subject": "one thing",
                             "reframe": "another thing",
-                            "keys": ["one"],
                         },
                         "2": {
                             "premise": "Another thing could be a third thing.",
                             "joke_type": "reframe",
                             "subject": "another thing",
                             "reframe": "a third thing",
-                            "keys": ["another"],
                         },
                     }
                 }
@@ -323,7 +317,6 @@ class ValidateBitMetaTests(SimpleTestCase):
                             "joke_type": "reframe",
                             "subject": "one thing",
                             "reframe": "another thing",
-                            "keys": ["one"],
                         }
                     }
                 }
@@ -339,41 +332,7 @@ class ValidateBitMetaTests(SimpleTestCase):
         ):
             validate_bit_meta(meta)
 
-    def test_keys_must_have_one_to_four_short_strings(self):
-        meta = valid_meta_with_line(
-            {
-                "line_number": 10,
-                "text": "Payoff.",
-                "label": "punchline",
-                "bit": 1,
-                "beat": 1,
-            }
-        )
-        meta["bit_meta"]["1"]["beats"]["1"]["keys"] = []
-
-        with self.assertRaisesRegex(ValueError, "bit 1 beat 1: keys must contain 1-4 items, got 0"):
-            validate_bit_meta(meta)
-
-    def test_non_double_meaning_key_must_not_exceed_three_words(self):
-        meta = valid_meta_with_line(
-            {
-                "line_number": 10,
-                "text": "Payoff.",
-                "label": "punchline",
-                "bit": 1,
-                "beat": 1,
-            }
-        )
-        meta["bit_meta"]["1"]["beats"]["1"]["subject"] = "one two three four"
-        meta["bit_meta"]["1"]["beats"]["1"]["keys"] = ["one two three four"]
-
-        with self.assertRaisesRegex(
-            ValueError,
-            "bit 1 beat 1: key 1 is too long; use a short searchable noun phrase",
-        ):
-            validate_bit_meta(meta)
-
-    def test_double_meaning_key_can_be_longer_than_four_words(self):
+    def test_double_meaning_premise_is_valid_without_keys(self):
         meta = valid_meta_with_line(
             {
                 "line_number": 10,
@@ -389,12 +348,11 @@ class ValidateBitMetaTests(SimpleTestCase):
             "phrase": "in case of fire use stairs",
             "expected": "escape",
             "comic": "extinguish",
-            "keys": ["in case of fire use stairs", "extinguish"],
         }
 
         validate_bit_meta(meta)
 
-    def test_phonetic_match_keys_include_both_words_and_reason(self):
+    def test_phonetic_match_with_reason_is_valid_without_keys(self):
         meta = valid_meta_with_line(
             {
                 "line_number": 10,
@@ -410,12 +368,11 @@ class ValidateBitMetaTests(SimpleTestCase):
             "heard": "midget",
             "reheard": "fidget",
             "reason": "ADHD",
-            "keys": ["midget", "fidget", "ADHD"],
         }
 
         validate_bit_meta(meta)
 
-    def test_hyperbole_keys_include_subject_and_extreme(self):
+    def test_hyperbole_is_valid_without_keys(self):
         meta = valid_meta_with_line(
             {
                 "line_number": 10,
@@ -430,12 +387,11 @@ class ValidateBitMetaTests(SimpleTestCase):
             "joke_type": "hyperbole",
             "subject": "a porn collection",
             "extreme": "sperm depletion",
-            "keys": ["porn collection", "sperm depletion"],
         }
 
         validate_bit_meta(meta)
 
-    def test_analogy_key_omits_helper_verb_from_shared(self):
+    def test_analogy_is_valid_without_keys(self):
         meta = valid_meta_with_line(
             {
                 "line_number": 10,
@@ -451,7 +407,6 @@ class ValidateBitMetaTests(SimpleTestCase):
             "a": "golf",
             "b": "marriage",
             "shared": "involve expensive repeated failure",
-            "keys": ["golf", "marriage", "expensive repeated failure"],
         }
 
         validate_bit_meta(meta)
@@ -465,7 +420,6 @@ class ValidateBitMetaTests(SimpleTestCase):
                             "joke_type": "reframe",
                             "subject": "seatbelts",
                             "reframe": "wanting a hug",
-                            "keys": ["seatbelts"],
                         }
                     }
                 }
@@ -497,7 +451,6 @@ class ValidateBitMetaTests(SimpleTestCase):
                             "joke_type": "reframe",
                             "subject": "seatbelts",
                             "reframe": "wanting a hug",
-                            "keys": ["seatbelts"],
                         }
                     }
                 }
@@ -520,7 +473,6 @@ class ValidateBitMetaTests(SimpleTestCase):
                             "joke_type": "reframe",
                             "subject": "a pause",
                             "reframe": "part of the laugh",
-                            "keys": ["pause"],
                         }
                     }
                 }
@@ -548,7 +500,6 @@ class ValidateBitMetaTests(SimpleTestCase):
                             "joke_type": "reframe",
                             "subject": "seatbelts",
                             "reframe": "wanting a hug",
-                            "keys": ["seatbelts"],
                         }
                     }
                 }

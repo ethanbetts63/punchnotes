@@ -23,7 +23,6 @@ BEAT_FIELD_ORDER = [
     "phrase", "expected", "comic",
     "a", "b", "shared",
     "elephant", "frame", "answer",
-    "keys",
 ]
 
 JOKE_BOOK_VALUES = {"small", "medium", "large"}
@@ -92,7 +91,7 @@ def serialize_set(data: dict) -> str:
       - 'interview_end_line': always present (null if absent), after 'start_seconds'
       - 'interview_end_seconds': always present (null if absent), after 'interview_end_line'
       - 'joke_book': always present (null if absent), after interview metadata
-      - 'bit_meta': expanded structure, but all arrays (keys etc.) compact
+      - 'bit_meta': expanded structure, but all arrays compact
       - 'lines': each element a compact single-line object
     """
     # Build ordered output dict; nullable metadata fields are inserted even if absent.

@@ -41,7 +41,6 @@ class GenerateEmbeddingReportTests(TestCase):
             line_end=line_end,
             premise=premise,
             joke_type="misdirect",
-            keys=["key"],
             embedding=embedding,
         )
 

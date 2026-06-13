@@ -38,7 +38,6 @@ class GenerateEmbeddingsTests(TestCase):
             line_end=line_end,
             premise=f"premise {beat_id}",
             joke_type="misdirect",
-            keys=["key"],
             embedding=[] if embedding is None else embedding,
         )
 

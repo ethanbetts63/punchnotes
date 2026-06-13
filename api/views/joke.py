@@ -28,8 +28,4 @@ class JokeListView(APIView):
                 | Q(bit__set__episode__episode_title__icontains=query)
                 | Q(bit__set__lines__text__icontains=query)
             ).distinct()
-        topic = request.query_params.get("topic")
-        evaluated = list(beats)
-        if topic:
-            evaluated = [b for b in evaluated if topic in (b.keys or [])]
-        return Response(JokeSerializer(evaluated, many=True).data)
+        return Response(JokeSerializer(list(beats), many=True).data)

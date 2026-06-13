@@ -1,5 +1,3 @@
-from urllib.parse import quote
-
 from django.db.models import Count, Q
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -65,7 +63,6 @@ class SearchView(APIView):
                 "sets": [],
                 "bits": [],
                 "jokes": [],
-                "topics": [],
             }
             return Response(empty)
 
@@ -73,8 +70,7 @@ class SearchView(APIView):
         episodes = self.search_episodes(query)
         sets = self.search_sets(query)
         bits = self.search_bits(query)
-        topics = self.search_topics(query)
-        all_results = comedians + episodes + sets + bits + topics
+        all_results = comedians + episodes + sets + bits
         top_result = max(all_results, key=lambda item: item["score"], default=None)
 
         return Response({
@@ -85,7 +81,6 @@ class SearchView(APIView):
             "sets": sets,
             "bits": bits,
             "jokes": [],
-            "topics": topics,
         })
 
     def search_comedians(self, query):
@@ -208,11 +203,9 @@ class SearchView(APIView):
         )
         results = []
         for bit in rows[:50]:
-            keys = set()
             joke_types = set()
             premise_score = 0
             for beat in bit.beats.all():
-                keys.update(beat.keys or [])
                 if beat.joke_type:
                     joke_types.add(beat.joke_type)
                 premise_score = max(premise_score, text_score(query, beat.premise))
@@ -222,7 +215,7 @@ class SearchView(APIView):
                 bit.summary or f"Bit {bit.bit_id}",
                 f"{bit.set.comedian.name} - KT #{bit.set.episode.episode_number}",
                 f"/killtony/sets/{bit.set.id}",
-                sorted(joke_types)[:3] + sorted(keys)[:3],
+                sorted(joke_types)[:3],
                 score,
             ))
         return sorted(results, key=lambda item: item["score"], reverse=True)[:GROUP_LIMIT]
@@ -251,27 +244,7 @@ class SearchView(APIView):
                 title,
                 f"{beat.bit.set.comedian.name} - KT #{beat.bit.set.episode.episode_number}",
                 f"/killtony/sets/{beat.bit.set.id}",
-                [beat.joke_type] + list(beat.keys or [])[:3],
+                [beat.joke_type] if beat.joke_type else [],
                 score,
             ))
-        return sorted(results, key=lambda item: item["score"], reverse=True)[:GROUP_LIMIT]
-
-    def search_topics(self, query):
-        topics = {}
-        for beat in Beat.objects.exclude(keys=[]).only("keys"):
-            for topic in beat.keys or []:
-                if query.lower() in topic.lower():
-                    topics[topic] = topics.get(topic, 0) + 1
-
-        results = [
-            result(
-                "topic",
-                topic,
-                "Topic",
-                f"/killtony/bits?topic={quote(topic)}",
-                [fmt_count(count, "bit/beat match", "bit/beat matches")],
-                text_score(query, topic) + min(count, 20),
-            )
-            for topic, count in topics.items()
-        ]
         return sorted(results, key=lambda item: item["score"], reverse=True)[:GROUP_LIMIT]

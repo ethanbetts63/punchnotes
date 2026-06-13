@@ -8,7 +8,6 @@ class BitListSerializer(serializers.ModelSerializer):
     comedian_slug = serializers.CharField(source="set.comedian.slug")
     episode_number = serializers.IntegerField(source="set.episode.episode_number")
     set_id = serializers.IntegerField(source="set.id")
-    keys = serializers.SerializerMethodField()
     joke_types = serializers.SerializerMethodField()
     beats_summary = serializers.SerializerMethodField()
 
@@ -16,15 +15,9 @@ class BitListSerializer(serializers.ModelSerializer):
         model = Bit
         fields = [
             "id", "comedian", "comedian_slug", "episode_number", "set_id",
-            "summary", "keys", "joke_types", "beats_summary",
+            "summary", "joke_types", "beats_summary",
             "hit_ratio", "punchline_tag_ratio",
         ]
-
-    def get_keys(self, bit):
-        keys: set[str] = set()
-        for beat in bit.beats.all():
-            keys.update(beat.keys or [])
-        return sorted(keys)
 
     def get_joke_types(self, bit):
         return list(

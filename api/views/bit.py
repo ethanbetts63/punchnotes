@@ -35,10 +35,6 @@ class BitListView(APIView):
                 | Q(set__episode__episode_title__icontains=query)
             ).distinct()
 
-        topic = request.query_params.get("topic")
-        if topic:
-            bits = bits.filter(beats__keys__contains=[topic]).distinct()
-
         sort_key = request.query_params.get("sort", "").strip()
         field = SORT_FIELDS.get(sort_key)
         if field:

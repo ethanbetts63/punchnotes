@@ -74,7 +74,7 @@ The test: **can you extract a beat alone and still have it make sense?**
 - If yes → it's its own bit
 - If no (it depends on a premise established earlier) → same bit
 
-**Watch for pronoun bridges.** If a comedian links two structurally independent jokes by using a pronoun callback (e.g. "him" referring to someone established in the prior joke), they are still separate bits. The test is whether the joke's comedic premise would survive a one-word change ("him" → "my son"), not whether the current performance depends on the prior line.
+**Watch for pronoun bridges.** If a comedian links two structurally independent jokes by using a pronoun callback (e.g. "him" referring to someone established in the prior joke), they are still separate bits. The test is whether the joke's comedic premise would survive a one-word change ("him" → "my son").
 
 ### `bit_meta`
 
@@ -83,30 +83,15 @@ The test: **can you extract a beat alone and still have it make sense?**
 Every beat has `premise` and `joke_type`.
 
 **Premise rules:**
-- **Hard limit: 20 words maximum.** If your premise exceeds 20 words, you are describing the joke rather than stating its mechanism. Count the words and cut until you are at or under 20. Every word must be load-bearing.
+- **Hard limit: 20 words maximum.** If your premise exceeds 20 words, you are describing the joke rather than 
+stating its mechanism. Count the words and cut until you are at or under 20. Every word must be load-bearing.
+- **Single-line exception:** if a beat's only non-`fluff` line is one `punchline`, you do not need to write a premise for that beat. 
 - State the abstract comedic logic - *why is this funny*, not a summary of what was said.
 - No pronouns tied to the comedian - no "he", "she", "they", "the comic".
 - Use the most general form: `"Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."`
 - Build the premise using that joke type's formula.
 
-**Joke type:** one of the nine accepted labels defined in the next section: `misdirect`, `reframe`, `phonetic-match`, `double-meaning`, `contradiction`, `analogy`, `hyperbole`, `elephant-in-the-room`, `anti-humor`. Pick the mechanism that best describes how the joke gets its laugh - the same mechanism the premise formula is built around.
-
-Do not use joke types outside this list. If a joke seems to need a type that is not allowed, choose the closest allowed type and mention the uncertainty in your closing comments.
-
 For every specific token in the setup, ask: swap it for another member of a broader class — does the joke still land via the identical mechanism? If yes, replace the token with the class. Repeat until the next swap up would break the joke. Duck→cow→horse all survive → animal. Beak-rash→foot-cream survive → medicine.
-
-When multiple joke types seem plausible, use this priority order:
-
-1. If the laugh depends on sound similarity, use `phonetic-match`.
-2. If the laugh depends on semantic ambiguity, use `double-meaning`.
-3. If the laugh depends on a joke form refusing to deliver a clever payoff, use `anti-humor`.
-4. If the laugh depends on expectation reversal, use `misdirect`.
-5. If the laugh depends on a claim conflicting with evidence, use `contradiction`.
-6. If the laugh depends on comparison, use `analogy`.
-7. If the laugh depends on reinterpretation without comparison, use `reframe`.
-8. If the laugh depends on absurd degree, use `hyperbole`.
-9. If the laugh depends mainly on saying a taboo truth aloud, use `elephant-in-the-room`.
-
 
 ### Joke types and premise formulas
 

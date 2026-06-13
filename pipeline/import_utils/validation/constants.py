@@ -28,7 +28,7 @@ VALID_JOKE_TYPES = frozenset(PREMISE_STRUCTURE_RULES)
 
 PREMISE_MAX_WORDS = 20
 
-BASE_BEAT_FIELDS = frozenset({"premise", "joke_type", "keys"})
+BASE_BEAT_FIELDS = frozenset({"premise", "joke_type"})
 
 JOKE_TYPE_FIELDS: dict[str, tuple[str, ...]] = {
     "misdirect": ("bait", "implication", "reveal"),
@@ -44,8 +44,4 @@ JOKE_TYPE_FIELDS: dict[str, tuple[str, ...]] = {
 
 OPTIONAL_JOKE_TYPE_FIELDS: dict[str, tuple[str, ...]] = {
     "phonetic-match": ("reason",),
-}
-
-FULL_AUTO_KEY_FIELDS: dict[str, tuple[str, ...]] = {
-    "double-meaning": ("phrase", "comic"),
 }
