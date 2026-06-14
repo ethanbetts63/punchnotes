@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
                 ("has_small_joke_book", models.BooleanField(default=False)),
                 ("has_medium_joke_book", models.BooleanField(default=False)),
                 ("has_large_joke_book", models.BooleanField(default=False)),
-                ("appearance_count", models.PositiveSmallIntegerField(default=0)),
+                ("set_count", models.PositiveSmallIntegerField(default=0)),
                 ("avg_hit_ratio", models.FloatField(blank=True, null=True)),
                 ("avg_punchline_tag_ratio", models.FloatField(blank=True, null=True)),
                 ("avg_bits_per_set", models.FloatField(blank=True, null=True)),

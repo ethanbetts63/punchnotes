@@ -141,7 +141,7 @@ def refresh_comedian_stats(comedian: Comedian) -> None:
         avg_bits=Avg('n_bits'),
         avg_beats=Avg('n_beats'),
     )
-    comedian.appearance_count = comedian.sets.values('episode_id').distinct().count()
+    comedian.set_count = comedian.sets.values('episode_id').distinct().count()
     comedian.joke_count = Bit.objects.filter(set__comedian=comedian).count()
     comedian.avg_hit_ratio = agg['avg_hit']
     comedian.avg_punchline_tag_ratio = agg['avg_pt']
@@ -151,7 +151,7 @@ def refresh_comedian_stats(comedian: Comedian) -> None:
     comedian.has_medium_joke_book = sets.filter(attributes__contains=['medium_joke_book']).exists()
     comedian.has_large_joke_book = sets.filter(attributes__contains=['large_joke_book']).exists()
     comedian.save(update_fields=[
-        'appearance_count', 'joke_count', 'avg_hit_ratio', 'avg_punchline_tag_ratio',
+        'set_count', 'joke_count', 'avg_hit_ratio', 'avg_punchline_tag_ratio',
         'avg_bits_per_set', 'avg_beats_per_set',
         'has_small_joke_book', 'has_medium_joke_book', 'has_large_joke_book',
     ])

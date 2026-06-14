@@ -5,25 +5,16 @@ from .shared import EpisodeMinimalSerializer
 
 
 class ComedianForSetSerializer(serializers.ModelSerializer):
-    set_count = serializers.SerializerMethodField()
-    appearances = serializers.SerializerMethodField()
-
     class Meta:
         model = Comedian
         fields = [
             "id", "name", "slug", "attributes",
             "image_url",
-            "set_count", "appearances",
+            "set_count",
             "avg_bits_per_set", "avg_beats_per_set",
             "avg_hit_ratio", "avg_punchline_tag_ratio",
             "has_small_joke_book", "has_medium_joke_book", "has_large_joke_book",
         ]
-
-    def get_set_count(self, obj):
-        return obj.sets.count()
-
-    def get_appearances(self, obj):
-        return obj.appearance_count
 
 
 class ComedianForSetListSerializer(serializers.ModelSerializer):

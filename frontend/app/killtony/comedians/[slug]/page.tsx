@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getServerComedian } from "@/lib/serverApi";
 import ComedianImage from "@/components/ComedianImage";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
-import { darkJokeBookBadge } from "@/lib/killTonyDisplay";
+import { fmt2 } from "@/lib/killTonyDisplay";
 import ComedianSetList from "./ComedianSetList";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -13,10 +13,6 @@ export async function generateMetadata({ params }: Props) {
   const comedian = await getServerComedian(slug);
   if (!comedian) return { title: "Comedian Not Found | PunchNotes" };
   return { title: `${comedian.name} — Kill Tony | PunchNotes` };
-}
-
-function fmt2(n: number | null): string {
-  return n == null ? "—" : n.toFixed(2);
 }
 
 export default async function ComedianDetailPage({ params }: Props) {
@@ -56,17 +52,17 @@ export default async function ComedianDetailPage({ params }: Props) {
                     </span>
                   ))}
                 {comedian.has_small_joke_book && (
-                  <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${darkJokeBookBadge.small}`}>
+                  <span className="rounded-full px-2.5 py-0.5 text-xs font-medium bg-stone-700 text-stone-200">
                     Small Joke Book
                   </span>
                 )}
                 {comedian.has_medium_joke_book && (
-                  <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${darkJokeBookBadge.medium}`}>
+                  <span className="rounded-full px-2.5 py-0.5 text-xs font-medium bg-stone-700 text-stone-200">
                     Medium Joke Book
                   </span>
                 )}
                 {comedian.has_large_joke_book && (
-                  <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${darkJokeBookBadge.large}`}>
+                  <span className="rounded-full px-2.5 py-0.5 text-xs font-medium bg-stone-700 text-stone-200">
                     Large Joke Book
                   </span>
                 )}

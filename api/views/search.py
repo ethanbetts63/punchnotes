@@ -80,7 +80,6 @@ class NavSearchView(APIView):
         results = []
         for comedian in rows[:GROUP_LIMIT]:
             meta = [
-                fmt_count(comedian.appearance_count, "appearance"),
                 fmt_count(comedian.set_count, "set"),
             ]
             if comedian.has_large_joke_book:

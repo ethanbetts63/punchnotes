@@ -138,7 +138,6 @@ export type Comedian = {
   attributes: ComedianAttribute[];
   image_url: string | null;
   set_count: number;
-  appearances: number;
   has_small_joke_book: boolean;
   has_medium_joke_book: boolean;
   has_large_joke_book: boolean;
@@ -213,7 +212,6 @@ export type SetComedian = {
   attributes: ComedianAttribute[];
   image_url: string | null;
   set_count: number;
-  appearances: number;
   avg_bits_per_set: number | null;
   avg_beats_per_set: number | null;
   avg_hit_ratio: number | null;

@@ -8,7 +8,7 @@ const SEARCH_PATH = "/killtony/comedians/search";
 const ALL_ATTRIBUTES = Object.entries(ATTRIBUTE_LABELS).map(([value, label]) => ({ value, label }));
 
 const SORT_OPTIONS = [
-  { value: "appearances", label: "Appearances" },
+  { value: "set_count", label: "Sets" },
   { value: "avg_hit_ratio", label: "Hit ratio" },
   { value: "avg_punchline_tag_ratio", label: "Punch/tag ratio" },
   { value: "avg_bits_per_set", label: "Bits per set" },

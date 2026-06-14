@@ -4,7 +4,7 @@ import { getServerSet } from "@/lib/serverApi";
 import SetTranscript from "@/components/SetTranscript";
 import SetImage from "@/components/SetImage";
 import VideoEmbed from "@/components/VideoEmbed";
-import { darkJokeBookBadge, fmt2, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
+import { fmt2, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 
 type Props = {
@@ -131,7 +131,7 @@ export default async function SetDetailPage({ params }: Props) {
                   <span className="text-white">{fmt2(set.hit_ratio)}</span> setup/punch
                   <span className="mx-2 text-stone-700">·</span>
                   <span className="text-white">{fmt2(set.punchline_tag_ratio)}</span> punch/tag
-                  {(() => { const jb = getJokeBookSize(set.attributes); return jb ? (<><span className="mx-2 text-stone-700">·</span><span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${darkJokeBookBadge[jb]}`}>{jokeBookLabel[jb]}</span></>) : null; })()}
+                  {(() => { const jb = getJokeBookSize(set.attributes); return jb ? (<><span className="mx-2 text-stone-700">·</span><span className="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-stone-700 text-stone-200">{jokeBookLabel[jb]}</span></>) : null; })()}
                 </p>
               </div>
             </div>

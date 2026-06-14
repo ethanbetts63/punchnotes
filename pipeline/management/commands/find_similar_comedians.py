@@ -18,10 +18,8 @@
 # imports only trust explicit decisions in the relationship file, so a bad
 # decision can be undone by editing that JSON and re-importing from the raw archive.
 
-import csv
 import json
 import re
-import sys
 from dataclasses import dataclass
 from difflib import SequenceMatcher
 
@@ -143,14 +141,6 @@ def write_candidate_report(candidates: list[Candidate]) -> str:
 class Command(BaseCommand):
     help = "Find likely duplicate comedian names using fuzzy matching."
 
-    def add_arguments(self, parser):
-        parser.add_argument(
-            "--format",
-            choices=("text", "csv", "json"),
-            default="text",
-            help="Output format. Default: text.",
-        )
-
     def handle(self, *args, **options):
         threshold = THRESHOLD
         if threshold < 0 or threshold > 100:
@@ -160,51 +150,7 @@ class Command(BaseCommand):
         candidates = find_candidates(comedians, threshold)
         report_path = write_candidate_report(candidates)
 
-        if options["format"] == "json":
-            self.stdout.write(json.dumps([candidate_dict(candidate) for candidate in candidates], indent=2))
-            return
-
-        if options["format"] == "csv":
-            writer = csv.writer(sys.stdout, lineterminator="\n")
-            writer.writerow(
-                [
-                    "score",
-                    "name_score",
-                    "token_sort_score",
-                    "slug_score",
-                    "first_name",
-                    "first_slug",
-                    "second_name",
-                    "second_slug",
-                ]
-            )
-            for candidate in candidates:
-                writer.writerow(
-                    [
-                        f"{candidate.score:.1f}",
-                        f"{candidate.name_score:.1f}",
-                        f"{candidate.token_sort_score:.1f}",
-                        f"{candidate.slug_score:.1f}",
-                        candidate.first_name,
-                        candidate.first_slug,
-                        candidate.second_name,
-                        candidate.second_slug,
-                    ]
-                )
-            return
-
         self.stdout.write(f"Comedians scanned: {len(comedians)}")
         self.stdout.write(f"Threshold: {threshold:.1f}")
         self.stdout.write(f"Candidate pairs: {len(candidates)}")
         self.stdout.write(f"Report written: {report_path}")
-        self.stdout.write("")
-
-        for candidate in candidates:
-            self.stdout.write(
-                f"{candidate.score:5.1f} "
-                f"(name {candidate.name_score:5.1f}, "
-                f"tokens {candidate.token_sort_score:5.1f}, "
-                f"slug {candidate.slug_score:5.1f})  "
-                f"{candidate.first_name} [{candidate.first_slug}]  <->  "
-                f"{candidate.second_name} [{candidate.second_slug}]"
-            )

@@ -1,4 +1,4 @@
-APPEARANCE_ATTRIBUTES = frozenset({"bucket_pull", "regular", "golden_ticket", "special"})
+from pipeline.models.comedian import APPEARANCE_ATTRIBUTES
 
 
 KNOWN_GOLDEN_TICKET_SLUGS = frozenset(

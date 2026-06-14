@@ -2,29 +2,15 @@ from django.db import models
 from django.core.exceptions import ValidationError
 
 
-ATTRIBUTE_CHOICES = [
-    ('bucket_pull', 'Bucket Pull'),
-    ('regular', 'Regular'),
-    ('golden_ticket', 'Golden Ticket'),
-    ('special', 'Special'),
-    ('gay', 'Gay'),
-    ('lesbian', 'Lesbian'),
-    ('bisexual', 'Bisexual'),
-    ('man', 'Man'),
-    ('woman', 'Woman'),
-    ('trans', 'Trans'),
-    ('white', 'White'),
-    ('black', 'Black'),
-    ('asian', 'Asian'),
-    ('latino', 'Latino'),
-    ('middle_eastern', 'Middle Eastern'),
-    ('disabled', 'Disabled'),
-    ('old', 'Old'),
-    ('young', 'Young'),
-    ('middle-age', 'Middle-Age'),
-]
+ATTRIBUTE_VALUES = frozenset({
+    'bucket_pull', 'regular', 'golden_ticket', 'special',
+    'gay', 'lesbian', 'bisexual',
+    'man', 'woman', 'trans',
+    'white', 'black', 'asian', 'latino', 'middle_eastern',
+    'disabled', 'old', 'young', 'middle-age',
+})
 
-ATTRIBUTE_VALUES = {value for value, _label in ATTRIBUTE_CHOICES}
+APPEARANCE_ATTRIBUTES = frozenset({'bucket_pull', 'regular', 'golden_ticket', 'special'})
 
 
 def validate_attributes(value):
@@ -59,7 +45,7 @@ class Comedian(models.Model):
     has_large_joke_book = models.BooleanField(default=False)
 
     # Denormalised counts updated by refresh_comedian_stats
-    appearance_count = models.PositiveSmallIntegerField(default=0)
+    set_count = models.PositiveSmallIntegerField(default=0)
 
     # Denormalised ratio averages updated by refresh_comedian_stats
     avg_hit_ratio = models.FloatField(null=True, blank=True)

@@ -11,14 +11,9 @@ export const jokeBookLabel: Record<string, string> = {
   large: "Large Joke Book",
 };
 
-export const darkJokeBookBadge: Record<string, string> = {
-  small: "bg-stone-700 text-stone-200",
-  medium: "bg-amber-800/70 text-amber-200",
-  large: "bg-red-900/70 text-red-200",
-};
 
 export function fmt2(value: number | null): string {
-  return value == null ? "-" : value.toFixed(2);
+  return value == null ? "—" : value.toFixed(2);
 }
 
 export function fmtDate(date: string | null): string {

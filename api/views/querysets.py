@@ -1,10 +1,10 @@
-from django.db.models import Count, Exists, F, OuterRef, Prefetch, Q
+from django.db.models import Exists, F, OuterRef, Prefetch, Q
 
 from pipeline.models import Beat, Bit, Comedian, Episode, Line, Set
 
 
 COMEDIAN_SORT_FIELDS = {
-    "appearances": "appearance_count",
+    "set_count": "set_count",
     "avg_hit_ratio": "avg_hit_ratio",
     "avg_punchline_tag_ratio": "avg_punchline_tag_ratio",
     "avg_bits_per_set": "avg_bits_per_set",
@@ -39,7 +39,7 @@ SEARCHABLE_BEAT_LINE_LABELS = ("setup", "punchline", "tag")
 
 
 def build_comedian_list_queryset(params):
-    comedians = Comedian.objects.annotate(set_count=Count("sets", distinct=True))
+    comedians = Comedian.objects.all()
 
     q = (params.get("q") or "").strip()
     if q:

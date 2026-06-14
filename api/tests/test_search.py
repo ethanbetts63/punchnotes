@@ -8,7 +8,7 @@ class SearchConsistencyTests(TestCase):
         self.comedian = Comedian.objects.create(
             name="Casey Rocket",
             slug="casey-rocket",
-            appearance_count=1,
+            set_count=1,
         )
         self.episode = Episode.objects.create(
             video_id="abc123xyz01",

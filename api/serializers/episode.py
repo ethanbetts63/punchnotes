@@ -55,5 +55,4 @@ class EpisodeDetailSerializer(serializers.ModelSerializer):
         ]
 
     def get_sets(self, episode):
-        ordered = sorted(episode.sets.all(), key=lambda s: s.start_seconds)
-        return SetInEpisodeSerializer(ordered, many=True).data
+        return SetInEpisodeSerializer(episode.sets.all(), many=True).data
