@@ -70,16 +70,15 @@ export const COMEDIAN_LISTS: ListDef[] = [
     id: "regulars",
     title: "Regulars",
     description: "Comics who earned a regular spot on the show.",
-    ids: [
-      53, 29, 192, 20, 54, 40,
-    ],
+    ids: [100, 31, 13, 70, 1, 1029, 37, 2],
   },
   {
     id: "golden-ticket-winners",
     title: "Golden Ticket Winners",
     description: "Comics who earned a golden ticket from Tony.",
     ids: [
-      306, 32, 257, 58, 41, 77, 169, 13, 93, 245, 120, 97, 215,
+      531, 693, 699, 196, 14, 487, 81, 360, 104, 654, 189, 88, 153,
+      1035, 93, 135, 286, 45, 63, 167, 527, 214, 171, 25,
     ],
   },
 ];

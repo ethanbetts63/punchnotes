@@ -1,5 +1,5 @@
 import type { SetListItem, Video, Comedian } from "@/lib/serverApi";
-import { getEpisodeGuestLabel, getJokeBookSize, fmtSeconds } from "@/lib/killTonyDisplay";
+import { fmt2, getEpisodeGuestLabel, getJokeBookSize } from "@/lib/killTonyDisplay";
 
 export type TileData = {
   href: string;
@@ -31,13 +31,19 @@ const jokeBookBadge: Record<string, { label: string; className: string }> = {
 };
 
 export function setToTile(set: SetListItem): TileData {
+  const meta = [
+    `${set.bit_count} bit${set.bit_count !== 1 ? "s" : ""}`,
+    `Punch density ${fmt2(set.punch_density)}`,
+    `Tag density ${fmt2(set.tag_density)}`,
+  ].join(" · ");
+
   return {
     href: `/killtony/sets/${set.id}`,
     imageUrl: set.image_url,
     videoId: set.video.youtube_id,
     eyebrow: `KT #${set.video.number}`,
     title: set.comedian.name,
-    meta: `Set ${set.set_number} · ${fmtSeconds(set.start_seconds)}`,
+    meta,
     badges: (() => { const jb = getJokeBookSize(set.attributes); return jb ? [jokeBookBadge[jb]] : []; })(),
   };
 }

@@ -49,23 +49,14 @@ KNOWN_REGULAR_SLUGS = frozenset(
         "casey-rocket",
         "david-lucas",
         "dedrick-flynn",
-        "george-perez",
         "hans-kim",
-        "iron-patriot",
-        "jeremiah-watkins",
-        "joel-jimenez",
-        "john-deas",
-        "josh-martin",
-        "jules-durel",
         "kam-patterson",
         "kimberly-congdon",
-        "kino-loasis",
-        "melissa-eslinger",
-        "pat-regan",
-        "paul-deemer",
         "sara-weinshenk",
         "vanessa-johnston",
         "william-montgomery",
+        "malcolm-hatchett",
+        "michael-lehrer",
     }
 )
 
@@ -73,6 +64,9 @@ KNOWN_REGULAR_SLUGS = frozenset(
 KNOWN_SPECIAL_SLUGS = frozenset(
     {
         "ron-white",
+        "uncle-lazer",
+        "ari-shaffir",
+        "iron-patriot",
     }
 )
 
