@@ -24,8 +24,6 @@ PREMISE_STRUCTURE_RULES: dict[str, tuple[str, ...]] = {
     "anti-humor": ("implies a punchline, but reveals only",),
 }
 
-VALID_JOKE_TYPES = frozenset(PREMISE_STRUCTURE_RULES)
-
 PREMISE_MAX_WORDS = 20
 
 BASE_BEAT_FIELDS = frozenset({"premise", "joke_type"})

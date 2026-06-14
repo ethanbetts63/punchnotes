@@ -5,13 +5,8 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Beat, Bit, Set } from "@/lib/serverApi";
 import SetImage from "@/components/SetImage";
-import {
-  appearanceTypeLabel,
-  fmtDate,
-  getAppearanceType,
-  lightAppearanceBadge,
-  lineLabelBadge,
-} from "@/lib/killTonyDisplay";
+import { fmtDate, lineLabelBadge } from "@/lib/killTonyDisplay";
+import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 import type { FeaturedBeatEntry } from "@/lib/featuredBeats";
 
 type SelectedBeat = {
@@ -51,7 +46,6 @@ export default function BeatOfTheWeek({ set, bitIndex, beatIndex, entries, sideb
     : null;
   if (!selected) return null;
 
-  const appearanceType = getAppearanceType(activeEntry.set.comedian.attributes);
   const visibleLines = selected.beat.lines.filter((line) => line.label !== "fluff");
   const canCycle = uniqueEntries.length > 1;
 
@@ -125,11 +119,13 @@ export default function BeatOfTheWeek({ set, bitIndex, beatIndex, entries, sideb
                   <h2 className="text-xl font-bold leading-tight tracking-tight text-stone-950 transition-colors group-hover:text-primary">
                     {activeEntry.set.comedian.name}
                   </h2>
-                  {appearanceType && (
-                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${lightAppearanceBadge[appearanceType]}`}>
-                      {appearanceTypeLabel[appearanceType]}
-                    </span>
-                  )}
+                  {activeEntry.set.comedian.attributes
+                    .filter((attr) => attr in ATTRIBUTE_LABELS)
+                    .map((attr) => (
+                      <span key={attr} className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-bold text-stone-600">
+                        {ATTRIBUTE_LABELS[attr]}
+                      </span>
+                    ))}
                 </div>
 
                 <p className="mt-1 truncate text-xs text-stone-500">

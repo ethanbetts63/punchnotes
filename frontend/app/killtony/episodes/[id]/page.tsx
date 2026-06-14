@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getServerEpisode } from "@/lib/serverApi";
-import type { SetInEpisode, ComedianAttribute } from "@/lib/serverApi";
-import { getJokeBookSize } from "@/lib/killTonyDisplay";
+import type { SetInEpisode } from "@/lib/serverApi";
+import { getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
+import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -34,67 +35,8 @@ function fmtDuration(seconds: number | null): string {
   return h > 0 ? `${h}h ${m}m` : `${m}m`;
 }
 
-const jokeBookLabel: Record<string, string> = {
-  small: "Small Joke Book",
-  medium: "Medium Joke Book",
-  large: "Large Joke Book",
-};
-
-const jokeBookColor: Record<string, string> = {
-  small: "bg-stone-100 text-stone-600",
-  medium: "bg-amber-100 text-amber-700",
-  large: "bg-red-100 text-primary",
-};
-
-type AppearanceAttribute = "bucket_pull" | "regular" | "golden_ticket" | "special";
-
-const appearanceAttributes: AppearanceAttribute[] = ["bucket_pull", "regular", "golden_ticket", "special"];
-
-const comedianTypeLabel: Record<AppearanceAttribute, string> = {
-  bucket_pull:   "Bucket Pull",
-  regular:       "Regular",
-  golden_ticket: "Golden Ticket",
-  special:       "Special",
-};
-
-const comedianTypeColor: Record<AppearanceAttribute, string> = {
-  bucket_pull:   "bg-stone-100 text-stone-500",
-  regular:       "bg-blue-50 text-blue-600",
-  golden_ticket: "bg-amber-100 text-amber-700",
-  special:       "bg-purple-50 text-purple-600",
-};
-
-function getAppearanceType(attributes: readonly ComedianAttribute[]): AppearanceAttribute | null {
-  return appearanceAttributes.find((attr) => attributes.includes(attr)) ?? null;
-}
-
-const comedianAttributeLabel: Record<ComedianAttribute, string> = {
-  bucket_pull:    "Bucket Pull",
-  regular:        "Regular",
-  golden_ticket:  "Golden Ticket",
-  special:        "Special",
-  gay:             "Gay",
-  lesbian:         "Lesbian",
-  bisexual:        "Bisexual",
-  man:             "Man",
-  woman:           "Woman",
-  trans:           "Trans",
-  white:           "White",
-  black:           "Black",
-  asian:           "Asian",
-  latino:          "Latino",
-  middle_eastern:  "Middle Eastern",
-  disabled:        "Disabled",
-  old:             "Old",
-  young:           "Young",
-  "middle-age":    "Middle-Age",
-};
-
 function SetTile({ set, duration }: { set: SetInEpisode; duration: number | null }) {
-  const ct = getAppearanceType(set.comedian.attributes);
-  const attributes = set.comedian.attributes.filter(
-    (attr): attr is ComedianAttribute => attr in comedianAttributeLabel && attr !== ct
-  );
+  const attributes = set.comedian.attributes.filter((attr) => attr in ATTRIBUTE_LABELS);
 
   return (
     <Link
@@ -109,23 +51,18 @@ function SetTile({ set, duration }: { set: SetInEpisode; duration: number | null
           <p className="text-lg font-bold text-stone-900 group-hover:text-primary transition-colors leading-tight truncate">
             {set.comedian.name}
           </p>
-          {(ct || attributes.length > 0) && (
+          {attributes.length > 0 && (
             <div className="mt-2 flex flex-wrap gap-1">
-              {ct && (
-                <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${comedianTypeColor[ct]}`}>
-                  {comedianTypeLabel[ct]}
-                </span>
-              )}
               {attributes.map((attr) => (
                 <span key={attr} className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-medium text-stone-500">
-                  {comedianAttributeLabel[attr]}
+                  {ATTRIBUTE_LABELS[attr]}
                 </span>
               ))}
             </div>
           )}
         </div>
         <div className="flex shrink-0 flex-col items-end gap-1.5">
-          {(() => { const jb = getJokeBookSize(set.attributes); return jb ? (<span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${jokeBookColor[jb]}`}>{jokeBookLabel[jb]}</span>) : null; })()}
+          {(() => { const jb = getJokeBookSize(set.attributes); return jb ? (<span className="rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100 text-amber-700">{jokeBookLabel[jb]}</span>) : null; })()}
         </div>
       </div>
 

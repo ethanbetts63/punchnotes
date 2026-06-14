@@ -4,15 +4,8 @@ import { getServerSet } from "@/lib/serverApi";
 import SetTranscript from "@/components/SetTranscript";
 import SetImage from "@/components/SetImage";
 import VideoEmbed from "@/components/VideoEmbed";
-import {
-  appearanceTypeLabel,
-  darkAppearanceBadge,
-  darkJokeBookBadge,
-  fmt2,
-  getAppearanceType,
-  getJokeBookSize,
-  jokeBookLabel,
-} from "@/lib/killTonyDisplay";
+import { darkJokeBookBadge, fmt2, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
+import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -39,7 +32,6 @@ export default async function SetDetailPage({ params }: Props) {
   if (!set) notFound();
 
   const { comedian } = set;
-  const ct = getAppearanceType(comedian.attributes);
   const bitCount = set.bits.length;
   const beatCount = set.bits.reduce((sum, bit) => sum + bit.beats.length, 0);
   return (
@@ -91,11 +83,13 @@ export default async function SetDetailPage({ params }: Props) {
               </h1>
 
               <div className="mb-5 flex flex-wrap gap-1.5">
-                {ct && (
-                  <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${darkAppearanceBadge[ct]}`}>
-                    {appearanceTypeLabel[ct]}
-                  </span>
-                )}
+                {comedian.attributes
+                  .filter((attr) => attr in ATTRIBUTE_LABELS)
+                  .map((attr) => (
+                    <span key={attr} className="rounded-full bg-stone-700 px-2.5 py-0.5 text-xs font-medium text-stone-300">
+                      {ATTRIBUTE_LABELS[attr]}
+                    </span>
+                  ))}
                 {comedian.has_small_joke_book && (
                   <span className="rounded-full bg-stone-700 px-2.5 py-0.5 text-xs font-medium text-stone-300">
                     Small Joke Book

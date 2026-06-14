@@ -25,9 +25,6 @@ BEAT_FIELD_ORDER = [
     "elephant", "frame", "answer",
 ]
 
-JOKE_BOOK_MIGRATION = {"small": "small_joke_book", "medium": "medium_joke_book", "large": "large_joke_book"}
-
-
 def _reorder(d, order):
     """Return d with keys in order first, then any remainder."""
     out = {k: d[k] for k in order if k in d}
@@ -72,26 +69,14 @@ def serialize_set(data: dict) -> str:
     out = {}
     for key in SET_FIELD_ORDER:
         if key == "set_attributes":
-            existing = list(data.get("set_attributes") or [])
-            # Migrate legacy joke_book field on first normalize run
-            old_joke_book = data.get("joke_book")
-            if old_joke_book and not existing:
-                attr = JOKE_BOOK_MIGRATION.get(old_joke_book)
-                if attr:
-                    existing = [attr]
-            out[key] = existing
+            out[key] = list(data.get("set_attributes") or [])
         elif key == "comedian_attributes":
-            # Migrate legacy "attributes" key to "comedian_attributes"
-            out[key] = list(data.get("comedian_attributes") or data.get("attributes") or [])
+            out[key] = list(data.get("comedian_attributes") or [])
         elif key in {"interview_end_line", "interview_end_seconds"}:
             out[key] = data.get(key)
         elif key in data:
             out[key] = data[key]
-    # Skip legacy keys that have been migrated to new names
-    _skip = {"set_number", "joke_book", "attributes"}
     for key, val in data.items():
-        if key in _skip:
-            continue
         if key not in out:
             out[key] = val
 

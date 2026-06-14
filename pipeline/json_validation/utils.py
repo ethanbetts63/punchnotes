@@ -1,9 +1,4 @@
-"""Small validation helpers shared by line and beat validators.
-
-These helpers stay deliberately mechanical: they normalize integers, detect
-missing number ranges, and flatten simple string fields without interpreting
-the joke content.
-"""
+"""Small validation helpers shared by line and beat validators."""
 
 
 def positive_int(value) -> int | None:
@@ -31,9 +26,3 @@ def is_non_empty_string(value) -> bool:
     return isinstance(value, str) and bool(value.strip())
 
 
-def flatten_strings(value) -> list[str]:
-    if isinstance(value, str):
-        return [value]
-    if isinstance(value, list):
-        return [item for item in value if isinstance(item, str)]
-    return []

@@ -1,35 +1,8 @@
-import type { ComedianAttribute } from "@/lib/serverApi";
-
-export type AppearanceAttribute = "bucket_pull" | "regular" | "golden_ticket" | "special";
-
-const appearanceAttributes: AppearanceAttribute[] = ["bucket_pull", "regular", "golden_ticket", "special"];
-
 export const lineLabelBadge: Record<string, string> = {
   setup: "bg-blue-100 text-blue-700",
   punchline: "bg-amber-100 text-amber-700",
   tag: "bg-green-100 text-green-700",
   fluff: "bg-stone-100 text-stone-500",
-};
-
-export const appearanceTypeLabel: Record<AppearanceAttribute, string> = {
-  bucket_pull: "Bucket Pull",
-  regular: "Regular",
-  golden_ticket: "Golden Ticket",
-  special: "Special",
-};
-
-export const lightAppearanceBadge: Record<AppearanceAttribute, string> = {
-  bucket_pull: "bg-stone-100 text-stone-600",
-  regular: "bg-blue-50 text-blue-600",
-  golden_ticket: "bg-amber-100 text-amber-700",
-  special: "bg-purple-50 text-purple-600",
-};
-
-export const darkAppearanceBadge: Record<AppearanceAttribute, string> = {
-  bucket_pull: "bg-stone-700 text-stone-300",
-  regular: "bg-blue-900/60 text-blue-200",
-  golden_ticket: "bg-yellow-800/60 text-yellow-200",
-  special: "bg-purple-900/60 text-purple-200",
 };
 
 export const jokeBookLabel: Record<string, string> = {
@@ -81,12 +54,6 @@ export function getEpisodeGuestLabel(
 ): string {
   const guests = getEpisodeGuests(episode);
   return guests.length > 0 ? guests.join(", ") : fallback;
-}
-
-export function getAppearanceType(
-  attributes: readonly ComedianAttribute[] | undefined
-): AppearanceAttribute | null {
-  return appearanceAttributes.find((attr) => (attributes ?? []).includes(attr)) ?? null;
 }
 
 export function getJokeBookSize(attributes: string[]): "small" | "medium" | "large" | null {

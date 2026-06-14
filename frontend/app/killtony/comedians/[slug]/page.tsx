@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getServerComedian } from "@/lib/serverApi";
-import type { ComedianAttribute } from "@/lib/serverApi";
 import ComedianImage from "@/components/ComedianImage";
+import { ATTRIBUTE_LABELS } from "@/lib/attributes";
+import { darkJokeBookBadge } from "@/lib/killTonyDisplay";
 import ComedianSetList from "./ComedianSetList";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -18,41 +19,12 @@ function fmt2(n: number | null): string {
   return n == null ? "—" : n.toFixed(2);
 }
 
-type AppearanceAttribute = "bucket_pull" | "regular" | "golden_ticket" | "special";
-
-const appearanceAttributes: AppearanceAttribute[] = ["bucket_pull", "regular", "golden_ticket", "special"];
-
-const comedianTypeLabel: Record<AppearanceAttribute, string> = {
-  bucket_pull:   "Bucket Pull",
-  regular:       "Regular",
-  golden_ticket: "Golden Ticket",
-  special:       "Special",
-};
-
-const comedianTypeBadge: Record<AppearanceAttribute, string> = {
-  bucket_pull:   "bg-stone-700 text-stone-300",
-  regular:       "bg-blue-900/60 text-blue-200",
-  golden_ticket: "bg-yellow-800/60 text-yellow-200",
-  special:       "bg-purple-900/60 text-purple-200",
-};
-
-function getAppearanceType(attributes: readonly ComedianAttribute[]): AppearanceAttribute | null {
-  return appearanceAttributes.find((attr) => attributes.includes(attr)) ?? null;
-}
-
-const jokeBookBadgeDark: Record<string, string> = {
-  small:  "bg-stone-700 text-stone-300",
-  medium: "bg-amber-900/60 text-amber-300",
-  large:  "bg-red-900/60 text-red-300",
-};
-
 export default async function ComedianDetailPage({ params }: Props) {
   const { slug } = await params;
   const comedian = await getServerComedian(slug);
   if (!comedian) notFound();
 
-  const ct = getAppearanceType(comedian.attributes);
-  const sets = [...(comedian.sets ?? [])].sort(
+  const sets =[...(comedian.sets ?? [])].sort(
     (a, b) => b.episode.number - a.episode.number
   );
 
@@ -75,25 +47,26 @@ export default async function ComedianDetailPage({ params }: Props) {
                 {comedian.name}
               </h1>
 
-              {/* Type + joke book badges */}
               <div className="flex flex-wrap gap-1.5 mb-5">
-                {ct && (
-                  <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${comedianTypeBadge[ct]}`}>
-                    {comedianTypeLabel[ct]}
-                  </span>
-                )}
+                {comedian.attributes
+                  .filter((attr) => attr in ATTRIBUTE_LABELS)
+                  .map((attr) => (
+                    <span key={attr} className="rounded-full bg-stone-700 px-2.5 py-0.5 text-xs font-medium text-stone-300">
+                      {ATTRIBUTE_LABELS[attr]}
+                    </span>
+                  ))}
                 {comedian.has_small_joke_book && (
-                  <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${jokeBookBadgeDark.small}`}>
+                  <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${darkJokeBookBadge.small}`}>
                     Small Joke Book
                   </span>
                 )}
                 {comedian.has_medium_joke_book && (
-                  <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${jokeBookBadgeDark.medium}`}>
+                  <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${darkJokeBookBadge.medium}`}>
                     Medium Joke Book
                   </span>
                 )}
                 {comedian.has_large_joke_book && (
-                  <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${jokeBookBadgeDark.large}`}>
+                  <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${darkJokeBookBadge.large}`}>
                     Large Joke Book
                   </span>
                 )}

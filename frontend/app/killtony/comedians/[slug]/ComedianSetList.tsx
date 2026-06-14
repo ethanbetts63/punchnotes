@@ -3,23 +3,11 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { SetInComedian } from "@/lib/serverApi";
-import { getJokeBookSize } from "@/lib/killTonyDisplay";
+import { getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import Paginator from "@/components/Paginator";
 import SetImage from "@/components/SetImage";
 
 const PAGE_SIZE = 12;
-
-const jokeBookColor: Record<string, string> = {
-  small: "bg-stone-100 text-stone-600",
-  medium: "bg-amber-100 text-amber-700",
-  large: "bg-red-100 text-primary",
-};
-
-const jokeBookLabel: Record<string, string> = {
-  small: "Small Joke Book",
-  medium: "Medium Joke Book",
-  large: "Large Joke Book",
-};
 
 function fmt2(n: number | null): string {
   return n == null ? "—" : n.toFixed(2);
@@ -60,7 +48,7 @@ export default function ComedianSetList({ sets }: Props) {
                     {set.episode.title?.replace(/^KT\s*#\d+\s*[-–]\s*/i, "") ?? ""}
                   </p>
                 </div>
-                {(() => { const jb = getJokeBookSize(set.attributes); return jb ? (<span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ${jokeBookColor[jb]}`}>{jokeBookLabel[jb]}</span>) : null; })()}
+                {(() => { const jb = getJokeBookSize(set.attributes); return jb ? (<span className="shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100 text-amber-700">{jokeBookLabel[jb]}</span>) : null; })()}
               </div>
               <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-stone-500">
                 <span>
