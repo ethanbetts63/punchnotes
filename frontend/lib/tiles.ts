@@ -1,5 +1,5 @@
 import type { SetListItem, Video, Comedian } from "@/lib/serverApi";
-import { getVideoGuestLabel, getJokeBookSize, fmtSeconds } from "@/lib/killTonyDisplay";
+import { getEpisodeGuestLabel, getJokeBookSize, fmtSeconds } from "@/lib/killTonyDisplay";
 
 export type TileData = {
   href: string;
@@ -56,7 +56,7 @@ export function episodeToTile(ep: Video): TileData {
     href: `/killtony/episodes/${ep.id}`,
     videoId: ep.youtube_id,
     eyebrow: `Video ${ep.number}`,
-    title: getVideoGuestLabel(ep, `Kill Tony #${ep.number}`),
+    title: getEpisodeGuestLabel(ep, `Kill Tony #${ep.number}`),
     meta: meta || undefined,
   };
 }

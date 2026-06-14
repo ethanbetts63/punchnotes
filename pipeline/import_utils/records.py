@@ -36,13 +36,7 @@ def upsert_episode(video_id: str, meta: dict) -> Video:
 
 
 def merge_attributes(existing, incoming):
-    merged = []
-    seen = set()
-    for value in [*(existing or []), *(incoming or [])]:
-        if value and value not in seen:
-            merged.append(value)
-            seen.add(value)
-    return merged
+    return list(dict.fromkeys(v for v in [*(existing or []), *(incoming or [])] if v))
 
 
 def meta_attributes(meta):
@@ -89,29 +83,24 @@ def resequence_episode_sets(video: Video) -> None:
 
 def upsert_set(video: Video, comedian: Comedian, meta: dict) -> Set:
     start_seconds = meta["start_seconds"]
-    set_obj = video.sets.filter(start_seconds=start_seconds).first()
     set_attributes = list(meta.get("set_attributes") or [])
+    fields = {
+        "comedian": comedian,
+        "start_seconds": start_seconds,
+        "interview_end_line": meta.get("interview_end_line"),
+        "interview_end_seconds": meta.get("interview_end_seconds"),
+        "attributes": set_attributes,
+    }
+
+    set_obj = video.sets.filter(start_seconds=start_seconds).first()
     if set_obj is None:
         last_set_number = video.sets.order_by("-set_number").values_list("set_number", flat=True).first()
-        next_set_number = (last_set_number or 0) + 1
-        set_obj = Set.objects.create(
-            video=video,
-            set_number=next_set_number,
-            comedian=comedian,
-            start_seconds=start_seconds,
-            interview_end_line=meta.get("interview_end_line"),
-            interview_end_seconds=meta.get("interview_end_seconds"),
-            attributes=set_attributes,
-        )
-    set_obj.comedian = comedian
-    set_obj.start_seconds = start_seconds
-    set_obj.interview_end_line = meta.get("interview_end_line")
-    set_obj.interview_end_seconds = meta.get("interview_end_seconds")
-    set_obj.attributes = set_attributes
-    set_obj.save(update_fields=[
-        "comedian", "start_seconds", "interview_end_line",
-        "interview_end_seconds", "attributes",
-    ])
+        set_obj = Set.objects.create(video=video, set_number=(last_set_number or 0) + 1, **fields)
+    else:
+        for k, v in fields.items():
+            setattr(set_obj, k, v)
+        set_obj.save(update_fields=list(fields.keys()))
+
     resequence_episode_sets(video)
     set_obj.refresh_from_db()
     return set_obj

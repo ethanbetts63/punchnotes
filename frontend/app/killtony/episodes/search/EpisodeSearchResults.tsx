@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Video } from "@/lib/serverApi";
-import { fmtDate, fmtDuration, fmtCompact, getVideoGuestLabel } from "@/lib/killTonyDisplay";
+import { fmtDate, fmtDuration, fmtCompact, getEpisodeGuestLabel } from "@/lib/killTonyDisplay";
 import YoutubeThumbnail from "@/components/YoutubeThumbnail";
 
 function Stat({ label, value }: { label: string; value: string | number }) {
@@ -20,7 +20,7 @@ export default function VideoSearchResults({ episodes }: { episodes: Video[] }) 
           ep.view_count && ep.like_count != null && ep.view_count > 0
             ? `${((ep.like_count / ep.view_count) * 100).toFixed(1)}%`
             : null;
-        const guestLabel = getVideoGuestLabel(ep, `Kill Tony #${ep.number}`);
+        const guestLabel = getEpisodeGuestLabel(ep, `Kill Tony #${ep.number}`);
 
         return (
           <Link

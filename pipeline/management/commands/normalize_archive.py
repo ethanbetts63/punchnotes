@@ -54,18 +54,29 @@ def _fmt_nested(obj, depth):
     return "{\n" + "\n".join(rows) + "\n" + pad + "}"
 
 
+def _compact_lines(field_order):
+    def fmt(lines):
+        inner = []
+        for j, ln in enumerate(lines):
+            lcomma = "," if j < len(lines) - 1 else ""
+            inner.append(f"    {json.dumps(_reorder(ln, field_order), ensure_ascii=False)}{lcomma}")
+        return "[\n" + "\n".join(inner) + "\n  ]"
+    return fmt
+
+
+def _dump_object(items, handlers=None):
+    default = lambda v: json.dumps(v, ensure_ascii=False)
+    handlers = handlers or {}
+    rows = ["{\n"]
+    entries = list(items)
+    for i, (key, value) in enumerate(entries):
+        comma = "," if i < len(entries) - 1 else ""
+        rows.append(f"  {json.dumps(key)}: {handlers.get(key, default)(value)}{comma}\n")
+    rows.append("}\n")
+    return "".join(rows)
+
+
 def serialize_set(data: dict) -> str:
-    """
-    Canonical format:
-      - Top-level fields in FIELD_ORDER, 2-space indented
-      - 'guests': compact array on one line
-      - 'interview_end_line': always present (null if absent), after 'start_seconds'
-      - 'interview_end_seconds': always present (null if absent), after 'interview_end_line'
-      - 'set_attributes': always present ([] if absent), after interview metadata
-      - 'bit_meta': expanded structure, but all arrays compact
-      - 'lines': each element a compact single-line object
-    """
-    # Build ordered output dict; nullable metadata fields are inserted even if absent.
     out = {}
     for key in SET_FIELD_ORDER:
         if key == "set_attributes":
@@ -79,60 +90,16 @@ def serialize_set(data: dict) -> str:
     for key, val in data.items():
         if key not in out:
             out[key] = val
-
-    rows = ["{\n"]
-    items = list(out.items())
-    for i, (key, value) in enumerate(items):
-        comma = "," if i < len(items) - 1 else ""
-
-        if key == "guests":
-            val_str = json.dumps(value, ensure_ascii=False)
-
-        elif key == "bit_meta":
-            val_str = _fmt_nested(value, depth=1)
-
-        elif key == "lines":
-            inner = []
-            for j, ln in enumerate(value):
-                lcomma = "," if j < len(value) - 1 else ""
-                ln = _reorder(ln, LINE_FIELD_ORDER)
-                inner.append(f"    {json.dumps(ln, ensure_ascii=False)}{lcomma}")
-            val_str = "[\n" + "\n".join(inner) + "\n  ]"
-
-        else:
-            val_str = json.dumps(value, ensure_ascii=False)
-
-        rows.append(f"  {json.dumps(key)}: {val_str}{comma}\n")
-
-    rows.append("}\n")
-    return "".join(rows)
+    return _dump_object(out.items(), {
+        "bit_meta": lambda v: _fmt_nested(v, depth=1),
+        "lines": _compact_lines(LINE_FIELD_ORDER),
+    })
 
 
 def serialize_transcript(data: dict) -> str:
-    """
-    Canonical transcript format:
-      - Top-level fields 2-space indented
-      - 'lines': each transcript line is a compact single-line object
-    """
-    rows = ["{\n"]
-    items = list(data.items())
-    for i, (key, value) in enumerate(items):
-        comma = "," if i < len(items) - 1 else ""
-
-        if key == "lines":
-            inner = []
-            for j, ln in enumerate(value):
-                lcomma = "," if j < len(value) - 1 else ""
-                ln = _reorder(ln, TRANSCRIPT_LINE_FIELD_ORDER)
-                inner.append(f"    {json.dumps(ln, ensure_ascii=False)}{lcomma}")
-            val_str = "[\n" + "\n".join(inner) + "\n  ]"
-        else:
-            val_str = json.dumps(value, ensure_ascii=False)
-
-        rows.append(f"  {json.dumps(key)}: {val_str}{comma}\n")
-
-    rows.append("}\n")
-    return "".join(rows)
+    return _dump_object(data.items(), {
+        "lines": _compact_lines(TRANSCRIPT_LINE_FIELD_ORDER),
+    })
 
 
 def normalize_path(path, serializer):

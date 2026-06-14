@@ -21,7 +21,7 @@ export default async function ComedianDetailPage({ params }: Props) {
   if (!comedian) notFound();
 
   const sets =[...(comedian.sets ?? [])].sort(
-    (a, b) => b.episode.number - a.episode.number
+    (a, b) => b.video.number - a.video.number
   );
 
   return (
