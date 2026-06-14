@@ -25,7 +25,7 @@ export default async function ComedianSearchPage({ searchParams }: Props) {
       title="Search Comedians"
       backHref="/killtony/comedians"
       backLabel="Comedians"
-      searchPlaceholder="Search comedians..."
+      searchPlaceholder="Search all comedians..."
       subtitle={buildSearchSubtitle(data?.count ?? null, "comedian", "comedians", query)}
       controls={<FilterControls config={COMEDIAN_SEARCH_CONFIG} />}
       isEmpty={!data || data.results.length === 0}

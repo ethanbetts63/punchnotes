@@ -18,7 +18,7 @@ export default async function ComediansBrowsePage() {
         <Suspense>
           <ListPageHeader
             title="Comedians"
-            searchPlaceholder="Search comedians..."
+            searchPlaceholder="Search all comedians..."
             searchPath="/killtony/comedians/search"
             controls={<FilterControls config={COMEDIAN_SEARCH_CONFIG} />}
           />
