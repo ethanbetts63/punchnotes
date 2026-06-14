@@ -1,6 +1,7 @@
 import { getServerSets } from "@/lib/serverApi";
 import ModelSearchLayout, { buildSearchSubtitle } from "@/components/ModelSearchLayout";
-import SetSearchFilters from "@/components/SetSearchFilters";
+import FilterControls from "@/components/FilterControls";
+import { SET_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import SetSearchResults from "./SetSearchResults";
 
 export const metadata = {
@@ -22,7 +23,7 @@ export default async function SetSearchPage({ searchParams }: Props) {
       backLabel="Sets"
       searchPlaceholder="Search sets..."
       subtitle={buildSearchSubtitle(sets?.length ?? null, "set", "sets", query)}
-      controls={<SetSearchFilters />}
+      controls={<FilterControls config={SET_SEARCH_CONFIG} />}
       isEmpty={!sets || sets.length === 0}
       emptyMessage="No sets found."
     >

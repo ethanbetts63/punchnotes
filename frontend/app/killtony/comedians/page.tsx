@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import { getServerComedians } from "@/lib/serverApi";
 import ComedianPlaylists from "@/components/ComedianPlaylists";
-import ComedianSearchFilters from "@/components/ComedianSearchFilters";
+import FilterControls from "@/components/FilterControls";
+import { COMEDIAN_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import ListPageHeader from "@/components/ListPageHeader";
 
 export const metadata = {
@@ -19,7 +20,7 @@ export default async function ComediansBrowsePage() {
             title="Comedians"
             searchPlaceholder="Search comedians..."
             searchPath="/killtony/comedians/search"
-            controls={<ComedianSearchFilters />}
+            controls={<FilterControls config={COMEDIAN_SEARCH_CONFIG} />}
           />
         </Suspense>
       </div>

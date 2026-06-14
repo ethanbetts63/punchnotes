@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo } from "react";
-import { useSearchParams } from "next/navigation";
 import type { SetListItem } from "@/lib/serverApi";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 import { fmt2, fmtSeconds, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
@@ -12,35 +10,9 @@ import SetImage from "@/components/SetImage";
 
 const PAGE_SIZE = 20;
 
-type SortKey = "episode" | "comedian" | "bit_count" | "hit_ratio" | "punchline_tag_ratio" | "start_seconds";
-
-function getSortValue(set: SetListItem, key: SortKey): number | string {
-  switch (key) {
-    case "episode":             return set.video.number;
-    case "comedian":            return set.comedian.name.toLowerCase();
-    case "bit_count":           return set.bit_count;
-    case "hit_ratio":           return set.hit_ratio ?? -1;
-    case "punchline_tag_ratio": return set.punchline_tag_ratio ?? -1;
-    case "start_seconds":       return set.start_seconds;
-  }
-}
-
 export default function SetSearchResults({ sets }: { sets: SetListItem[] }) {
-  const sp = useSearchParams();
-  const sort = (sp.get("sort") ?? "episode") as SortKey;
-  const asc = sp.get("asc") === "1";
-
-  const sorted = useMemo(() => (
-    [...sets].sort((a, b) => {
-      const va = getSortValue(a, sort);
-      const vb = getSortValue(b, sort);
-      const cmp = typeof va === "string" ? va.localeCompare(vb as string) : (va as number) - (vb as number);
-      return asc ? cmp : -cmp;
-    })
-  ), [sets, sort, asc]);
-
-  const { page, totalPages, setPage } = useUrlPagination(sorted.length, PAGE_SIZE);
-  const pageItems = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const { page, totalPages, setPage } = useUrlPagination(sets.length, PAGE_SIZE);
+  const pageItems = sets.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
     <>

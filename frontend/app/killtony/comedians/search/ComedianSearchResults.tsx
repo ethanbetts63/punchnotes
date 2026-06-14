@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo } from "react";
-import { useSearchParams } from "next/navigation";
 import type { Comedian } from "@/lib/serverApi";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 import { fmt2 } from "@/lib/killTonyDisplay";
@@ -12,36 +10,9 @@ import ComedianImage from "@/components/ComedianImage";
 
 const PAGE_SIZE = 24;
 
-type SortKey = "name" | "set_count" | "avg_bits_per_set" | "avg_beats_per_set" | "avg_hit_ratio" | "avg_punchline_tag_ratio";
-
-
-function getSortValue(c: Comedian, key: SortKey): number | string {
-  switch (key) {
-    case "name":                    return c.name.toLowerCase();
-    case "set_count":               return c.set_count;
-    case "avg_bits_per_set":        return c.avg_bits_per_set ?? -1;
-    case "avg_beats_per_set":       return c.avg_beats_per_set ?? -1;
-    case "avg_hit_ratio":           return c.avg_hit_ratio ?? -1;
-    case "avg_punchline_tag_ratio": return c.avg_punchline_tag_ratio ?? -1;
-  }
-}
-
 export default function ComedianSearchResults({ comedians }: { comedians: Comedian[] }) {
-  const sp = useSearchParams();
-  const sort = (sp.get("sort") ?? "avg_bits_per_set") as SortKey;
-  const asc = sp.get("asc") === "1";
-
-  const sorted = useMemo(() => (
-    [...comedians].sort((a, b) => {
-      const va = getSortValue(a, sort);
-      const vb = getSortValue(b, sort);
-      const cmp = typeof va === "string" ? va.localeCompare(vb as string) : (va as number) - (vb as number);
-      return asc ? cmp : -cmp;
-    })
-  ), [comedians, sort, asc]);
-
-  const { page, totalPages, setPage } = useUrlPagination(sorted.length, PAGE_SIZE);
-  const pageItems = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const { page, totalPages, setPage } = useUrlPagination(comedians.length, PAGE_SIZE);
+  const pageItems = comedians.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
     <>

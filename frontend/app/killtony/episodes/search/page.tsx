@@ -1,6 +1,7 @@
 import { getServerVideos } from "@/lib/serverApi";
 import ModelSearchLayout, { buildSearchSubtitle } from "@/components/ModelSearchLayout";
-import EpisodeSearchFilters from "@/components/EpisodeSearchFilters";
+import FilterControls from "@/components/FilterControls";
+import { EPISODE_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import EpisodeSearchResults from "./EpisodeSearchResults";
 
 export const metadata = {
@@ -22,7 +23,7 @@ export default async function EpisodeSearchPage({ searchParams }: Props) {
       backLabel="Episodes"
       searchPlaceholder="Search episodes..."
       subtitle={buildSearchSubtitle(episodes?.length ?? null, "episode", "episodes", query)}
-      controls={<EpisodeSearchFilters />}
+      controls={<FilterControls config={EPISODE_SEARCH_CONFIG} />}
       isEmpty={!episodes || episodes.length === 0}
       emptyMessage="No episodes found."
     >

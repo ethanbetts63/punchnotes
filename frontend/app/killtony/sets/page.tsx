@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import { getServerSets } from "@/lib/serverApi";
 import SetPlaylists from "./SetPlaylists";
-import SetSearchFilters from "@/components/SetSearchFilters";
+import FilterControls from "@/components/FilterControls";
+import { SET_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import ListPageHeader from "@/components/ListPageHeader";
 
 export const metadata = {
@@ -19,7 +20,7 @@ export default async function SetsBrowsePage() {
             title="Sets"
             searchPlaceholder="Search sets..."
             searchPath="/killtony/sets/search"
-            controls={<SetSearchFilters />}
+            controls={<FilterControls config={SET_SEARCH_CONFIG} />}
           />
         </Suspense>
       </div>

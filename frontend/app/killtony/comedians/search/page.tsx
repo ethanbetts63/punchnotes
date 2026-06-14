@@ -1,6 +1,7 @@
 import { getServerComedians } from "@/lib/serverApi";
 import ModelSearchLayout, { buildSearchSubtitle } from "@/components/ModelSearchLayout";
-import ComedianSearchFilters from "@/components/ComedianSearchFilters";
+import FilterControls from "@/components/FilterControls";
+import { COMEDIAN_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import ComedianSearchResults from "./ComedianSearchResults";
 
 export const metadata = {
@@ -22,7 +23,7 @@ export default async function ComedianSearchPage({ searchParams }: Props) {
       backLabel="Comedians"
       searchPlaceholder="Search comedians..."
       subtitle={buildSearchSubtitle(comedians?.length ?? null, "comedian", "comedians", query)}
-      controls={<ComedianSearchFilters />}
+      controls={<FilterControls config={COMEDIAN_SEARCH_CONFIG} />}
       isEmpty={!comedians || comedians.length === 0}
       emptyMessage="No comedians found."
     >

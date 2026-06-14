@@ -83,17 +83,17 @@ export default async function SetDetailPage({ params }: Props) {
                     </span>
                   ))}
                 {comedian.has_small_joke_book && (
-                  <span className="rounded-full bg-stone-700 px-2.5 py-0.5 text-xs font-medium text-stone-300">
+                  <span className="rounded-full bg-stone-100 px-2.5 py-0.5 text-xs font-medium text-stone-500">
                     Small Joke Book
                   </span>
                 )}
                 {comedian.has_medium_joke_book && (
-                  <span className="rounded-full bg-amber-900/60 px-2.5 py-0.5 text-xs font-medium text-amber-300">
+                  <span className="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-700">
                     Medium Joke Book
                   </span>
                 )}
                 {comedian.has_large_joke_book && (
-                  <span className="rounded-full bg-red-900/60 px-2.5 py-0.5 text-xs font-medium text-red-300">
+                  <span className="rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-primary">
                     Large Joke Book
                   </span>
                 )}

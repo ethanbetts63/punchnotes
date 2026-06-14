@@ -6,6 +6,23 @@ import Link from "next/link";
 import type { TileData } from "@/lib/tiles";
 import MediaTile from "@/components/MediaTile";
 
+function ScrollButton({ dir, onClick }: { dir: "left" | "right"; onClick: () => void }) {
+  const Icon = dir === "left" ? ChevronLeft : ChevronRight;
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={`Scroll ${dir}`}
+      className="absolute bottom-0 top-0 z-10 flex w-10 items-center justify-center"
+      style={{ [dir]: "1rem" }}
+    >
+      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 bg-white shadow-md text-stone-600 transition-colors hover:text-stone-950">
+        <Icon className="h-5 w-5" />
+      </span>
+    </button>
+  );
+}
+
 type Props = {
   title: string;
   description?: string;
@@ -64,19 +81,7 @@ export default function MediaCarousel({ title, description, href, items }: Props
       </div>
 
       <div className="relative">
-        {canScrollLeft && (
-          <button
-            type="button"
-            onClick={() => scroll(-1)}
-            aria-label="Scroll left"
-            className="absolute bottom-0 top-0 z-10 flex w-10 items-center justify-center"
-            style={{ left: "1rem" }}
-          >
-            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 bg-white shadow-md text-stone-600 hover:text-stone-950 transition-colors">
-              <ChevronLeft className="h-5 w-5" />
-            </span>
-          </button>
-        )}
+        {canScrollLeft && <ScrollButton dir="left" onClick={() => scroll(-1)} />}
 
         <div
           ref={scrollRef}
@@ -92,19 +97,7 @@ export default function MediaCarousel({ title, description, href, items }: Props
           ))}
         </div>
 
-        {canScrollRight && (
-          <button
-            type="button"
-            onClick={() => scroll(1)}
-            aria-label="Scroll right"
-            className="absolute bottom-0 top-0 z-10 flex w-10 items-center justify-center"
-            style={{ right: "1rem" }}
-          >
-            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 bg-white shadow-md text-stone-600 hover:text-stone-950 transition-colors">
-              <ChevronRight className="h-5 w-5" />
-            </span>
-          </button>
-        )}
+        {canScrollRight && <ScrollButton dir="right" onClick={() => scroll(1)} />}
       </div>
     </section>
   );

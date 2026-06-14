@@ -1,6 +1,7 @@
 import { getServerBeats } from "@/lib/serverApi";
 import ModelSearchLayout, { buildSearchSubtitle } from "@/components/ModelSearchLayout";
-import JokesFilters from "@/components/JokesFilters";
+import FilterControls from "@/components/FilterControls";
+import { JOKES_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import JokesList from "./JokesList";
 
 export const metadata = {
@@ -24,7 +25,7 @@ export default async function JokesPage({ searchParams }: Props) {
       title="Jokes"
       searchPlaceholder="Search jokes..."
       subtitle={subtitle}
-      controls={<JokesFilters />}
+      controls={<FilterControls config={JOKES_SEARCH_CONFIG} />}
       isEmpty={!beats || beats.length === 0}
       emptyMessage="No jokes found."
     >

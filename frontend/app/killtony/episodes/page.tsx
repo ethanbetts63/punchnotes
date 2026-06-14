@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import { getServerVideos } from "@/lib/serverApi";
 import EpisodePlaylists from "@/components/EpisodePlaylists";
-import EpisodeSearchFilters from "@/components/EpisodeSearchFilters";
+import FilterControls from "@/components/FilterControls";
+import { EPISODE_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import ListPageHeader from "@/components/ListPageHeader";
 
 export const metadata = {
@@ -19,7 +20,7 @@ export default async function EpisodesBrowsePage() {
             title="Episodes"
             searchPlaceholder="Search episodes..."
             searchPath="/killtony/episodes/search"
-            controls={<EpisodeSearchFilters />}
+            controls={<FilterControls config={EPISODE_SEARCH_CONFIG} />}
           />
         </Suspense>
       </div>

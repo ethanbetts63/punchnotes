@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo } from "react";
-import { useSearchParams } from "next/navigation";
 import type { Video } from "@/lib/serverApi";
 import { fmtDate, fmtDuration, fmtCompact, getVideoGuestLabel } from "@/lib/killTonyDisplay";
 import { useUrlPagination } from "@/lib/useUrlPagination";
@@ -10,43 +8,6 @@ import Paginator from "@/components/Paginator";
 import YoutubeThumbnail from "@/components/YoutubeThumbnail";
 
 const PAGE_SIZE = 20;
-
-type SortKey =
-  | "date"
-  | "duration"
-  | "set_count"
-  | "bucket_pulls"
-  | "golden_tickets"
-  | "large_joke_books"
-  | "regulars"
-  | "view_count"
-  | "like_count"
-  | "like_ratio";
-
-function getValue(ep: Video, key: SortKey): number {
-  switch (key) {
-    case "date":
-      return ep.number;
-    case "duration":
-      return ep.duration_seconds ?? 0;
-    case "set_count":
-      return ep.set_count;
-    case "bucket_pulls":
-      return ep.bucket_pull_count;
-    case "golden_tickets":
-      return ep.golden_ticket_count;
-    case "large_joke_books":
-      return ep.large_joke_book_count;
-    case "regulars":
-      return ep.regular_count;
-    case "view_count":
-      return ep.view_count ?? 0;
-    case "like_count":
-      return ep.like_count ?? 0;
-    case "like_ratio":
-      return ep.view_count ? (ep.like_count ?? 0) / ep.view_count : 0;
-  }
-}
 
 function Stat({ label, value }: { label: string; value: string | number }) {
   return (
@@ -58,21 +19,8 @@ function Stat({ label, value }: { label: string; value: string | number }) {
 }
 
 export default function VideoSearchResults({ episodes }: { episodes: Video[] }) {
-  const sp = useSearchParams();
-  const sort = (sp.get("sort") ?? "date") as SortKey;
-  const asc = sp.get("asc") === "1";
-
-  const sorted = useMemo(
-    () =>
-      [...episodes].sort((a, b) => {
-        const diff = getValue(b, sort) - getValue(a, sort);
-        return asc ? -diff : diff;
-      }),
-    [episodes, sort, asc]
-  );
-
-  const { page, totalPages, setPage } = useUrlPagination(sorted.length, PAGE_SIZE);
-  const pageItems = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const { page, totalPages, setPage } = useUrlPagination(episodes.length, PAGE_SIZE);
+  const pageItems = episodes.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
     <>
