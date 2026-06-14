@@ -76,7 +76,7 @@ export default async function ComedianDetailPage({ params }: Props) {
                 <span className="mx-2 text-stone-700">·</span>
                 <span className="text-white">{fmt2(comedian.avg_beats_per_set)}</span> beats/set
                 <span className="mx-2 text-stone-700">·</span>
-                <span className="text-white">{fmt2(comedian.avg_hit_ratio)}</span> punch density
+                <span className="text-white">{fmt2(comedian.avg_punch_density)}</span> punch density
                 <span className="mx-2 text-stone-700">·</span>
                 <span className="text-white">{fmt2(comedian.avg_tag_density)}</span> tag density
               </p>

@@ -40,7 +40,7 @@ export default function SetSearchResults({ sets }: { sets: SetListItem[] }) {
             }
             stats={[
               { label: "Bits", value: set.bit_count },
-              { label: "Punch density", value: fmt2(set.hit_ratio) },
+              { label: "Punch density", value: fmt2(set.punch_density) },
               { label: "Tag density", value: fmt2(set.tag_density) },
             ]}
             badges={

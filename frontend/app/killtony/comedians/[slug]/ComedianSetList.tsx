@@ -51,7 +51,7 @@ export default function ComedianSetList({ sets }: Props) {
               <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-stone-500">
                 <span>
                   Punch density{" "}
-                  <span className="font-bold text-stone-800">{fmt2(set.hit_ratio)}</span>
+                  <span className="font-bold text-stone-800">{fmt2(set.punch_density)}</span>
                 </span>
                 <span>
                   Tag density{" "}

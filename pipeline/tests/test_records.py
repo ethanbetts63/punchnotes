@@ -193,7 +193,7 @@ class RatioCalculationTests(TestCase):
         refresh_set_ratios(set_obj)
 
         set_obj.refresh_from_db()
-        self.assertEqual(set_obj.hit_ratio, 3.0)
+        self.assertEqual(set_obj.punch_density, 3.0)
         self.assertEqual(set_obj.tag_density, 0.5)
 
 

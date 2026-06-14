@@ -39,8 +39,8 @@ export default function ComedianSearchResults({ comedians }: { comedians: Comedi
             ...(comedian.avg_beats_per_set != null
               ? [{ label: "Beats/set", value: fmt2(comedian.avg_beats_per_set) }]
               : []),
-            ...(comedian.avg_hit_ratio != null
-              ? [{ label: "Punch density", value: fmt2(comedian.avg_hit_ratio) }]
+            ...(comedian.avg_punch_density != null
+              ? [{ label: "Punch density", value: fmt2(comedian.avg_punch_density) }]
               : []),
             ...(comedian.avg_tag_density != null
               ? [{ label: "Tag density", value: fmt2(comedian.avg_tag_density) }]

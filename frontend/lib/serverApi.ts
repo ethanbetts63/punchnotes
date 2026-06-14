@@ -184,7 +184,7 @@ export type Comedian = {
   has_small_joke_book: boolean;
   has_medium_joke_book: boolean;
   has_large_joke_book: boolean;
-  avg_hit_ratio: number | null;
+  avg_punch_density: number | null;
   avg_tag_density: number | null;
   avg_bits_per_set: number | null;
   avg_beats_per_set: number | null;
@@ -195,7 +195,7 @@ export type SetInComedian = {
   set_number: number;
   video: { id: number; number: number; title: string; youtube_id: string; date: string | null };
   attributes: string[];
-  hit_ratio: number | null;
+  punch_density: number | null;
   tag_density: number | null;
   image_url: string | null;
   image_capture_seconds: number | null;
@@ -228,7 +228,7 @@ export type SetListItem = {
   interview_end_seconds: number | null;
   image_url: string | null;
   image_capture_seconds: number | null;
-  hit_ratio: number | null;
+  punch_density: number | null;
   tag_density: number | null;
   bit_count: number;
 };
@@ -241,7 +241,7 @@ export type SetListComedian = {
   image_url: string | null;
   avg_bits_per_set: number | null;
   avg_beats_per_set: number | null;
-  avg_hit_ratio: number | null;
+  avg_punch_density: number | null;
   avg_tag_density: number | null;
   has_small_joke_book: boolean;
   has_medium_joke_book: boolean;
@@ -257,7 +257,7 @@ export type SetComedian = {
   set_count: number;
   avg_bits_per_set: number | null;
   avg_beats_per_set: number | null;
-  avg_hit_ratio: number | null;
+  avg_punch_density: number | null;
   avg_tag_density: number | null;
   has_small_joke_book: boolean;
   has_medium_joke_book: boolean;
@@ -273,7 +273,7 @@ export type Set = {
   start_seconds: number;
   image_url: string | null;
   image_capture_seconds: number | null;
-  hit_ratio: number | null;
+  punch_density: number | null;
   tag_density: number | null;
   bits: Bit[];
 };
@@ -293,7 +293,7 @@ export type BitListItem = {
   summary: string | null;
   joke_types: string[];
   beats_summary: { premise: string; joke_type: string }[];
-  hit_ratio: number | null;
+  punch_density: number | null;
   tag_density: number | null;
 };
 
