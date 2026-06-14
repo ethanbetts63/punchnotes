@@ -1,4 +1,4 @@
-from .episode import EpisodeListView, EpisodeDetailView
+from .video import VideoListView, VideoDetailView
 from .comedian import ComedianListView, ComedianDetailView
 from .set import SetListView, SetDetailView
 from .joke import BeatListView

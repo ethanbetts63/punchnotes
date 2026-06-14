@@ -60,8 +60,8 @@ def file_exists(filename, *dirs):
 def set_record(set_obj, status, **extra):
     return {
         "set_id": set_obj.id,
-        "video_id": set_obj.episode.video_id,
-        "episode_number": set_obj.episode.episode_number,
+        "video_id": set_obj.video.video_id,
+        "episode_number": set_obj.video.number,
         "set_number": set_obj.set_number,
         "comedian_slug": set_obj.comedian.slug,
         "comedian_name": set_obj.comedian.name,
@@ -132,9 +132,9 @@ class Command(BaseCommand):
 
             capture_seconds = set_obj.start_seconds + options["offset"]
             output_path = default_output_path(
-                set_obj.episode.video_id,
+                set_obj.video.video_id,
                 capture_seconds,
-                set_obj.episode.episode_number,
+                set_obj.video.number,
                 set_obj.set_number,
                 set_obj.comedian.name,
             )
@@ -162,9 +162,9 @@ class Command(BaseCommand):
 
             attempted += 1
             args = SimpleNamespace(
-                video_id=set_obj.episode.video_id,
+                video_id=set_obj.video.video_id,
                 url=None,
-                episode_number=set_obj.episode.episode_number,
+                episode_number=set_obj.video.number,
                 set_number=set_obj.set_number,
                 comic_name=set_obj.comedian.name,
                 timestamp=set_obj.start_seconds,
@@ -175,11 +175,11 @@ class Command(BaseCommand):
                 cookies_from_browser=options["cookies_from_browser"],
                 cookies=options["cookies"],
             )
-            source_url = youtube_url(video_id=set_obj.episode.video_id)
+            source_url = youtube_url(video_id=set_obj.video.video_id)
 
             self.stdout.write(
                 f"{'Would fetch' if options['dry_run'] else 'Fetching'} "
-                f"KT{set_obj.episode.episode_number} set {set_obj.set_number} "
+                f"KT{set_obj.video.number} set {set_obj.set_number} "
                 f"({set_obj.comedian.name}) -> {filename}"
             )
 
@@ -224,11 +224,11 @@ class Command(BaseCommand):
     def get_sets(self, options):
         queryset = (
             Set.objects
-            .select_related("episode", "comedian")
-            .exclude(episode__video_id__isnull=True)
-            .exclude(episode__video_id="")
-            .exclude(episode__episode_number__isnull=True)
-            .order_by("-episode__episode_number", "set_number", "id")
+            .select_related("video", "comedian")
+            .exclude(video__video_id__isnull=True)
+            .exclude(video__video_id="")
+            .exclude(video__number__isnull=True)
+            .order_by("-video__number", "set_number", "id")
         )
 
         if options["set_id"]:

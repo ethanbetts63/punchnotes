@@ -13,7 +13,7 @@ def validate_set_attributes(value):
 
 
 class Set(models.Model):
-    episode = models.ForeignKey('pipeline.Episode', on_delete=models.CASCADE, related_name='sets')
+    video = models.ForeignKey('pipeline.Video', on_delete=models.CASCADE, related_name='sets')
     comedian = models.ForeignKey('pipeline.Comedian', on_delete=models.CASCADE, related_name='sets')
     set_number = models.PositiveSmallIntegerField()
     start_seconds = models.FloatField()
@@ -30,7 +30,7 @@ class Set(models.Model):
 
     class Meta:
         ordering = ['start_seconds']
-        unique_together = [['episode', 'set_number']]
+        unique_together = [['video', 'set_number']]
 
     def __str__(self):
-        return f"{self.episode} – Set {self.set_number}: {self.comedian}"
+        return f"{self.video} – Set {self.set_number}: {self.comedian}"

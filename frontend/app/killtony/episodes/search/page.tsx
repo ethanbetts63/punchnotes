@@ -1,4 +1,4 @@
-import { getServerEpisodes } from "@/lib/serverApi";
+import { getServerVideos } from "@/lib/serverApi";
 import ModelSearchLayout, { buildSearchSubtitle } from "@/components/ModelSearchLayout";
 import EpisodeSearchFilters from "@/components/EpisodeSearchFilters";
 import EpisodeSearchResults from "./EpisodeSearchResults";
@@ -12,7 +12,7 @@ type Props = { searchParams: Promise<Record<string, string>> };
 export default async function EpisodeSearchPage({ searchParams }: Props) {
   const searchParamsValue = await searchParams;
   const qs = new URLSearchParams(searchParamsValue).toString();
-  const episodes = await getServerEpisodes(qs || undefined);
+  const episodes = await getServerVideos(qs || undefined);
   const query = (searchParamsValue.q ?? "").trim();
 
   return (

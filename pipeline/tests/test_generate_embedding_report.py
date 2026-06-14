@@ -9,19 +9,19 @@ from django.test import TestCase, override_settings
 from django.test.utils import CaptureQueriesContext
 
 from pipeline.management.commands.generate_embeddings_report import _build_beat_records, fetch_lines_for_beats
-from pipeline.models import Beat, Bit, Comedian, Episode, Line, Set
+from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
 
 
 class GenerateEmbeddingReportTests(TestCase):
     def _create_set(self, comedian_name, slug, set_number):
         comedian = Comedian.objects.create(name=comedian_name, slug=slug)
-        episode = Episode.objects.create(
+        video = Video.objects.create(
             video_id=f"video-{slug}",
-            episode_title=f"Episode {slug}",
-            episode_url=f"https://example.com/{slug}",
+            title=f"Episode {slug}",
+            url=f"https://example.com/{slug}",
         )
         return Set.objects.create(
-            episode=episode,
+            video=video,
             comedian=comedian,
             set_number=set_number,
             start_seconds=float(set_number * 10),

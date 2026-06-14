@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import type { Comedian } from "@/lib/serverApi";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
+import { fmt2 } from "@/lib/killTonyDisplay";
 import { useUrlPagination } from "@/lib/useUrlPagination";
 import Paginator from "@/components/Paginator";
 import ComedianImage from "@/components/ComedianImage";
@@ -23,11 +24,6 @@ function getSortValue(c: Comedian, key: SortKey): number | string {
     case "avg_hit_ratio":           return c.avg_hit_ratio ?? -1;
     case "avg_punchline_tag_ratio": return c.avg_punchline_tag_ratio ?? -1;
   }
-}
-
-function fmt2(n: number | null): string {
-  if (n == null) return "—";
-  return n.toFixed(2);
 }
 
 export default function ComedianSearchResults({ comedians }: { comedians: Comedian[] }) {

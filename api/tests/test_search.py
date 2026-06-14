@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from pipeline.models import Beat, Bit, Comedian, Episode, Line, Set
+from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
 
 
 class SearchConsistencyTests(TestCase):
@@ -10,15 +10,15 @@ class SearchConsistencyTests(TestCase):
             slug="casey-rocket",
             set_count=1,
         )
-        self.episode = Episode.objects.create(
+        self.video = Video.objects.create(
             video_id="abc123xyz01",
-            episode_number=700,
-            episode_title="Kill Tony #700",
-            episode_url="https://example.com/kt-700",
+            number=700,
+            title="Kill Tony #700",
+            url="https://example.com/kt-700",
             set_count=1,
         )
         self.set_obj = Set.objects.create(
-            episode=self.episode,
+            video=self.video,
             comedian=self.comedian,
             set_number=1,
             start_seconds=0,

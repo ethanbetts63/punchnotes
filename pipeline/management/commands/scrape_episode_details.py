@@ -5,7 +5,7 @@ import yt_dlp
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from pipeline.models import Episode
+from pipeline.models import Video
 
 SLEEP_BETWEEN = 2  # seconds between requests
 
@@ -18,9 +18,9 @@ class Command(BaseCommand):
         inbox.mkdir(parents=True, exist_ok=True)
 
         episodes = list(
-            Episode.objects.filter(view_count__isnull=True)
+            Video.objects.filter(view_count__isnull=True)
             .exclude(video_id__isnull=True)
-            .order_by("episode_number")
+            .order_by("number")
         )
 
         if not episodes:

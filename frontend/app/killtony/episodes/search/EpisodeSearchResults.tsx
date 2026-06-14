@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
-import type { Episode } from "@/lib/serverApi";
-import { fmtDate, getEpisodeGuestLabel } from "@/lib/killTonyDisplay";
+import type { Video } from "@/lib/serverApi";
+import { fmtDate, fmtDuration, fmtCompact, getVideoGuestLabel } from "@/lib/killTonyDisplay";
 import { useUrlPagination } from "@/lib/useUrlPagination";
 import Paginator from "@/components/Paginator";
 import YoutubeThumbnail from "@/components/YoutubeThumbnail";
@@ -23,7 +23,7 @@ type SortKey =
   | "like_count"
   | "like_ratio";
 
-function getValue(ep: Episode, key: SortKey): number {
+function getValue(ep: Video, key: SortKey): number {
   switch (key) {
     case "date":
       return ep.number;
@@ -48,19 +48,6 @@ function getValue(ep: Episode, key: SortKey): number {
   }
 }
 
-function fmt(n: number): string {
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
-  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
-  return String(n);
-}
-
-function fmtDuration(seconds: number | null): string {
-  if (!seconds) return "-";
-  const h = Math.floor(seconds / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-  return h > 0 ? `${h}h ${m}m` : `${m}m`;
-}
-
 function Stat({ label, value }: { label: string; value: string | number }) {
   return (
     <div className="flex flex-col items-center rounded-md border border-stone-100 bg-stone-50 px-2.5 py-1.5 text-center">
@@ -70,7 +57,7 @@ function Stat({ label, value }: { label: string; value: string | number }) {
   );
 }
 
-export default function EpisodeSearchResults({ episodes }: { episodes: Episode[] }) {
+export default function VideoSearchResults({ episodes }: { episodes: Video[] }) {
   const sp = useSearchParams();
   const sort = (sp.get("sort") ?? "date") as SortKey;
   const asc = sp.get("asc") === "1";
@@ -95,7 +82,7 @@ export default function EpisodeSearchResults({ episodes }: { episodes: Episode[]
             ep.view_count && ep.like_count != null && ep.view_count > 0
               ? `${((ep.like_count / ep.view_count) * 100).toFixed(1)}%`
               : null;
-          const guestLabel = getEpisodeGuestLabel(ep, `Kill Tony #${ep.number}`);
+          const guestLabel = getVideoGuestLabel(ep, `Kill Tony #${ep.number}`);
 
           return (
             <Link
@@ -105,14 +92,14 @@ export default function EpisodeSearchResults({ episodes }: { episodes: Episode[]
             >
               <YoutubeThumbnail
                 videoId={ep.youtube_id}
-                alt={`Episode ${ep.number} - ${guestLabel}`}
+                alt={`Video ${ep.number} - ${guestLabel}`}
                 className="aspect-video w-36 shrink-0 sm:w-52"
               />
               <div className="min-w-0 flex-1 px-4 py-3">
                 <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0">
                     <span className="text-[11px] font-medium uppercase tracking-wide text-stone-400">
-                      Episode {ep.number}
+                      Video {ep.number}
                     </span>
                     <p className="mt-0.5 truncate font-semibold leading-snug text-stone-900">
                       {guestLabel}
@@ -135,9 +122,9 @@ export default function EpisodeSearchResults({ episodes }: { episodes: Episode[]
                   <Stat label="Golden tickets" value={ep.golden_ticket_count} />
                   <Stat label="Big joke books" value={ep.large_joke_book_count} />
                   <Stat label="Regulars" value={ep.regular_count} />
-                  {ep.view_count != null && <Stat label="Views" value={fmt(ep.view_count)} />}
-                  {ep.like_count != null && <Stat label="Likes" value={fmt(ep.like_count)} />}
-                  {ep.comment_count != null && <Stat label="Comments" value={fmt(ep.comment_count)} />}
+                  {ep.view_count != null && <Stat label="Views" value={fmtCompact(ep.view_count)} />}
+                  {ep.like_count != null && <Stat label="Likes" value={fmtCompact(ep.like_count)} />}
+                  {ep.comment_count != null && <Stat label="Comments" value={fmtCompact(ep.comment_count)} />}
                   {likeRatio && <Stat label="View/like ratio" value={likeRatio} />}
                 </div>
               </div>

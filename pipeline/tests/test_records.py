@@ -117,7 +117,7 @@ class UpsertSetOrderingTests(TestCase):
         upsert_set(episode, late, self._set_meta("Late Comic", 300))
         upsert_set(episode, early, self._set_meta("Early Comic", 100))
 
-        ordered = list(Set.objects.filter(episode=episode).order_by("start_seconds"))
+        ordered = list(Set.objects.filter(video=episode).order_by("start_seconds"))
         self.assertEqual([s.comedian.name for s in ordered], ["Early Comic", "Late Comic"])
         self.assertEqual([s.set_number for s in ordered], [1, 2])
 
@@ -129,7 +129,7 @@ class UpsertSetOrderingTests(TestCase):
         second = upsert_set(episode, comic, {**self._set_meta("Test Comic", 100), "set_attributes": ["large_joke_book"]})
 
         self.assertEqual(first.id, second.id)
-        self.assertEqual(Set.objects.filter(episode=episode).count(), 1)
+        self.assertEqual(Set.objects.filter(video=episode).count(), 1)
         self.assertEqual(second.set_number, 1)
         self.assertEqual(second.attributes, ["large_joke_book"])
 
@@ -142,7 +142,7 @@ class UpsertSetOrderingTests(TestCase):
         second = upsert_set(episode, corrected_comic, self._set_meta("Corrected Comic", 100))
 
         self.assertEqual(first.id, second.id)
-        self.assertEqual(Set.objects.filter(episode=episode).count(), 1)
+        self.assertEqual(Set.objects.filter(video=episode).count(), 1)
         self.assertEqual(second.comedian.name, "Corrected Comic")
 
     def test_resequence_handles_existing_high_set_numbers(self):
@@ -159,7 +159,7 @@ class UpsertSetOrderingTests(TestCase):
 
         upsert_set(episode, second_comic, self._set_meta("Second Comic", 200))
 
-        ordered = list(Set.objects.filter(episode=episode).order_by("start_seconds"))
+        ordered = list(Set.objects.filter(video=episode).order_by("start_seconds"))
         self.assertEqual([s.set_number for s in ordered], [1, 2])
 
 

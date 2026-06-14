@@ -1,6 +1,6 @@
 from django.db.models import Exists, F, OuterRef, Prefetch, Q
 
-from pipeline.models import Beat, Bit, Comedian, Episode, Line, Set
+from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
 
 
 COMEDIAN_SORT_FIELDS = {
@@ -11,8 +11,8 @@ COMEDIAN_SORT_FIELDS = {
     "avg_beats_per_set": "avg_beats_per_set",
 }
 
-EPISODE_SORT_FIELDS = {
-    "date": "published_at",
+VIDEO_SORT_FIELDS = {
+    "date": "date",
     "duration": "duration_seconds",
     "set_count": "set_count",
     "bucket_pulls": "bucket_pull_count",
@@ -69,40 +69,40 @@ def build_comedian_list_queryset(params):
     return comedians
 
 
-def build_episode_list_queryset(params):
-    episodes = Episode.objects.prefetch_related("guests")
+def build_video_list_queryset(params):
+    videos = Video.objects.prefetch_related("guests")
 
     q = (params.get("q") or "").strip()
     if q:
         number = q.upper().removeprefix("KT").strip().removeprefix("#").strip()
-        filters = Q(episode_title__icontains=q)
+        filters = Q(title__icontains=q)
         if number.isdigit():
-            filters |= Q(episode_number=int(number))
-        episodes = episodes.filter(filters)
+            filters |= Q(number=int(number))
+        videos = videos.filter(filters)
 
     has = (params.get("has") or "").strip()
     if has == "bucket_pull":
-        episodes = episodes.filter(bucket_pull_count__gt=0)
+        videos = videos.filter(bucket_pull_count__gt=0)
     elif has == "golden_ticket":
-        episodes = episodes.filter(golden_ticket_count__gt=0)
+        videos = videos.filter(golden_ticket_count__gt=0)
     elif has == "regular":
-        episodes = episodes.filter(regular_count__gt=0)
+        videos = videos.filter(regular_count__gt=0)
     elif has == "large_joke_book":
-        episodes = episodes.filter(large_joke_book_count__gt=0)
+        videos = videos.filter(large_joke_book_count__gt=0)
 
     sort_key = (params.get("sort") or "date").strip()
-    field = EPISODE_SORT_FIELDS.get(sort_key, "published_at")
+    field = VIDEO_SORT_FIELDS.get(sort_key, "date")
     asc = params.get("asc") == "1"
     order = F(field).asc(nulls_last=True) if asc else F(field).desc(nulls_last=True)
-    return episodes.order_by(order, "-episode_number")
+    return videos.order_by(order, "-number")
 
 
 def build_set_list_queryset(params):
-    sets = Set.objects.select_related("comedian", "episode")
+    sets = Set.objects.select_related("comedian", "video")
 
     q = (params.get("q") or "").strip()
     if q:
-        sets = sets.filter(Q(comedian__name__icontains=q) | Q(episode__episode_title__icontains=q))
+        sets = sets.filter(Q(comedian__name__icontains=q) | Q(video__title__icontains=q))
 
     attribute = (params.get("attribute") or "").strip()
     if attribute:
@@ -119,14 +119,14 @@ def build_set_list_queryset(params):
         order = F(field).asc(nulls_last=True) if asc else F(field).desc(nulls_last=True)
         sets = sets.order_by(order)
     else:
-        sets = sets.order_by("-episode__episode_number", "start_seconds")
+        sets = sets.order_by("-video__number", "start_seconds")
 
     return sets
 
 
 def build_bit_list_queryset(params):
     bits = (
-        Bit.objects.select_related("set__comedian", "set__episode")
+        Bit.objects.select_related("set__comedian", "set__video")
         .prefetch_related("beats")
         .filter(beats__isnull=False)
         .distinct()
@@ -143,7 +143,7 @@ def build_bit_list_queryset(params):
             | Q(beats__premise__icontains=q)
             | Q(beats__joke_type__icontains=q)
             | Q(set__comedian__name__icontains=q)
-            | Q(set__episode__episode_title__icontains=q)
+            | Q(set__video__title__icontains=q)
         ).distinct()
 
     sort_key = (params.get("sort") or "").strip()
@@ -158,7 +158,7 @@ def build_bit_list_queryset(params):
 
 def build_beat_search_queryset(params):
     beats = (
-        Beat.objects.select_related("bit__set__comedian", "bit__set__episode")
+        Beat.objects.select_related("bit__set__comedian", "bit__set__video")
         .prefetch_related("bit__set__lines")
         .filter(joke_type__isnull=False)
         .exclude(joke_type="")
@@ -186,6 +186,6 @@ def build_comedian_detail_queryset():
     return Comedian.objects.prefetch_related(
         Prefetch(
             "sets",
-            queryset=Set.objects.select_related("episode").order_by("-episode__episode_number"),
+            queryset=Set.objects.select_related("video").order_by("-video__number"),
         )
     )

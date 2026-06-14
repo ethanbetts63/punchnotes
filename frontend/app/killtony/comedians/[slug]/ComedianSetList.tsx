@@ -3,15 +3,11 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { SetInComedian } from "@/lib/serverApi";
-import { getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
+import { fmt2, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import Paginator from "@/components/Paginator";
 import SetImage from "@/components/SetImage";
 
 const PAGE_SIZE = 12;
-
-function fmt2(n: number | null): string {
-  return n == null ? "—" : n.toFixed(2);
-}
 
 type Props = { sets: SetInComedian[] };
 
@@ -31,7 +27,7 @@ export default function ComedianSetList({ sets }: Props) {
           >
             <SetImage
               imageUrl={set.image_url}
-              fallbackVideoId={set.episode.youtube_id}
+              fallbackVideoId={set.video.youtube_id}
               alt={`Set ${set.set_number} image`}
               className="hidden w-32 shrink-0 bg-stone-950 sm:block"
             />
@@ -39,13 +35,13 @@ export default function ComedianSetList({ sets }: Props) {
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <p className="text-xs font-bold uppercase tracking-wide text-stone-400">
-                    KT #{set.episode.number} / Set {set.set_number}
-                    {set.episode.date && (
-                      <span className="ml-2 normal-case font-normal">{set.episode.date}</span>
+                    KT #{set.video.number} / Set {set.set_number}
+                    {set.video.date && (
+                      <span className="ml-2 normal-case font-normal">{set.video.date}</span>
                     )}
                   </p>
                   <p className="mt-1 truncate text-base font-semibold leading-tight text-stone-900 transition-colors group-hover:text-primary">
-                    {set.episode.title?.replace(/^KT\s*#\d+\s*[-–]\s*/i, "") ?? ""}
+                    {set.video.title?.replace(/^KT\s*#\d+\s*[-–]\s*/i, "") ?? ""}
                   </p>
                 </div>
                 {(() => { const jb = getJokeBookSize(set.attributes); return jb ? (<span className="shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100 text-amber-700">{jokeBookLabel[jb]}</span>) : null; })()}

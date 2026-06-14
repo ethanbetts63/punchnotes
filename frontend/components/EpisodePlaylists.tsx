@@ -1,14 +1,14 @@
-import type { Episode } from "@/lib/serverApi";
+import type { Video } from "@/lib/serverApi";
 import { EPISODE_LISTS } from "@/lib/playlists";
 import { episodeToTile } from "@/lib/tiles";
 import MediaCarousel from "@/components/MediaCarousel";
 
 type Props = {
-  episodes: Episode[];
+  episodes: Video[];
   limit?: number;
 };
 
-export default function EpisodePlaylists({ episodes, limit }: Props) {
+export default function VideoPlaylists({ episodes, limit }: Props) {
   const byId = new Map(episodes.map((ep) => [ep.id, ep]));
   const byNumber = new Map(episodes.map((ep) => [ep.number, ep]));
 
@@ -16,7 +16,7 @@ export default function EpisodePlaylists({ episodes, limit }: Props) {
     ...list,
     items: list.ids
       .map((id) => (list.matchBy === "number" ? byNumber : byId).get(id))
-      .filter(Boolean) as Episode[],
+      .filter(Boolean) as Video[],
   }))
     .filter((list) => list.items.length > 0)
     .slice(0, limit);

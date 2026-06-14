@@ -1,5 +1,5 @@
 import { authedFetch } from "@/apiClient";
-import type { BeatSearchItem, Comedian, Episode, Set } from "@/lib/serverApi";
+import type { BeatSearchItem, Comedian, Video, Set } from "@/lib/serverApi";
 
 async function handleResponse<T>(res: Response): Promise<T> {
   if (!res.ok) {
@@ -10,14 +10,14 @@ async function handleResponse<T>(res: Response): Promise<T> {
   return res.json() as Promise<T>;
 }
 
-export async function getEpisodes(): Promise<Episode[]> {
+export async function getVideos(): Promise<Video[]> {
   const res = await authedFetch("/api/killtony/episodes/");
-  return handleResponse<Episode[]>(res);
+  return handleResponse<Video[]>(res);
 }
 
-export async function getEpisode(id: number): Promise<Episode> {
+export async function getVideo(id: number): Promise<Video> {
   const res = await authedFetch(`/api/killtony/episodes/${id}/`);
-  return handleResponse<Episode>(res);
+  return handleResponse<Video>(res);
 }
 
 export async function getComedians(): Promise<Comedian[]> {

@@ -16,13 +16,13 @@ async function serverFetch<T>(path: string): Promise<T | null> {
   }
 }
 
-export async function getServerEpisodes(params?: string) {
+export async function getServerVideos(params?: string) {
   const qs = params ? `?${params}` : "";
-  return serverFetch<Episode[]>(`/api/killtony/episodes/${qs}`);
+  return serverFetch<Video[]>(`/api/killtony/episodes/${qs}`);
 }
 
-export async function getServerEpisode(id: string) {
-  return serverFetch<EpisodeDetail>(`/api/killtony/episodes/${id}/`);
+export async function getServerVideo(id: string) {
+  return serverFetch<VideoDetail>(`/api/killtony/episodes/${id}/`);
 }
 
 export async function getServerComedians(params?: string) {
@@ -60,7 +60,7 @@ export async function getServerNavSearch(query: string) {
 
 // --- types (minimal, expand as backend solidifies) ---
 
-export type Episode = {
+export type Video = {
   id: number;
   number: number;
   title: string;
@@ -100,7 +100,7 @@ export type ComedianAttribute =
   | "old"
   | "young"
   | "middle-age";
-export type SetInEpisode = {
+export type SetInVideo = {
   id: number;
   set_number: number;
   comedian: { id: number; name: string; slug: string; attributes: ComedianAttribute[]; image_url: string | null };
@@ -112,7 +112,7 @@ export type SetInEpisode = {
   image_capture_seconds: number | null;
 };
 
-export type EpisodeDetail = {
+export type VideoDetail = {
   id: number;
   number: number;
   title: string;
@@ -128,7 +128,7 @@ export type EpisodeDetail = {
   view_count: number | null;
   like_count: number | null;
   comment_count: number | null;
-  sets: SetInEpisode[];
+  sets: SetInVideo[];
 };
 
 export type Comedian = {
@@ -150,7 +150,7 @@ export type Comedian = {
 export type SetInComedian = {
   id: number;
   set_number: number;
-  episode: { id: number; number: number; title: string; youtube_id: string; date: string | null };
+  video: { id: number; number: number; title: string; youtube_id: string; date: string | null };
   attributes: string[];
   hit_ratio: number | null;
   punchline_tag_ratio: number | null;
@@ -179,7 +179,7 @@ export type SetListItem = {
   id: number;
   set_number: number;
   comedian: SetListComedian;
-  episode: { id: number; number: number; title: string; youtube_id: string; date: string | null };
+  video: { id: number; number: number; title: string; youtube_id: string; date: string | null };
   attributes: string[];
   start_seconds: number;
   interview_end_seconds: number | null;
@@ -225,7 +225,7 @@ export type Set = {
   id: number;
   set_number: number;
   comedian: SetComedian;
-  episode: { id: number; number: number; title: string; youtube_id: string; date: string | null };
+  video: { id: number; number: number; title: string; youtube_id: string; date: string | null };
   attributes: string[];
   start_seconds: number;
   image_url: string | null;

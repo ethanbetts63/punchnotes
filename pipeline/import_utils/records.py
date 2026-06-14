@@ -4,7 +4,7 @@ from collections import defaultdict
 from django.db.models import Avg, Count, Q
 
 from pipeline.import_utils.ownership import infer_line_ownership
-from pipeline.models import Beat, Bit, Comedian, Episode, Line, Set
+from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
 from pipeline.import_utils.known_comedians import normalize_known_appearance_attributes
 
 
@@ -13,26 +13,26 @@ def parse_episode_number(title: str) -> int | None:
     return int(m.group(1)) if m else None
 
 
-def upsert_episode(video_id: str, meta: dict) -> Episode:
-    episode, _ = Episode.objects.get_or_create(
+def upsert_episode(video_id: str, meta: dict) -> Video:
+    video, _ = Video.objects.get_or_create(
         video_id=video_id,
         defaults={
-            "episode_number": parse_episode_number(meta["episode_title"]),
-            "episode_title": meta["episode_title"],
-            "episode_url": meta["episode_url"],
-            "published_at": meta.get("publish_date"),
+            "number": parse_episode_number(meta["episode_title"]),
+            "title": meta["episode_title"],
+            "url": meta["episode_url"],
+            "date": meta.get("publish_date"),
         },
     )
     update_fields = []
-    if episode.episode_number is None:
-        episode.episode_number = parse_episode_number(episode.episode_title)
-        update_fields.append("episode_number")
-    if episode.published_at is None and meta.get("publish_date"):
-        episode.published_at = meta["publish_date"]
-        update_fields.append("published_at")
+    if video.number is None:
+        video.number = parse_episode_number(video.title)
+        update_fields.append("number")
+    if video.date is None and meta.get("publish_date"):
+        video.date = meta["publish_date"]
+        update_fields.append("date")
     if update_fields:
-        episode.save(update_fields=update_fields)
-    return episode
+        video.save(update_fields=update_fields)
+    return video
 
 
 def merge_attributes(existing, incoming):
@@ -68,9 +68,9 @@ def upsert_comedian(slug: str, meta: dict) -> Comedian:
     return comedian
 
 
-def resequence_episode_sets(episode: Episode) -> None:
+def resequence_episode_sets(video: Video) -> None:
     """Assign 1-indexed set numbers by source start time."""
-    sets = list(episode.sets.order_by("start_seconds", "id"))
+    sets = list(video.sets.order_by("start_seconds", "id"))
     if not sets:
         return
 
@@ -87,15 +87,15 @@ def resequence_episode_sets(episode: Episode) -> None:
             set_obj.save(update_fields=["set_number"])
 
 
-def upsert_set(episode: Episode, comedian: Comedian, meta: dict) -> Set:
+def upsert_set(video: Video, comedian: Comedian, meta: dict) -> Set:
     start_seconds = meta["start_seconds"]
-    set_obj = episode.sets.filter(start_seconds=start_seconds).first()
+    set_obj = video.sets.filter(start_seconds=start_seconds).first()
     set_attributes = list(meta.get("set_attributes") or [])
     if set_obj is None:
-        last_set_number = episode.sets.order_by("-set_number").values_list("set_number", flat=True).first()
+        last_set_number = video.sets.order_by("-set_number").values_list("set_number", flat=True).first()
         next_set_number = (last_set_number or 0) + 1
         set_obj = Set.objects.create(
-            episode=episode,
+            video=video,
             set_number=next_set_number,
             comedian=comedian,
             start_seconds=start_seconds,
@@ -112,7 +112,7 @@ def upsert_set(episode: Episode, comedian: Comedian, meta: dict) -> Set:
         "comedian", "start_seconds", "interview_end_line",
         "interview_end_seconds", "attributes",
     ])
-    resequence_episode_sets(episode)
+    resequence_episode_sets(video)
     set_obj.refresh_from_db()
     return set_obj
 
@@ -141,7 +141,7 @@ def refresh_comedian_stats(comedian: Comedian) -> None:
         avg_bits=Avg('n_bits'),
         avg_beats=Avg('n_beats'),
     )
-    comedian.set_count = comedian.sets.values('episode_id').distinct().count()
+    comedian.set_count = comedian.sets.values('video_id').distinct().count()
     comedian.joke_count = Bit.objects.filter(set__comedian=comedian).count()
     comedian.avg_hit_ratio = agg['avg_hit']
     comedian.avg_punchline_tag_ratio = agg['avg_pt']
@@ -162,8 +162,8 @@ def refresh_comedian_image(comedian: Comedian) -> None:
         comedian.sets
         .exclude(image_url__isnull=True)
         .exclude(image_url="")
-        .select_related("episode")
-        .order_by("-episode__episode_number", "-start_seconds", "-id")
+        .select_related("video")
+        .order_by("-video__number", "-start_seconds", "-id")
         .first()
     )
     image_url = latest.image_url if latest else None
@@ -276,15 +276,15 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
     refresh_comedian_stats(set_obj.comedian)
 
 
-def refresh_episode_counts(episode: Episode) -> None:
-    """Recompute denormalised counts from the episode's current sets."""
-    sets = list(episode.sets.select_related("comedian").all())
-    episode.set_count = len(sets)
-    episode.bucket_pull_count = sum(1 for s in sets if "bucket_pull" in (s.comedian.attributes or []))
-    episode.golden_ticket_count = sum(1 for s in sets if "golden_ticket" in (s.comedian.attributes or []))
-    episode.regular_count = sum(1 for s in sets if "regular" in (s.comedian.attributes or []))
-    episode.large_joke_book_count = sum(1 for s in sets if "large_joke_book" in (s.attributes or []))
-    episode.save(update_fields=[
+def refresh_episode_counts(video: Video) -> None:
+    """Recompute denormalised counts from the video's current sets."""
+    sets = list(video.sets.select_related("comedian").all())
+    video.set_count = len(sets)
+    video.bucket_pull_count = sum(1 for s in sets if "bucket_pull" in (s.comedian.attributes or []))
+    video.golden_ticket_count = sum(1 for s in sets if "golden_ticket" in (s.comedian.attributes or []))
+    video.regular_count = sum(1 for s in sets if "regular" in (s.comedian.attributes or []))
+    video.large_joke_book_count = sum(1 for s in sets if "large_joke_book" in (s.attributes or []))
+    video.save(update_fields=[
         "set_count", "bucket_pull_count", "golden_ticket_count",
         "regular_count", "large_joke_book_count",
     ])

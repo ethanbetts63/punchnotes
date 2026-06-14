@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from pipeline.models import Beat, Bit, Comedian, Line, Set
-from .shared import EpisodeMinimalSerializer
+from .shared import VideoMinimalSerializer
 
 
 class ComedianForSetSerializer(serializers.ModelSerializer):
@@ -58,13 +58,13 @@ class BitSerializer(serializers.ModelSerializer):
 
 class SetDetailSerializer(serializers.ModelSerializer):
     comedian = ComedianForSetSerializer()
-    episode = EpisodeMinimalSerializer()
+    video = VideoMinimalSerializer()
     bits = serializers.SerializerMethodField()
 
     class Meta:
         model = Set
         fields = [
-            "id", "set_number", "comedian", "episode",
+            "id", "set_number", "comedian", "video",
             "attributes", "start_seconds",
             "image_url", "image_capture_seconds",
             "hit_ratio", "punchline_tag_ratio",
@@ -79,12 +79,12 @@ class SetDetailSerializer(serializers.ModelSerializer):
 
 class SetListSerializer(serializers.ModelSerializer):
     comedian = ComedianForSetListSerializer()
-    episode = EpisodeMinimalSerializer()
+    video = VideoMinimalSerializer()
 
     class Meta:
         model = Set
         fields = [
-            "id", "set_number", "comedian", "episode",
+            "id", "set_number", "comedian", "video",
             "attributes", "start_seconds", "interview_end_seconds",
             "image_url", "image_capture_seconds",
             "hit_ratio", "punchline_tag_ratio", "bit_count",

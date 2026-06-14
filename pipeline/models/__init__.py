@@ -1,8 +1,8 @@
 from .comedian import Comedian
-from .episode import Episode
+from .video import Video
 from .set import Set
 from .line import Line
 from .bit import Bit
 from .beat import Beat
 
-__all__ = ['Comedian', 'Episode', 'Set', 'Line', 'Bit', 'Beat']
+__all__ = ['Comedian', 'Video', 'Set', 'Line', 'Bit', 'Beat']

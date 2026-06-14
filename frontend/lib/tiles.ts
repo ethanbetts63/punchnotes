@@ -1,5 +1,5 @@
-import type { SetListItem, Episode, Comedian } from "@/lib/serverApi";
-import { getEpisodeGuestLabel, getJokeBookSize } from "@/lib/killTonyDisplay";
+import type { SetListItem, Video, Comedian } from "@/lib/serverApi";
+import { getVideoGuestLabel, getJokeBookSize, fmtSeconds } from "@/lib/killTonyDisplay";
 
 export type TileData = {
   href: string;
@@ -10,14 +10,6 @@ export type TileData = {
   meta?: string;
   badges?: { label: string; className: string }[];
 };
-
-function fmtSeconds(seconds: number): string {
-  const h = Math.floor(seconds / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-  const s = Math.floor(seconds % 60);
-  if (h > 0) return `${h}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
-  return `${m}:${String(s).padStart(2, "0")}`;
-}
 
 function fmtCount(count: number, singular: string, plural = `${singular}s`): string {
   return `${count} ${count === 1 ? singular : plural}`;
@@ -42,15 +34,15 @@ export function setToTile(set: SetListItem): TileData {
   return {
     href: `/killtony/sets/${set.id}`,
     imageUrl: set.image_url,
-    videoId: set.episode.youtube_id,
-    eyebrow: `KT #${set.episode.number}`,
+    videoId: set.video.youtube_id,
+    eyebrow: `KT #${set.video.number}`,
     title: set.comedian.name,
     meta: `Set ${set.set_number} · ${fmtSeconds(set.start_seconds)}`,
     badges: (() => { const jb = getJokeBookSize(set.attributes); return jb ? [jokeBookBadge[jb]] : []; })(),
   };
 }
 
-export function episodeToTile(ep: Episode): TileData {
+export function episodeToTile(ep: Video): TileData {
   const meta = [
     fmtCompactDate(ep.date) || null,
     fmtCount(ep.large_joke_book_count, "big joke book"),
@@ -63,8 +55,8 @@ export function episodeToTile(ep: Episode): TileData {
   return {
     href: `/killtony/episodes/${ep.id}`,
     videoId: ep.youtube_id,
-    eyebrow: `Episode ${ep.number}`,
-    title: getEpisodeGuestLabel(ep, `Kill Tony #${ep.number}`),
+    eyebrow: `Video ${ep.number}`,
+    title: getVideoGuestLabel(ep, `Kill Tony #${ep.number}`),
     meta: meta || undefined,
   };
 }

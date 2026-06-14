@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Comedian, Episode, Set, Line, Bit, Beat
+from .models import Comedian, Video, Set, Line, Bit, Beat
 
 
 @admin.register(Comedian)
@@ -12,21 +12,21 @@ class ComedianAdmin(admin.ModelAdmin):
     readonly_fields = ('joke_count', 'avg_hit_ratio', 'avg_punchline_tag_ratio', 'avg_bits_per_set', 'avg_beats_per_set')
 
 
-@admin.register(Episode)
-class EpisodeAdmin(admin.ModelAdmin):
-    list_display = ('episode_title', 'episode_number', 'published_at', 'bucket_pull_count', 'golden_ticket_count', 'regular_count')
-    list_filter = ('published_at',)
-    search_fields = ('episode_title', 'video_id')
+@admin.register(Video)
+class VideoAdmin(admin.ModelAdmin):
+    list_display = ('title', 'number', 'date', 'bucket_pull_count', 'golden_ticket_count', 'regular_count')
+    list_filter = ('date',)
+    search_fields = ('title', 'video_id')
     filter_horizontal = ('guests',)
     readonly_fields = ('scraped_at', 'bucket_pull_count', 'golden_ticket_count', 'regular_count', 'large_joke_book_count')
 
 
 @admin.register(Set)
 class SetAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'episode', 'comedian', 'set_number', 'attributes', 'hit_ratio', 'punchline_tag_ratio')
-    search_fields = ('comedian__name', 'episode__episode_title')
+    list_display = ('__str__', 'video', 'comedian', 'set_number', 'attributes', 'hit_ratio', 'punchline_tag_ratio')
+    search_fields = ('comedian__name', 'video__title')
     readonly_fields = ('hit_ratio', 'punchline_tag_ratio')
-    raw_id_fields = ('episode', 'comedian')
+    raw_id_fields = ('video', 'comedian')
 
 
 @admin.register(Line)

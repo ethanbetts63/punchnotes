@@ -1,8 +1,7 @@
-import { Suspense } from "react";
 import { getServerBeats } from "@/lib/serverApi";
+import ModelSearchLayout, { buildSearchSubtitle } from "@/components/ModelSearchLayout";
 import JokesFilters from "@/components/JokesFilters";
 import JokesList from "./JokesList";
-import ListPageHeader from "@/components/ListPageHeader";
 
 export const metadata = {
   title: "Jokes - Kill Tony | PunchNotes",
@@ -15,36 +14,21 @@ export default async function JokesPage({ searchParams }: Props) {
   const qs = new URLSearchParams(searchParamsValue).toString();
   const beats = await getServerBeats(qs);
   const query = (searchParamsValue.q ?? "").trim();
-  const subtitle = [
-    beats ? `${beats.length} jokes` : "",
-    searchParamsValue.q ? `matching "${searchParamsValue.q}"` : "",
-    searchParamsValue.joke_type ? searchParamsValue.joke_type : "",
-  ]
-    .filter(Boolean)
-    .join(" / ");
+
+  const baseSubtitle = buildSearchSubtitle(beats?.length ?? null, "joke", "jokes", query);
+  const jokeType = searchParamsValue.joke_type;
+  const subtitle = jokeType ? `${baseSubtitle} / ${jokeType}` : baseSubtitle;
 
   return (
-    <div className="bg-white min-h-screen">
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-        <Suspense>
-          <ListPageHeader
-            title="Jokes"
-            subtitle={subtitle || (!beats ? "Loading..." : undefined)}
-            searchPlaceholder="Search jokes..."
-            controls={<JokesFilters />}
-          />
-        </Suspense>
-
-        {!beats ? (
-          <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
-            <p className="text-stone-500">No jokes found.</p>
-          </div>
-        ) : (
-          <Suspense>
-            <JokesList beats={beats} query={query} />
-          </Suspense>
-        )}
-      </div>
-    </div>
+    <ModelSearchLayout
+      title="Jokes"
+      searchPlaceholder="Search jokes..."
+      subtitle={subtitle}
+      controls={<JokesFilters />}
+      isEmpty={!beats || beats.length === 0}
+      emptyMessage="No jokes found."
+    >
+      {beats && <JokesList beats={beats} query={query} />}
+    </ModelSearchLayout>
   );
 }

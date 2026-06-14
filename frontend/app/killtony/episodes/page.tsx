@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { getServerEpisodes } from "@/lib/serverApi";
+import { getServerVideos } from "@/lib/serverApi";
 import EpisodePlaylists from "@/components/EpisodePlaylists";
 import EpisodeSearchFilters from "@/components/EpisodeSearchFilters";
 import ListPageHeader from "@/components/ListPageHeader";
@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 export default async function EpisodesBrowsePage() {
-  const episodes = await getServerEpisodes();
+  const episodes = await getServerVideos();
 
   return (
     <div className="bg-white min-h-screen">

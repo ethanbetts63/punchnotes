@@ -4,7 +4,7 @@ import shutil
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from pipeline.models import Episode
+from pipeline.models import Video
 
 
 class Command(BaseCommand):
@@ -29,7 +29,7 @@ class Command(BaseCommand):
                 data = json.loads(path.read_text(encoding="utf-8"))
                 video_id = data["video_id"]
 
-                episode = Episode.objects.filter(video_id=video_id).first()
+                episode = Video.objects.filter(video_id=video_id).first()
                 if episode:
                     view_count = data.get("view_count")
                     like_count = data.get("like_count")

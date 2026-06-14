@@ -5,7 +5,7 @@ import KillTonyHero from "@/components/KillTonyHero";
 import ComedianPlaylists from "@/components/ComedianPlaylists";
 import EpisodePlaylists from "@/components/EpisodePlaylists";
 import { getFeaturedBeatEntries } from "@/lib/featuredBeats";
-import { getServerComedians, getServerEpisodes } from "@/lib/serverApi";
+import { getServerComedians, getServerVideos } from "@/lib/serverApi";
 
 function SectionHeader({
   title,
@@ -41,7 +41,7 @@ export const metadata = {
 
 export default async function KillTonyPage() {
   const [episodes, comedians, featuredBeatEntries] = await Promise.all([
-    getServerEpisodes(),
+    getServerVideos(),
     getServerComedians(),
     getFeaturedBeatEntries(),
   ]);

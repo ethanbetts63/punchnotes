@@ -6,19 +6,19 @@ from django.core.management import call_command
 from django.test import TestCase
 
 from pipeline.management.commands.generate_embeddings import _embedding_text, _load_lines_by_set
-from pipeline.models import Beat, Bit, Comedian, Episode, Line, Set
+from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
 
 
 class GenerateEmbeddingsTests(TestCase):
     def _create_set(self, comedian_name, slug, set_number):
         comedian = Comedian.objects.create(name=comedian_name, slug=slug)
-        episode = Episode.objects.create(
+        video = Video.objects.create(
             video_id=f"video-{slug}",
-            episode_title=f"Episode {slug}",
-            episode_url=f"https://example.com/{slug}",
+            title=f"Episode {slug}",
+            url=f"https://example.com/{slug}",
         )
         return Set.objects.create(
-            episode=episode,
+            video=video,
             comedian=comedian,
             set_number=set_number,
             start_seconds=float(set_number * 10),

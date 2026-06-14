@@ -143,8 +143,8 @@ class Command(BaseCommand):
         capture_seconds_by_output,
     ):
         parsed = parse_image_name(image_path)
-        set_obj = Set.objects.select_related("episode", "comedian").get(
-            episode__episode_number=parsed["episode_number"],
+        set_obj = Set.objects.select_related("video", "comedian").get(
+            video__number=parsed["episode_number"],
             set_number=parsed["set_number"],
         )
 
@@ -172,7 +172,7 @@ class Command(BaseCommand):
 
         self.stdout.write(
             f"{'Would import' if dry_run else 'Importing'} {image_path.name} -> "
-            f"KT{set_obj.episode.episode_number} set {set_obj.set_number} ({set_obj.comedian.name})"
+            f"KT{set_obj.video.number} set {set_obj.set_number} ({set_obj.comedian.name})"
         )
 
         if dry_run:

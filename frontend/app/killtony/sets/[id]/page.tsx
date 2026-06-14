@@ -4,7 +4,7 @@ import { getServerSet } from "@/lib/serverApi";
 import SetTranscript from "@/components/SetTranscript";
 import SetImage from "@/components/SetImage";
 import VideoEmbed from "@/components/VideoEmbed";
-import { fmt2, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
+import { fmt2, fmtSeconds, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 
 type Props = {
@@ -15,15 +15,7 @@ export async function generateMetadata({ params }: Props) {
   const { id } = await params;
   const set = await getServerSet(id);
   if (!set) return { title: "Set Not Found | PunchNotes" };
-  return { title: `${set.comedian.name} - Ep ${set.episode.number} | PunchNotes` };
-}
-
-function fmtSeconds(s: number): string {
-  const h = Math.floor(s / 3600);
-  const m = Math.floor((s % 3600) / 60);
-  const sec = Math.floor(s % 60);
-  if (h > 0) return `${h}:${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
-  return `${m}:${String(sec).padStart(2, "0")}`;
+  return { title: `${set.comedian.name} - Ep ${set.video.number} | PunchNotes` };
 }
 
 export default async function SetDetailPage({ params }: Props) {
@@ -39,15 +31,15 @@ export default async function SetDetailPage({ params }: Props) {
       <div className="bg-stone-900 text-white">
         <div className="mx-auto max-w-5xl px-6 py-10">
           <div className="flex items-start gap-8">
-            {(set.image_url || set.episode.youtube_id) && (
+            {(set.image_url || set.video.youtube_id) && (
               <div className="hidden w-36 shrink-0 sm:block md:w-48">
                 <Link
-                  href={`/killtony/episodes/${set.episode.id}`}
+                  href={`/killtony/episodes/${set.video.id}`}
                   className="block overflow-hidden rounded-lg shadow-xl ring-1 ring-white/10 transition-all hover:ring-white/30"
                 >
                   <SetImage
                     imageUrl={set.image_url}
-                    fallbackVideoId={set.episode.youtube_id}
+                    fallbackVideoId={set.video.youtube_id}
                     alt={`${set.comedian.name} set image`}
                     className="aspect-video w-full"
                   />
@@ -55,14 +47,14 @@ export default async function SetDetailPage({ params }: Props) {
                 <div className="mt-2 space-y-0.5">
                   <p className="text-xs leading-snug text-stone-300">
                     <Link
-                      href={`/killtony/episodes/${set.episode.id}`}
+                      href={`/killtony/episodes/${set.video.id}`}
                       className="transition-colors hover:text-white"
                     >
-                      {set.episode.title}
+                      {set.video.title}
                     </Link>
                   </p>
-                  {set.episode.date && (
-                    <p className="text-xs text-stone-500">{set.episode.date}</p>
+                  {set.video.date && (
+                    <p className="text-xs text-stone-500">{set.video.date}</p>
                   )}
                 </div>
               </div>
@@ -70,7 +62,7 @@ export default async function SetDetailPage({ params }: Props) {
 
             <div className="min-w-0 flex-1">
               <p className="mb-1 text-xs font-medium uppercase tracking-wide text-stone-400">
-                Set {set.set_number} · <Link href={`/killtony/episodes/${set.episode.id}`} className="transition-colors hover:text-stone-200">Episode {set.episode.number}</Link>
+                Set {set.set_number} · <Link href={`/killtony/episodes/${set.video.id}`} className="transition-colors hover:text-stone-200">Episode {set.video.number}</Link>
               </p>
 
               <h1 className="mb-1 text-3xl font-bold text-white md:text-4xl">
@@ -139,7 +131,7 @@ export default async function SetDetailPage({ params }: Props) {
         </div>
       </div>
 
-      {set.episode.youtube_id && (
+      {set.video.youtube_id && (
         <div className="bg-stone-950">
           <div className="mx-auto max-w-5xl px-6 py-8">
             <div className="mb-3 flex items-baseline justify-between">
@@ -147,7 +139,7 @@ export default async function SetDetailPage({ params }: Props) {
               <p className="text-xs text-stone-400">Skips to {fmtSeconds(Math.max(0, set.start_seconds - 20))} in the episode</p>
             </div>
             <VideoEmbed
-              youtubeId={set.episode.youtube_id}
+              youtubeId={set.video.youtube_id}
               startSeconds={Math.max(0, set.start_seconds - 20)}
             />
           </div>

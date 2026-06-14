@@ -6,7 +6,7 @@ from pipeline.models import Bit
 class BitListSerializer(serializers.ModelSerializer):
     comedian = serializers.CharField(source="set.comedian.name")
     comedian_slug = serializers.CharField(source="set.comedian.slug")
-    episode_number = serializers.IntegerField(source="set.episode.episode_number")
+    episode_number = serializers.IntegerField(source="set.video.number")
     set_id = serializers.IntegerField(source="set.id")
     joke_types = serializers.SerializerMethodField()
     beats_summary = serializers.SerializerMethodField()

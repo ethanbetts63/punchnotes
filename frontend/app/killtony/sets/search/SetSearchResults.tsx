@@ -5,7 +5,7 @@ import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import type { SetListItem } from "@/lib/serverApi";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
-import { getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
+import { fmt2, fmtSeconds, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import { useUrlPagination } from "@/lib/useUrlPagination";
 import Paginator from "@/components/Paginator";
 import SetImage from "@/components/SetImage";
@@ -14,22 +14,9 @@ const PAGE_SIZE = 20;
 
 type SortKey = "episode" | "comedian" | "bit_count" | "hit_ratio" | "punchline_tag_ratio" | "start_seconds";
 
-
-function fmt2(n: number | null): string {
-  return n == null ? "-" : n.toFixed(2);
-}
-
-function fmtSeconds(seconds: number): string {
-  const h = Math.floor(seconds / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-  const s = Math.floor(seconds % 60);
-  if (h > 0) return `${h}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
-  return `${m}:${String(s).padStart(2, "0")}`;
-}
-
 function getSortValue(set: SetListItem, key: SortKey): number | string {
   switch (key) {
-    case "episode":             return set.episode.number;
+    case "episode":             return set.video.number;
     case "comedian":            return set.comedian.name.toLowerCase();
     case "bit_count":           return set.bit_count;
     case "hit_ratio":           return set.hit_ratio ?? -1;
@@ -66,7 +53,7 @@ export default function SetSearchResults({ sets }: { sets: SetListItem[] }) {
           >
             <SetImage
               imageUrl={set.image_url}
-              fallbackVideoId={set.episode.youtube_id}
+              fallbackVideoId={set.video.youtube_id}
               alt={`${set.comedian.name} set image`}
               className="hidden w-32 shrink-0 bg-stone-950 sm:block"
             />
@@ -74,12 +61,12 @@ export default function SetSearchResults({ sets }: { sets: SetListItem[] }) {
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <p className="text-xs font-bold uppercase tracking-wide text-stone-400">
-                    KT #{set.episode.number} / Set {set.set_number} / {fmtSeconds(set.start_seconds)}
+                    KT #{set.video.number} / Set {set.set_number} / {fmtSeconds(set.start_seconds)}
                   </p>
                   <p className="mt-1 truncate text-lg font-bold leading-tight text-stone-900 transition-colors group-hover:text-primary">
                     {set.comedian.name}
                   </p>
-                  <p className="mt-1 truncate text-sm text-stone-500">{set.episode.title}</p>
+                  <p className="mt-1 truncate text-sm text-stone-500">{set.video.title}</p>
                 </div>
                 {(() => { const jb = getJokeBookSize(set.attributes); return jb ? (<span className="shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100 text-amber-700">{jokeBookLabel[jb]}</span>) : null; })()}
               </div>

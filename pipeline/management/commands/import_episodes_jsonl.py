@@ -5,18 +5,18 @@ from pathlib import Path
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 
-from pipeline.models import Episode
+from pipeline.models import Video
 
 
 DEFAULT_JSONL_NAME = "full_kt_episodes.jsonl"
 EPISODE_NUMBER_PATTERN = re.compile(r"#\s*(\d+)")
 
 FIELD_MAP = {
-    "episode_number": "episode_number",
-    "episode_title": "episode_title",
-    "episode_url": "episode_url",
+    "episode_number": "number",
+    "episode_title": "title",
+    "episode_url": "url",
     "duration_seconds": "duration_seconds",
-    "published_at": "published_at",
+    "published_at": "date",
     "view_count": "view_count",
     "like_count": "like_count",
     "comment_count": "comment_count",
@@ -66,16 +66,16 @@ class Command(BaseCommand):
                         for source_field, model_field in FIELD_MAP.items()
                         if source_field in data and data[source_field] is not None
                     }
-                    if "episode_url" not in defaults:
-                        defaults["episode_url"] = f"https://www.youtube.com/watch?v={video_id}"
-                    if "episode_title" not in defaults:
-                        defaults["episode_title"] = data.get("title") or video_id
-                    if "episode_number" not in defaults:
-                        parsed_number = _episode_number(defaults.get("episode_title"))
+                    if "url" not in defaults:
+                        defaults["url"] = f"https://www.youtube.com/watch?v={video_id}"
+                    if "title" not in defaults:
+                        defaults["title"] = data.get("title") or video_id
+                    if "number" not in defaults:
+                        parsed_number = _episode_number(defaults.get("title"))
                         if parsed_number is not None:
-                            defaults["episode_number"] = parsed_number
+                            defaults["number"] = parsed_number
 
-                    _, was_created = Episode.objects.update_or_create(
+                    _, was_created = Video.objects.update_or_create(
                         video_id=video_id,
                         defaults=defaults,
                     )

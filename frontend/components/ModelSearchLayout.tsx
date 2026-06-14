@@ -3,8 +3,8 @@ import ListPageHeader from "@/components/ListPageHeader";
 
 type Props = {
   title: string;
-  backHref: string;
-  backLabel: string;
+  backHref?: string;
+  backLabel?: string;
   searchPlaceholder: string;
   subtitle: string;
   controls: React.ReactNode;

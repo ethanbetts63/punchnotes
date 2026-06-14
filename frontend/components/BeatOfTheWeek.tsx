@@ -99,7 +99,7 @@ export default function BeatOfTheWeek({ set, bitIndex, beatIndex, entries, sideb
             <div className="flex items-start gap-4">
               <SetImage
                 imageUrl={activeEntry.set.image_url}
-                fallbackVideoId={activeEntry.set.episode.youtube_id}
+                fallbackVideoId={activeEntry.set.video.youtube_id}
                 alt={`${activeEntry.set.comedian.name} set image`}
                 className="h-20 w-28 shrink-0 rounded-md bg-stone-950"
                 fit="contain"
@@ -129,8 +129,8 @@ export default function BeatOfTheWeek({ set, bitIndex, beatIndex, entries, sideb
                 </div>
 
                 <p className="mt-1 truncate text-xs text-stone-500">
-                  {activeEntry.set.episode.title}
-                  {activeEntry.set.episode.date ? ` / ${fmtDate(activeEntry.set.episode.date)}` : ""}
+                  {activeEntry.set.video.title}
+                  {activeEntry.set.video.date ? ` / ${fmtDate(activeEntry.set.video.date)}` : ""}
                 </p>
               </div>
             </div>

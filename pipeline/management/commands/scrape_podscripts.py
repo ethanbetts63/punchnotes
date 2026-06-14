@@ -36,7 +36,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 
 from pipeline.import_utils.transcript_windows import write_inbox_transcript_windows
-from pipeline.models import Episode
+from pipeline.models import Video
 
 BASE_URL = "https://podscripts.co"
 PODCAST_PATH = "/podcasts/kill-tony"
@@ -138,9 +138,9 @@ class Command(BaseCommand):
             targets = [options["episode"]]
         elif options["all"]:
             targets = list(
-                Episode.objects.exclude(video_id__isnull=True)
-                .exclude(episode_number__isnull=True)
-                .values_list("episode_number", flat=True)
+                Video.objects.exclude(video_id__isnull=True)
+                .exclude(number__isnull=True)
+                .values_list("number", flat=True)
             )
         else:
             self.stderr.write(self.style.ERROR("Specify --episode N or --all"))
@@ -162,9 +162,9 @@ class Command(BaseCommand):
                 continue
 
             try:
-                ep_obj = Episode.objects.get(episode_number=ep_num)
-            except Episode.DoesNotExist:
-                self.stdout.write(self.style.WARNING(f"  #{ep_num}: no Episode record in DB"))
+                ep_obj = Video.objects.get(number=ep_num)
+            except Video.DoesNotExist:
+                self.stdout.write(self.style.WARNING(f"  #{ep_num}: no Video record in DB"))
                 failed += 1
                 continue
 
@@ -187,9 +187,9 @@ class Command(BaseCommand):
             doc = {
                 "type": "episode_meta",
                 "video_id": ep_obj.video_id,
-                "episode_title": ep_obj.episode_title,
-                "episode_url": ep_obj.episode_url,
-                "publish_date": ep_obj.published_at.isoformat() if ep_obj.published_at else None,
+                "episode_title": ep_obj.title,
+                "episode_url": ep_obj.url,
+                "publish_date": ep_obj.date.isoformat() if ep_obj.date else None,
                 "lines": lines,
             }
             archive_file.write_text(dump_episode(doc), encoding="utf-8")

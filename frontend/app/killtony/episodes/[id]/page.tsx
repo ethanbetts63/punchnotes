@@ -1,41 +1,20 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getServerEpisode } from "@/lib/serverApi";
-import type { SetInEpisode } from "@/lib/serverApi";
-import { getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
+import { getServerVideo } from "@/lib/serverApi";
+import type { SetInVideo } from "@/lib/serverApi";
+import { fmtSeconds, fmtDuration, fmtCompact, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 
 type Props = { params: Promise<{ id: string }> };
 
 export async function generateMetadata({ params }: Props) {
   const { id } = await params;
-  const episode = await getServerEpisode(id);
+  const episode = await getServerVideo(id);
   if (!episode) return { title: "Episode Not Found | PunchNotes" };
   return { title: `KT #${episode.number} — Kill Tony | PunchNotes` };
 }
 
-function fmtSeconds(s: number): string {
-  const h = Math.floor(s / 3600);
-  const m = Math.floor((s % 3600) / 60);
-  const sec = Math.floor(s % 60);
-  if (h > 0) return `${h}:${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
-  return `${m}:${String(sec).padStart(2, "0")}`;
-}
-
-function fmt(n: number): string {
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
-  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
-  return String(n);
-}
-
-function fmtDuration(seconds: number | null): string {
-  if (!seconds) return "—";
-  const h = Math.floor(seconds / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-  return h > 0 ? `${h}h ${m}m` : `${m}m`;
-}
-
-function SetTile({ set, duration }: { set: SetInEpisode; duration: number | null }) {
+function SetTile({ set, duration }: { set: SetInVideo; duration: number | null }) {
   const attributes = set.comedian.attributes.filter((attr) => attr in ATTRIBUTE_LABELS);
 
   return (
@@ -96,7 +75,7 @@ function SetTile({ set, duration }: { set: SetInEpisode; duration: number | null
 
 export default async function EpisodeDetailPage({ params }: Props) {
   const { id } = await params;
-  const episode = await getServerEpisode(id);
+  const episode = await getServerVideo(id);
   if (!episode) notFound();
 
   const sets = episode.sets ?? [];
@@ -166,19 +145,19 @@ export default async function EpisodeDetailPage({ params }: Props) {
                 {episode.view_count != null && (
                   <>
                     <span className="mx-2 text-stone-700">·</span>
-                    <span className="text-white">{fmt(episode.view_count)}</span> views
+                    <span className="text-white">{fmtCompact(episode.view_count)}</span> views
                   </>
                 )}
                 {episode.like_count != null && (
                   <>
                     <span className="mx-2 text-stone-700">·</span>
-                    <span className="text-white">{fmt(episode.like_count)}</span> likes
+                    <span className="text-white">{fmtCompact(episode.like_count)}</span> likes
                   </>
                 )}
                 {episode.comment_count != null && (
                   <>
                     <span className="mx-2 text-stone-700">·</span>
-                    <span className="text-white">{fmt(episode.comment_count)}</span> comments
+                    <span className="text-white">{fmtCompact(episode.comment_count)}</span> comments
                   </>
                 )}
                 {viewLikeRatio && (

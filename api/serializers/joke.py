@@ -39,7 +39,7 @@ def matching_line_for_beat(beat, query):
 class BeatSearchSerializer(serializers.ModelSerializer):
     comedian = serializers.CharField(source="bit.set.comedian.name")
     comedian_slug = serializers.CharField(source="bit.set.comedian.slug")
-    episode_number = serializers.IntegerField(source="bit.set.episode.episode_number")
+    episode_number = serializers.IntegerField(source="bit.set.video.number")
     set_id = serializers.IntegerField(source="bit.set.id")
     setup_lines = serializers.SerializerMethodField()
     punchline = serializers.SerializerMethodField()

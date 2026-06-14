@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from .querysets import (
     build_beat_search_queryset,
     build_comedian_list_queryset,
-    build_episode_list_queryset,
+    build_video_list_queryset,
     build_set_list_queryset,
 )
 
@@ -97,21 +97,21 @@ class NavSearchView(APIView):
         return sorted(results, key=lambda item: item["score"], reverse=True)[:GROUP_LIMIT]
 
     def search_episodes(self, query):
-        rows = build_episode_list_queryset({"q": query})
+        rows = build_video_list_queryset({"q": query})
         results = []
         for episode in rows[:GROUP_LIMIT]:
             meta = [
                 fmt_count(episode.set_count, "set"),
             ]
-            if episode.published_at:
-                meta.append(episode.published_at.isoformat())
+            if episode.date:
+                meta.append(episode.date.isoformat())
             if episode.view_count is not None:
                 meta.append(f"{episode.view_count:,} views")
-            score = text_score(query, episode.episode_title, str(episode.episode_number or ""))
+            score = text_score(query, episode.title, str(episode.number or ""))
             score += min((episode.view_count or 0) // 100_000, 20)
             results.append(result(
                 "episode",
-                episode.episode_title,
+                episode.title,
                 "Episode",
                 f"/killtony/episodes/{episode.id}",
                 meta,
@@ -124,7 +124,7 @@ class NavSearchView(APIView):
         rows = build_set_list_queryset({"q": query})
         results = []
         for set_obj in rows[:GROUP_LIMIT]:
-            title = f"{set_obj.comedian.name} - KT #{set_obj.episode.episode_number}"
+            title = f"{set_obj.comedian.name} - KT #{set_obj.video.number}"
             meta = [
                 f"Set {set_obj.set_number}",
                 fmt_count(set_obj.bit_count, "bit"),
@@ -133,13 +133,13 @@ class NavSearchView(APIView):
             joke_book_sizes = [a.removesuffix("_joke_book") for a in attrs if a.endswith("_joke_book")]
             for size in joke_book_sizes:
                 meta.append(f"{size} joke book")
-            score = text_score(query, set_obj.comedian.name, set_obj.episode.episode_title)
+            score = text_score(query, set_obj.comedian.name, set_obj.video.title)
             if "large_joke_book" in attrs:
                 score += 10
             results.append(result(
                 "set",
                 title,
-                set_obj.episode.episode_title,
+                set_obj.video.title,
                 f"/killtony/sets/{set_obj.id}",
                 meta,
                 score,
@@ -164,7 +164,7 @@ class NavSearchView(APIView):
             beat_results.append(result(
                 "beat",
                 title,
-                f"{beat.bit.set.comedian.name} - KT #{beat.bit.set.episode.episode_number}",
+                f"{beat.bit.set.comedian.name} - KT #{beat.bit.set.video.number}",
                 f"/killtony/sets/{beat.bit.set.id}",
                 meta,
                 score,

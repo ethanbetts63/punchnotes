@@ -6,7 +6,7 @@ import yt_dlp
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from pipeline.models import Episode
+from pipeline.models import Video
 
 
 INVALID_FILENAME_CHARS = re.compile(r'[<>:"/\\|?*\x00-\x1f]')
@@ -82,8 +82,8 @@ def ydl_options(options, extra=None):
 
 
 def episode_filename(episode):
-    publish_date = episode.published_at.isoformat() if episode.published_at else "unknown-date"
-    title = safe_filename_part(episode.episode_title)
+    publish_date = episode.date.isoformat() if episode.date else "unknown-date"
+    title = safe_filename_part(episode.title)
     return f"{episode.video_id} - {publish_date} - {title}.%(ext)s"
 
 
@@ -124,9 +124,9 @@ class Command(BaseCommand):
         limit = options.get("limit")
 
         episodes = list(
-            Episode.objects.exclude(video_id__isnull=True)
+            Video.objects.exclude(video_id__isnull=True)
             .exclude(video_id="")
-            .order_by("-episode_number", "video_id")
+            .order_by("-number", "video_id")
         )
         if not episodes:
             self.stdout.write("No Episode rows found. Import episode metadata first.")
@@ -150,7 +150,7 @@ class Command(BaseCommand):
                 break
 
             attempted += 1
-            episode_url = episode.episode_url or f"https://www.youtube.com/watch?v={video_id}"
+            episode_url = episode.url or f"https://www.youtube.com/watch?v={video_id}"
             outtmpl = str(inbox_dir / episode_filename(episode))
             download_opts = ydl_options(
                 options,
@@ -170,7 +170,7 @@ class Command(BaseCommand):
                     history_path,
                     {
                         "video_id": video_id,
-                        "episode_number": episode.episode_number,
+                        "episode_number": episode.number,
                         "status": "failed",
                         "error": str(e),
                     },
@@ -183,7 +183,7 @@ class Command(BaseCommand):
                 history_path,
                 {
                     "video_id": video_id,
-                    "episode_number": episode.episode_number,
+                    "episode_number": episode.number,
                     "status": "downloaded",
                 },
             )
