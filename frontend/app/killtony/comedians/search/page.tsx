@@ -1,6 +1,7 @@
-import { getServerComedians } from "@/lib/serverApi";
+import { getServerComediansPaginated } from "@/lib/serverApi";
 import ModelSearchLayout, { buildSearchSubtitle } from "@/components/ModelSearchLayout";
 import FilterControls from "@/components/FilterControls";
+import Paginator from "@/components/Paginator";
 import { COMEDIAN_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import ComedianSearchResults from "./ComedianSearchResults";
 
@@ -11,10 +12,13 @@ export const metadata = {
 type Props = { searchParams: Promise<Record<string, string>> };
 
 export default async function ComedianSearchPage({ searchParams }: Props) {
-  const searchParamsValue = await searchParams;
-  const qs = new URLSearchParams(searchParamsValue).toString();
-  const comedians = await getServerComedians(qs || undefined);
-  const query = (searchParamsValue.q ?? "").trim();
+  const sp = await searchParams;
+  const query = (sp.q ?? "").trim();
+  const page = Math.max(1, parseInt(sp.page ?? "1", 10) || 1);
+
+  const data = await getServerComediansPaginated(new URLSearchParams(sp).toString());
+
+  const totalPages = data ? Math.max(1, Math.ceil(data.count / COMEDIAN_SEARCH_CONFIG.pageSize)) : 1;
 
   return (
     <ModelSearchLayout
@@ -22,12 +26,17 @@ export default async function ComedianSearchPage({ searchParams }: Props) {
       backHref="/killtony/comedians"
       backLabel="Comedians"
       searchPlaceholder="Search comedians..."
-      subtitle={buildSearchSubtitle(comedians?.length ?? null, "comedian", "comedians", query)}
+      subtitle={buildSearchSubtitle(data?.count ?? null, "comedian", "comedians", query)}
       controls={<FilterControls config={COMEDIAN_SEARCH_CONFIG} />}
-      isEmpty={!comedians || comedians.length === 0}
+      isEmpty={!data || data.results.length === 0}
       emptyMessage="No comedians found."
     >
-      {comedians && <ComedianSearchResults comedians={comedians} />}
+      {data && data.results.length > 0 && (
+        <>
+          <ComedianSearchResults comedians={data.results} />
+          <Paginator page={page} totalPages={totalPages} />
+        </>
+      )}
     </ModelSearchLayout>
   );
 }

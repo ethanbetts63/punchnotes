@@ -17,17 +17,6 @@ class ComedianForSetSerializer(serializers.ModelSerializer):
         ]
 
 
-class ComedianForSetListSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Comedian
-        fields = [
-            "id", "name", "slug", "attributes",
-            "image_url",
-            "avg_bits_per_set", "avg_beats_per_set",
-            "avg_hit_ratio", "avg_punchline_tag_ratio",
-            "has_small_joke_book", "has_medium_joke_book", "has_large_joke_book",
-        ]
-
 
 class LineSerializer(serializers.ModelSerializer):
     class Meta:
@@ -78,7 +67,7 @@ class SetDetailSerializer(serializers.ModelSerializer):
 
 
 class SetListSerializer(serializers.ModelSerializer):
-    comedian = ComedianForSetListSerializer()
+    comedian = ComedianForSetSerializer()
     video = VideoMinimalSerializer()
 
     class Meta:

@@ -1,6 +1,7 @@
-import { getServerSets } from "@/lib/serverApi";
+import { getServerSetsPaginated } from "@/lib/serverApi";
 import ModelSearchLayout, { buildSearchSubtitle } from "@/components/ModelSearchLayout";
 import FilterControls from "@/components/FilterControls";
+import Paginator from "@/components/Paginator";
 import { SET_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import SetSearchResults from "./SetSearchResults";
 
@@ -11,10 +12,13 @@ export const metadata = {
 type Props = { searchParams: Promise<Record<string, string>> };
 
 export default async function SetSearchPage({ searchParams }: Props) {
-  const searchParamsValue = await searchParams;
-  const qs = new URLSearchParams(searchParamsValue).toString();
-  const sets = await getServerSets(qs || undefined);
-  const query = (searchParamsValue.q ?? "").trim();
+  const sp = await searchParams;
+  const query = (sp.q ?? "").trim();
+  const page = Math.max(1, parseInt(sp.page ?? "1", 10) || 1);
+
+  const data = await getServerSetsPaginated(new URLSearchParams(sp).toString());
+
+  const totalPages = data ? Math.max(1, Math.ceil(data.count / SET_SEARCH_CONFIG.pageSize)) : 1;
 
   return (
     <ModelSearchLayout
@@ -22,12 +26,17 @@ export default async function SetSearchPage({ searchParams }: Props) {
       backHref="/killtony/sets"
       backLabel="Sets"
       searchPlaceholder="Search sets..."
-      subtitle={buildSearchSubtitle(sets?.length ?? null, "set", "sets", query)}
+      subtitle={buildSearchSubtitle(data?.count ?? null, "set", "sets", query)}
       controls={<FilterControls config={SET_SEARCH_CONFIG} />}
-      isEmpty={!sets || sets.length === 0}
+      isEmpty={!data || data.results.length === 0}
       emptyMessage="No sets found."
     >
-      {sets && <SetSearchResults sets={sets} />}
+      {data && data.results.length > 0 && (
+        <>
+          <SetSearchResults sets={data.results} />
+          <Paginator page={page} totalPages={totalPages} />
+        </>
+      )}
     </ModelSearchLayout>
   );
 }

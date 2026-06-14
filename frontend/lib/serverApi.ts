@@ -58,7 +58,28 @@ export async function getServerNavSearch(query: string) {
   return serverFetch<NavSearchResponse>(`/api/killtony/search/?${qs}`);
 }
 
+export async function getServerSetsPaginated(params: string) {
+  return serverFetch<PaginatedResponse<SetListItem>>(`/api/killtony/sets/?${params}`);
+}
+
+export async function getServerVideosPaginated(params: string) {
+  return serverFetch<PaginatedResponse<Video>>(`/api/killtony/episodes/?${params}`);
+}
+
+export async function getServerComediansPaginated(params: string) {
+  return serverFetch<PaginatedResponse<Comedian>>(`/api/killtony/comedians/?${params}`);
+}
+
+export async function getServerBeatsPaginated(params: string) {
+  return serverFetch<PaginatedResponse<BeatSearchItem>>(`/api/killtony/jokes/?${params}`);
+}
+
 // --- types (minimal, expand as backend solidifies) ---
+
+export type PaginatedResponse<T> = {
+  results: T[];
+  count: number;
+};
 
 export type Video = {
   id: number;

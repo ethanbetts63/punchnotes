@@ -1,9 +1,10 @@
 "use client";
 
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
 type Props = {
   page: number;
   totalPages: number;
-  onPage: (p: number) => void;
 };
 
 function getPageNums(current: number, total: number): (number | "…")[] {
@@ -26,15 +27,24 @@ function getPageNums(current: number, total: number): (number | "…")[] {
   return nums;
 }
 
-export default function Paginator({ page, totalPages, onPage }: Props) {
+export default function Paginator({ page, totalPages }: Props) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   if (totalPages <= 1) return null;
 
   const btn = "flex h-8 min-w-[2rem] items-center justify-center rounded-lg border px-2 text-sm font-medium transition-colors";
-  const goToPage = (nextPage: number) => {
+
+  function goToPage(nextPage: number) {
     if (nextPage === page || nextPage < 1 || nextPage > totalPages) return;
-    onPage(nextPage);
+    const params = new URLSearchParams(searchParams.toString());
+    if (nextPage === 1) params.delete("page");
+    else params.set("page", String(nextPage));
+    const qs = params.toString();
+    router.push(`${pathname}${qs ? `?${qs}` : ""}`, { scroll: false });
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  };
+  }
 
   return (
     <div className="mt-6 flex items-center justify-center gap-1.5">

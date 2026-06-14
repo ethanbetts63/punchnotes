@@ -18,12 +18,14 @@ export type SortConfig = {
 
 export type SearchConfig = {
   searchPath: string;
+  pageSize: number;
   filters?: FilterGroupConfig[];
   sort?: SortConfig;
 };
 
 export const SET_SEARCH_CONFIG: SearchConfig = {
   searchPath: "/killtony/sets/search",
+  pageSize: 20,
   filters: [
     {
       title: "Attribute",
@@ -56,6 +58,7 @@ export const SET_SEARCH_CONFIG: SearchConfig = {
 
 export const EPISODE_SEARCH_CONFIG: SearchConfig = {
   searchPath: "/killtony/episodes/search",
+  pageSize: 20,
   sort: {
     defaultValue: "date",
     options: [
@@ -75,6 +78,7 @@ export const EPISODE_SEARCH_CONFIG: SearchConfig = {
 
 export const COMEDIAN_SEARCH_CONFIG: SearchConfig = {
   searchPath: "/killtony/comedians/search",
+  pageSize: 24,
   filters: [
     {
       title: "Filter",
@@ -95,6 +99,7 @@ export const COMEDIAN_SEARCH_CONFIG: SearchConfig = {
 
 export const JOKES_SEARCH_CONFIG: SearchConfig = {
   searchPath: "/killtony/jokes",
+  pageSize: 20,
   filters: [
     {
       title: "Filter",

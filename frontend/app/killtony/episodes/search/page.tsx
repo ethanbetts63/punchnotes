@@ -1,6 +1,7 @@
-import { getServerVideos } from "@/lib/serverApi";
+import { getServerVideosPaginated } from "@/lib/serverApi";
 import ModelSearchLayout, { buildSearchSubtitle } from "@/components/ModelSearchLayout";
 import FilterControls from "@/components/FilterControls";
+import Paginator from "@/components/Paginator";
 import { EPISODE_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import EpisodeSearchResults from "./EpisodeSearchResults";
 
@@ -11,10 +12,13 @@ export const metadata = {
 type Props = { searchParams: Promise<Record<string, string>> };
 
 export default async function EpisodeSearchPage({ searchParams }: Props) {
-  const searchParamsValue = await searchParams;
-  const qs = new URLSearchParams(searchParamsValue).toString();
-  const episodes = await getServerVideos(qs || undefined);
-  const query = (searchParamsValue.q ?? "").trim();
+  const sp = await searchParams;
+  const query = (sp.q ?? "").trim();
+  const page = Math.max(1, parseInt(sp.page ?? "1", 10) || 1);
+
+  const data = await getServerVideosPaginated(new URLSearchParams(sp).toString());
+
+  const totalPages = data ? Math.max(1, Math.ceil(data.count / EPISODE_SEARCH_CONFIG.pageSize)) : 1;
 
   return (
     <ModelSearchLayout
@@ -22,12 +26,17 @@ export default async function EpisodeSearchPage({ searchParams }: Props) {
       backHref="/killtony/episodes"
       backLabel="Episodes"
       searchPlaceholder="Search episodes..."
-      subtitle={buildSearchSubtitle(episodes?.length ?? null, "episode", "episodes", query)}
+      subtitle={buildSearchSubtitle(data?.count ?? null, "episode", "episodes", query)}
       controls={<FilterControls config={EPISODE_SEARCH_CONFIG} />}
-      isEmpty={!episodes || episodes.length === 0}
+      isEmpty={!data || data.results.length === 0}
       emptyMessage="No episodes found."
     >
-      {episodes && <EpisodeSearchResults episodes={episodes} />}
+      {data && data.results.length > 0 && (
+        <>
+          <EpisodeSearchResults episodes={data.results} />
+          <Paginator page={page} totalPages={totalPages} />
+        </>
+      )}
     </ModelSearchLayout>
   );
 }

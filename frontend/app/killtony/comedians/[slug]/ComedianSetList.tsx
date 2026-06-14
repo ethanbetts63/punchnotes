@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import type { SetInComedian } from "@/lib/serverApi";
 import { fmt2, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import Paginator from "@/components/Paginator";
@@ -12,8 +12,10 @@ const PAGE_SIZE = 12;
 type Props = { sets: SetInComedian[] };
 
 export default function ComedianSetList({ sets }: Props) {
-  const [page, setPage] = useState(1);
-  const totalPages = Math.ceil(sets.length / PAGE_SIZE);
+  const searchParams = useSearchParams();
+  const totalPages = Math.max(1, Math.ceil(sets.length / PAGE_SIZE));
+  const rawPage = parseInt(searchParams.get("page") ?? "1", 10) || 1;
+  const page = Math.min(Math.max(rawPage, 1), totalPages);
   const pageItems = sets.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
@@ -60,7 +62,7 @@ export default function ComedianSetList({ sets }: Props) {
           </Link>
         ))}
       </div>
-      <Paginator page={page} totalPages={totalPages} onPage={setPage} />
+      <Paginator page={page} totalPages={totalPages} />
     </>
   );
 }

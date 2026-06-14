@@ -127,10 +127,6 @@ export default function SetTranscript({
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
   }
 
-  function handleBeatClick(beat: Beat, bit: Bit, bitIdx: number, beatIdx: number) {
-    updateUrl(bit, beatIdx);
-  }
-
   if (bits.length === 0) {
     return (
       <div className="mx-auto max-w-5xl px-6 py-16 text-center text-stone-400">
@@ -171,11 +167,11 @@ export default function SetTranscript({
                           ? "hover:bg-yellow-100"
                           : "",
                     ].filter(Boolean).join(" ")}
-                    onClick={hasAnnotated ? () => handleBeatClick(beat, bit, bi, bti) : undefined}
+                    onClick={hasAnnotated ? () => updateUrl(bit, bti) : undefined}
                     onKeyDown={hasAnnotated ? (event) => {
                       if (event.key === "Enter" || event.key === " ") {
                         event.preventDefault();
-                        handleBeatClick(beat, bit, bi, bti);
+                        updateUrl(bit, bti);
                       }
                     } : undefined}
                   >
