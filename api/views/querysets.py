@@ -7,7 +7,7 @@ from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
 COMEDIAN_SORT_FIELDS = {
     "set_count": "set_count",
     "avg_hit_ratio": "avg_hit_ratio",
-    "avg_punchline_tag_ratio": "avg_punchline_tag_ratio",
+    "avg_tag_density": "avg_tag_density",
     "avg_bits_per_set": "avg_bits_per_set",
     "avg_beats_per_set": "avg_beats_per_set",
 }
@@ -28,12 +28,12 @@ VIDEO_SORT_FIELDS = {
 SET_SORT_FIELDS = {
     "bit_count": "bit_count",
     "hit_ratio": "hit_ratio",
-    "punchline_tag_ratio": "punchline_tag_ratio",
+    "tag_density": "tag_density",
 }
 
 BIT_SORT_FIELDS = {
     "hit_ratio": "hit_ratio",
-    "punchline_tag_ratio": "punchline_tag_ratio",
+    "tag_density": "tag_density",
 }
 
 def build_comedian_list_queryset(params):

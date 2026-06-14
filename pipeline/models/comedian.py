@@ -49,7 +49,7 @@ class Comedian(models.Model):
 
     # Denormalised ratio averages updated by refresh_comedian_stats
     avg_hit_ratio = models.FloatField(null=True, blank=True)
-    avg_punchline_tag_ratio = models.FloatField(null=True, blank=True)
+    avg_tag_density = models.FloatField(null=True, blank=True)
     avg_bits_per_set = models.FloatField(null=True, blank=True)
     avg_beats_per_set = models.FloatField(null=True, blank=True)
 

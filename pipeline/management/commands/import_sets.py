@@ -25,13 +25,12 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument(
-            "--dir",
-            dest="source_dir",
-            default=None,
+            "--archive",
+            action="store_true",
+            default=False,
             help=(
-                "Directory to read JSON files from. "
-                "Defaults to pipeline/data/2_set_inbox/ and moves processed files to the archive. "
-                "When --dir is supplied the files are read in place and not moved."
+                "Re-import all sets from the archive in place, then delete any comedian "
+                "records that have no sets (orphans left over from alias corrections)."
             ),
         )
         parser.add_argument(
@@ -50,18 +49,18 @@ class Command(BaseCommand):
             if not path.exists():
                 self.stdout.write(self.style.ERROR(f"File not found: {path}"))
                 return
-            archive = data_dir / "bit_annotated_set_archive"
-            archive.mkdir(parents=True, exist_ok=True)
+            archive_dir = data_dir / "bit_annotated_set_archive"
+            archive_dir.mkdir(parents=True, exist_ok=True)
             try:
                 self._import(path, relationships)
-                shutil.move(str(path), archive / path.name)
+                shutil.move(str(path), archive_dir / path.name)
             except Exception as e:
                 self.stdout.write(self.style.ERROR(f"  Failed {path.name}: {e}"))
             return
 
-        if options["source_dir"]:
-            source = Path(options["source_dir"])
-            archive = None  # don't move files when reading from a custom dir
+        if options["archive"]:
+            source = data_dir / "bit_annotated_set_archive"
+            archive = None  # read in place, don't move
         else:
             source = data_dir / "2_set_inbox"
             archive = data_dir / "bit_annotated_set_archive"
@@ -81,6 +80,11 @@ class Command(BaseCommand):
                     shutil.move(str(path), archive / path.name)
             except Exception as e:
                 self.stdout.write(self.style.ERROR(f"  Failed {path.name}: {e}"))
+
+        if options["archive"]:
+            deleted, _ = Comedian.objects.filter(sets__isnull=True).delete()
+            if deleted:
+                self.stdout.write(self.style.WARNING(f"\nDeleted {deleted} orphaned comedian record(s)."))
 
         self.stdout.write("\nFinding similar comedian names...")
         call_command("find_similar_comedians", stdout=self.stdout)

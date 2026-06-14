@@ -45,8 +45,8 @@ export const SET_SEARCH_CONFIG: SearchConfig = {
   sort: {
     options: [
       { value: "bit_count",           label: "Bits" },
-      { value: "hit_ratio",           label: "Hit ratio" },
-      { value: "punchline_tag_ratio", label: "Punch/tag ratio" },
+      { value: "hit_ratio",           label: "Punch density" },
+      { value: "tag_density", label: "Tag density" },
     ],
   },
 };
@@ -84,8 +84,8 @@ export const COMEDIAN_SEARCH_CONFIG: SearchConfig = {
   sort: {
     options: [
       { value: "set_count",               label: "Sets" },
-      { value: "avg_hit_ratio",           label: "Hit ratio" },
-      { value: "avg_punchline_tag_ratio", label: "Punch/tag ratio" },
+      { value: "avg_hit_ratio",           label: "Punch density" },
+      { value: "avg_tag_density", label: "Tag density" },
       { value: "avg_bits_per_set",        label: "Bits per set" },
       { value: "avg_beats_per_set",       label: "Beats per set" },
     ],

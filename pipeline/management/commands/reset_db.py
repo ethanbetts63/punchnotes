@@ -55,7 +55,7 @@ class Command(BaseCommand):
         sets_archive = data_dir / "bit_annotated_set_archive"
         if sets_archive.exists() and any(sets_archive.glob("*.json")):
             self.stdout.write("\nImporting sets from archive...")
-            call_command("import_sets", source_dir=str(sets_archive))
+            call_command("import_sets", archive=True)
         else:
             self.stdout.write("\nNo archived sets to import.")
 

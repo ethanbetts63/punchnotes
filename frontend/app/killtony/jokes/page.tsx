@@ -16,7 +16,10 @@ export default async function JokesPage({ searchParams }: Props) {
   const query = (sp.q ?? "").trim();
   const page = Math.max(1, parseInt(sp.page ?? "1", 10) || 1);
 
-  const data = await getServerBeatsPaginated(new URLSearchParams(sp).toString());
+  const data = await getServerBeatsPaginated(
+    new URLSearchParams(sp).toString(),
+    JOKES_SEARCH_CONFIG.pageSize,
+  );
 
   const totalPages = data ? Math.max(1, Math.ceil(data.count / JOKES_SEARCH_CONFIG.pageSize)) : 1;
 

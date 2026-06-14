@@ -79,3 +79,7 @@ Rules:
 - Do not create cycles, such as `a -> b` and `b -> a`.
 - Do not map a slug to itself.
 - Preserve existing relationship decisions unless you have a clear reason to correct them.
+
+
+To finish: 
+When you are done run python manage.py import_sets --archive this will fix the db. 

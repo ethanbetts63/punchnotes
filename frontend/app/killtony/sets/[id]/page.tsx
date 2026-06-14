@@ -107,9 +107,9 @@ export default async function SetDetailPage({ params }: Props) {
                   <span className="mx-2 text-stone-700">·</span>
                   <span className="text-white">{fmt2(comedian.avg_beats_per_set)}</span> beats/set
                   <span className="mx-2 text-stone-700">·</span>
-                  <span className="text-white">{fmt2(comedian.avg_hit_ratio)}</span> setup/punch
+                  <span className="text-white">{fmt2(comedian.avg_hit_ratio)}</span> punch density
                   <span className="mx-2 text-stone-700">·</span>
-                  <span className="text-white">{fmt2(comedian.avg_punchline_tag_ratio)}</span> punch/tag
+                  <span className="text-white">{fmt2(comedian.avg_tag_density)}</span> tag density
                   <span className="mx-2 text-stone-700">·</span>
                   {comedian.set_count} set{comedian.set_count !== 1 ? "s" : ""}
                 </p>
@@ -120,9 +120,9 @@ export default async function SetDetailPage({ params }: Props) {
                   <span className="mx-2 text-stone-700">·</span>
                   <span className="text-white">{beatCount}</span> beat{beatCount !== 1 ? "s" : ""}
                   <span className="mx-2 text-stone-700">·</span>
-                  <span className="text-white">{fmt2(set.hit_ratio)}</span> setup/punch
+                  <span className="text-white">{fmt2(set.hit_ratio)}</span> punch density
                   <span className="mx-2 text-stone-700">·</span>
-                  <span className="text-white">{fmt2(set.punchline_tag_ratio)}</span> punch/tag
+                  <span className="text-white">{fmt2(set.tag_density)}</span> tag density
                   {(() => { const jb = getJokeBookSize(set.attributes); return jb ? (<><span className="mx-2 text-stone-700">·</span><span className="rounded-full px-2 py-0.5 text-[10px] font-semibold bg-stone-700 text-stone-200">{jokeBookLabel[jb]}</span></>) : null; })()}
                 </p>
               </div>

@@ -16,6 +16,24 @@ async function serverFetch<T>(path: string): Promise<T | null> {
   }
 }
 
+function normalizePaginated<T>(
+  payload: PaginatedResponse<T> | T[] | null,
+  params: string,
+  pageSize: number,
+): PaginatedResponse<T> | null {
+  if (!payload) return null;
+  if (!Array.isArray(payload)) return payload;
+
+  const searchParams = new URLSearchParams(params);
+  const page = Math.max(1, parseInt(searchParams.get("page") ?? "1", 10) || 1);
+  const start = (page - 1) * pageSize;
+
+  return {
+    count: payload.length,
+    results: payload.slice(start, start + pageSize),
+  };
+}
+
 export async function getServerVideos(params?: string) {
   const qs = params ? `?${params}` : "";
   return serverFetch<Video[]>(`/api/killtony/episodes/${qs}`);
@@ -58,20 +76,24 @@ export async function getServerNavSearch(query: string) {
   return serverFetch<NavSearchResponse>(`/api/killtony/search/?${qs}`);
 }
 
-export async function getServerSetsPaginated(params: string) {
-  return serverFetch<PaginatedResponse<SetListItem>>(`/api/killtony/sets/?${params}`);
+export async function getServerSetsPaginated(params: string, pageSize: number) {
+  const payload = await serverFetch<PaginatedResponse<SetListItem> | SetListItem[]>(`/api/killtony/sets/?${params}`);
+  return normalizePaginated(payload, params, pageSize);
 }
 
-export async function getServerVideosPaginated(params: string) {
-  return serverFetch<PaginatedResponse<Video>>(`/api/killtony/episodes/?${params}`);
+export async function getServerVideosPaginated(params: string, pageSize: number) {
+  const payload = await serverFetch<PaginatedResponse<Video> | Video[]>(`/api/killtony/episodes/?${params}`);
+  return normalizePaginated(payload, params, pageSize);
 }
 
-export async function getServerComediansPaginated(params: string) {
-  return serverFetch<PaginatedResponse<Comedian>>(`/api/killtony/comedians/?${params}`);
+export async function getServerComediansPaginated(params: string, pageSize: number) {
+  const payload = await serverFetch<PaginatedResponse<Comedian> | Comedian[]>(`/api/killtony/comedians/?${params}`);
+  return normalizePaginated(payload, params, pageSize);
 }
 
-export async function getServerBeatsPaginated(params: string) {
-  return serverFetch<PaginatedResponse<BeatSearchItem>>(`/api/killtony/jokes/?${params}`);
+export async function getServerBeatsPaginated(params: string, pageSize: number) {
+  const payload = await serverFetch<PaginatedResponse<BeatSearchItem> | BeatSearchItem[]>(`/api/killtony/jokes/?${params}`);
+  return normalizePaginated(payload, params, pageSize);
 }
 
 // --- types (minimal, expand as backend solidifies) ---
@@ -163,7 +185,7 @@ export type Comedian = {
   has_medium_joke_book: boolean;
   has_large_joke_book: boolean;
   avg_hit_ratio: number | null;
-  avg_punchline_tag_ratio: number | null;
+  avg_tag_density: number | null;
   avg_bits_per_set: number | null;
   avg_beats_per_set: number | null;
 };
@@ -174,7 +196,7 @@ export type SetInComedian = {
   video: { id: number; number: number; title: string; youtube_id: string; date: string | null };
   attributes: string[];
   hit_ratio: number | null;
-  punchline_tag_ratio: number | null;
+  tag_density: number | null;
   image_url: string | null;
   image_capture_seconds: number | null;
 };
@@ -207,7 +229,7 @@ export type SetListItem = {
   image_url: string | null;
   image_capture_seconds: number | null;
   hit_ratio: number | null;
-  punchline_tag_ratio: number | null;
+  tag_density: number | null;
   bit_count: number;
 };
 
@@ -220,7 +242,7 @@ export type SetListComedian = {
   avg_bits_per_set: number | null;
   avg_beats_per_set: number | null;
   avg_hit_ratio: number | null;
-  avg_punchline_tag_ratio: number | null;
+  avg_tag_density: number | null;
   has_small_joke_book: boolean;
   has_medium_joke_book: boolean;
   has_large_joke_book: boolean;
@@ -236,7 +258,7 @@ export type SetComedian = {
   avg_bits_per_set: number | null;
   avg_beats_per_set: number | null;
   avg_hit_ratio: number | null;
-  avg_punchline_tag_ratio: number | null;
+  avg_tag_density: number | null;
   has_small_joke_book: boolean;
   has_medium_joke_book: boolean;
   has_large_joke_book: boolean;
@@ -252,7 +274,7 @@ export type Set = {
   image_url: string | null;
   image_capture_seconds: number | null;
   hit_ratio: number | null;
-  punchline_tag_ratio: number | null;
+  tag_density: number | null;
   bits: Bit[];
 };
 
@@ -272,7 +294,7 @@ export type BitListItem = {
   joke_types: string[];
   beats_summary: { premise: string; joke_type: string }[];
   hit_ratio: number | null;
-  punchline_tag_ratio: number | null;
+  tag_density: number | null;
 };
 
 export type BeatSearchItem = {

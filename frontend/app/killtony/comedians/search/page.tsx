@@ -16,7 +16,10 @@ export default async function ComedianSearchPage({ searchParams }: Props) {
   const query = (sp.q ?? "").trim();
   const page = Math.max(1, parseInt(sp.page ?? "1", 10) || 1);
 
-  const data = await getServerComediansPaginated(new URLSearchParams(sp).toString());
+  const data = await getServerComediansPaginated(
+    new URLSearchParams(sp).toString(),
+    COMEDIAN_SEARCH_CONFIG.pageSize,
+  );
 
   const totalPages = data ? Math.max(1, Math.ceil(data.count / COMEDIAN_SEARCH_CONFIG.pageSize)) : 1;
 

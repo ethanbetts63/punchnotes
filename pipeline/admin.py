@@ -9,7 +9,7 @@ class ComedianAdmin(admin.ModelAdmin):
     list_filter = ('has_small_joke_book', 'has_medium_joke_book', 'has_large_joke_book')
     search_fields = ('name', 'slug')
     prepopulated_fields = {'slug': ('name',)}
-    readonly_fields = ('joke_count', 'avg_hit_ratio', 'avg_punchline_tag_ratio', 'avg_bits_per_set', 'avg_beats_per_set')
+    readonly_fields = ('joke_count', 'avg_hit_ratio', 'avg_tag_density', 'avg_bits_per_set', 'avg_beats_per_set')
 
 
 @admin.register(Video)
@@ -23,9 +23,9 @@ class VideoAdmin(admin.ModelAdmin):
 
 @admin.register(Set)
 class SetAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'video', 'comedian', 'set_number', 'attributes', 'hit_ratio', 'punchline_tag_ratio')
+    list_display = ('__str__', 'video', 'comedian', 'set_number', 'attributes', 'hit_ratio', 'tag_density')
     search_fields = ('comedian__name', 'video__title')
-    readonly_fields = ('hit_ratio', 'punchline_tag_ratio')
+    readonly_fields = ('hit_ratio', 'tag_density')
     raw_id_fields = ('video', 'comedian')
 
 
