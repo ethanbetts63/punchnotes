@@ -3,7 +3,7 @@ import path from 'path';
 import { marked } from 'marked';
 import { getArticlePageMeta } from '@/lib/articleMeta';
 
-const ARTICLES_DIR = path.join(process.cwd(), 'content/articles');
+const ARTICLES_DIR = path.join(process.cwd(), 'articles');
 const EXCLUDED = new Set(['overview.md']);
 const AUTHOR_NAME = 'Ethan Betts-Ingram';
 
