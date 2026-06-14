@@ -6,11 +6,11 @@ import MediaCarousel from "@/components/MediaCarousel";
 type Props = { sets: SetListItem[] };
 
 export default function SetPlaylists({ sets }: Props) {
-  const byId = new Map(sets.map((s) => [s.id, s]));
+  const byId = new Map(sets.map((s) => [String(s.id), s]));
 
   const lists = SET_LISTS.map((list) => ({
     ...list,
-    items: list.ids.map((id) => byId.get(id)).filter(Boolean) as SetListItem[],
+    items: list.slugs.map((slug) => byId.get(slug)).filter(Boolean) as SetListItem[],
   })).filter((list) => list.items.length > 0);
 
   if (lists.length === 0) return null;

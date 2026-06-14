@@ -9,11 +9,11 @@ type Props = {
 };
 
 export default function ComedianPlaylists({ comedians, limit }: Props) {
-  const byId = new Map(comedians.map((c) => [c.id, c]));
+  const bySlug = new Map(comedians.map((c) => [c.slug, c]));
 
   const lists = COMEDIAN_LISTS.map((list) => ({
     ...list,
-    items: list.ids.map((id) => byId.get(id)).filter(Boolean) as Comedian[],
+    items: list.slugs.map((slug) => bySlug.get(slug)).filter(Boolean) as Comedian[],
   }))
     .filter((list) => list.items.length > 0)
     .slice(0, limit);

@@ -9,14 +9,11 @@ type Props = {
 };
 
 export default function VideoPlaylists({ episodes, limit }: Props) {
-  const byId = new Map(episodes.map((ep) => [ep.id, ep]));
-  const byNumber = new Map(episodes.map((ep) => [ep.number, ep]));
+  const byNumber = new Map(episodes.map((ep) => [String(ep.number), ep]));
 
   const lists = EPISODE_LISTS.map((list) => ({
     ...list,
-    items: list.ids
-      .map((id) => (list.matchBy === "number" ? byNumber : byId).get(id))
-      .filter(Boolean) as Video[],
+    items: list.slugs.map((slug) => byNumber.get(slug)).filter(Boolean) as Video[],
   }))
     .filter((list) => list.items.length > 0)
     .slice(0, limit);
