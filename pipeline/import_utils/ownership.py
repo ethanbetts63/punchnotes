@@ -30,7 +30,6 @@ def infer_line_ownership(lines_data: list) -> dict[int, tuple[int | None, int | 
 
         if label == "tag" and previous_payoff is not None:
             ownership[line_number] = previous_payoff
-            previous_payoff = previous_payoff
 
     bit_spans: dict[int, list[int]] = defaultdict(list)
     beat_spans: dict[tuple[int, int], list[int]] = defaultdict(list)

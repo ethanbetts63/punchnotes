@@ -126,12 +126,6 @@ class Command(BaseCommand):
         parser.add_argument("--end-line", required=True, type=int, help="Last source line number to include")
         parser.add_argument("--comedian-name", required=True, help="Comedian name for metadata and filename")
         parser.add_argument(
-            "--set-number",
-            required=False,
-            type=int,
-            help="Deprecated; import derives set order from start_seconds.",
-        )
-        parser.add_argument(
             "--omit-lines",
             default="",
             help="Comma-separated source line numbers to omit from the extracted set",

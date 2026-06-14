@@ -100,12 +100,10 @@ export type ComedianAttribute =
   | "old"
   | "young"
   | "middle-age";
-export type ComedianAttributeValue = ComedianAttribute;
-
 export type SetInEpisode = {
   id: number;
   set_number: number;
-  comedian: { id: number; name: string; slug: string; attributes: ComedianAttributeValue[]; image_url: string | null };
+  comedian: { id: number; name: string; slug: string; attributes: ComedianAttribute[]; image_url: string | null };
   attributes: string[];
   bit_count: number;
   start_seconds: number;
@@ -137,7 +135,7 @@ export type Comedian = {
   id: number;
   name: string;
   slug: string;
-  attributes: ComedianAttributeValue[];
+  attributes: ComedianAttribute[];
   image_url: string | null;
   set_count: number;
   appearances: number;
@@ -197,7 +195,7 @@ export type SetListComedian = {
   id: number;
   name: string;
   slug: string;
-  attributes: ComedianAttributeValue[];
+  attributes: ComedianAttribute[];
   image_url: string | null;
   avg_bits_per_set: number | null;
   avg_beats_per_set: number | null;
@@ -212,7 +210,7 @@ export type SetComedian = {
   id: number;
   name: string;
   slug: string;
-  attributes: ComedianAttributeValue[];
+  attributes: ComedianAttribute[];
   image_url: string | null;
   set_count: number;
   appearances: number;
