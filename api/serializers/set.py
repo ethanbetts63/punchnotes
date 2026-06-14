@@ -63,7 +63,7 @@ class SetDetailSerializer(serializers.ModelSerializer):
     def get_bits(self, set_obj):
         lines = list(set_obj.lines.all())
         context = {**self.context, "set_lines": lines}
-        return BitSerializer(set_obj.bits.prefetch_related("beats"), many=True, context=context).data
+        return BitSerializer(set_obj.bits.all(), many=True, context=context).data
 
 
 class SetListSerializer(serializers.ModelSerializer):

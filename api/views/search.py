@@ -1,6 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from api.beat_utils import describe_beat_lines
 from .querysets import (
     build_beat_search_queryset,
     build_comedian_list_queryset,
@@ -150,16 +151,17 @@ class NavSearchView(APIView):
         rows = build_beat_search_queryset({"q": query})
         beat_results = []
         for beat in rows[:GROUP_LIMIT]:
-            match = self.first_matching_line(beat, query)
-            punchline = self.first_punchline(beat)
-            title = match["text"] if match else punchline or f"{beat.joke_type} beat"
+            beat_data = describe_beat_lines(beat, query=query)
+            match = beat_data["matched_line"]
+            punchline = beat_data["punchline"]
+            title = match.text if match else punchline or f"{beat.joke_type} beat"
             meta = []
             if match:
-                meta.append(match["label"])
+                meta.append(match.label)
             if beat.joke_type:
                 meta.append(beat.joke_type)
-            score = text_score(query, match["text"] if match else "", punchline)
-            if match and match["label"] == "punchline":
+            score = text_score(query, match.text if match else "", punchline)
+            if match and match.label == "punchline":
                 score += 5
             beat_results.append(result(
                 "beat",
@@ -168,23 +170,6 @@ class NavSearchView(APIView):
                 f"/killtony/sets/{beat.bit.set.id}",
                 meta,
                 score,
-                matched_line_label=match["label"] if match else None,
+                matched_line_label=match.label if match else None,
             ))
         return sorted(beat_results, key=lambda item: item["score"], reverse=True)[:GROUP_LIMIT]
-
-    def first_punchline(self, beat):
-        for line in beat.bit.set.lines.all():
-            if (
-                line.label == "punchline"
-                and beat.line_start <= line.line_number <= beat.line_end
-            ):
-                return line.text
-        return ""
-
-    def first_matching_line(self, beat, query):
-        query_lower = query.lower()
-        for line in beat.bit.set.lines.all():
-            if beat.line_start <= line.line_number <= beat.line_end and line.label in {"setup", "punchline", "tag"}:
-                if query_lower in line.text.lower():
-                    return {"text": line.text, "label": line.label}
-        return None

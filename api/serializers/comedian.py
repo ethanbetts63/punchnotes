@@ -29,17 +29,8 @@ class ComedianListSerializer(serializers.ModelSerializer):
         ]
 
 
-class ComedianDetailSerializer(serializers.ModelSerializer):
+class ComedianDetailSerializer(ComedianListSerializer):
     sets = SetInComedianSerializer(many=True)
 
-    class Meta:
-        model = Comedian
-        fields = [
-            "id", "name", "slug", "attributes",
-            "image_url",
-            "set_count",
-            "avg_hit_ratio", "avg_punchline_tag_ratio",
-            "avg_bits_per_set", "avg_beats_per_set",
-            "has_small_joke_book", "has_medium_joke_book", "has_large_joke_book",
-            "sets",
-        ]
+    class Meta(ComedianListSerializer.Meta):
+        fields = ComedianListSerializer.Meta.fields + ["sets"]

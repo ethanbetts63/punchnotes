@@ -20,13 +20,11 @@ class BitListSerializer(serializers.ModelSerializer):
         ]
 
     def get_joke_types(self, bit):
-        return list(
-            bit.beats
-            .filter(joke_type__isnull=False)
-            .exclude(joke_type="")
-            .values_list("joke_type", flat=True)
-            .distinct()
-        )
+        return sorted({
+            beat.joke_type
+            for beat in bit.beats.all()
+            if beat.joke_type
+        })
 
     def get_beats_summary(self, bit):
         return [

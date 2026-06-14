@@ -1,5 +1,6 @@
 from django.db.models import Exists, F, OuterRef, Prefetch, Q
 
+from api.beat_utils import SEARCHABLE_BEAT_LINE_LABELS
 from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
 
 
@@ -34,9 +35,6 @@ BIT_SORT_FIELDS = {
     "hit_ratio": "hit_ratio",
     "punchline_tag_ratio": "punchline_tag_ratio",
 }
-
-SEARCHABLE_BEAT_LINE_LABELS = ("setup", "punchline", "tag")
-
 
 def build_comedian_list_queryset(params):
     comedians = Comedian.objects.all()

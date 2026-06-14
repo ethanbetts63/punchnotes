@@ -1,21 +1,19 @@
-from django.shortcuts import get_object_or_404
-from rest_framework.response import Response
-from rest_framework.views import APIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 
 from api.serializers import ComedianDetailSerializer, ComedianListSerializer
 from .querysets import build_comedian_detail_queryset, build_comedian_list_queryset
 
 
-class ComedianListView(APIView):
-    def get(self, request):
-        comedians = build_comedian_list_queryset(request.query_params)
-        return Response(ComedianListSerializer(comedians, many=True).data)
+class ComedianListView(ListAPIView):
+    serializer_class = ComedianListSerializer
+
+    def get_queryset(self):
+        return build_comedian_list_queryset(self.request.query_params)
 
 
-class ComedianDetailView(APIView):
-    def get(self, request, slug):
-        comedian = get_object_or_404(
-            build_comedian_detail_queryset(),
-            slug=slug,
-        )
-        return Response(ComedianDetailSerializer(comedian).data)
+class ComedianDetailView(RetrieveAPIView):
+    serializer_class = ComedianDetailSerializer
+    lookup_field = "slug"
+
+    def get_queryset(self):
+        return build_comedian_detail_queryset()

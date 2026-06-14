@@ -1,39 +1,7 @@
 from rest_framework import serializers
 
 from pipeline.models import Beat
-
-
-SEARCHABLE_BEAT_LINE_LABELS = {"setup", "punchline", "tag"}
-
-
-def beat_lines(beat):
-    return [
-        line
-        for line in beat.bit.set.lines.all()
-        if beat.line_start <= line.line_number <= beat.line_end
-    ]
-
-
-def setup_lines_for_beat(beat):
-    return [line.text for line in beat_lines(beat) if line.label == "setup"]
-
-
-def punchline_text_for_beat(beat):
-    for line in beat_lines(beat):
-        if line.label == "punchline":
-            return line.text
-    return ""
-
-
-def matching_line_for_beat(beat, query):
-    if not query:
-        return None
-
-    query_lower = query.lower()
-    for line in beat_lines(beat):
-        if line.label in SEARCHABLE_BEAT_LINE_LABELS and query_lower in line.text.lower():
-            return line
-    return None
+from api.beat_utils import describe_beat_lines
 
 
 class BeatSearchSerializer(serializers.ModelSerializer):
@@ -54,16 +22,25 @@ class BeatSearchSerializer(serializers.ModelSerializer):
             "matched_line", "matched_line_label",
         ]
 
+    def _beat_data(self, beat):
+        cache = self.context.setdefault("beat_line_data", {})
+        if beat.id not in cache:
+            cache[beat.id] = describe_beat_lines(
+                beat,
+                query=self.context.get("query", ""),
+            )
+        return cache[beat.id]
+
     def get_setup_lines(self, beat):
-        return setup_lines_for_beat(beat)
+        return self._beat_data(beat)["setup_lines"]
 
     def get_punchline(self, beat):
-        return punchline_text_for_beat(beat)
+        return self._beat_data(beat)["punchline"]
 
     def get_matched_line(self, beat):
-        line = matching_line_for_beat(beat, self.context.get("query", ""))
+        line = self._beat_data(beat)["matched_line"]
         return line.text if line else ""
 
     def get_matched_line_label(self, beat):
-        line = matching_line_for_beat(beat, self.context.get("query", ""))
+        line = self._beat_data(beat)["matched_line"]
         return line.label if line else ""

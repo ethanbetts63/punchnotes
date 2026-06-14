@@ -23,7 +23,7 @@ class VideoListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Video
         fields = [
-            "id", "number", "title", "date", "youtube_id", "guests", "set_count",
+            "id", "number", "title", "url", "date", "youtube_id", "guests", "set_count",
             "duration_seconds",
             "bucket_pull_count", "golden_ticket_count",
             "regular_count", "large_joke_book_count",
@@ -31,21 +31,11 @@ class VideoListSerializer(serializers.ModelSerializer):
         ]
 
 
-class VideoDetailSerializer(serializers.ModelSerializer):
-    youtube_id = serializers.CharField(source="video_id")
-    guests = serializers.SlugRelatedField(many=True, read_only=True, slug_field="name")
+class VideoDetailSerializer(VideoListSerializer):
     sets = serializers.SerializerMethodField()
 
-    class Meta:
-        model = Video
-        fields = [
-            "id", "number", "title", "url", "youtube_id", "date", "guests",
-            "duration_seconds",
-            "bucket_pull_count", "golden_ticket_count",
-            "regular_count", "large_joke_book_count",
-            "view_count", "like_count", "comment_count",
-            "sets",
-        ]
+    class Meta(VideoListSerializer.Meta):
+        fields = VideoListSerializer.Meta.fields + ["sets"]
 
     def get_sets(self, video):
         return SetInVideoSerializer(video.sets.all(), many=True).data
