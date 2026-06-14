@@ -114,9 +114,9 @@ def refresh_set_ratios(set_obj: Set) -> None:
     )
     p, t, s, f = counts['punchlines'], counts['tags'], counts['setups'], counts['fluffs']
     denominator = s + f
-    set_obj.hit_ratio = (p + t) / denominator if denominator > 0 else None
+    set_obj.punch_density = (p + t) / denominator if denominator > 0 else None
     set_obj.tag_density = t / p if p > 0 else None
-    set_obj.save(update_fields=['hit_ratio', 'tag_density'])
+    set_obj.save(update_fields=['punch_density', 'tag_density'])
 
 
 def refresh_comedian_stats(comedian: Comedian) -> None:
@@ -125,14 +125,14 @@ def refresh_comedian_stats(comedian: Comedian) -> None:
         n_beats=Count('bits__beats', distinct=True),
     )
     agg = sets.aggregate(
-        avg_hit=Avg('hit_ratio'),
+        avg_punch_density=Avg('punch_density'),
         avg_tag_density=Avg('tag_density'),
         avg_bits=Avg('n_bits'),
         avg_beats=Avg('n_beats'),
     )
     comedian.set_count = comedian.sets.values('video_id').distinct().count()
     comedian.joke_count = Bit.objects.filter(set__comedian=comedian).count()
-    comedian.avg_hit_ratio = agg['avg_hit']
+    comedian.avg_punch_density = agg['avg_punch_density']
     comedian.avg_tag_density = agg['avg_tag_density']
     comedian.avg_bits_per_set = agg['avg_bits']
     comedian.avg_beats_per_set = agg['avg_beats']
@@ -140,7 +140,7 @@ def refresh_comedian_stats(comedian: Comedian) -> None:
     comedian.has_medium_joke_book = sets.filter(attributes__contains=['medium_joke_book']).exists()
     comedian.has_large_joke_book = sets.filter(attributes__contains=['large_joke_book']).exists()
     comedian.save(update_fields=[
-        'set_count', 'joke_count', 'avg_hit_ratio', 'avg_tag_density',
+        'set_count', 'joke_count', 'avg_punch_density', 'avg_tag_density',
         'avg_bits_per_set', 'avg_beats_per_set',
         'has_small_joke_book', 'has_medium_joke_book', 'has_large_joke_book',
     ])
@@ -190,9 +190,9 @@ def _bit_ratios(lines_data: list, line_numbers: set) -> tuple[float | None, floa
             counts[line["label"]] = counts.get(line["label"], 0) + 1
     p, t, s, f = counts["punchline"], counts["tag"], counts["setup"], counts["fluff"]
     denominator = s + f
-    hit_ratio = (p + t) / denominator if denominator > 0 else None
+    punch_density = (p + t) / denominator if denominator > 0 else None
     tag_density = t / p if p > 0 else None
-    return hit_ratio, tag_density
+    return punch_density, tag_density
 
 
 _infer_line_ownership = infer_line_ownership
@@ -235,14 +235,14 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
         lns = bit_lines.get(bit_num, [])
         if not lns:
             continue
-        hit_ratio, tag_density = _bit_ratios(lines_data, set(lns))
+        punch_density, tag_density = _bit_ratios(lines_data, set(lns))
         bit = Bit.objects.create(
             set=set_obj,
             bit_id=f"bit_{bit_num:03d}",
             summary=bit_data.get("summary"),
             line_start=min(lns),
             line_end=max(lns),
-            hit_ratio=hit_ratio,
+            punch_density=punch_density,
             tag_density=tag_density,
         )
         for beat_num_str, beat_data in bit_data.get("beats", {}).items():

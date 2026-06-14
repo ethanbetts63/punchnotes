@@ -12,7 +12,7 @@ class ComedianForSetSerializer(serializers.ModelSerializer):
             "image_url",
             "set_count",
             "avg_bits_per_set", "avg_beats_per_set",
-            "avg_hit_ratio", "avg_tag_density",
+            "avg_punch_density", "avg_tag_density",
             "has_small_joke_book", "has_medium_joke_book", "has_large_joke_book",
         ]
 
@@ -56,7 +56,7 @@ class SetDetailSerializer(serializers.ModelSerializer):
             "id", "set_number", "comedian", "video",
             "attributes", "start_seconds",
             "image_url", "image_capture_seconds",
-            "hit_ratio", "tag_density",
+            "punch_density", "tag_density",
             "bits",
         ]
 
@@ -76,5 +76,5 @@ class SetListSerializer(serializers.ModelSerializer):
             "id", "set_number", "comedian", "video",
             "attributes", "start_seconds", "interview_end_seconds",
             "image_url", "image_capture_seconds",
-            "hit_ratio", "tag_density", "bit_count",
+            "punch_density", "tag_density", "bit_count",
         ]

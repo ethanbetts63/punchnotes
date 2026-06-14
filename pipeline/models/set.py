@@ -25,7 +25,7 @@ class Set(models.Model):
 
     # Computed from lines and bits after import
     bit_count = models.PositiveSmallIntegerField(default=0)
-    hit_ratio = models.FloatField(null=True, blank=True)
+    punch_density = models.FloatField(null=True, blank=True)
     tag_density = models.FloatField(null=True, blank=True)
 
     class Meta:

@@ -5,11 +5,11 @@ from .models import Comedian, Video, Set, Line, Bit, Beat
 
 @admin.register(Comedian)
 class ComedianAdmin(admin.ModelAdmin):
-    list_display = ('name', 'slug', 'joke_count', 'avg_hit_ratio', 'has_small_joke_book', 'has_medium_joke_book', 'has_large_joke_book')
+    list_display = ('name', 'slug', 'joke_count', 'avg_punch_density', 'has_small_joke_book', 'has_medium_joke_book', 'has_large_joke_book')
     list_filter = ('has_small_joke_book', 'has_medium_joke_book', 'has_large_joke_book')
     search_fields = ('name', 'slug')
     prepopulated_fields = {'slug': ('name',)}
-    readonly_fields = ('joke_count', 'avg_hit_ratio', 'avg_tag_density', 'avg_bits_per_set', 'avg_beats_per_set')
+    readonly_fields = ('joke_count', 'avg_punch_density', 'avg_tag_density', 'avg_bits_per_set', 'avg_beats_per_set')
 
 
 @admin.register(Video)
@@ -23,9 +23,9 @@ class VideoAdmin(admin.ModelAdmin):
 
 @admin.register(Set)
 class SetAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'video', 'comedian', 'set_number', 'attributes', 'hit_ratio', 'tag_density')
+    list_display = ('__str__', 'video', 'comedian', 'set_number', 'attributes', 'punch_density', 'tag_density')
     search_fields = ('comedian__name', 'video__title')
-    readonly_fields = ('hit_ratio', 'tag_density')
+    readonly_fields = ('punch_density', 'tag_density')
     raw_id_fields = ('video', 'comedian')
 
 

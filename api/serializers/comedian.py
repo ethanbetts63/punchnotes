@@ -11,7 +11,7 @@ class SetInComedianSerializer(serializers.ModelSerializer):
         model = Set
         fields = [
             "id", "set_number", "video", "attributes",
-            "hit_ratio", "tag_density",
+            "punch_density", "tag_density",
             "image_url", "image_capture_seconds",
         ]
 
@@ -24,7 +24,7 @@ class ComedianListSerializer(serializers.ModelSerializer):
             "image_url",
             "set_count",
             "has_small_joke_book", "has_medium_joke_book", "has_large_joke_book",
-            "avg_hit_ratio", "avg_tag_density",
+            "avg_punch_density", "avg_tag_density",
             "avg_bits_per_set", "avg_beats_per_set",
         ]
 

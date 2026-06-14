@@ -9,7 +9,7 @@ class Bit(models.Model):
     line_end = models.PositiveSmallIntegerField()
 
     # Computed from lines in this bit's range after import
-    hit_ratio = models.FloatField(null=True, blank=True)
+    punch_density = models.FloatField(null=True, blank=True)
     tag_density = models.FloatField(null=True, blank=True)
 
     class Meta:
