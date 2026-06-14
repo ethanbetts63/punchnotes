@@ -10,6 +10,10 @@ class SearchConsistencyTests(TestCase):
             slug="casey-rocket",
             set_count=1,
         )
+        self.no_set_comedian = Comedian.objects.create(
+            name="Casey No Sets",
+            slug="casey-no-sets",
+        )
         self.video = Video.objects.create(
             video_id="abc123xyz01",
             number=700,
@@ -79,6 +83,14 @@ class SearchConsistencyTests(TestCase):
         global_names = [item["title"] for item in global_response.json()["comedians"]]
         comedian_names = [item["name"] for item in comedian_response.json()]
         self.assertEqual(global_names, comedian_names)
+        self.assertEqual(global_names, ["Casey Rocket"])
+
+    def test_comedian_endpoint_excludes_comedians_without_sets(self):
+        response = self.client.get("/api/killtony/comedians/", {"q": "casey"})
+
+        self.assertEqual(response.status_code, 200)
+        names = [item["name"] for item in response.json()]
+        self.assertEqual(names, ["Casey Rocket"])
 
     def test_beat_search_ignores_fluff_lines(self):
         response = self.client.get("/api/killtony/search/", {"q": "ignored"})

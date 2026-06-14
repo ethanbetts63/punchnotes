@@ -14,7 +14,7 @@ export default async function SetsBrowsePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <Suspense>
           <ListPageHeader
             title="Sets"
@@ -27,6 +27,9 @@ export default async function SetsBrowsePage() {
 
       {sets && (
         <div className="mx-auto max-w-6xl pb-12">
+          <h2 className="mb-6 px-6 text-2xl font-bold tracking-tight text-stone-950">
+            Set playlists
+          </h2>
           <SetPlaylists sets={sets} />
         </div>
       )}

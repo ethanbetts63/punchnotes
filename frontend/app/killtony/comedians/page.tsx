@@ -14,7 +14,7 @@ export default async function ComediansBrowsePage() {
 
   return (
     <div className="bg-white min-h-screen">
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <Suspense>
           <ListPageHeader
             title="Comedians"
@@ -27,6 +27,9 @@ export default async function ComediansBrowsePage() {
 
       {comedians && (
         <div className="mx-auto max-w-6xl pb-12">
+          <h2 className="mb-6 px-6 text-2xl font-bold tracking-tight text-stone-950">
+            Comic lists
+          </h2>
           <ComedianPlaylists comedians={comedians} />
         </div>
       )}

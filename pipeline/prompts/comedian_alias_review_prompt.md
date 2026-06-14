@@ -20,8 +20,6 @@ Do not edit any files in:
 C:\Users\ethan\coding\punchnotes\pipeline\data\bit_annotated_set_archive
 ```
 
-The archive is intentionally raw source data. Name cleanup happens through the relationship file so mistakes can be undone by editing that file and re-importing.
-
 ---
 
 ## Task

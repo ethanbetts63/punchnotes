@@ -3,6 +3,7 @@ import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 export type FilterOption = {
   value: string;
   label: string;
+  param?: string;
 };
 
 export type FilterGroupConfig = {
@@ -28,22 +29,16 @@ export const SET_SEARCH_CONFIG: SearchConfig = {
   pageSize: 20,
   filters: [
     {
-      title: "Attribute",
+      title: "Filter",
       param: "attribute",
       options: [
         { value: "bucket_pull",    label: "Bucket Pull" },
         { value: "regular",        label: "Regular" },
         { value: "golden_ticket",  label: "Golden Ticket" },
         { value: "special",        label: "Special" },
-      ],
-    },
-    {
-      title: "Joke Book",
-      param: "joke_book",
-      options: [
-        { value: "small",  label: "Small Joke Book" },
-        { value: "medium", label: "Medium Joke Book" },
-        { value: "large",  label: "Large Joke Book" },
+        { value: "small",  label: "Small Joke Book", param: "joke_book" },
+        { value: "medium", label: "Medium Joke Book", param: "joke_book" },
+        { value: "large",  label: "Large Joke Book", param: "joke_book" },
       ],
     },
   ],

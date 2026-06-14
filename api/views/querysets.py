@@ -37,7 +37,9 @@ BIT_SORT_FIELDS = {
 }
 
 def build_comedian_list_queryset(params):
-    comedians = Comedian.objects.all()
+    comedians = Comedian.objects.annotate(
+        has_sets=Exists(Set.objects.filter(comedian_id=OuterRef("pk")))
+    ).filter(has_sets=True)
 
     q = (params.get("q") or "").strip()
     if q:
