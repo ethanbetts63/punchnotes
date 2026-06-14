@@ -1,7 +1,7 @@
 from django.test import SimpleTestCase
 
 from pipeline.import_utils.records import _infer_line_ownership
-from pipeline.import_utils.validation import validate_bit_meta
+from pipeline.json_validation import validate_bit_meta
 
 
 def valid_meta_with_line(line):

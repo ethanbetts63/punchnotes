@@ -9,7 +9,7 @@ from django.db import transaction
 
 from pipeline.models import Comedian
 from pipeline.import_utils.comedian_aliases import canonicalize_comedian_name, load_relationships
-from pipeline.import_utils.validation import validate_bit_meta
+from pipeline.json_validation import validate_bit_meta
 from pipeline.import_utils.records import (
     import_bits,
     import_lines,
