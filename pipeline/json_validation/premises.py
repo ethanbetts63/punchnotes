@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from .ownership import infer_line_ownership
+from ..import_utils.ownership import infer_line_ownership
 
 
 def infer_single_line_punchline_premises(lines_data: list) -> dict[tuple[int, int], str]:

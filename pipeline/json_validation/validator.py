@@ -6,7 +6,7 @@ It raises one ValueError containing all discovered issues so annotators get
 precise feedback in a single import attempt.
 """
 
-from pipeline.import_utils.premises import populate_single_line_punchline_premises
+from pipeline.json_validation.premises import populate_single_line_punchline_premises
 
 from .beats import BeatMetaValidation
 from .lines import LineValidation
