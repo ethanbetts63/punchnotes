@@ -227,6 +227,8 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
 
 **Do not read multiple files before writing. Complete all steps for one file before opening the next.**
 
+**Do not read any source code, management commands, or utility files.** The upload command and its behavior are fully described here — no further exploration needed.
+
 1. Process only the files you were given.
 2. For each file, in order:
    a. Read that one file.
