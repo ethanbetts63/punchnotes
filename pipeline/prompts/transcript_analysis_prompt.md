@@ -1,8 +1,8 @@
 # Kill Tony Set Boundary Prompt
 
-You are finding stand-up **set boundaries** in one *Kill Tony* transcript inbox file. Inbox files may be full transcripts or music-cue windows generated from a full transcript.
+You are finding stand-up **set boundaries** in *Kill Tony* transcript inbox files. Inbox files may be full transcripts or music-cue windows generated from a full transcript.
 
-Only process the first JSON file in `C:\Users\ethan\coding\punchnotes\pipeline\data\1_transcript_inbox\`. Do not process multiple inbox files in one run.
+You will be given an explicit list of files to process. Process only those files — do not list the inbox directory or process any files outside your list.
 
 Each transcript line has a stable `line_number`. Use those original line numbers as the source of truth.
 
@@ -12,7 +12,7 @@ Music-window inbox files intentionally overlap: a window starts 25 lines before 
 
 ## Your task
 
-Read the current inbox file and identify each comedian's ~1-minute stand-up set. For each set, run the extraction command immediately:
+For each file in your list: read the full file content sequentially from start to finish. Do not grep or search for keywords — read the whole transcript and reason over the full context to identify set boundaries. Identify each comedian's ~1-minute stand-up set. For each set, run the extraction command immediately:
 
 ```powershell
 python manage.py extract_set --transcript <path> --start-line <N> --end-line <N> --comedian-name "<Name>" --interview-end-line <N> --joke-book <small|medium|large|null> --comedian-attributes "<attributes>"
@@ -143,3 +143,4 @@ For every extracted set, pass `--interview-end-line` as the last transcript line
 - Sets are monologues. Back-and-forth short-answer dialogue is usually interview, not set.
 - Prefer Tony's introduced spelling for `--comedian-name`.
 - Use `bucket_pull`, `regular`, `golden_ticket`, or `special` in `--comedian-attributes`.
+- Do not read any source code, test files, or management commands. The extract_set command signature above is the full contract — no further exploration needed.

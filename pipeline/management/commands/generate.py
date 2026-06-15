@@ -50,8 +50,8 @@ class Command(BaseCommand):
             generate_audio({**options, "retry_failures": True}, log)
 
         elif options["transcripts"]:
-            from django.core.management import call_command
-            call_command("generate_transcripts")
+            from pipeline.generate.transcripts import generate_transcripts
+            generate_transcripts(options, log)
 
         elif options["comedian_aliases"]:
             from pipeline.generate.comedian_aliases import generate_comedian_aliases
