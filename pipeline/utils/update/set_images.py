@@ -4,7 +4,7 @@ from pathlib import Path
 from django.conf import settings
 from django.db import transaction
 
-from pipeline.update.records import refresh_comedian_image
+from pipeline.utils.update.records import refresh_comedian_image
 from pipeline.utils.set_images import parse_image_name, public_image_url
 from pipeline.log import Log
 from pipeline.models import Set

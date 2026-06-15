@@ -5,7 +5,7 @@ import yt_dlp
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from pipeline.generate.audio import episode_filename, find_audio, ydl_options
+from pipeline.utils.generate.audio import episode_filename, find_audio, ydl_options
 from pipeline.models import Video
 
 

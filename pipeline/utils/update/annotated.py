@@ -1,7 +1,7 @@
 from django.db import transaction
 
 from pipeline.utils.comedian_aliases import canonicalize_comedian_name, load_relationships
-from pipeline.update.records import (
+from pipeline.utils.update.records import (
     import_bits,
     import_lines,
     refresh_episode_counts,

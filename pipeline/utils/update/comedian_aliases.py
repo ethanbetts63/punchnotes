@@ -9,7 +9,7 @@ from pipeline.utils.comedian_aliases import (
     relationships_path,
     validate_relationships,
 )
-from pipeline.update.records import merge_attributes, refresh_comedian_image, refresh_comedian_stats
+from pipeline.utils.update.records import merge_attributes, refresh_comedian_image, refresh_comedian_stats
 from pipeline.log import Log
 from pipeline.models import Comedian, Set
 

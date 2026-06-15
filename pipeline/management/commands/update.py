@@ -17,17 +17,17 @@ class Command(BaseCommand):
         log = Log(self.stdout, self.style)
 
         if options["ep_meta"]:
-            from pipeline.update.ep_meta import run_update_ep_meta
+            from pipeline.utils.update.ep_meta import run_update_ep_meta
             run_update_ep_meta(log)
 
         elif options["comedian_aliases"]:
-            from pipeline.update.comedian_aliases import run_update_comedian_aliases
+            from pipeline.utils.update.comedian_aliases import run_update_comedian_aliases
             run_update_comedian_aliases(log)
 
         elif options["set_images"]:
-            from pipeline.update.set_images import run_update_set_images
+            from pipeline.utils.update.set_images import run_update_set_images
             run_update_set_images(log)
 
         elif options["embeddings"]:
-            from pipeline.update.embeddings import run_update_embeddings
+            from pipeline.utils.update.embeddings import run_update_embeddings
             run_update_embeddings(log)

@@ -1,7 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.test import SimpleTestCase, TestCase
 
-from pipeline.update.records import _bit_ratios, merge_attributes, upsert_comedian, upsert_episode, upsert_set
+from pipeline.utils.update.records import _bit_ratios, merge_attributes, upsert_comedian, upsert_episode, upsert_set
 from pipeline.models import Comedian, Line, Set, Video
 from pipeline.models.comedian import validate_attributes
 
@@ -178,7 +178,7 @@ class RatioCalculationTests(TestCase):
         self.assertEqual(tag_density, 0.5)
 
     def test_set_ratio_stores_tag_density(self):
-        from pipeline.update.records import refresh_set_ratios
+        from pipeline.utils.update.records import refresh_set_ratios
 
         comedian = Comedian.objects.create(name="Test Comic", slug="test-comic")
         video = Video.objects.create(video_id="abc123xyz01", title="KT #1", url="https://example.com")
