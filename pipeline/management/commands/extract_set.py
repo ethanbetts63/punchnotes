@@ -8,6 +8,17 @@ from pipeline.utils.comedian_aliases import canonicalize_comedian_name
 from pipeline.models.comedian import ATTRIBUTE_VALUES
 
 
+_FILENAME_INVALID_CHARS = str.maketrans({c: "-" for c in r'\/:*?"<>|'})
+
+
+def set_filename(episode_title: str, comedian_name: str, start_seconds: int | None = None) -> str:
+    title = episode_title.translate(_FILENAME_INVALID_CHARS).strip()
+    name = comedian_name.translate(_FILENAME_INVALID_CHARS).strip()
+    if start_seconds is not None:
+        return f"{title} - {name} ({start_seconds}s).json"
+    return f"{title} - {name}.json"
+
+
 WHISPER_ANNOTATION_RE = re.compile(
     r"^\s*(\[[\s\S]*?\]|\([\s\S]*?\))(\s*(\[[\s\S]*?\]|\([\s\S]*?\)))*\s*$"
 )
@@ -199,10 +210,13 @@ class Command(BaseCommand):
         video_id = transcript["video_id"]
         canonical_comedian = canonicalize_comedian_name(options["comedian_name"])
         comedian_name = canonical_comedian.name
-        output_name = f"{video_id}_line{start_line:05d}_{canonical_comedian.slug}.json"
         output_dir = settings.PIPELINE_DATA_DIR / "2_set_inbox"
         output_dir.mkdir(parents=True, exist_ok=True)
+        output_name = set_filename(transcript["episode_title"], comedian_name)
         output_path = output_dir / output_name
+        if output_path.exists():
+            output_name = set_filename(transcript["episode_title"], comedian_name, selected_lines[0]["start"])
+            output_path = output_dir / output_name
 
         joke_book_attr = resolve_joke_book_attribute(options["joke_book"])
         set_doc = {
