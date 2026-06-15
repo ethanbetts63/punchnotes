@@ -61,3 +61,35 @@ def test_beat_endpoint_returns_matched_line(client, search_data):
     assert payload[0]["id"] == search_data["beat"].id
     assert payload[0]["matched_line"] == "hello there"
     assert payload[0]["matched_line_label"] == "setup"
+
+
+# --- NavSearchView ---
+
+def test_nav_search_empty_query_returns_empty_structure(client):
+    resp = client.get("/api/killtony/search/")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["query"] == ""
+    assert data["top_result"] is None
+    assert data["comedians"] == []
+    assert data["episodes"] == []
+    assert data["beats"] == []
+
+
+def test_nav_search_returns_all_buckets(client, search_data):
+    resp = client.get("/api/killtony/search/", {"q": "casey"})
+    assert resp.status_code == 200
+    data = resp.json()
+    assert "comedians" in data
+    assert "episodes" in data
+    assert "sets" in data
+    assert "beats" in data
+
+
+def test_nav_search_top_result_is_highest_scoring(client, search_data):
+    resp = client.get("/api/killtony/search/", {"q": "casey"})
+    data = resp.json()
+    top = data["top_result"]
+    assert top is not None
+    all_results = data["comedians"] + data["episodes"] + data["sets"] + data["beats"]
+    assert top["score"] == max(r["score"] for r in all_results)
