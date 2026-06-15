@@ -98,8 +98,11 @@ class EpMetaView(PipelineView):
 
 
 class VideoScrapeQueueView(PipelineView):
-    _TO_SCRAPE_PATH = settings.PIPELINE_DATA_DIR / "videos_to_scrape.jsonl"
-    _HISTORY_PATH = settings.PIPELINE_DATA_DIR / "video_scrape_history.jsonl"
+    def _to_scrape_path(self):
+        return settings.PIPELINE_DATA_DIR / "videos_to_scrape.jsonl"
+
+    def _history_path(self):
+        return settings.PIPELINE_DATA_DIR / "video_scrape_history.jsonl"
 
     def _read_jsonl(self, path):
         if not path.exists():
@@ -118,12 +121,12 @@ class VideoScrapeQueueView(PipelineView):
     def get(self, request):
         from pipeline.models import Video
 
-        to_scrape = self._read_jsonl(self._TO_SCRAPE_PATH)
+        to_scrape = self._read_jsonl(self._to_scrape_path())
         if not to_scrape:
             return Response({"videos": []})
 
         known = set(Video.objects.values_list("video_id", flat=True))
-        for record in self._read_jsonl(self._HISTORY_PATH):
+        for record in self._read_jsonl(self._history_path()):
             vid = record.get("video_id")
             if vid:
                 known.add(vid)
@@ -131,7 +134,7 @@ class VideoScrapeQueueView(PipelineView):
         remaining = [r for r in to_scrape if r.get("video_id") not in known]
 
         if len(remaining) < len(to_scrape):
-            self._TO_SCRAPE_PATH.write_text(
+            self._to_scrape_path().write_text(
                 "".join(json.dumps(r, ensure_ascii=False, separators=(",", ":")) + "\n" for r in remaining),
                 encoding="utf-8",
             )
@@ -140,7 +143,8 @@ class VideoScrapeQueueView(PipelineView):
 
 
 class VideoScrapeResultView(PipelineView):
-    _HISTORY_PATH = settings.PIPELINE_DATA_DIR / "video_scrape_history.jsonl"
+    def _history_path(self):
+        return settings.PIPELINE_DATA_DIR / "video_scrape_history.jsonl"
 
     def post(self, request):
         video_id = request.data.get("video_id")
@@ -156,7 +160,7 @@ class VideoScrapeResultView(PipelineView):
         if request.data.get("error"):
             record["error"] = request.data["error"]
 
-        with self._HISTORY_PATH.open("a", encoding="utf-8") as f:
+        with self._history_path().open("a", encoding="utf-8") as f:
             f.write(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n")
 
         return Response({"status": "ok"})
