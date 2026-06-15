@@ -21,3 +21,16 @@ db.sqlite3
 /pipeline/data/set_images_archive/
 /pipeline/data/joke_similarity_report.json
 /pipeline/data/combo_similarity_report.json
+
+# Server-side pipeline data (not committed)
+/pipeline/data/audio_fetch_history.jsonl
+/pipeline/data/ep_meta_inbox/
+/pipeline/data/ep_meta_archive/
+/pipeline/data/ep_meta_outbox/
+/pipeline/data/set_images_inbox/
+/pipeline/data/set_images_outbox/
+/pipeline/data/embeddings_inbox/
+/pipeline/data/embeddings_outbox/
+/pipeline/data/embeddings_archive/
+/pipeline/data/comedian_aliases_inbox/
+/pipeline/data/comedian_aliases_outbox/

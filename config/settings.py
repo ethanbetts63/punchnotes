@@ -79,6 +79,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
+PIPELINE_API_KEY = os.environ.get("PIPELINE_API_KEY", "")
+SERVER_BASE_URL = os.environ.get("SERVER_BASE_URL", "http://localhost:8000")
+
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True

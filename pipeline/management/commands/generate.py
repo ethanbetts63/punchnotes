@@ -1,0 +1,56 @@
+from django.core.management.base import BaseCommand
+
+
+class Command(BaseCommand):
+    help = "Generate pipeline data locally (audio, transcripts, ep metadata, set images, embeddings, comedian aliases)"
+
+    def add_arguments(self, parser):
+        group = parser.add_mutually_exclusive_group(required=True)
+        group.add_argument("--ep_meta", action="store_true", help="Scrape episode metadata to ep_meta_outbox/")
+        group.add_argument("--audio", action="store_true", help="Download missing audio to 0_audio_inbox/")
+        group.add_argument("--restricted_audio", action="store_true", help="Retry failed audio downloads (with cookies)")
+        group.add_argument("--transcripts", action="store_true", help="Generate transcripts from 0_audio_inbox/")
+        group.add_argument("--comedian_aliases", action="store_true", help="Fetch comedian candidates from server")
+        group.add_argument("--set_images", action="store_true", help="Scrape missing set images to set_images_outbox/")
+        group.add_argument("--embeddings", action="store_true", help="Compute beat embeddings and write to embeddings_outbox/")
+
+        parser.add_argument("--limit", type=int, help="Max items to process (audio, set_images)")
+        parser.add_argument(
+            "--cookies-from-browser",
+            choices=["brave", "chrome", "chromium", "edge", "firefox", "opera", "safari", "vivaldi"],
+            help="Pass browser cookies to yt-dlp (audio)",
+        )
+        parser.add_argument("--cookies", help="Path to a Netscape cookies.txt file (audio)")
+        parser.add_argument("--offset", type=float, default=30, help="Seconds after set start to capture image")
+        parser.add_argument("--clip-duration", type=float, default=0.05, help="Clip duration for image capture")
+        parser.add_argument("--width", type=int, default=480, help="Output image width in pixels")
+        parser.add_argument("--quality", type=int, default=4, help="ffmpeg JPEG quality")
+
+    def handle(self, *args, **options):
+        if options["ep_meta"]:
+            from pipeline.local_utils.ep_meta import generate_ep_meta
+            generate_ep_meta(options, self.stdout, self.style)
+
+        elif options["audio"]:
+            from pipeline.local_utils.audio import generate_audio
+            generate_audio(options, self.stdout, self.style)
+
+        elif options["restricted_audio"]:
+            from pipeline.local_utils.audio import generate_audio
+            generate_audio({**options, "retry_failures": True}, self.stdout, self.style)
+
+        elif options["transcripts"]:
+            from django.core.management import call_command
+            call_command("generate_transcripts")
+
+        elif options["comedian_aliases"]:
+            from pipeline.local_utils.comedian_aliases import generate_comedian_aliases
+            generate_comedian_aliases(self.stdout, self.style)
+
+        elif options["set_images"]:
+            from pipeline.local_utils.set_images import generate_set_images
+            generate_set_images(options, self.stdout, self.style)
+
+        elif options["embeddings"]:
+            from pipeline.local_utils.embeddings import generate_embeddings
+            generate_embeddings(options, self.stdout, self.style)
