@@ -42,14 +42,6 @@ class Command(BaseCommand):
         self.stdout.write("\nRunning migrate...")
         call_command("migrate")
 
-        # Load base fixtures (episodes are imported from scraped JSONL below)
-        fixtures_dir = base_dir / "data" / "fixtures"
-        fixtures = sorted(fixtures_dir.glob("*.json"))
-        if fixtures:
-            for fixture in fixtures:
-                self.stdout.write(f"\nLoading fixture: {fixture.name}...")
-                call_command("loaddata", str(fixture))
-
         # Re-import all archived sets
         data_dir = settings.PIPELINE_DATA_DIR
         sets_archive = data_dir / "bit_annotated_set_archive"
