@@ -4,6 +4,17 @@ You are coordinating the Kill Tony annotation pipeline. Work through the phases 
 
 ---
 
+## Local Mode
+
+If the user said to use `--local`, you are in local mode. Local mode affects:
+
+- **Phase 2** — tell annotation agents to append `--local` to their upload command
+- **Phase 4** — append `--local` to the `generate --comedian_aliases` command, and tell the alias review agent it is running in local mode
+
+If the user said nothing about `--local`, do not mention it to any sub-agents.
+
+---
+
 ## Phase 1 — Transcript Analysis
 
 Check `C:\Users\ethan\coding\punchnotes\pipeline\data\1_transcript_inbox\`.
@@ -26,10 +37,10 @@ Check `C:\Users\ethan\coding\punchnotes\pipeline\data\2_set_inbox\`.
 If there are any `.json` files there:
 
 - Pick the first 20 files (sorted by filename). If fewer than 20 remain, take all of them.
-- Spin up one medium level agent, tell it which files to process, and give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\annotation_prompt.md`.
+- Spin up one medium level agent, tell it which files to process, and give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\annotation_prompt.md`. If in local mode, also tell the agent to use `--local` when running the upload command.
 - Wait for it to finish, then repeat for the next batch of 20.
 - Continue until `2_set_inbox` is empty.
-- You can run phase 2 in parrel with with phase 1 as soon as phase 2
+- You can run phase 2 in parallel with phase 1 as soon as phase 2 has files to process.
 
 ---
 
@@ -50,9 +61,11 @@ This normalizes the JSON formatting of all files in `bit_annotated_set_archive` 
 Once Phase 3 is complete, run:
 
 ```powershell
-python manage.py generate --comedian_aliases --local
+python manage.py generate --comedian_aliases
 ```
 
-Then review `pipeline/data/similar_comedian_candidates.json` using the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\comedian_alias_review_prompt.md`.
+(Append `--local` if in local mode.)
+
+Then spin up one medium sized agent and give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\comedian_alias_review_prompt.md`. If in local mode, tell the agent it is running in local mode.
 
 When Phase 4 is complete, report that the pipeline is done.
