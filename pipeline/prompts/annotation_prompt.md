@@ -230,7 +230,7 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
    - Read the whole set.
    - Annotate: label every line, assign bit/beat numbers to punchlines, write bit_meta.
    - Write the annotated output back to `pipeline/data/2_set_inbox/<same-filename>.json`.
-3. python manage.py import_sets --file pipeline/data/2_set_inbox/<filename>.json
+3. python manage.py upload --annotated --file pipeline/data/2_set_inbox/<filename>.json --local
  This is **VERY IMPORTANT** it helps you learn from any mistakes you may have made.  
 4. Move to the next file. Repeat until all given files are done.
 

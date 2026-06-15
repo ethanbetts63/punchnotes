@@ -17,8 +17,12 @@ class Command(BaseCommand):
         source = parser.add_mutually_exclusive_group()
         source.add_argument("--file", help="(--annotated) Upload a single JSON file from any path")
         source.add_argument("--dir", help="(--annotated) Upload all JSON files in a directory")
+        parser.add_argument("--local", action="store_true", help="Target local dev server (http://localhost:8000)")
 
     def handle(self, *args, **options):
+        if options["local"]:
+            from django.conf import settings
+            settings.SERVER_BASE_URL = settings.LOCAL_SERVER_URL
         log = Log(self.stdout, self.style)
 
         if options["annotated"]:

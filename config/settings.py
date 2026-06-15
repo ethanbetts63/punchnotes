@@ -80,7 +80,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 PIPELINE_API_KEY = os.environ.get("PIPELINE_API_KEY", "")
-SERVER_BASE_URL = os.environ.get("SERVER_BASE_URL", "http://localhost:8000")
+SERVER_BASE_URL = os.environ.get("SERVER_BASE_URL", "")
+LOCAL_SERVER_URL = os.environ.get("LOCAL_SERVER_URL", "http://localhost:8000")
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"

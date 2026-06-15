@@ -35,12 +35,24 @@ If there are any `.json` files there:
 
 ## Phase 3 — Normalize Archive
 
-Once Phase 3 is complete, run:
+Once Phase 2 is complete, run:
 
 ```powershell
 python manage.py normalize_archive
 ```
 
 This normalizes the JSON formatting of all files in `bit_annotated_set_archive` to the canonical format.
+
+---
+
+## Phase 4 — Comedian Alias Review
+
+Once Phase 3 is complete, run:
+
+```powershell
+python manage.py generate --comedian_aliases --local
+```
+
+Then review `pipeline/data/similar_comedian_candidates.json` using the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\comedian_alias_review_prompt.md`.
 
 When Phase 4 is complete, report that the pipeline is done.

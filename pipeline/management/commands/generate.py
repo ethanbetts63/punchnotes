@@ -27,8 +27,14 @@ class Command(BaseCommand):
         parser.add_argument("--clip-duration", type=float, default=0.05, help="Clip duration for image capture")
         parser.add_argument("--width", type=int, default=480, help="Output image width in pixels")
         parser.add_argument("--quality", type=int, default=4, help="ffmpeg JPEG quality")
+        parser.add_argument("--local", action="store_true", help="Target local dev server (applies to: --audio, --comedian_aliases, --set_images, --embeddings)")
 
     def handle(self, *args, **options):
+        if options["local"]:
+            if options.get("ep_meta") or options.get("transcripts"):
+                self.stdout.write(self.style.WARNING("--local has no effect with --ep_meta or --transcripts"))
+            from django.conf import settings
+            settings.SERVER_BASE_URL = settings.LOCAL_SERVER_URL
         log = Log(self.stdout, self.style)
 
         if options["ep_meta"]:

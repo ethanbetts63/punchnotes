@@ -81,5 +81,10 @@ Rules:
 - Preserve existing relationship decisions unless you have a clear reason to correct them.
 
 
-To finish: 
-When you are done run python manage.py import_sets --archive this will fix the db. 
+To finish:
+When you are done run:
+```powershell
+python manage.py upload --comedian_aliases --local
+python manage.py update --comedian_aliases
+```
+This uploads your decisions to the server and deduplicates the database.
