@@ -1,10 +1,12 @@
 import json
 import re
-import shutil
+from pathlib import Path
 
 from django.conf import settings
 
+from pipeline.log import Log
 from pipeline.models import Beat
+from pipeline.server_utils.inbox import run_inbox_update
 
 
 def _parse_key(key: str) -> dict | None:
@@ -20,7 +22,6 @@ def _parse_key(key: str) -> dict | None:
 
 
 def unembedded_beats() -> list[dict]:
-    """Return beats missing embeddings with their stable composite key and embedding text."""
     from pipeline.management.commands.generate_embeddings import _embedding_text, _load_lines_by_set
 
     beats = list(
@@ -52,34 +53,23 @@ def unembedded_beats() -> list[dict]:
         beat_m = re.search(r"(\d+)$", beat.beat_id)
         if not bit_m or not beat_m:
             continue
-        bit_num = int(bit_m.group(1))
-        beat_num = int(beat_m.group(1))
         result.append({
-            "key": f"ep{ep_num}.set{set_num:02d}.bit{bit_num:03d}.beat{beat_num:03d}",
+            "key": f"ep{ep_num}.set{set_num:02d}.bit{int(bit_m.group(1)):03d}.beat{int(beat_m.group(1)):03d}",
             "text": text,
         })
     return result
 
 
 def ingest_embeddings(pairs: list[dict]) -> dict:
-    """
-    pairs: [{"key": "ep764.set02.bit003.beat001", "embedding": [...]}, ...]
-    Resolves the stable key to a DB PK and writes the embedding.
-    """
     stored = not_found = invalid_key = 0
     updates = []
-
     for pair in pairs:
-        key = pair.get("key", "")
-        embedding = pair.get("embedding", [])
-        parsed = _parse_key(key)
+        parsed = _parse_key(pair.get("key", ""))
         if parsed is None:
             invalid_key += 1
             continue
-
         bit_id = f"bit_{parsed['bit_number']:03d}"
         beat_id = f"bit_{parsed['bit_number']:03d}_beat_{parsed['beat_number']:03d}"
-
         try:
             beat = Beat.objects.get(
                 beat_id=beat_id,
@@ -87,45 +77,35 @@ def ingest_embeddings(pairs: list[dict]) -> dict:
                 bit__set__set_number=parsed["set_number"],
                 bit__set__video__number=parsed["episode_number"],
             )
-            beat.embedding = embedding
+            beat.embedding = pair.get("embedding", [])
             updates.append(beat)
         except Beat.DoesNotExist:
             not_found += 1
-
     if updates:
         Beat.objects.bulk_update(updates, ["embedding"], batch_size=500)
         stored = len(updates)
-
     return {"stored": stored, "not_found": not_found, "invalid_key": invalid_key}
 
 
-def run_update_embeddings(stdout=None, style=None) -> None:
-    inbox_dir = settings.PIPELINE_DATA_DIR / "embeddings_inbox"
-    archive_dir = settings.PIPELINE_DATA_DIR / "embeddings_archive"
-    archive_dir.mkdir(parents=True, exist_ok=True)
+def _process_embeddings_file(path: Path) -> dict:
+    pairs = []
+    invalid_key = 0
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        try:
+            pairs.append(json.loads(line))
+        except json.JSONDecodeError:
+            invalid_key += 1
+    result = ingest_embeddings(pairs)
+    result["invalid_key"] += invalid_key
+    return result
 
-    files = sorted(inbox_dir.glob("*.jsonl")) if inbox_dir.exists() else []
-    if not files:
-        if stdout:
-            stdout.write("No files in embeddings_inbox/")
-        return
 
-    total = {"stored": 0, "not_found": 0, "invalid_key": 0}
-    for path in files:
-        pairs = []
-        for line in path.read_text(encoding="utf-8").splitlines():
-            if not line.strip():
-                continue
-            try:
-                pairs.append(json.loads(line))
-            except json.JSONDecodeError:
-                total["invalid_key"] += 1
-        result = ingest_embeddings(pairs)
-        for k in total:
-            total[k] += result.get(k, 0)
-        shutil.move(str(path), archive_dir / path.name)
-        if stdout:
-            stdout.write(f"  {path.name}: {result}")
-
-    if stdout:
-        stdout.write(style.SUCCESS(f"Done. {total}") if style else f"Done. {total}")
+def run_update_embeddings(log: Log | None = None) -> None:
+    run_inbox_update(
+        inbox_dir=settings.PIPELINE_DATA_DIR / "embeddings_inbox",
+        archive_dir=settings.PIPELINE_DATA_DIR / "embeddings_archive",
+        process_fn=_process_embeddings_file,
+        log=log,
+    )

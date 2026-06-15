@@ -1,5 +1,7 @@
 from django.core.management.base import BaseCommand
 
+from pipeline.log import Log
+
 
 class Command(BaseCommand):
     help = "Generate pipeline data locally (audio, transcripts, ep metadata, set images, embeddings, comedian aliases)"
@@ -27,17 +29,19 @@ class Command(BaseCommand):
         parser.add_argument("--quality", type=int, default=4, help="ffmpeg JPEG quality")
 
     def handle(self, *args, **options):
+        log = Log(self.stdout, self.style)
+
         if options["ep_meta"]:
             from pipeline.local_utils.ep_meta import generate_ep_meta
-            generate_ep_meta(options, self.stdout, self.style)
+            generate_ep_meta(options, log)
 
         elif options["audio"]:
             from pipeline.local_utils.audio import generate_audio
-            generate_audio(options, self.stdout, self.style)
+            generate_audio(options, log)
 
         elif options["restricted_audio"]:
             from pipeline.local_utils.audio import generate_audio
-            generate_audio({**options, "retry_failures": True}, self.stdout, self.style)
+            generate_audio({**options, "retry_failures": True}, log)
 
         elif options["transcripts"]:
             from django.core.management import call_command
@@ -45,12 +49,12 @@ class Command(BaseCommand):
 
         elif options["comedian_aliases"]:
             from pipeline.local_utils.comedian_aliases import generate_comedian_aliases
-            generate_comedian_aliases(self.stdout, self.style)
+            generate_comedian_aliases(log)
 
         elif options["set_images"]:
             from pipeline.local_utils.set_images import generate_set_images
-            generate_set_images(options, self.stdout, self.style)
+            generate_set_images(options, log)
 
         elif options["embeddings"]:
             from pipeline.local_utils.embeddings import generate_embeddings
-            generate_embeddings(options, self.stdout, self.style)
+            generate_embeddings(options, log)

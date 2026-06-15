@@ -5,9 +5,10 @@ from pathlib import Path
 from django.conf import settings
 
 from pipeline.local_utils.http import pipeline_session, server_url
+from pipeline.log import Log
 
 
-def upload_annotated_file(path: Path, stdout=None, style=None) -> bool:
+def upload_annotated_file(path: Path, log: Log) -> bool:
     """Upload one annotated set JSON. Returns True on success."""
     session = pipeline_session()
     data = json.loads(path.read_text(encoding="utf-8-sig"))
@@ -18,19 +19,15 @@ def upload_annotated_file(path: Path, stdout=None, style=None) -> bool:
         comedian = result.get("comedian", "?")
         lines = result.get("lines", "?")
         bits = result.get("bits", "?")
-        msg = f"  {path.name}: {comedian} — {lines} lines, {bits} bits"
-        if stdout:
-            stdout.write(style.SUCCESS(msg) if style else msg)
+        log.success(f"  {path.name}: {comedian} — {lines} lines, {bits} bits")
         return True
-    else:
-        error = result.get("error") or resp.text
-        msg = f"  {path.name}: FAILED — {error}"
-        if stdout:
-            stdout.write(style.ERROR(msg) if style else msg)
-        return False
+
+    log.error(f"  {path.name}: FAILED — {result.get('error') or resp.text}")
+    return False
 
 
-def upload_annotated(options: dict, stdout=None, style=None) -> None:
+def upload_annotated(options: dict, log: Log | None = None) -> None:
+    log = log or Log()
     archive_dir = settings.PIPELINE_DATA_DIR / "bit_annotated_set_archive"
     archive_dir.mkdir(parents=True, exist_ok=True)
 
@@ -41,18 +38,15 @@ def upload_annotated(options: dict, stdout=None, style=None) -> None:
         paths = sorted(source_dir.glob("*.json"))
 
     if not paths:
-        if stdout:
-            stdout.write("No files to upload.")
+        log("No files to upload.")
         return
 
     succeeded = failed = 0
     for path in paths:
-        ok = upload_annotated_file(path, stdout=stdout, style=style)
-        if ok:
+        if upload_annotated_file(path, log):
             shutil.move(str(path), archive_dir / path.name)
             succeeded += 1
         else:
             failed += 1
 
-    if stdout:
-        stdout.write(f"\n{succeeded} uploaded, {failed} failed.")
+    log(f"\n{succeeded} uploaded, {failed} failed.")

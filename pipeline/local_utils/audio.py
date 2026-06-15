@@ -1,24 +1,22 @@
 from django.conf import settings
 
 from pipeline.local_utils.http import pipeline_session, server_url
+from pipeline.log import Log
 
 
 def _post_history(session, record: dict) -> None:
     try:
         session.post(server_url("/api/pipeline/audio-history/"), json=record)
     except Exception:
-        pass  # Don't fail a download if the history POST fails
+        pass
 
 
-def generate_audio(options: dict, stdout=None, style=None) -> None:
+def generate_audio(options: dict, log: Log | None = None) -> None:
     import yt_dlp
-    from pipeline.management.commands.fetch_audio import (
-        episode_filename,
-        find_audio,
-        ydl_options,
-    )
+    from pipeline.management.commands.fetch_audio import episode_filename, find_audio, ydl_options
     from pipeline.models import Video
 
+    log = log or Log()
     data_dir = settings.PIPELINE_DATA_DIR
     inbox_dir = data_dir / "0_audio_inbox"
     archive_dir = data_dir / "audio_archive"
@@ -39,8 +37,7 @@ def generate_audio(options: dict, stdout=None, style=None) -> None:
         Video.objects.exclude(video_id__isnull=True).exclude(video_id="").order_by("-number", "video_id")
     )
     if not episodes:
-        if stdout:
-            stdout.write("No Episode rows found. Import episode metadata first.")
+        log("No Episode rows found. Import episode metadata first.")
         return
 
     already_present = skipped_failed = downloaded = failed = attempted = 0
@@ -60,30 +57,25 @@ def generate_audio(options: dict, stdout=None, style=None) -> None:
             break
 
         attempted += 1
-        episode_url = episode.url or f"https://www.youtube.com/watch?v={video_id}"
         outtmpl = str(inbox_dir / episode_filename(episode))
         dl_opts = ydl_options(options, {"format": "bestaudio/best", "outtmpl": outtmpl})
+        episode_url = episode.url or f"https://www.youtube.com/watch?v={video_id}"
 
-        if stdout:
-            stdout.write(f"  [{video_id}] downloading audio...")
+        log(f"  [{video_id}] downloading audio...")
         try:
             with yt_dlp.YoutubeDL(dl_opts) as ydl:
                 ydl.download([episode_url])
         except yt_dlp.utils.DownloadError as e:
             failed += 1
             _post_history(session, {"video_id": video_id, "episode_number": episode.number, "status": "failed", "error": str(e)})
-            if stdout:
-                stdout.write(style.WARNING(f"  [{video_id}] failed: {e}") if style else f"  [{video_id}] failed")
+            log.warning(f"  [{video_id}] failed: {e}")
             continue
 
         downloaded += 1
         _post_history(session, {"video_id": video_id, "episode_number": episode.number, "status": "downloaded"})
-        if stdout:
-            stdout.write(f"  [{video_id}] done")
+        log(f"  [{video_id}] done")
 
-    if stdout:
-        msg = (
-            f"Done. {downloaded} downloaded, {already_present} already present, "
-            f"{skipped_failed} skipped failures, {failed} failed."
-        )
-        stdout.write(style.SUCCESS(msg) if style else msg)
+    log.success(
+        f"Done. {downloaded} downloaded, {already_present} already present, "
+        f"{skipped_failed} skipped failures, {failed} failed."
+    )

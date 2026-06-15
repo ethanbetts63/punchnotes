@@ -1,5 +1,7 @@
 from django.core.management.base import BaseCommand
 
+from pipeline.log import Log
+
 
 class Command(BaseCommand):
     help = "Upload local pipeline data to the server"
@@ -17,22 +19,24 @@ class Command(BaseCommand):
         source.add_argument("--dir", help="(--annotated) Upload all JSON files in a directory")
 
     def handle(self, *args, **options):
+        log = Log(self.stdout, self.style)
+
         if options["annotated"]:
             from pipeline.local_utils.annotated import upload_annotated
-            upload_annotated(options, self.stdout, self.style)
+            upload_annotated(options, log)
 
         elif options["ep_meta"]:
             from pipeline.local_utils.ep_meta import upload_ep_meta
-            upload_ep_meta(options, self.stdout, self.style)
+            upload_ep_meta(options, log)
 
         elif options["comedian_aliases"]:
             from pipeline.local_utils.comedian_aliases import upload_comedian_aliases
-            upload_comedian_aliases(self.stdout, self.style)
+            upload_comedian_aliases(log)
 
         elif options["set_images"]:
             from pipeline.local_utils.set_images import upload_set_images
-            upload_set_images(options, self.stdout, self.style)
+            upload_set_images(options, log)
 
         elif options["embeddings"]:
             from pipeline.local_utils.embeddings import upload_embeddings
-            upload_embeddings(options, self.stdout, self.style)
+            upload_embeddings(options, log)

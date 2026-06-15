@@ -6,6 +6,7 @@ from django.db import transaction
 from django.db.models import Q
 
 from pipeline.import_utils.records import refresh_comedian_image
+from pipeline.log import Log
 from pipeline.management.commands.import_set_images import parse_image_name, public_image_url
 from pipeline.models import Set
 
@@ -14,7 +15,6 @@ def missing_image_sets() -> list[dict]:
     """Return one set per comedian whose image_url is unset, for the local machine to scrape."""
     seen_comedian_ids: set[int] = set()
     result = []
-
     sets = (
         Set.objects
         .select_related("video", "comedian")
@@ -38,10 +38,6 @@ def missing_image_sets() -> list[dict]:
 
 
 def ingest_set_image(image_path: Path, replace: bool = False) -> str:
-    """
-    Copy image to public dir, update Set.image_url and Comedian.image_url.
-    Returns "imported" or "skipped".
-    """
     public_dir = settings.BASE_DIR / "frontend" / "public" / "set-images"
     archive_dir = settings.PIPELINE_DATA_DIR / "set_images_archive"
     public_dir.mkdir(parents=True, exist_ok=True)
@@ -70,11 +66,11 @@ def ingest_set_image(image_path: Path, replace: bool = False) -> str:
     return "imported"
 
 
-def run_update_set_images(stdout=None, style=None) -> None:
+def run_update_set_images(log: Log | None = None) -> None:
+    log = log or Log()
     inbox_dir = settings.PIPELINE_DATA_DIR / "set_images_inbox"
     if not inbox_dir.exists():
-        if stdout:
-            stdout.write("No set_images_inbox/ dir.")
+        log("No set_images_inbox/ dir.")
         return
 
     files = sorted(
@@ -82,8 +78,7 @@ def run_update_set_images(stdout=None, style=None) -> None:
         if p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"}
     )
     if not files:
-        if stdout:
-            stdout.write("No images in set_images_inbox/")
+        log(f"No images in {inbox_dir.name}/")
         return
 
     imported = skipped = failed = 0
@@ -92,17 +87,11 @@ def run_update_set_images(stdout=None, style=None) -> None:
             result = ingest_set_image(path)
             if result == "imported":
                 imported += 1
-                if stdout:
-                    stdout.write(f"  {path.name}: imported")
+                log(f"  {path.name}: imported")
             else:
                 skipped += 1
         except Exception as e:
             failed += 1
-            if stdout:
-                stdout.write(style.ERROR(f"  {path.name}: {e}") if style else f"  Failed: {e}")
+            log.error(f"  {path.name}: {e}")
 
-    if stdout:
-        stdout.write(
-            style.SUCCESS(f"Done. {imported} imported, {skipped} skipped, {failed} failed.") if style
-            else f"Done. {imported} imported, {skipped} skipped, {failed} failed."
-        )
+    log.success(f"Done. {imported} imported, {skipped} skipped, {failed} failed.")
