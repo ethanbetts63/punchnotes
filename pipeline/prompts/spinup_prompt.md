@@ -22,7 +22,7 @@ Check `C:\Users\ethan\coding\punchnotes\pipeline\data\1_transcript_inbox\`.
 If there are any `.json` files there:
 
 - Select the first 20 files.
-- Spin up one small sized agent and give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\transcript_analysis_prompt.md`.
+- Spin up one small sized agent. Tell it: the file list you are giving it is authoritative — do not list the inbox directory. Then give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\transcript_analysis_prompt.md`.
 - Wait for it to finish all 20 files, then repeat for the next files.
 - Continue until `1_transcript_inbox` is empty.
 
