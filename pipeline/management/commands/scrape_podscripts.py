@@ -35,7 +35,7 @@ from bs4 import BeautifulSoup
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from pipeline.import_utils.transcript_windows import write_inbox_transcript_windows
+from pipeline.utils.transcript_windows import write_inbox_transcript_windows
 from pipeline.models import Video
 
 BASE_URL = "https://podscripts.co"

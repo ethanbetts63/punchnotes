@@ -4,7 +4,7 @@ from pathlib import Path
 
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
-from pipeline.import_utils.comedian_aliases import canonicalize_comedian_name
+from pipeline.utils.comedian_aliases import canonicalize_comedian_name
 from pipeline.models.comedian import ATTRIBUTE_VALUES
 
 

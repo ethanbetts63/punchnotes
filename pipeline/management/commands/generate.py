@@ -38,15 +38,15 @@ class Command(BaseCommand):
         log = Log(self.stdout, self.style)
 
         if options["ep_meta"]:
-            from pipeline.local_utils.ep_meta import generate_ep_meta
+            from pipeline.generate.ep_meta import generate_ep_meta
             generate_ep_meta(options, log)
 
         elif options["audio"]:
-            from pipeline.local_utils.audio import generate_audio
+            from pipeline.generate.audio import generate_audio
             generate_audio(options, log)
 
         elif options["restricted_audio"]:
-            from pipeline.local_utils.audio import generate_audio
+            from pipeline.generate.audio import generate_audio
             generate_audio({**options, "retry_failures": True}, log)
 
         elif options["transcripts"]:
@@ -54,13 +54,13 @@ class Command(BaseCommand):
             call_command("generate_transcripts")
 
         elif options["comedian_aliases"]:
-            from pipeline.local_utils.comedian_aliases import generate_comedian_aliases
+            from pipeline.generate.comedian_aliases import generate_comedian_aliases
             generate_comedian_aliases(log)
 
         elif options["set_images"]:
-            from pipeline.local_utils.set_images import generate_set_images
+            from pipeline.generate.set_images import generate_set_images
             generate_set_images(options, log)
 
         elif options["embeddings"]:
-            from pipeline.local_utils.embeddings import generate_embeddings
+            from pipeline.generate.embeddings import generate_embeddings
             generate_embeddings(options, log)

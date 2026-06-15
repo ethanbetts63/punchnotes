@@ -3,9 +3,9 @@ from collections import defaultdict
 
 from django.db.models import Avg, Count, Q
 
-from pipeline.import_utils.ownership import infer_line_ownership
+from pipeline.utils.ownership import infer_line_ownership
+from pipeline.utils.known_comedians import normalize_known_appearance_attributes
 from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
-from pipeline.import_utils.known_comedians import normalize_known_appearance_attributes
 
 
 def parse_episode_number(title: str) -> int | None:
@@ -105,6 +105,7 @@ def upsert_set(video: Video, comedian: Comedian, meta: dict) -> Set:
     set_obj.refresh_from_db()
     return set_obj
 
+
 def refresh_set_ratios(set_obj: Set) -> None:
     counts = set_obj.lines.aggregate(
         punchlines=Count('id', filter=Q(label='punchline')),
@@ -195,9 +196,6 @@ def _bit_ratios(lines_data: list, line_numbers: set) -> tuple[float | None, floa
     return punch_density, tag_density
 
 
-_infer_line_ownership = infer_line_ownership
-
-
 JOKE_TYPE_FIELDS = {
     "misdirect":           ["bait", "implication", "reveal"],
     "reframe":             ["subject", "reframe"],
@@ -220,7 +218,7 @@ def _extract_joke_fields(beat_data: dict) -> dict:
 def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
     set_obj.bits.all().delete()
 
-    ownership = _infer_line_ownership(lines_data)
+    ownership = infer_line_ownership(lines_data)
     bit_lines: dict[int, list] = defaultdict(list)
     beat_lines: dict[int, dict] = defaultdict(lambda: defaultdict(list))
     for line in lines_data:

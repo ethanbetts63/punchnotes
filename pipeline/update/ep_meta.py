@@ -6,7 +6,7 @@ from django.conf import settings
 
 from pipeline.log import Log
 from pipeline.models import Video
-from pipeline.server_utils.inbox import run_inbox_update
+from pipeline.utils.inbox import run_inbox_update
 
 
 EPISODE_NUMBER_PATTERN = re.compile(r"#\s*(\d+)")

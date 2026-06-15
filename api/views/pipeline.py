@@ -15,8 +15,8 @@ class PipelineView(APIView):
 
 class AnnotatedSetView(PipelineView):
     def post(self, request):
-        from pipeline.import_utils.comedian_aliases import load_relationships
-        from pipeline.server_utils.annotated import ingest_annotated_set
+        from pipeline.utils.comedian_aliases import load_relationships
+        from pipeline.update.annotated import ingest_annotated_set
         try:
             result = ingest_annotated_set(request.data, load_relationships())
             return Response(result)
@@ -34,7 +34,7 @@ class ComedianCandidatesView(PipelineView):
 
 class ComedianAliasesView(PipelineView):
     def post(self, request):
-        from pipeline.import_utils.comedian_aliases import validate_relationships
+        from pipeline.utils.comedian_aliases import validate_relationships
         inbox_dir = settings.PIPELINE_DATA_DIR / "comedian_aliases_inbox"
         inbox_dir.mkdir(parents=True, exist_ok=True)
         try:
@@ -99,7 +99,7 @@ class EpMetaView(PipelineView):
 
 class MissingSetImagesView(PipelineView):
     def get(self, request):
-        from pipeline.server_utils.set_images import missing_image_sets
+        from pipeline.update.set_images import missing_image_sets
         return Response({"sets": missing_image_sets()})
 
 
@@ -119,7 +119,7 @@ class SetImagesView(PipelineView):
 
 class UnembeddedBeatsView(PipelineView):
     def get(self, request):
-        from pipeline.server_utils.embeddings import unembedded_beats
+        from pipeline.update.embeddings import unembedded_beats
         return Response({"beats": unembedded_beats()})
 
 

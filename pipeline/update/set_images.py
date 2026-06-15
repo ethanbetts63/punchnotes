@@ -3,16 +3,15 @@ from pathlib import Path
 
 from django.conf import settings
 from django.db import transaction
-from django.db.models import Q
 
-from pipeline.import_utils.records import refresh_comedian_image
+from pipeline.update.records import refresh_comedian_image
+from pipeline.utils.set_images import parse_image_name, public_image_url
 from pipeline.log import Log
-from pipeline.management.commands.import_set_images import parse_image_name, public_image_url
 from pipeline.models import Set
 
 
 def missing_image_sets() -> list[dict]:
-    """Return one set per comedian whose image_url is unset, for the local machine to scrape."""
+    from django.db.models import Q
     seen_comedian_ids: set[int] = set()
     result = []
     sets = (

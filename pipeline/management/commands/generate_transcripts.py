@@ -4,7 +4,7 @@ import shutil
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from pipeline.import_utils.transcript_windows import write_inbox_transcript_windows
+from pipeline.utils.transcript_windows import write_inbox_transcript_windows
 
 
 WHISPER_LINES_KEY = "segments"

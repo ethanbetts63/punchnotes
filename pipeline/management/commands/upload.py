@@ -26,21 +26,21 @@ class Command(BaseCommand):
         log = Log(self.stdout, self.style)
 
         if options["annotated"]:
-            from pipeline.local_utils.annotated import upload_annotated
+            from pipeline.upload.annotated import upload_annotated
             upload_annotated(options, log)
 
         elif options["ep_meta"]:
-            from pipeline.local_utils.ep_meta import upload_ep_meta
+            from pipeline.upload.ep_meta import upload_ep_meta
             upload_ep_meta(options, log)
 
         elif options["comedian_aliases"]:
-            from pipeline.local_utils.comedian_aliases import upload_comedian_aliases
+            from pipeline.upload.comedian_aliases import upload_comedian_aliases
             upload_comedian_aliases(log)
 
         elif options["set_images"]:
-            from pipeline.local_utils.set_images import upload_set_images
+            from pipeline.upload.set_images import upload_set_images
             upload_set_images(options, log)
 
         elif options["embeddings"]:
-            from pipeline.local_utils.embeddings import upload_embeddings
+            from pipeline.upload.embeddings import upload_embeddings
             upload_embeddings(options, log)

@@ -6,7 +6,8 @@ from django.conf import settings
 
 from pipeline.log import Log
 from pipeline.models import Beat
-from pipeline.server_utils.inbox import run_inbox_update
+from pipeline.utils.beats import embedding_text, load_lines_by_set
+from pipeline.utils.inbox import run_inbox_update
 
 
 def _parse_key(key: str) -> dict | None:
@@ -22,8 +23,6 @@ def _parse_key(key: str) -> dict | None:
 
 
 def unembedded_beats() -> list[dict]:
-    from pipeline.management.commands.generate_embeddings import _embedding_text, _load_lines_by_set
-
     beats = list(
         Beat.objects
         .filter(embedding=[])
@@ -40,10 +39,10 @@ def unembedded_beats() -> list[dict]:
     if not beats:
         return []
 
-    lines_by_set = _load_lines_by_set(beats)
+    lines = load_lines_by_set(beats)
     result = []
     for beat in beats:
-        text = _embedding_text(beat, lines_by_set=lines_by_set)
+        text = embedding_text(beat, lines_by_set=lines)
         if not text:
             continue
         set_obj = beat.bit.set

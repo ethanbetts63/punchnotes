@@ -1,74 +1,10 @@
 from django.core.management.base import BaseCommand
 
-from pipeline.models import Beat, Line
+from pipeline.models import Beat
+from pipeline.utils.beats import embedding_text, load_lines_by_set
 
 MODEL_NAME = "all-mpnet-base-v2"
 TEXT_FORMAT_CHOICES = ("plain", "structured")
-
-
-def _load_lines_by_set(beats):
-    set_ids = {beat.bit.set_id for beat in beats}
-    if not set_ids:
-        return {}
-
-    lines_by_set = {}
-    lines = (
-        Line.objects
-        .filter(set_id__in=set_ids, label__in=("setup", "punchline"))
-        .order_by("set_id", "line_number")
-        .values_list("set_id", "line_number", "label", "text")
-    )
-    for set_id, line_number, label, text in lines:
-        lines_by_set.setdefault(set_id, []).append((line_number, label, text))
-    return lines_by_set
-
-
-def _embedding_text(beat, lines_by_set=None, text_format="plain") -> str | None:
-    if lines_by_set is None:
-        lines = (
-            Line.objects
-            .filter(
-                set_id=beat.bit.set_id,
-                label__in=("setup", "punchline"),
-                line_number__gte=beat.line_start,
-                line_number__lte=beat.line_end,
-            )
-            .order_by("line_number")
-            .values_list("label", "text")
-        )
-    else:
-        lines = (
-            (label, text)
-            for line_number, label, text in lines_by_set.get(beat.bit.set_id, [])
-            if beat.line_start <= line_number <= beat.line_end
-        )
-
-    setup_parts = []
-    punchline_parts = []
-    for label, text in lines:
-        if label == "setup":
-            setup_parts.append(text)
-        else:
-            punchline_parts.append(text)
-
-    if not punchline_parts:
-        return None
-
-    setup_text = " ".join(setup_parts).strip()
-    punchline_text = " ".join(punchline_parts).strip()
-
-    if text_format == "structured":
-        parts = []
-        if setup_text:
-            parts.append(f"Setup: {setup_text}")
-        parts.append(f"Punchline: {punchline_text}")
-        return "\n".join(parts)
-
-    parts = []
-    if setup_text:
-        parts.append(setup_text)
-    parts.append(punchline_text)
-    return " ".join(parts)
 
 
 class Command(BaseCommand):
@@ -119,11 +55,11 @@ class Command(BaseCommand):
                 f"Checking {len(all_beats)} beats without embeddings using {text_format} text..."
             )
 
-        lines_by_set = _load_lines_by_set(all_beats)
+        lines = load_lines_by_set(all_beats)
         texts = []
         beats_with_text = []
         for beat in all_beats:
-            t = _embedding_text(beat, lines_by_set=lines_by_set, text_format=text_format)
+            t = embedding_text(beat, lines_by_set=lines, text_format=text_format)
             if t:
                 texts.append(t)
                 beats_with_text.append(beat)

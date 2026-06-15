@@ -6,8 +6,8 @@ from django.core.management import call_command
 from django.test import override_settings
 from django.test import TestCase
 
-from pipeline.management.commands.find_similar_comedians import find_candidates
-from pipeline.import_utils.comedian_aliases import empty_relationships
+from pipeline.utils.similar_comedians import find_candidates
+from pipeline.utils.comedian_aliases import empty_relationships
 from pipeline.models import Comedian
 
 

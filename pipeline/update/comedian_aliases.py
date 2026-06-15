@@ -4,22 +4,17 @@ from pathlib import Path
 from django.conf import settings
 from django.db import transaction
 
-from pipeline.import_utils.comedian_aliases import (
+from pipeline.utils.comedian_aliases import (
     alias_target,
     relationships_path,
     validate_relationships,
 )
-from pipeline.import_utils.records import merge_attributes, refresh_comedian_image, refresh_comedian_stats
+from pipeline.update.records import merge_attributes, refresh_comedian_image, refresh_comedian_stats
 from pipeline.log import Log
 from pipeline.models import Comedian, Set
 
 
 def dedup_comedians(relationships: dict, log: Log | None = None) -> dict:
-    """
-    For each alias → canonical mapping, merge the alias Comedian row into the canonical
-    row: combines attributes, re-points all Sets and guest M2M relations, copies image
-    if canonical has none, then deletes the alias record.
-    """
     log = log or Log()
     aliases = relationships.get("aliases", {})
     merged = renamed = skipped = not_found = 0

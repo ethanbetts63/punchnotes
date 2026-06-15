@@ -4,16 +4,15 @@ from pathlib import Path
 
 from django.conf import settings
 
-from pipeline.local_utils.http import pipeline_session, server_url
+from pipeline.utils.http import json_or_empty, pipeline_session, server_url
 from pipeline.log import Log
 
 
 def upload_annotated_file(path: Path, log: Log) -> bool:
-    """Upload one annotated set JSON. Returns True on success."""
     session = pipeline_session()
     data = json.loads(path.read_text(encoding="utf-8-sig"))
     resp = session.post(server_url("/api/pipeline/annotated-set/"), json=data)
-    result = resp.json() if resp.content else {}
+    result = json_or_empty(resp)
 
     if resp.status_code == 200:
         comedian = result.get("comedian", "?")

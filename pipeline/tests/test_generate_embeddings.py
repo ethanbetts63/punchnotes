@@ -5,7 +5,7 @@ from unittest.mock import patch
 from django.core.management import call_command
 from django.test import TestCase
 
-from pipeline.management.commands.generate_embeddings import _embedding_text, _load_lines_by_set
+from pipeline.utils.beats import embedding_text, load_lines_by_set
 from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
 
 
@@ -41,7 +41,7 @@ class GenerateEmbeddingsTests(TestCase):
             embedding=[] if embedding is None else embedding,
         )
 
-    def test_embedding_text_supports_structured_format(self):
+    def testembedding_text_supports_structured_format(self):
         standup_set = self._create_set("Comic One", "comic-one", 1)
         beat = self._create_beat(standup_set, "a", 1, 3)
         Line.objects.bulk_create([
@@ -51,15 +51,15 @@ class GenerateEmbeddingsTests(TestCase):
         ])
 
         self.assertEqual(
-            _embedding_text(beat),
+            embedding_text(beat),
             "setup one setup two punch",
         )
         self.assertEqual(
-            _embedding_text(beat, text_format="structured"),
+            embedding_text(beat, text_format="structured"),
             "Setup: setup one setup two\nPunchline: punch",
         )
 
-    def test_load_lines_by_set_batches_line_lookup_once(self):
+    def testload_lines_by_set_batches_line_lookup_once(self):
         standup_set = self._create_set("Comic One", "comic-one", 1)
         beat_a = self._create_beat(standup_set, "a", 1, 2)
         beat_b = self._create_beat(standup_set, "b", 3, 4)
@@ -71,14 +71,14 @@ class GenerateEmbeddingsTests(TestCase):
         ])
 
         with self.assertNumQueries(1):
-            lines_by_set = _load_lines_by_set([beat_a, beat_b])
+            lines_by_set = load_lines_by_set([beat_a, beat_b])
 
         self.assertEqual(
-            _embedding_text(beat_a, lines_by_set=lines_by_set),
+            embedding_text(beat_a, lines_by_set=lines_by_set),
             "setup one punch one",
         )
         self.assertEqual(
-            _embedding_text(beat_b, lines_by_set=lines_by_set, text_format="structured"),
+            embedding_text(beat_b, lines_by_set=lines_by_set, text_format="structured"),
             "Setup: setup two\nPunchline: punch two",
         )
 

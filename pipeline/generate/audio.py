@@ -1,7 +1,55 @@
+import re
+from datetime import datetime, timezone
+from pathlib import Path
+
 from django.conf import settings
 
-from pipeline.local_utils.http import pipeline_session, server_url
+from pipeline.utils.http import pipeline_session, server_url
 from pipeline.log import Log
+
+
+INVALID_FILENAME_CHARS = re.compile(r'[<>:"/\\|?*\x00-\x1f]')
+DEFAULT_COOKIES_NAME = "www.youtube.com_cookies.txt"
+
+
+def safe_filename_part(value: str) -> str:
+    value = INVALID_FILENAME_CHARS.sub("-", str(value))
+    value = re.sub(r"\s+", " ", value).strip()
+    return value.rstrip(". ") or "unknown"
+
+
+def episode_filename(episode) -> str:
+    publish_date = episode.date.isoformat() if episode.date else "unknown-date"
+    title = safe_filename_part(episode.title)
+    return f"{episode.video_id} - {publish_date} - {title}.%(ext)s"
+
+
+def find_audio(video_id: str, *audio_dirs: Path) -> Path | None:
+    for audio_dir in audio_dirs:
+        matches = list(audio_dir.glob(f"{video_id} - *.*"))
+        if matches:
+            return matches[0]
+    return None
+
+
+def ydl_options(options: dict, extra: dict | None = None) -> dict:
+    ydl_opts = {
+        "quiet": True,
+        "no_warnings": True,
+        "js_runtimes": {"node": {}},
+        "remote_components": ["ejs:github"],
+    }
+    if options.get("cookies_from_browser"):
+        ydl_opts["cookiesfrombrowser"] = (options["cookies_from_browser"],)
+    if options.get("cookies"):
+        ydl_opts["cookiefile"] = options["cookies"]
+    elif not options.get("cookies_from_browser"):
+        default_cookies = settings.PIPELINE_DATA_DIR / DEFAULT_COOKIES_NAME
+        if default_cookies.exists():
+            ydl_opts["cookiefile"] = str(default_cookies)
+    if extra:
+        ydl_opts.update(extra)
+    return ydl_opts
 
 
 def _post_history(session, record: dict) -> None:
@@ -13,7 +61,6 @@ def _post_history(session, record: dict) -> None:
 
 def generate_audio(options: dict, log: Log | None = None) -> None:
     import yt_dlp
-    from pipeline.management.commands.fetch_audio import episode_filename, find_audio, ydl_options
     from pipeline.models import Video
 
     log = log or Log()

@@ -18,6 +18,10 @@ def server_url(path: str) -> str:
     return f"{base}{path}"
 
 
+def json_or_empty(resp) -> dict:
+    return resp.json() if resp.content else {}
+
+
 def upload_jsonl_files(
     outbox_dir: Path,
     archive_dir: Path,
@@ -38,7 +42,7 @@ def upload_jsonl_files(
             data=path.read_bytes(),
             headers={"Content-Type": "application/x-ndjson"},
         )
-        result = resp.json() if resp.content else {}
+        result = json_or_empty(resp)
         if resp.status_code in (200, 202):
             shutil.move(str(path), archive_dir / path.name)
             log.success(f"  {path.name}: ok")

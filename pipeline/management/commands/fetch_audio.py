@@ -1,32 +1,15 @@
 import json
-import re
 from datetime import datetime, timezone
 
 import yt_dlp
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
+from pipeline.generate.audio import episode_filename, find_audio, ydl_options
 from pipeline.models import Video
 
 
-INVALID_FILENAME_CHARS = re.compile(r'[<>:"/\\|?*\x00-\x1f]')
 HISTORY_NAME = "audio_fetch_history.jsonl"
-DEFAULT_COOKIES_NAME = "www.youtube.com_cookies.txt"
-
-
-def safe_filename_part(value):
-    value = INVALID_FILENAME_CHARS.sub("-", str(value))
-    value = re.sub(r"\s+", " ", value).strip()
-    return value.rstrip(". ") or "unknown"
-
-
-def find_audio(video_id, *audio_dirs):
-    """Return an existing audio Path for a video_id, or None."""
-    for audio_dir in audio_dirs:
-        matches = list(audio_dir.glob(f"{video_id} - *.*"))
-        if matches:
-            return matches[0]
-    return None
 
 
 def load_failed_video_ids(history_path):
@@ -59,32 +42,6 @@ def append_history(history_path, record):
     }
     with history_path.open("a", encoding="utf-8") as output:
         output.write(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n")
-
-
-def ydl_options(options, extra=None):
-    ydl_opts = {
-        "quiet": True,
-        "no_warnings": True,
-        "js_runtimes": {"node": {}},
-        "remote_components": ["ejs:github"],
-    }
-    if options.get("cookies_from_browser"):
-        ydl_opts["cookiesfrombrowser"] = (options["cookies_from_browser"],)
-    if options.get("cookies"):
-        ydl_opts["cookiefile"] = options["cookies"]
-    elif not options.get("cookies_from_browser"):
-        default_cookies = settings.PIPELINE_DATA_DIR / DEFAULT_COOKIES_NAME
-        if default_cookies.exists():
-            ydl_opts["cookiefile"] = str(default_cookies)
-    if extra:
-        ydl_opts.update(extra)
-    return ydl_opts
-
-
-def episode_filename(episode):
-    publish_date = episode.date.isoformat() if episode.date else "unknown-date"
-    title = safe_filename_part(episode.title)
-    return f"{episode.video_id} - {publish_date} - {title}.%(ext)s"
 
 
 class Command(BaseCommand):

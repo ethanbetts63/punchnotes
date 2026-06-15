@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 
-from pipeline.import_utils.records import _infer_line_ownership
+from pipeline.utils.ownership import infer_line_ownership
 from pipeline.json_validation import validate_bit_meta
 
 
@@ -31,7 +31,7 @@ class InferLineOwnershipTests(SimpleTestCase):
             ],
         }
 
-        ownership = _infer_line_ownership(meta["lines"])
+        ownership = infer_line_ownership(meta["lines"])
 
         self.assertEqual(ownership[1], (1, 1))
 
@@ -43,7 +43,7 @@ class InferLineOwnershipTests(SimpleTestCase):
             ],
         }
 
-        ownership = _infer_line_ownership(meta["lines"])
+        ownership = infer_line_ownership(meta["lines"])
 
         self.assertEqual(ownership[2], (1, 1))
 
@@ -56,7 +56,7 @@ class InferLineOwnershipTests(SimpleTestCase):
             ],
         }
 
-        ownership = _infer_line_ownership(meta["lines"])
+        ownership = infer_line_ownership(meta["lines"])
 
         self.assertEqual(ownership[2], (1, 1))
 
@@ -69,7 +69,7 @@ class InferLineOwnershipTests(SimpleTestCase):
             ],
         }
 
-        ownership = _infer_line_ownership(meta["lines"])
+        ownership = infer_line_ownership(meta["lines"])
 
         self.assertEqual(ownership[2], (1, None))
 
@@ -82,7 +82,7 @@ class InferLineOwnershipTests(SimpleTestCase):
             ],
         }
 
-        ownership = _infer_line_ownership(meta["lines"])
+        ownership = infer_line_ownership(meta["lines"])
 
         self.assertEqual(ownership[2], (1, 1))
 
@@ -96,7 +96,7 @@ class InferLineOwnershipTests(SimpleTestCase):
             ],
         }
 
-        ownership = _infer_line_ownership(meta["lines"])
+        ownership = infer_line_ownership(meta["lines"])
 
         self.assertEqual(ownership[1], (None, None))
         self.assertEqual(ownership[4], (None, None))
@@ -110,7 +110,7 @@ class InferLineOwnershipTests(SimpleTestCase):
             ],
         }
 
-        _infer_line_ownership(meta["lines"])
+        infer_line_ownership(meta["lines"])
 
         self.assertIsNone(meta["lines"][1]["bit"])
         self.assertIsNone(meta["lines"][1]["beat"])

@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 
-from pipeline.import_utils.transcript_windows import build_transcript_windows
+from pipeline.utils.transcript_windows import build_transcript_windows
 
 
 class TranscriptWindowTests(SimpleTestCase):

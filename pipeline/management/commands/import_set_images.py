@@ -1,5 +1,4 @@
 import json
-import re
 import shutil
 from pathlib import Path
 
@@ -8,29 +7,11 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
 from pipeline.models import Set
-from pipeline.import_utils.records import refresh_comedian_image
+from pipeline.update.records import refresh_comedian_image
+from pipeline.utils.set_images import parse_image_name, public_image_url
 
 
 HISTORY_NAME = "set_image_fetch_history.jsonl"
-IMAGE_NAME_RE = re.compile(
-    r"^KT(?P<episode_number>\d+)_set(?P<set_number>\d+)_"
-    r"(?P<comic_slug>[a-z0-9][a-z0-9_-]*)\.(?P<ext>jpe?g|png|webp)$",
-    re.IGNORECASE,
-)
-
-
-def parse_image_name(path):
-    match = IMAGE_NAME_RE.match(path.name)
-    if not match:
-        raise CommandError(
-            f"Invalid image filename: {path.name}. Expected "
-            "KT{episode}_set{number}_{slug}.jpg."
-        )
-    return {
-        "episode_number": int(match.group("episode_number")),
-        "set_number": int(match.group("set_number")),
-        "comic_slug": match.group("comic_slug").lower().replace("_", "-"),
-    }
 
 
 def load_capture_history(history_path):

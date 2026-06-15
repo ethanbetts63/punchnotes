@@ -8,9 +8,9 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 
 from pipeline.models import Comedian
-from pipeline.import_utils.comedian_aliases import canonicalize_comedian_name, load_relationships
+from pipeline.utils.comedian_aliases import canonicalize_comedian_name, load_relationships
 from pipeline.json_validation import validate_bit_meta
-from pipeline.import_utils.records import (
+from pipeline.update.records import (
     import_bits,
     import_lines,
     refresh_episode_counts,

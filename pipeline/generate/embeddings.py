@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 
 from django.conf import settings
 
-from pipeline.local_utils.http import pipeline_session, server_url, upload_jsonl_files
+from pipeline.utils.http import pipeline_session, server_url
 from pipeline.log import Log
 
 
@@ -35,13 +35,3 @@ def generate_embeddings(options: dict, log: Log | None = None) -> None:
             f.write(json.dumps({"key": beat["key"], "embedding": embedding}, separators=(",", ":")) + "\n")
 
     log.success(f"Written {len(beats)} embeddings to {out_path.name}")
-
-
-def upload_embeddings(options: dict, log: Log | None = None) -> None:
-    log = log or Log()
-    upload_jsonl_files(
-        outbox_dir=settings.PIPELINE_DATA_DIR / "embeddings_outbox",
-        archive_dir=settings.PIPELINE_DATA_DIR / "embeddings_archive",
-        endpoint_path="/api/pipeline/embeddings/",
-        log=log,
-    )

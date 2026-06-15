@@ -2,7 +2,6 @@ import shutil
 
 from django.conf import settings
 
-from pipeline.local_utils.http import upload_jsonl_files
 from pipeline.log import Log
 
 
@@ -24,13 +23,3 @@ def generate_ep_meta(options: dict, log: Log | None = None) -> None:
         log(f"Written to {dest}")
     else:
         log.warning("fetch_episodes produced no output file.")
-
-
-def upload_ep_meta(options: dict, log: Log | None = None) -> None:
-    log = log or Log()
-    upload_jsonl_files(
-        outbox_dir=settings.PIPELINE_DATA_DIR / "ep_meta_outbox",
-        archive_dir=settings.PIPELINE_DATA_DIR / "ep_meta_archive",
-        endpoint_path="/api/pipeline/ep-meta/",
-        log=log,
-    )

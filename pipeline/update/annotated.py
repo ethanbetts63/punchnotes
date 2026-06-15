@@ -1,7 +1,7 @@
 from django.db import transaction
 
-from pipeline.import_utils.comedian_aliases import canonicalize_comedian_name, load_relationships
-from pipeline.import_utils.records import (
+from pipeline.utils.comedian_aliases import canonicalize_comedian_name, load_relationships
+from pipeline.update.records import (
     import_bits,
     import_lines,
     refresh_episode_counts,
@@ -11,15 +11,10 @@ from pipeline.import_utils.records import (
 )
 from pipeline.json_validation import validate_bit_meta
 from pipeline.models import Comedian
-from pipeline.management.commands.find_similar_comedians import find_candidates, write_candidate_report
+from pipeline.utils.similar_comedians import find_candidates, write_candidate_report, THRESHOLD
 
 
 def ingest_annotated_set(data: dict, relationships: dict | None = None) -> dict:
-    """
-    Ingest a single annotated set dict into the DB.
-    Returns {"status": "ok", "video_id", "set_number", "comedian", "lines", "bits"}
-    or raises on validation/import error.
-    """
     if relationships is None:
         relationships = load_relationships()
 
@@ -48,7 +43,7 @@ def ingest_annotated_set(data: dict, relationships: dict | None = None) -> dict:
         refresh_episode_counts(episode)
 
     comedians = list(Comedian.objects.order_by("slug").values_list("name", "slug"))
-    candidates = find_candidates(comedians, 80.0)
+    candidates = find_candidates(comedians, THRESHOLD)
     write_candidate_report(candidates)
 
     return {

@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 
-from pipeline.import_utils.comedian_aliases import (
+from pipeline.utils.comedian_aliases import (
     canonicalize_comedian_name,
     decided_pair_keys,
     empty_relationships,
