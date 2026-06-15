@@ -8,11 +8,8 @@ from pipeline.utils.comedian_aliases import canonicalize_comedian_name
 from pipeline.models.comedian import ATTRIBUTE_VALUES
 
 
-AUDIENCE_REACTION_RE = re.compile(
-    r"^\s*[\[(]?\s*(audience\s+)?"
-    r"(laughing|laughs|laughter|cheering|cheers|applause|applauding)"
-    r"[\])]?\s*$",
-    re.IGNORECASE,
+WHISPER_ANNOTATION_RE = re.compile(
+    r"^\s*(\[[\s\S]*?\]|\([\s\S]*?\))(\s*(\[[\s\S]*?\]|\([\s\S]*?\)))*\s*$"
 )
 
 JOKE_BOOK_MAP = {"small": "small_joke_book", "medium": "medium_joke_book", "large": "large_joke_book"}
@@ -177,7 +174,7 @@ class Command(BaseCommand):
             if line_number in omitted_line_numbers:
                 continue
             text = line.get("text", "")
-            if AUDIENCE_REACTION_RE.match(text):
+            if WHISPER_ANNOTATION_RE.match(text):
                 continue
 
             selected_lines.append(
