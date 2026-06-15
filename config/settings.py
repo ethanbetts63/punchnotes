@@ -8,11 +8,11 @@ load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 BASE_DIR = Path(__file__).resolve().parent.parent
 PIPELINE_DATA_DIR = BASE_DIR / "pipeline" / "data"
 
-SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-fallback-key")
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = os.environ.get("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "api.punchnotes.app"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -82,6 +82,7 @@ AUTH_PASSWORD_VALIDATORS = [
 PIPELINE_API_KEY = os.environ.get("PIPELINE_API_KEY", "")
 SERVER_BASE_URL = os.environ.get("SERVER_BASE_URL", "")
 LOCAL_SERVER_URL = os.environ.get("LOCAL_SERVER_URL", "http://localhost:8000")
+FRONTEND_URL = os.environ.get("FRONTEND_URL", "http://localhost:3000")
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"

@@ -23,9 +23,9 @@ class MergeAttributesTests(TestCase):
         result = merge_attributes([], [])
         self.assertEqual(result, [])
 
-    def test_none_treated_as_empty(self):
-        result = merge_attributes(None, None)
-        self.assertEqual(result, [])
+    def test_both_none_raises(self):
+        with self.assertRaises(TypeError):
+            merge_attributes(None, None)
 
     def test_filters_falsy_values(self):
         result = merge_attributes(["gay", ""], ["", "black"])
@@ -172,7 +172,8 @@ class RatioCalculationTests(TestCase):
             {"line_number": 4, "label": "punchline"},
         ]
 
-        punch_density, tag_density = _bit_ratios(lines, {1, 2, 3, 4})
+        label_by_line = {line["line_number"]: line["label"] for line in lines}
+        punch_density, tag_density = _bit_ratios(label_by_line, {1, 2, 3, 4})
 
         self.assertEqual(punch_density, 3.0)
         self.assertEqual(tag_density, 0.5)

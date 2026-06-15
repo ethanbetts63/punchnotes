@@ -35,10 +35,7 @@ def build_transcript_windows(
     overlap: int = 25,
     min_lines: int = 20,
 ) -> list[dict]:
-    lines = doc.get("lines")
-    if not isinstance(lines, list):
-        return []
-
+    lines = doc["lines"]
     cue_indexes = [
         i for i, line in enumerate(lines)
         if MUSIC_RE.match(str(line.get("text", "")))

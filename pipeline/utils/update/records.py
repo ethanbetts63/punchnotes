@@ -3,6 +3,7 @@ from collections import defaultdict
 
 from django.db.models import Avg, Count, Q
 
+from pipeline.json_validation.constants import JOKE_TYPE_FIELDS, OPTIONAL_JOKE_TYPE_FIELDS
 from pipeline.utils.ownership import infer_line_ownership
 from pipeline.utils.known_comedians import normalize_known_appearance_attributes
 from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
@@ -14,7 +15,7 @@ def parse_episode_number(title: str) -> int | None:
 
 
 def upsert_episode(video_id: str, meta: dict) -> Video:
-    video, _ = Video.objects.get_or_create(
+    video, created = Video.objects.get_or_create(
         video_id=video_id,
         defaults={
             "number": parse_episode_number(meta["episode_title"]),
@@ -23,24 +24,25 @@ def upsert_episode(video_id: str, meta: dict) -> Video:
             "date": meta.get("publish_date"),
         },
     )
-    update_fields = []
-    if video.number is None:
-        video.number = parse_episode_number(video.title)
-        update_fields.append("number")
-    if video.date is None and meta.get("publish_date"):
-        video.date = meta["publish_date"]
-        update_fields.append("date")
-    if update_fields:
-        video.save(update_fields=update_fields)
+    if not created:
+        update_fields = []
+        if video.number is None:
+            video.number = parse_episode_number(video.title)
+            update_fields.append("number")
+        if video.date is None and meta.get("publish_date"):
+            video.date = meta["publish_date"]
+            update_fields.append("date")
+        if update_fields:
+            video.save(update_fields=update_fields)
     return video
 
 
-def merge_attributes(existing, incoming):
-    return list(dict.fromkeys(v for v in [*(existing or []), *(incoming or [])] if v))
+def merge_attributes(existing: list, incoming: list) -> list:
+    return list(dict.fromkeys(v for v in [*existing, *incoming] if v))
 
 
-def meta_attributes(meta):
-    return list(meta.get("comedian_attributes") or [])
+def meta_attributes(meta: dict) -> list:
+    return list(meta.get("comedian_attributes", []))
 
 
 def upsert_comedian(slug: str, meta: dict) -> Comedian:
@@ -83,7 +85,7 @@ def resequence_episode_sets(video: Video) -> None:
 
 def upsert_set(video: Video, comedian: Comedian, meta: dict) -> Set:
     start_seconds = meta["start_seconds"]
-    set_attributes = list(meta.get("set_attributes") or [])
+    set_attributes = list(meta.get("set_attributes", []))
     fields = {
         "comedian": comedian,
         "start_seconds": start_seconds,
@@ -179,45 +181,33 @@ def import_lines(set_obj: Set, lines_data: list) -> list:
     ]
     Line.objects.bulk_create(lines)
     refresh_set_ratios(set_obj)
-    refresh_comedian_stats(set_obj.comedian)
     return lines
 
 
-def _bit_ratios(lines_data: list, line_numbers: set) -> tuple[float | None, float | None]:
-    """Compute punch density and tag density for a subset of lines."""
-    counts: dict[str, int] = {"setup": 0, "punchline": 0, "tag": 0, "fluff": 0}
-    for line in lines_data:
-        if line["line_number"] in line_numbers:
-            counts[line["label"]] = counts.get(line["label"], 0) + 1
-    p, t, s, f = counts["punchline"], counts["tag"], counts["setup"], counts["fluff"]
+def _bit_ratios(label_by_line: dict, line_numbers: set) -> tuple[float | None, float | None]:
+    counts: dict[str, int] = {}
+    for ln in line_numbers:
+        label = label_by_line.get(ln)
+        if label:
+            counts[label] = counts.get(label, 0) + 1
+    p = counts.get("punchline", 0)
+    t = counts.get("tag", 0)
+    s = counts.get("setup", 0)
+    f = counts.get("fluff", 0)
     denominator = s + f
-    punch_density = (p + t) / denominator if denominator > 0 else None
-    tag_density = t / p if p > 0 else None
-    return punch_density, tag_density
-
-
-JOKE_TYPE_FIELDS = {
-    "misdirect":           ["bait", "implication", "reveal"],
-    "reframe":             ["subject", "reframe"],
-    "phonetic-match":      ["heard", "reheard", "reason"],
-    "double-meaning":      ["phrase", "expected", "comic"],
-    "contradiction":       ["subject", "a", "b"],
-    "analogy":             ["a", "b", "shared"],
-    "hyperbole":           ["subject", "extreme"],
-    "elephant-in-the-room": ["elephant"],
-    "anti-humor":          ["frame", "answer"],
-}
+    return (p + t) / denominator if denominator > 0 else None, t / p if p > 0 else None
 
 
 def _extract_joke_fields(beat_data: dict) -> dict:
     joke_type = beat_data.get("joke_type") or ""
-    fields = JOKE_TYPE_FIELDS.get(joke_type, [])
+    fields = (*JOKE_TYPE_FIELDS.get(joke_type, ()), *OPTIONAL_JOKE_TYPE_FIELDS.get(joke_type, ()))
     return {f: beat_data[f] for f in fields if f in beat_data}
 
 
 def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
     set_obj.bits.all().delete()
 
+    label_by_line = {line["line_number"]: line["label"] for line in lines_data}
     ownership = infer_line_ownership(lines_data)
     bit_lines: dict[int, list] = defaultdict(list)
     beat_lines: dict[int, dict] = defaultdict(lambda: defaultdict(list))
@@ -233,7 +223,7 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
         lns = bit_lines.get(bit_num, [])
         if not lns:
             continue
-        punch_density, tag_density = _bit_ratios(lines_data, set(lns))
+        punch_density, tag_density = _bit_ratios(label_by_line, set(lns))
         bit = Bit.objects.create(
             set=set_obj,
             bit_id=f"bit_{bit_num:03d}",
@@ -254,23 +244,22 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
                 line_start=min(blns),
                 line_end=max(blns),
                 premise=beat_data.get("premise"),
-                joke_type=beat_data.get("joke_type") or None,
+                joke_type=beat_data.get("joke_type"),
                 joke_fields=_extract_joke_fields(beat_data),
             )
 
     set_obj.bit_count = set_obj.bits.count()
     set_obj.save(update_fields=["bit_count"])
-    refresh_comedian_stats(set_obj.comedian)
 
 
 def refresh_episode_counts(video: Video) -> None:
     """Recompute denormalised counts from the video's current sets."""
     sets = list(video.sets.select_related("comedian").all())
     video.set_count = len(sets)
-    video.bucket_pull_count = sum(1 for s in sets if "bucket_pull" in (s.comedian.attributes or []))
-    video.golden_ticket_count = sum(1 for s in sets if "golden_ticket" in (s.comedian.attributes or []))
-    video.regular_count = sum(1 for s in sets if "regular" in (s.comedian.attributes or []))
-    video.large_joke_book_count = sum(1 for s in sets if "large_joke_book" in (s.attributes or []))
+    video.bucket_pull_count = sum(1 for s in sets if "bucket_pull" in s.comedian.attributes)
+    video.golden_ticket_count = sum(1 for s in sets if "golden_ticket" in s.comedian.attributes)
+    video.regular_count = sum(1 for s in sets if "regular" in s.comedian.attributes)
+    video.large_joke_book_count = sum(1 for s in sets if "large_joke_book" in s.attributes)
     video.save(update_fields=[
         "set_count", "bucket_pull_count", "golden_ticket_count",
         "regular_count", "large_joke_book_count",

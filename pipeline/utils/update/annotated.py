@@ -4,6 +4,7 @@ from pipeline.utils.comedian_aliases import canonicalize_comedian_name, load_rel
 from pipeline.utils.update.records import (
     import_bits,
     import_lines,
+    refresh_comedian_stats,
     refresh_episode_counts,
     upsert_comedian,
     upsert_episode,
@@ -40,6 +41,7 @@ def ingest_annotated_set(data: dict, relationships: dict | None = None) -> dict:
 
         lines = import_lines(set_obj, data["lines"])
         import_bits(set_obj, data["lines"], data.get("bit_meta", {}))
+        refresh_comedian_stats(comedian)
         refresh_episode_counts(episode)
 
     all_comedians = list(Comedian.objects.order_by("slug").values_list("name", "slug"))

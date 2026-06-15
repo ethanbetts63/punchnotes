@@ -3,29 +3,12 @@ import shutil
 
 from django.conf import settings
 
-from pipeline.utils.transcript_windows import write_inbox_transcript_windows
+from pipeline.utils.transcript_windows import dump_transcript, write_inbox_transcript_windows
 from pipeline.log import Log
 
 
 WHISPER_LINES_KEY = "segments"
 
-
-def _dump_episode(doc: dict) -> str:
-    non_line = [(k, v) for k, v in doc.items() if k != "lines"]
-    has_lines = "lines" in doc
-    parts = ["{"]
-    for i, (k, v) in enumerate(non_line):
-        comma = "," if i < len(non_line) - 1 or has_lines else ""
-        parts.append(f"  {json.dumps(k)}: {json.dumps(v, ensure_ascii=False)}{comma}")
-    if has_lines:
-        parts.append('  "lines": [')
-        doc_lines = doc["lines"]
-        for i, line in enumerate(doc_lines):
-            comma = "," if i < len(doc_lines) - 1 else ""
-            parts.append(f"    {json.dumps(line, ensure_ascii=False)}{comma}")
-        parts.append("  ]")
-    parts.append("}")
-    return "\n".join(parts)
 
 
 def _audio_files(audio_dir):
@@ -129,7 +112,7 @@ def generate_transcripts(options: dict, log: Log) -> None:
                 for i, line in enumerate(transcript_lines, start=1)
             ],
         }
-        archive_file.write_text(_dump_episode(archive_doc), encoding="utf-8")
+        archive_file.write_text(dump_transcript(archive_doc), encoding="utf-8")
         log(f"[{video_id}] Archived transcript to {archive_file}")
 
         inbox_doc = {
