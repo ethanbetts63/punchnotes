@@ -37,7 +37,7 @@ Check `C:\Users\ethan\coding\punchnotes\pipeline\data\2_set_inbox\`.
 If there are any `.json` files there:
 
 - Pick the first 20 files (sorted by filename). If fewer than 20 remain, take all of them.
-- Spin up one medium level agent, tell it which files to process, and give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\annotation_prompt.md`. If in local mode, also tell the agent to use `--local` when running the upload command.
+- Spin up one medium level agent, tell it which files to process, and give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\annotation_prompt.md`. If in local mode, tell the agent to use `--local` on the upload command. Otherwise, tell it that `--local` is available as a fallback — use it only if the upload command fails with a server connection error.
 - Wait for it to finish, then repeat for the next batch of 20.
 - Continue until `2_set_inbox` is empty.
 - You can run phase 2 in parallel with phase 1 as soon as phase 2 has files to process.
@@ -66,6 +66,6 @@ python manage.py generate --comedian_aliases
 
 (Append `--local` if in local mode.)
 
-Then spin up one medium sized agent and give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\comedian_alias_review_prompt.md`. If in local mode, tell the agent it is running in local mode.
+Then spin up one medium sized agent and give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\comedian_alias_review_prompt.md`. If in local mode, tell the agent it is running in local mode. Otherwise, tell it that `--local` is available as a fallback — use it only if a command fails with a server connection error.
 
 When Phase 4 is complete, report that the pipeline is done.

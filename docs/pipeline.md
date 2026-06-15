@@ -9,11 +9,12 @@ Ingests and annotates Kill Tony stand-up sets into the DB.
 ```
 pipeline/
   management/commands/   # Three entry-point commands: generate, upload, update
-                         # Plus legacy standalone commands (fetch_audio, import_sets, etc.)
-  generate/              # Local-machine logic: scraping, downloading, embedding, etc.
-  upload/                # Local-machine logic: POSTing outbox files to the server
-  update/                # Server-side logic: reading inbox files into the DB
-  utils/                 # Shared utilities (HTTP session, inbox runner, alias resolution, etc.)
+                         # Plus standalone commands (fetch_audio, import_set_images, etc.)
+  utils/
+    generate/            # Local-machine logic: scraping, downloading, embedding, etc.
+    upload/              # Local-machine logic: POSTing outbox files to the server
+    update/              # Server-side logic: reading inbox files into the DB
+    (shared files)       # HTTP session, inbox runner, alias resolution, beats, etc.
   json_validation/       # JSON schema validation for annotated set files
   prompts/               # AI agent prompt files
   models/                # Django models (Video, Set, Comedian, Bit, Beat, Line)
