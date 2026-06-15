@@ -22,7 +22,7 @@ class Command(BaseCommand):
         files_changed = 0
 
         for path in files:
-            doc = json.loads(path.read_text(encoding="utf-8"))
+            doc = json.loads(path.read_text(encoding="utf-8-sig"))
             lines = doc.get("lines", [])
             cleaned = [line for line in lines if not WHISPER_ANNOTATION_RE.match(line.get("text", ""))]
             removed = len(lines) - len(cleaned)
