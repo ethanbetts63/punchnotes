@@ -2,7 +2,7 @@
 
 from collections import defaultdict
 
-from .constants import (
+from pipeline.json_validation.constants import (
     BASE_BEAT_FIELDS,
     ENCODED_PATTERN,
     JOKE_TYPE_FIELDS,
@@ -10,7 +10,7 @@ from .constants import (
     PREMISE_MAX_WORDS,
     PREMISE_STRUCTURE_RULES,
 )
-from .utils import is_non_empty_string, positive_int
+from pipeline.json_validation.utils import is_non_empty_string, positive_int
 
 
 class BeatMetaValidation:

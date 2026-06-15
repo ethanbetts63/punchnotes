@@ -6,11 +6,10 @@ It raises one ValueError containing all discovered issues so annotators get
 precise feedback in a single import attempt.
 """
 
-from .premises import populate_single_line_punchline_premises
-
-from .beats import BeatMetaValidation
-from .lines import LineValidation
-from .utils import sequential_error
+from pipeline.json_validation.premises import populate_single_line_punchline_premises
+from pipeline.json_validation.beats import BeatMetaValidation
+from pipeline.json_validation.lines import LineValidation
+from pipeline.json_validation.utils import sequential_error
 
 
 def validate_bit_meta(meta: dict) -> None:

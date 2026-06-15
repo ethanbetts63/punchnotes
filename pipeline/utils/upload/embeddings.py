@@ -4,8 +4,7 @@ from pipeline.utils.http import upload_jsonl_files
 from pipeline.log import Log
 
 
-def upload_embeddings(options: dict, log: Log | None = None) -> None:
-    log = log or Log()
+def upload_embeddings(options: dict, log: Log) -> None:
     upload_jsonl_files(
         outbox_dir=settings.PIPELINE_DATA_DIR / "embeddings_outbox",
         archive_dir=settings.PIPELINE_DATA_DIR / "embeddings_archive",

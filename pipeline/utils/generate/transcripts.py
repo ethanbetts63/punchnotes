@@ -55,10 +55,9 @@ def _archive_audio(audio_path, archive_dir):
     return target
 
 
-def generate_transcripts(options: dict, log: Log | None = None) -> None:
+def generate_transcripts(options: dict, log: Log) -> None:
     import whisper
 
-    log = log or Log()
     data_dir = settings.PIPELINE_DATA_DIR
     audio_dir = data_dir / "0_audio_inbox"
     audio_archive_dir = data_dir / "audio_archive"

@@ -64,8 +64,7 @@ def _seen_video_ids(path: Path) -> set[str]:
     return seen
 
 
-def fetch_episode_metadata(mode: str, log: Log | None = None) -> Path:
-    log = log or Log()
+def fetch_episode_metadata(mode: str, log: Log) -> Path:
     output_path = _output_path(mode)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     seen_video_ids = _seen_video_ids(output_path)
@@ -129,8 +128,7 @@ def fetch_episode_metadata(mode: str, log: Log | None = None) -> Path:
     return output_path
 
 
-def generate_ep_meta(options: dict, log: Log | None = None) -> None:
-    log = log or Log()
+def generate_ep_meta(options: dict, log: Log) -> None:
     mode = "full" if options.get("full", True) else "basic"
     output_path = fetch_episode_metadata(mode, log)
 

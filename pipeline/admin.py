@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Comedian, Video, Set, Line, Bit, Beat
+from pipeline.models import Comedian, Video, Set, Line, Bit, Beat
 
 
 @admin.register(Comedian)

@@ -14,8 +14,7 @@ from pipeline.log import Log
 from pipeline.models import Comedian, Set
 
 
-def dedup_comedians(relationships: dict, log: Log | None = None) -> dict:
-    log = log or Log()
+def dedup_comedians(relationships: dict, log: Log) -> dict:
     aliases = relationships.get("aliases", {})
     merged = renamed = skipped = not_found = 0
 
@@ -64,15 +63,14 @@ def dedup_comedians(relationships: dict, log: Log | None = None) -> dict:
     return {"merged": merged, "renamed": renamed, "skipped": skipped, "not_found": not_found}
 
 
-def apply_relationships_file(path: Path, log: Log | None = None) -> dict:
+def apply_relationships_file(path: Path, log: Log) -> dict:
     data = json.loads(path.read_text(encoding="utf-8"))
     validate_relationships(data)
     relationships_path().write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
     return dedup_comedians(data, log=log)
 
 
-def run_update_comedian_aliases(log: Log | None = None) -> None:
-    log = log or Log()
+def run_update_comedian_aliases(log: Log) -> None:
     inbox_dir = settings.PIPELINE_DATA_DIR / "comedian_aliases_inbox"
     path = inbox_dir / "comedian_name_relationships.json"
     if not path.exists():

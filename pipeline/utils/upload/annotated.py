@@ -25,8 +25,7 @@ def upload_annotated_file(path: Path, log: Log) -> bool:
     return False
 
 
-def upload_annotated(options: dict, log: Log | None = None) -> None:
-    log = log or Log()
+def upload_annotated(options: dict, log: Log) -> None:
     archive_dir = settings.PIPELINE_DATA_DIR / "bit_annotated_set_archive"
     archive_dir.mkdir(parents=True, exist_ok=True)
 

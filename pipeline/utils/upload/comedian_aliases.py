@@ -6,8 +6,7 @@ from pipeline.utils.http import json_or_empty, pipeline_session, server_url
 from pipeline.log import Log
 
 
-def upload_comedian_aliases(log: Log | None = None) -> None:
-    log = log or Log()
+def upload_comedian_aliases(log: Log) -> None:
     src = settings.PIPELINE_DATA_DIR / "comedian_name_relationships.json"
     if not src.exists():
         log.error("comedian_name_relationships.json not found.")

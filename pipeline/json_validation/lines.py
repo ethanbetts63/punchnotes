@@ -7,8 +7,8 @@ It also records the punchline anchors used later by beat metadata validation.
 
 from collections import defaultdict
 
-from .constants import ENCODED_PATTERN, VALID_LINE_LABELS
-from .utils import positive_int
+from pipeline.json_validation.constants import ENCODED_PATTERN, VALID_LINE_LABELS
+from pipeline.json_validation.utils import positive_int
 
 
 class LineValidation:

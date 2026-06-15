@@ -225,14 +225,16 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
 
 ## Process checklist
 
-1. Process only the files you were given. 
-2. For each file:
-   - Read the whole set.
-   - Annotate: label every line, assign bit/beat numbers to punchlines, write bit_meta.
-   - Write the annotated output back to `pipeline/data/2_set_inbox/<same-filename>.json`.
-3. python manage.py upload --annotated --file pipeline/data/2_set_inbox/<filename>.json --local
- This is **VERY IMPORTANT** it helps you learn from any mistakes you may have made.  
-4. Move to the next file. Repeat until all given files are done.
+**Do not read multiple files before writing. Complete all steps for one file before opening the next.**
+
+1. Process only the files you were given.
+2. For each file, in order:
+   a. Read that one file.
+   b. Annotate it: label every line, assign bit/beat numbers to punchlines, write bit_meta.
+   c. Write the annotated output back to `pipeline/data/2_set_inbox/<same-filename>.json`.
+   d. Run: `python manage.py upload --annotated --file pipeline/data/2_set_inbox/<filename>.json`
+      This is **VERY IMPORTANT** — it lets you learn from any mistakes before moving on.
+   e. Only then open the next file.
 
 ---
 

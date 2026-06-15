@@ -26,10 +26,9 @@ def upload_jsonl_files(
     outbox_dir: Path,
     archive_dir: Path,
     endpoint_path: str,
-    log: Log | None = None,
+    log: Log,
 ) -> None:
     """POST each *.jsonl file in outbox_dir to endpoint_path, archive on success."""
-    log = log or Log()
     archive_dir.mkdir(parents=True, exist_ok=True)
     files = sorted(outbox_dir.glob("*.jsonl")) if outbox_dir.exists() else []
     if not files:

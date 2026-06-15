@@ -59,11 +59,10 @@ def _post_history(session, record: dict) -> None:
         pass
 
 
-def generate_audio(options: dict, log: Log | None = None) -> None:
+def generate_audio(options: dict, log: Log) -> None:
     import yt_dlp
     from pipeline.models import Video
 
-    log = log or Log()
     data_dir = settings.PIPELINE_DATA_DIR
     inbox_dir = data_dir / "0_audio_inbox"
     archive_dir = data_dir / "audio_archive"

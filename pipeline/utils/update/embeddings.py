@@ -101,7 +101,7 @@ def _process_embeddings_file(path: Path) -> dict:
     return result
 
 
-def run_update_embeddings(log: Log | None = None) -> None:
+def run_update_embeddings(log: Log) -> None:
     run_inbox_update(
         inbox_dir=settings.PIPELINE_DATA_DIR / "embeddings_inbox",
         archive_dir=settings.PIPELINE_DATA_DIR / "embeddings_archive",

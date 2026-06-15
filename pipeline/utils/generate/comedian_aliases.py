@@ -4,8 +4,7 @@ from pipeline.utils.http import pipeline_session, server_url
 from pipeline.log import Log
 
 
-def generate_comedian_aliases(log: Log | None = None) -> None:
-    log = log or Log()
+def generate_comedian_aliases(log: Log) -> None:
     session = pipeline_session()
     resp = session.get(server_url("/api/pipeline/comedian-candidates/"))
     resp.raise_for_status()

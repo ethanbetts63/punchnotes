@@ -6,8 +6,7 @@ from pipeline.utils.http import json_or_empty, pipeline_session, server_url
 from pipeline.log import Log
 
 
-def upload_set_images(options: dict, log: Log | None = None) -> None:
-    log = log or Log()
+def upload_set_images(options: dict, log: Log) -> None:
     outbox_dir = settings.PIPELINE_DATA_DIR / "set_images_outbox"
     archive_dir = settings.PIPELINE_DATA_DIR / "set_images_archive"
     archive_dir.mkdir(parents=True, exist_ok=True)

@@ -65,8 +65,7 @@ def ingest_set_image(image_path: Path, replace: bool = False) -> str:
     return "imported"
 
 
-def run_update_set_images(log: Log | None = None) -> None:
-    log = log or Log()
+def run_update_set_images(log: Log) -> None:
     inbox_dir = settings.PIPELINE_DATA_DIR / "set_images_inbox"
     if not inbox_dir.exists():
         log("No set_images_inbox/ dir.")

@@ -8,10 +8,9 @@ from pipeline.utils.http import pipeline_session, server_url
 from pipeline.log import Log
 
 
-def generate_set_images(options: dict, log: Log | None = None) -> None:
+def generate_set_images(options: dict, log: Log) -> None:
     from pipeline.scripts.grab_set_image import default_output_path, download_clip, grab_frame, youtube_url
 
-    log = log or Log()
     session = pipeline_session()
     resp = session.get(server_url("/api/pipeline/missing-set-images/"))
     resp.raise_for_status()

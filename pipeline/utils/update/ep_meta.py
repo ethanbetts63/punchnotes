@@ -62,7 +62,7 @@ def ingest_ep_meta_jsonl(jsonl_text: str) -> dict:
     return {"created": created, "updated": updated, "failed": failed}
 
 
-def run_update_ep_meta(log: Log | None = None) -> None:
+def run_update_ep_meta(log: Log) -> None:
     run_inbox_update(
         inbox_dir=settings.PIPELINE_DATA_DIR / "ep_meta_inbox",
         archive_dir=settings.PIPELINE_DATA_DIR / "ep_meta_archive",
