@@ -97,6 +97,71 @@ class EpMetaView(PipelineView):
         return Response({"status": "queued", "file": dest.name}, status=202)
 
 
+class VideoScrapeQueueView(PipelineView):
+    _TO_SCRAPE_PATH = settings.PIPELINE_DATA_DIR / "videos_to_scrape.jsonl"
+    _HISTORY_PATH = settings.PIPELINE_DATA_DIR / "video_scrape_history.jsonl"
+
+    def _read_jsonl(self, path):
+        if not path.exists():
+            return []
+        records = []
+        for line in path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                records.append(json.loads(line))
+            except json.JSONDecodeError:
+                continue
+        return records
+
+    def get(self, request):
+        from pipeline.models import Video
+
+        to_scrape = self._read_jsonl(self._TO_SCRAPE_PATH)
+        if not to_scrape:
+            return Response({"videos": []})
+
+        known = set(Video.objects.values_list("video_id", flat=True))
+        for record in self._read_jsonl(self._HISTORY_PATH):
+            vid = record.get("video_id")
+            if vid:
+                known.add(vid)
+
+        remaining = [r for r in to_scrape if r.get("video_id") not in known]
+
+        if len(remaining) < len(to_scrape):
+            self._TO_SCRAPE_PATH.write_text(
+                "".join(json.dumps(r, ensure_ascii=False, separators=(",", ":")) + "\n" for r in remaining),
+                encoding="utf-8",
+            )
+
+        return Response({"videos": remaining})
+
+
+class VideoScrapeResultView(PipelineView):
+    _HISTORY_PATH = settings.PIPELINE_DATA_DIR / "video_scrape_history.jsonl"
+
+    def post(self, request):
+        video_id = request.data.get("video_id")
+        status = request.data.get("status")
+        if not video_id or status not in ("success", "failed"):
+            return Response({"error": "video_id and status (success|failed) required"}, status=400)
+
+        record = {
+            "scraped_at": datetime.now(timezone.utc).isoformat(),
+            "video_id": video_id,
+            "status": status,
+        }
+        if request.data.get("error"):
+            record["error"] = request.data["error"]
+
+        with self._HISTORY_PATH.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n")
+
+        return Response({"status": "ok"})
+
+
 class MissingSetImagesView(PipelineView):
     def get(self, request):
         from pipeline.utils.update.set_images import missing_image_sets

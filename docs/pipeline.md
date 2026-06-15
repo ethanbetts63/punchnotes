@@ -39,6 +39,8 @@ pipeline/
 | `embeddings_outbox/` | Computed embeddings JSONL awaiting upload |
 | `embeddings_inbox/` | (server) Received JSONL awaiting `update --embeddings` |
 | `comedian_aliases_inbox/` | (server) Received relationships file awaiting `update --comedian_aliases` |
+| `videos_to_scrape.jsonl` | (server) Queue of video IDs to fetch metadata for |
+| `video_scrape_history.jsonl` | (server) Record of scrape attempts (success/failed) |
 | `similar_comedian_candidates.json` | Fuzzy-matched comedian name pairs for review |
 | `comedian_name_relationships.json` | Reviewed alias/not-alias decisions |
 
@@ -69,7 +71,14 @@ python manage.py generate --ep_meta
 python manage.py upload --ep_meta
 python manage.py update --ep_meta
 ```
-Purpose: scrape Kill Tony episode metadata from YouTube into JSONL, upload to server, import/update DB
+Purpose: pull the scrape queue from the server (`videos_to_scrape.jsonl`), fetch full metadata per video from YouTube, write timestamped JSONL to `ep_meta_outbox/`, upload to server, import to DB. Each result (success or failure) is reported back to the server and recorded in `video_scrape_history.jsonl` so the queue stays clean.
+
+To scrape a single video without touching the queue:
+```
+python manage.py generate --ep_meta --video <video_id>
+```
+
+To seed the queue, add `{"video_id": "..."}` lines to `pipeline/data/videos_to_scrape.jsonl` on the server. The queue endpoint removes entries that are already in the DB or history before returning.
 
 **2. Get transcripts:**
 ```

@@ -16,6 +16,7 @@ class Command(BaseCommand):
         group.add_argument("--set_images", action="store_true", help="Scrape missing set images to set_images_outbox/")
         group.add_argument("--embeddings", action="store_true", help="Compute beat embeddings and write to embeddings_outbox/")
 
+        parser.add_argument("--video", help="Scrape metadata for a single video ID (ep_meta only)")
         parser.add_argument("--limit", type=int, help="Max items to process (audio, set_images)")
         parser.add_argument(
             "--cookies-from-browser",
