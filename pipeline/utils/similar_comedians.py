@@ -114,3 +114,50 @@ def write_candidate_report(candidates: list[Candidate]) -> str:
     }
     path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     return str(path)
+
+
+def update_candidate_report(
+    new_comedian: tuple[str, str],
+    all_comedians: list[tuple[str, str]],
+    relationships: dict | None = None,
+) -> str:
+    relationships = relationships or load_relationships()
+    decided_pairs = decided_pair_keys(relationships)
+
+    new_candidates = []
+    for other in all_comedians:
+        if other[1] == new_comedian[1]:
+            continue
+        pk = pair_key(new_comedian[1], other[1])
+        if pk in decided_pairs:
+            continue
+        if resolved_alias_slug(new_comedian[1], relationships) == resolved_alias_slug(other[1], relationships):
+            continue
+        candidate = pair_score(new_comedian, other)
+        if candidate.score >= THRESHOLD:
+            new_candidates.append(candidate)
+
+    path = settings.PIPELINE_DATA_DIR / CANDIDATE_REPORT_FILENAME
+    try:
+        existing_list = json.loads(path.read_text(encoding="utf-8")).get("candidates", [])
+    except (FileNotFoundError, json.JSONDecodeError):
+        existing_list = []
+
+    existing_list = [
+        c for c in existing_list
+        if pair_key(c["first"]["slug"], c["second"]["slug"]) not in decided_pairs
+    ]
+
+    existing_keys = {pair_key(c["first"]["slug"], c["second"]["slug"]) for c in existing_list}
+    for candidate in new_candidates:
+        pk = pair_key(candidate.first_slug, candidate.second_slug)
+        if pk not in existing_keys:
+            existing_list.append(candidate_dict(candidate))
+
+    payload = {
+        "threshold": THRESHOLD,
+        "candidate_count": len(existing_list),
+        "candidates": existing_list,
+    }
+    path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    return str(path)

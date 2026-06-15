@@ -11,7 +11,7 @@ from pipeline.utils.update.records import (
 )
 from pipeline.json_validation import validate_bit_meta
 from pipeline.models import Comedian
-from pipeline.utils.similar_comedians import find_candidates, write_candidate_report, THRESHOLD
+from pipeline.utils.similar_comedians import update_candidate_report
 
 
 def ingest_annotated_set(data: dict, relationships: dict | None = None) -> dict:
@@ -42,9 +42,8 @@ def ingest_annotated_set(data: dict, relationships: dict | None = None) -> dict:
         import_bits(set_obj, data["lines"], data.get("bit_meta", {}))
         refresh_episode_counts(episode)
 
-    comedians = list(Comedian.objects.order_by("slug").values_list("name", "slug"))
-    candidates = find_candidates(comedians, THRESHOLD)
-    write_candidate_report(candidates)
+    all_comedians = list(Comedian.objects.order_by("slug").values_list("name", "slug"))
+    update_candidate_report((comedian.name, comedian.slug), all_comedians, relationships)
 
     return {
         "status": "ok",
