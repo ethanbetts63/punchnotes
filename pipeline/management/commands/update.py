@@ -25,7 +25,7 @@ class Command(BaseCommand):
 
         elif options["ep_meta"]:
             from pipeline.utils.update.ep_meta import run_update_ep_meta
-            run_update_ep_meta(log)
+            run_update_ep_meta(log, archive=options["archive"])
 
         elif options["comedian_aliases"]:
             from pipeline.utils.update.comedian_aliases import run_update_comedian_aliases

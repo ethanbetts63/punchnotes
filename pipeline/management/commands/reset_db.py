@@ -74,15 +74,11 @@ class Command(BaseCommand):
         else:
             self.stdout.write("\nNo archived embeddings to restore.")
 
-        full_episode_jsonl = settings.PIPELINE_DATA_DIR / "full_kt_episodes.jsonl"
-        basic_episode_jsonl = settings.PIPELINE_DATA_DIR / "basic_kt_episodes.jsonl"
-        if full_episode_jsonl.exists():
-            self.stdout.write("\nImporting full episode metadata...")
-            call_command("import_episodes_jsonl", str(full_episode_jsonl))
-        elif basic_episode_jsonl.exists():
-            self.stdout.write("\nImporting basic episode metadata...")
-            call_command("import_episodes_jsonl", str(basic_episode_jsonl))
+        kt_ep_archive = data_dir / "kt_ep_archive.jsonl"
+        if kt_ep_archive.exists():
+            self.stdout.write("\nImporting episode metadata from archive...")
+            call_command("update", ep_meta=True, archive=True)
         else:
-            self.stdout.write(self.style.WARNING("\nNo episode JSONL found; skipping episode import."))
+            self.stdout.write(self.style.WARNING("\nNo kt_ep_archive.jsonl found; skipping episode import."))
 
         self.stdout.write(self.style.SUCCESS("\nDatabase reset complete."))
