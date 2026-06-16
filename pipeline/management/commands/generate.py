@@ -15,6 +15,7 @@ class Command(BaseCommand):
         group.add_argument("--comedian_aliases", action="store_true", help="Fetch comedian candidates from server")
         group.add_argument("--set_images", action="store_true", help="Scrape missing set images to set_images_outbox/")
         group.add_argument("--embeddings", action="store_true", help="Compute beat embeddings and write to embeddings_outbox/")
+        group.add_argument("--embeddings_report", action="store_true", help="Generate joke similarity report from stored embeddings")
 
         parser.add_argument("--video", help="Scrape metadata for a single video ID (ep_meta only)")
         parser.add_argument("--limit", type=int, help="Max items to process (audio, set_images)")
@@ -65,3 +66,7 @@ class Command(BaseCommand):
         elif options["embeddings"]:
             from pipeline.utils.generate.embeddings import generate_embeddings
             generate_embeddings(options, log)
+
+        elif options["embeddings_report"]:
+            from pipeline.utils.generate.embeddings_report import generate_embeddings_report
+            generate_embeddings_report(options, log)

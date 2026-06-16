@@ -1,2 +1,6 @@
 pytest
 pytest-django
+
+# Audio transcription (GPU). Install torch first via the CUDA index:
+# pip install torch==2.11.0+cu128 --index-url https://download.pytorch.org/whl/cu128
+openai-whisper
