@@ -101,10 +101,24 @@ def _process_embeddings_file(path: Path) -> dict:
     return result
 
 
-def run_update_embeddings(log: Log) -> None:
-    run_inbox_update(
-        inbox_dir=settings.PIPELINE_DATA_DIR / "embeddings_inbox",
-        archive_dir=settings.PIPELINE_DATA_DIR / "embeddings_archive",
-        process_fn=_process_embeddings_file,
-        log=log,
-    )
+def run_update_embeddings(log: Log, archive: bool = False) -> None:
+    if archive:
+        source_dir = settings.PIPELINE_DATA_DIR / "embeddings_archive"
+        if not source_dir.exists():
+            log("No embeddings_archive/ dir.")
+            return
+        files = sorted(source_dir.glob("*.jsonl"))
+        if not files:
+            log("No files in embeddings_archive/")
+            return
+        for path in files:
+            result = _process_embeddings_file(path)
+            log(f"  {path.name}: {result['stored']} stored, {result['not_found']} not found")
+        log.success(f"Done. {len(files)} file(s) processed.")
+    else:
+        run_inbox_update(
+            inbox_dir=settings.PIPELINE_DATA_DIR / "embeddings_inbox",
+            archive_dir=settings.PIPELINE_DATA_DIR / "embeddings_archive",
+            process_fn=_process_embeddings_file,
+            log=log,
+        )

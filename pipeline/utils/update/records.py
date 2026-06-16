@@ -218,14 +218,15 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
             if bt is not None:
                 beat_lines[b][bt].append(line["line_number"])
 
-    bits_to_create = []
+    bit_count = 0
+    beats_to_create = []
     for bit_num_str, bit_data in bit_meta.items():
         bit_num = int(bit_num_str)
         lns = bit_lines.get(bit_num, [])
         if not lns:
             continue
         punch_density, tag_density = _bit_ratios(label_by_line, set(lns))
-        bits_to_create.append((bit_num, bit_data, Bit(
+        bit = Bit.objects.create(
             set=set_obj,
             bit_id=f"bit_{bit_num:03d}",
             summary=bit_data.get("summary"),
@@ -233,19 +234,15 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
             line_end=max(lns),
             punch_density=punch_density,
             tag_density=tag_density,
-        )))
-
-    created_bits = Bit.objects.bulk_create([b for _, _, b in bits_to_create])
-
-    beats_to_create = []
-    for (bit_num, bit_data, _), created_bit in zip(bits_to_create, created_bits):
+        )
+        bit_count += 1
         for beat_num_str, beat_data in bit_data.get("beats", {}).items():
             beat_num = int(beat_num_str)
             blns = beat_lines[bit_num].get(beat_num, [])
             if not blns:
                 continue
             beats_to_create.append(Beat(
-                bit=created_bit,
+                bit=bit,
                 beat_id=f"bit_{bit_num:03d}_beat_{beat_num:03d}",
                 line_start=min(blns),
                 line_end=max(blns),
@@ -256,7 +253,7 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
 
     Beat.objects.bulk_create(beats_to_create)
 
-    set_obj.bit_count = len(created_bits)
+    set_obj.bit_count = bit_count
     set_obj.save(update_fields=["bit_count"])
 
 

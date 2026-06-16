@@ -36,7 +36,7 @@ def missing_image_sets() -> list[dict]:
     return result
 
 
-def ingest_set_image(image_path: Path, replace: bool = False) -> str:
+def ingest_set_image(image_path: Path, replace: bool = False, move_to_archive: bool = True) -> str:
     public_dir = settings.BASE_DIR / "frontend" / "public" / "set-images"
     archive_dir = settings.PIPELINE_DATA_DIR / "set_images_archive"
     public_dir.mkdir(parents=True, exist_ok=True)
@@ -60,29 +60,23 @@ def ingest_set_image(image_path: Path, replace: bool = False) -> str:
         set_obj.image_url = public_image_url(image_path.name)
         set_obj.save(update_fields=["image_url"])
         refresh_comedian_image(set_obj.comedian)
-        shutil.move(str(image_path), archive_dir / image_path.name)
+        if move_to_archive:
+            shutil.move(str(image_path), archive_dir / image_path.name)
 
     return "imported"
 
 
-def run_update_set_images(log: Log) -> None:
-    inbox_dir = settings.PIPELINE_DATA_DIR / "set_images_inbox"
-    if not inbox_dir.exists():
-        log("No set_images_inbox/ dir.")
-        return
-
-    files = sorted(
-        p for p in inbox_dir.glob("*")
-        if p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"}
-    )
+def _run_images_from_dir(source_dir: Path, replace: bool, move_to_archive: bool, log: Log) -> None:
+    image_exts = {".jpg", ".jpeg", ".png", ".webp"}
+    files = sorted(p for p in source_dir.glob("*") if p.suffix.lower() in image_exts)
     if not files:
-        log(f"No images in {inbox_dir.name}/")
+        log(f"No images in {source_dir.name}/")
         return
 
     imported = skipped = failed = 0
     for path in files:
         try:
-            result = ingest_set_image(path)
+            result = ingest_set_image(path, replace=replace, move_to_archive=move_to_archive)
             if result == "imported":
                 imported += 1
                 log(f"  {path.name}: imported")
@@ -93,3 +87,15 @@ def run_update_set_images(log: Log) -> None:
             log.error(f"  {path.name}: {e}")
 
     log.success(f"Done. {imported} imported, {skipped} skipped, {failed} failed.")
+
+
+def run_update_set_images(log: Log, archive: bool = False) -> None:
+    if archive:
+        source_dir = settings.PIPELINE_DATA_DIR / "set_images_archive"
+        _run_images_from_dir(source_dir, replace=True, move_to_archive=False, log=log)
+    else:
+        inbox_dir = settings.PIPELINE_DATA_DIR / "set_images_inbox"
+        if not inbox_dir.exists():
+            log("No set_images_inbox/ dir.")
+            return
+        _run_images_from_dir(inbox_dir, replace=False, move_to_archive=True, log=log)

@@ -63,9 +63,16 @@ class Command(BaseCommand):
         image_exts = {".jpg", ".jpeg", ".png", ".webp"}
         if images_archive.exists() and any(p.suffix.lower() in image_exts for p in images_archive.iterdir()):
             self.stdout.write("\nRe-linking set images from archive...")
-            call_command("import_set_images", source_dir=str(images_archive), replace=True)
+            call_command("update", set_images=True, archive=True)
         else:
             self.stdout.write("\nNo archived set images to re-link.")
+
+        embeddings_archive = data_dir / "embeddings_archive"
+        if embeddings_archive.exists() and any(embeddings_archive.glob("*.jsonl")):
+            self.stdout.write("\nRestoring embeddings from archive...")
+            call_command("update", embeddings=True, archive=True)
+        else:
+            self.stdout.write("\nNo archived embeddings to restore.")
 
         full_episode_jsonl = settings.PIPELINE_DATA_DIR / "full_kt_episodes.jsonl"
         basic_episode_jsonl = settings.PIPELINE_DATA_DIR / "basic_kt_episodes.jsonl"
