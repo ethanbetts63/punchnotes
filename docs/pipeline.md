@@ -9,17 +9,16 @@ Ingests and annotates Kill Tony stand-up sets into the DB.
 ```
 pipeline/
   management/commands/   # Three entry-point commands: generate, upload, update
-                         # Plus standalone commands (fetch_audio, import_set_images, etc.)
+                         # Plus normalize_archive, extract_set, reset_db
   utils/
     generate/            # Local-machine logic: scraping, downloading, embedding, etc.
-    upload/              # Local-machine logic: POSTing outbox files to the server
+    upload/              # Local-machine logic: POSTing files to the server inbox
     update/              # Server-side logic: reading inbox files into the DB
     (shared files)       # HTTP session, inbox runner, alias resolution, beats, etc.
   json_validation/       # JSON schema validation for annotated set files
   prompts/               # AI agent prompt files
   models/                # Django models (Video, Set, Comedian, Bit, Beat, Line)
-  data/                  # Local data directories (not committed)
-  scripts/               # One-off helper scripts (e.g. grab_set_image.py)
+  data/                  # Local data directories (not committed except private repo)
 ```
 
 ## Data directories (`pipeline/data/`)
@@ -29,28 +28,36 @@ pipeline/
 | `0_audio_inbox/` | Downloaded episode audio |
 | `audio_archive/` | Audio that has been transcribed |
 | `1_transcript_inbox/` | Raw transcripts awaiting set extraction |
-| `2_set_inbox/` | Extracted sets awaiting annotation |
-| `bit_annotated_set_archive/` | Annotated sets (source of truth, never rewritten) |
+| `2_set_inbox/` | Extracted sets awaiting annotation (failed archive imports land here too) |
+| `annotated_set_inbox/` | (server) Received annotated sets awaiting `update --annotated` |
+| `bit_annotated_set_archive/` | Annotated sets — source of truth (private git) |
 | `ep_meta_outbox/` | Episode metadata JSONL awaiting upload |
 | `ep_meta_inbox/` | (server) Received JSONL awaiting `update --ep_meta` |
-| `ep_meta_archive/` | Processed JSONL |
+| `ep_meta_archive/` | (server) Processed ep_meta JSONL |
 | `set_images_outbox/` | Scraped images awaiting upload |
 | `set_images_inbox/` | (server) Received images awaiting `update --set_images` |
+| `set_images_archive/` | Archived set images (private git) |
 | `embeddings_outbox/` | Computed embeddings JSONL awaiting upload |
 | `embeddings_inbox/` | (server) Received JSONL awaiting `update --embeddings` |
+| `embeddings_archive/` | Archived embedding vectors (private git) |
 | `comedian_aliases_inbox/` | (server) Received relationships file awaiting `update --comedian_aliases` |
+| `kt_ep_archive.jsonl` | Episode metadata archive — appended by `generate --ep_meta` (private git) |
 | `videos_to_scrape.jsonl` | (server) Queue of video IDs to fetch metadata for |
 | `video_scrape_history.jsonl` | (server) Record of scrape attempts (success/failed) |
-| `similar_comedian_candidates.json` | Fuzzy-matched comedian name pairs for review |
-| `comedian_name_relationships.json` | Reviewed alias/not-alias decisions |
+| `audio_fetch_history.jsonl` | (server) Record of audio download attempts |
+| `similar_comedian_candidates.json` | Fuzzy-matched comedian name pairs for review (private git) |
+| `comedian_name_relationships.json` | Reviewed alias/not-alias decisions (private git) |
+| `embedding_similarity_report.json` | Joke similarity report (private git) |
 
 ## Conventions
 
 **generate / upload / update split** — `generate` and `upload` run on the local machine; `update` runs on the server. Each command takes a mutually exclusive flag (`--ep_meta`, `--audio`, etc.) selecting the task.
 
-**Outbox / inbox / archive pattern** — `generate` writes files to an `*_outbox/` dir. `upload` POSTs them to the server API, which writes them to an `*_inbox/` dir. `update` reads the inbox, ingests to DB, and archives.
+**Outbox / inbox / archive pattern** — `generate` writes files to an `*_outbox/` dir. `upload` POSTs them to the server, which writes them to an `*_inbox/` dir. `update` reads the inbox, ingests to DB, and archives. Upload does nothing except send files to the server inbox.
 
-**Annotated sets** — `upload --annotated` writes to `annotated_set_inbox/`. Run `update --annotated` to ingest from inbox (moves files to archive). Run `update --annotated --archive` to re-import from `bit_annotated_set_archive/` (used by `reset_db`).
+**`--archive` flag** — `update --annotated`, `--ep_meta`, `--set_images`, and `--embeddings` all support `--archive`, which reads from the local archive dir instead of the inbox. Used by `reset_db` to rebuild the DB from scratch without re-uploading anything.
+
+**Annotated sets** — `upload --annotated` writes to `annotated_set_inbox/`. Run `update --annotated` to ingest from inbox (moves files to `bit_annotated_set_archive/`). Run `update --annotated --archive` to re-import from archive.
 
 **Auth** — all pipeline API endpoints use `Authorization: Bearer <PIPELINE_API_KEY>`.
 
@@ -71,7 +78,7 @@ python manage.py generate --ep_meta
 python manage.py upload --ep_meta
 python manage.py update --ep_meta
 ```
-Purpose: pull the scrape queue from the server (`videos_to_scrape.jsonl`), fetch full metadata per video from YouTube, write timestamped JSONL to `ep_meta_outbox/`, upload to server, import to DB. Each result (success or failure) is reported back to the server and recorded in `video_scrape_history.jsonl` so the queue stays clean.
+Purpose: pull the scrape queue from the server (`videos_to_scrape.jsonl`), fetch full metadata per video from YouTube, write timestamped JSONL to `ep_meta_outbox/` and append to `kt_ep_archive.jsonl`, upload to server, import to DB. Each result (success or failure) is reported back to the server and recorded in `video_scrape_history.jsonl` so the queue stays clean.
 
 To scrape a single video without touching the queue:
 ```
@@ -98,11 +105,13 @@ A. AI coordinator receives: `prompts/spinup_prompt.md` (tell the coordinator to 
 
 B. If files in `1_transcript_inbox`, spins up agent with `prompts/transcript_analysis_prompt.md`
 
-C. If file in `2_set_inbox`, spins up agent with `prompts/annotation_prompt`
+C. If files in `2_set_inbox`, spins up agent with `prompts/annotation_prompt`
 
-D. Runs `python manage.py normalize_archive` to make json more human readable
+D. Runs `python manage.py normalize_archive` to normalise JSON formatting in the archives
 
-E. After `upload --annotated`, review `pipeline/data/similar_comedian_candidates.json` with `prompts/comedian_alias_review_prompt.md`, save decisions in `pipeline/data/comedian_name_relationships.json` then run:
+E. Run `upload --annotated` then `update --annotated` to ingest annotated sets into the DB
+
+F. Review `pipeline/data/similar_comedian_candidates.json` with `prompts/comedian_alias_review_prompt.md`, save decisions in `pipeline/data/comedian_name_relationships.json` then run:
 ```
 python manage.py upload --comedian_aliases
 python manage.py update --comedian_aliases
@@ -121,11 +130,12 @@ Purpose: checks server for missing comedian images, scrapes locally, uploads, im
 python manage.py generate --embeddings
 python manage.py upload --embeddings
 python manage.py update --embeddings
+python manage.py generate --embeddings_report
 ```
-Purpose: fetches unembedded beats from server, computes embeddings locally, uploads to DB
+Purpose: fetches unembedded beats from server, computes embeddings locally, uploads to DB, then generates similarity report
 
 **6. Optional maintenance/reset:**
 ```
 python manage.py reset_db
 ```
-Purpose: local dev only — wipes DB, clears caches and migration history, reimports from archive
+Purpose: local dev only — wipes DB, clears caches and migration history, reimports everything from local archives (`bit_annotated_set_archive/`, `set_images_archive/`, `embeddings_archive/`, `kt_ep_archive.jsonl`). Requires no server connection.
