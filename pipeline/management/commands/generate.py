@@ -65,8 +65,8 @@ class Command(BaseCommand):
 
         elif options["embeddings"]:
             from pipeline.utils.generate.embeddings import generate_embeddings
-            generate_embeddings(options, log)
+            generate_embeddings(log)
 
         elif options["embeddings_report"]:
             from pipeline.utils.generate.embeddings_report import generate_embeddings_report
-            generate_embeddings_report(options, log)
+            generate_embeddings_report(log)

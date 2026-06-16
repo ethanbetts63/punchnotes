@@ -7,7 +7,7 @@ from pipeline.utils.http import pipeline_session, server_url
 from pipeline.log import Log
 
 
-def generate_embeddings(options: dict, log: Log) -> None:
+def generate_embeddings(log: Log) -> None:
     session = pipeline_session()
     resp = session.get(server_url("/api/pipeline/unembedded-beats/"))
     resp.raise_for_status()

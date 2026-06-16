@@ -1,3 +1,7 @@
+# Normalizes JSON formatting of annotated sets and transcripts in the archive to keep
+# files human-readable with consistent field ordering. Called at the end of the AI
+# annotation flow (see pipeline/prompts/spinup_prompt.md).
+
 import json
 from pathlib import Path
 

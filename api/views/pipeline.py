@@ -17,9 +17,20 @@ class AnnotatedSetView(PipelineView):
     def post(self, request):
         from pipeline.utils.comedian_aliases import load_relationships
         from pipeline.utils.update.annotated import ingest_annotated_set
+        defer_refresh = request.query_params.get("defer_refresh") == "1"
         try:
-            result = ingest_annotated_set(request.data, load_relationships())
+            result = ingest_annotated_set(request.data, load_relationships(), defer_refresh=defer_refresh)
             return Response(result)
+        except Exception as e:
+            return Response({"status": "error", "error": str(e)}, status=400)
+
+
+class RefreshStatsView(PipelineView):
+    def post(self, request):
+        from pipeline.utils.update.annotated import refresh_all_stats
+        try:
+            refresh_all_stats()
+            return Response({"status": "ok"})
         except Exception as e:
             return Response({"status": "error", "error": str(e)}, status=400)
 

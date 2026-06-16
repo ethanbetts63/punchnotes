@@ -11,11 +11,11 @@ from pipeline.utils.update.records import (
     upsert_set,
 )
 from pipeline.json_validation import validate_bit_meta
-from pipeline.models import Comedian
+from pipeline.models import Comedian, Video
 from pipeline.utils.similar_comedians import update_candidate_report
 
 
-def ingest_annotated_set(data: dict, relationships: dict | None = None) -> dict:
+def ingest_annotated_set(data: dict, relationships: dict | None = None, defer_refresh: bool = False) -> dict:
     if relationships is None:
         relationships = load_relationships()
 
@@ -41,11 +41,14 @@ def ingest_annotated_set(data: dict, relationships: dict | None = None) -> dict:
 
         lines = import_lines(set_obj, data["lines"])
         import_bits(set_obj, data["lines"], data.get("bit_meta", {}))
-        refresh_comedian_stats(comedian)
-        refresh_episode_counts(episode)
 
-    all_comedians = list(Comedian.objects.order_by("slug").values_list("name", "slug"))
-    update_candidate_report((comedian.name, comedian.slug), all_comedians, relationships)
+        if not defer_refresh:
+            refresh_comedian_stats(comedian)
+            refresh_episode_counts(episode)
+
+    if not defer_refresh:
+        all_comedians = list(Comedian.objects.order_by("slug").values_list("name", "slug"))
+        update_candidate_report((comedian.name, comedian.slug), all_comedians, relationships)
 
     return {
         "status": "ok",
@@ -55,3 +58,15 @@ def ingest_annotated_set(data: dict, relationships: dict | None = None) -> dict:
         "lines": len(lines),
         "bits": len(data.get("bit_meta", {})),
     }
+
+
+def refresh_all_stats() -> None:
+    from pipeline.utils.similar_comedians import find_candidates, write_candidate_report
+    relationships = load_relationships()
+    for comedian in Comedian.objects.all():
+        refresh_comedian_stats(comedian)
+    for video in Video.objects.all():
+        refresh_episode_counts(video)
+    all_comedians = list(Comedian.objects.order_by("slug").values_list("name", "slug"))
+    candidates = find_candidates(all_comedians, 80.0, relationships)
+    write_candidate_report(candidates)
