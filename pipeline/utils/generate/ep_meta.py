@@ -68,16 +68,21 @@ def generate_ep_meta(options: dict, log: Log) -> None:
     outbox_dir.mkdir(parents=True, exist_ok=True)
     ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     outbox_path = outbox_dir / f"ep_meta_{ts}.jsonl"
+    archive_path = settings.PIPELINE_DATA_DIR / "kt_ep_archive.jsonl"
 
     succeeded = failed = 0
-    with outbox_path.open("w", encoding="utf-8") as out:
+    with outbox_path.open("w", encoding="utf-8") as out, \
+         archive_path.open("a", encoding="utf-8") as archive:
         for entry in queue:
             vid = entry.get("video_id") or entry
             log(f"  [{vid}] scraping...")
             try:
                 record = _scrape_video(vid)
-                out.write(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n")
+                line = json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n"
+                out.write(line)
                 out.flush()
+                archive.write(line)
+                archive.flush()
                 if not video_id:
                     _report_result(vid, "success")
                 log.success(f"  [{vid}] {record['episode_title']}")
