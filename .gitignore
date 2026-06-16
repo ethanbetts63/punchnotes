@@ -7,3 +7,6 @@ db.sqlite3
 
 # Pipeline data lives in private repo
 /pipeline/data/
+
+# Generated assets
+/frontend/public/set-images/
