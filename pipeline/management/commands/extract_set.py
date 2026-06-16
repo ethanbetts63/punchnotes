@@ -200,6 +200,36 @@ class Command(BaseCommand):
         if not selected_lines:
             raise CommandError("No lines selected for this range")
 
+        if len(selected_lines) < 5:
+            raise CommandError(
+                f"Only {len(selected_lines)} line(s) selected — set is too short. "
+                "Check start/end line boundaries."
+            )
+
+        APPEARANCE_TYPES = {"bucket_pull", "regular", "golden_ticket", "special"}
+        attributes = normalize_attributes(options["attributes"])
+        appearance_types_found = [a for a in attributes if a in APPEARANCE_TYPES]
+        if len(appearance_types_found) == 0:
+            raise CommandError(
+                "comedian-attributes must include exactly one appearance type: "
+                "bucket_pull, regular, golden_ticket, or special."
+            )
+        if len(appearance_types_found) > 1:
+            raise CommandError(
+                f"comedian-attributes has multiple appearance types ({', '.join(appearance_types_found)}). "
+                "Include exactly one of: bucket_pull, regular, golden_ticket, special."
+            )
+
+        first_start = selected_lines[0].get("start")
+        last_start = selected_lines[-1].get("start")
+        if first_start is not None and last_start is not None:
+            duration = last_start - first_start
+            if duration < 15:
+                raise CommandError(
+                    f"Set spans only {duration:.1f}s — minimum is 15s. "
+                    "Check start/end line boundaries."
+                )
+
         interview_end_line = options["interview_end_line"]
         interview_end_seconds = None
         if interview_end_line is not None:
@@ -231,7 +261,7 @@ class Command(BaseCommand):
             "interview_end_line": interview_end_line,
             "interview_end_seconds": interview_end_seconds,
             "set_attributes": [joke_book_attr] if joke_book_attr else [],
-            "comedian_attributes": normalize_attributes(options["attributes"]),
+            "comedian_attributes": attributes,
             "lines": selected_lines,
         }
 
