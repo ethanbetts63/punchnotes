@@ -50,7 +50,7 @@ pipeline/
 
 **Outbox / inbox / archive pattern** — `generate` writes files to an `*_outbox/` dir. `upload` POSTs them to the server API, which writes them to an `*_inbox/` dir. `update` reads the inbox, ingests to DB, and archives.
 
-**Annotated sets are the exception** — `upload --annotated` ingests immediately (no separate update step) so the AI agent can receive structured errors inline.
+**Annotated sets** — `upload --annotated` writes to `annotated_set_inbox/`. Run `update --annotated` to ingest from inbox (moves files to archive). Run `update --annotated --archive` to re-import from `bit_annotated_set_archive/` (used by `reset_db`).
 
 **Auth** — all pipeline API endpoints use `Authorization: Bearer <PIPELINE_API_KEY>`.
 

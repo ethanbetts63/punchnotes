@@ -8,7 +8,6 @@ from api.views.pipeline import (
     EmbeddingsView,
     EpMetaView,
     MissingSetImagesView,
-    RefreshStatsView,
     SetImagesView,
     UnembeddedBeatsView,
     VideoScrapeQueueView,
@@ -17,7 +16,6 @@ from api.views.pipeline import (
 
 urlpatterns = [
     path("annotated-set/", AnnotatedSetView.as_view()),
-    path("refresh-stats/", RefreshStatsView.as_view()),
     path("audio-history/", AudioHistoryView.as_view()),
     path("comedian-candidates/", ComedianCandidatesView.as_view()),
     path("comedian-aliases/", ComedianAliasesView.as_view()),
