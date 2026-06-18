@@ -23,7 +23,7 @@ class Video(models.Model):
     regular_count = models.PositiveSmallIntegerField(default=0)
     large_joke_book_count = models.PositiveSmallIntegerField(default=0)
 
-    # Denormalised engagement ratio updated by import_episode_details
+    # Denormalised engagement ratio updated by video metadata imports
     view_like_ratio = models.FloatField(null=True, blank=True)
 
     class Meta:

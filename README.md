@@ -59,29 +59,3 @@ Bucket-pull sets are short and standardized. Interviews happen immediately after
 
 The archive also stores `interview_end_line` and `interview_end_seconds`, so interviews can later be extracted programmatically without re-analyzing the full episode transcript.
 
-
-Pipeline flow:
-  1. Sync episode metadata (manual):
-     python manage.py fetch_episodes --full
-     python manage.py import_episodes_jsonl
-     Purpose: scrape Kill Tony episode metadata from YouTube into JSONL, then import/update 
-  2. Get transcripts:
-     python manage.py fetch_audio
-     python manage.py generate_transcripts
-     pipeline/data/1_transcript_inbox/
-  3. AI Flow:
-A. AI coordinator recieves: prompts/spinup_prompt.md
-B. If files in 1_transcript_inbox, spins up agent with prompts/transcript_analysis_prompt.md
-C. If file in 2_set_inbox, spins up agent with prompts/annotation_prompt
-D. Runs python manage.py normalize_archive to make json more human readable
-E. After import_sets, review pipeline/data/similar_comedian_candidates.json with prompts/comedian_alias_review_prompt.md and save decisions in pipeline/data/comedian_name_relationships.json. 
- 4. Fetch set images (manual):
-     Run python manage.py fetch_set_images
-     Purpose: checks db for missing set images, scrapes and writes to data/4_set_images_inbox/
- 5. Import set images (manual):
-     python manage.py import_set_images 
-     Purpose: copies accepted images to: frontend/public/set-images/
-     Moves originals to: pipeline/data/set_images_archive/
-  6. Optional maintenance/reset
-      python manage.py reset_db
-      Purpose: Wipes db, clears caches and migration history, reimports all data from archive. 

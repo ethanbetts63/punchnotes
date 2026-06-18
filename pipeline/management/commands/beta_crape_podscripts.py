@@ -35,7 +35,11 @@ from bs4 import BeautifulSoup
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from pipeline.utils.transcript_windows import write_inbox_transcript_windows
+from pipeline.utils.transcript_windows import (
+    safe_transcript_title,
+    transcript_archive_filename,
+    write_inbox_transcript_windows,
+)
 from pipeline.models import Video
 
 BASE_URL = "https://podscripts.co"
@@ -91,7 +95,7 @@ class Command(BaseCommand):
         parser.add_argument(
             "--all",
             action="store_true",
-            help="Scrape all episodes that have an Episode record in the DB",
+            help="Scrape all episodes that have a Video record in the DB",
         )
         parser.add_argument(
             "--overwrite",
@@ -168,8 +172,13 @@ class Command(BaseCommand):
                 failed += 1
                 continue
 
-            archive_file = archive_path / f"{ep_obj.video_id}.json"
-            existing_inbox_files = list(inbox_path.glob(f"{ep_obj.video_id}*.json"))
+            title = safe_transcript_title({"episode_title": ep_obj.title})
+            archive_file = archive_path / transcript_archive_filename({"episode_title": ep_obj.title})
+            existing_inbox_files = [
+                *inbox_path.glob(f"{ep_obj.video_id}*.json"),
+                *inbox_path.glob(f"{title}.json"),
+                *inbox_path.glob(f"{title} - window*.json"),
+            ]
             if (archive_file.exists() or existing_inbox_files) and not options["overwrite"]:
                 self.stdout.write(f"  #{ep_num}: already exists, skipping (--overwrite to redo)")
                 skipped += 1

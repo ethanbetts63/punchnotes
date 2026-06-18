@@ -1,27 +1,20 @@
-import re
 from datetime import datetime, timezone
 from pathlib import Path
 
 from django.conf import settings
 
 from pipeline.utils.http import pipeline_session, server_url
+from pipeline.utils.filenames import safe_filename_part
 from pipeline.log import Log
 
 
-INVALID_FILENAME_CHARS = re.compile(r'[<>:"/\\|?*\x00-\x1f]')
 DEFAULT_COOKIES_NAME = "www.youtube.com_cookies.txt"
 
 
-def safe_filename_part(value: str) -> str:
-    value = INVALID_FILENAME_CHARS.sub("-", str(value))
-    value = re.sub(r"\s+", " ", value).strip()
-    return value.rstrip(". ") or "unknown"
-
-
-def episode_filename(episode) -> str:
-    publish_date = episode.date.isoformat() if episode.date else "unknown-date"
-    title = safe_filename_part(episode.title)
-    return f"{episode.video_id} - {publish_date} - {title}.%(ext)s"
+def video_filename(video) -> str:
+    publish_date = video.date.isoformat() if video.date else "unknown-date"
+    title = safe_filename_part(video.title)
+    return f"{video.video_id} - {publish_date} - {title}.%(ext)s"
 
 
 def find_audio(video_id: str, *audio_dirs: Path) -> Path | None:
@@ -79,17 +72,17 @@ def generate_audio(options: dict, log: Log) -> None:
     retry_failures = options.get("retry_failures", False)
     limit = options.get("limit")
 
-    episodes = list(
+    videos = list(
         Video.objects.exclude(video_id__isnull=True).exclude(video_id="").order_by("-number", "video_id")
     )
-    if not episodes:
-        log("No Episode rows found. Import episode metadata first.")
+    if not videos:
+        log("No Video rows found. Import video metadata first.")
         return
 
     already_present = skipped_failed = downloaded = failed = attempted = 0
 
-    for episode in episodes:
-        video_id = episode.video_id
+    for video in videos:
+        video_id = video.video_id
 
         if find_audio(video_id, inbox_dir, archive_dir) or video_id in downloaded_ids:
             already_present += 1
@@ -103,22 +96,22 @@ def generate_audio(options: dict, log: Log) -> None:
             break
 
         attempted += 1
-        outtmpl = str(inbox_dir / episode_filename(episode))
+        outtmpl = str(inbox_dir / video_filename(video))
         dl_opts = ydl_options(options, {"format": "bestaudio/best", "outtmpl": outtmpl})
-        episode_url = episode.url or f"https://www.youtube.com/watch?v={video_id}"
+        video_url = video.url or f"https://www.youtube.com/watch?v={video_id}"
 
         log(f"  [{video_id}] downloading audio...")
         try:
             with yt_dlp.YoutubeDL(dl_opts) as ydl:
-                ydl.download([episode_url])
+                ydl.download([video_url])
         except yt_dlp.utils.DownloadError as e:
             failed += 1
-            _post_history(session, {"video_id": video_id, "episode_number": episode.number, "status": "failed", "error": str(e)})
+            _post_history(session, {"video_id": video_id, "episode_number": video.number, "status": "failed", "error": str(e)})
             log.warning(f"  [{video_id}] failed: {e}")
             continue
 
         downloaded += 1
-        _post_history(session, {"video_id": video_id, "episode_number": episode.number, "status": "downloaded"})
+        _post_history(session, {"video_id": video_id, "episode_number": video.number, "status": "downloaded"})
         log(f"  [{video_id}] done")
 
     log.success(

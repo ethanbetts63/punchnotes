@@ -5,7 +5,7 @@ from pipeline.utils.update.records import (
     import_bits,
     import_lines,
     refresh_comedian_stats,
-    refresh_episode_counts,
+    refresh_video_counts,
     get_video_for_set,
     upsert_comedian,
     upsert_set,
@@ -36,7 +36,7 @@ def ingest_annotated_set(data: dict, relationships: dict | None = None, defer_re
 
         if not defer_refresh:
             refresh_comedian_stats(comedian)
-            refresh_episode_counts(video)
+            refresh_video_counts(video)
 
     if not defer_refresh:
         all_comedians = list(Comedian.objects.order_by("slug").values_list("name", "slug"))
@@ -58,7 +58,7 @@ def refresh_all_stats() -> None:
     for comedian in Comedian.objects.all():
         refresh_comedian_stats(comedian)
     for video in Video.objects.all():
-        refresh_episode_counts(video)
+        refresh_video_counts(video)
     all_comedians = list(Comedian.objects.order_by("slug").values_list("name", "slug"))
     candidates = find_candidates(all_comedians, 80.0, relationships)
     write_candidate_report(candidates)

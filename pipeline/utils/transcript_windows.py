@@ -2,8 +2,7 @@ import json
 import re
 from pathlib import Path
 
-
-FILENAME_INVALID_CHARS = str.maketrans({c: "-" for c in r'\/:*?"<>|'})
+from pipeline.utils.filenames import safe_filename_part
 
 MUSIC_RE = re.compile(
     r"^\s*-?\s*[\[(]?\s*"
@@ -15,8 +14,7 @@ MUSIC_RE = re.compile(
 
 
 def safe_transcript_title(doc: dict) -> str:
-    title = str(doc.get("episode_title") or doc.get("video_id") or "unknown").strip()
-    return title.translate(FILENAME_INVALID_CHARS).strip().rstrip(".") or "unknown"
+    return safe_filename_part(doc.get("episode_title") or doc.get("video_id") or "unknown")
 
 
 def transcript_archive_filename(doc: dict) -> str:

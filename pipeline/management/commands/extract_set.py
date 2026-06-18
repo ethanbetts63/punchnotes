@@ -5,15 +5,13 @@ from pathlib import Path
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 from pipeline.utils.comedian_aliases import canonicalize_comedian_name
+from pipeline.utils.filenames import safe_filename_part
 from pipeline.models.comedian import ATTRIBUTE_VALUES
 
 
-_FILENAME_INVALID_CHARS = str.maketrans({c: "-" for c in r'\/:*?"<>|'})
-
-
 def set_filename(episode_title: str, comedian_name: str, start_seconds: int | None = None) -> str:
-    title = episode_title.translate(_FILENAME_INVALID_CHARS).strip()
-    name = comedian_name.translate(_FILENAME_INVALID_CHARS).strip()
+    title = safe_filename_part(episode_title)
+    name = safe_filename_part(comedian_name)
     if start_seconds is not None:
         return f"{title} - {name} ({start_seconds}s).json"
     return f"{title} - {name}.json"
@@ -30,7 +28,7 @@ def dump_set(doc):
     """Pretty-print set metadata with one compact JSON object per line."""
     non_lines = [(k, v) for k, v in doc.items() if k != "lines"]
     parts = ["{"]
-    for i, (key, value) in enumerate(non_lines):
+    for key, value in non_lines:
         parts.append(f"  {json.dumps(key)}: {json.dumps(value, ensure_ascii=False)},")
 
     parts.append('  "lines": [')

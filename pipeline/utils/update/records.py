@@ -44,7 +44,7 @@ def upsert_comedian(slug: str, meta: dict) -> Comedian:
     return comedian
 
 
-def resequence_episode_sets(video: Video) -> None:
+def resequence_video_sets(video: Video) -> None:
     """Assign 1-indexed set numbers by source start time."""
     sets = list(video.sets.order_by("start_seconds", "id"))
     if not sets:
@@ -83,7 +83,7 @@ def upsert_set(video: Video, comedian: Comedian, meta: dict) -> Set:
             setattr(set_obj, k, v)
         set_obj.save(update_fields=list(fields.keys()))
 
-    resequence_episode_sets(video)
+    resequence_video_sets(video)
     set_obj.refresh_from_db()
     return set_obj
 
@@ -237,7 +237,7 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
     set_obj.save(update_fields=["bit_count"])
 
 
-def refresh_episode_counts(video: Video) -> None:
+def refresh_video_counts(video: Video) -> None:
     """Recompute denormalised counts from the video's current sets."""
     sets = list(video.sets.select_related("comedian").all())
     video.set_count = len(sets)
