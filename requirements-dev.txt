@@ -1,6 +1,29 @@
+# Everything the server needs, plus local development and pipeline tools.
+-r requirements.txt
+
+# Tests
 pytest
 pytest-django
+
+# HTTP client for local-to-server API calls
+requests
+
+# Audio download
+yt-dlp
+
+# Transcription
+youtube-transcript-api
 
 # Audio transcription (GPU). Install torch first via the CUDA index:
 # pip install torch==2.11.0+cu128 --index-url https://download.pytorch.org/whl/cu128
 openai-whisper
+
+# Embedding generation
+sentence-transformers
+
+# Scraping / browser automation
+beautifulsoup4
+playwright
+
+# CLI / output
+rich

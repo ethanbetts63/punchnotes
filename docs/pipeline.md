@@ -9,7 +9,7 @@ Ingests and annotates Kill Tony stand-up sets into the DB.
 ```
 pipeline/
   management/commands/   # Three entry-point commands: generate, upload, update
-                         # Plus normalize_archive, extract_set, reset_db
+                         # Plus normalize_archives, extract_set, reset_db
   utils/
     generate/            # Local-machine logic: scraping, downloading, embedding, etc.
     upload/              # Local-machine logic: POSTing files to the server inbox
@@ -107,7 +107,7 @@ B. If files in `1_transcript_inbox`, spins up agent with `prompts/transcript_ana
 
 C. If files in `2_set_inbox`, spins up agent with `prompts/annotation_prompt`
 
-D. Runs `python manage.py normalize_archive` to normalise JSON formatting in the archives
+D. Runs `python manage.py normalize_archives` to normalise JSON formatting in the archives
 
 E. Run `upload --annotated` then `update --annotated` to ingest annotated sets into the DB
 

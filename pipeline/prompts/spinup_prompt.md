@@ -49,7 +49,7 @@ If there are any `.json` files there:
 Once Phase 2 is complete, run:
 
 ```powershell
-python manage.py normalize_archive
+python manage.py normalize_archives
 ```
 
 This normalizes the JSON formatting of all files in `bit_annotated_set_archive` to the canonical format.
