@@ -240,32 +240,23 @@ _IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
 
 class SetImageBatchView(PipelineView):
     def post(self, request):
-        upload = request.FILES.get("archive")
-        if not upload:
-            return Response({"error": "No archive file provided."}, status=400)
+        uploads = request.FILES.getlist("images")
+        if not uploads:
+            return Response({"error": "No image files provided."}, status=400)
 
-        try:
-            with zipfile.ZipFile(upload) as archive:
-                members = []
-                for info in archive.infolist():
-                    if info.is_dir():
-                        continue
-                    member_path = PurePosixPath(info.filename)
-                    if member_path.is_absolute() or ".." in member_path.parts:
-                        return Response({"error": f"Unsafe archive path: {info.filename}"}, status=400)
-                    if member_path.suffix.lower() not in _IMAGE_EXTS:
-                        return Response({"error": f"Unsupported file type: {info.filename}"}, status=400)
-                    members.append((info, archive.read(info)))
-        except zipfile.BadZipFile:
-            return Response({"error": "Invalid zip archive."}, status=400)
+        for upload in uploads:
+            if PurePosixPath(upload.name).suffix.lower() not in _IMAGE_EXTS:
+                return Response({"error": f"Unsupported file type: {upload.name}"}, status=400)
 
         inbox_dir = settings.PIPELINE_DATA_DIR / "set_images_inbox"
         inbox_dir.mkdir(parents=True, exist_ok=True)
         files = []
-        for info, data in members:
-            name = PurePosixPath(info.filename).name
-            (inbox_dir / name).write_bytes(data)
-            files.append(name)
+        for upload in uploads:
+            dest = inbox_dir / upload.name
+            with dest.open("wb") as f:
+                for chunk in upload.chunks():
+                    f.write(chunk)
+            files.append(upload.name)
         return Response({"status": "queued", "received": len(files), "files": files}, status=202)
 
 

@@ -1,6 +1,4 @@
 import shutil
-import tempfile
-import zipfile
 from pathlib import Path
 
 from django.conf import settings
@@ -12,17 +10,12 @@ BATCH_SIZE = 100
 
 
 def _upload_batch(session, paths: list[Path], log: Log) -> list[Path]:
-    with tempfile.TemporaryDirectory() as tmp_dir:
-        archive_path = Path(tmp_dir) / "set_images.zip"
-        with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_STORED) as archive:
-            for path in paths:
-                archive.write(path, arcname=path.name)
-
-        with archive_path.open("rb") as f:
-            resp = session.post(
-                server_url("/api/pipeline/set-images-batch/"),
-                files={"archive": ("set_images.zip", f, "application/zip")},
-            )
+    files = [("images", (p.name, p.open("rb"), "image/jpeg")) for p in paths]
+    try:
+        resp = session.post(server_url("/api/pipeline/set-images-batch/"), files=files)
+    finally:
+        for _, (_, fh, _) in files:
+            fh.close()
 
     result = json_or_empty(resp)
     if resp.status_code in (200, 202):
