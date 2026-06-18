@@ -1,11 +1,11 @@
-from pipeline.utils.transcript_windows import build_transcript_windows
+from pipeline.utils.transcript_windows import build_transcript_windows, write_inbox_transcript_windows
 
 
 def _doc(n_lines, music_at=()):
     lines = [{"line_number": i, "text": f"line {i}", "start": i} for i in range(1, n_lines + 1)]
     for idx in music_at:
         lines[idx - 1]["text"] = "(upbeat music)"
-    return {"video_id": "abc123", "lines": lines}
+    return {"video_id": "abc123", "episode_title": "KT #487- FIRST AUSTIN SHOW!", "lines": lines}
 
 
 def test_windows_span_between_music_cues():
@@ -36,3 +36,14 @@ def test_skips_windows_shorter_than_minimum():
 def test_returns_no_windows_without_music_cues():
     doc = _doc(10)
     assert build_transcript_windows(doc, overlap=25) == []
+
+
+def test_write_inbox_transcript_windows_uses_episode_title_and_window_number(tmp_path):
+    doc = _doc(100, music_at=(40, 80))
+
+    paths = write_inbox_transcript_windows(doc, tmp_path, overlap=25)
+
+    assert [path.name for path in paths] == [
+        "KT #487- FIRST AUSTIN SHOW! - window001.json",
+        "KT #487- FIRST AUSTIN SHOW! - window002.json",
+    ]

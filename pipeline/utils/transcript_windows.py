@@ -3,6 +3,8 @@ import re
 from pathlib import Path
 
 
+FILENAME_INVALID_CHARS = str.maketrans({c: "-" for c in r'\/:*?"<>|'})
+
 MUSIC_RE = re.compile(
     r"^\s*-?\s*[\[(]?\s*"
     r"(upbeat\s+music|music|intro\s+music|outro\s+music|theme\s+music|"
@@ -10,6 +12,19 @@ MUSIC_RE = re.compile(
     r"\s*[\])]?\s*$",
     re.IGNORECASE,
 )
+
+
+def safe_transcript_title(doc: dict) -> str:
+    title = str(doc.get("episode_title") or doc.get("video_id") or "unknown").strip()
+    return title.translate(FILENAME_INVALID_CHARS).strip().rstrip(".") or "unknown"
+
+
+def transcript_archive_filename(doc: dict) -> str:
+    return f"{safe_transcript_title(doc)}.json"
+
+
+def transcript_window_filename(doc: dict, window_number: int) -> str:
+    return f"{safe_transcript_title(doc)} - window{window_number:03d}.json"
 
 
 def dump_transcript(doc: dict) -> str:
@@ -83,21 +98,20 @@ def write_inbox_transcript_windows(
     inbox_dir.mkdir(parents=True, exist_ok=True)
 
     if overwrite:
-        for path in inbox_dir.glob(f"{video_id}*.json"):
+        title = safe_transcript_title(doc)
+        for path in [*inbox_dir.glob(f"{video_id}*.json"), *inbox_dir.glob(f"{title} - window*.json")]:
             path.unlink()
 
     windows = build_transcript_windows(doc, overlap=overlap, min_lines=min_lines)
     if not windows:
-        out_path = inbox_dir / f"{video_id}.json"
+        out_path = inbox_dir / transcript_archive_filename(doc)
         out_path.write_text(dump_transcript(doc), encoding="utf-8")
         return [out_path]
 
     written = []
     for window in windows:
         window_num = int(window["window_number"])
-        start_line = int(window["window_start_line"])
-        end_line = int(window["window_end_line"])
-        out_path = inbox_dir / f"{video_id}_window{window_num:03d}_lines_{start_line}_{end_line}.json"
+        out_path = inbox_dir / transcript_window_filename(window, window_num)
         out_path.write_text(dump_transcript(window), encoding="utf-8")
         written.append(out_path)
 

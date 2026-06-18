@@ -3,7 +3,7 @@ import shutil
 
 from django.conf import settings
 
-from pipeline.utils.transcript_windows import dump_transcript, write_inbox_transcript_windows
+from pipeline.utils.transcript_windows import dump_transcript, transcript_archive_filename, write_inbox_transcript_windows
 from pipeline.log import Log
 
 
@@ -67,7 +67,14 @@ def generate_transcripts(options: dict, log: Log) -> None:
     for audio_path in files:
         video_id, publish_date, episode_title = _parse_audio_filename(audio_path)
         episode_url = f"https://www.youtube.com/watch?v={video_id}"
-        archive_file = archive_path / f"{video_id}.json"
+        meta = {
+            "type": "episode_meta",
+            "video_id": video_id,
+            "episode_title": episode_title,
+            "episode_url": episode_url,
+            "publish_date": publish_date,
+        }
+        archive_file = archive_path / transcript_archive_filename(meta)
 
         if archive_file.exists():
             skipped += 1
@@ -93,13 +100,6 @@ def generate_transcripts(options: dict, log: Log) -> None:
             continue
 
         transcript_lines = result[WHISPER_LINES_KEY]
-        meta = {
-            "type": "episode_meta",
-            "video_id": video_id,
-            "episode_title": episode_title,
-            "episode_url": episode_url,
-            "publish_date": publish_date,
-        }
         archive_doc = {
             **meta,
             "lines": [
