@@ -221,20 +221,6 @@ class MissingSetImagesView(PipelineView):
         return Response({"sets": missing_image_sets()})
 
 
-class SetImagesView(PipelineView):
-    def post(self, request):
-        inbox_dir = settings.PIPELINE_DATA_DIR / "set_images_inbox"
-        inbox_dir.mkdir(parents=True, exist_ok=True)
-        image_file = request.FILES.get("image")
-        if not image_file:
-            return Response({"error": "No image file provided."}, status=400)
-        dest = inbox_dir / image_file.name
-        with dest.open("wb") as f:
-            for chunk in image_file.chunks():
-                f.write(chunk)
-        return Response({"status": "queued", "file": image_file.name}, status=202)
-
-
 _IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
 
 

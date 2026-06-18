@@ -12,28 +12,25 @@ from pipeline.models import Set
 
 def missing_image_sets() -> list[dict]:
     from django.db.models import Q
-    seen_comedian_ids: set[int] = set()
-    result = []
     sets = (
         Set.objects
         .select_related("video", "comedian")
-        .filter(Q(comedian__image_url__isnull=True) | Q(comedian__image_url=""))
+        .filter(Q(image_url__isnull=True) | Q(image_url=""))
         .exclude(video__number__isnull=True)
-        .order_by("comedian_id", "-video__number", "set_number")
+        .order_by("-video__number", "set_number")
     )
-    for s in sets:
-        if s.comedian_id not in seen_comedian_ids:
-            seen_comedian_ids.add(s.comedian_id)
-            result.append({
-                "set_id": s.id,
-                "video_id": s.video.video_id,
-                "episode_number": s.video.number,
-                "set_number": s.set_number,
-                "comedian_slug": s.comedian.slug,
-                "comedian_name": s.comedian.name,
-                "start_seconds": s.start_seconds,
-            })
-    return result
+    return [
+        {
+            "set_id": s.id,
+            "video_id": s.video.video_id,
+            "episode_number": s.video.number,
+            "set_number": s.set_number,
+            "comedian_slug": s.comedian.slug,
+            "comedian_name": s.comedian.name,
+            "start_seconds": s.start_seconds,
+        }
+        for s in sets
+    ]
 
 
 def ingest_set_image(image_path: Path, replace: bool = False, move_to_archive: bool = True) -> str:
@@ -48,13 +45,10 @@ def ingest_set_image(image_path: Path, replace: bool = False, move_to_archive: b
         set_number=parsed["set_number"],
     )
 
-    if set_obj.comedian.image_url and not replace:
+    if set_obj.image_url and not replace:
         return "skipped"
 
     public_path = public_dir / image_path.name
-    if public_path.exists() and not replace:
-        return "skipped"
-
     with transaction.atomic():
         shutil.copy2(image_path, public_path)
         set_obj.image_url = set_image_media_path(image_path.name)
