@@ -146,17 +146,6 @@ class AudioHistoryView(PipelineView):
         return Response({"status": "ok"})
 
 
-class EpMetaView(PipelineView):
-    def post(self, request):
-        inbox_dir = settings.PIPELINE_DATA_DIR / "ep_meta_inbox"
-        inbox_dir.mkdir(parents=True, exist_ok=True)
-        ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-        dest = inbox_dir / f"ep_meta_{ts}.jsonl"
-        content = request.body
-        dest.write_bytes(content if isinstance(content, bytes) else content.encode("utf-8"))
-        return Response({"status": "queued", "file": dest.name}, status=202)
-
-
 class VideoScrapeQueueView(PipelineView):
     def _to_scrape_path(self):
         return settings.PIPELINE_DATA_DIR / "videos_to_scrape.jsonl"

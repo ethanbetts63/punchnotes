@@ -9,7 +9,6 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         group = parser.add_mutually_exclusive_group(required=True)
         group.add_argument("--annotated", action="store_true", help="Upload annotated set JSON(s) to server (ingests immediately)")
-        group.add_argument("--ep_meta", action="store_true", help="Upload episode metadata JSONL from ep_meta_outbox/")
         group.add_argument("--comedian_aliases", action="store_true", help="Upload comedian_name_relationships.json to server")
         group.add_argument("--set_images", action="store_true", help="Upload set images from set_images_outbox/")
         group.add_argument("--embeddings", action="store_true", help="Upload embedding JSONL from embeddings_outbox/")
@@ -28,10 +27,6 @@ class Command(BaseCommand):
         if options["annotated"]:
             from pipeline.utils.upload.annotated import upload_annotated
             upload_annotated(options, log)
-
-        elif options["ep_meta"]:
-            from pipeline.utils.upload.ep_meta import upload_ep_meta
-            upload_ep_meta(options, log)
 
         elif options["comedian_aliases"]:
             from pipeline.utils.upload.comedian_aliases import upload_comedian_aliases

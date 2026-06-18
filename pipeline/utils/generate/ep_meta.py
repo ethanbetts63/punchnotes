@@ -99,23 +99,16 @@ def generate_ep_meta(options: dict, log: Log) -> None:
             return
         log(f"  {len(queue)} video(s) to scrape")
 
-    outbox_dir = settings.PIPELINE_DATA_DIR / "ep_meta_outbox"
-    outbox_dir.mkdir(parents=True, exist_ok=True)
-    ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    outbox_path = outbox_dir / f"ep_meta_{ts}.jsonl"
     archive_path = settings.PIPELINE_DATA_DIR / "kt_ep_archive.jsonl"
 
     succeeded = failed = 0
-    with outbox_path.open("w", encoding="utf-8") as out, \
-         archive_path.open("a", encoding="utf-8") as archive:
+    with archive_path.open("a", encoding="utf-8") as archive:
         for entry in queue:
             vid = entry.get("video_id") or entry
             log(f"  [{vid}] scraping...")
             try:
                 record = _scrape_video(vid)
                 line = json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n"
-                out.write(line)
-                out.flush()
                 archive.write(line)
                 archive.flush()
                 if not video_id:
@@ -129,7 +122,6 @@ def generate_ep_meta(options: dict, log: Log) -> None:
                 failed += 1
 
     if succeeded == 0:
-        outbox_path.unlink(missing_ok=True)
         log("No records written.")
     else:
-        log.success(f"\nDone. {succeeded} scraped, {failed} failed. Written to {outbox_path.name}")
+        log.success(f"\nDone. {succeeded} scraped, {failed} failed. Appended to kt_ep_archive.jsonl")

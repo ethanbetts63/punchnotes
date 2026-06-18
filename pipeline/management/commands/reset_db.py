@@ -77,7 +77,7 @@ class Command(BaseCommand):
         kt_ep_archive = data_dir / "kt_ep_archive.jsonl"
         if kt_ep_archive.exists():
             self.stdout.write("\nImporting episode metadata from archive...")
-            call_command("update", ep_meta=True, archive=True)
+            call_command("update", ep_meta=True)
         else:
             self.stdout.write(self.style.WARNING("\nNo kt_ep_archive.jsonl found; skipping episode import."))
 

@@ -9,7 +9,7 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         group = parser.add_mutually_exclusive_group(required=True)
         group.add_argument("--annotated", action="store_true", help="Import annotated sets from annotated_set_inbox/ into DB")
-        group.add_argument("--ep_meta", action="store_true", help="Import episode metadata from ep_meta_inbox/")
+        group.add_argument("--ep_meta", action="store_true", help="Import episode metadata from kt_ep_archive.jsonl")
         group.add_argument("--comedian_aliases", action="store_true", help="Apply comedian alias relationships and dedup DB")
         group.add_argument("--set_images", action="store_true", help="Import set images from set_images_inbox/ (or set_images_archive/ with --archive)")
         group.add_argument("--embeddings", action="store_true", help="Write embeddings from embeddings_inbox/ to DB")
@@ -25,7 +25,7 @@ class Command(BaseCommand):
 
         elif options["ep_meta"]:
             from pipeline.utils.update.ep_meta import run_update_ep_meta
-            run_update_ep_meta(log, archive=options["archive"])
+            run_update_ep_meta(log)
 
         elif options["comedian_aliases"]:
             from pipeline.utils.update.comedian_aliases import run_update_comedian_aliases

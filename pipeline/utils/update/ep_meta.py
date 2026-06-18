@@ -5,7 +5,6 @@ from django.conf import settings
 
 from pipeline.log import Log
 from pipeline.models import Video
-from pipeline.utils.inbox import run_inbox_update
 
 
 EPISODE_NUMBER_PATTERN = re.compile(r"#\s*(\d+)")
@@ -63,18 +62,10 @@ def ingest_ep_meta_jsonl(jsonl_text: str) -> dict:
     return {"created": created, "updated": updated, "failed": failed}
 
 
-def run_update_ep_meta(log: Log, archive: bool = False) -> None:
-    if archive:
-        path = settings.PIPELINE_DATA_DIR / "kt_ep_archive.jsonl"
-        if not path.exists():
-            log("kt_ep_archive.jsonl not found.")
-            return
-        result = ingest_ep_meta_jsonl(path.read_text(encoding="utf-8"))
-        log.success(f"Done. {result['created']} created, {result['updated']} updated, {result['failed']} failed.")
-    else:
-        run_inbox_update(
-            inbox_dir=settings.PIPELINE_DATA_DIR / "ep_meta_inbox",
-            archive_dir=settings.PIPELINE_DATA_DIR / "ep_meta_archive",
-            process_fn=lambda p: ingest_ep_meta_jsonl(p.read_text(encoding="utf-8")),
-            log=log,
-        )
+def run_update_ep_meta(log: Log) -> None:
+    path = settings.PIPELINE_DATA_DIR / "kt_ep_archive.jsonl"
+    if not path.exists():
+        log("kt_ep_archive.jsonl not found.")
+        return
+    result = ingest_ep_meta_jsonl(path.read_text(encoding="utf-8"))
+    log.success(f"Done. {result['created']} created, {result['updated']} updated, {result['failed']} failed.")

@@ -31,9 +31,6 @@ pipeline/
 | `2_set_inbox/` | Extracted sets awaiting annotation (failed archive imports land here too) |
 | `annotated_set_inbox/` | (server) Received annotated sets awaiting `update --annotated` |
 | `bit_annotated_set_archive/` | Annotated sets — source of truth (private git) |
-| `ep_meta_outbox/` | Episode metadata JSONL awaiting upload |
-| `ep_meta_inbox/` | (server) Received JSONL awaiting `update --ep_meta` |
-| `ep_meta_archive/` | (server) Processed ep_meta JSONL |
 | `set_images_outbox/` | Scraped images awaiting upload |
 | `set_images_inbox/` | (server) Received images awaiting `update --set_images` |
 | `set_images_archive/` | Archived set images (private git) |
@@ -41,7 +38,7 @@ pipeline/
 | `embeddings_inbox/` | (server) Received JSONL awaiting `update --embeddings` |
 | `embeddings_archive/` | Archived embedding vectors (private git) |
 | `comedian_aliases_inbox/` | (server) Received relationships file awaiting `update --comedian_aliases` |
-| `kt_ep_archive.jsonl` | Episode metadata archive — appended by `generate --ep_meta` (private git) |
+| `kt_ep_archive.jsonl` | Episode metadata archive — appended by `generate --ep_meta`, committed to git, read directly by `update --ep_meta` |
 | `videos_to_scrape.jsonl` | (server) Queue of video IDs to fetch metadata for |
 | `video_scrape_history.jsonl` | (server) Record of scrape attempts (success/failed) |
 | `audio_fetch_history.jsonl` | (server) Record of audio download attempts |
@@ -75,10 +72,10 @@ Adding `--local` to any upload or generate command will make it use dev server r
 **1. Sync episode metadata (manual):**
 ```
 python manage.py generate --ep_meta
-python manage.py upload --ep_meta
+# commit and push kt_ep_archive.jsonl
 python manage.py update --ep_meta
 ```
-Purpose: pull the scrape queue from the server (`videos_to_scrape.jsonl`), fetch full metadata per video from YouTube, write timestamped JSONL to `ep_meta_outbox/` and append to `kt_ep_archive.jsonl`, upload to server, import to DB. Each result (success or failure) is reported back to the server and recorded in `video_scrape_history.jsonl` so the queue stays clean.
+Purpose: pull the scrape queue from the server (`videos_to_scrape.jsonl`), fetch full metadata per video from YouTube, append to `kt_ep_archive.jsonl`. Commit and push the archive, then run `update --ep_meta` on the server to read from it directly. Each result (success or failure) is reported back to the server and recorded in `video_scrape_history.jsonl` so the queue stays clean.
 
 To scrape a single video without touching the queue:
 ```
