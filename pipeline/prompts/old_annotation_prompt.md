@@ -8,17 +8,17 @@ Annotate only the files you are explicitly given — do not process any files be
 
 ## Input
 
-Each input file is a set JSON from `pipeline/data/2_set_inbox/`. Lines have an empty `label` field:
+Each input file is a set JSON from `pipeline/data/set_inbox/`. Lines have an empty `label` field:
 
 ---
 
 ## Output
 
-Write the annotated file back to `pipeline/data/2_set_inbox/<same-filename>.json`, overwriting the unannotated source. The output adds `bit_meta` before `lines`, and each line gets `label`, `bit`, and `beat` fields.
+Write the annotated file back to `pipeline/data/set_inbox/<same-filename>.json`, overwriting the unannotated source. The output adds `bit_meta` before `lines`, and each line gets `label`, `bit`, and `beat` fields.
 
 Every beat has its own `premise`, `joke_type`, joke-type-specific premise fields, and `keys`, except for the single special case below. A bit gets a `summary` **only when it has more than one beat**. The summary is a **short as possible** umbrella description of the shared frame that makes those beats belong together. Single-beat bits must not have a summary because the beat premise already explains the whole bit.
 
-After writing, delete the source file from `pipeline/data/2_set_inbox/`.
+After writing, delete the source file from `pipeline/data/set_inbox/`.
 
 ---
 
@@ -282,8 +282,8 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
 2. For each file:
    - Read the whole set.
    - Annotate: label every line, assign bit/beat numbers to punchlines, write bit_meta.
-   - Write the annotated output back to `pipeline/data/2_set_inbox/<same-filename>.json`.
-3. python manage.py import_sets --file pipeline/data/2_set_inbox/<filename>.json
+   - Write the annotated output back to `pipeline/data/set_inbox/<same-filename>.json`.
+3. python manage.py import_sets --file pipeline/data/set_inbox/<filename>.json
  This is **VERY IMPORTANT** it helps you learn from any mistakes you may have made.  you must specify the file. 
 4. Move to the next file. Repeat until all given files are done.
 

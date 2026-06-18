@@ -41,7 +41,7 @@ def test_validate_annotated_files_partitions_valid_and_invalid(tmp_path):
 
 
 def test_upload_annotated_zips_and_archives_only_valid_files(tmp_path, monkeypatch):
-    source_dir = tmp_path / "2_set_inbox"
+    source_dir = tmp_path / "set_inbox"
     source_dir.mkdir()
     valid = source_dir / "valid.json"
     invalid = source_dir / "invalid.json"

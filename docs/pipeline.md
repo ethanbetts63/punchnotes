@@ -25,10 +25,10 @@ pipeline/
 
 | Directory | Purpose |
 |---|---|
-| `0_audio_inbox/` | Downloaded episode audio |
+| `audio_inbox/` | Downloaded episode audio |
 | `audio_archive/` | Audio that has been transcribed |
-| `1_transcript_inbox/` | Raw transcripts awaiting set extraction |
-| `2_set_inbox/` | Extracted sets awaiting annotation (failed archive imports land here too) |
+| `transcript_inbox/` | Raw transcripts awaiting set extraction |
+| `set_inbox/` | Extracted sets awaiting annotation (failed archive imports land here too) |
 | `annotated_set_inbox/` | (server) Received annotated sets awaiting `update --annotated` |
 | `bit_annotated_set_archive/` | Annotated sets — source of truth (private git) |
 | `set_images_outbox/` | Scraped images awaiting upload |
@@ -88,7 +88,7 @@ To seed the queue, add `{"video_id": "..."}` lines to `pipeline/data/videos_to_s
 ```
 python manage.py generate --audio --limit 20
 python manage.py generate --transcripts
-pipeline/data/1_transcript_inbox/
+pipeline/data/transcript_inbox/
 ```
 Age restricted videos:
 
@@ -100,9 +100,9 @@ B. Run `python manage.py generate --restricted_audio`
 
 A. AI coordinator receives: `prompts/spinup_prompt.md` (tell the coordinator to use `--local` if required)
 
-B. If files in `1_transcript_inbox`, spins up agent with `prompts/transcript_analysis_prompt.md`
+B. If files in `transcript_inbox`, spins up agent with `prompts/transcript_analysis_prompt.md`
 
-C. If files in `2_set_inbox`, spins up agent with `prompts/annotation_prompt`
+C. If files in `set_inbox`, spins up agent with `prompts/annotation_prompt`
 
 D. Runs `python manage.py normalize_archives` to normalise JSON formatting in the archives
 

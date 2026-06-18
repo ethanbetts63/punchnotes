@@ -6,13 +6,13 @@ You are annotating stand-up **sets** from *Kill Tony*
 
 ## Input
 
-Each input file is a set JSON from `pipeline/data/2_set_inbox/`. Lines have an empty `label` field:
+Each input file is a set JSON from `pipeline/data/set_inbox/`. Lines have an empty `label` field:
 
 ---
 
 ## Output
 
-Write the annotated file back to `pipeline/data/2_set_inbox/<same-filename>.json`, overwriting the unannotated source. The output adds `bit_meta` before `lines`, and each line gets `label`, `bit`, and `beat` fields.
+Write the annotated file back to `pipeline/data/set_inbox/<same-filename>.json`, overwriting the unannotated source. The output adds `bit_meta` before `lines`, and each line gets `label`, `bit`, and `beat` fields.
 
 Every beat has its own `premise` and `joke_type`.
 
@@ -233,8 +233,8 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
 2. For each file, in order:
    a. Read that one file.
    b. Annotate it: label every line, assign bit/beat numbers to punchlines, write bit_meta.
-   c. Write the annotated output back to `pipeline/data/2_set_inbox/<same-filename>.json`.
-   d. Run: `python manage.py upload --annotated --file pipeline/data/2_set_inbox/<filename>.json`
+   c. Write the annotated output back to `pipeline/data/set_inbox/<same-filename>.json`.
+   d. Run: `python manage.py upload --annotated --file pipeline/data/set_inbox/<filename>.json`
       This is **VERY IMPORTANT** — it lets you learn from any mistakes before moving on.
    e. Only then open the next file.
 

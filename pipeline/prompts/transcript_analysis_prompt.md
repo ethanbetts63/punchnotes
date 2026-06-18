@@ -32,9 +32,9 @@ Also identify the final line of the comic's post-set interview and the joke book
 
 Also identify the comedian appearance type and any clear comedian attributes stated or strongly supported by the transcript. Pass them as a comma-separated list with `--comedian-attributes`. Always include exactly one of `bucket_pull`, `regular`, `golden_ticket`, or `special`. If no other attributes are clear, pass only the appearance type.
 
-Some inbox files are short music-window fragments and may contain no complete set. If the current file is very short or has no complete set, delete it from `1_transcript_inbox` and move on.
+Some inbox files are short music-window fragments and may contain no complete set. If the current file is very short or has no complete set, delete it from `transcript_inbox` and move on.
 
-After all complete sets in the current inbox file are extracted successfully, delete that processed JSON file from `1_transcript_inbox`.
+After all complete sets in the current inbox file are extracted successfully, delete that processed JSON file from `transcript_inbox`.
 
 ---
 

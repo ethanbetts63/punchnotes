@@ -9,9 +9,9 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         group = parser.add_mutually_exclusive_group(required=True)
         group.add_argument("--ep_meta", action="store_true", help="Scrape episode metadata to ep_meta_outbox/")
-        group.add_argument("--audio", action="store_true", help="Download missing audio to 0_audio_inbox/")
+        group.add_argument("--audio", action="store_true", help="Download missing audio to audio_inbox/")
         group.add_argument("--restricted_audio", action="store_true", help="Retry failed audio downloads (with cookies)")
-        group.add_argument("--transcripts", action="store_true", help="Generate transcripts from 0_audio_inbox/")
+        group.add_argument("--transcripts", action="store_true", help="Generate transcripts from audio_inbox/")
         group.add_argument("--comedian_aliases", action="store_true", help="Fetch comedian candidates from server")
         group.add_argument("--set_images", action="store_true", help="Scrape missing set images to set_images_outbox/")
         group.add_argument("--embeddings", action="store_true", help="Compute beat embeddings and write to embeddings_outbox/")

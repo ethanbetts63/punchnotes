@@ -42,10 +42,10 @@ def generate_transcripts(options: dict, log: Log) -> None:
     import whisper
 
     data_dir = settings.PIPELINE_DATA_DIR
-    audio_dir = data_dir / "0_audio_inbox"
+    audio_dir = data_dir / "audio_inbox"
     audio_archive_dir = data_dir / "audio_archive"
     history_path = data_dir / "scrape_history.jsonl"
-    inbox_path = data_dir / "1_transcript_inbox"
+    inbox_path = data_dir / "transcript_inbox"
     archive_path = settings.PIPELINE_PRIVATE_DATA_DIR / "transcript_archive"
     audio_dir.mkdir(parents=True, exist_ok=True)
     audio_archive_dir.mkdir(parents=True, exist_ok=True)

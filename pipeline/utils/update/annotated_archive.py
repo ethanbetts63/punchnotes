@@ -25,7 +25,7 @@ def run_update_annotated(log: Log, archive: bool = False) -> None:
         return
 
     relationships = load_relationships()
-    failed_dir = data_dir / "2_set_inbox" if archive else None
+    failed_dir = data_dir / "set_inbox" if archive else None
     succeeded = failed = 0
     for path in paths:
         try:
@@ -40,7 +40,7 @@ def run_update_annotated(log: Log, archive: bool = False) -> None:
             if failed_dir:
                 failed_dir.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(str(path), failed_dir / path.name)
-                log(f"  {path.name}: copied to 2_set_inbox/ for re-annotation")
+                log(f"  {path.name}: copied to set_inbox/ for re-annotation")
             failed += 1
 
     if succeeded:

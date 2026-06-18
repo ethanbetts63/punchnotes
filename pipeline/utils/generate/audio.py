@@ -57,7 +57,7 @@ def generate_audio(options: dict, log: Log) -> None:
     from pipeline.models import Video
 
     data_dir = settings.PIPELINE_DATA_DIR
-    inbox_dir = data_dir / "0_audio_inbox"
+    inbox_dir = data_dir / "audio_inbox"
     archive_dir = data_dir / "audio_archive"
     inbox_dir.mkdir(parents=True, exist_ok=True)
     archive_dir.mkdir(parents=True, exist_ok=True)

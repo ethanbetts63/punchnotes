@@ -114,7 +114,7 @@ def line_end_seconds(line):
 
 
 class Command(BaseCommand):
-    help = "Extract one stand-up set from a transcript line range into pipeline/data/2_set_inbox/"
+    help = "Extract one stand-up set from a transcript line range into pipeline/data/set_inbox/"
 
     def add_arguments(self, parser):
         parser.add_argument("--transcript", required=True, help="Path to transcript JSON")
@@ -228,7 +228,7 @@ class Command(BaseCommand):
         video_id = transcript["video_id"]
         canonical_comedian = canonicalize_comedian_name(options["comedian_name"])
         comedian_name = canonical_comedian.name
-        output_dir = settings.PIPELINE_DATA_DIR / "2_set_inbox"
+        output_dir = settings.PIPELINE_DATA_DIR / "set_inbox"
         output_dir.mkdir(parents=True, exist_ok=True)
         output_name = set_filename(transcript["episode_title"], comedian_name)
         output_path = output_dir / output_name

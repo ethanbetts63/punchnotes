@@ -65,7 +65,7 @@ def upload_annotated(options: dict, log: Log) -> None:
     if options.get("file"):
         paths = [Path(options["file"])]
     else:
-        source_dir = Path(options["dir"]) if options.get("dir") else settings.PIPELINE_DATA_DIR / "2_set_inbox"
+        source_dir = Path(options["dir"]) if options.get("dir") else settings.PIPELINE_DATA_DIR / "set_inbox"
         paths = sorted(source_dir.glob("*.json"))
 
     if not paths:
