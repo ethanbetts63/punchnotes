@@ -5,7 +5,7 @@ export type ListDef = {
   slugs: string[];
 };
 
-export const EPISODE_LISTS: ListDef[] = [
+export const VIDEO_PLAYLISTS: ListDef[] = [
   {
     id: "allstar-guests",
     title: "Allstar Guests",

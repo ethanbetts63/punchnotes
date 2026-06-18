@@ -61,7 +61,7 @@ export function episodeToTile(ep: Video): TileData {
   return {
     href: `/killtony/episodes/${ep.id}`,
     videoId: ep.youtube_id,
-    eyebrow: `Video ${ep.number}`,
+    eyebrow: `Episode ${ep.number}`,
     title: getEpisodeGuestLabel(ep, `Kill Tony #${ep.number}`),
     meta: meta || undefined,
   };

@@ -17,13 +17,13 @@ export default function VideoSearchResults({ episodes }: { episodes: Video[] }) 
           <SearchResultTile
             key={episode.id}
             href={`/killtony/episodes/${episode.id}`}
-            eyebrow={`Video ${episode.number}`}
+            eyebrow={`Episode ${episode.number}`}
             title={guestLabel}
             subtitle={fmtDate(episode.date) || undefined}
             image={
               <YoutubeThumbnail
                 videoId={episode.youtube_id}
-                alt={`Video ${episode.number} - ${guestLabel}`}
+                alt={`Episode ${episode.number} - ${guestLabel}`}
                 className="absolute inset-0 h-full w-full"
               />
             }

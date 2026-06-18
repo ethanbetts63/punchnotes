@@ -1,5 +1,5 @@
 import type { Video } from "@/lib/serverApi";
-import { EPISODE_LISTS } from "@/lib/playlists";
+import { VIDEO_PLAYLISTS } from "@/lib/playlists";
 import { episodeToTile } from "@/lib/tiles";
 import MediaCarousel from "@/components/MediaCarousel";
 
@@ -11,7 +11,7 @@ type Props = {
 export default function VideoPlaylists({ episodes, limit }: Props) {
   const byNumber = new Map(episodes.map((ep) => [String(ep.number), ep]));
 
-  const lists = EPISODE_LISTS.map((list) => ({
+  const lists = VIDEO_PLAYLISTS.map((list) => ({
     ...list,
     items: list.slugs.map((slug) => byNumber.get(slug)).filter(Boolean) as Video[],
   }))

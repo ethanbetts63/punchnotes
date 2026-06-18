@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { getServerVideos } from "@/lib/serverApi";
-import EpisodePlaylists from "@/components/EpisodePlaylists";
+import VideoPlaylists from "@/components/VideoPlaylists";
 import FilterControls from "@/components/FilterControls";
 import { EPISODE_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import ListPageHeader from "@/components/ListPageHeader";
@@ -30,7 +30,7 @@ export default async function EpisodesBrowsePage() {
           <h2 className="mb-6 px-6 text-2xl font-bold tracking-tight text-stone-950">
             Episode playlists
           </h2>
-          <EpisodePlaylists episodes={episodes} />
+          <VideoPlaylists episodes={episodes} />
         </div>
       )}
     </div>

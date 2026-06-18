@@ -3,7 +3,7 @@ import BeatOfTheWeek from "@/components/BeatOfTheWeek";
 import HowItWorksPanel from "@/components/HowItWorksPanel";
 import KillTonyHero from "@/components/KillTonyHero";
 import ComedianPlaylists from "@/components/ComedianPlaylists";
-import EpisodePlaylists from "@/components/EpisodePlaylists";
+import VideoPlaylists from "@/components/VideoPlaylists";
 import { getFeaturedBeatEntries } from "@/lib/featuredBeats";
 import { getServerComedians, getServerVideos } from "@/lib/serverApi";
 
@@ -76,7 +76,7 @@ export default async function KillTonyPage() {
               href="/killtony/episodes"
               cta="See all episodes"
             />
-            <EpisodePlaylists episodes={episodes} limit={2} />
+            <VideoPlaylists episodes={episodes} limit={2} />
           </div>
         </section>
       )}
