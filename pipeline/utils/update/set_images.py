@@ -5,7 +5,7 @@ from django.conf import settings
 from django.db import transaction
 
 from pipeline.utils.update.records import refresh_comedian_image
-from pipeline.utils.set_images import parse_image_name, public_image_url
+from pipeline.utils.set_images import parse_image_name, set_image_media_path
 from pipeline.log import Log
 from pipeline.models import Set
 
@@ -57,7 +57,7 @@ def ingest_set_image(image_path: Path, replace: bool = False, move_to_archive: b
 
     with transaction.atomic():
         shutil.copy2(image_path, public_path)
-        set_obj.image_url = public_image_url(image_path.name)
+        set_obj.image_url = set_image_media_path(image_path.name)
         set_obj.save(update_fields=["image_url"])
         refresh_comedian_image(set_obj.comedian)
         if move_to_archive:

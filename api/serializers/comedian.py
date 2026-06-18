@@ -1,11 +1,13 @@
 from rest_framework import serializers
 
 from pipeline.models import Comedian, Set
+from .fields import AbsoluteMediaUrlField
 from .shared import VideoMinimalSerializer
 
 
 class SetInComedianSerializer(serializers.ModelSerializer):
     video = VideoMinimalSerializer()
+    image_url = AbsoluteMediaUrlField()
 
     class Meta:
         model = Set
@@ -17,6 +19,8 @@ class SetInComedianSerializer(serializers.ModelSerializer):
 
 
 class ComedianListSerializer(serializers.ModelSerializer):
+    image_url = AbsoluteMediaUrlField()
+
     class Meta:
         model = Comedian
         fields = [

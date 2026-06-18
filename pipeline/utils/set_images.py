@@ -1,8 +1,6 @@
 import re
 from pathlib import Path
 
-from django.conf import settings
-
 
 IMAGE_NAME_RE = re.compile(
     r"^KT(?P<episode_number>\d+)_set(?P<set_number>\d+)_"
@@ -25,6 +23,6 @@ def parse_image_name(path: Path) -> dict:
     }
 
 
-def public_image_url(filename: str) -> str:
-    base = settings.SERVER_BASE_URL.rstrip("/")
-    return f"{base}/media/set-images/{filename}"
+def set_image_media_path(filename: str) -> str:
+    """Path stored in Set.image_url, relative to MEDIA_ROOT (e.g. set-images/KT1_set01_x.jpg)."""
+    return f"set-images/{filename}"

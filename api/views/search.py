@@ -2,6 +2,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from api.beat_utils import describe_beat_lines
+from api.serializers.fields import absolute_media_url
 from .querysets import (
     build_beat_search_queryset,
     build_comedian_list_queryset,
@@ -93,7 +94,7 @@ class NavSearchView(APIView):
                 f"/killtony/comedians/{comedian.slug}",
                 meta,
                 score,
-                image_url=comedian.image_url,
+                image_url=absolute_media_url(comedian.image_url, self.request),
             ))
         return sorted(results, key=lambda item: item["score"], reverse=True)[:GROUP_LIMIT]
 
