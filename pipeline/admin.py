@@ -17,7 +17,6 @@ class VideoAdmin(admin.ModelAdmin):
     list_display = ('title', 'number', 'date', 'bucket_pull_count', 'golden_ticket_count', 'regular_count')
     list_filter = ('date',)
     search_fields = ('title', 'video_id')
-    filter_horizontal = ('guests',)
     readonly_fields = ('scraped_at', 'bucket_pull_count', 'golden_ticket_count', 'regular_count', 'large_joke_book_count')
 
 

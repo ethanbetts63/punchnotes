@@ -1,4 +1,3 @@
-import re
 from collections import defaultdict
 
 from django.db.models import Avg, Count, Q
@@ -9,32 +8,13 @@ from pipeline.utils.known_comedians import normalize_known_appearance_attributes
 from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
 
 
-def parse_episode_number(title: str) -> int | None:
-    m = re.search(r"#(\d+)", title)
-    return int(m.group(1)) if m else None
-
-
-def upsert_episode(video_id: str, meta: dict) -> Video:
-    video, created = Video.objects.get_or_create(
-        video_id=video_id,
-        defaults={
-            "number": parse_episode_number(meta["episode_title"]),
-            "title": meta["episode_title"],
-            "url": meta["episode_url"],
-            "date": meta.get("publish_date"),
-        },
-    )
-    if not created:
-        update_fields = []
-        if video.number is None:
-            video.number = parse_episode_number(video.title)
-            update_fields.append("number")
-        if video.date is None and meta.get("publish_date"):
-            video.date = meta["publish_date"]
-            update_fields.append("date")
-        if update_fields:
-            video.save(update_fields=update_fields)
-    return video
+def get_video_for_set(video_id: str) -> Video:
+    try:
+        return Video.objects.get(video_id=video_id)
+    except Video.DoesNotExist as exc:
+        raise ValueError(
+            f"Video {video_id} is not in the database. Run update --ep_meta before importing annotated sets."
+        ) from exc
 
 
 def merge_attributes(existing: list, incoming: list) -> list:

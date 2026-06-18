@@ -46,9 +46,6 @@ def dedup_comedians(relationships: dict, log: Log) -> dict:
             if merged_attrs != canonical_comedian.attributes:
                 canonical_comedian.attributes = merged_attrs
             Set.objects.filter(comedian=alias_comedian).update(comedian=canonical_comedian)
-            for video in list(alias_comedian.guest_appearances.all()):
-                video.guests.remove(alias_comedian)
-                video.guests.add(canonical_comedian)
             if not canonical_comedian.image_url and alias_comedian.image_url:
                 canonical_comedian.image_url = alias_comedian.image_url
                 canonical_comedian.image_set = alias_comedian.image_set

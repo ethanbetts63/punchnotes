@@ -7,7 +7,7 @@ export function fmtSeconds(seconds: number): string {
 }
 
 export function fmtDuration(seconds: number | null): string {
-  if (!seconds) return "—";
+  if (!seconds) return "-";
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
   return h > 0 ? `${h}h ${m}m` : `${m}m`;
@@ -34,7 +34,7 @@ export const jokeBookLabel: Record<string, string> = {
 
 
 export function fmt2(value: number | null): string {
-  return value == null ? "—" : value.toFixed(2);
+  return value == null ? "-" : value.toFixed(2);
 }
 
 export function fmtDate(date: string | null): string {
@@ -46,22 +46,10 @@ export function fmtDate(date: string | null): string {
   });
 }
 
-export function parseEpisodeGuestsFromTitle(title: string | null | undefined): string[] {
-  if (!title) return [];
-  const guestBlock = title.split(/\s[-–]\s/, 2)[1]?.trim();
-  if (!guestBlock) return [];
-
-  return guestBlock
-    .split(/\s[-–]\s|\s*(?:,|&|\+)\s*/g)
-    .map((guest) => guest.trim())
-    .filter(Boolean);
-}
-
 export function getEpisodeGuests(
   episode: { guests?: string[] | null; title?: string | null }
 ): string[] {
-  const guests = episode.guests?.map((guest) => guest.trim()).filter(Boolean) ?? [];
-  return guests.length > 0 ? guests : parseEpisodeGuestsFromTitle(episode.title);
+  return episode.guests?.map((guest) => guest.trim()).filter(Boolean) ?? [];
 }
 
 export function getEpisodeGuestLabel(
@@ -69,7 +57,7 @@ export function getEpisodeGuestLabel(
   fallback = "No listed guests"
 ): string {
   const guests = getEpisodeGuests(episode);
-  return guests.length > 0 ? guests.join(", ") : fallback;
+  return guests.length > 0 ? guests.join(", ") : episode.title || fallback;
 }
 
 export function getJokeBookSize(attributes: string[] | null | undefined): "small" | "medium" | "large" | null {

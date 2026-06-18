@@ -42,16 +42,6 @@ def dump_set(doc):
     return "\n".join(parts)
 
 
-def parse_guests(episode_title):
-    if " - " not in episode_title:
-        return []
-
-    guest_text = episode_title.split(" - ", 1)[1]
-    guest_text = re.sub(r"^KT\s*#?\d+\s*", "", guest_text, flags=re.IGNORECASE).strip()
-    names = re.split(r"\s*(?:\+|&|,)\s*", guest_text)
-    return [name.title() for name in names if name.strip()]
-
-
 def parse_line_numbers(value):
     if not value:
         return set()
@@ -252,10 +242,6 @@ class Command(BaseCommand):
         set_doc = {
             "type": "set_meta",
             "video_id": video_id,
-            "episode_title": transcript["episode_title"],
-            "episode_url": transcript["episode_url"],
-            "publish_date": transcript.get("publish_date"),
-            "guests": parse_guests(transcript["episode_title"]),
             "comedian_name": comedian_name,
             "start_seconds": selected_lines[0]["start"],
             "interview_end_line": interview_end_line,

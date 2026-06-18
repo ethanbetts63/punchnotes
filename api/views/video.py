@@ -23,7 +23,4 @@ class VideoDetailView(RetrieveAPIView):
             .select_related("comedian")
             .order_by("start_seconds")
         )
-        return Video.objects.prefetch_related(
-            "guests",
-            Prefetch("sets", queryset=sets_qs),
-        )
+        return Video.objects.prefetch_related(Prefetch("sets", queryset=sets_qs))

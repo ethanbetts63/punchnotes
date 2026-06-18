@@ -10,6 +10,10 @@ from pipeline.log import Log
 
 
 EPISODE_NUMBER_PATTERN = re.compile(r"#\s*(\d+)")
+EPISODE_TITLE_TAIL_PATTERN = re.compile(r"#\s*\d+\s*(?P<tail>.*)$", re.IGNORECASE)
+LEADING_LOCATION_PATTERN = re.compile(r"^\([^)]*\)\s*[-–]\s*(?P<guests>.+)$")
+PAREN_GUESTS_PATTERN = re.compile(r"^\((?P<guests>[^)]+)\)$")
+GUEST_SPLIT_PATTERN = re.compile(r"\s*(?:\+|&|,|\s[-–]\s)\s*")
 
 
 def _parse_upload_date(raw: str | None) -> str | None:
@@ -23,6 +27,36 @@ def _episode_number(title: str) -> int | None:
     return int(match.group(1)) if match else None
 
 
+def parse_guests_from_title(title: str | None) -> list[str]:
+    if not title:
+        return []
+
+    match = EPISODE_TITLE_TAIL_PATTERN.search(title)
+    if not match:
+        return []
+
+    tail = match.group("tail").strip()
+    if not tail:
+        return []
+
+    location_match = LEADING_LOCATION_PATTERN.match(tail)
+    if location_match:
+        guest_text = location_match.group("guests")
+    elif tail.startswith(("-", "–")):
+        guest_text = tail[1:].strip()
+    else:
+        paren_match = PAREN_GUESTS_PATTERN.match(tail)
+        if not paren_match:
+            return []
+        guest_text = paren_match.group("guests")
+
+    return [
+        guest.strip().title()
+        for guest in GUEST_SPLIT_PATTERN.split(guest_text)
+        if guest.strip()
+    ]
+
+
 def _scrape_video(video_id: str) -> dict:
     url = f"https://www.youtube.com/watch?v={video_id}"
     with yt_dlp.YoutubeDL({"quiet": True, "no_warnings": True}) as ydl:
@@ -34,6 +68,7 @@ def _scrape_video(video_id: str) -> dict:
         "video_id": video_id,
         "episode_number": _episode_number(title),
         "episode_title": title,
+        "guests": parse_guests_from_title(title),
         "episode_url": url,
         "duration_seconds": info.get("duration"),
         "published_at": _parse_upload_date(info.get("upload_date")),

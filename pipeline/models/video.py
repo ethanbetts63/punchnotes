@@ -8,7 +8,7 @@ class Video(models.Model):
     url = models.URLField()
     date = models.DateField(null=True, blank=True)
     duration_seconds = models.PositiveIntegerField(null=True, blank=True)
-    guests = models.ManyToManyField('pipeline.Comedian', related_name='guest_appearances', blank=True)
+    guests = models.JSONField(default=list, blank=True)
     scraped_at = models.DateTimeField(auto_now_add=True)
 
     view_count = models.PositiveBigIntegerField(null=True, blank=True)

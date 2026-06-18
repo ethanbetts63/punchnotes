@@ -70,7 +70,7 @@ def build_comedian_list_queryset(params):
 
 
 def build_video_list_queryset(params):
-    videos = Video.objects.prefetch_related("guests")
+    videos = Video.objects.all()
 
     q = (params.get("q") or "").strip()
     if q:

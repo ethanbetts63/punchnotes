@@ -6,8 +6,8 @@ from pipeline.utils.update.records import (
     import_lines,
     refresh_comedian_stats,
     refresh_episode_counts,
+    get_video_for_set,
     upsert_comedian,
-    upsert_episode,
     upsert_set,
 )
 from pipeline.json_validation import validate_bit_meta
@@ -25,26 +25,18 @@ def ingest_annotated_set(data: dict, relationships: dict | None = None, defer_re
     canonical_comedian = canonicalize_comedian_name(data["comedian_name"], relationships)
     data = {**data, "comedian_name": canonical_comedian.name}
 
-    episode = upsert_episode(video_id, data)
+    video = get_video_for_set(video_id)
     comedian = upsert_comedian(canonical_comedian.slug, data)
 
     with transaction.atomic():
-        set_obj = upsert_set(episode, comedian, data)
-
-        for guest_name in data.get("guests", []):
-            canonical_guest = canonicalize_comedian_name(guest_name, relationships)
-            guest, _ = Comedian.objects.get_or_create(
-                slug=canonical_guest.slug,
-                defaults={"name": canonical_guest.name},
-            )
-            episode.guests.add(guest)
+        set_obj = upsert_set(video, comedian, data)
 
         lines = import_lines(set_obj, data["lines"])
         import_bits(set_obj, data["lines"], data.get("bit_meta", {}))
 
         if not defer_refresh:
             refresh_comedian_stats(comedian)
-            refresh_episode_counts(episode)
+            refresh_episode_counts(video)
 
     if not defer_refresh:
         all_comedians = list(Comedian.objects.order_by("slug").values_list("name", "slug"))

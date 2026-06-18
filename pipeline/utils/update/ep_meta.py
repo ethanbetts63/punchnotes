@@ -1,6 +1,5 @@
 import json
 import re
-from pathlib import Path
 
 from django.conf import settings
 
@@ -52,6 +51,8 @@ def ingest_ep_meta_jsonl(jsonl_text: str) -> dict:
                 parsed = _episode_number(defaults.get("title"))
                 if parsed is not None:
                     defaults["number"] = parsed
+            if "guests" in data:
+                defaults["guests"] = [guest for guest in data.get("guests") or [] if guest]
             _, was_created = Video.objects.update_or_create(video_id=video_id, defaults=defaults)
             if was_created:
                 created += 1

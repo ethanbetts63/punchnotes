@@ -9,8 +9,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 
 SET_FIELD_ORDER = [
-    "type", "video_id", "episode_title", "episode_url", "publish_date",
-    "guests", "comedian_name",
+    "type", "video_id", "comedian_name",
     "start_seconds", "interview_end_line", "interview_end_seconds",
     "set_attributes", "comedian_attributes", "bit_meta", "lines",
 ]

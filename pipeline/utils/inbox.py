@@ -9,8 +9,8 @@ def run_inbox_update(
     inbox_dir: Path,
     archive_dir: Path,
     process_fn: Callable[[Path], dict],
-    glob: str = "*.jsonl",
     log: Log,
+    glob: str = "*.jsonl",
 ) -> None:
     archive_dir.mkdir(parents=True, exist_ok=True)
     files = sorted(inbox_dir.glob(glob)) if inbox_dir.exists() else []

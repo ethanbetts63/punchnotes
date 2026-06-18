@@ -8,7 +8,6 @@ from pipeline.utils.update.records import (
     merge_attributes,
     refresh_set_ratios,
     upsert_comedian,
-    upsert_episode,
     upsert_set,
 )
 
@@ -82,18 +81,17 @@ def test_unknown_regular_normalizes_to_bucket_pull():
 
 # --- upsert_set ordering ---
 
-_episode_meta = {
-    "episode_title": "KT #1 - Test Guest",
-    "episode_url": "https://www.youtube.com/watch?v=test123",
-    "publish_date": None,
-}
-
 def _set_meta(name, start_seconds):
-    return {**_episode_meta, "comedian_name": name, "start_seconds": start_seconds,
-            "interview_end_line": None, "interview_end_seconds": None, "set_attributes": []}
+    return {
+        "comedian_name": name,
+        "start_seconds": start_seconds,
+        "interview_end_line": None,
+        "interview_end_seconds": None,
+        "set_attributes": [],
+    }
 
 def test_set_numbers_derived_from_start_seconds():
-    episode = upsert_episode("test123", _episode_meta)
+    episode = Video.objects.create(video_id="test123", number=1, title="KT #1 - Test Guest", url="https://www.youtube.com/watch?v=test123")
     late = upsert_comedian("late-comic", _set_meta("Late Comic", 300))
     early = upsert_comedian("early-comic", _set_meta("Early Comic", 100))
     upsert_set(episode, late, _set_meta("Late Comic", 300))
@@ -104,7 +102,7 @@ def test_set_numbers_derived_from_start_seconds():
     assert [s.set_number for s in ordered] == [1, 2]
 
 def test_reimport_same_start_updates_existing_set():
-    episode = upsert_episode("test123", _episode_meta)
+    episode = Video.objects.create(video_id="test123", number=1, title="KT #1 - Test Guest", url="https://www.youtube.com/watch?v=test123")
     comic = upsert_comedian("test-comic", _set_meta("Test Comic", 100))
     first = upsert_set(episode, comic, _set_meta("Test Comic", 100))
     second = upsert_set(episode, comic, {**_set_meta("Test Comic", 100), "set_attributes": ["large_joke_book"]})
@@ -114,7 +112,7 @@ def test_reimport_same_start_updates_existing_set():
     assert second.attributes == ["large_joke_book"]
 
 def test_resequence_handles_existing_high_set_numbers():
-    episode = upsert_episode("test123", _episode_meta)
+    episode = Video.objects.create(video_id="test123", number=1, title="KT #1 - Test Guest", url="https://www.youtube.com/watch?v=test123")
     first_comic = upsert_comedian("first-comic", _set_meta("First Comic", 100))
     second_comic = upsert_comedian("second-comic", _set_meta("Second Comic", 200))
     first = upsert_set(episode, first_comic, _set_meta("First Comic", 100))

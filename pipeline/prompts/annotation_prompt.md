@@ -248,9 +248,6 @@ If a file is already annotated when you find it try and upload it and see what h
 {
   "type": "set_meta",
   "video_id": "_vmG4f4EtYo",
-  "episode_title": "KT #764 - THEO VON + JELLY ROLL",
-  "episode_url": "https://www.youtube.com/watch?v=_vmG4f4EtYo",
-  "guests": ["Theo Von", "Jelly Roll"],
   "comedian_name": "Ari Mati",
   "comedian_type": "regular",
   "start_seconds": 7160,

@@ -18,7 +18,6 @@ class SetInVideoSerializer(serializers.ModelSerializer):
 
 class VideoListSerializer(serializers.ModelSerializer):
     youtube_id = serializers.CharField(source="video_id")
-    guests = serializers.SlugRelatedField(many=True, read_only=True, slug_field="name")
 
     class Meta:
         model = Video
