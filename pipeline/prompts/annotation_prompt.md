@@ -238,7 +238,8 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
       This is **VERY IMPORTANT** — it lets you learn from any mistakes before moving on.
    e. Only then open the next file.
 
-If a file is already annotated when you find it try and upload it and see what happens. 
+- If a file is already annotated when you find it try and upload it and see what happens. 
+- Never spin up any agents. 
 
 ---
 

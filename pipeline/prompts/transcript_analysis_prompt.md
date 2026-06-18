@@ -144,3 +144,4 @@ For every extracted set, pass `--interview-end-line` as the last transcript line
 - Prefer Tony's introduced spelling for `--comedian-name`.
 - Use `bucket_pull`, `regular`, `golden_ticket`, or `special` in `--comedian-attributes`.
 - Do not read any source code, test files, or management commands. The extract_set command signature above is the full contract — no further exploration needed.
+- Never spin up any agents to do work for you. 
