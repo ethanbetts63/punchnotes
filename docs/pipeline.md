@@ -33,7 +33,7 @@ pipeline/
 | `bit_annotated_set_archive/` | Annotated sets — source of truth (private git) |
 | `set_images_outbox/` | Scraped images awaiting upload |
 | `set_images_inbox/` | (server) Received images awaiting `update --set_images` |
-| `set_images_archive/` | Archived set images (private git) |
+| `set_images_archive/` | Archived set images (untracked) |
 | `embeddings_outbox/` | Computed embeddings JSONL awaiting upload |
 | `embeddings_inbox/` | (server) Received JSONL awaiting `update --embeddings` |
 | `embeddings_archive/` | Archived embedding vectors (private git) |

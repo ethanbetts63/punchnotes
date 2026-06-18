@@ -60,7 +60,7 @@ class Command(BaseCommand):
             public_images_dir.mkdir()
 
         # Re-copy set images from archive and repopulate DB image_url fields
-        images_archive = private_dir / "set_images_archive"
+        images_archive = data_dir / "set_images_archive"
         image_exts = {".jpg", ".jpeg", ".png", ".webp"}
         if images_archive.exists() and any(p.suffix.lower() in image_exts for p in images_archive.iterdir()):
             self.stdout.write("\nRe-linking set images from archive...")

@@ -5,7 +5,7 @@
 Code and data live in separate git repos:
 
 - **`punchnotes`** (public) — all application code. `pipeline/data/` is tracked and contains only `kt_ep_archive.jsonl` (everything else gitignored via `pipeline/data/.gitignore`). `pipeline/data_private/` is gitignored entirely.
-- **`punchnotes_private`** (private) — cloned at `pipeline/data_private/`. Tracks `transcript_archive/`, `bit_annotated_set_archive/`, `embeddings_archive/`, `set_images_archive/`, and the comedian relationship/report JSON files.
+- **`punchnotes_private`** (private) — cloned at `pipeline/data_private/`. Tracks `transcript_archive/`, `bit_annotated_set_archive/`, `embeddings_archive/`, and the comedian relationship/report JSON files.
 
 This keeps the annotated set data (the moat) off the public repo and off the PythonAnywhere server, which only clones `punchnotes`.
 

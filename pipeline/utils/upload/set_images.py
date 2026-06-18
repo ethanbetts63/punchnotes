@@ -27,7 +27,7 @@ def _upload_batch(session, paths: list[Path], log: Log) -> list[Path]:
 
 def upload_set_images(options: dict, log: Log) -> None:
     outbox_dir = settings.PIPELINE_DATA_DIR / "set_images_outbox"
-    archive_dir = settings.PIPELINE_PRIVATE_DATA_DIR / "set_images_archive"
+    archive_dir = settings.PIPELINE_DATA_DIR / "set_images_archive"
     archive_dir.mkdir(parents=True, exist_ok=True)
 
     files = sorted(

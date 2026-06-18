@@ -38,7 +38,7 @@ def missing_image_sets() -> list[dict]:
 
 def ingest_set_image(image_path: Path, replace: bool = False, move_to_archive: bool = True) -> str:
     public_dir = settings.BASE_DIR / "frontend" / "public" / "set-images"
-    archive_dir = settings.PIPELINE_PRIVATE_DATA_DIR / "set_images_archive"
+    archive_dir = settings.PIPELINE_DATA_DIR / "set_images_archive"
     public_dir.mkdir(parents=True, exist_ok=True)
     archive_dir.mkdir(parents=True, exist_ok=True)
 
