@@ -46,6 +46,21 @@ def test_annotated_set_batch_upload_writes_inbox_files(api_client, tmp_path):
     assert json.loads(written.read_text(encoding="utf-8"))["comedian_name"] == "Test Comic"
 
 
+def test_annotated_set_batch_upload_rejects_invalid_annotation(api_client, tmp_path):
+    archive = _zip_json_files({"bad.json": {"video_id": "abc123", "comedian_name": "Test Comic", "lines": "bad"}})
+
+    with override_settings(PIPELINE_DATA_DIR=tmp_path):
+        resp = api_client.post(
+            "/api/pipeline/annotated-set-batch/",
+            {"archive": archive},
+        )
+
+    assert resp.status_code == 400
+    assert resp.json()["files"][0]["file"] == "bad.json"
+    assert "lines must be a JSON array" in resp.json()["files"][0]["error"]
+    assert not (tmp_path / "annotated_set_inbox").exists()
+
+
 def test_annotated_set_batch_upload_rejects_unsafe_zip_path(api_client, tmp_path):
     archive = _zip_json_files({"../source.json": {"video_id": "abc123", "comedian_name": "Test Comic"}})
 

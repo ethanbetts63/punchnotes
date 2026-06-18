@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from pipeline.auth import PipelineKeyPermission
+from pipeline.json_validation import validate_bit_meta
 
 
 class PipelineView(APIView):
@@ -30,6 +31,11 @@ def _write_annotated_set(data, inbox_dir):
 
 class AnnotatedSetView(PipelineView):
     def post(self, request):
+        try:
+            validate_bit_meta(request.data)
+        except ValueError as exc:
+            return Response({"error": str(exc)}, status=400)
+
         inbox_dir = settings.PIPELINE_DATA_DIR / "annotated_set_inbox"
         inbox_dir.mkdir(parents=True, exist_ok=True)
         filename = _write_annotated_set(request.data, inbox_dir)
@@ -54,6 +60,16 @@ class AnnotatedSetBatchView(PipelineView):
                     if member_path.suffix.lower() != ".json":
                         return Response({"error": f"Archive contains non-JSON file: {info.filename}"}, status=400)
                     data = json.loads(archive.read(info).decode("utf-8-sig"))
+                    try:
+                        validate_bit_meta(data)
+                    except ValueError as exc:
+                        return Response(
+                            {
+                                "error": "Validation failed.",
+                                "files": [{"file": info.filename, "error": str(exc)}],
+                            },
+                            status=400,
+                        )
                     members.append(data)
         except zipfile.BadZipFile:
             return Response({"error": "Invalid zip archive."}, status=400)

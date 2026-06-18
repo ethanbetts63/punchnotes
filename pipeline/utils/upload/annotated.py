@@ -1,3 +1,4 @@
+import json
 import shutil
 import tempfile
 import zipfile
@@ -5,8 +6,26 @@ from pathlib import Path
 
 from django.conf import settings
 
+from pipeline.json_validation import validate_bit_meta
 from pipeline.log import Log
 from pipeline.utils.http import json_or_empty, pipeline_session, server_url
+
+
+def validate_annotated_files(paths: list[Path], log: Log) -> tuple[list[Path], list[Path]]:
+    valid_paths = []
+    invalid_paths = []
+
+    for path in paths:
+        try:
+            data = json.loads(path.read_text(encoding="utf-8-sig"))
+            validate_bit_meta(data)
+        except Exception as exc:
+            log.error(f"{path.name}: validation failed - {exc}")
+            invalid_paths.append(path)
+            continue
+        valid_paths.append(path)
+
+    return valid_paths, invalid_paths
 
 
 def upload_annotated_files(paths: list[Path], log: Log) -> bool:
@@ -31,7 +50,11 @@ def upload_annotated_files(paths: list[Path], log: Log) -> bool:
         log.success(f"Uploaded {received} annotated set file(s).")
         return True
 
-    log.error(f"Batch upload failed [{resp.status_code}] - {result.get('error') or resp.text}")
+    if result.get("files"):
+        details = "; ".join(f"{item.get('file')}: {item.get('error')}" for item in result["files"])
+        log.error(f"Batch upload failed [{resp.status_code}] - {result.get('error')} {details}")
+    else:
+        log.error(f"Batch upload failed [{resp.status_code}] - {result.get('error') or resp.text}")
     return False
 
 
@@ -49,9 +72,14 @@ def upload_annotated(options: dict, log: Log) -> None:
         log("No files to upload.")
         return
 
-    if upload_annotated_files(paths, log):
-        for path in paths:
+    valid_paths, invalid_paths = validate_annotated_files(paths, log)
+    if not valid_paths:
+        log(f"\n0 uploaded, {len(invalid_paths)} failed.")
+        return
+
+    if upload_annotated_files(valid_paths, log):
+        for path in valid_paths:
             shutil.move(str(path), archive_dir / path.name)
-        log(f"\n{len(paths)} uploaded, 0 failed.")
+        log(f"\n{len(valid_paths)} uploaded, {len(invalid_paths)} failed.")
     else:
         log(f"\n0 uploaded, {len(paths)} failed.")
