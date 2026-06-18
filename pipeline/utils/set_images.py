@@ -27,4 +27,4 @@ def parse_image_name(path: Path) -> dict:
 
 def public_image_url(filename: str) -> str:
     base = settings.SERVER_BASE_URL.rstrip("/")
-    return f"{base}/set-images/{filename}"
+    return f"{base}/media/set-images/{filename}"

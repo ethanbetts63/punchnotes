@@ -53,7 +53,7 @@ class Command(BaseCommand):
             self.stdout.write("\nNo archived sets to import.")
 
         # Wipe public set-images so stale files don't accumulate across resets
-        public_images_dir = settings.BASE_DIR / "frontend" / "public" / "set-images"
+        public_images_dir = settings.MEDIA_ROOT / "set-images"
         if public_images_dir.exists():
             self.stdout.write("\nWiping public set-images directory...")
             shutil.rmtree(public_images_dir)

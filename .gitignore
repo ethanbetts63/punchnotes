@@ -8,5 +8,8 @@ db.sqlite3
 # Private data repo — nested git repo, ignored entirely
 /pipeline/data_private/
 
+# Django media (uploaded/generated images, served via /media/)
+/mediafiles/
+
 # Generated assets
 /frontend/public/set-images/
