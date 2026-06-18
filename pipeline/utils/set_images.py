@@ -1,6 +1,8 @@
 import re
 from pathlib import Path
 
+from django.conf import settings
+
 
 IMAGE_NAME_RE = re.compile(
     r"^KT(?P<episode_number>\d+)_set(?P<set_number>\d+)_"
@@ -24,4 +26,5 @@ def parse_image_name(path: Path) -> dict:
 
 
 def public_image_url(filename: str) -> str:
-    return f"/set-images/{filename}"
+    base = settings.SERVER_BASE_URL.rstrip("/")
+    return f"{base}/set-images/{filename}"
