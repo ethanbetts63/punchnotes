@@ -13,7 +13,7 @@ class Command(BaseCommand):
         group.add_argument("--pull", action="store_true", help="Pull latest archive from private repo")
 
     def handle(self, *args, **options):
-        data_dir = settings.PIPELINE_DATA_DIR
+        data_dir = settings.PIPELINE_PRIVATE_DATA_DIR
 
         def run(cmd):
             result = subprocess.run(cmd, cwd=data_dir, capture_output=True, text=True)

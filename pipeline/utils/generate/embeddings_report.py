@@ -120,7 +120,7 @@ def _fetch_lines_for_beats(beats):
 
 def generate_embeddings_report(log: Log) -> None:
     threshold = DEFAULT_THRESHOLD
-    output_path = settings.PIPELINE_DATA_DIR / OUTPUT_FILENAME
+    output_path = settings.PIPELINE_PRIVATE_DATA_DIR / OUTPUT_FILENAME
     existing_report = _parse_report(output_path)
     generated_at = timezone.now()
 

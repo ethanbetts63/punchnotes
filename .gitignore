@@ -5,9 +5,8 @@ __pycache__/
 .env
 db.sqlite3
 
-# Pipeline data lives in private repo
-/pipeline/data/
-!/pipeline/data/kt_ep_archive.jsonl
+# Private data repo — nested git repo, ignored entirely
+/pipeline/data_private/
 
 # Generated assets
 /frontend/public/set-images/

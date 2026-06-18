@@ -44,7 +44,8 @@ class Command(BaseCommand):
 
         # Re-import all archived sets
         data_dir = settings.PIPELINE_DATA_DIR
-        sets_archive = data_dir / "bit_annotated_set_archive"
+        private_dir = settings.PIPELINE_PRIVATE_DATA_DIR
+        sets_archive = private_dir / "bit_annotated_set_archive"
         if sets_archive.exists() and any(sets_archive.glob("*.json")):
             self.stdout.write("\nImporting sets from archive...")
             call_command("update", annotated=True, archive=True)
@@ -59,7 +60,7 @@ class Command(BaseCommand):
             public_images_dir.mkdir()
 
         # Re-copy set images from archive and repopulate DB image_url fields
-        images_archive = data_dir / "set_images_archive"
+        images_archive = private_dir / "set_images_archive"
         image_exts = {".jpg", ".jpeg", ".png", ".webp"}
         if images_archive.exists() and any(p.suffix.lower() in image_exts for p in images_archive.iterdir()):
             self.stdout.write("\nRe-linking set images from archive...")
@@ -67,7 +68,7 @@ class Command(BaseCommand):
         else:
             self.stdout.write("\nNo archived set images to re-link.")
 
-        embeddings_archive = data_dir / "embeddings_archive"
+        embeddings_archive = private_dir / "embeddings_archive"
         if embeddings_archive.exists() and any(embeddings_archive.glob("*.jsonl")):
             self.stdout.write("\nRestoring embeddings from archive...")
             call_command("update", embeddings=True, archive=True)

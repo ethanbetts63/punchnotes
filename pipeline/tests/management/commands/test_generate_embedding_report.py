@@ -58,7 +58,7 @@ def test_command_writes_report_with_similar_pairs(tmp_path):
         Line(set=set_b, line_number=2, label="punchline", text="punch b", start_seconds=2.0),
     ])
 
-    with override_settings(PIPELINE_DATA_DIR=tmp_path):
+    with override_settings(PIPELINE_DATA_DIR=tmp_path, PIPELINE_PRIVATE_DATA_DIR=tmp_path):
         call_command("generate_embeddings_report")
 
     payload = json.loads((tmp_path / "embedding_similarity_report.json").read_text(encoding="utf-8"))

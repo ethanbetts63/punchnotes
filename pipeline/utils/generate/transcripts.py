@@ -46,11 +46,11 @@ def generate_transcripts(options: dict, log: Log) -> None:
     audio_archive_dir = data_dir / "audio_archive"
     history_path = data_dir / "scrape_history.jsonl"
     inbox_path = data_dir / "1_transcript_inbox"
-    archive_path = data_dir / "transcript_archive"
+    archive_path = settings.PIPELINE_PRIVATE_DATA_DIR / "transcript_archive"
     audio_dir.mkdir(parents=True, exist_ok=True)
     audio_archive_dir.mkdir(parents=True, exist_ok=True)
     inbox_path.mkdir(parents=True, exist_ok=True)
-    archive_path.mkdir(parents=True, exist_ok=True)
+    archive_path.mkdir(parents=True, exist_ok=True)  # private dir
 
     files = _audio_files(audio_dir)
     limit = options.get("limit")

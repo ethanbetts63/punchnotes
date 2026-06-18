@@ -15,7 +15,7 @@ def test_command_writes_candidate_report(tmp_path):
     Comedian.objects.create(name="Dedrick Flynn", slug="dedrick-flynn")
     Comedian.objects.create(name="Jack Shaw", slug="jack-shaw")
 
-    with override_settings(PIPELINE_DATA_DIR=tmp_path):
+    with override_settings(PIPELINE_DATA_DIR=tmp_path, PIPELINE_PRIVATE_DATA_DIR=tmp_path):
         call_command("find_similar_comedians")
 
     report = json.loads((tmp_path / "similar_comedian_candidates.json").read_text(encoding="utf-8"))
@@ -29,7 +29,7 @@ def test_command_prints_summary(tmp_path, capsys):
     Comedian.objects.create(name="Dedric Flynn", slug="dedric-flynn")
     Comedian.objects.create(name="Dedrick Flynn", slug="dedrick-flynn")
 
-    with override_settings(PIPELINE_DATA_DIR=tmp_path):
+    with override_settings(PIPELINE_DATA_DIR=tmp_path, PIPELINE_PRIVATE_DATA_DIR=tmp_path):
         call_command("find_similar_comedians")
 
     out = capsys.readouterr().out

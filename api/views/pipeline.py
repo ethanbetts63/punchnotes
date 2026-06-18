@@ -86,7 +86,7 @@ class AnnotatedSetBatchView(PipelineView):
 
 class ComedianCandidatesView(PipelineView):
     def get(self, request):
-        path = settings.PIPELINE_DATA_DIR / "similar_comedian_candidates.json"
+        path = settings.PIPELINE_PRIVATE_DATA_DIR / "similar_comedian_candidates.json"
         if not path.exists():
             return Response({"threshold": 80.0, "candidate_count": 0, "candidates": []})
         return Response(json.loads(path.read_text(encoding="utf-8")))

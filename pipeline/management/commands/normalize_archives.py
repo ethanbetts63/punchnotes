@@ -47,12 +47,12 @@ class Command(BaseCommand):
             archives = [
                 (
                     "bit annotated sets",
-                    settings.PIPELINE_DATA_DIR / "bit_annotated_set_archive",
+                    settings.PIPELINE_PRIVATE_DATA_DIR / "bit_annotated_set_archive",
                     serialize_annotated_set,
                 ),
                 (
                     "transcripts",
-                    settings.PIPELINE_DATA_DIR / "transcript_archive",
+                    settings.PIPELINE_PRIVATE_DATA_DIR / "transcript_archive",
                     serialize_transcript,
                 ),
             ]

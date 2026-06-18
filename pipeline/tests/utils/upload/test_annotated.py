@@ -56,7 +56,7 @@ def test_upload_annotated_zips_and_archives_only_valid_files(tmp_path, monkeypat
     monkeypatch.setattr(annotated, "upload_annotated_files", fake_upload)
     log = CapturingLog()
 
-    with override_settings(PIPELINE_DATA_DIR=tmp_path):
+    with override_settings(PIPELINE_DATA_DIR=tmp_path, PIPELINE_PRIVATE_DATA_DIR=tmp_path):
         annotated.upload_annotated({"file": None, "dir": str(source_dir)}, log)
 
     assert uploaded_paths == [valid]

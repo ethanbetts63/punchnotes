@@ -106,7 +106,7 @@ def candidate_dict(candidate: Candidate) -> dict:
 
 
 def write_candidate_report(candidates: list[Candidate]) -> str:
-    path = settings.PIPELINE_DATA_DIR / CANDIDATE_REPORT_FILENAME
+    path = settings.PIPELINE_PRIVATE_DATA_DIR / CANDIDATE_REPORT_FILENAME
     payload = {
         "threshold": THRESHOLD,
         "candidate_count": len(candidates),
@@ -137,7 +137,7 @@ def update_candidate_report(
         if candidate.score >= THRESHOLD:
             new_candidates.append(candidate)
 
-    path = settings.PIPELINE_DATA_DIR / CANDIDATE_REPORT_FILENAME
+    path = settings.PIPELINE_PRIVATE_DATA_DIR / CANDIDATE_REPORT_FILENAME
     try:
         existing_list = json.loads(path.read_text(encoding="utf-8")).get("candidates", [])
     except (FileNotFoundError, json.JSONDecodeError):

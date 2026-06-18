@@ -118,7 +118,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         data_dir = settings.PIPELINE_DATA_DIR
         inbox_path = data_dir / "1_transcript_inbox"
-        archive_path = data_dir / "transcript_archive"
+        archive_path = settings.PIPELINE_PRIVATE_DATA_DIR / "transcript_archive"
         inbox_path.mkdir(parents=True, exist_ok=True)
         archive_path.mkdir(parents=True, exist_ok=True)
         index_path = data_dir / "podscripts_index.json"

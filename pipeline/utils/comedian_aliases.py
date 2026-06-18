@@ -25,7 +25,7 @@ def title_from_slug(slug: str) -> str:
 
 
 def relationships_path() -> Path:
-    return settings.PIPELINE_DATA_DIR / RELATIONSHIPS_FILENAME
+    return settings.PIPELINE_PRIVATE_DATA_DIR / RELATIONSHIPS_FILENAME
 
 
 def empty_relationships() -> dict:

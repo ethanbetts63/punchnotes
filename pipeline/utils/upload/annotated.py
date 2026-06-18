@@ -59,7 +59,7 @@ def upload_annotated_files(paths: list[Path], log: Log) -> bool:
 
 
 def upload_annotated(options: dict, log: Log) -> None:
-    archive_dir = settings.PIPELINE_DATA_DIR / "bit_annotated_set_archive"
+    archive_dir = settings.PIPELINE_PRIVATE_DATA_DIR / "bit_annotated_set_archive"
     archive_dir.mkdir(parents=True, exist_ok=True)
 
     if options.get("file"):

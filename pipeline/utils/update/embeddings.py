@@ -103,7 +103,7 @@ def _process_embeddings_file(path: Path) -> dict:
 
 def run_update_embeddings(log: Log, archive: bool = False) -> None:
     if archive:
-        source_dir = settings.PIPELINE_DATA_DIR / "embeddings_archive"
+        source_dir = settings.PIPELINE_PRIVATE_DATA_DIR / "embeddings_archive"
         if not source_dir.exists():
             log("No embeddings_archive/ dir.")
             return
@@ -118,7 +118,7 @@ def run_update_embeddings(log: Log, archive: bool = False) -> None:
     else:
         run_inbox_update(
             inbox_dir=settings.PIPELINE_DATA_DIR / "embeddings_inbox",
-            archive_dir=settings.PIPELINE_DATA_DIR / "embeddings_archive",
+            archive_dir=settings.PIPELINE_PRIVATE_DATA_DIR / "embeddings_archive",
             process_fn=_process_embeddings_file,
             log=log,
         )

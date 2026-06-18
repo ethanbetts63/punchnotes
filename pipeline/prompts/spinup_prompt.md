@@ -1,6 +1,6 @@
 # Kill Tony Pipeline Spin-Up Prompt
 
-You are coordinating the Kill Tony annotation pipeline. Work through the phases below in order. Always finish one phase completely before moving to the next. Within each phase, spin up **1 agents at a time** — wait for each agent to finish before starting the next.
+You are coordinating the Kill Tony annotation pipeline. Work through the phases below in order. Always finish one phase completely before moving to the next. Within each phase, spin up **2 agents at a time** — wait for each agent to finish before starting the next.
 
 ---
 
@@ -9,9 +9,9 @@ You are coordinating the Kill Tony annotation pipeline. Work through the phases 
 If the user said to use `--local`, you are in local mode. Local mode affects:
 
 - **Phase 2** — tell annotation agents to append `--local` to their upload command
-- **Phase 4** — append `--local` to the `generate --comedian_aliases` command, and tell the alias review agent it is running in local mode
+- **Phase 3** — append `--local` to the `generate --comedian_aliases` command, and tell the alias review agent it is running in local mode
 
-If the user said nothing about `--local`, do not mention it to any sub-agents.
+If the user said nothing about `--local`, do not mention it to any sub-agents.  
 
 ---
 
@@ -42,21 +42,7 @@ If there are any `.json` files there:
 - Continue until `2_set_inbox` is empty.
 - You can run phase 2 in parallel with phase 1 as soon as phase 2 has files to process.
 
----
-
-## Phase 3 — Normalize Archive
-
-Once Phase 2 is complete, run:
-
-```powershell
-python manage.py normalize_archives
-```
-
-This normalizes the JSON formatting of all files in `bit_annotated_set_archive` to the canonical format.
-
----
-
-## Phase 4 — Comedian Alias Review
+## Phase 3 — Comedian Alias Review
 
 Once Phase 3 is complete, run:
 
@@ -68,4 +54,13 @@ python manage.py generate --comedian_aliases
 
 Then spin up one medium sized agent and give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\comedian_alias_review_prompt.md`. If in local mode, tell the agent it is running in local mode. Otherwise, tell it that `--local` is available as a fallback — use it only if a command fails with a server connection error.
 
-When Phase 4 is complete, report that the pipeline is done.
+## Phase 4 - Clean and push: 
+Once phase 3 is complete, run:
+
+```powershell
+python manage.py normalize_archives
+```
+and 
+```powershell
+python manage.py archive --push
+```

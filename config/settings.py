@@ -8,6 +8,7 @@ load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 PIPELINE_DATA_DIR = BASE_DIR / "pipeline" / "data"
+PIPELINE_PRIVATE_DATA_DIR = BASE_DIR / "pipeline" / "data_private"
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 DEBUG = os.environ["DEBUG"] == "True"

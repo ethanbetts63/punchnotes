@@ -10,12 +10,13 @@ from pipeline.utils.update.annotated import ingest_annotated_set, refresh_all_st
 
 def run_update_annotated(log: Log, archive: bool = False) -> None:
     data_dir = settings.PIPELINE_DATA_DIR
+    private_dir = settings.PIPELINE_PRIVATE_DATA_DIR
     if archive:
-        source_dir = data_dir / "bit_annotated_set_archive"
+        source_dir = private_dir / "bit_annotated_set_archive"
         dest_dir = None
     else:
         source_dir = data_dir / "annotated_set_inbox"
-        dest_dir = data_dir / "bit_annotated_set_archive"
+        dest_dir = private_dir / "bit_annotated_set_archive"
         dest_dir.mkdir(parents=True, exist_ok=True)
 
     paths = sorted(source_dir.glob("*.json"))

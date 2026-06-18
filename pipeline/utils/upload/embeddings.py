@@ -7,7 +7,7 @@ from pipeline.log import Log
 def upload_embeddings(options: dict, log: Log) -> None:
     upload_jsonl_files(
         outbox_dir=settings.PIPELINE_DATA_DIR / "embeddings_outbox",
-        archive_dir=settings.PIPELINE_DATA_DIR / "embeddings_archive",
+        archive_dir=settings.PIPELINE_PRIVATE_DATA_DIR / "embeddings_archive",
         endpoint_path="/api/pipeline/embeddings/",
         log=log,
     )

@@ -1,0 +1,6 @@
+# Ignore transient pipeline working dirs and server-side state files
+*
+
+# Track the episode metadata archive
+!.gitignore
+!kt_ep_archive.jsonl
