@@ -1,6 +1,7 @@
 from django.urls import path
 
 from api.views.pipeline import (
+    AnnotatedSetBatchView,
     AnnotatedSetView,
     AudioHistoryView,
     ComedianAliasesView,
@@ -16,6 +17,7 @@ from api.views.pipeline import (
 
 urlpatterns = [
     path("annotated-set/", AnnotatedSetView.as_view()),
+    path("annotated-set-batch/", AnnotatedSetBatchView.as_view()),
     path("audio-history/", AudioHistoryView.as_view()),
     path("comedian-candidates/", ComedianCandidatesView.as_view()),
     path("comedian-aliases/", ComedianAliasesView.as_view()),

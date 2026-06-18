@@ -1,27 +1,37 @@
-import json
 import shutil
+import tempfile
+import zipfile
 from pathlib import Path
 
 from django.conf import settings
 
-from pipeline.utils.http import json_or_empty, pipeline_session, server_url
 from pipeline.log import Log
+from pipeline.utils.http import json_or_empty, pipeline_session, server_url
 
 
-def upload_annotated_file(path: Path, log: Log) -> bool:
+def upload_annotated_files(paths: list[Path], log: Log) -> bool:
     session = pipeline_session()
-    data = json.loads(path.read_text(encoding="utf-8-sig"))
-    resp = session.post(server_url("/api/pipeline/annotated-set/"), json=data)
+
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        archive_path = Path(tmp_dir) / "annotated_sets.zip"
+        with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+            for path in paths:
+                archive.write(path, arcname=path.name)
+
+        with archive_path.open("rb") as archive_file:
+            resp = session.post(
+                server_url("/api/pipeline/annotated-set-batch/"),
+                files={"archive": ("annotated_sets.zip", archive_file, "application/zip")},
+            )
+
     result = json_or_empty(resp)
 
-    if resp.status_code == 200:
-        comedian = result.get("comedian", "?")
-        lines = result.get("lines", "?")
-        bits = result.get("bits", "?")
-        log.success(f"  {path.name}: {comedian} — {lines} lines, {bits} bits")
+    if resp.status_code in (200, 202):
+        received = result.get("received", len(paths))
+        log.success(f"Uploaded {received} annotated set file(s).")
         return True
 
-    log.error(f"  {path.name}: FAILED — {result.get('error') or resp.text}")
+    log.error(f"Batch upload failed [{resp.status_code}] - {result.get('error') or resp.text}")
     return False
 
 
@@ -39,12 +49,9 @@ def upload_annotated(options: dict, log: Log) -> None:
         log("No files to upload.")
         return
 
-    succeeded = failed = 0
-    for path in paths:
-        if upload_annotated_file(path, log):
+    if upload_annotated_files(paths, log):
+        for path in paths:
             shutil.move(str(path), archive_dir / path.name)
-            succeeded += 1
-        else:
-            failed += 1
-
-    log(f"\n{succeeded} uploaded, {failed} failed.")
+        log(f"\n{len(paths)} uploaded, 0 failed.")
+    else:
+        log(f"\n0 uploaded, {len(paths)} failed.")

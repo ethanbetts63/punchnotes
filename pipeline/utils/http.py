@@ -19,7 +19,12 @@ def server_url(path: str) -> str:
 
 
 def json_or_empty(resp) -> dict:
-    return resp.json() if resp.content else {}
+    if not resp.content:
+        return {}
+    try:
+        return resp.json()
+    except ValueError:
+        return {}
 
 
 def upload_jsonl_files(

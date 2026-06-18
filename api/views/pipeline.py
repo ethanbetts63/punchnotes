@@ -1,5 +1,7 @@
 import json
+import zipfile
 from datetime import datetime, timezone
+from pathlib import PurePosixPath
 
 from django.conf import settings
 from rest_framework.response import Response
@@ -13,17 +15,57 @@ class PipelineView(APIView):
     permission_classes = [PipelineKeyPermission]
 
 
+def _annotated_set_filename(data):
+    video_id = data.get("video_id", "unknown")
+    comedian = data.get("comedian_name", "unknown").replace(" ", "_").lower()
+    return f"{video_id}_{comedian}.json"
+
+
+def _write_annotated_set(data, inbox_dir):
+    filename = _annotated_set_filename(data)
+    dest = inbox_dir / filename
+    dest.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    return filename
+
+
 class AnnotatedSetView(PipelineView):
     def post(self, request):
         inbox_dir = settings.PIPELINE_DATA_DIR / "annotated_set_inbox"
         inbox_dir.mkdir(parents=True, exist_ok=True)
-        video_id = request.data.get("video_id", "unknown")
-        comedian = request.data.get("comedian_name", "unknown").replace(" ", "_").lower()
-        filename = f"{video_id}_{comedian}.json"
-        dest = inbox_dir / filename
-        import json as _json
-        dest.write_text(_json.dumps(request.data, ensure_ascii=False, indent=2), encoding="utf-8")
+        filename = _write_annotated_set(request.data, inbox_dir)
         return Response({"status": "queued", "file": filename}, status=202)
+
+
+class AnnotatedSetBatchView(PipelineView):
+    def post(self, request):
+        upload = request.FILES.get("archive")
+        if not upload:
+            return Response({"error": "No archive file provided."}, status=400)
+
+        try:
+            with zipfile.ZipFile(upload) as archive:
+                members = []
+                for info in archive.infolist():
+                    member_path = PurePosixPath(info.filename)
+                    if info.is_dir():
+                        continue
+                    if member_path.is_absolute() or ".." in member_path.parts:
+                        return Response({"error": f"Unsafe archive path: {info.filename}"}, status=400)
+                    if member_path.suffix.lower() != ".json":
+                        return Response({"error": f"Archive contains non-JSON file: {info.filename}"}, status=400)
+                    data = json.loads(archive.read(info).decode("utf-8-sig"))
+                    members.append(data)
+        except zipfile.BadZipFile:
+            return Response({"error": "Invalid zip archive."}, status=400)
+        except UnicodeDecodeError as exc:
+            return Response({"error": f"Invalid UTF-8 JSON file: {exc}"}, status=400)
+        except json.JSONDecodeError as exc:
+            return Response({"error": f"Invalid JSON file: {exc}"}, status=400)
+
+        inbox_dir = settings.PIPELINE_DATA_DIR / "annotated_set_inbox"
+        inbox_dir.mkdir(parents=True, exist_ok=True)
+        files = [_write_annotated_set(data, inbox_dir) for data in members]
+        return Response({"status": "uploaded", "received": len(files), "files": files}, status=202)
 
 
 class ComedianCandidatesView(PipelineView):
