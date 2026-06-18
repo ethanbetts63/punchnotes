@@ -1,9 +1,35 @@
 import shutil
+import tempfile
+import zipfile
+from pathlib import Path
 
 from django.conf import settings
 
 from pipeline.utils.http import json_or_empty, pipeline_session, server_url
 from pipeline.log import Log
+
+BATCH_SIZE = 100
+
+
+def _upload_batch(session, paths: list[Path], log: Log) -> list[Path]:
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        archive_path = Path(tmp_dir) / "set_images.zip"
+        with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_STORED) as archive:
+            for path in paths:
+                archive.write(path, arcname=path.name)
+
+        with archive_path.open("rb") as f:
+            resp = session.post(
+                server_url("/api/pipeline/set-images-batch/"),
+                files={"archive": ("set_images.zip", f, "application/zip")},
+            )
+
+    result = json_or_empty(resp)
+    if resp.status_code in (200, 202):
+        return paths
+
+    log.error(f"Batch upload failed [{resp.status_code}] - {result.get('error') or resp.text}")
+    return []
 
 
 def upload_set_images(options: dict, log: Log) -> None:
@@ -21,21 +47,15 @@ def upload_set_images(options: dict, log: Log) -> None:
         return
 
     session = pipeline_session()
-    imported = failed = 0
+    uploaded = failed = 0
 
-    for path in files:
-        with open(path, "rb") as f:
-            resp = session.post(
-                server_url("/api/pipeline/set-images/"),
-                files={"image": (path.name, f, "image/jpeg")},
-            )
-        result = json_or_empty(resp)
-        if resp.status_code in (200, 202):
+    for i in range(0, len(files), BATCH_SIZE):
+        batch = files[i:i + BATCH_SIZE]
+        log(f"Uploading batch {i // BATCH_SIZE + 1} ({len(batch)} images)...")
+        succeeded = _upload_batch(session, batch, log)
+        for path in succeeded:
             shutil.move(str(path), archive_dir / path.name)
-            imported += 1
-            log(f"  {path.name}: queued")
-        else:
-            failed += 1
-            log.error(f"  {path.name}: {result.get('error') or resp.text}")
+        uploaded += len(succeeded)
+        failed += len(batch) - len(succeeded)
 
-    log(f"Done. {imported} uploaded, {failed} failed.")
+    log(f"Done. {uploaded} uploaded, {failed} failed.")
