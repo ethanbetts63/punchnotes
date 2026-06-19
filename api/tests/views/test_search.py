@@ -12,7 +12,7 @@ def search_data(db):
     Comedian.objects.create(name="Casey No Sets", slug="casey-no-sets")
     video = Video.objects.create(video_id="abc123xyz01", number=700, title="Kill Tony #700", url="https://example.com/kt-700", set_count=1)
     set_obj = Set.objects.create(video=video, comedian=comedian, set_number=1, start_seconds=0, bit_count=1)
-    bit = Bit.objects.create(set=set_obj, bit_id="b1", summary="A rocket joke", line_start=1, line_end=2)
+    bit = Bit.objects.create(set=set_obj, bit_id="b1", line_start=1, line_end=2)
     beat = Beat.objects.create(bit=bit, beat_id="beat-1", line_start=1, line_end=3, premise="A clean premise", joke_type="misdirect")
     Line.objects.bulk_create([
         Line(set=set_obj, line_number=1, label="setup", text="hello there", start_seconds=0),

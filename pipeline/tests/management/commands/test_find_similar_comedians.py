@@ -24,7 +24,7 @@ def test_command_writes_candidate_report(tmp_path):
     assert not any("jack-shaw" in str(pair) for pair in slugs)
 
 
-def test_command_prints_summary(tmp_path, capsys):
+def test_command_prints_counts(tmp_path, capsys):
     from pipeline.models import Comedian
     Comedian.objects.create(name="Dedric Flynn", slug="dedric-flynn")
     Comedian.objects.create(name="Dedrick Flynn", slug="dedrick-flynn")

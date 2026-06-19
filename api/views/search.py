@@ -135,7 +135,7 @@ class NavSearchView(APIView):
             joke_book_sizes = [a.removesuffix("_joke_book") for a in attrs if a.endswith("_joke_book")]
             for size in joke_book_sizes:
                 meta.append(f"{size} joke book")
-            score = text_score(query, set_obj.comedian.name, set_obj.video.title)
+            score = text_score(query, set_obj.comedian.name)
             if "large_joke_book" in attrs:
                 score += 10
             results.append(result(

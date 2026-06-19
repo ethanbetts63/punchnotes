@@ -102,7 +102,7 @@ def build_set_list_queryset(params):
 
     q = (params.get("q") or "").strip()
     if q:
-        sets = sets.filter(Q(comedian__name__icontains=q) | Q(video__title__icontains=q))
+        sets = sets.filter(comedian__name__icontains=q)
 
     attribute = (params.get("attribute") or "").strip()
     if attribute:
@@ -139,8 +139,7 @@ def build_bit_list_queryset(params):
     q = (params.get("q") or "").strip()
     if q:
         bits = bits.filter(
-            Q(summary__icontains=q)
-            | Q(beats__premise__icontains=q)
+            Q(beats__premise__icontains=q)
             | Q(beats__joke_type__icontains=q)
             | Q(set__comedian__name__icontains=q)
             | Q(set__video__title__icontains=q)

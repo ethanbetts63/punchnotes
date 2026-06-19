@@ -51,14 +51,14 @@ class BeatMetaValidation:
             self.errors.append(f"{bit_location}: beats must be a JSON object keyed by beat number strings, not an array")
             beats = {}
 
-        self._validate_bit_summary(bit_location, bit_data, len(beats))
+        self._validate_no_bit_level_premise(bit_location, bit_data)
 
         for beat_num, beat_data in beats.items():
             self._validate_beat(parsed_bit_num, bit_num, beat_num, beat_data)
 
-    def _validate_bit_summary(self, bit_location: str, bit_data: dict, beat_count: int) -> None:
+    def _validate_no_bit_level_premise(self, bit_location: str, bit_data: dict) -> None:
         if "premise" in bit_data:
-            self.errors.append(f"{bit_location}: use summary for multi-beat bits, not premise")
+            self.errors.append(f"{bit_location}: premise belongs on each beat, not on the bit")
 
     def _validate_beat(self, parsed_bit_num: int, bit_num, beat_num, beat_data) -> None:
         parsed_beat_num = positive_int(beat_num)

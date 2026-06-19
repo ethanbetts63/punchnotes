@@ -39,7 +39,7 @@ class LineAdmin(admin.ModelAdmin):
 @admin.register(Bit)
 class BitAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'set', 'bit_id', 'line_start', 'line_end')
-    search_fields = ('bit_id', 'summary')
+    search_fields = ('bit_id',)
     raw_id_fields = ('set',)
 
 

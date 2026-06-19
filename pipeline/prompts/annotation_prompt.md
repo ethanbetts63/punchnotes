@@ -83,7 +83,7 @@ Every beat has `premise` and `joke_type`.
 - **Hard limit: 20 words maximum.** If your premise exceeds 20 words, you are describing the joke rather than 
 stating its mechanism. Count the words and cut until you are at or under 20. Every word must be load-bearing.
 - **Single-line exception:** if a beat's only non-`fluff` line is one `punchline`, you do not need to write a premise for that beat. 
-- State the abstract comedic logic - *why is this funny*, not a summary of what was said.
+- State the abstract comedic logic - *why is this funny*, not a recap of what was said.
 - No pronouns tied to the comedian - no "he", "she", "they", "the comic".
 - Use the most general form: `"Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."`
 - Build the premise using that joke type's formula.

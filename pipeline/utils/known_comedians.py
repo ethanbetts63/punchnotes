@@ -70,6 +70,7 @@ KNOWN_SPECIAL_SLUGS = frozenset(
         "joe-derosa", 
         "james-mccann",
         "rob-schneider",
+        "brian-holtzman",
     }
 )
 

@@ -105,7 +105,7 @@ def test_multi_beat_bit_is_valid():
 def test_bit_level_premise_is_rejected():
     meta = _meta_with_line(_punchline())
     meta["bit_meta"]["1"]["premise"] = "Old bit-level field."
-    with pytest.raises(ValueError, match="bit 1: use summary for multi-beat bits, not premise"):
+    with pytest.raises(ValueError, match="bit 1: premise belongs on each beat, not on the bit"):
         validate_bit_meta(meta)
 
 

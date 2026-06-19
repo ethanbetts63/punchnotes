@@ -4,7 +4,6 @@ from django.db import models
 class Bit(models.Model):
     set = models.ForeignKey('pipeline.Set', on_delete=models.CASCADE, related_name='bits')
     bit_id = models.CharField(max_length=50)
-    summary = models.TextField(null=True, blank=True)
     line_start = models.PositiveSmallIntegerField()
     line_end = models.PositiveSmallIntegerField()
 

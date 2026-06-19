@@ -281,7 +281,6 @@ export type Set = {
 
 export type Bit = {
   id: number;
-  summary?: string;
   beats: Beat[];
 };
 
@@ -291,9 +290,8 @@ export type BitListItem = {
   comedian_slug: string;
   episode_number: number;
   set_id: number;
-  summary: string | null;
   joke_types: string[];
-  beats_summary: { premise: string; joke_type: string }[];
+  beats: { premise: string; joke_type: string }[];
   punch_density: number | null;
   tag_density: number | null;
 };

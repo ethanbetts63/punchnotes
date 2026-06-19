@@ -21,7 +21,7 @@ def full_set(db):
         url="https://example.com/kt-700", set_count=1,
     )
     set_obj = Set.objects.create(video=video, comedian=comedian, set_number=1, start_seconds=60, bit_count=1)
-    bit = Bit.objects.create(set=set_obj, bit_id="b1", summary="A rocket joke", line_start=1, line_end=3)
+    bit = Bit.objects.create(set=set_obj, bit_id="b1", line_start=1, line_end=3)
     beat = Beat.objects.create(
         bit=bit, beat_id="beat-1", line_start=1, line_end=3,
         premise="Rockets could be dreams.", joke_type="reframe",

@@ -28,9 +28,9 @@ def test_set_list_search_by_comedian_name(client, set_data):
     assert resp.json()[0]["comedian"]["name"] == "Casey Rocket"
 
 
-def test_set_list_search_by_video_title(client, set_data):
+def test_set_list_search_does_not_match_video_title(client, set_data):
     resp = client.get("/api/killtony/sets/", {"q": "KT #700"})
-    assert len(resp.json()) == 2
+    assert len(resp.json()) == 0
 
 
 def test_set_list_joke_book_filter(client, set_data):
