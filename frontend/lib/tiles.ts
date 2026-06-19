@@ -27,7 +27,7 @@ function fmtCompactDate(date: string | null): string {
 const jokeBookBadge: Record<string, { label: string; className: string }> = {
   small:  { label: "Small Joke Book",  className: "bg-stone-100 text-stone-600" },
   medium: { label: "Medium Joke Book", className: "bg-amber-100 text-amber-700" },
-  large:  { label: "Large Joke Book",  className: "bg-red-100 text-red-700" },
+  large:  { label: "Big Joke Book",  className: "bg-red-100 text-red-700" },
 };
 
 export function setToTile(set: SetListItem): TileData {

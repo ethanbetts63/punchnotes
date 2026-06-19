@@ -38,7 +38,7 @@ export const SET_SEARCH_CONFIG: SearchConfig = {
         { value: "special",        label: "Special" },
         { value: "small",  label: "Small Joke Book", param: "joke_book" },
         { value: "medium", label: "Medium Joke Book", param: "joke_book" },
-        { value: "large",  label: "Large Joke Book", param: "joke_book" },
+        { value: "large",  label: "Big Joke Book", param: "joke_book" },
       ],
     },
   ],

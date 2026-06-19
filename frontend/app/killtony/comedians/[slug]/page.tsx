@@ -63,7 +63,7 @@ export default async function ComedianDetailPage({ params }: Props) {
                 )}
                 {comedian.has_large_joke_book && (
                   <span className="rounded-full px-2.5 py-0.5 text-xs font-medium bg-red-100 text-primary">
-                    Large Joke Book
+                    Big Joke Book
                   </span>
                 )}
               </div>

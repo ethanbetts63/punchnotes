@@ -60,7 +60,7 @@ export default function ComedianSearchResults({ comedians }: { comedians: Comedi
               )}
               {comedian.has_large_joke_book && (
                 <span className="rounded-full bg-red-100 px-2 py-0.5 text-[10px] font-bold text-red-700">
-                  Large Joke Book
+                  Big Joke Book
                 </span>
               )}
             </>

@@ -26,6 +26,11 @@ export default async function SetDetailPage({ params }: Props) {
   const { comedian } = set;
   const bitCount = set.bits.length;
   const beatCount = set.bits.reduce((sum, bit) => sum + bit.beats.length, 0);
+  const videoStartSeconds = Math.max(0, set.start_seconds - 20);
+  const youtubeTimestampUrl = set.video.youtube_id
+    ? `https://www.youtube.com/watch?v=${set.video.youtube_id}&t=${Math.floor(videoStartSeconds)}s`
+    : null;
+
   return (
     <div className="min-h-screen bg-white">
       <div className="bg-stone-900 text-white">
@@ -94,7 +99,7 @@ export default async function SetDetailPage({ params }: Props) {
                 )}
                 {comedian.has_large_joke_book && (
                   <span className="rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-primary">
-                    Large Joke Book
+                    Big Joke Book
                   </span>
                 )}
               </div>
@@ -136,12 +141,25 @@ export default async function SetDetailPage({ params }: Props) {
           <div className="mx-auto max-w-5xl px-6 py-8">
             <div className="mb-3 flex items-baseline justify-between">
               <p className="text-sm font-medium text-white">Watch {comedian.name}&rsquo;s set</p>
-              <p className="text-xs text-stone-400">Skips to {fmtSeconds(Math.max(0, set.start_seconds - 20))} in the episode</p>
+              <p className="text-xs text-stone-400">Skips to {fmtSeconds(videoStartSeconds)} in the episode</p>
             </div>
             <VideoEmbed
               youtubeId={set.video.youtube_id}
-              startSeconds={Math.max(0, set.start_seconds - 20)}
+              startSeconds={videoStartSeconds}
             />
+            {youtubeTimestampUrl && (
+              <p className="mt-3 text-sm text-stone-300">
+                Having trouble with the embed?{" "}
+                <a
+                  href={youtubeTimestampUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-white underline decoration-stone-500 underline-offset-4 transition-colors hover:text-yellow-300 hover:decoration-yellow-300"
+                >
+                  Open on YouTube at {fmtSeconds(videoStartSeconds)}
+                </a>
+              </p>
+            )}
           </div>
         </div>
       )}

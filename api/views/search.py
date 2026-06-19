@@ -85,7 +85,7 @@ class NavSearchView(APIView):
                 fmt_count(comedian.set_count, "set"),
             ]
             if comedian.has_large_joke_book:
-                meta.append("large joke book")
+                meta.append("big joke book")
             score = text_score(query, comedian.name, comedian.slug) + min(comedian.set_count, 20)
             results.append(result(
                 "comedian",

@@ -85,7 +85,7 @@ Bucket-pull comics often receive a joke book after their interview. Pass the val
 
 - `small` for small, little, or smallest joke book
 - `medium` for medium or medium-sized joke book
-- `large` for big or large joke book
+- `large` for big or big joke book
 - `null` if no joke book is given, or if a joke book is mentioned but the size cannot be worked out confidently
 
 Useful award cues:

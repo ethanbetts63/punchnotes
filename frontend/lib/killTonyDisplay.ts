@@ -29,7 +29,7 @@ export const lineLabelBadge: Record<string, string> = {
 export const jokeBookLabel: Record<string, string> = {
   small: "Small Joke Book",
   medium: "Medium Joke Book",
-  large: "Large Joke Book",
+  large: "Big Joke Book",
 };
 
 
