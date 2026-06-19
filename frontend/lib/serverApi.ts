@@ -171,6 +171,7 @@ export type VideoDetail = {
   view_count: number | null;
   like_count: number | null;
   comment_count: number | null;
+  view_like_ratio: number | null;
   sets: SetInVideo[];
 };
 

@@ -80,8 +80,8 @@ export default async function EpisodeDetailPage({ params }: Props) {
 
   const sets = episode.sets ?? [];
   const viewLikeRatio =
-    episode.view_count && episode.like_count != null && episode.view_count > 0
-      ? ((episode.like_count / episode.view_count) * 100).toFixed(1) + "%"
+    episode.view_like_ratio != null
+      ? episode.view_like_ratio.toFixed(1)
       : null;
 
   return (
@@ -163,7 +163,7 @@ export default async function EpisodeDetailPage({ params }: Props) {
                 {viewLikeRatio && (
                   <>
                     <span className="mx-2 text-stone-700">·</span>
-                    <span className="text-white">{viewLikeRatio}</span> view/like ratio
+                    <span className="text-white">{viewLikeRatio}</span> views/like
                   </>
                 )}
               </p>

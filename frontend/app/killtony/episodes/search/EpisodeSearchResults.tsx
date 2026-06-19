@@ -8,8 +8,8 @@ export default function VideoSearchResults({ episodes }: { episodes: Video[] }) 
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {episodes.map((episode) => {
         const likeRatio =
-          episode.view_count && episode.like_count != null && episode.view_count > 0
-            ? `${((episode.like_count / episode.view_count) * 100).toFixed(1)}%`
+          episode.view_like_ratio != null
+            ? episode.view_like_ratio.toFixed(1)
             : null;
         const guestLabel = getEpisodeGuestLabel(episode, `Kill Tony #${episode.number}`);
 
@@ -43,7 +43,7 @@ export default function VideoSearchResults({ episodes }: { episodes: Video[] }) 
               ...(episode.comment_count != null
                 ? [{ label: "Comments", value: fmtCompact(episode.comment_count) }]
                 : []),
-              ...(likeRatio ? [{ label: "View/like", value: likeRatio }] : []),
+              ...(likeRatio ? [{ label: "Views/like", value: likeRatio }] : []),
             ]}
           />
         );

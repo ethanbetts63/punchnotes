@@ -21,6 +21,12 @@ FIELD_MAP = {
 }
 
 
+def _view_like_ratio(view_count: int | None, like_count: int | None) -> float | None:
+    if not view_count or like_count is None or like_count <= 0:
+        return None
+    return view_count / like_count
+
+
 def _episode_number(title: str | None) -> int | None:
     if not title:
         return None
@@ -52,6 +58,10 @@ def ingest_ep_meta_jsonl(jsonl_text: str) -> dict:
                     defaults["number"] = parsed
             if "guests" in data:
                 defaults["guests"] = [guest for guest in data.get("guests") or [] if guest]
+            view_count = defaults.get("view_count")
+            like_count = defaults.get("like_count")
+            if "view_count" in defaults or "like_count" in defaults:
+                defaults["view_like_ratio"] = _view_like_ratio(view_count, like_count)
             _, was_created = Video.objects.update_or_create(video_id=video_id, defaults=defaults)
             if was_created:
                 created += 1

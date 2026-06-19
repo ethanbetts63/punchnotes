@@ -54,6 +54,35 @@ def test_episode_list_has_golden_ticket_filter(client, two_videos):
     assert resp.json()[0]["number"] == 701
 
 
+def test_episode_list_sorts_by_like_ratio_ascending(client):
+    Video.objects.create(
+        video_id="aaa0000001",
+        number=700,
+        title="Kill Tony #700",
+        url="https://example.com/700",
+        view_like_ratio=100,
+    )
+    Video.objects.create(
+        video_id="bbb0000002",
+        number=701,
+        title="Kill Tony #701",
+        url="https://example.com/701",
+        view_like_ratio=20,
+    )
+    Video.objects.create(
+        video_id="ccc0000003",
+        number=702,
+        title="Kill Tony #702",
+        url="https://example.com/702",
+        view_like_ratio=None,
+    )
+
+    resp = client.get("/api/killtony/episodes/", {"sort": "like_ratio", "asc": "1"})
+
+    assert resp.status_code == 200
+    assert [episode["number"] for episode in resp.json()] == [701, 700, 702]
+
+
 def test_episode_list_response_shape(client, two_videos):
     resp = client.get("/api/killtony/episodes/")
     episode = resp.json()[0]

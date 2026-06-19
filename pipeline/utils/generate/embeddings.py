@@ -7,7 +7,7 @@ from pipeline.utils.http import pipeline_session, server_url
 from pipeline.log import Log
 
 
-def generate_embeddings(log: Log) -> None:
+def generate_embeddings(options: dict, log: Log) -> None:
     session = pipeline_session()
     resp = session.get(server_url("/api/pipeline/unembedded-beats/"))
     resp.raise_for_status()
@@ -19,10 +19,18 @@ def generate_embeddings(log: Log) -> None:
 
     log(f"{len(beats)} beat(s) to embed. Loading model...")
     from sentence_transformers import SentenceTransformer
-    model = SentenceTransformer("all-mpnet-base-v2")
 
-    log(f"Encoding {len(beats)} text(s)...")
-    embeddings = model.encode([b["text"] for b in beats], batch_size=256, show_progress_bar=True).tolist()
+    model_kwargs = {}
+    if options.get("device"):
+        model_kwargs["device"] = options["device"]
+    model = SentenceTransformer("all-mpnet-base-v2", **model_kwargs)
+
+    batch_size = options.get("batch_size") or 32
+    if batch_size < 1:
+        raise ValueError("--batch-size must be at least 1")
+
+    log(f"Encoding {len(beats)} text(s) with batch size {batch_size}...")
+    embeddings = model.encode([b["text"] for b in beats], batch_size=batch_size, show_progress_bar=True).tolist()
 
     outbox_dir = settings.PIPELINE_DATA_DIR / "embeddings_outbox"
     outbox_dir.mkdir(parents=True, exist_ok=True)

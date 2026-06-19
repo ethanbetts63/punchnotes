@@ -30,6 +30,8 @@ class Command(BaseCommand):
         parser.add_argument("--width", type=int, default=480, help="Output image width in pixels")
         parser.add_argument("--quality", type=int, default=4, help="ffmpeg JPEG quality")
         parser.add_argument("--local", action="store_true", help="Target local dev server (applies to: --audio, --comedian_aliases, --set_images, --embeddings)")
+        parser.add_argument("--batch-size", type=int, default=32, help="Embedding batch size (embeddings only)")
+        parser.add_argument("--device", choices=["cpu", "cuda", "mps"], help="Embedding device override (embeddings only)")
 
     def handle(self, *args, **options):
         if options["local"]:
@@ -65,7 +67,7 @@ class Command(BaseCommand):
 
         elif options["embeddings"]:
             from pipeline.utils.generate.embeddings import generate_embeddings
-            generate_embeddings(log)
+            generate_embeddings(options, log)
 
         elif options["embeddings_report"]:
             from pipeline.utils.generate.embeddings_report import generate_embeddings_report

@@ -66,7 +66,7 @@ export const EPISODE_SEARCH_CONFIG: SearchConfig = {
       { value: "regulars",         label: "Regulars" },
       { value: "view_count",       label: "View count" },
       { value: "like_count",       label: "Like count" },
-      { value: "like_ratio",       label: "View/like ratio" },
+      { value: "like_ratio",       label: "Views/like" },
     ],
   },
 };

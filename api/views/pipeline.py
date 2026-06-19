@@ -1,4 +1,5 @@
 import json
+import uuid
 import zipfile
 from datetime import datetime, timezone
 from pathlib import PurePosixPath
@@ -256,8 +257,8 @@ class EmbeddingsView(PipelineView):
     def post(self, request):
         inbox_dir = settings.PIPELINE_DATA_DIR / "embeddings_inbox"
         inbox_dir.mkdir(parents=True, exist_ok=True)
-        ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-        dest = inbox_dir / f"embeddings_{ts}.jsonl"
+        ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+        dest = inbox_dir / f"embeddings_{ts}_{uuid.uuid4().hex[:8]}.jsonl"
         content = request.body
         dest.write_bytes(content if isinstance(content, bytes) else content.encode("utf-8"))
         return Response({"status": "queued", "file": dest.name}, status=202)

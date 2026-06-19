@@ -157,6 +157,26 @@ def test_video_scrape_result_rejects_invalid_status(api_client, tmp_path):
     assert resp.status_code == 400
 
 
+def test_embeddings_upload_writes_unique_inbox_files(api_client, tmp_path):
+    with override_settings(PIPELINE_DATA_DIR=tmp_path):
+        first = api_client.post(
+            "/api/pipeline/embeddings/",
+            data=b'{"key":"a","embedding":[1]}\n',
+            content_type="application/x-ndjson",
+        )
+        second = api_client.post(
+            "/api/pipeline/embeddings/",
+            data=b'{"key":"b","embedding":[2]}\n',
+            content_type="application/x-ndjson",
+        )
+
+    assert first.status_code == 202
+    assert second.status_code == 202
+    assert first.json()["file"] != second.json()["file"]
+    files = sorted((tmp_path / "embeddings_inbox").glob("*.jsonl"))
+    assert len(files) == 2
+
+
 def test_pipeline_endpoints_require_auth(client, tmp_path):
     with override_settings(PIPELINE_DATA_DIR=tmp_path):
         assert client.get("/api/pipeline/videos-to-scrape/").status_code == 403
