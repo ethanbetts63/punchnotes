@@ -4,7 +4,7 @@ from pipeline.utils.http import upload_jsonl_files_chunked
 from pipeline.log import Log
 
 
-EMBEDDINGS_UPLOAD_CHUNK_SIZE = 500
+EMBEDDINGS_UPLOAD_CHUNK_SIZE = 100
 
 
 def upload_embeddings(options: dict, log: Log) -> None:

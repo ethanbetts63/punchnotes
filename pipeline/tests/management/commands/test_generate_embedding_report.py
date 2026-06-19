@@ -5,7 +5,7 @@ import pytest
 from django.core.management import call_command
 from django.test import override_settings
 
-from pipeline.management.commands.generate_embeddings_report import _build_beat_records, fetch_lines_for_beats
+from pipeline.utils.generate.embeddings_report import _build_beat_records, _fetch_lines_for_beats
 from pipeline.models import Beat, Bit, Comedian, Line, Set, Video
 
 
@@ -40,7 +40,7 @@ def test_fetch_lines_for_beats_uses_single_query(django_assert_num_queries):
     records = _build_beat_records(Beat.objects.filter(id__in=[beat_a.id, beat_b.id]).select_related("bit__set__comedian"))
 
     with django_assert_num_queries(1):
-        lines_by_beat = fetch_lines_for_beats(records)
+        lines_by_beat = _fetch_lines_for_beats(records)
 
     assert lines_by_beat[beat_a.id] == [{"label": "setup", "text": "setup a"}, {"label": "punchline", "text": "punch a"}]
     assert lines_by_beat[beat_b.id] == [{"label": "setup", "text": "setup b"}, {"label": "tag", "text": "tag b"}]
@@ -68,3 +68,19 @@ def test_command_writes_report_with_similar_pairs(tmp_path):
     pair = payload["pairs"][0]
     assert pair["similarity"] == 1.0
     assert {pair["beat_a"]["id"], pair["beat_b"]["id"]} == {beat_a.id, beat_b.id}
+
+
+def test_command_does_not_refresh_report_when_no_embeddings(tmp_path):
+    standup_set = _make_set("Comic One", "comic-one", 1)
+    _make_beat(standup_set, "a", 1, 2, "premise a", [])
+    report_path = tmp_path / "embedding_similarity_report.json"
+    report_path.write_text(
+        json.dumps({"generated_at": "2026-01-01T00:00:00+00:00", "threshold": 0.70, "pairs": []}),
+        encoding="utf-8",
+    )
+
+    with override_settings(PIPELINE_DATA_DIR=tmp_path, PIPELINE_PRIVATE_DATA_DIR=tmp_path):
+        call_command("generate", embeddings_report=True)
+
+    payload = json.loads(report_path.read_text(encoding="utf-8"))
+    assert payload["generated_at"] == "2026-01-01T00:00:00+00:00"

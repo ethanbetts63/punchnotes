@@ -145,6 +145,16 @@ def generate_embeddings_report(log: Log) -> None:
     qs = Beat.objects.exclude(embedding=[]).select_related("bit__set__comedian")
     beats = _build_beat_records(qs)
     log(f"Loaded {len(beats)} beats with embeddings.")
+    if not beats:
+        inbox_dir = settings.PIPELINE_DATA_DIR / "embeddings_inbox"
+        archive_dir = settings.PIPELINE_PRIVATE_DATA_DIR / "embeddings_archive"
+        if inbox_dir.exists() and any(inbox_dir.glob("*.jsonl")):
+            log.warning("Embedding files are queued in embeddings_inbox/. Run `python manage.py update --embeddings` first.")
+        elif archive_dir.exists() and any(archive_dir.glob("*.jsonl")):
+            log.warning("No embeddings are stored in this database. To load local archived embeddings, run `python manage.py update --embeddings --archive` first.")
+        else:
+            log.warning("No embeddings are stored in this database. Run `python manage.py generate --embeddings` and ingest them before generating a report.")
+        return
 
     if not full_rebuild and last_generated_at is not None:
         new_beats = [beat for beat in beats if beat.created_at > last_generated_at]
