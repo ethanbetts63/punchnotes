@@ -1,12 +1,16 @@
 # Kill Tony Set Boundary Prompt
 
-You are finding stand-up **set boundaries** in *Kill Tony* transcript inbox files. Inbox files may be full transcripts or music-cue windows generated from a full transcript.
+You are finding stand-up **set boundaries** in *Kill Tony* transcript inbox files.
 
 You will be given an explicit list of files to process. Process only those files — do not list the inbox directory or process any files outside your list.
 
-Each transcript line has a stable `line_number`. Use those original line numbers as the source of truth.
+Each inbox file is a plain-text `.txt` file. Every line is formatted as:
 
-Music-window inbox files intentionally overlap: a window starts 25 lines before a music cue and ends on the next music cue line itself. The end of a window should include the post-set interview and any joke-book award before the next transition. It may include the introduction to a new set but not the set itself. in this case ignore the cut off set. it will appear in full in another file.  
+```
+{line_number}: {text}
+```
+
+Use the number at the start of each line as the line number — these are stable and must be passed exactly to the extraction command.
 
 ---
 
@@ -15,8 +19,10 @@ Music-window inbox files intentionally overlap: a window starts 25 lines before 
 For each file in your list: read the full file content sequentially from start to finish. Do not grep or search for keywords — read the whole transcript and reason over the full context to identify set boundaries. Identify each comedian's ~1-minute stand-up set. For each set, run the extraction command immediately:
 
 ```powershell
-python manage.py extract_set --transcript <path> --start-line <N> --end-line <N> --comedian-name "<Name>" --interview-end-line <N> --joke-book <small|medium|large|null> --comedian-attributes "<attributes>"
+python manage.py extract_set --transcript "C:\Users\ethan\coding\punchnotes\pipeline\data_private\transcript_archive\<filename>.json" --start-line <N> --end-line <N> --comedian-name "<Name>" --interview-end-line <N> --joke-book <small|medium|large|null> --comedian-attributes "<attributes>"
 ```
+
+The `--transcript` path must point to the archive JSON, not the inbox `.txt` file. The archive filename matches the inbox filename with `.txt` replaced by `.json`.
 
 You should run this everytime you identify a set boundary not in bulk at the end.
 
@@ -32,9 +38,7 @@ Also identify the final line of the comic's post-set interview and the joke book
 
 Also identify the comedian appearance type and any clear comedian attributes stated or strongly supported by the transcript. Pass them as a comma-separated list with `--comedian-attributes`. Always include exactly one of `bucket_pull`, `regular`, `golden_ticket`, or `special`. If no other attributes are clear, pass only the appearance type.
 
-Some inbox files are short music-window fragments and may contain no complete set. If the current file is very short or has no complete set, delete it from `transcript_inbox` and move on.
-
-After all complete sets in the current inbox file are extracted successfully, delete that processed JSON file from `transcript_inbox`.
+After all complete sets in the current inbox file are extracted successfully, delete that processed `.txt` file from `transcript_inbox`.
 
 ---
 

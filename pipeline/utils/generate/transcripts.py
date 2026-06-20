@@ -3,7 +3,7 @@ import shutil
 
 from django.conf import settings
 
-from pipeline.utils.transcript_windows import dump_transcript, transcript_archive_filename, write_inbox_transcript_windows
+from pipeline.utils.transcript_windows import dump_transcript, transcript_archive_filename, write_inbox_transcript
 from pipeline.log import Log
 
 
@@ -115,19 +115,8 @@ def generate_transcripts(options: dict, log: Log) -> None:
         archive_file.write_text(dump_transcript(archive_doc), encoding="utf-8")
         log(f"[{video_id}] Archived transcript to {archive_file}")
 
-        inbox_doc = {
-            **meta,
-            "lines": [
-                {
-                    "line_number": i,
-                    "text": line["text"].strip(),
-                    "start": int(line["start"]),
-                }
-                for i, line in enumerate(transcript_lines, start=1)
-            ],
-        }
-        inbox_files = write_inbox_transcript_windows(inbox_doc, inbox_path, overlap=25)
-        log.success(f"[{video_id}] Saved {len(inbox_files)} inbox transcript window(s)")
+        inbox_file = write_inbox_transcript(archive_doc, inbox_path)
+        log.success(f"[{video_id}] Saved inbox transcript to {inbox_file.name}")
 
         with history_path.open("a", encoding="utf-8") as f:
             f.write(

@@ -90,37 +90,16 @@ export const COMEDIAN_LISTS: ListDef[] = [
 
 export const SET_LISTS: ListDef[] = [
   {
-    id: "golden-ticket-first-sets",
-    title: "Golden Ticket Debuts",
-    description: "The first appearance of every comedian who went on to win a golden ticket.",
-    slugs: [
-      "kt582-set07-jonah-campos",
-      "kt413-set05-nick-gianni",
-      "kt572-set08-david-lucas",
-      "kt431-set11-steve-lardner",
-      "kt494-set01-alex-frank-encenia",
-      "kt495-set04-cody-sylvia",
-      "kt655-set09-aldo-caldo",
-      "kt453-set01-reuben-aiken-till",
-      "kt453-set08-michael-lehrer",
-      "kt654-set12-sydney-abusawan",
-      "kt477-set01-amy-freeze",
-      "kt455-set08-coronavirus",
-      "kt547-set02-david-lucas",
-    ],
+    id: "stand-out-regular-sets",
+    title: "Stand Out Regular Sets",
+    description: "Standout sets from Kill Tony regulars.",
+    slugs: [],
   },
   {
-    id: "regular-first-sets",
-    title: "Regular Debuts",
-    description: "The first appearance of every comedian who became a regular.",
-    slugs: [
-      "kt492-set06-tristan-bowling",
-      "kt413-set02-monford-davis",
-      "kt529-set05-trey-pack",
-      "kt592-set09-katie-felton",
-      "kt431-set08-liam-sullivan",
-      "kt424-set02-afrodidy",
-    ],
+    id: "stand-out-golden-ticket-sets",
+    title: "Stand Out Golden Ticket Sets",
+    description: "Standout sets from golden ticket winners.",
+    slugs: [],
   },
 ];
 

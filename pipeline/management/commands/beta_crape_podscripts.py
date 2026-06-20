@@ -38,7 +38,7 @@ from django.core.management.base import BaseCommand
 from pipeline.utils.transcript_windows import (
     safe_transcript_title,
     transcript_archive_filename,
-    write_inbox_transcript_windows,
+    write_inbox_transcript,
 )
 from pipeline.models import Video
 
@@ -202,11 +202,10 @@ class Command(BaseCommand):
                 "lines": lines,
             }
             archive_file.write_text(dump_episode(doc), encoding="utf-8")
-            inbox_files = write_inbox_transcript_windows(doc, inbox_path, overlap=25)
+            inbox_file = write_inbox_transcript(doc, inbox_path)
             self.stdout.write(
                 self.style.SUCCESS(
-                    f"  #{ep_num}: {len(lines)} lines archived; "
-                    f"{len(inbox_files)} inbox transcript window(s)"
+                    f"  #{ep_num}: {len(lines)} lines archived; inbox transcript {inbox_file.name}"
                 )
             )
             ok += 1

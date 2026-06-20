@@ -6,6 +6,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 from pipeline.utils.comedian_aliases import canonicalize_comedian_name
 from pipeline.utils.filenames import safe_filename_part
+from pipeline.utils.transcript_windows import is_annotation_line
 from pipeline.models.comedian import ATTRIBUTE_VALUES
 
 
@@ -17,9 +18,6 @@ def set_filename(episode_title: str, comedian_name: str, start_seconds: int | No
     return f"{title} - {name}.json"
 
 
-WHISPER_ANNOTATION_RE = re.compile(
-    r"^\s*(\[[\s\S]*?\]|\([\s\S]*?\))(\s*(\[[\s\S]*?\]|\([\s\S]*?\)))*\s*$"
-)
 
 JOKE_BOOK_MAP = {"small": "small_joke_book", "medium": "medium_joke_book", "large": "large_joke_book"}
 
@@ -173,7 +171,7 @@ class Command(BaseCommand):
             if line_number in omitted_line_numbers:
                 continue
             text = line.get("text", "")
-            if WHISPER_ANNOTATION_RE.match(text):
+            if is_annotation_line(text):
                 continue
 
             selected_lines.append(
