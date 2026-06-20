@@ -16,23 +16,13 @@ Use the number at the start of each line as the line number — these are stable
 
 ## Your task
 
-For each file in your list: read the full file content sequentially from start to finish. Do not grep or search for keywords — read the whole transcript and reason over the full context to identify set boundaries. Identify each comedian's ~1-minute stand-up set. For each set, run the extraction command immediately:
+A transcript file will exceed your shell output buffer if read all at once. Read each file in chunks of ~500 lines using skip/first-style paging (e.g. `Get-Content <path> | Select-Object -Skip 0 -First 500`, then `-Skip 500 -First 500`, etc.) until you have read every line. 
+
+For each file in your list: read it sequentially from start to finish in chunks as above. Do not grep or search for keywords — read the whole transcript and reason over the full context to identify set boundaries. For each set, run the extraction command immediately:
 
 ```powershell
-python manage.py extract_set --transcript "C:\Users\ethan\coding\punchnotes\pipeline\data_private\transcript_archive\<filename>.json" --start-line <N> --end-line <N> --comedian-name "<Name>" --interview-end-line <N> --joke-book <small|medium|large|null> --comedian-attributes "<attributes>"
+python manage.py extract_set --transcript "<path to inbox .txt file>" --start-line <N> --end-line <N> --comedian-name "<Name>" --interview-end-line <N> --joke-book <small|medium|large|null> --comedian-attributes "<attributes>"
 ```
-
-The `--transcript` path must point to the archive JSON, not the inbox `.txt` file. The archive filename matches the inbox filename with `.txt` replaced by `.json`.
-
-You should run this everytime you identify a set boundary not in bulk at the end.
-
-If a line inside the range is clearly Tony, a panel member, or other non-comedian speech, omit it with:
-
-```powershell
---omit-lines 123,124
-```
-
-Audience reaction lines are filtered automatically by the command.
 
 Also identify the final line of the comic's post-set interview and the joke book size Tony gives the comic at the end of the interview when it is clear. Use only the current appearance's award, not discussion of a previous appearance.
 
@@ -73,13 +63,11 @@ Common first lines include greetings, name acknowledgements, appearance jokes, p
 
 A set ends on the last line of the comedian's material before the interview begins.
 
-Useful end cues:
+Examples:
 
 - "Thank you", "That's my time", "I love you all"
 - Tony says "[Name], everybody" or "All right, [Name]"
 - Tony starts interviewing: "How long have you been doing stand-up?", "Where are you from?", "What do you do?"
-
-Do not end a set just because the kitten sound or one-minute mark appears. If Tony lets the comedian finish a joke after a warning, include the final joke line.
 
 ---
 
@@ -92,7 +80,7 @@ Bucket-pull comics often receive a joke book after their interview. Pass the val
 - `large` for big or big joke book
 - `null` if no joke book is given, or if a joke book is mentioned but the size cannot be worked out confidently
 
-Useful award cues:
+Examples:
 
 - "Here's a big joke book."
 - "There's a little joke book for you."
@@ -100,7 +88,7 @@ Useful award cues:
 - "You're our first Big Joke Book of the Night."
 - "Here's the smallest joke book I could find."
 
-Do not count prior-appearance questions or answers, such as "What size joke book did you get last time?", "Did you get a big joke book last time?", or "No, I got a big joke book." Do not count sponsor or meta mentions like "Bonsai makes our amazing joke books."
+Do not count prior-appearance questions or answers, such as "What size joke book did you get last time?", "Did you get a big joke book last time?", or "No, I got a big joke book." 
 
 ---
 
@@ -132,8 +120,6 @@ Allowed attribute values:
 - `young`
 - `middle-age`
 
-Do not infer attributes from name, accent, nationality, or a city/state alone.
-
 ---
 
 ## Interview end
@@ -144,9 +130,8 @@ For every extracted set, pass `--interview-end-line` as the last transcript line
 
 ## Rules
 
-- Sets are monologues. Back-and-forth short-answer dialogue is usually interview, not set.
 - Prefer Tony's introduced spelling for `--comedian-name`.
-- If you cannot confidently determine the performing comedian's name, do not extract the set. Intro phrasing is not a name — never pass text like "your next comedian", "put your hands together for him", or "friend of the show" as `--comedian-name`. 
+- If you can't determine the performing comedian's name, do not extract the set. Intro phrasing is not a name — never pass text like "your next comedian", "put your hands together for him", or "friend of the show" as `--comedian-name`. 
 - Use `bucket_pull`, `regular`, `golden_ticket`, or `special` in `--comedian-attributes`.
 - Do not read any source code, test files, or management commands. The extract_set command signature above is the full contract — no further exploration needed.
 - Never spin up any agents to do work for you. Never delegate. Never fork the job. Just do it yourself. 

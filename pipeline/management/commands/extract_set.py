@@ -38,18 +38,6 @@ def dump_set(doc):
     return "\n".join(parts)
 
 
-def parse_line_numbers(value):
-    if not value:
-        return set()
-
-    line_numbers = set()
-    for part in value.split(","):
-        part = part.strip()
-        if not part:
-            continue
-        line_numbers.add(int(part))
-    return line_numbers
-
 
 def resolve_joke_book_attribute(value):
     if not value:
@@ -120,11 +108,6 @@ class Command(BaseCommand):
         parser.add_argument("--end-line", required=True, type=int, help="Last source line number to include")
         parser.add_argument("--comedian-name", required=True, help="Comedian name for metadata and filename")
         parser.add_argument(
-            "--omit-lines",
-            default="",
-            help="Comma-separated source line numbers to omit from the extracted set",
-        )
-        parser.add_argument(
             "--joke-book",
             default=None,
             help="Joke book size awarded after the interview: small, medium, large, or null",
@@ -146,19 +129,20 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-        transcript_path = Path(options["transcript"])
-        if not transcript_path.is_absolute():
-            transcript_path = settings.BASE_DIR / transcript_path
-        if not transcript_path.exists():
-            raise CommandError(f"Transcript not found: {transcript_path}")
+        inbox_path = Path(options["transcript"])
+        if not inbox_path.is_absolute():
+            inbox_path = settings.BASE_DIR / inbox_path
+
+        archive_path = settings.PIPELINE_PRIVATE_DATA_DIR / "transcript_archive" / (inbox_path.stem + ".json")
+        if not archive_path.exists():
+            raise CommandError(f"Archive transcript not found: {archive_path}")
 
         start_line = options["start_line"]
         end_line = options["end_line"]
         if start_line > end_line:
             raise CommandError("--start-line must be less than or equal to --end-line")
 
-        omitted_line_numbers = parse_line_numbers(options["omit_lines"])
-        transcript = json.loads(transcript_path.read_text(encoding="utf-8"))
+        transcript = json.loads(archive_path.read_text(encoding="utf-8"))
         source_lines = transcript.get("lines")
         if not isinstance(source_lines, list):
             raise CommandError("Transcript JSON must contain a top-level lines array")
@@ -167,8 +151,6 @@ class Command(BaseCommand):
         for i, line in enumerate(source_lines, start=1):
             line_number = line.get("line_number", i)
             if line_number < start_line or line_number > end_line:
-                continue
-            if line_number in omitted_line_numbers:
                 continue
             text = line.get("text", "")
             if is_annotation_line(text):
