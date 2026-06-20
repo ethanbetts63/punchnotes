@@ -1,7 +1,9 @@
 from rest_framework.generics import ListAPIView, RetrieveAPIView
+from django.shortcuts import get_object_or_404
 
 from pipeline.models import Set
 from api.serializers import SetDetailSerializer, SetListSerializer
+from api.set_slugs import lookup_set_by_public_slug
 from .querysets import build_set_list_queryset
 
 
@@ -14,10 +16,23 @@ class SetListView(ListAPIView):
 
 class SetDetailView(RetrieveAPIView):
     serializer_class = SetDetailSerializer
-    lookup_field = "pk"
+    lookup_url_kwarg = "slug"
+
+    def get_object(self):
+        return get_object_or_404(self.get_queryset())
 
     def get_queryset(self):
-        return Set.objects.select_related(
+        qs = Set.objects.select_related(
+            "comedian",
+            "video",
+        ).prefetch_related(
+            "lines",
+            "bits__beats",
+        )
+        slug = self.kwargs.get(self.lookup_url_kwarg or "slug", "")
+        if str(slug).isdigit():
+            return qs.filter(pk=int(slug))
+        return lookup_set_by_public_slug(slug).select_related(
             "comedian",
             "video",
         ).prefetch_related(

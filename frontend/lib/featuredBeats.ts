@@ -9,7 +9,7 @@ export type FeaturedBeatEntry = {
 
 export async function getFeaturedBeatEntries(limit = 5): Promise<FeaturedBeatEntry[]> {
   const candidates = FEATURED_BEATS.slice(0, limit * 2);
-  const sets = await Promise.all(candidates.map((c) => getServerSet(String(c.setId))));
+  const sets = await Promise.all(candidates.map((c) => getServerSet(c.setSlug)));
 
   const entries: FeaturedBeatEntry[] = [];
   for (let i = 0; i < candidates.length; i++) {

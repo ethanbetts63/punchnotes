@@ -3,6 +3,8 @@ from rest_framework.views import APIView
 
 from api.beat_utils import describe_beat_lines
 from api.serializers.fields import absolute_media_url
+from api.set_slugs import set_public_slug
+from api.video_slugs import video_public_slug
 from .querysets import (
     build_beat_search_queryset,
     build_comedian_list_queryset,
@@ -45,6 +47,15 @@ def result(type_, title, subtitle, href, meta=None, score=0, **extra):
 def fmt_count(value, singular, plural=None):
     plural = plural or f"{singular}s"
     return f"{value} {singular if value == 1 else plural}"
+
+
+def compact_ordinal_id(value: str) -> str:
+    suffix = ""
+    for char in reversed(value):
+        if not char.isdigit():
+            break
+        suffix = char + suffix
+    return suffix.zfill(3) if suffix else value
 
 
 class NavSearchView(APIView):
@@ -115,7 +126,7 @@ class NavSearchView(APIView):
                 "episode",
                 episode.title,
                 "Episode",
-                f"/killtony/episodes/{episode.id}",
+                f"/killtony/episodes/{video_public_slug(episode)}",
                 meta,
                 score,
                 youtube_id=episode.video_id,
@@ -142,7 +153,7 @@ class NavSearchView(APIView):
                 "set",
                 title,
                 set_obj.video.title,
-                f"/killtony/sets/{set_obj.id}",
+                f"/killtony/sets/{set_public_slug(set_obj)}",
                 meta,
                 score,
             ))
@@ -168,7 +179,10 @@ class NavSearchView(APIView):
                 "beat",
                 title,
                 f"{beat.bit.set.comedian.name} - KT #{beat.bit.set.video.number}",
-                f"/killtony/sets/{beat.bit.set.id}",
+                (
+                    f"/killtony/sets/{set_public_slug(beat.bit.set)}"
+                    f"?bit={compact_ordinal_id(beat.bit.bit_id)}&beat={compact_ordinal_id(beat.beat_id)}"
+                ),
                 meta,
                 score,
                 matched_line_label=match.label if match else None,

@@ -142,6 +142,7 @@ For every extracted set, pass `--interview-end-line` as the last transcript line
 
 - Sets are monologues. Back-and-forth short-answer dialogue is usually interview, not set.
 - Prefer Tony's introduced spelling for `--comedian-name`.
+- If you cannot confidently determine the performing comedian's name, do not extract the set. Intro phrasing is not a name — never pass text like "your next comedian", "put your hands together for him", or "friend of the show" as `--comedian-name`. 
 - Use `bucket_pull`, `regular`, `golden_ticket`, or `special` in `--comedian-attributes`.
 - Do not read any source code, test files, or management commands. The extract_set command signature above is the full contract — no further exploration needed.
-- Never spin up any agents to do work for you. 
+- Never spin up any agents to do work for you. Never delegate. Never fork the job. Just do it yourself. 

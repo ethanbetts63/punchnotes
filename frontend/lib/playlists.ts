@@ -93,13 +93,34 @@ export const SET_LISTS: ListDef[] = [
     id: "golden-ticket-first-sets",
     title: "Golden Ticket Debuts",
     description: "The first appearance of every comedian who went on to win a golden ticket.",
-    slugs: ["346", "26", "282", "55", "145", "156", "491", "90", "89", "489", "119", "95", "235"],
+    slugs: [
+      "kt582-set07-jonah-campos",
+      "kt413-set05-nick-gianni",
+      "kt572-set08-david-lucas",
+      "kt431-set11-steve-lardner",
+      "kt494-set01-alex-frank-encenia",
+      "kt495-set04-cody-sylvia",
+      "kt655-set09-aldo-caldo",
+      "kt453-set01-reuben-aiken-till",
+      "kt453-set08-michael-lehrer",
+      "kt654-set12-sydney-abusawan",
+      "kt477-set01-amy-freeze",
+      "kt455-set08-coronavirus",
+      "kt547-set02-david-lucas",
+    ],
   },
   {
     id: "regular-first-sets",
     title: "Regular Debuts",
     description: "The first appearance of every comedian who became a regular.",
-    slugs: ["142", "25", "211", "421", "51", "37"],
+    slugs: [
+      "kt492-set06-tristan-bowling",
+      "kt413-set02-monford-davis",
+      "kt529-set05-trey-pack",
+      "kt592-set09-katie-felton",
+      "kt431-set08-liam-sullivan",
+      "kt424-set02-afrodidy",
+    ],
   },
 ];
 
@@ -108,35 +129,47 @@ export const BIT_LISTS: ListDef[] = [
     id: "golden-ticket-bits",
     title: "Golden Ticket Bits",
     description: "Standout bits from golden ticket winners.",
-    slugs: ["144", "145", "209", "303", "92", "240", "11", "620", "621", "510", "375", "754", "395"],
+    slugs: [
+      "kt582-set07-jonah-campos?bit=001&beat=001",
+      "kt413-set05-nick-gianni?bit=001&beat=001",
+      "kt572-set08-david-lucas?bit=001&beat=001",
+    ],
   },
   {
     id: "regular-bits",
     title: "Regular Bits",
     description: "Favourite bits from the show's regulars.",
-    slugs: ["695", "46", "72", "5", "241", "1037", "917", "159", "160", "67", "74", "171"],
+    slugs: [
+      "kt492-set06-tristan-bowling?bit=001&beat=001",
+      "kt529-set05-trey-pack?bit=001&beat=001",
+      "kt424-set02-afrodidy?bit=001&beat=001",
+    ],
   },
   {
     id: "filler-bits",
     title: "Crowd Favourites",
     description: "Bits that got a big reaction.",
-    slugs: ["415", "304", "275", "324", "478", "152", "117", "93", "94", "162", "161", "346", "347"],
+    slugs: [
+      "kt431-set11-steve-lardner?bit=001&beat=001",
+      "kt655-set09-aldo-caldo?bit=001&beat=001",
+      "kt453-set08-michael-lehrer?bit=001&beat=001",
+    ],
   },
 ];
 
 export type FeaturedBeatSource = {
-  setId: number;
+  setSlug: string;
   bitIndex: number;
   beatIndex: number;
 };
 
 export const FEATURED_BEATS: FeaturedBeatSource[] = [
-  { setId: 346, bitIndex: 0, beatIndex: 0 },
-  { setId: 26, bitIndex: 0, beatIndex: 0 },
-  { setId: 282, bitIndex: 0, beatIndex: 0 },
-  { setId: 55, bitIndex: 0, beatIndex: 0 },
-  { setId: 145, bitIndex: 0, beatIndex: 0 },
-  { setId: 156, bitIndex: 0, beatIndex: 0 },
-  { setId: 491, bitIndex: 0, beatIndex: 0 },
-  { setId: 90, bitIndex: 0, beatIndex: 0 },
+  { setSlug: "kt582-set07-jonah-campos", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "kt413-set05-nick-gianni", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "kt572-set08-david-lucas", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "kt431-set11-steve-lardner", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "kt494-set01-alex-frank-encenia", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "kt495-set04-cody-sylvia", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "kt655-set09-aldo-caldo", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "kt453-set01-reuben-aiken-till", bitIndex: 0, beatIndex: 0 },
 ];

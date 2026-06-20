@@ -8,19 +8,19 @@ import { fmt2, fmtSeconds, getJokeBookSize, jokeBookLabel } from "@/lib/killTony
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 
 type Props = {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: Props) {
-  const { id } = await params;
-  const set = await getServerSet(id);
+  const { slug } = await params;
+  const set = await getServerSet(slug);
   if (!set) return { title: "Set Not Found | PunchNotes" };
   return { title: `${set.comedian.name} - Ep ${set.video.number} | PunchNotes` };
 }
 
 export default async function SetDetailPage({ params }: Props) {
-  const { id } = await params;
-  const set = await getServerSet(id);
+  const { slug } = await params;
+  const set = await getServerSet(slug);
   if (!set) notFound();
 
   const { comedian } = set;
@@ -39,7 +39,7 @@ export default async function SetDetailPage({ params }: Props) {
             {(set.image_url || set.video.youtube_id) && (
               <div className="hidden w-36 shrink-0 sm:block md:w-48">
                 <Link
-                  href={`/killtony/episodes/${set.video.id}`}
+                  href={`/killtony/episodes/${set.video.slug}`}
                   className="block overflow-hidden rounded-lg shadow-xl ring-1 ring-white/10 transition-all hover:ring-white/30"
                 >
                   <SetImage
@@ -52,7 +52,7 @@ export default async function SetDetailPage({ params }: Props) {
                 <div className="mt-2 space-y-0.5">
                   <p className="text-xs leading-snug text-stone-300">
                     <Link
-                      href={`/killtony/episodes/${set.video.id}`}
+                      href={`/killtony/episodes/${set.video.slug}`}
                       className="transition-colors hover:text-white"
                     >
                       {set.video.title}
@@ -67,7 +67,7 @@ export default async function SetDetailPage({ params }: Props) {
 
             <div className="min-w-0 flex-1">
               <p className="mb-1 text-xs font-medium uppercase tracking-wide text-stone-400">
-                Set {set.set_number} · <Link href={`/killtony/episodes/${set.video.id}`} className="transition-colors hover:text-stone-200">Episode {set.video.number}</Link>
+                Set {set.set_number} · <Link href={`/killtony/episodes/${set.video.slug}`} className="transition-colors hover:text-stone-200">Episode {set.video.number}</Link>
               </p>
 
               <h1 className="mb-1 text-3xl font-bold text-white md:text-4xl">

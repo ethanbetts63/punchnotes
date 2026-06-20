@@ -1,81 +1,79 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { getServerVideo } from "@/lib/serverApi";
 import type { SetInVideo } from "@/lib/serverApi";
-import { fmtSeconds, fmtDuration, fmtCompact, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
+import { fmt2, fmtSeconds, fmtDuration, fmtCompact, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
+import SetImage from "@/components/SetImage";
+import SearchResultTile from "@/components/SearchResultTile";
 
-type Props = { params: Promise<{ id: string }> };
+type Props = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Props) {
-  const { id } = await params;
-  const episode = await getServerVideo(id);
+  const { slug } = await params;
+  const episode = await getServerVideo(slug);
   if (!episode) return { title: "Episode Not Found | PunchNotes" };
   return { title: `KT #${episode.number} — Kill Tony | PunchNotes` };
 }
 
-function SetTile({ set, duration }: { set: SetInVideo; duration: number | null }) {
-  const attributes = set.comedian.attributes.filter((attr) => attr in ATTRIBUTE_LABELS);
+function comedianAttributes(set: SetInVideo): string | undefined {
+  const labels = (set.comedian.attributes as string[])
+    .filter((attr) => attr in ATTRIBUTE_LABELS)
+    .map((attr) => ATTRIBUTE_LABELS[attr]);
+  return labels.length > 0 ? labels.join(" / ") : undefined;
+}
 
+function SetTile({
+  set,
+  episodeNumber,
+  episodeTitle,
+  youtubeId,
+}: {
+  set: SetInVideo;
+  episodeNumber: number;
+  episodeTitle: string;
+  youtubeId: string | null;
+}) {
+  const jokeBook = getJokeBookSize(set.attributes);
+  const attributes = comedianAttributes(set);
   return (
-    <Link
-      href={`/killtony/sets/${set.id}`}
-      className="group flex flex-col gap-3 rounded-xl border border-stone-200 bg-white p-5 hover:border-primary/40 hover:shadow-sm transition-all"
-    >
-      <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0">
-          <p className="text-xs font-medium text-stone-400 uppercase tracking-wide mb-1">
-            Set {set.set_number}
-          </p>
-          <p className="text-lg font-bold text-stone-900 group-hover:text-primary transition-colors leading-tight truncate">
-            {set.comedian.name}
-          </p>
-          {attributes.length > 0 && (
-            <div className="mt-2 flex flex-wrap gap-1">
-              {attributes.map((attr) => (
-                <span key={attr} className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-medium text-stone-500">
-                  {ATTRIBUTE_LABELS[attr]}
-                </span>
-              ))}
-            </div>
-          )}
-        </div>
-        <div className="flex shrink-0 flex-col items-end gap-1.5">
-          {(() => { const jb = getJokeBookSize(set.attributes); return jb ? (<span className="rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100 text-amber-700">{jokeBookLabel[jb]}</span>) : null; })()}
-        </div>
-      </div>
-
-      <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-stone-500">
-        <span>
-          <span className="text-stone-400">Start</span>{" "}
-          <span className="font-medium tabular-nums">{fmtSeconds(set.start_seconds)}</span>
-        </span>
-        {set.interview_end_seconds != null && (
-          <span>
-            <span className="text-stone-400">End</span>{" "}
-            <span className="font-medium tabular-nums">{fmtSeconds(set.interview_end_seconds)}</span>
+    <SearchResultTile
+      href={`/killtony/sets/${set.slug}`}
+      eyebrow={`KT #${episodeNumber}`}
+      title={set.comedian.name}
+      subtitle={episodeTitle}
+      image={
+        <SetImage
+          imageUrl={set.image_url}
+          fallbackVideoId={youtubeId}
+          alt={`${set.comedian.name} set image`}
+          className="absolute inset-0 h-full w-full"
+        />
+      }
+      meta={
+        <>
+          Set {set.set_number} / {fmtSeconds(set.start_seconds)}
+          {attributes ? ` / ${attributes}` : ""}
+        </>
+      }
+      stats={[
+        { label: "Bits", value: set.bit_count },
+        { label: "Punch density", value: fmt2(set.punch_density) },
+        { label: "Tag density", value: fmt2(set.tag_density) },
+      ]}
+      badges={
+        jokeBook ? (
+          <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold text-amber-700">
+            {jokeBookLabel[jokeBook]}
           </span>
-        )}
-        {duration != null && (
-          <span>
-            <span className="text-stone-400">~</span>
-            <span className="font-medium tabular-nums">{fmtSeconds(duration)}</span>
-          </span>
-        )}
-      </div>
-
-      <p className="text-sm text-stone-400">
-        {set.bit_count === 0
-          ? "No bits annotated"
-          : `${set.bit_count} bit${set.bit_count === 1 ? "" : "s"}`}
-      </p>
-    </Link>
+        ) : undefined
+      }
+    />
   );
 }
 
 export default async function EpisodeDetailPage({ params }: Props) {
-  const { id } = await params;
-  const episode = await getServerVideo(id);
+  const { slug } = await params;
+  const episode = await getServerVideo(slug);
   if (!episode) notFound();
 
   const sets = episode.sets ?? [];
@@ -181,11 +179,15 @@ export default async function EpisodeDetailPage({ params }: Props) {
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {sets.map((set, i) => {
-              const nextStart = sets[i + 1]?.start_seconds ?? null;
-              const duration = nextStart != null ? nextStart - set.start_seconds : null;
-              return <SetTile key={set.id} set={set} duration={duration} />;
-            })}
+            {sets.map((set) => (
+              <SetTile
+                key={set.id}
+                set={set}
+                episodeNumber={episode.number}
+                episodeTitle={episode.title}
+                youtubeId={episode.youtube_id}
+              />
+            ))}
           </div>
         )}
       </div>

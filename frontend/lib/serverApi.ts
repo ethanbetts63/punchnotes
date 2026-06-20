@@ -39,8 +39,8 @@ export async function getServerVideos(params?: string) {
   return serverFetch<Video[]>(`/api/killtony/episodes/${qs}`);
 }
 
-export async function getServerVideo(id: string) {
-  return serverFetch<VideoDetail>(`/api/killtony/episodes/${id}/`);
+export async function getServerVideo(slug: string) {
+  return serverFetch<VideoDetail>(`/api/killtony/episodes/${slug}/`);
 }
 
 export async function getServerComedians(params?: string) {
@@ -52,8 +52,8 @@ export async function getServerComedian(slug: string) {
   return serverFetch<ComedianDetail>(`/api/killtony/comedians/${slug}/`);
 }
 
-export async function getServerSet(id: string) {
-  return serverFetch<Set>(`/api/killtony/sets/${id}/`);
+export async function getServerSet(slug: string) {
+  return serverFetch<Set>(`/api/killtony/sets/${slug}/`);
 }
 
 export async function getServerSets(params?: string) {
@@ -105,6 +105,7 @@ export type PaginatedResponse<T> = {
 
 export type Video = {
   id: number;
+  slug: string;
   number: number;
   title: string;
   date: string | null;
@@ -145,6 +146,7 @@ export type ComedianAttribute =
   | "middle-age";
 export type SetInVideo = {
   id: number;
+  slug: string;
   set_number: number;
   comedian: { id: number; name: string; slug: string; attributes: ComedianAttribute[]; image_url: string | null };
   attributes: string[];
@@ -153,10 +155,13 @@ export type SetInVideo = {
   interview_end_seconds: number | null;
   image_url: string | null;
   image_capture_seconds: number | null;
+  punch_density: number | null;
+  tag_density: number | null;
 };
 
 export type VideoDetail = {
   id: number;
+  slug: string;
   number: number;
   title: string;
   url: string;
@@ -193,8 +198,9 @@ export type Comedian = {
 
 export type SetInComedian = {
   id: number;
+  slug: string;
   set_number: number;
-  video: { id: number; number: number; title: string; youtube_id: string; date: string | null };
+  video: { id: number; slug: string; number: number; title: string; youtube_id: string; date: string | null };
   attributes: string[];
   punch_density: number | null;
   tag_density: number | null;
@@ -208,6 +214,7 @@ export type ComedianDetail = Comedian & {
 
 export type Beat = {
   id: number;
+  beat_id: string;
   premise: string;
   joke_type: string;
   lines: Line[];
@@ -221,9 +228,10 @@ export type Line = {
 
 export type SetListItem = {
   id: number;
+  slug: string;
   set_number: number;
   comedian: SetListComedian;
-  video: { id: number; number: number; title: string; youtube_id: string; date: string | null };
+  video: { id: number; slug: string; number: number; title: string; youtube_id: string; date: string | null };
   attributes: string[];
   start_seconds: number;
   interview_end_seconds: number | null;
@@ -267,9 +275,10 @@ export type SetComedian = {
 
 export type Set = {
   id: number;
+  slug: string;
   set_number: number;
   comedian: SetComedian;
-  video: { id: number; number: number; title: string; youtube_id: string; date: string | null };
+  video: { id: number; slug: string; number: number; title: string; youtube_id: string; date: string | null };
   attributes: string[];
   start_seconds: number;
   image_url: string | null;
@@ -281,6 +290,7 @@ export type Set = {
 
 export type Bit = {
   id: number;
+  bit_id: string;
   beats: Beat[];
 };
 
@@ -289,19 +299,22 @@ export type BitListItem = {
   comedian: string;
   comedian_slug: string;
   episode_number: number;
-  set_id: number;
+  set_slug: string;
+  bit_id: string;
   joke_types: string[];
-  beats: { premise: string; joke_type: string }[];
+  beats: { beat_id: string; premise: string; joke_type: string }[];
   punch_density: number | null;
   tag_density: number | null;
 };
 
 export type BeatSearchItem = {
   id: number;
+  beat_id: string;
+  bit_id: string;
   comedian: string;
   comedian_slug: string;
   episode_number: number;
-  set_id: number;
+  set_slug: string;
   premise: string;
   joke_type: string;
   setup_lines: string[];

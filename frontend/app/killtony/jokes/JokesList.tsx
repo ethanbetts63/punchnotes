@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { buildBeatSearchHref } from "@/lib/bitLinks";
 import type { BeatSearchItem } from "@/lib/serverApi";
 
 type Props = { beats: BeatSearchItem[]; query?: string };
@@ -26,8 +27,8 @@ export default function JokesList({ beats, query = "" }: Props) {
     <div className="space-y-3">
       {beats.map((beat) => (
         <Link
-          key={beat.id}
-          href={`/killtony/sets/${beat.set_id}`}
+          key={beat.beat_id}
+          href={buildBeatSearchHref(beat)}
           className="group block rounded-xl border border-stone-200 bg-white p-5 transition-all hover:border-primary/40 hover:shadow-sm"
         >
           <div className="mb-3 flex flex-wrap items-center gap-2">

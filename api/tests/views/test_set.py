@@ -49,17 +49,27 @@ def test_set_list_response_shape(client, set_data):
     resp = client.get("/api/killtony/sets/")
     s = resp.json()[0]
     assert "id" in s
+    assert s["slug"] == "kt700-set01-casey-rocket"
     assert "set_number" in s
     assert "comedian" in s
     assert "video" in s
     assert "start_seconds" in s
 
 
-def test_set_detail_returns_200(client, set_data):
+def test_set_detail_returns_200_by_slug(client, set_data):
+    _, s1, _ = set_data
+    resp = client.get("/api/killtony/sets/kt700-set01-casey-rocket/")
+    assert resp.status_code == 200
+    assert resp.json()["set_number"] == 1
+    assert resp.json()["id"] == s1.id
+    assert resp.json()["slug"] == "kt700-set01-casey-rocket"
+
+
+def test_set_detail_keeps_numeric_id_fallback(client, set_data):
     _, s1, _ = set_data
     resp = client.get(f"/api/killtony/sets/{s1.id}/")
     assert resp.status_code == 200
-    assert resp.json()["set_number"] == 1
+    assert resp.json()["slug"] == "kt700-set01-casey-rocket"
 
 
 def test_set_detail_includes_bits_and_lines(client, set_data):
@@ -71,7 +81,7 @@ def test_set_detail_includes_bits_and_lines(client, set_data):
         Line(set=s1, line_number=2, label="punchline", text="Punchline.", start_seconds=1),
     ])
 
-    resp = client.get(f"/api/killtony/sets/{s1.id}/")
+    resp = client.get("/api/killtony/sets/kt700-set01-casey-rocket/")
     data = resp.json()
     assert len(data["bits"]) == 1
     assert len(data["bits"][0]["beats"]) == 1

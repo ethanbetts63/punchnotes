@@ -87,16 +87,26 @@ def test_episode_list_response_shape(client, two_videos):
     resp = client.get("/api/killtony/episodes/")
     episode = resp.json()[0]
     assert "id" in episode
+    assert "slug" in episode
     assert "number" in episode
     assert "title" in episode
     assert "youtube_id" in episode
 
 
-def test_episode_detail_returns_200(client, two_videos):
+def test_episode_detail_returns_200_by_slug(client, two_videos):
+    v1, _ = two_videos
+    resp = client.get("/api/killtony/episodes/kill-tony-700--aaa0000001/")
+    assert resp.status_code == 200
+    assert resp.json()["number"] == 700
+    assert resp.json()["id"] == v1.id
+    assert resp.json()["slug"] == "kill-tony-700--aaa0000001"
+
+
+def test_episode_detail_keeps_numeric_id_fallback(client, two_videos):
     v1, _ = two_videos
     resp = client.get(f"/api/killtony/episodes/{v1.id}/")
     assert resp.status_code == 200
-    assert resp.json()["number"] == 700
+    assert resp.json()["slug"] == "kill-tony-700--aaa0000001"
 
 
 def test_episode_detail_includes_sets(client, db):
@@ -104,7 +114,7 @@ def test_episode_detail_includes_sets(client, db):
     video = Video.objects.create(video_id="ccc0000003", number=702, title="Kill Tony #702", url="https://example.com/702")
     Set.objects.create(video=video, comedian=comedian, set_number=1, start_seconds=0)
 
-    resp = client.get(f"/api/killtony/episodes/{video.id}/")
+    resp = client.get("/api/killtony/episodes/kill-tony-702--ccc0000003/")
     assert resp.status_code == 200
     assert len(resp.json()["sets"]) == 1
     assert resp.json()["sets"][0]["comedian"]["name"] == "Test Comic"

@@ -2,13 +2,15 @@ from rest_framework import serializers
 
 from pipeline.models import Beat
 from api.beat_utils import describe_beat_lines
+from api.set_slugs import set_public_slug
 
 
 class BeatSearchSerializer(serializers.ModelSerializer):
     comedian = serializers.CharField(source="bit.set.comedian.name")
     comedian_slug = serializers.CharField(source="bit.set.comedian.slug")
     episode_number = serializers.IntegerField(source="bit.set.video.number")
-    set_id = serializers.IntegerField(source="bit.set.id")
+    set_slug = serializers.SerializerMethodField()
+    bit_id = serializers.CharField(source="bit.bit_id")
     setup_lines = serializers.SerializerMethodField()
     punchline = serializers.SerializerMethodField()
     matched_line = serializers.SerializerMethodField()
@@ -17,10 +19,13 @@ class BeatSearchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Beat
         fields = [
-            "id", "comedian", "comedian_slug", "episode_number", "set_id",
+            "id", "beat_id", "bit_id", "comedian", "comedian_slug", "episode_number", "set_slug",
             "premise", "joke_type", "setup_lines", "punchline",
             "matched_line", "matched_line_label",
         ]
+
+    def get_set_slug(self, beat):
+        return set_public_slug(beat.bit.set)
 
     def _beat_data(self, beat):
         cache = self.context.setdefault("beat_line_data", {})

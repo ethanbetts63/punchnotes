@@ -38,7 +38,7 @@ export function setToTile(set: SetListItem): TileData {
   ].join(" · ");
 
   return {
-    href: `/killtony/sets/${set.id}`,
+    href: `/killtony/sets/${set.slug}`,
     imageUrl: set.image_url,
     videoId: set.video.youtube_id,
     eyebrow: `KT #${set.video.number}`,
@@ -59,7 +59,7 @@ export function episodeToTile(ep: Video): TileData {
     .join(" · ");
 
   return {
-    href: `/killtony/episodes/${ep.id}`,
+    href: `/killtony/episodes/${ep.slug}`,
     videoId: ep.youtube_id,
     eyebrow: `Episode ${ep.number}`,
     title: getEpisodeGuestLabel(ep, `Kill Tony #${ep.number}`),

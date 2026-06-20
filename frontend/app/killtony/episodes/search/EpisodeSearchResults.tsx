@@ -16,7 +16,7 @@ export default function VideoSearchResults({ episodes }: { episodes: Video[] }) 
         return (
           <SearchResultTile
             key={episode.id}
-            href={`/killtony/episodes/${episode.id}`}
+            href={`/killtony/episodes/${episode.slug}`}
             eyebrow={`Episode ${episode.number}`}
             title={guestLabel}
             subtitle={fmtDate(episode.date) || undefined}

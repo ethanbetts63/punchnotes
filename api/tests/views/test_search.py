@@ -86,6 +86,24 @@ def test_nav_search_returns_all_buckets(client, search_data):
     assert "beats" in data
 
 
+def test_nav_search_episode_links_use_stable_slug(client, search_data):
+    resp = client.get("/api/killtony/search/", {"q": "700"})
+    data = resp.json()
+    assert data["episodes"][0]["href"] == "/killtony/episodes/kill-tony-700--abc123xyz01"
+
+
+def test_nav_search_set_links_use_stable_slug(client, search_data):
+    resp = client.get("/api/killtony/search/", {"q": "casey"})
+    data = resp.json()
+    assert data["sets"][0]["href"] == "/killtony/sets/kt700-set01-casey-rocket"
+
+
+def test_nav_search_beat_links_use_stable_set_slug(client, search_data):
+    resp = client.get("/api/killtony/search/", {"q": "hello"})
+    data = resp.json()
+    assert data["beats"][0]["href"] == "/killtony/sets/kt700-set01-casey-rocket?bit=001&beat=001"
+
+
 def test_nav_search_top_result_is_highest_scoring(client, search_data):
     resp = client.get("/api/killtony/search/", {"q": "casey"})
     data = resp.json()

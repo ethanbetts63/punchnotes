@@ -20,7 +20,7 @@ export default function SetSearchResults({ sets }: { sets: SetListItem[] }) {
         return (
           <SearchResultTile
             key={set.id}
-            href={`/killtony/sets/${set.id}`}
+            href={`/killtony/sets/${set.slug}`}
             eyebrow={`KT #${set.video.number}`}
             title={set.comedian.name}
             subtitle={set.video.title}

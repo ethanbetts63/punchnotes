@@ -80,6 +80,25 @@ function selectedFromIndices(bits: Bit[], bitIdx: number, beatIdx: number): Sele
   return { beat, bit, bitIdx, beatIdx };
 }
 
+function compactOrdinalId(value: string): string {
+  const match = value.match(/(\d+)$/);
+  return match ? match[1].padStart(3, "0") : value;
+}
+
+function selectedFromStableIds(bits: Bit[], bitParam: string, beatParam: string | null): Selected | null {
+  const bitIdx = bits.findIndex((bit) => compactOrdinalId(bit.bit_id) === bitParam.padStart(3, "0"));
+  if (bitIdx < 0) return null;
+
+  const bit = bits[bitIdx];
+  const beatKey = beatParam ? beatParam.padStart(3, "0") : null;
+  const beatIdx = beatKey
+    ? bit.beats.findIndex((beat) => compactOrdinalId(beat.beat_id) === beatKey)
+    : 0;
+  if (beatIdx < 0) return null;
+
+  return selectedFromIndices(bits, bitIdx, beatIdx);
+}
+
 export default function SetTranscript({
   bits,
 }: {
@@ -90,19 +109,12 @@ export default function SetTranscript({
   const searchParams = useSearchParams();
   const activeBeatRef = useRef<HTMLDivElement | null>(null);
   const selected = (() => {
-    const rawBitId = searchParams.get("bit");
-    const rawBeatIndex = searchParams.get("beat");
+    const rawBit = searchParams.get("bit");
+    const rawBeat = searchParams.get("beat");
 
-    if (rawBitId) {
-      const bitId = Number(rawBitId);
-      const beatIndex = Number(rawBeatIndex ?? "0");
-      if (Number.isFinite(bitId) && Number.isInteger(beatIndex) && beatIndex >= 0) {
-        const bitIdx = bits.findIndex((bit) => bit.id === bitId);
-        if (bitIdx >= 0) {
-          const fromUrl = selectedFromIndices(bits, bitIdx, beatIndex);
-          if (fromUrl) return fromUrl;
-        }
-      }
+    if (rawBit) {
+      const fromUrl = selectedFromStableIds(bits, rawBit, rawBeat);
+      if (fromUrl) return fromUrl;
     }
 
     return firstAnnotatedBeat(bits);
@@ -118,12 +130,12 @@ export default function SetTranscript({
     });
 
     return () => window.cancelAnimationFrame(frame);
-  }, [selected?.beat.id]);
+  }, [selected?.beat.beat_id]);
 
-  function updateUrl(bit: Bit, beatIdx: number) {
+  function updateUrl(bit: Bit, beat: Beat) {
     const params = new URLSearchParams(searchParams.toString());
-    params.set("bit", String(bit.id));
-    params.set("beat", String(beatIdx));
+    params.set("bit", compactOrdinalId(bit.bit_id));
+    params.set("beat", compactOrdinalId(beat.beat_id));
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
   }
 
@@ -140,7 +152,7 @@ export default function SetTranscript({
       <div className="flex items-start gap-10">
         <div className="min-w-0 flex-1">
           {bits.map((bit, bi) => (
-            <div key={bit.id} className={bi > 0 ? "mt-10" : ""}>
+            <div key={bit.bit_id} className={bi > 0 ? "mt-10" : ""}>
               <p className="mb-4">
                 <span className="bg-yellow-300 px-1 text-base font-semibold text-stone-900">
                   [Bit {bi + 1}]
@@ -149,11 +161,11 @@ export default function SetTranscript({
 
               {bit.beats.map((beat, bti) => {
                 const hasAnnotated = beat.lines.some((line) => line.label !== "fluff");
-                const isActive = selected?.beat.id === beat.id;
+                const isActive = selected?.beat.beat_id === beat.beat_id;
 
                 return (
                   <div
-                    key={beat.id}
+                    key={beat.beat_id}
                     ref={isActive ? activeBeatRef : null}
                     role={hasAnnotated ? "button" : undefined}
                     tabIndex={hasAnnotated ? 0 : undefined}
@@ -167,11 +179,11 @@ export default function SetTranscript({
                           ? "hover:bg-yellow-100"
                           : "",
                     ].filter(Boolean).join(" ")}
-                    onClick={hasAnnotated ? () => updateUrl(bit, bti) : undefined}
+                    onClick={hasAnnotated ? () => updateUrl(bit, beat) : undefined}
                     onKeyDown={hasAnnotated ? (event) => {
                       if (event.key === "Enter" || event.key === " ") {
                         event.preventDefault();
-                        updateUrl(bit, bti);
+                        updateUrl(bit, beat);
                       }
                     } : undefined}
                   >

@@ -93,7 +93,7 @@ export default function BeatOfTheWeek({ set, bitIndex, beatIndex, entries, sideb
           </div>
 
           <Link
-            href={`/killtony/sets/${activeEntry.set.id}`}
+            href={`/killtony/sets/${activeEntry.set.slug}`}
             className="group block max-w-3xl rounded-lg border border-stone-200 bg-white p-4 shadow-sm transition-colors hover:border-primary/40 hover:shadow-md"
           >
             <div className="flex items-start gap-4">

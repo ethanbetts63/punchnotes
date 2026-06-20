@@ -48,6 +48,7 @@ def test_bit_list_response_shape(client, bit_data):
     assert "comedian" in bit
     assert "comedian_slug" in bit
     assert "episode_number" in bit
+    assert bit["set_slug"] == "kt700-set01-casey-rocket"
     assert "joke_types" in bit
     assert "beats" in bit
 

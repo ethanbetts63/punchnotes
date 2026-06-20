@@ -24,7 +24,7 @@ export default function ComedianSetList({ sets }: Props) {
         {pageItems.map((set) => (
           <Link
             key={set.id}
-            href={`/killtony/sets/${set.id}`}
+            href={`/killtony/sets/${set.slug}`}
             className="group flex overflow-hidden rounded-xl border border-stone-200 bg-white transition-colors hover:border-primary/40 hover:shadow-sm"
           >
             <SetImage

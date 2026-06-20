@@ -15,8 +15,8 @@ export async function getVideos(): Promise<Video[]> {
   return handleResponse<Video[]>(res);
 }
 
-export async function getVideo(id: number): Promise<Video> {
-  const res = await authedFetch(`/api/killtony/episodes/${id}/`);
+export async function getVideo(slug: string): Promise<Video> {
+  const res = await authedFetch(`/api/killtony/episodes/${slug}/`);
   return handleResponse<Video>(res);
 }
 
@@ -30,8 +30,8 @@ export async function getComedian(slug: string): Promise<Comedian> {
   return handleResponse<Comedian>(res);
 }
 
-export async function getSet(id: number): Promise<Set> {
-  const res = await authedFetch(`/api/killtony/sets/${id}/`);
+export async function getSet(slug: string): Promise<Set> {
+  const res = await authedFetch(`/api/killtony/sets/${slug}/`);
   return handleResponse<Set>(res);
 }
 
