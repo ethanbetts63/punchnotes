@@ -27,7 +27,7 @@ pipeline/
 |---|---|
 | `audio_inbox/` | Downloaded episode audio |
 | `audio_archive/` | Audio that has been transcribed |
-| `transcript_inbox/` | Raw transcripts awaiting set extraction |
+| `transcript_inbox/` | Stripped transcripts (`.txt`, line-number-prefixed) awaiting set extraction |
 | `set_inbox/` | Extracted sets awaiting annotation (failed archive imports land here too) |
 | `annotated_set_inbox/` | (server) Received annotated sets awaiting `update --annotated` |
 | `bit_annotated_set_archive/` | Annotated sets — source of truth (private git) |
@@ -90,6 +90,8 @@ python manage.py generate --audio --limit 20
 python manage.py generate --transcripts
 pipeline/data/transcript_inbox/
 ```
+Transcripts are archived as full JSON in `data_private/transcript_archive/`. A stripped `.txt` version (line number + text only, annotation lines removed) is written to `transcript_inbox/` for the AI to read. The `extract_set` command always reads from the archive, not the inbox.
+
 Age restricted videos:
 
 A. log in youtube, go to https://www.youtube.com/robots.txt, use "get cookies.txt LOCALLY" chrome extension and drop in `pipeline/data/`
