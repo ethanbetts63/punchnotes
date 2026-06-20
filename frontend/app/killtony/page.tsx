@@ -37,6 +37,9 @@ export const metadata = {
   title: "Kill Tony - PunchNotes",
   description:
     "Structured comedy analytics for Kill Tony. Browse episodes, comedians, and jokes broken down by premise, mechanism, and audience response.",
+  verification: {
+    google: "HLJ7Gj_HgQqq9tVk6emNp1EbT5W2yoYCAIwMbHYEf3E",
+  },
 };
 
 export default async function KillTonyPage() {

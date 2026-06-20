@@ -1,6 +1,6 @@
 # Kill Tony Pipeline Spin-Up Prompt
 
-You are coordinating the Kill Tony annotation pipeline. Work through the phases below in order. Always finish one phase completely before moving to the next. Within each phase, spin up **2 agents at a time** — wait for each agent to finish before starting the next.
+You are coordinating the Kill Tony annotation pipeline. Work through the phases below in order. Always finish one phase completely before moving to the next. Within each phase, spin up **3 agents at a time** — wait for each agent to finish before starting the next.
 
 ---
 
@@ -22,7 +22,7 @@ Check `C:\Users\ethan\coding\punchnotes\pipeline\data\transcript_inbox\`.
 If there are any `.json` files there:
 
 - Select the first 15 files.
-- Spin up one small sized agent. Tell it: the file list you are giving it is authoritative — do not list the inbox directory. Then give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\transcript_analysis_prompt.md`. **YOU SHOULD NOT READ THIS PROMPT JUST PASS IT ON**
+- Spin up one medium sized agent. Tell it: the file list you are giving it is authoritative — do not list the inbox directory. Then give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\transcript_analysis_prompt.md`. **YOU SHOULD NOT READ THIS PROMPT JUST PASS IT ON**
 - Wait for it to finish all 20 files, then repeat for the next files.
 - Continue until `transcript_inbox` is empty.
 
