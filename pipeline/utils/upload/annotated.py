@@ -32,7 +32,7 @@ def upload_annotated_files(paths: list[Path], log: Log) -> bool:
     session = pipeline_session()
 
     with tempfile.TemporaryDirectory() as tmp_dir:
-        archive_path = Path(tmp_dir) / "annotated_sets.zip"
+        archive_path = Path(tmp_dir) / "annotated.zip"
         with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             for path in paths:
                 archive.write(path, arcname=path.name)
@@ -40,7 +40,7 @@ def upload_annotated_files(paths: list[Path], log: Log) -> bool:
         with archive_path.open("rb") as archive_file:
             resp = session.post(
                 server_url("/api/pipeline/annotated-set-batch/"),
-                files={"archive": ("annotated_sets.zip", archive_file, "application/zip")},
+                files={"archive": ("annotated.zip", archive_file, "application/zip")},
             )
 
     result = json_or_empty(resp)

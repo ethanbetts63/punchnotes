@@ -50,7 +50,7 @@ def test_ingest_annotated_set_requires_existing_video():
         ingest_annotated_set(data)
 
 
-def test_update_annotated_sets_alias_passes_archive(monkeypatch):
+def test_update_annotated_passes_archive(monkeypatch):
     calls = []
 
     def fake_run_update_annotated(log, archive=False):
@@ -58,7 +58,7 @@ def test_update_annotated_sets_alias_passes_archive(monkeypatch):
 
     monkeypatch.setattr(annotated_archive, "run_update_annotated", fake_run_update_annotated)
 
-    call_command("update", "--annotated_sets", "--archive")
+    call_command("update", "--annotated", "--archive")
 
     assert calls == [True]
 

@@ -22,7 +22,7 @@ def _zip_json_files(files):
     with zipfile.ZipFile(payload, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for name, data in files.items():
             archive.writestr(name, json.dumps(data))
-    return SimpleUploadedFile("annotated_sets.zip", payload.getvalue(), content_type="application/zip")
+    return SimpleUploadedFile("annotated.zip", payload.getvalue(), content_type="application/zip")
 
 
 def test_annotated_set_batch_upload_writes_inbox_files(api_client, tmp_path):

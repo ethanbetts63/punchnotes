@@ -10,8 +10,6 @@ class Command(BaseCommand):
         group = parser.add_mutually_exclusive_group(required=True)
         group.add_argument(
             "--annotated",
-            "--annotated_sets",
-            dest="annotated",
             action="store_true",
             help="Import annotated sets from annotated_set_inbox/ into DB",
         )

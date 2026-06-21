@@ -29,14 +29,16 @@ def upload_set_images(options: dict, log: Log) -> None:
     outbox_dir = settings.PIPELINE_DATA_DIR / "set_images_outbox"
     archive_dir = settings.PIPELINE_DATA_DIR / "set_images_archive"
     archive_dir.mkdir(parents=True, exist_ok=True)
+    upload_from_archive = options.get("archive", False)
+    source_dir = archive_dir if upload_from_archive else outbox_dir
 
     files = sorted(
-        p for p in outbox_dir.glob("*")
+        p for p in source_dir.glob("*")
         if p.is_file() and p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"}
-    ) if outbox_dir.exists() else []
+    ) if source_dir.exists() else []
 
     if not files:
-        log(f"No images in {outbox_dir.name}/")
+        log(f"No images in {source_dir.name}/")
         return
 
     session = pipeline_session()
@@ -46,8 +48,9 @@ def upload_set_images(options: dict, log: Log) -> None:
         batch = files[i:i + BATCH_SIZE]
         log(f"Uploading batch {i // BATCH_SIZE + 1} ({len(batch)} images)...")
         succeeded = _upload_batch(session, batch, log)
-        for path in succeeded:
-            shutil.move(str(path), archive_dir / path.name)
+        if not upload_from_archive:
+            for path in succeeded:
+                shutil.move(str(path), archive_dir / path.name)
         uploaded += len(succeeded)
         failed += len(batch) - len(succeeded)
 

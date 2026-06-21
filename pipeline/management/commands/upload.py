@@ -16,7 +16,7 @@ class Command(BaseCommand):
         source = parser.add_mutually_exclusive_group()
         source.add_argument("--file", help="(--annotated) Upload a single JSON file from any path")
         source.add_argument("--dir", help="(--annotated) Upload all JSON files in a directory")
-        parser.add_argument("--archive", action="store_true", help="(--annotated) Upload annotated sets from the private archive")
+        parser.add_argument("--archive", action="store_true", help="Upload from archive instead of outbox when supported")
         parser.add_argument("--local", action="store_true", help="Target local dev server (http://localhost:8000)")
 
     def handle(self, *args, **options):
