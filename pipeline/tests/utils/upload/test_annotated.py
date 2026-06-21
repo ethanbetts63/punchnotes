@@ -65,3 +65,25 @@ def test_upload_annotated_zips_and_archives_only_valid_files(tmp_path, monkeypat
     assert invalid.exists()
     assert not (tmp_path / "bit_annotated_set_archive" / "invalid.json").exists()
     assert log.messages[-1] == "\n1 uploaded, 1 failed."
+
+
+def test_upload_annotated_archive_uploads_without_moving_archive_files(tmp_path, monkeypatch):
+    archive_dir = tmp_path / "bit_annotated_set_archive"
+    archive_dir.mkdir()
+    valid = archive_dir / "valid.json"
+    valid.write_text(_valid_annotation(), encoding="utf-8")
+    uploaded_paths = []
+
+    def fake_upload(paths, log):
+        uploaded_paths.extend(paths)
+        return True
+
+    monkeypatch.setattr(annotated, "upload_annotated_files", fake_upload)
+    log = CapturingLog()
+
+    with override_settings(PIPELINE_DATA_DIR=tmp_path / "data", PIPELINE_PRIVATE_DATA_DIR=tmp_path):
+        annotated.upload_annotated({"file": None, "dir": None, "archive": True}, log)
+
+    assert uploaded_paths == [valid]
+    assert valid.exists()
+    assert log.messages[-1] == "\n1 uploaded, 0 failed."

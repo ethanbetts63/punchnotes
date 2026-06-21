@@ -36,10 +36,12 @@ def _episode_number(title: str | None) -> int | None:
 
 def ingest_ep_meta_jsonl(jsonl_text: str) -> dict:
     created = updated = failed = 0
-    for line in jsonl_text.splitlines():
+    errors = []
+    for line_number, line in enumerate(jsonl_text.splitlines(), start=1):
         line = line.strip()
         if not line:
             continue
+        video_id = None
         try:
             data = json.loads(line)
             video_id = data["video_id"]
@@ -67,9 +69,15 @@ def ingest_ep_meta_jsonl(jsonl_text: str) -> dict:
                 created += 1
             else:
                 updated += 1
-        except Exception:
+        except Exception as exc:
             failed += 1
-    return {"created": created, "updated": updated, "failed": failed}
+            if len(errors) < 25:
+                errors.append({
+                    "line": line_number,
+                    "video_id": video_id,
+                    "error": f"{type(exc).__name__}: {exc}",
+                })
+    return {"created": created, "updated": updated, "failed": failed, "errors": errors}
 
 
 def run_update_ep_meta(log: Log) -> None:
@@ -78,4 +86,10 @@ def run_update_ep_meta(log: Log) -> None:
         log("kt_ep_archive.jsonl not found.")
         return
     result = ingest_ep_meta_jsonl(path.read_text(encoding="utf-8"))
+    for error in result.get("errors", []):
+        video = f" [{error['video_id']}]" if error.get("video_id") else ""
+        log.error(f"  line {error['line']}{video}: {error['error']}")
+    if result["failed"] > len(result.get("errors", [])):
+        hidden = result["failed"] - len(result.get("errors", []))
+        log.error(f"  ... {hidden} more failure(s) not shown")
     log.success(f"Done. {result['created']} created, {result['updated']} updated, {result['failed']} failed.")

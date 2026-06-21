@@ -62,7 +62,12 @@ def upload_annotated(options: dict, log: Log) -> None:
     archive_dir = settings.PIPELINE_PRIVATE_DATA_DIR / "bit_annotated_set_archive"
     archive_dir.mkdir(parents=True, exist_ok=True)
 
-    if options.get("file"):
+    upload_from_archive = options.get("archive", False)
+
+    if upload_from_archive:
+        source_dir = archive_dir
+        paths = sorted(source_dir.glob("*.json"))
+    elif options.get("file"):
         paths = [Path(options["file"])]
     else:
         source_dir = Path(options["dir"]) if options.get("dir") else settings.PIPELINE_DATA_DIR / "set_inbox"
@@ -78,8 +83,9 @@ def upload_annotated(options: dict, log: Log) -> None:
         return
 
     if upload_annotated_files(valid_paths, log):
-        for path in valid_paths:
-            shutil.move(str(path), archive_dir / path.name)
+        if not upload_from_archive:
+            for path in valid_paths:
+                shutil.move(str(path), archive_dir / path.name)
         log(f"\n{len(valid_paths)} uploaded, {len(invalid_paths)} failed.")
     else:
         log(f"\n0 uploaded, {len(paths)} failed.")
