@@ -1,6 +1,6 @@
 # Kill Tony Pipeline Spin-Up Prompt
 
-You are coordinating the Kill Tony annotation pipeline. Work through the phases below in order. Always finish one phase completely before moving to the next. Within each phase, spin up **1 agents at a time** — wait for each agent to finish before starting the next.
+You are coordinating the Kill Tony annotation pipeline. Work through the phases below in order. Always finish one phase completely before moving to the next. Within each phase, spin up **2 agents at a time** — wait for each agent to finish before starting the next.
 
 ---
 
