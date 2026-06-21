@@ -60,6 +60,7 @@ def upload_jsonl_files_chunked(
     endpoint_path: str,
     chunk_size: int,
     log: Log,
+    move_to_archive: bool = True,
 ) -> None:
     """POST JSONL files in line chunks, archive the source only if all chunks upload."""
     if chunk_size < 1:
@@ -80,10 +81,13 @@ def upload_jsonl_files_chunked(
             continue
 
         total_chunks = (len(lines) + chunk_size - 1) // chunk_size
+        size_mb = path.stat().st_size / (1024 * 1024)
+        log(f"  {path.name}: {len(lines)} lines, {total_chunks} chunk(s), {size_mb:.1f} MB")
         uploaded = 0
         failed = False
         for chunk_number, start in enumerate(range(0, len(lines), chunk_size), start=1):
             chunk = "\n".join(lines[start:start + chunk_size]) + "\n"
+            log(f"  {path.name}: uploading chunk {chunk_number}/{total_chunks}...")
             resp = session.post(
                 server_url(endpoint_path),
                 data=chunk.encode("utf-8"),
@@ -98,7 +102,9 @@ def upload_jsonl_files_chunked(
                 failed = True
                 break
             uploaded += 1
+            log(f"  {path.name}: chunk {chunk_number}/{total_chunks} ok")
 
         if not failed:
-            shutil.move(str(path), archive_dir / path.name)
+            if move_to_archive:
+                shutil.move(str(path), archive_dir / path.name)
             log.success(f"  {path.name}: ok ({uploaded} chunk(s))")
