@@ -42,9 +42,17 @@ class Command(BaseCommand):
         self.stdout.write("\nRunning migrate...")
         call_command("migrate")
 
-        # Re-import all archived sets
         data_dir = settings.PIPELINE_DATA_DIR
         private_dir = settings.PIPELINE_PRIVATE_DATA_DIR
+
+        kt_ep_archive = data_dir / "kt_ep_archive.jsonl"
+        if kt_ep_archive.exists():
+            self.stdout.write("\nImporting episode metadata from archive...")
+            call_command("update", ep_meta=True)
+        else:
+            self.stdout.write(self.style.WARNING("\nNo kt_ep_archive.jsonl found; skipping episode import."))
+
+        # Re-import all archived sets after videos exist.
         sets_archive = private_dir / "bit_annotated_set_archive"
         if sets_archive.exists() and any(sets_archive.glob("*.json")):
             self.stdout.write("\nImporting sets from archive...")
@@ -74,12 +82,5 @@ class Command(BaseCommand):
             call_command("update", embeddings=True, archive=True)
         else:
             self.stdout.write("\nNo archived embeddings to restore.")
-
-        kt_ep_archive = data_dir / "kt_ep_archive.jsonl"
-        if kt_ep_archive.exists():
-            self.stdout.write("\nImporting episode metadata from archive...")
-            call_command("update", ep_meta=True)
-        else:
-            self.stdout.write(self.style.WARNING("\nNo kt_ep_archive.jsonl found; skipping episode import."))
 
         self.stdout.write(self.style.SUCCESS("\nDatabase reset complete."))
