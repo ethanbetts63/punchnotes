@@ -12,7 +12,6 @@ from pipeline.json_validation.constants import (
 )
 from pipeline.json_validation.utils import is_non_empty_string, positive_int
 
-
 class BeatMetaValidation:
     def __init__(
         self,
