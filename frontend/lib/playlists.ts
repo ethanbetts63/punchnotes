@@ -109,9 +109,9 @@ export const BIT_LISTS: ListDef[] = [
     title: "Golden Ticket Bits",
     description: "Standout bits from golden ticket winners.",
     slugs: [
-      "kt582-set07-jonah-campos?bit=001&beat=001",
-      "kt413-set05-nick-gianni?bit=001&beat=001",
-      "kt572-set08-david-lucas?bit=001&beat=001",
+      "NoUJl5eZOzw-set07-jonah-campos?bit=001&beat=001",
+      "8LUSZuuQano-set05-nick-gianni?bit=001&beat=001",
+      "VopdOOBFE_M-set08-david-lucas?bit=001&beat=001",
     ],
   },
   {
@@ -119,9 +119,9 @@ export const BIT_LISTS: ListDef[] = [
     title: "Regular Bits",
     description: "Favourite bits from the show's regulars.",
     slugs: [
-      "kt492-set06-tristan-bowling?bit=001&beat=001",
-      "kt529-set05-trey-pack?bit=001&beat=001",
-      "kt424-set02-afrodidy?bit=001&beat=001",
+      "0MpZF1HsZSc-set06-tristan-bowling?bit=001&beat=001",
+      "-8Qw-1aa1WM-set05-trey-pack?bit=001&beat=001",
+      "6GvGjp0nYFs-set02-afrodidy?bit=001&beat=001",
     ],
   },
   {
@@ -129,9 +129,9 @@ export const BIT_LISTS: ListDef[] = [
     title: "Crowd Favourites",
     description: "Bits that got a big reaction.",
     slugs: [
-      "kt431-set11-steve-lardner?bit=001&beat=001",
-      "kt655-set09-aldo-caldo?bit=001&beat=001",
-      "kt453-set08-michael-lehrer?bit=001&beat=001",
+      "_IWBzZHL0xw-set11-steve-lardner?bit=001&beat=001",
+      "FVR-v_WUYJk-set09-aldo-caldo?bit=001&beat=001",
+      "9jb4OkKRADo-set08-michael-lehrer?bit=001&beat=001",
     ],
   },
 ];
@@ -143,12 +143,12 @@ export type FeaturedBeatSource = {
 };
 
 export const FEATURED_BEATS: FeaturedBeatSource[] = [
-  { setSlug: "kt582-set07-jonah-campos", bitIndex: 0, beatIndex: 0 },
-  { setSlug: "kt413-set05-nick-gianni", bitIndex: 0, beatIndex: 0 },
-  { setSlug: "kt572-set08-david-lucas", bitIndex: 0, beatIndex: 0 },
-  { setSlug: "kt431-set11-steve-lardner", bitIndex: 0, beatIndex: 0 },
-  { setSlug: "kt494-set01-alex-frank-encenia", bitIndex: 0, beatIndex: 0 },
-  { setSlug: "kt495-set04-cody-sylvia", bitIndex: 0, beatIndex: 0 },
-  { setSlug: "kt655-set09-aldo-caldo", bitIndex: 0, beatIndex: 0 },
-  { setSlug: "kt453-set01-reuben-aiken-till", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "NoUJl5eZOzw-set07-jonah-campos", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "8LUSZuuQano-set05-nick-gianni", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "VopdOOBFE_M-set08-david-lucas", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "_IWBzZHL0xw-set11-steve-lardner", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "31Q9QvOCwdk-set01-alex-frank-encenia", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "6txwU9YLXio-set04-cody-sylvia", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "FVR-v_WUYJk-set09-aldo-caldo", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "9jb4OkKRADo-set01-reuben-aiken-till", bitIndex: 0, beatIndex: 0 },
 ];

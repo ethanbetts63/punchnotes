@@ -95,10 +95,10 @@ def test_nav_search_episode_links_use_stable_slug(client, search_data):
 def test_nav_search_set_links_use_stable_slug(client, search_data):
     resp = client.get("/api/killtony/search/", {"q": "casey"})
     data = resp.json()
-    assert data["sets"][0]["href"] == "/killtony/sets/kt700-set01-casey-rocket"
+    assert data["sets"][0]["href"] == "/killtony/sets/abc123xyz01-set01-casey-rocket"
 
 
 def test_nav_search_beat_links_use_stable_set_slug(client, search_data):
     resp = client.get("/api/killtony/search/", {"q": "hello"})
     data = resp.json()
-    assert data["beats"][0]["href"] == "/killtony/sets/kt700-set01-casey-rocket?bit=001&beat=001"
+    assert data["beats"][0]["href"] == "/killtony/sets/abc123xyz01-set01-casey-rocket?bit=001&beat=001"
