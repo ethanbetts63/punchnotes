@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ArrowRight, BookOpen, Mic2, Search, Sparkles } from "lucide-react";
 import { SITE_URL, SITE_NAME, buildBreadcrumbSchema } from "@/lib/seo";
 
@@ -158,8 +157,8 @@ export default function AboutPage() {
             <p>
               I built PunchNotes for three reasons. The first is simple: people
               ask me all the time where to start with Kill Tony. They want to
-              watch the show, but there are hundreds of episodes, and "just
-              watch the latest one" is not a great answer. I wanted somewhere I
+              watch the show, but there are hundreds of episodes, and &quot;just
+              watch the latest one&quot; is not a great answer. I wanted somewhere I
               could send people that pointed them toward banger episodes,
               standout sets, and the moments that actually explain why fans love
               the show.
@@ -184,7 +183,7 @@ export default function AboutPage() {
             </p>
 
             <p className="mt-5">
-              At its core, PunchNotes is for comedy fans and comedy nerds. And it's a work in progress. I hope it's useful and if you'd like to reach out or contribute I'll sign my personal email below. I'd love to hear from you.
+              At its core, PunchNotes is for comedy fans and comedy nerds. And it&apos;s a work in progress. I hope it&apos;s useful and if you&apos;d like to reach out or contribute I&apos;ll sign my personal email below. I&apos;d love to hear from you.
             </p>
             <div className="mt-6 border-t border-stone-200 pt-5">
               <p className="font-semibold text-stone-950">Ethan Betts</p>

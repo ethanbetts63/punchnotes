@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { getServerVideo } from "@/lib/serverApi";
 import type { SetInVideo } from "@/lib/serverApi";
 import { fmt2, fmtSeconds, fmtDuration, fmtCompact, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
-import { ATTRIBUTE_LABELS } from "@/lib/attributes";
+import { formatAttributeLabels } from "@/lib/attributes";
 import SetImage from "@/components/SetImage";
 import SearchResultTile from "@/components/SearchResultTile";
 
@@ -18,13 +18,6 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-function comedianAttributes(set: SetInVideo): string | undefined {
-  const labels = (set.comedian.attributes as string[])
-    .filter((attr) => attr in ATTRIBUTE_LABELS)
-    .map((attr) => ATTRIBUTE_LABELS[attr]);
-  return labels.length > 0 ? labels.join(" / ") : undefined;
-}
-
 function SetTile({
   set,
   episodeNumber,
@@ -37,7 +30,7 @@ function SetTile({
   youtubeId: string | null;
 }) {
   const jokeBook = getJokeBookSize(set.attributes);
-  const attributes = comedianAttributes(set);
+  const attributes = formatAttributeLabels(set.comedian.attributes);
   return (
     <SearchResultTile
       href={`/killtony/sets/${set.slug}`}

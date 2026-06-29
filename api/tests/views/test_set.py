@@ -65,13 +65,6 @@ def test_set_detail_returns_200_by_slug(client, set_data):
     assert resp.json()["slug"] == "kt700-set01-casey-rocket"
 
 
-def test_set_detail_keeps_numeric_id_fallback(client, set_data):
-    _, s1, _ = set_data
-    resp = client.get(f"/api/killtony/sets/{s1.id}/")
-    assert resp.status_code == 200
-    assert resp.json()["slug"] == "kt700-set01-casey-rocket"
-
-
 def test_set_detail_includes_bits_and_lines(client, set_data):
     _, s1, _ = set_data
     bit = Bit.objects.create(set=s1, bit_id="b1", line_start=1, line_end=2)

@@ -102,13 +102,6 @@ def test_episode_detail_returns_200_by_slug(client, two_videos):
     assert resp.json()["slug"] == "kill-tony-700--aaa0000001"
 
 
-def test_episode_detail_keeps_numeric_id_fallback(client, two_videos):
-    v1, _ = two_videos
-    resp = client.get(f"/api/killtony/episodes/{v1.id}/")
-    assert resp.status_code == 200
-    assert resp.json()["slug"] == "kill-tony-700--aaa0000001"
-
-
 def test_episode_detail_includes_sets(client, db):
     comedian = Comedian.objects.create(name="Test Comic", slug="test-comic")
     video = Video.objects.create(video_id="ccc0000003", number=702, title="Kill Tony #702", url="https://example.com/702")

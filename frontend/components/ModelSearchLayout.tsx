@@ -13,8 +13,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export function buildSearchSubtitle(count: number | null, singular: string, plural: string, query: string): string {
-  if (count == null) return "Loading...";
+export function buildSearchSubtitle(count: number, singular: string, plural: string, query: string): string {
   return `${count} ${count === 1 ? singular : plural}${query ? ` matching "${query}"` : ""}`;
 }
 

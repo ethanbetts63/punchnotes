@@ -1,21 +1,15 @@
 import type { SetListItem } from "@/lib/serverApi";
-import { ATTRIBUTE_LABELS } from "@/lib/attributes";
+import { formatAttributeLabels } from "@/lib/attributes";
 import { fmt2, fmtSeconds, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import SetImage from "@/components/SetImage";
 import SearchResultTile from "@/components/SearchResultTile";
-
-function comedianAttributes(set: SetListItem): string | undefined {
-  const labels = (set.comedian.attributes as string[])
-    .filter((attr) => attr in ATTRIBUTE_LABELS)
-    .map((attr) => ATTRIBUTE_LABELS[attr]);
-  return labels.length > 0 ? labels.join(" / ") : undefined;
-}
 
 export default function SetSearchResults({ sets }: { sets: SetListItem[] }) {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {sets.map((set) => {
         const jokeBook = getJokeBookSize(set.attributes);
+        const attributes = formatAttributeLabels(set.comedian.attributes);
 
         return (
           <SearchResultTile
@@ -35,7 +29,7 @@ export default function SetSearchResults({ sets }: { sets: SetListItem[] }) {
             meta={
               <>
                 Set {set.set_number} / {fmtSeconds(set.start_seconds)}
-                {comedianAttributes(set) ? ` / ${comedianAttributes(set)}` : ""}
+                {attributes ? ` / ${attributes}` : ""}
               </>
             }
             stats={[

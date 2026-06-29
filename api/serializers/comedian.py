@@ -1,13 +1,11 @@
 from rest_framework import serializers
 
 from pipeline.models import Comedian, Set
-from api.set_slugs import set_public_slug
 from .fields import AbsoluteMediaUrlField
-from .shared import VideoMinimalSerializer
+from .shared import PublicSetSlugMixin, VideoMinimalSerializer
 
 
-class SetInComedianSerializer(serializers.ModelSerializer):
-    slug = serializers.SerializerMethodField()
+class SetInComedianSerializer(PublicSetSlugMixin, serializers.ModelSerializer):
     video = VideoMinimalSerializer()
     image_url = AbsoluteMediaUrlField()
 
@@ -18,9 +16,6 @@ class SetInComedianSerializer(serializers.ModelSerializer):
             "punch_density", "tag_density",
             "image_url", "image_capture_seconds",
         ]
-
-    def get_slug(self, set_obj):
-        return set_public_slug(set_obj)
 
 
 class ComedianListSerializer(serializers.ModelSerializer):

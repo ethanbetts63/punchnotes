@@ -1,14 +1,11 @@
 from rest_framework import serializers
 
 from pipeline.models import Video, Set
-from api.set_slugs import set_public_slug
-from api.video_slugs import video_public_slug
 from .fields import AbsoluteMediaUrlField
-from .shared import ComedianMinimalSerializer
+from .shared import ComedianMinimalSerializer, PublicSetSlugMixin, PublicVideoSlugMixin
 
 
-class SetInVideoSerializer(serializers.ModelSerializer):
-    slug = serializers.SerializerMethodField()
+class SetInVideoSerializer(PublicSetSlugMixin, serializers.ModelSerializer):
     comedian = ComedianMinimalSerializer()
     image_url = AbsoluteMediaUrlField()
 
@@ -21,12 +18,8 @@ class SetInVideoSerializer(serializers.ModelSerializer):
             "punch_density", "tag_density",
         ]
 
-    def get_slug(self, set_obj):
-        return set_public_slug(set_obj)
 
-
-class VideoListSerializer(serializers.ModelSerializer):
-    slug = serializers.SerializerMethodField()
+class VideoListSerializer(PublicVideoSlugMixin, serializers.ModelSerializer):
     youtube_id = serializers.CharField(source="video_id")
 
     class Meta:
@@ -38,9 +31,6 @@ class VideoListSerializer(serializers.ModelSerializer):
             "regular_count", "large_joke_book_count",
             "view_count", "like_count", "comment_count", "view_like_ratio",
         ]
-
-    def get_slug(self, video):
-        return video_public_slug(video)
 
 
 class VideoDetailSerializer(VideoListSerializer):

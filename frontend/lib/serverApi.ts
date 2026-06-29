@@ -1,29 +1,29 @@
 const API_BASE_URL = process.env.DJANGO_API_URL ?? "http://localhost:8000";
 const REVALIDATE_SECONDS = 300;
 
-async function serverFetch<T>(path: string): Promise<T | null> {
+type ServerFetchOptions = {
+  allowNotFound?: boolean;
+};
+
+async function serverFetch<T>(path: string): Promise<T>;
+async function serverFetch<T>(path: string, options: { allowNotFound: true }): Promise<T | null>;
+async function serverFetch<T>(path: string, options: ServerFetchOptions = {}): Promise<T | null> {
   const url = `${API_BASE_URL}${path}`;
-  try {
-    const res = await fetch(url, { next: { revalidate: REVALIDATE_SECONDS } });
-    if (!res.ok) {
-      console.error(`[serverFetch] ${res.status} ${res.statusText} — ${url}`);
-      return null;
-    }
-    return res.json() as Promise<T>;
-  } catch (err) {
-    console.error(`[serverFetch] fetch failed — ${url}`, err);
+  const res = await fetch(url, { next: { revalidate: REVALIDATE_SECONDS } });
+  if (options.allowNotFound && res.status === 404) {
     return null;
   }
+  if (!res.ok) {
+    throw new Error(`[serverFetch] ${res.status} ${res.statusText} - ${url}`);
+  }
+  return res.json() as Promise<T>;
 }
 
-function normalizePaginated<T>(
-  payload: PaginatedResponse<T> | T[] | null,
+function paginate<T>(
+  payload: T[],
   params: string,
   pageSize: number,
-): PaginatedResponse<T> | null {
-  if (!payload) return null;
-  if (!Array.isArray(payload)) return payload;
-
+): PaginatedResponse<T> {
   const searchParams = new URLSearchParams(params);
   const page = Math.max(1, parseInt(searchParams.get("page") ?? "1", 10) || 1);
   const start = (page - 1) * pageSize;
@@ -40,7 +40,7 @@ export async function getServerVideos(params?: string) {
 }
 
 export async function getServerVideo(slug: string) {
-  return serverFetch<VideoDetail>(`/api/killtony/episodes/${slug}/`);
+  return serverFetch<VideoDetail>(`/api/killtony/episodes/${slug}/`, { allowNotFound: true });
 }
 
 export async function getServerComedians(params?: string) {
@@ -49,11 +49,11 @@ export async function getServerComedians(params?: string) {
 }
 
 export async function getServerComedian(slug: string) {
-  return serverFetch<ComedianDetail>(`/api/killtony/comedians/${slug}/`);
+  return serverFetch<ComedianDetail>(`/api/killtony/comedians/${slug}/`, { allowNotFound: true });
 }
 
 export async function getServerSet(slug: string) {
-  return serverFetch<Set>(`/api/killtony/sets/${slug}/`);
+  return serverFetch<Set>(`/api/killtony/sets/${slug}/`, { allowNotFound: true });
 }
 
 export async function getServerSets(params?: string) {
@@ -77,23 +77,23 @@ export async function getServerNavSearch(query: string) {
 }
 
 export async function getServerSetsPaginated(params: string, pageSize: number) {
-  const payload = await serverFetch<PaginatedResponse<SetListItem> | SetListItem[]>(`/api/killtony/sets/?${params}`);
-  return normalizePaginated(payload, params, pageSize);
+  const payload = await serverFetch<SetListItem[]>(`/api/killtony/sets/?${params}`);
+  return paginate(payload, params, pageSize);
 }
 
 export async function getServerVideosPaginated(params: string, pageSize: number) {
-  const payload = await serverFetch<PaginatedResponse<Video> | Video[]>(`/api/killtony/episodes/?${params}`);
-  return normalizePaginated(payload, params, pageSize);
+  const payload = await serverFetch<Video[]>(`/api/killtony/episodes/?${params}`);
+  return paginate(payload, params, pageSize);
 }
 
 export async function getServerComediansPaginated(params: string, pageSize: number) {
-  const payload = await serverFetch<PaginatedResponse<Comedian> | Comedian[]>(`/api/killtony/comedians/?${params}`);
-  return normalizePaginated(payload, params, pageSize);
+  const payload = await serverFetch<Comedian[]>(`/api/killtony/comedians/?${params}`);
+  return paginate(payload, params, pageSize);
 }
 
 export async function getServerBeatsPaginated(params: string, pageSize: number) {
-  const payload = await serverFetch<PaginatedResponse<BeatSearchItem> | BeatSearchItem[]>(`/api/killtony/jokes/?${params}`);
-  return normalizePaginated(payload, params, pageSize);
+  const payload = await serverFetch<BeatSearchItem[]>(`/api/killtony/jokes/?${params}`);
+  return paginate(payload, params, pageSize);
 }
 
 // --- types (minimal, expand as backend solidifies) ---
@@ -344,3 +344,4 @@ export type NavSearchResponse = {
   sets: NavSearchResult[];
   beats: NavSearchResult[];
 };
+

@@ -1,15 +1,8 @@
 import type { Comedian } from "@/lib/serverApi";
-import { ATTRIBUTE_LABELS } from "@/lib/attributes";
+import { formatAttributeLabels } from "@/lib/attributes";
 import { fmt2 } from "@/lib/killTonyDisplay";
 import ComedianImage from "@/components/ComedianImage";
 import SearchResultTile from "@/components/SearchResultTile";
-
-function comedianAttributes(comedian: Comedian): string | undefined {
-  const labels = (comedian.attributes as string[])
-    .filter((attr) => attr in ATTRIBUTE_LABELS)
-    .map((attr) => ATTRIBUTE_LABELS[attr]);
-  return labels.length > 0 ? labels.join(" / ") : undefined;
-}
 
 export default function ComedianSearchResults({ comedians }: { comedians: Comedian[] }) {
   return (
@@ -19,7 +12,7 @@ export default function ComedianSearchResults({ comedians }: { comedians: Comedi
           key={comedian.id}
           href={`/killtony/comedians/${comedian.slug}`}
           title={comedian.name}
-          subtitle={comedianAttributes(comedian)}
+          subtitle={formatAttributeLabels(comedian.attributes)}
           image={
             <ComedianImage
               imageUrl={comedian.image_url}

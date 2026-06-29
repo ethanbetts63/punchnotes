@@ -36,6 +36,11 @@ BIT_SORT_FIELDS = {
     "tag_density": "tag_density",
 }
 
+
+def nullable_order(field, asc=False):
+    return F(field).asc(nulls_last=True) if asc else F(field).desc(nulls_last=True)
+
+
 def build_comedian_list_queryset(params):
     comedians = Comedian.objects.annotate(
         has_sets=Exists(Set.objects.filter(comedian_id=OuterRef("pk")))
@@ -60,9 +65,7 @@ def build_comedian_list_queryset(params):
     sort_key = (params.get("sort") or "").strip()
     field = COMEDIAN_SORT_FIELDS.get(sort_key)
     if field:
-        asc = params.get("asc") == "1"
-        order = F(field).asc(nulls_last=True) if asc else F(field).desc(nulls_last=True)
-        comedians = comedians.order_by(order, "name")
+        comedians = comedians.order_by(nullable_order(field, params.get("asc") == "1"), "name")
     else:
         comedians = comedians.order_by("name")
 
@@ -92,9 +95,7 @@ def build_video_list_queryset(params):
 
     sort_key = (params.get("sort") or "date").strip()
     field = VIDEO_SORT_FIELDS.get(sort_key, "date")
-    asc = params.get("asc") == "1"
-    order = F(field).asc(nulls_last=True) if asc else F(field).desc(nulls_last=True)
-    return videos.order_by(order, "-number")
+    return videos.order_by(nullable_order(field, params.get("asc") == "1"), "-number")
 
 
 def build_set_list_queryset(params):
@@ -115,9 +116,7 @@ def build_set_list_queryset(params):
     sort_key = (params.get("sort") or "").strip()
     field = SET_SORT_FIELDS.get(sort_key)
     if field:
-        asc = params.get("asc") == "1"
-        order = F(field).asc(nulls_last=True) if asc else F(field).desc(nulls_last=True)
-        sets = sets.order_by(order)
+        sets = sets.order_by(nullable_order(field, params.get("asc") == "1"))
     else:
         sets = sets.order_by("-video__number", "start_seconds")
 
@@ -148,9 +147,7 @@ def build_bit_list_queryset(params):
     sort_key = (params.get("sort") or "").strip()
     field = BIT_SORT_FIELDS.get(sort_key)
     if field:
-        asc = params.get("asc") == "1"
-        order = F(field).asc(nulls_last=True) if asc else F(field).desc(nulls_last=True)
-        bits = bits.order_by(order)
+        bits = bits.order_by(nullable_order(field, params.get("asc") == "1"))
 
     return bits
 

@@ -19,3 +19,10 @@ export const ATTRIBUTE_LABELS: Record<string, string> = {
   young: "Young",
   "middle-age": "Middle-Age",
 };
+
+export function formatAttributeLabels(attributes: string[]): string | undefined {
+  const labels = attributes
+    .filter((attr) => attr in ATTRIBUTE_LABELS)
+    .map((attr) => ATTRIBUTE_LABELS[attr]);
+  return labels.length > 0 ? labels.join(" / ") : undefined;
+}

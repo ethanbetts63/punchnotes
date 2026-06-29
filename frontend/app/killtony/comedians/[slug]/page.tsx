@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { getServerComedian } from "@/lib/serverApi";
 import ComedianImage from "@/components/ComedianImage";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";

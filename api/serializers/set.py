@@ -1,9 +1,8 @@
 from rest_framework import serializers
 
 from pipeline.models import Beat, Bit, Comedian, Line, Set
-from api.set_slugs import set_public_slug
 from .fields import AbsoluteMediaUrlField
-from .shared import VideoMinimalSerializer
+from .shared import PublicSetSlugMixin, VideoMinimalSerializer
 
 
 class ComedianForSetSerializer(serializers.ModelSerializer):
@@ -49,8 +48,7 @@ class BitSerializer(serializers.ModelSerializer):
         fields = ["id", "bit_id", "line_start", "line_end", "beats"]
 
 
-class SetDetailSerializer(serializers.ModelSerializer):
-    slug = serializers.SerializerMethodField()
+class SetDetailSerializer(PublicSetSlugMixin, serializers.ModelSerializer):
     comedian = ComedianForSetSerializer()
     video = VideoMinimalSerializer()
     bits = serializers.SerializerMethodField()
@@ -66,17 +64,13 @@ class SetDetailSerializer(serializers.ModelSerializer):
             "bits",
         ]
 
-    def get_slug(self, set_obj):
-        return set_public_slug(set_obj)
-
     def get_bits(self, set_obj):
         lines = list(set_obj.lines.all())
         context = {**self.context, "set_lines": lines}
         return BitSerializer(set_obj.bits.all(), many=True, context=context).data
 
 
-class SetListSerializer(serializers.ModelSerializer):
-    slug = serializers.SerializerMethodField()
+class SetListSerializer(PublicSetSlugMixin, serializers.ModelSerializer):
     comedian = ComedianForSetSerializer()
     video = VideoMinimalSerializer()
     image_url = AbsoluteMediaUrlField()
@@ -89,6 +83,3 @@ class SetListSerializer(serializers.ModelSerializer):
             "image_url", "image_capture_seconds",
             "punch_density", "tag_density", "bit_count",
         ]
-
-    def get_slug(self, set_obj):
-        return set_public_slug(set_obj)
