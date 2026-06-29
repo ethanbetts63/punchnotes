@@ -12,7 +12,10 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const episode = await getServerVideo(slug);
   if (!episode) return { title: "Episode Not Found | PunchNotes" };
-  return { title: `KT #${episode.number} — Kill Tony | PunchNotes` };
+  return {
+    title: `KT #${episode.number} — Kill Tony | PunchNotes`,
+    robots: { index: false, follow: false },
+  };
 }
 
 function comedianAttributes(set: SetInVideo): string | undefined {

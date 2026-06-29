@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, BookOpen, Mic2, Search, Sparkles } from "lucide-react";
+import { SITE_URL, SITE_NAME, buildBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata = {
   title: "About - PunchNotes",
@@ -68,8 +69,30 @@ function SectionHeading({
   );
 }
 
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About PunchNotes',
+  description: 'What PunchNotes is, why it exists, and how the Kill Tony archive is organized.',
+  url: `${SITE_URL}/about`,
+  breadcrumb: buildBreadcrumbSchema([
+    { name: 'Kill Tony', item: `${SITE_URL}/killtony` },
+    { name: 'About', item: `${SITE_URL}/about` },
+  ]),
+  publisher: {
+    '@type': 'Organization',
+    name: SITE_NAME,
+    url: SITE_URL,
+  },
+};
+
 export default function AboutPage() {
   return (
+    <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+    />
     <div className="bg-white">
       <section className="border-b border-stone-200 bg-stone-950 px-4 py-16 text-white sm:px-6 sm:py-20">
         <div className="mx-auto max-w-5xl">
@@ -264,5 +287,6 @@ export default function AboutPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

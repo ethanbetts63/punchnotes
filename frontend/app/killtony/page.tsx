@@ -6,6 +6,7 @@ import ComedianPlaylists from "@/components/ComedianPlaylists";
 import VideoPlaylists from "@/components/VideoPlaylists";
 import { getFeaturedBeatEntries } from "@/lib/featuredBeats";
 import { getServerComedians, getServerVideos } from "@/lib/serverApi";
+import { buildWebSiteSchema } from "@/lib/seo";
 
 function SectionHeader({
   title,
@@ -50,6 +51,11 @@ export default async function KillTonyPage() {
   ]);
 
   return (
+    <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(buildWebSiteSchema()) }}
+    />
     <div className="bg-white">
       <KillTonyHero />
 
@@ -97,5 +103,6 @@ export default async function KillTonyPage() {
         </section>
       )}
     </div>
+    </>
   );
 }

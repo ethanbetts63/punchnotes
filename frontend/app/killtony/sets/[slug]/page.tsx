@@ -15,7 +15,10 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const set = await getServerSet(slug);
   if (!set) return { title: "Set Not Found | PunchNotes" };
-  return { title: `${set.comedian.name} - Ep ${set.video.number} | PunchNotes` };
+  return {
+    title: `${set.comedian.name} - Ep ${set.video.number} | PunchNotes`,
+    robots: { index: false, follow: false },
+  };
 }
 
 export default async function SetDetailPage({ params }: Props) {

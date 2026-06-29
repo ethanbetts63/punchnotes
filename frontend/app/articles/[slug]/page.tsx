@@ -30,6 +30,7 @@ export async function generateMetadata({
       title,
       description,
       canonicalPath: `/articles/${slug}`,
+      noindex: true,
     }),
     openGraph: {
       title,

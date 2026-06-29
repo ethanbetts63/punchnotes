@@ -83,6 +83,39 @@ export function buildArticleSchema(options: {
   };
 }
 
+export function buildWebSiteSchema(): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: SITE_URL,
+    description:
+      'Structured analysis of stand-up comedy. Explore Kill Tony sets, comedians, and jokes broken down by premise, mechanism, and audience response.',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${SITE_URL}/killtony/search?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  };
+}
+
+export function buildBreadcrumbSchema(
+  items: { name: string; item: string }[]
+): object {
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((crumb, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: crumb.name,
+      item: crumb.item,
+    })),
+  };
+}
+
 export function buildFaqSchema(faqData: FaqItem[]): object | null {
   if (!faqData.length) return null;
 

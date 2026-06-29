@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   title: 'Articles | PunchNotes',
   description: 'Comedy analysis, breakdowns, and commentary on Kill Tony and stand-up comedy.',
   canonicalPath: '/articles',
+  noindex: true,
 });
 
 export default function Page() {

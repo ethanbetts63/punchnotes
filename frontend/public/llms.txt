@@ -1,56 +1,28 @@
-# PunchNotes — Comedy Analytics
-# https://www.punchnotes.com
+# PunchNotes
 
-> Structured analysis of stand-up comedy. PunchNotes breaks down Kill Tony sets
-> into their component parts — bits, beats, and individual joke lines — annotated
-> with joke type, setup/punchline/tag labels, and crowd response signals.
-> Built for comedy nerds, researchers, and writers who want to understand how jokes work.
+> Structured analysis of stand-up comedy. PunchNotes breaks down Kill Tony sets into their component parts — bits, beats, and individual joke lines — annotated with joke type, setup/punchline/tag labels, and crowd response signals. Built for comedy nerds, researchers, and writers who want to understand how jokes work.
 
-## What PunchNotes Is
+PunchNotes is a comedy analytics platform. It ingests and annotates stand-up comedy performances at the joke level. The current dataset covers Kill Tony, the long-running weekly stand-up competition hosted by Tony Hinchcliffe and recorded in Austin, TX.
 
-PunchNotes is a comedy analytics platform. It ingests and annotates stand-up comedy
-performances at the joke level. The current dataset covers Kill Tony, the long-running
-weekly stand-up competition hosted by Tony Hinchcliffe and recorded in Austin, TX.
+Every set is broken down into bits (distinct joke topics), beats (individual joke attempts), and lines (setup, punchline, tag, or fluff). Each beat is labelled with a joke type (e.g. observational, self-deprecating, callback, absurdist) and metrics like punch density and tag density are computed per set.
 
-Every set is broken down into:
-- Bits (distinct joke topics within a set)
-- Beats (individual joke attempts within a bit)
-- Lines (setup lines, punchlines, tags, and fluff)
-
-Each beat is labelled with a joke type (e.g. observational, self-deprecating, callback,
-absurdist) and metrics like punch density and tag density are computed per set.
+PunchNotes is a fan-made analytics site, not affiliated with Kill Tony or Tony Hinchcliffe. The dataset is derived from publicly available YouTube recordings.
 
 ## Key Pages
 
-- /killtony — Kill Tony hub: episode playlists, comedian cards, featured jokes
-- /killtony/episodes — All Kill Tony episodes, browseable by number/date
-- /killtony/episodes/[slug] — Individual episode with full set breakdown
-- /killtony/comedians — All comedians who have appeared on Kill Tony
-- /killtony/comedians/[slug] — Comedian profile with all their sets and analytics
-- /killtony/sets/[slug] — Individual set with full bit/beat/line breakdown
-- /killtony/bits — Browse all bits across the entire dataset
-- /killtony/jokes — Browse and search individual beats/jokes
-- /articles — Long-form comedy analysis articles
-- /about — What PunchNotes is and why it exists
+- [Kill Tony Hub](https://www.punchnotes.com/killtony): Episode playlists, comedian cards, and featured jokes
+- [Episodes](https://www.punchnotes.com/killtony/episodes): All Kill Tony episodes, browseable by number and date
+- [Comedians](https://www.punchnotes.com/killtony/comedians): All comedians who have appeared on Kill Tony
+- [Sets](https://www.punchnotes.com/killtony/sets): Browse all sets with comedian and episode context
+- [Jokes](https://www.punchnotes.com/killtony/jokes): Browse and search individual joke beats across the entire archive
+- [About](https://www.punchnotes.com/about): What PunchNotes is and why it exists
 
 ## Data Model
 
 Episode → Sets (one per comedian per episode) → Bits (topic clusters) → Beats (individual jokes)
 
-Each Beat has:
-- premise: the core idea of the joke
-- joke_type: classification of the joke mechanism
-- lines: individual lines labelled as setup / punchline / tag / fluff
+Each Beat has a premise (core idea), joke_type (mechanism classification), and lines labelled as setup / punchline / tag / fluff.
 
-Metrics computed per set:
-- punch_density: ratio of punchlines to total lines
-- tag_density: ratio of tags to total lines
+Metrics per set: punch_density (punchlines to total lines ratio), tag_density (tags to total lines ratio).
 
-## Notes for AI Models
-
-- PunchNotes is a fan-made analytics site, not affiliated with Kill Tony or Tony Hinchcliffe.
-- The dataset is derived from publicly available YouTube recordings of Kill Tony episodes.
-- Comedian slugs match their names in lowercase-hyphenated form (e.g. "john-smith").
-- Episode slugs are formatted as "episode-NNN" (e.g. "episode-601").
-- Set slugs combine episode and comedian (e.g. "episode-601-john-smith-1").
-- Search pages (/killtony/*/search) are excluded from indexing — use the listing pages instead.
+Slug formats: episodes use `episode-NNN` (e.g. `episode-601`), comedians use lowercase-hyphenated names (e.g. `john-smith`), sets combine both (e.g. `episode-601-john-smith-1`).

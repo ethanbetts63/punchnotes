@@ -12,7 +12,10 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const comedian = await getServerComedian(slug);
   if (!comedian) return { title: "Comedian Not Found | PunchNotes" };
-  return { title: `${comedian.name} — Kill Tony | PunchNotes` };
+  return {
+    title: `${comedian.name} — Kill Tony | PunchNotes`,
+    robots: { index: false, follow: false },
+  };
 }
 
 export default async function ComedianDetailPage({ params }: Props) {
