@@ -6,17 +6,17 @@ export default function MediaTile({ item }: { item: TileData }) {
     return (
       <Link
         href={item.href}
-        className="group flex h-full min-h-[280px] flex-col rounded-lg border border-stone-200 bg-white p-4 transition-colors hover:border-primary/40 hover:shadow-sm"
+        className="group flex h-full flex-col rounded-lg border border-stone-200 bg-white p-4 transition-all hover:shadow-md"
       >
-        <div>
+        <div className="flex items-start justify-between gap-2">
+          <p className="text-sm font-bold leading-tight text-stone-950 transition-colors group-hover:text-primary">
+            {item.title}
+          </p>
           {item.badges && item.badges.length > 0 && (
-            <span className={`inline-flex rounded-full px-2 py-0.5 text-[10px] font-bold ${item.badges[0].className}`}>
+            <span className={`shrink-0 inline-flex rounded-full px-2 py-0.5 text-[10px] font-bold ${item.badges[0].className}`}>
               {item.badges[0].label}
             </span>
           )}
-          <p className="mt-2 line-clamp-2 text-sm font-bold leading-tight text-stone-950 transition-colors group-hover:text-primary">
-            {item.title}
-          </p>
         </div>
         {(item.bodyHighlight || item.body) && (
           <p className="mt-5 text-base leading-snug text-stone-700">

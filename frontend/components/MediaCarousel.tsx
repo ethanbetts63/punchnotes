@@ -28,9 +28,11 @@ type Props = {
   description?: string;
   href?: string;
   items: TileData[];
+  accentClass?: string;
+  tileClass?: string;
 };
 
-export default function MediaCarousel({ title, description, href, items }: Props) {
+export default function MediaCarousel({ title, description, href, items, accentClass, tileClass }: Props) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -66,7 +68,7 @@ export default function MediaCarousel({ title, description, href, items }: Props
   return (
     <section>
       <div className="mb-3 flex items-baseline justify-between px-6">
-        <div>
+        <div className={accentClass ? `border-l-4 pl-3 ${accentClass}` : undefined}>
           <h2 className="text-lg font-bold text-stone-950">{title}</h2>
           {description && <p className="mt-0.5 text-sm text-stone-500">{description}</p>}
         </div>
@@ -90,7 +92,7 @@ export default function MediaCarousel({ title, description, href, items }: Props
           {items.map((item) => (
             <div
               key={item.href}
-              className="w-1/2 shrink-0 px-1.5 first:pl-6 last:pr-6 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6"
+              className={tileClass ?? "w-1/2 shrink-0 px-1.5 first:pl-6 last:pr-6 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6"}
             >
               <MediaTile item={item} />
             </div>

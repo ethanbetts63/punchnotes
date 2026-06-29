@@ -14,7 +14,20 @@ export type TileData = {
   bodyHighlight?: string;
   meta?: string;
   badges?: { label: string; className: string }[];
+  accentClass?: string;
 };
+
+export const JOKE_TYPE_STYLES: Record<string, { badge: string; accent: string }> = {
+  misdirect:              { badge: "bg-red-500 text-white",       accent: "border-l-red-500" },
+  reframe:                { badge: "bg-blue-500 text-white",      accent: "border-l-blue-500" },
+  "phonetic-match":       { badge: "bg-amber-400 text-stone-900", accent: "border-l-amber-400" },
+  "double-meaning":       { badge: "bg-violet-500 text-white",    accent: "border-l-violet-500" },
+  contradiction:          { badge: "bg-orange-500 text-white",    accent: "border-l-orange-500" },
+  analogy:                { badge: "bg-emerald-500 text-white",   accent: "border-l-emerald-500" },
+  hyperbole:              { badge: "bg-pink-500 text-white",      accent: "border-l-pink-500" },
+  "elephant-in-the-room": { badge: "bg-cyan-500 text-white",      accent: "border-l-cyan-500" },
+};
+const DEFAULT_JOKE_STYLE = { badge: "bg-stone-950 text-white", accent: "border-l-stone-300" };
 
 export function formatJokeTileText({
   punchline,
@@ -114,6 +127,7 @@ export function jokeToTile(joke: BeatSearchItem): TileData {
   const punchline = joke.punchline || joke.matched_line || joke.premise;
   const setup = joke.setup_lines.slice(0, 2).join(" ");
   const text = formatJokeTileText({ punchline, setup, limit: 115 });
+  const style = (joke.joke_type && JOKE_TYPE_STYLES[joke.joke_type]) || DEFAULT_JOKE_STYLE;
 
   return {
     variant: "joke",
@@ -121,8 +135,9 @@ export function jokeToTile(joke: BeatSearchItem): TileData {
     title: joke.comedian,
     bodyHighlight: text.highlight,
     bodyPrefix: text.prefix,
+    accentClass: style.accent,
     badges: joke.joke_type
-      ? [{ label: joke.joke_type, className: "bg-stone-950 text-white" }]
+      ? [{ label: joke.joke_type, className: style.badge }]
       : [],
   };
 }
