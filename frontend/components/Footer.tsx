@@ -13,7 +13,7 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-2.5 mb-4">
             <div className="h-11 w-11 shrink-0 overflow-hidden rounded-full">
-              <Image src="/logo.png" alt="PunchNotes logo" width={44} height={44} className="object-cover w-full h-full" />
+              <Image src="/logo.png" alt="PunchNotes logo" width={44} height={44} className="object-cover w-full h-full"  />
             </div>
             <p className={LABEL_CLASS} style={{ marginBottom: 0 }}>PunchNotes</p>
           </div>
