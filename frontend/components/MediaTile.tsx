@@ -1,6 +1,20 @@
 import Link from "next/link";
 import type { TileData } from "@/lib/tiles";
 
+function HighlightBody({ text, query }: { text: string; query: string }) {
+  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const parts = text.split(new RegExp(`(${escaped})`, "ig"));
+  return (
+    <>
+      {parts.map((part, i) =>
+        part.toLowerCase() === query.toLowerCase()
+          ? <span key={i} className="font-black text-stone-950">{part}</span>
+          : part
+      )}
+    </>
+  );
+}
+
 export default function MediaTile({ item }: { item: TileData }) {
   if (item.variant === "joke") {
     return (
@@ -21,10 +35,14 @@ export default function MediaTile({ item }: { item: TileData }) {
         {(item.bodyHighlight || item.body) && (
           <p className="mt-5 text-base leading-snug text-stone-700">
             &ldquo;
-            {item.bodyPrefix}
-            <span className="font-black text-stone-950">
-              {item.bodyHighlight ?? item.body}
-            </span>
+            {item.bodyQuery ? (
+              <HighlightBody text={item.body ?? item.bodyHighlight ?? ""} query={item.bodyQuery} />
+            ) : (
+              <>
+                {item.bodyPrefix}
+                <span className="font-black text-stone-950">{item.bodyHighlight ?? item.body}</span>
+              </>
+            )}
             &rdquo;
           </p>
         )}

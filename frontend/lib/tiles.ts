@@ -15,6 +15,7 @@ export type TileData = {
   meta?: string;
   badges?: { label: string; className: string }[];
   accentClass?: string;
+  bodyQuery?: string;
 };
 
 export const JOKE_TYPE_STYLES: Record<string, { badge: string; accent: string }> = {
@@ -123,21 +124,17 @@ export function comedianToTile(c: Comedian): TileData {
   };
 }
 
-export function jokeToTile(joke: BeatSearchItem): TileData {
+export function jokeToTile(joke: BeatSearchItem, query?: string): TileData {
+  const style = (joke.joke_type && JOKE_TYPE_STYLES[joke.joke_type]) || DEFAULT_JOKE_STYLE;
+  const badges = joke.joke_type ? [{ label: joke.joke_type, className: style.badge }] : [];
+  const base = { variant: "joke" as const, href: buildBeatSearchHref(joke), title: joke.comedian, accentClass: style.accent, badges };
+
+  if (query?.trim() && joke.matched_line) {
+    return { ...base, body: joke.matched_line, bodyQuery: query.trim() };
+  }
+
   const punchline = joke.punchline || joke.matched_line || joke.premise;
   const setup = joke.setup_lines.slice(0, 2).join(" ");
   const text = formatJokeTileText({ punchline, setup, limit: 115 });
-  const style = (joke.joke_type && JOKE_TYPE_STYLES[joke.joke_type]) || DEFAULT_JOKE_STYLE;
-
-  return {
-    variant: "joke",
-    href: buildBeatSearchHref(joke),
-    title: joke.comedian,
-    bodyHighlight: text.highlight,
-    bodyPrefix: text.prefix,
-    accentClass: style.accent,
-    badges: joke.joke_type
-      ? [{ label: joke.joke_type, className: style.badge }]
-      : [],
-  };
+  return { ...base, bodyHighlight: text.highlight, bodyPrefix: text.prefix };
 }
