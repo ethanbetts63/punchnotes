@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
+import { Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+
+const barlow = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+  variable: "--font-barlow",
+});
 
 export const metadata: Metadata = {
   title: "PunchNotes — Comedy Analytics",

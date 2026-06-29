@@ -44,13 +44,14 @@ export default function NavBar() {
 
         {/* Wordmark */}
         <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
-          <Image
-            src="/logo.png"
-            alt="PunchNotes logo"
-            width={36}
-            height={36}
-            className="rounded-sm opacity-90 group-hover:opacity-100 transition-opacity"
-          />
+          <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full opacity-90 group-hover:opacity-100 transition-opacity">
+            <Image
+              src="/logo.png"
+              alt="PunchNotes logo"
+              fill
+              className="object-cover scale-90"
+            />
+          </div>
           <span className="text-lg leading-none tracking-tight">
             <span className="font-black text-white">Punch</span><span className="font-black text-primary">Notes</span>
           </span>
