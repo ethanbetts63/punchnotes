@@ -44,12 +44,13 @@ export default function NavBar() {
 
         {/* Wordmark */}
         <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
-          <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full opacity-90 group-hover:opacity-100 transition-opacity">
+          <div className="h-12 w-12 shrink-0 overflow-hidden rounded-full opacity-90 group-hover:opacity-100 transition-opacity">
             <Image
               src="/logo.png"
               alt="PunchNotes logo"
-              fill
-              className="object-cover scale-90"
+              width={48}
+              height={48}
+              className="object-cover w-full h-full"
             />
           </div>
           <span className="text-lg leading-none tracking-tight">
@@ -63,16 +64,13 @@ export default function NavBar() {
             <Link
               key={href}
               href={href}
-              className={`relative px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
+              className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
                 isActive(href)
-                  ? "text-white"
+                  ? "bg-primary/15 text-white"
                   : "text-stone-400 hover:text-stone-200 hover:bg-white/5"
               }`}
             >
               {label}
-              {isActive(href) && (
-                <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-primary" />
-              )}
             </Link>
           ))}
         </nav>
@@ -141,7 +139,7 @@ export default function NavBar() {
               onClick={() => setMenuOpen(false)}
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 isActive(href)
-                  ? "bg-white/10 text-white"
+                  ? "bg-primary/15 text-white"
                   : "text-stone-400 hover:text-white hover:bg-white/5"
               }`}
             >

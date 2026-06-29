@@ -41,7 +41,7 @@ export default function KillTonyHero() {
         <span className="inline-block h-px w-8 bg-primary/60" />
       </div>
 
-      <h1 className="text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
+      <h1 className="font-display text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-[5.5rem]">
         The Kill Tony Archive
       </h1>
 
@@ -113,14 +113,14 @@ export default function KillTonyHero() {
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,11,24,0.08),rgba(7,11,24,0.82)_70%,rgba(0,0,0,0.95))]" />
         </div>
 
-        <div className="bg-[radial-gradient(circle_at_top,rgba(39,84,210,0.28),transparent_48%),linear-gradient(180deg,#080b13_0%,#121623_100%)] px-6 py-10">
+        <div className="bg-[radial-gradient(ellipse_at_top,rgba(180,20,20,0.18),transparent_55%),linear-gradient(180deg,#080b13_0%,#0d1018_100%)] px-6 py-10">
           {content}
         </div>
       </div>
 
       <div className="relative hidden overflow-hidden md:flex" style={{ minHeight: "clamp(580px, 86vh, 840px)" }}>
         <div className="relative flex w-1/2 items-center justify-center overflow-hidden px-10 py-16 lg:px-20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(39,84,210,0.35),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(220,38,38,0.2),transparent_38%),linear-gradient(180deg,#080b13_0%,#121623_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(200,30,30,0.20),transparent_45%),linear-gradient(180deg,#080b13_0%,#0d1018_100%)]" />
           <div className="absolute inset-y-10 right-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent" />
           <div className="relative z-10">{content}</div>
         </div>

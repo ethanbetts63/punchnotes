@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const LABEL_CLASS = "text-[10px] font-bold uppercase tracking-[0.25em] text-primary mb-4";
 const LINK_CLASS = "text-sm text-stone-400 hover:text-stone-200 transition-colors duration-200";
@@ -10,7 +11,12 @@ export default function Footer() {
 
         {/* Brand */}
         <div>
-          <p className={LABEL_CLASS}>PunchNotes</p>
+          <div className="flex items-center gap-2.5 mb-4">
+            <div className="h-11 w-11 shrink-0 overflow-hidden rounded-full">
+              <Image src="/logo.png" alt="PunchNotes logo" width={44} height={44} className="object-cover w-full h-full" />
+            </div>
+            <p className={LABEL_CLASS} style={{ marginBottom: 0 }}>PunchNotes</p>
+          </div>
           <p className="text-sm text-stone-400 leading-relaxed">
             Structured comedy analytics for Kill Tony. Sets, comedians, and jokes broken
             down by premise, mechanism, and audience response.

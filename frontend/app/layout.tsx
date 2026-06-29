@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning>
+      <body suppressHydrationWarning className={barlow.variable}>
         <div className="min-h-screen flex flex-col">
           <NavBar />
           <main className="flex-grow">{children}</main>
