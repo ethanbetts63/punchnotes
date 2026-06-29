@@ -70,6 +70,7 @@ def test_comedian_detail_includes_sets(client, comedian_data):
     c1, _, _ = comedian_data
     resp = client.get(f"/api/killtony/comedians/{c1.slug}/")
     assert len(resp.json()["sets"]) == 1
+    assert resp.json()["sets"][0]["slug"] == "kt700-set01-casey-rocket"
 
 
 def test_comedian_detail_404_on_missing(client):
