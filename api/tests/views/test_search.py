@@ -70,7 +70,7 @@ def test_nav_search_empty_query_returns_empty_structure(client):
     assert resp.status_code == 200
     data = resp.json()
     assert data["query"] == ""
-    assert data["top_result"] is None
+    assert "top_result" not in data
     assert data["comedians"] == []
     assert data["episodes"] == []
     assert data["beats"] == []
@@ -102,12 +102,3 @@ def test_nav_search_beat_links_use_stable_set_slug(client, search_data):
     resp = client.get("/api/killtony/search/", {"q": "hello"})
     data = resp.json()
     assert data["beats"][0]["href"] == "/killtony/sets/kt700-set01-casey-rocket?bit=001&beat=001"
-
-
-def test_nav_search_top_result_is_highest_scoring(client, search_data):
-    resp = client.get("/api/killtony/search/", {"q": "casey"})
-    data = resp.json()
-    top = data["top_result"]
-    assert top is not None
-    all_results = data["comedians"] + data["episodes"] + data["sets"] + data["beats"]
-    assert top["score"] == max(r["score"] for r in all_results)

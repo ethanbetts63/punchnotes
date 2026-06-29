@@ -10,7 +10,7 @@ export const metadata = {
 
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
-type NavSearchGroupKey = Exclude<keyof NavSearchResponse, "query" | "top_result">;
+type NavSearchGroupKey = Exclude<keyof NavSearchResponse, "query">;
 
 const GROUPS: { key: NavSearchGroupKey; title: string; description: string }[] = [
   { key: "comedians", title: "Comedians", description: "Guest comics and bucket pulls" },
@@ -61,10 +61,6 @@ function typeLabel(type: NavSearchResult["type"]): string {
   }
 }
 
-function isVisibleNavSearchResult(type: NavSearchResult["type"]): boolean {
-  return type === "comedian" || type === "episode" || type === "set" || type === "beat";
-}
-
 function resultInitial(item: NavSearchResult): string {
   if (item.type === "episode") {
     const episodeNumber = item.meta[0]?.match(/#(\d+)/)?.[1] ?? item.title.match(/#(\d+)/)?.[1];
@@ -74,17 +70,13 @@ function resultInitial(item: NavSearchResult): string {
   return label.charAt(0).toUpperCase();
 }
 
-function formattedMeta(item: NavSearchResult): string {
-  return [typeLabel(item.type), ...item.meta].filter(Boolean).slice(0, 4).join(" / ");
-}
-
-function NavSearchResultMark({ item, featured = false }: { item: NavSearchResult; featured?: boolean }) {
+function NavSearchResultMark({ item }: { item: NavSearchResult }) {
   if (item.type === "episode") {
     return (
       <YoutubeThumbnail
         videoId={item.youtube_id}
         alt={item.title}
-        className={featured ? "h-24 w-40 shrink-0 sm:h-28 sm:w-48" : "h-[75px] w-[133px] shrink-0"}
+        className="h-[75px] w-[133px] shrink-0"
       />
     );
   }
@@ -94,7 +86,7 @@ function NavSearchResultMark({ item, featured = false }: { item: NavSearchResult
       <ComedianImage
         imageUrl={item.image_url}
         name={item.title}
-        className={featured ? "h-24 w-24 shrink-0 sm:h-28 sm:w-28" : "h-[75px] w-[75px] shrink-0"}
+        className="h-[75px] w-[75px] shrink-0"
       />
     );
   }
@@ -103,7 +95,7 @@ function NavSearchResultMark({ item, featured = false }: { item: NavSearchResult
     <span
       className={`flex shrink-0 items-center justify-center overflow-hidden font-black uppercase ${
         typeStyle(item.type)
-      } ${featured ? "h-24 w-24 text-4xl sm:h-28 sm:w-28" : "h-[75px] w-[75px] text-2xl"}`}
+      } h-[75px] w-[75px] text-2xl`}
     >
       {resultInitial(item)}
     </span>
@@ -129,13 +121,11 @@ function HighlightedText({ text, query }: { text: string; query: string }) {
 function NavSearchResultCard({
   item,
   query,
-  featured = false,
   compact = false,
   textOnly = false,
 }: {
   item: NavSearchResult;
   query: string;
-  featured?: boolean;
   compact?: boolean;
   textOnly?: boolean;
 }) {
@@ -147,20 +137,20 @@ function NavSearchResultCard({
     <Link
       href={item.href}
       className={`group flex min-w-0 bg-white text-black transition-colors hover:bg-[#e9e9e9] ${
-        compact ? "min-h-0" : featured ? "min-h-28" : "min-h-[75px]"
+        compact ? "min-h-0" : "min-h-[75px]"
       }`}
     >
-      {!hideMark && <NavSearchResultMark item={item} featured={featured} />}
+      {!hideMark && <NavSearchResultMark item={item} />}
       <div
         className={`flex min-w-0 flex-1 flex-col justify-between overflow-hidden ${
-          compact ? "px-3 py-2" : featured ? "px-3 py-2.5" : "px-2.5 py-2"
+          compact ? "px-3 py-2" : "px-2.5 py-2"
         }`}
       >
         <div className="min-w-0">
           <div className="flex min-w-0 items-start justify-between gap-2">
             <p
               className={`min-w-0 overflow-hidden text-ellipsis break-words font-bold leading-none text-black ${
-                compact ? "text-sm" : featured ? "text-xl sm:text-2xl" : "text-base"
+                compact ? "text-sm" : "text-base"
               }`}
             >
               {showHighlightedTitle ? <HighlightedText text={item.title} query={query} /> : item.title}
@@ -169,9 +159,7 @@ function NavSearchResultCard({
           </div>
           {subtitle && (
             <p
-              className={`mt-1 overflow-hidden text-ellipsis break-words text-stone-500 ${
-                featured ? "line-clamp-2 text-sm" : "line-clamp-1 text-xs"
-              }`}
+              className="mt-1 overflow-hidden text-ellipsis break-words text-xs text-stone-500 line-clamp-1"
             >
               {subtitle}
             </p>
@@ -325,25 +313,12 @@ function NavSearchSidebar({ results, query }: { results: NavSearchResponse | nul
   );
 }
 
-function NavSearchTopResult({ item, query }: { item: NavSearchResult; query: string }) {
-  return (
-    <section>
-      <div className="mb-2 px-4 sm:px-0">
-        <h2 className="text-xs font-bold uppercase text-stone-500">Top result</h2>
-      </div>
-      <NavSearchResultCard item={item} query={query} featured />
-      <p className="mt-2 px-4 text-xs text-stone-500 sm:px-0">{formattedMeta(item)}</p>
-    </section>
-  );
-}
-
 export default async function NavSearchPage({ searchParams }: Props) {
   const searchParamsValue = await searchParams;
   const rawQuery = searchParamsValue.q;
   const query = Array.isArray(rawQuery) ? rawQuery[0] ?? "" : rawQuery ?? "";
   const trimmedQuery = query.trim();
   const results = trimmedQuery ? await getServerNavSearch(trimmedQuery) : null;
-  const topResult = results?.top_result && isVisibleNavSearchResult(results.top_result.type) ? results.top_result : null;
   const hasResults = results ? GROUPS.some(({ key }) => results[key].length > 0) : false;
 
   return (
@@ -368,7 +343,6 @@ export default async function NavSearchPage({ searchParams }: Props) {
           {results && !hasResults && <NavSearchEmptyState query={trimmedQuery} />}
           {results && hasResults && (
             <>
-              {topResult && <NavSearchTopResult item={topResult} query={trimmedQuery} />}
               {MAIN_GROUPS.map(({ key, title }) => (
                 <NavSearchResultSection
                   key={key}

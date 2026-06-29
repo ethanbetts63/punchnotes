@@ -64,7 +64,6 @@ class NavSearchView(APIView):
         if not query:
             empty = {
                 "query": "",
-                "top_result": None,
                 "comedians": [],
                 "episodes": [],
                 "sets": [],
@@ -76,12 +75,9 @@ class NavSearchView(APIView):
         episodes = self.search_episodes(query)
         sets = self.search_sets(query)
         beats = self.search_beats(query)
-        all_results = comedians + episodes + sets + beats
-        top_result = max(all_results, key=lambda item: item["score"], default=None)
 
         return Response({
             "query": query,
-            "top_result": top_result,
             "comedians": comedians,
             "episodes": episodes,
             "sets": sets,

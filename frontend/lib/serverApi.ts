@@ -339,7 +339,6 @@ export type NavSearchResult = {
 
 export type NavSearchResponse = {
   query: string;
-  top_result: NavSearchResult | null;
   comedians: NavSearchResult[];
   episodes: NavSearchResult[];
   sets: NavSearchResult[];
