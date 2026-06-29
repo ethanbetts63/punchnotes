@@ -62,7 +62,6 @@ export default function Footer() {
       <div className="border-t border-stone-800">
         <div className="mx-auto max-w-6xl px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-stone-600">&copy; {new Date().getFullYear()} PunchNotes. All rights reserved.</p>
-          <p className="text-xs text-stone-600">Data derived from publicly available Kill Tony recordings.</p>
         </div>
       </div>
     </footer>
