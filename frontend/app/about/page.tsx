@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BookOpen, ExternalLink, Mic2, Search, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpen, Mic2, Search, Sparkles } from "lucide-react";
 
 export const metadata = {
   title: "About - PunchNotes",
@@ -9,19 +9,22 @@ export const metadata = {
 
 const otherSites = [
   {
-    name: "Site name",
-    description: "A short one-line description of the other project goes here.",
-    href: "#",
+    name: "Splitcart",
+    logoSrc: "/other-sites/splitcart_logo.png",
+    description: "Compare grocery prices across major Australian supermarkets.",
+    url: "https://www.splitcart.com.au",
   },
   {
-    name: "Another site",
-    description: "Use this space for the second related project.",
-    href: "#",
+    name: "FutureFlower",
+    logoSrc: "/other-sites/futureflower_logo.png",
+    description: "Flower delivery and subscription service.",
+    url: "https://www.futureflower.app",
   },
   {
-    name: "Third project",
-    description: "Optional third card if you want to point people somewhere else.",
-    href: "#",
+    name: "Scooter Shop",
+    logoSrc: "/other-sites/scootershop_logo.webp",
+    description: "Motorcycle and scooter sales, servicing, tyre fitting, and hire in Perth.",
+    url: "https://www.scootershop.com.au",
   },
 ];
 
@@ -130,26 +133,45 @@ export default function AboutPage() {
           <SectionHeading eyebrow="Letter" title="A note from the developer" />
           <div className="mt-6 max-w-3xl rounded-lg border border-stone-200 bg-white p-6 text-base leading-relaxed text-stone-600 shadow-sm sm:p-8">
             <p>
-              I built PunchNotes because I kept wanting a better way to study
-              the mechanics of comedy without losing the fun of watching it.
-              Stand-up is alive in the room, and the best moments are often
-              messy, surprising, and hard to categorize. That is exactly why I
-              wanted a tool that could help organize the material without
-              pretending the organization is the whole point.
+              I built PunchNotes for three reasons. The first is simple: people
+              ask me all the time where to start with Kill Tony. They want to
+              watch the show, but there are hundreds of episodes, and "just
+              watch the latest one" is not a great answer. I wanted somewhere I
+              could send people that pointed them toward banger episodes,
+              standout sets, and the moments that actually explain why fans love
+              the show.
             </p>
             <p className="mt-5">
-              The goal is simple: make it easier to find sets, follow comics,
-              revisit jokes, and notice patterns in how premises become laughs.
-              Sometimes that means a transcript. Sometimes it means a playlist.
-              Sometimes it means breaking a joke into smaller beats so the turn
-              is easier to see.
+              The second reason is search. If I am trying to remember which
+              comic did a joke, what episode a set was on, or the exact wording
+              of a line, there has never been a good way to find it. You can
+              search YouTube titles, skim Reddit threads, or hope someone else
+              remembers, but that does not help much when the thing you remember
+              is buried inside a minute. PunchNotes is meant to make the archive
+              searchable at the set and transcript level.
             </p>
             <p className="mt-5">
-              This is a fan project first. It exists because the archive is
-              worth exploring, and because comedy fans, writers, and performers
-              all benefit from better ways to search, compare, and revisit the
-              work.
+              The third reason is joke originality. This part may or may not be
+              live yet when you are reading this, but it is a big part of where
+              the project is going. When I write a joke I think is good, I want
+              to know, with some degree of confidence, whether someone else has
+              already done something similar. Right now the best tools are
+              pretty bad: perform it and hope someone tells you, or Google a few
+              phrases and hope..
             </p>
+
+            <p className="mt-5">
+              At its core, PunchNotes is for comedy fans and comedy nerds. And it's a work in progress. I hope it's useful and if you'd like to reach out or contribute I'll sign my personal email below. I'd love to hear from you.
+            </p>
+            <div className="mt-6 border-t border-stone-200 pt-5">
+              <p className="font-semibold text-stone-950">Ethan Betts</p>
+              <a
+                href="mailto:ethanbetts63@gmail.com"
+                className="text-sm font-medium text-primary transition-opacity hover:opacity-80"
+              >
+                ethanbetts63@gmail.com
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -178,31 +200,45 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-b border-stone-200 bg-stone-950 px-4 py-14 text-white sm:px-6">
+      <section className="border-b border-stone-200 bg-white px-4 py-14 sm:px-6">
         <div className="mx-auto max-w-5xl">
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-            <SectionHeading eyebrow="More projects" title="Check out our other sites" />
-            <p className="max-w-md text-sm leading-6 text-stone-400">
-              Replace these cards with the other sites you want to promote. This
-              section can stay small and direct.
-            </p>
-          </div>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
+          <h2 className="mb-8 text-center text-3xl font-bold text-stone-950">
+            Liked this site? Check out some of our others!
+          </h2>
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {otherSites.map((site) => (
-              <Link
+              <div
                 key={site.name}
-                href={site.href}
-                className="group rounded-lg border border-white/10 bg-white/5 p-5 transition-colors hover:border-primary/60 hover:bg-white/10"
+                className="flex h-full flex-col rounded-lg border border-stone-200 bg-white p-6 shadow-sm"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <h2 className="text-lg font-bold text-white">{site.name}</h2>
-                  <ExternalLink className="mt-1 h-4 w-4 shrink-0 text-stone-500 transition-colors group-hover:text-primary" />
+                <div className="mb-4 flex items-center">
+                  <div className="mr-4 h-16 w-16 shrink-0">
+                    <img
+                      src={site.logoSrc}
+                      alt={`${site.name} Logo`}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                  <div className="grow">
+                    <h3 className="text-xl font-bold text-stone-950">
+                      {site.name}
+                    </h3>
+                  </div>
                 </div>
-                <p className="mt-3 text-sm leading-6 text-stone-400">
+                <p className="mb-6 grow text-sm leading-6 text-stone-600">
                   {site.description}
                 </p>
-              </Link>
+                <div className="mt-auto flex justify-end">
+                  <a
+                    href={site.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-primary/80"
+                  >
+                    Visit Site <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
             ))}
           </div>
         </div>
