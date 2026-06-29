@@ -2,6 +2,41 @@ import Link from "next/link";
 import type { TileData } from "@/lib/tiles";
 
 export default function MediaTile({ item }: { item: TileData }) {
+  if (item.variant === "joke") {
+    return (
+      <Link
+        href={item.href}
+        className="group flex h-full min-h-[280px] flex-col rounded-lg border border-stone-200 bg-white p-4 transition-colors hover:border-primary/40 hover:shadow-sm"
+      >
+        <div>
+          {item.badges && item.badges.length > 0 && (
+            <span className={`inline-flex rounded-full px-2 py-0.5 text-[10px] font-bold ${item.badges[0].className}`}>
+              {item.badges[0].label}
+            </span>
+          )}
+          <p className="mt-2 line-clamp-2 text-sm font-bold leading-tight text-stone-950 transition-colors group-hover:text-primary">
+            {item.title}
+          </p>
+        </div>
+        {(item.bodyHighlight || item.body) && (
+          <p className="mt-5 text-base leading-snug text-stone-700">
+            &ldquo;
+            {item.bodyPrefix}
+            <span className="font-black text-stone-950">
+              {item.bodyHighlight ?? item.body}
+            </span>
+            &rdquo;
+          </p>
+        )}
+        {item.meta && (
+          <p className="mt-auto line-clamp-3 pt-4 text-xs leading-snug text-stone-500">
+            {item.meta}
+          </p>
+        )}
+      </Link>
+    );
+  }
+
   return (
     <Link
       href={item.href}

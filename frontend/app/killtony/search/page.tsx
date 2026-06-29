@@ -279,7 +279,7 @@ function refinedHref(key: NavSearchGroupKey, query: string): string {
     case "episodes":
       return `/killtony/episodes/search${qs ? `?${qs}` : ""}`;
     case "beats":
-      return `/killtony/jokes${qs ? `?${qs}` : ""}`;
+      return `/killtony/jokes/search${qs ? `?${qs}` : ""}`;
     case "sets":
       return `/killtony/sets/search${qs ? `?${qs}` : ""}`;
   }

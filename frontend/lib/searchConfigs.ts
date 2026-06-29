@@ -93,7 +93,7 @@ export const COMEDIAN_SEARCH_CONFIG: SearchConfig = {
 };
 
 export const JOKES_SEARCH_CONFIG: SearchConfig = {
-  searchPath: "/killtony/jokes",
+  searchPath: "/killtony/jokes/search",
   pageSize: 20,
   filters: [
     {

@@ -1,31 +1,17 @@
-import { getServerBeatsPaginated } from "@/lib/serverApi";
-import ModelSearchLayout, { buildSearchSubtitle } from "@/components/ModelSearchLayout";
+import { Suspense } from "react";
+import { getServerBeats } from "@/lib/serverApi";
 import FilterControls from "@/components/FilterControls";
-import Paginator from "@/components/Paginator";
 import { JOKES_SEARCH_CONFIG } from "@/lib/searchConfigs";
-import JokesList from "./JokesList";
+import ListPageHeader from "@/components/ListPageHeader";
 import { SITE_URL, buildBreadcrumbSchema } from "@/lib/seo";
-import { parseSearchPageParams } from "@/lib/searchParams";
+import JokePlaylists from "./JokePlaylists";
 
 export const metadata = {
   title: "Jokes - Kill Tony | PunchNotes",
 };
 
-type Props = { searchParams: Promise<Record<string, string>> };
-
-export default async function JokesPage({ searchParams }: Props) {
-  const sp = await searchParams;
-  const { query, page, queryString } = parseSearchPageParams(sp);
-
-  const data = await getServerBeatsPaginated(
-    queryString,
-    JOKES_SEARCH_CONFIG.pageSize,
-  );
-
-  const totalPages = Math.max(1, Math.ceil(data.count / JOKES_SEARCH_CONFIG.pageSize));
-
-  const baseSubtitle = buildSearchSubtitle(data.count, "joke", "jokes", query);
-  const subtitle = sp.joke_type ? `${baseSubtitle} / ${sp.joke_type}` : baseSubtitle;
+export default async function JokesPage() {
+  const jokes = await getServerBeats();
 
   const schema = {
     '@context': 'https://schema.org',
@@ -37,6 +23,21 @@ export default async function JokesPage({ searchParams }: Props) {
       { name: 'Kill Tony', item: `${SITE_URL}/killtony` },
       { name: 'Jokes', item: `${SITE_URL}/killtony/jokes` },
     ]),
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: jokes.length,
+      itemListElement: jokes.slice(0, 20).map((joke, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'CreativeWork',
+          name: joke.punchline || joke.premise,
+          url: `${SITE_URL}/killtony/sets/${joke.set_slug}`,
+          genre: 'Stand-up Comedy',
+          author: { '@type': 'Person', name: joke.comedian },
+        },
+      })),
+    },
   };
 
   return (
@@ -45,21 +46,25 @@ export default async function JokesPage({ searchParams }: Props) {
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
-    <ModelSearchLayout
-      title="Jokes"
-      searchPlaceholder="Search jokes..."
-      subtitle={subtitle}
-      controls={<FilterControls config={JOKES_SEARCH_CONFIG} />}
-      isEmpty={data.results.length === 0}
-      emptyMessage="No jokes found."
-    >
-      {data.results.length > 0 && (
-        <>
-          <JokesList beats={data.results} query={query} />
-          <Paginator page={page} totalPages={totalPages} />
-        </>
-      )}
-    </ModelSearchLayout>
+    <div className="min-h-screen bg-white">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+        <Suspense>
+          <ListPageHeader
+            title="Jokes"
+            searchPlaceholder="Search jokes..."
+            searchPath="/killtony/jokes/search"
+            controls={<FilterControls config={JOKES_SEARCH_CONFIG} />}
+          />
+        </Suspense>
+      </div>
+
+      <div className="mx-auto max-w-6xl pb-12">
+        <h2 className="mb-6 px-6 text-2xl font-bold tracking-tight text-stone-950">
+          Joke playlists
+        </h2>
+        <JokePlaylists jokes={jokes} />
+      </div>
+    </div>
     </>
   );
 }
