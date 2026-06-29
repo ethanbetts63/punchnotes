@@ -54,13 +54,38 @@ python manage.py generate --comedian_aliases
 
 Then spin up one medium sized agent and give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\comedian_alias_review_prompt.md`. If in local mode, tell the agent it is running in local mode. Otherwise, tell it that `--local` is available as a fallback — use it only if a command fails with a server connection error.
 
-## Phase 4 - Clean and push: 
-Once phase 3 is complete, run:
+## Phase 4 — Set Images
+
+Once Phase 3 is complete, run the following commands in order:
+
+```powershell
+python manage.py generate --set_images
+python manage.py upload --set_images
+python manage.py update --set_images
+```
+
+This checks the server for missing comedian images, scrapes them locally, uploads them, and imports them to the DB.
+
+## Phase 5 — Joke Similarity Scoring
+
+Once Phase 4 is complete, run the following commands in order:
+
+```powershell
+python manage.py generate --embeddings
+python manage.py upload --embeddings
+python manage.py update --embeddings
+python manage.py generate --embeddings_report
+```
+
+## Phase 6 — Clean and Push
+
+Once Phase 5 is complete, run:
 
 ```powershell
 python manage.py normalize_archives
 ```
-and 
+and
 ```powershell
 python manage.py archive --push
 ```
+
