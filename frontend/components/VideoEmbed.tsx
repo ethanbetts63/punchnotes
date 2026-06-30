@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import YouTube, { type YouTubePlayer, type YouTubeProps } from "react-youtube";
 import { fmtSeconds } from "@/lib/killTonyDisplay";
 
 type Props = {
@@ -9,20 +10,79 @@ type Props = {
   className?: string;
 };
 
+function isEditableTarget(target: EventTarget | null) {
+  if (!(target instanceof HTMLElement)) return false;
+  const tagName = target.tagName.toLowerCase();
+  return (
+    tagName === "input" ||
+    tagName === "textarea" ||
+    tagName === "select" ||
+    target.isContentEditable
+  );
+}
+
 export default function VideoEmbed({ youtubeId, startSeconds, className = "" }: Props) {
   const [loaded, setLoaded] = useState(false);
+  const playerRef = useRef<YouTubePlayer | null>(null);
+
+  useEffect(() => {
+    if (!loaded) return;
+
+    async function handleKeyDown(event: KeyboardEvent) {
+      if (
+        event.defaultPrevented ||
+        event.altKey ||
+        event.ctrlKey ||
+        event.metaKey ||
+        isEditableTarget(event.target)
+      ) {
+        return;
+      }
+
+      const delta = event.key === "ArrowLeft" ? -5 : event.key === "ArrowRight" ? 5 : 0;
+      if (!delta || !playerRef.current) return;
+
+      event.preventDefault();
+
+      const [currentTime, duration] = await Promise.all([
+        playerRef.current.getCurrentTime(),
+        playerRef.current.getDuration(),
+      ]);
+      const nextTime = Math.max(
+        0,
+        duration > 0 ? Math.min(duration, currentTime + delta) : currentTime + delta,
+      );
+      playerRef.current.seekTo(nextTime, true);
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [loaded]);
+
   if (!youtubeId) return null;
 
-  const embedUrl = `https://www.youtube.com/embed/${youtubeId}?start=${Math.floor(startSeconds)}&autoplay=1&rel=0`;
+  const onReady: YouTubeProps["onReady"] = (event) => {
+    playerRef.current = event.target;
+  };
+
+  const opts: YouTubeProps["opts"] = {
+    playerVars: {
+      autoplay: 1,
+      rel: 0,
+      start: Math.floor(startSeconds),
+    },
+  };
 
   if (loaded) {
     return (
       <div className={`relative w-full overflow-hidden rounded-xl bg-black ${className}`} style={{ aspectRatio: "16/9" }}>
-        <iframe
-          src={embedUrl}
+        <YouTube
+          videoId={youtubeId}
+          opts={opts}
+          onReady={onReady}
           className="absolute inset-0 h-full w-full"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
+          iframeClassName="h-full w-full"
+          title="YouTube video player"
         />
       </div>
     );

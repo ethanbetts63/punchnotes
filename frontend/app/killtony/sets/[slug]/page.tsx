@@ -36,6 +36,34 @@ export default async function SetDetailPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-white">
+      {set.video.youtube_id && (
+        <div className="bg-stone-950">
+          <div className="mx-auto max-w-5xl px-6 py-8">
+            <div className="mb-3 flex items-baseline justify-between">
+              <p className="text-sm font-medium text-white">Watch {comedian.name}&rsquo;s set</p>
+              <p className="text-xs text-stone-400">Skips to {fmtSeconds(videoStartSeconds)} in the episode</p>
+            </div>
+            <VideoEmbed
+              youtubeId={set.video.youtube_id}
+              startSeconds={videoStartSeconds}
+            />
+            {youtubeTimestampUrl && (
+              <p className="mt-3 text-sm text-stone-300">
+                Having trouble with the embed?{" "}
+                <a
+                  href={youtubeTimestampUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-white underline decoration-stone-500 underline-offset-4 transition-colors hover:text-yellow-300 hover:decoration-yellow-300"
+                >
+                  Open on YouTube at {fmtSeconds(videoStartSeconds)}
+                </a>
+              </p>
+            )}
+          </div>
+        </div>
+      )}
+
       <div className="bg-stone-900 text-white">
         <div className="mx-auto max-w-5xl px-6 py-10">
           <div className="flex items-start gap-8">
@@ -138,34 +166,6 @@ export default async function SetDetailPage({ params }: Props) {
           </div>
         </div>
       </div>
-
-      {set.video.youtube_id && (
-        <div className="bg-stone-950">
-          <div className="mx-auto max-w-5xl px-6 py-8">
-            <div className="mb-3 flex items-baseline justify-between">
-              <p className="text-sm font-medium text-white">Watch {comedian.name}&rsquo;s set</p>
-              <p className="text-xs text-stone-400">Skips to {fmtSeconds(videoStartSeconds)} in the episode</p>
-            </div>
-            <VideoEmbed
-              youtubeId={set.video.youtube_id}
-              startSeconds={videoStartSeconds}
-            />
-            {youtubeTimestampUrl && (
-              <p className="mt-3 text-sm text-stone-300">
-                Having trouble with the embed?{" "}
-                <a
-                  href={youtubeTimestampUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-white underline decoration-stone-500 underline-offset-4 transition-colors hover:text-yellow-300 hover:decoration-yellow-300"
-                >
-                  Open on YouTube at {fmtSeconds(videoStartSeconds)}
-                </a>
-              </p>
-            )}
-          </div>
-        </div>
-      )}
 
       <SetTranscript bits={set.bits} />
     </div>
