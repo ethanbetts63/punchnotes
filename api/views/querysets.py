@@ -101,6 +101,11 @@ def build_video_list_queryset(params):
 def build_set_list_queryset(params):
     sets = Set.objects.select_related("comedian", "video")
 
+    slugs_raw = (params.get("slugs") or "").strip()
+    if slugs_raw:
+        slugs = [s.strip() for s in slugs_raw.split(",") if s.strip()]
+        sets = sets.filter(slug__in=slugs)
+
     q = (params.get("q") or "").strip()
     if q:
         sets = sets.filter(comedian__name__icontains=q)
@@ -159,6 +164,11 @@ def build_beat_search_queryset(params):
         .filter(joke_type__isnull=False)
         .exclude(joke_type="")
     )
+
+    beat_ids_raw = (params.get("beat_ids") or "").strip()
+    if beat_ids_raw:
+        beat_ids = [b.strip() for b in beat_ids_raw.split(",") if b.strip()]
+        beats = beats.filter(beat_id__in=beat_ids)
 
     joke_type = (params.get("joke_type") or "").strip()
     if joke_type:

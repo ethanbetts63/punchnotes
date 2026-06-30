@@ -1,12 +1,15 @@
+import { getServerSets } from "@/lib/serverApi";
 import type { SetListItem } from "@/lib/serverApi";
 import { SET_LISTS } from "@/lib/playlists";
 import { setToTile } from "@/lib/tiles";
 import MediaCarousel from "@/components/MediaCarousel";
 
-type Props = { sets: SetListItem[] };
+export default async function SetPlaylists() {
+  const allSlugs = SET_LISTS.flatMap((l) => l.slugs);
+  if (allSlugs.length === 0) return null;
 
-export default function SetPlaylists({ sets }: Props) {
-  const bySlug = new Map(sets.map((s) => [s.slug, s]));
+  const sets = await getServerSets(`slugs=${allSlugs.join(",")}`);
+  const bySlug = new Map((sets ?? []).map((s) => [s.slug, s]));
 
   const lists = SET_LISTS.map((list) => ({
     ...list,

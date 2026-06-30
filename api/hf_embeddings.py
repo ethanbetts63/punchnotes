@@ -4,7 +4,7 @@ import numpy as np
 import requests
 from django.conf import settings
 
-_HF_URL = "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-mpnet-base-v2"
+_HF_URL = "https://router.huggingface.co/hf-inference/models/sentence-transformers/all-mpnet-base-v2/pipeline/feature-extraction"
 _MAX_WAIT_SECONDS = 120
 
 

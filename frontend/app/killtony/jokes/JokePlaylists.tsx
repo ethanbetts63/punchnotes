@@ -1,3 +1,4 @@
+import { getServerBeats } from "@/lib/serverApi";
 import type { BeatSearchItem } from "@/lib/serverApi";
 import { jokeToTile, JOKE_TYPE_STYLES } from "@/lib/tiles";
 import MediaCarousel from "@/components/MediaCarousel";
@@ -109,8 +110,10 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
   },
 ];
 
+export default async function JokePlaylists() {
+  const allBeatIds = JOKE_TYPE_PLAYLISTS.flatMap((p) => p.picks.map((k) => k.beat_id));
+  const jokes = await getServerBeats(`beat_ids=${allBeatIds.join(",")}`);
 
-export default function JokePlaylists({ jokes }: { jokes: BeatSearchItem[] }) {
   const lists = JOKE_TYPE_PLAYLISTS
     .map((playlist) => {
       const items = playlist.picks
