@@ -47,7 +47,7 @@ function BeatPanel({
           <div className="space-y-2">
             {beat.lines.filter((line) => line.label !== "fluff").map((line) => (
               <div key={line.id} className="flex items-start gap-2">
-                <span className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold uppercase ${lineLabelBadge[line.label]}`}>
+                <span className={`inline-flex w-16 shrink-0 justify-center rounded px-1.5 py-0.5 text-[10px] font-bold uppercase ${lineLabelBadge[line.label]}`}>
                   {line.label}
                 </span>
                 <span className="text-sm leading-snug text-stone-700">{line.text}</span>
