@@ -2,6 +2,7 @@ import time
 
 import numpy as np
 import requests
+from django.core.cache import cache
 from django.conf import settings
 
 _HF_URL = "https://router.huggingface.co/hf-inference/models/sentence-transformers/all-mpnet-base-v2/pipeline/feature-extraction"
@@ -9,6 +10,10 @@ _MAX_WAIT_SECONDS = 120
 
 
 def embed_text(text: str) -> np.ndarray:
+    cached = cache.get(f"embed:{text}")
+    if cached is not None:
+        return cached
+
     headers = {"Authorization": f"Bearer {settings.HF_API_KEY}"}
     payload = {"inputs": text, "options": {"wait_for_model": True}}
 
@@ -36,4 +41,5 @@ def embed_text(text: str) -> np.ndarray:
         norm = np.linalg.norm(vector)
         if norm > 0:
             vector = vector / norm
+        cache.set(f"embed:{text}", vector, timeout=None)
         return vector

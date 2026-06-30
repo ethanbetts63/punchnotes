@@ -1,3 +1,4 @@
+from django.core.cache import cache
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -13,6 +14,10 @@ class PlagiarismCheckView(APIView):
         text = (request.data.get("text") or "").strip()
         if not text:
             return Response({"error": "text is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        cached = cache.get(f"plagiarism:{text}")
+        if cached is not None:
+            return Response({"query": text, "results": cached})
 
         try:
             query_vector = embed_text(text)
@@ -40,4 +45,5 @@ class PlagiarismCheckView(APIView):
                 "punchline": beat_data["punchline"],
             })
 
+        cache.set(f"plagiarism:{text}", results, timeout=None)
         return Response({"query": text, "results": results})

@@ -87,6 +87,12 @@ SERVER_BASE_URL = os.environ["SERVER_BASE_URL"]
 LOCAL_SERVER_URL = os.environ["LOCAL_SERVER_URL"]
 HF_API_KEY = os.environ["punchnotes_embedding_token"]
 
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+    }
+}
+
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True
