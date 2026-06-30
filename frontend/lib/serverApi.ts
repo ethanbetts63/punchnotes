@@ -217,13 +217,17 @@ export type Beat = {
   beat_id: string;
   premise: string;
   joke_type: string;
+  line_start: number;
+  line_end: number;
   lines: Line[];
 };
 
 export type Line = {
   id: number;
+  line_number: number;
   text: string;
   label: "setup" | "punchline" | "tag" | "fluff";
+  start_seconds: number | null;
 };
 
 export type SetListItem = {

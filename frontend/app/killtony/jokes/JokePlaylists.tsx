@@ -1,5 +1,5 @@
-import { getServerBeats } from "@/lib/serverApi";
-import type { BeatSearchItem } from "@/lib/serverApi";
+import { getServerSet } from "@/lib/serverApi";
+import type { BeatSearchItem, Set } from "@/lib/serverApi";
 import { jokeToTile, JOKE_TYPE_STYLES } from "@/lib/tiles";
 import MediaCarousel from "@/components/MediaCarousel";
 
@@ -10,6 +10,37 @@ type JokeList = {
 };
 
 type BeatKey = { set_slug: string; bit_id: string; beat_id: string };
+
+function beatKey({ set_slug, bit_id, beat_id }: BeatKey) {
+  return `${set_slug}:${bit_id}:${beat_id}`;
+}
+
+function beatToSearchItem(set: Set, pick: BeatKey): BeatSearchItem | null {
+  const bit = set.bits.find((candidate) => candidate.bit_id === pick.bit_id);
+  const beat = bit?.beats.find((candidate) => candidate.beat_id === pick.beat_id);
+  if (!bit || !beat) return null;
+
+  const setupLines = beat.lines
+    .filter((line) => line.label === "setup")
+    .map((line) => line.text);
+  const punchline = beat.lines.find((line) => line.label === "punchline")?.text ?? "";
+
+  return {
+    id: beat.id,
+    beat_id: beat.beat_id,
+    bit_id: bit.bit_id,
+    comedian: set.comedian.name,
+    comedian_slug: set.comedian.slug,
+    episode_number: set.video.number,
+    set_slug: set.slug,
+    premise: beat.premise,
+    joke_type: beat.joke_type,
+    setup_lines: setupLines,
+    punchline,
+    matched_line: "",
+    matched_line_label: "",
+  };
+}
 
 const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
   {
@@ -111,15 +142,23 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
 ];
 
 export default async function JokePlaylists() {
-  const allBeatIds = JOKE_TYPE_PLAYLISTS.flatMap((p) => p.picks.map((k) => k.beat_id));
-  const jokes = await getServerBeats(`beat_ids=${allBeatIds.join(",")}`);
+  const setSlugs = [...new Set(JOKE_TYPE_PLAYLISTS.flatMap((p) => p.picks.map((k) => k.set_slug)))];
+  const sets = await Promise.all(setSlugs.map((slug) => getServerSet(slug)));
+  const jokeByKey = new Map<string, BeatSearchItem>();
+
+  sets.filter((set): set is Set => set !== null).forEach((set) => {
+    JOKE_TYPE_PLAYLISTS.flatMap((playlist) => playlist.picks)
+      .filter((pick) => pick.set_slug === set.slug)
+      .forEach((pick) => {
+        const joke = beatToSearchItem(set, pick);
+        if (joke) jokeByKey.set(beatKey(pick), joke);
+      });
+  });
 
   const lists = JOKE_TYPE_PLAYLISTS
     .map((playlist) => {
       const items = playlist.picks
-        .map((pick) => jokes.find(
-          (j) => j.set_slug === pick.set_slug && j.bit_id === pick.bit_id && j.beat_id === pick.beat_id
-        ))
+        .map((pick) => jokeByKey.get(beatKey(pick)))
         .filter((j): j is BeatSearchItem => j !== undefined);
       return {
         ...playlist,
