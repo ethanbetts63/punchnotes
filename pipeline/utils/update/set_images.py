@@ -45,6 +45,13 @@ def ingest_set_image(image_path: Path, replace: bool = False, move_to_archive: b
         set_number=parsed["set_number"],
     )
 
+    if parsed["comic_slug"] != set_obj.comedian.slug:
+        raise ValueError(
+            f"Comedian slug mismatch: filename says {parsed['comic_slug']!r} "
+            f"but set {parsed['set_number']} of episode {parsed['episode_number']} "
+            f"belongs to {set_obj.comedian.slug!r}."
+        )
+
     if set_obj.image_url and not replace:
         return "skipped"
 

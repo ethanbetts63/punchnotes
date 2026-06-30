@@ -9,9 +9,18 @@ from pipeline.utils.comedian_aliases import (
     relationships_path,
     validate_relationships,
 )
+from pipeline.utils.set_images import rename_set_image
 from pipeline.utils.update.records import merge_attributes, refresh_comedian_image, refresh_comedian_stats
 from pipeline.log import Log
 from pipeline.models import Comedian, Set
+
+
+def _rename_comedian_images(comedian: Comedian, new_slug: str) -> None:
+    for s in comedian.sets.all():
+        new_url = rename_set_image(s, new_comedian_slug=new_slug)
+        if new_url is not None and new_url != s.image_url:
+            s.image_url = new_url
+            s.save(update_fields=["image_url"])
 
 
 def dedup_comedians(relationships: dict, log: Log) -> dict:
@@ -34,6 +43,7 @@ def dedup_comedians(relationships: dict, log: Log) -> dict:
         try:
             canonical_comedian = Comedian.objects.get(slug=canonical.slug)
         except Comedian.DoesNotExist:
+            _rename_comedian_images(alias_comedian, canonical.slug)
             alias_comedian.slug = canonical.slug
             alias_comedian.name = canonical.name
             alias_comedian.save(update_fields=["slug", "name"])
@@ -41,6 +51,7 @@ def dedup_comedians(relationships: dict, log: Log) -> dict:
             log(f"  Renamed {alias_slug} -> {canonical.slug}")
             continue
 
+        _rename_comedian_images(alias_comedian, canonical_comedian.slug)
         with transaction.atomic():
             merged_attrs = merge_attributes(canonical_comedian.attributes, alias_comedian.attributes)
             if merged_attrs != canonical_comedian.attributes:

@@ -1,5 +1,6 @@
 import pytest
 from django.core.exceptions import ValidationError
+from django.test import override_settings
 
 from pipeline.models import Comedian, Line, Set, Video
 from pipeline.models.comedian import validate_attributes
@@ -126,6 +127,79 @@ def test_resequence_handles_existing_high_set_numbers():
 
     ordered = list(Set.objects.filter(video=episode).order_by("start_seconds"))
     assert [s.set_number for s in ordered] == [1, 2]
+
+
+# --- resequence image renaming ---
+
+def test_resequence_renames_image_files_and_updates_image_url(tmp_path):
+    public_dir = tmp_path / "media" / "set-images"
+    archive_dir = tmp_path / "pipeline" / "set_images_archive"
+    public_dir.mkdir(parents=True)
+    archive_dir.mkdir(parents=True)
+
+    episode = Video.objects.create(video_id="test123", number=1, title="KT #1 - Test Guest", url="https://www.youtube.com/watch?v=test123")
+    early_comic = upsert_comedian("early-comic", _set_meta("Early Comic", 100))
+    late_comic = upsert_comedian("late-comic", _set_meta("Late Comic", 200))
+
+    late = upsert_set(episode, late_comic, _set_meta("Late Comic", 200))
+    late.image_url = "set-images/KT1_set01_late-comic.jpg"
+    late.save(update_fields=["image_url"])
+    (public_dir / "KT1_set01_late-comic.jpg").write_bytes(b"img")
+    (archive_dir / "KT1_set01_late-comic.jpg").write_bytes(b"img")
+
+    with override_settings(MEDIA_ROOT=tmp_path / "media", PIPELINE_DATA_DIR=tmp_path / "pipeline"):
+        upsert_set(episode, early_comic, _set_meta("Early Comic", 100))
+
+    late.refresh_from_db()
+    assert late.set_number == 2
+    assert late.image_url == "set-images/KT1_set02_late-comic.jpg"
+    assert (public_dir / "KT1_set02_late-comic.jpg").exists()
+    assert not (public_dir / "KT1_set01_late-comic.jpg").exists()
+    assert (archive_dir / "KT1_set02_late-comic.jpg").exists()
+    assert not (archive_dir / "KT1_set01_late-comic.jpg").exists()
+
+
+def test_resequence_skips_rename_when_no_image(tmp_path):
+    public_dir = tmp_path / "media" / "set-images"
+    archive_dir = tmp_path / "pipeline" / "set_images_archive"
+    public_dir.mkdir(parents=True)
+    archive_dir.mkdir(parents=True)
+
+    episode = Video.objects.create(video_id="test123", number=1, title="KT #1 - Test Guest", url="https://www.youtube.com/watch?v=test123")
+    early_comic = upsert_comedian("early-comic", _set_meta("Early Comic", 100))
+    late_comic = upsert_comedian("late-comic", _set_meta("Late Comic", 200))
+    upsert_set(episode, late_comic, _set_meta("Late Comic", 200))
+
+    with override_settings(MEDIA_ROOT=tmp_path / "media", PIPELINE_DATA_DIR=tmp_path / "pipeline"):
+        upsert_set(episode, early_comic, _set_meta("Early Comic", 100))
+
+    late = Set.objects.get(video=episode, comedian=late_comic)
+    assert late.set_number == 2
+    assert late.image_url is None
+
+
+def test_resequence_renames_only_public_file_when_not_in_archive(tmp_path):
+    public_dir = tmp_path / "media" / "set-images"
+    archive_dir = tmp_path / "pipeline" / "set_images_archive"
+    public_dir.mkdir(parents=True)
+    archive_dir.mkdir(parents=True)
+
+    episode = Video.objects.create(video_id="test123", number=1, title="KT #1 - Test Guest", url="https://www.youtube.com/watch?v=test123")
+    early_comic = upsert_comedian("early-comic", _set_meta("Early Comic", 100))
+    late_comic = upsert_comedian("late-comic", _set_meta("Late Comic", 200))
+
+    late = upsert_set(episode, late_comic, _set_meta("Late Comic", 200))
+    late.image_url = "set-images/KT1_set01_late-comic.jpg"
+    late.save(update_fields=["image_url"])
+    (public_dir / "KT1_set01_late-comic.jpg").write_bytes(b"img")
+
+    with override_settings(MEDIA_ROOT=tmp_path / "media", PIPELINE_DATA_DIR=tmp_path / "pipeline"):
+        upsert_set(episode, early_comic, _set_meta("Early Comic", 100))
+
+    late.refresh_from_db()
+    assert late.image_url == "set-images/KT1_set02_late-comic.jpg"
+    assert (public_dir / "KT1_set02_late-comic.jpg").exists()
+    assert not (archive_dir / "KT1_set01_late-comic.jpg").exists()
 
 
 # --- _bit_ratios ---

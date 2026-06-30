@@ -5,6 +5,7 @@ from django.db.models import Avg, Count, Q
 from pipeline.json_validation.constants import JOKE_TYPE_FIELDS, OPTIONAL_JOKE_TYPE_FIELDS
 from pipeline.utils.ownership import infer_line_ownership
 from pipeline.utils.known_comedians import normalize_known_appearance_attributes
+from pipeline.utils.set_images import rename_set_image
 from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
 
 
@@ -44,6 +45,18 @@ def upsert_comedian(slug: str, meta: dict) -> Comedian:
     return comedian
 
 
+def _apply_set_number(set_obj, new_number: int) -> None:
+    if set_obj.set_number == new_number:
+        return
+    update_fields = ["set_number"]
+    new_image_url = rename_set_image(set_obj, new_number)
+    if new_image_url is not None and new_image_url != set_obj.image_url:
+        set_obj.image_url = new_image_url
+        update_fields.append("image_url")
+    set_obj.set_number = new_number
+    set_obj.save(update_fields=update_fields)
+
+
 def resequence_video_sets(video: Video) -> None:
     """Assign 1-indexed set numbers by source start time."""
     sets = list(video.sets.order_by("start_seconds", "id"))
@@ -53,14 +66,10 @@ def resequence_video_sets(video: Video) -> None:
     max_set_number = max(set_obj.set_number for set_obj in sets)
     offset = max_set_number + len(sets) + 1
     for i, set_obj in enumerate(sets, start=1):
-        if set_obj.set_number != offset + i:
-            set_obj.set_number = offset + i
-            set_obj.save(update_fields=["set_number"])
+        _apply_set_number(set_obj, offset + i)
 
     for i, set_obj in enumerate(sets, start=1):
-        if set_obj.set_number != i:
-            set_obj.set_number = i
-            set_obj.save(update_fields=["set_number"])
+        _apply_set_number(set_obj, i)
 
 
 def upsert_set(video: Video, comedian: Comedian, meta: dict) -> Set:
