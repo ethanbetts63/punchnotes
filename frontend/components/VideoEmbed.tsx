@@ -75,7 +75,7 @@ export default function VideoEmbed({ youtubeId, startSeconds, className = "" }: 
 
   if (loaded) {
     return (
-      <div className={`relative w-full overflow-hidden rounded-xl bg-black ${className}`} style={{ aspectRatio: "16/9" }}>
+      <div className={`relative w-full overflow-hidden rounded-none bg-black sm:rounded-xl ${className}`} style={{ aspectRatio: "16/9" }}>
         <YouTube
           videoId={youtubeId}
           opts={opts}
@@ -91,7 +91,7 @@ export default function VideoEmbed({ youtubeId, startSeconds, className = "" }: 
   return (
     <button
       onClick={() => setLoaded(true)}
-      className={`group relative w-full overflow-hidden rounded-xl bg-black ${className}`}
+      className={`group relative w-full overflow-hidden rounded-none bg-black sm:rounded-xl ${className}`}
       style={{ aspectRatio: "16/9" }}
       aria-label="Play video"
     >

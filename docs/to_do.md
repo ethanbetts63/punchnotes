@@ -19,3 +19,14 @@
   serializers. Could be a model-level constant.
 
   The biggest one by far is process_transcripts.py. Everything else is tidying.
+
+
+  1. frontend/app/killtony/jokes/JokePlaylists.tsx:1 has a data-shape smell.
+     It builds BeatSearchItem objects manually from set detail data. That was a pragmatic fix for the Vercel build issue, but longer term it would
+     be cleaner to have one backend endpoint/query that can fetch exact curated beats by set_slug + bit_id + beat_id.
+
+
+
+  - BIT_LISTS in frontend/lib/playlists.ts:128 may be unused based on the searches I saw. Worth confirming with rg "BIT_LISTS".
+
+  

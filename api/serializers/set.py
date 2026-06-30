@@ -52,6 +52,7 @@ class SetDetailSerializer(PublicSetSlugMixin, serializers.ModelSerializer):
     comedian = ComedianForSetSerializer()
     video = VideoMinimalSerializer()
     bits = serializers.SerializerMethodField()
+    lines = LineSerializer(many=True)
     image_url = AbsoluteMediaUrlField()
 
     class Meta:
@@ -61,7 +62,7 @@ class SetDetailSerializer(PublicSetSlugMixin, serializers.ModelSerializer):
             "attributes", "start_seconds",
             "image_url", "image_capture_seconds",
             "punch_density", "tag_density",
-            "bits",
+            "bits", "lines",
         ]
 
     def get_bits(self, set_obj):

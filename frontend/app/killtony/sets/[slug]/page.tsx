@@ -43,10 +43,12 @@ export default async function SetDetailPage({ params }: Props) {
               <p className="text-sm font-medium text-white">Watch {comedian.name}&rsquo;s set</p>
               <p className="text-xs text-stone-400">Skips to {fmtSeconds(videoStartSeconds)} in the episode</p>
             </div>
-            <VideoEmbed
-              youtubeId={set.video.youtube_id}
-              startSeconds={videoStartSeconds}
-            />
+            <div className="-mx-6 sm:mx-0">
+              <VideoEmbed
+                youtubeId={set.video.youtube_id}
+                startSeconds={videoStartSeconds}
+              />
+            </div>
             {youtubeTimestampUrl && (
               <p className="mt-3 text-sm text-stone-300">
                 Having trouble with the embed?{" "}
@@ -167,7 +169,7 @@ export default async function SetDetailPage({ params }: Props) {
         </div>
       </div>
 
-      <SetTranscript bits={set.bits} />
+      <SetTranscript bits={set.bits} lines={set.lines} />
     </div>
   );
 }

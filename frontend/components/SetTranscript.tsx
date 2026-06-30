@@ -2,10 +2,16 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import type { Bit, Beat } from "@/lib/serverApi";
+import type { Bit, Beat, Line } from "@/lib/serverApi";
 import { lineLabelBadge } from "@/lib/killTonyDisplay";
 
 type Selected = { beat: Beat; bit: Bit; bitIdx: number; beatIdx: number };
+type AnnotatedLine = {
+  bit: Bit;
+  beat: Beat;
+  bitIdx: number;
+  beatIdx: number;
+};
 
 function BeatPanel({
   beat,
@@ -99,10 +105,45 @@ function selectedFromStableIds(bits: Bit[], bitParam: string, beatParam: string 
   return selectedFromIndices(bits, bitIdx, beatIdx);
 }
 
+function buildLineAnnotations(bits: Bit[]) {
+  const annotations = new Map<number, AnnotatedLine>();
+  bits.forEach((bit, bitIdx) => {
+    bit.beats.forEach((beat, beatIdx) => {
+      beat.lines.forEach((line) => {
+        if (line.label === "fluff") return;
+        annotations.set(line.line_number, { bit, beat, bitIdx, beatIdx });
+      });
+    });
+  });
+  return annotations;
+}
+
+function buildBitStarts(bits: Bit[]) {
+  const starts = new Map<number, number>();
+  bits.forEach((bit, bitIdx) => {
+    starts.set(bit.line_start, bitIdx);
+  });
+  return starts;
+}
+
+function fallbackLinesFromBeats(bits: Bit[]) {
+  const byLineNumber = new Map<number, Line>();
+  bits.forEach((bit) => {
+    bit.beats.forEach((beat) => {
+      beat.lines.forEach((line) => {
+        byLineNumber.set(line.line_number, line);
+      });
+    });
+  });
+  return [...byLineNumber.values()].sort((a, b) => a.line_number - b.line_number);
+}
+
 export default function SetTranscript({
   bits,
+  lines,
 }: {
   bits: Bit[];
+  lines?: Line[];
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -119,6 +160,10 @@ export default function SetTranscript({
 
     return firstAnnotatedBeat(bits);
   })();
+  const transcriptLines = lines?.length ? lines : fallbackLinesFromBeats(bits);
+  const lineAnnotations = buildLineAnnotations(bits);
+  const bitStarts = buildBitStarts(bits);
+  const activeFirstLineNumber = selected?.beat.lines.find((line) => line.label !== "fluff")?.line_number;
 
   useEffect(() => {
     const activeElement = activeBeatRef.current;
@@ -139,10 +184,10 @@ export default function SetTranscript({
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
   }
 
-  if (bits.length === 0) {
+  if (transcriptLines.length === 0) {
     return (
       <div className="mx-auto max-w-5xl px-6 py-16 text-center text-stone-400">
-        No beats annotated yet.
+        No transcript lines available yet.
       </div>
     );
   }
@@ -151,55 +196,48 @@ export default function SetTranscript({
     <div className="mx-auto max-w-5xl px-6 py-10">
       <div className="flex items-start gap-10">
         <div className="min-w-0 flex-1">
-          {bits.map((bit, bi) => (
-            <div key={bit.bit_id} className={bi > 0 ? "mt-10" : ""}>
-              <p className="mb-4">
-                <span className="bg-yellow-300 px-1 text-base font-semibold text-stone-900">
-                  [Bit {bi + 1}]
-                </span>
-              </p>
+          {transcriptLines.map((line) => {
+            const bitStartIdx = bitStarts.get(line.line_number);
+            const annotation = lineAnnotations.get(line.line_number);
+            const isActive = selected?.beat.beat_id === annotation?.beat.beat_id;
+            const isActiveFirstLine = activeFirstLineNumber === line.line_number;
 
-              {bit.beats.map((beat, bti) => {
-                const hasAnnotated = beat.lines.some((line) => line.label !== "fluff");
-                const isActive = selected?.beat.beat_id === beat.beat_id;
+            return (
+              <div key={line.id}>
+                {bitStartIdx !== undefined && (
+                  <p className={bitStartIdx > 0 ? "mb-4 mt-10" : "mb-4"}>
+                    <span className="bg-yellow-300 px-1 text-base font-semibold text-stone-900">
+                      [Bit {bitStartIdx + 1}]
+                    </span>
+                  </p>
+                )}
 
-                return (
-                  <div
-                    key={beat.beat_id}
-                    ref={isActive ? activeBeatRef : null}
-                    role={hasAnnotated ? "button" : undefined}
-                    tabIndex={hasAnnotated ? 0 : undefined}
-                    className={[
-                      bti > 0 ? "mt-3" : "",
-                      "-mx-1 rounded px-1",
-                      hasAnnotated ? "cursor-pointer" : "",
-                      isActive
-                        ? "bg-yellow-300"
-                        : hasAnnotated
-                          ? "hover:bg-yellow-100"
-                          : "",
-                    ].filter(Boolean).join(" ")}
-                    onClick={hasAnnotated ? () => updateUrl(bit, beat) : undefined}
-                    onKeyDown={hasAnnotated ? (event) => {
-                      if (event.key === "Enter" || event.key === " ") {
-                        event.preventDefault();
-                        updateUrl(bit, beat);
-                      }
-                    } : undefined}
-                  >
-                    {beat.lines.map((line) => (
-                      <div
-                        key={line.id}
-                        className="py-0.5 text-xl leading-relaxed text-stone-900"
-                      >
-                        {line.text}
-                      </div>
-                    ))}
-                  </div>
-                );
-              })}
-            </div>
-          ))}
+                <div
+                  ref={isActiveFirstLine ? activeBeatRef : null}
+                  role={annotation ? "button" : undefined}
+                  tabIndex={annotation ? 0 : undefined}
+                  className={[
+                    "py-0.5 text-xl leading-relaxed text-stone-900",
+                    annotation ? "-mx-1 cursor-pointer rounded px-1" : "",
+                    isActive
+                      ? "bg-yellow-300"
+                      : annotation
+                        ? "hover:bg-yellow-100"
+                        : "",
+                  ].filter(Boolean).join(" ")}
+                  onClick={annotation ? () => updateUrl(annotation.bit, annotation.beat) : undefined}
+                  onKeyDown={annotation ? (event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      updateUrl(annotation.bit, annotation.beat);
+                    }
+                  } : undefined}
+                >
+                  {line.text}
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         <div className="sticky top-20 hidden w-80 shrink-0 self-start md:block xl:w-96">

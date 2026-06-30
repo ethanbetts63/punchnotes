@@ -290,11 +290,14 @@ export type Set = {
   punch_density: number | null;
   tag_density: number | null;
   bits: Bit[];
+  lines?: Line[];
 };
 
 export type Bit = {
   id: number;
   bit_id: string;
+  line_start: number;
+  line_end: number;
   beats: Beat[];
 };
 

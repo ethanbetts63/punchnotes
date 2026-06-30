@@ -27,13 +27,13 @@ class Command(BaseCommand):
             self.stdout.write(self.style.SUCCESS("Archive pulled."))
             return
 
-        run(["git", "add", "transcript_archive", "bit_annotated_set_archive"])
+        run(["git", "add", "."])
 
-        status = subprocess.run(
-            ["git", "status", "--porcelain"],
+        staged = subprocess.run(
+            ["git", "diff", "--cached", "--name-only"],
             cwd=data_dir, capture_output=True, text=True
         )
-        if not status.stdout.strip():
+        if not staged.stdout.strip():
             self.stdout.write("Nothing to commit.")
             return
 

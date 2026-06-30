@@ -67,17 +67,20 @@ def test_set_detail_returns_200_by_slug(client, set_data):
 
 def test_set_detail_includes_bits_and_lines(client, set_data):
     _, s1, _ = set_data
-    bit = Bit.objects.create(set=s1, bit_id="b1", line_start=1, line_end=2)
-    Beat.objects.create(bit=bit, beat_id="beat-1", line_start=1, line_end=2, premise="A premise.", joke_type="reframe")
+    bit = Bit.objects.create(set=s1, bit_id="b1", line_start=2, line_end=3)
+    Beat.objects.create(bit=bit, beat_id="beat-1", line_start=2, line_end=3, premise="A premise.", joke_type="reframe")
     Line.objects.bulk_create([
-        Line(set=s1, line_number=1, label="setup", text="Setup.", start_seconds=0),
-        Line(set=s1, line_number=2, label="punchline", text="Punchline.", start_seconds=1),
+        Line(set=s1, line_number=1, label="fluff", text="Intro fluff.", start_seconds=0),
+        Line(set=s1, line_number=2, label="setup", text="Setup.", start_seconds=0),
+        Line(set=s1, line_number=3, label="punchline", text="Punchline.", start_seconds=1),
     ])
 
     resp = client.get("/api/killtony/sets/aaa0000001-set01-casey-rocket/")
     data = resp.json()
     assert len(data["bits"]) == 1
     assert len(data["bits"][0]["beats"]) == 1
+    assert [line["text"] for line in data["lines"]] == ["Intro fluff.", "Setup.", "Punchline."]
+    assert [line["text"] for line in data["bits"][0]["beats"][0]["lines"]] == ["Setup.", "Punchline."]
 
 
 def test_set_detail_404_on_missing(client):
