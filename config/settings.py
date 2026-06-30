@@ -85,6 +85,7 @@ AUTH_PASSWORD_VALIDATORS = [
 PIPELINE_API_KEY = os.environ["PIPELINE_API_KEY"]
 SERVER_BASE_URL = os.environ["SERVER_BASE_URL"]
 LOCAL_SERVER_URL = os.environ["LOCAL_SERVER_URL"]
+HF_API_KEY = os.environ["punchnotes_embedding_token"]
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"

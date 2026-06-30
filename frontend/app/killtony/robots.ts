@@ -25,6 +25,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/'],
       },
     ],
-    sitemap: [`${SITE_URL}/sitemap.xml`, `${SITE_URL}/llms.txt`],
+    sitemap: [`${SITE_URL}/killtony/sitemap.xml`, `${SITE_URL}/llms.txt`],
   };
 }

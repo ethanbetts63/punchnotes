@@ -11,4 +11,5 @@ urlpatterns = [
     path("killtony/jokes/", views.BeatListView.as_view()),
     path("killtony/bits/", views.BitListView.as_view()),
     path("killtony/search/", views.NavSearchView.as_view()),
+    path("killtony/plagiarism/", views.PlagiarismCheckView.as_view()),
 ]
