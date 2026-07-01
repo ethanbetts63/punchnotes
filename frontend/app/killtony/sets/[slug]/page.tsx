@@ -6,6 +6,7 @@ import SetImage from "@/components/SetImage";
 import VideoEmbed from "@/components/VideoEmbed";
 import { fmt2, fmtSeconds, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
+import { SITE_URL } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -15,9 +16,13 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const set = await getServerSet(slug);
   if (!set) return { title: "Set Not Found | PunchNotes" };
+  const bitCount = set.bits.length;
+  const beatCount = set.bits.reduce((sum, bit) => sum + bit.beats.length, 0);
   return {
     title: `${set.comedian.name} - Ep ${set.video.number} | PunchNotes`,
-    robots: { index: false, follow: false },
+    description: `${set.comedian.name}'s Kill Tony set from episode ${set.video.number}, with ${bitCount} bit${bitCount !== 1 ? "s" : ""}, ${beatCount} beat${beatCount !== 1 ? "s" : ""}, transcript lines, punch density, and tag density.`,
+    alternates: { canonical: `${SITE_URL}/killtony/sets/${set.slug}` },
+    robots: { index: false, follow: true },
   };
 }
 

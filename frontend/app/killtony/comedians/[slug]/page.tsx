@@ -3,6 +3,7 @@ import { getServerComedian } from "@/lib/serverApi";
 import ComedianImage from "@/components/ComedianImage";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 import { fmt2 } from "@/lib/killTonyDisplay";
+import { SITE_URL } from "@/lib/seo";
 import ComedianSetList from "./ComedianSetList";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -13,7 +14,9 @@ export async function generateMetadata({ params }: Props) {
   if (!comedian) return { title: "Comedian Not Found | PunchNotes" };
   return {
     title: `${comedian.name} — Kill Tony | PunchNotes`,
-    robots: { index: false, follow: false },
+    description: `${comedian.name}'s Kill Tony set history, with ${comedian.set_count} indexed set${comedian.set_count !== 1 ? "s" : ""}, average bits per set, punch density, tag density, and joke book flags.`,
+    alternates: { canonical: `${SITE_URL}/killtony/comedians/${comedian.slug}` },
+    robots: { index: false, follow: true },
   };
 }
 

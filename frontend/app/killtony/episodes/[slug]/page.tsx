@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation";
 import { getServerVideo } from "@/lib/serverApi";
 import type { SetInVideo } from "@/lib/serverApi";
-import { fmt2, fmtSeconds, fmtDuration, fmtCompact, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
+import { fmt2, fmtSeconds, fmtDuration, fmtCompact, fmtDate, getEpisodeGuests, getEpisodeGuestLabel, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import { formatAttributeLabels } from "@/lib/attributes";
 import SetImage from "@/components/SetImage";
 import SearchResultTile from "@/components/SearchResultTile";
+import { SITE_URL, buildBreadcrumbSchema } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -12,9 +13,97 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const episode = await getServerVideo(slug);
   if (!episode) return { title: "Episode Not Found | PunchNotes" };
+  const guests = getEpisodeGuests(episode);
+  const guestLabel = guests.length > 0 ? guests.join(" + ") : getEpisodeGuestLabel(episode, `Episode ${episode.number}`);
+  const setCount = episode.sets?.length ?? 0;
+  const descriptionParts = [
+    `Kill Tony #${episode.number}${guests.length > 0 ? ` with ${guestLabel}` : ""}`,
+    episode.date ? `aired ${fmtDate(episode.date)}` : null,
+    `with ${setCount} indexed set${setCount !== 1 ? "s" : ""}`,
+    `${episode.bucket_pull_count} bucket pull${episode.bucket_pull_count !== 1 ? "s" : ""}`,
+    `${episode.regular_count} regular${episode.regular_count !== 1 ? "s" : ""}`,
+  ].filter(Boolean);
+
   return {
-    title: `KT #${episode.number} — Kill Tony | PunchNotes`,
-    robots: { index: false, follow: false },
+    title: `Kill Tony #${episode.number}${guests.length > 0 ? ` with ${guestLabel}` : ""} | PunchNotes`,
+    description: `${descriptionParts.join(", ")}. Browse PunchNotes set metrics, comedians, timestamps, and joke book flags for this episode.`,
+    alternates: { canonical: `${SITE_URL}/killtony/episodes/${episode.slug}` },
+    robots: { index: false, follow: true },
+  };
+}
+
+type EpisodeDetail = NonNullable<Awaited<ReturnType<typeof getServerVideo>>>;
+
+function toIsoDuration(seconds: number | null): string | undefined {
+  if (!seconds) return undefined;
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = Math.floor(seconds % 60);
+  return `PT${h ? `${h}H` : ""}${m ? `${m}M` : ""}${s ? `${s}S` : ""}`;
+}
+
+function joinNames(names: string[]): string {
+  if (names.length <= 2) return names.join(" and ");
+  return `${names.slice(0, -1).join(", ")}, and ${names[names.length - 1]}`;
+}
+
+function buildEpisodeSummary(episode: EpisodeDetail): string {
+  const sets = episode.sets ?? [];
+  const guests = getEpisodeGuests(episode);
+  const guestText = guests.length > 0 ? ` with ${joinNames(guests)}` : "";
+  const dateText = episode.date ? ` aired on ${fmtDate(episode.date)}` : "";
+  const featuredComedians = sets.slice(0, 5).map((set) => set.comedian.name);
+  const comedianText = featuredComedians.length > 0
+    ? ` Indexed sets include ${joinNames(featuredComedians)}${sets.length > featuredComedians.length ? ", and more" : ""}.`
+    : "";
+
+  return `Kill Tony #${episode.number}${guestText}${dateText}. PunchNotes indexes ${sets.length} set${sets.length !== 1 ? "s" : ""} from this episode, including ${episode.bucket_pull_count} bucket pull${episode.bucket_pull_count !== 1 ? "s" : ""}, ${episode.regular_count} regular${episode.regular_count !== 1 ? "s" : ""}, ${episode.golden_ticket_count} golden ticket${episode.golden_ticket_count !== 1 ? "s" : ""}, and ${episode.large_joke_book_count} big joke book set${episode.large_joke_book_count !== 1 ? "s" : ""}.${comedianText}`;
+}
+
+function buildEpisodeSchema(episode: EpisodeDetail): object {
+  const url = `${SITE_URL}/killtony/episodes/${episode.slug}`;
+  const youtubeUrl = episode.youtube_id ? `https://www.youtube.com/watch?v=${episode.youtube_id}` : undefined;
+  const duration = toIsoDuration(episode.duration_seconds);
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      buildBreadcrumbSchema([
+        { name: 'Kill Tony', item: `${SITE_URL}/killtony` },
+        { name: 'Episodes', item: `${SITE_URL}/killtony/episodes` },
+        { name: `Kill Tony #${episode.number}`, item: url },
+      ]),
+      {
+        '@type': 'TVEpisode',
+        '@id': `${url}#episode`,
+        name: episode.title || `Kill Tony #${episode.number}`,
+        url,
+        episodeNumber: episode.number,
+        description: buildEpisodeSummary(episode),
+        ...(episode.date ? { datePublished: episode.date } : {}),
+        ...(duration ? { duration } : {}),
+        ...(youtubeUrl ? { sameAs: youtubeUrl } : {}),
+        partOfSeries: {
+          '@type': 'TVSeries',
+          name: 'Kill Tony',
+        },
+        mainEntity: {
+          '@type': 'ItemList',
+          name: `Kill Tony #${episode.number} indexed sets`,
+          numberOfItems: episode.sets?.length ?? 0,
+          itemListElement: (episode.sets ?? []).map((set, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+              '@type': 'CreativeWork',
+              name: `${set.comedian.name} set`,
+              url: `${SITE_URL}/killtony/sets/${set.slug}`,
+              isPartOf: { '@id': `${url}#episode` },
+            },
+          })),
+        },
+      },
+    ],
   };
 }
 
@@ -77,8 +166,14 @@ export default async function EpisodeDetailPage({ params }: Props) {
     episode.view_like_ratio != null
       ? episode.view_like_ratio.toFixed(1)
       : null;
+  const schema = buildEpisodeSchema(episode);
 
   return (
+    <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
     <div className="bg-white min-h-screen">
       {/* Dark hero */}
       <div className="bg-stone-900 text-white">
@@ -169,6 +264,9 @@ export default async function EpisodeDetailPage({ params }: Props) {
 
       {/* Sets grid */}
       <div className="mx-auto max-w-5xl px-6 py-10">
+        <p className="mb-8 max-w-3xl text-base leading-relaxed text-stone-700">
+          {buildEpisodeSummary(episode)}
+        </p>
         {sets.length === 0 ? (
           <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
             <p className="text-stone-500">No sets indexed for this episode yet.</p>
@@ -188,5 +286,6 @@ export default async function EpisodeDetailPage({ params }: Props) {
         )}
       </div>
     </div>
+    </>
   );
 }
