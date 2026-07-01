@@ -1,15 +1,19 @@
 "use client";
 
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import type { SetInComedian } from "@/lib/serverApi";
-import { fmt2, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
+import { fmt2, fmtSeconds, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import Paginator from "@/components/Paginator";
 import SetImage from "@/components/SetImage";
+import SearchResultTile from "@/components/SearchResultTile";
 
 const PAGE_SIZE = 12;
 
 type Props = { sets: SetInComedian[] };
+
+function formatEpisodeTitle(title: string | null | undefined, fallback: string): string {
+  return title?.replace(/^KT\s*#\d+\s*[-–]\s*/i, "") || fallback;
+}
 
 export default function ComedianSetList({ sets }: Props) {
   const searchParams = useSearchParams();
@@ -20,47 +24,41 @@ export default function ComedianSetList({ sets }: Props) {
 
   return (
     <>
-      <div className="flex flex-col gap-3">
-        {pageItems.map((set) => (
-          <Link
-            key={set.id}
-            href={`/killtony/sets/${set.slug}`}
-            className="group flex overflow-hidden rounded-xl border border-stone-200 bg-white transition-colors hover:border-primary/40 hover:shadow-sm"
-          >
-            <SetImage
-              imageUrl={set.image_url}
-              fallbackVideoId={set.video.youtube_id}
-              alt={`Set ${set.set_number} image`}
-              className="hidden w-32 shrink-0 bg-stone-950 sm:block"
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {pageItems.map((set) => {
+          const jokeBook = getJokeBookSize(set.attributes);
+
+          return (
+            <SearchResultTile
+              key={set.id}
+              href={`/killtony/sets/${set.slug}`}
+              eyebrow={`KT #${set.video.number}`}
+              title={formatEpisodeTitle(set.video.title, `Set ${set.set_number}`)}
+              subtitle={set.video.date ?? undefined}
+              image={
+                <SetImage
+                  imageUrl={set.image_url}
+                  fallbackVideoId={set.video.youtube_id}
+                  alt={`Set ${set.set_number} image`}
+                  className="absolute inset-0 h-full w-full"
+                />
+              }
+              meta={<>Set {set.set_number} / {fmtSeconds(set.start_seconds)}</>}
+              stats={[
+                { label: "Bits", value: set.bit_count },
+                { label: "Punch density", value: fmt2(set.punch_density) },
+                { label: "Tag density", value: fmt2(set.tag_density) },
+              ]}
+              badges={
+                jokeBook ? (
+                  <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold text-amber-700">
+                    {jokeBookLabel[jokeBook]}
+                  </span>
+                ) : undefined
+              }
             />
-            <div className="min-w-0 flex-1 p-4">
-              <div className="flex items-start justify-between gap-3">
-                <div className="min-w-0">
-                  <p className="text-xs font-bold uppercase tracking-wide text-stone-400">
-                    KT #{set.video.number} / Set {set.set_number}
-                    {set.video.date && (
-                      <span className="ml-2 normal-case font-normal">{set.video.date}</span>
-                    )}
-                  </p>
-                  <p className="mt-1 truncate text-base font-semibold leading-tight text-stone-900 transition-colors group-hover:text-primary">
-                    {set.video.title?.replace(/^KT\s*#\d+\s*[-–]\s*/i, "") ?? ""}
-                  </p>
-                </div>
-                {(() => { const jb = getJokeBookSize(set.attributes); return jb ? (<span className="shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100 text-amber-700">{jokeBookLabel[jb]}</span>) : null; })()}
-              </div>
-              <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-stone-500">
-                <span>
-                  Punch density{" "}
-                  <span className="font-bold text-stone-800">{fmt2(set.punch_density)}</span>
-                </span>
-                <span>
-                  Tag density{" "}
-                  <span className="font-bold text-stone-800">{fmt2(set.tag_density)}</span>
-                </span>
-              </div>
-            </div>
-          </Link>
-        ))}
+          );
+        })}
       </div>
       <Paginator page={page} totalPages={totalPages} />
     </>

@@ -4,8 +4,7 @@ import { marked } from 'marked';
 import { getArticlePageMeta } from '@/lib/articleMeta';
 
 const ARTICLES_DIR = path.join(process.cwd(), 'articles');
-const EXCLUDED = new Set(['overview.md']);
-const AUTHOR_NAME = 'Ethan Betts-Ingram';
+const AUTHOR_NAME = 'Ethan Betts';
 
 export interface ArticleMeta {
   slug: string;
@@ -41,9 +40,10 @@ function extractExcerpt(markdown: string): string {
 }
 
 function articleFilenames(): string[] {
+  if (!fs.existsSync(ARTICLES_DIR)) return [];
   return fs
     .readdirSync(ARTICLES_DIR)
-    .filter((f) => f.endsWith('.md') && !EXCLUDED.has(f))
+    .filter((f) => f.endsWith('.md'))
     .sort();
 }
 
@@ -71,10 +71,7 @@ export function getAllArticleSlugs(): string[] {
 }
 
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
-  const filename = `${slug}.md`;
-  if (EXCLUDED.has(filename)) return null;
-
-  const filepath = path.join(ARTICLES_DIR, filename);
+  const filepath = path.join(ARTICLES_DIR, `${slug}.md`);
   if (!fs.existsSync(filepath)) return null;
 
   const raw = fs.readFileSync(filepath, 'utf-8');

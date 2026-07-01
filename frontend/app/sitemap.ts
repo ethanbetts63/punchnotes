@@ -9,5 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/killtony/sets`, lastModified: '2026-06-29' },
     { url: `${SITE_URL}/killtony/jokes`, lastModified: '2026-06-29' },
     { url: `${SITE_URL}/about`, lastModified: '2026-06-29' },
+    { url: `${SITE_URL}/articles`, lastModified: '2026-07-01' },
+    { url: `${SITE_URL}/articles/how-we-classify-jokes`, lastModified: '2026-07-01' },
   ];
 }

@@ -47,14 +47,13 @@ export default function Footer() {
         {/* Site */}
         <div>
           <p className={LABEL_CLASS}>Site</p>
-          <ul className="space-y-2 mb-6">
+          <ul className="space-y-2 mb-8">
             <li><Link href="/about" className={LINK_CLASS}>About</Link></li>
           </ul>
-          <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-stone-600 mb-3">How sets are annotated</p>
-          <div className="text-xs text-stone-600 space-y-1 leading-relaxed">
-            <p>Each set is broken into <span className="text-stone-500">bits</span> (topic clusters), <span className="text-stone-500">beats</span> (individual jokes), and <span className="text-stone-500">lines</span> labelled as setup, punchline, tag, or fluff.</p>
-            <p>Metrics include punch density and tag density per set.</p>
-          </div>
+          <p className={LABEL_CLASS}>Articles</p>
+          <ul className="space-y-2">
+            <li><Link href="/articles/how-we-classify-jokes" className={LINK_CLASS}>How We Classify Jokes</Link></li>
+          </ul>
         </div>
 
       </div>

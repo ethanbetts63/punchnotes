@@ -202,8 +202,10 @@ export type SetInComedian = {
   set_number: number;
   video: { id: number; slug: string; number: number; title: string; youtube_id: string; date: string | null };
   attributes: string[];
+  start_seconds: number;
   punch_density: number | null;
   tag_density: number | null;
+  bit_count: number;
   image_url: string | null;
   image_capture_seconds: number | null;
 };

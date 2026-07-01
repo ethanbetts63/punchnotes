@@ -13,6 +13,7 @@ class SetInComedianSerializer(PublicSetSlugMixin, serializers.ModelSerializer):
         model = Set
         fields = [
             "id", "slug", "set_number", "video", "attributes",
+            "start_seconds", "bit_count",
             "punch_density", "tag_density",
             "image_url", "image_capture_seconds",
         ]

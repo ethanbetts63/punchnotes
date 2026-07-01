@@ -41,22 +41,22 @@ export default async function JokesPage() {
         </Suspense>
       </div>
 
-      <div className="mx-auto max-w-6xl px-6 pb-8">
-        <p className="text-stone-500">
-          Every joke is broken into beats — each with a setup, punchline, and any tags — and assigned one of nine structural types:{" "}
-          <span className="font-medium text-stone-700">misdirect, reframe, phonetic-match, double-meaning, contradiction, analogy, hyperbole, elephant-in-the-room,</span>{" "}
-          and <span className="font-medium text-stone-700">anti-humor</span>.{" "}
-          <Link href="/killtony/jokes/methodology" className="text-primary underline underline-offset-2 hover:text-primary/80">
-            How we classify jokes &rarr;
-          </Link>
-        </p>
-      </div>
-
       <div className="mx-auto max-w-6xl pb-12">
         <h2 className="mb-6 px-6 text-2xl font-bold tracking-tight text-stone-950">
           Joke playlists
         </h2>
         <JokePlaylists />
+      </div>
+
+      <div className="mx-auto max-w-6xl px-6 pb-16 border-t border-stone-100 pt-10">
+        <p className="text-stone-500">
+          Every joke is broken into beats — each with a setup, punchline, and any tags — and assigned one of nine structural types:{" "}
+          <span className="font-medium text-stone-700">misdirect, reframe, phonetic-match, double-meaning, contradiction, analogy, hyperbole, elephant-in-the-room,</span>{" "}
+          and <span className="font-medium text-stone-700">anti-humor</span>.{" "}
+          <Link href="/articles/how-we-classify-jokes" className="text-primary underline underline-offset-2 hover:text-primary/80">
+            How we classify jokes &rarr;
+          </Link>
+        </p>
       </div>
     </div>
     </>

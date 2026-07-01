@@ -71,6 +71,8 @@ KNOWN_SPECIAL_SLUGS = frozenset(
         "james-mccann",
         "rob-schneider",
         "brian-holtzman",
+        "ehsan-ahmad",
+        "luis-j-gomez",
     }
 )
 
