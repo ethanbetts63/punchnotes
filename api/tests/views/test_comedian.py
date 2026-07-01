@@ -69,8 +69,11 @@ def test_comedian_detail_returns_200(client, comedian_data):
 def test_comedian_detail_includes_sets(client, comedian_data):
     c1, _, _ = comedian_data
     resp = client.get(f"/api/killtony/comedians/{c1.slug}/")
-    assert len(resp.json()["sets"]) == 1
-    assert resp.json()["sets"][0]["slug"] == "aaa0000001-set01-casey-rocket"
+    sets = resp.json()["sets"]
+    assert len(sets) == 1
+    assert sets[0]["slug"] == "aaa0000001-set01-casey-rocket"
+    assert sets[0]["start_seconds"] == 0
+    assert sets[0]["bit_count"] == 0
 
 
 def test_comedian_detail_404_on_missing(client):
