@@ -1,142 +1,162 @@
-# How to Annotate Jokes
 
-Every joke in the our database is annotated at the line level and assigned a structural type. Here's exactly how that works.
 
----
+## Line Labels
 
-## Line labels
+### `setup`
+A line that establishes premise, scenario, observation, or context for a joke — building toward the laugh without delivering it.
 
-Before we can assign a joke type, every line in a set gets one of four labels. These labels describe the structural role each line plays in delivering a joke.
+### `punchline`
+The line where the laugh lands. The reveal, twist, or payoff the setup was building toward.
 
-### setup
+### `tag`
+An additional punchline that builds off the previous punchline without needing new setup. A tag rides on the laugh already in the room — if it introduces fresh material, it is a new `setup`, not a tag.
 
-A line that establishes the premise, scenario, or context for a joke — building toward the laugh without delivering it.
-
-### punchline
-
-The line where the laugh lands. The reveal, twist, or payoff the setup was building toward. Every joke beat has exactly one punchline.
-
-### tag
-
-An additional punchline that builds off the previous one without needing new setup. A tag rides on the laugh already in the room. If it introduces fresh material, it becomes new setup for the next beat.
-
-### fluff
-
-Everything that isn't doing comedic work: greetings, sign-offs, name introductions, verbal stumbles, sound effects, and crowd-acknowledgement filler.
+### `fluff`
+Everything that is not setup, punchline, or tag: greetings, sign-offs, name introductions, verbal stumbles (`"Uh..."`), audio events (`"[squeals]"`), and crowd-acknowledgement filler (`"Hell yeah."`) that isn't doing comedic work.
 
 ---
 
-## Bits and beats
+## Labeling Rules
 
-Jokes are organised into a two-level hierarchy.
-
-**Beat** — a single setup–punchline–tags unit with its own specific comedic logic. Every beat contains at least one punchline. A new beat starts at the first setup line after a punchline lands.
-
-**Bit** — one or more beats that share an overarching premise. The test for whether two beats belong in the same bit: can you extract one beat alone and still have it make sense? If yes, it's its own bit. If not — because it depends on a premise established by another beat — they belong together.
-
-Shared subject matter alone doesn't make two beats the same bit. A comedian can do five different jokes about their marriage and each may be its own standalone bit if they each set up and pay off independently.
+- **One punchline per beat.** If two adjacent lines both look like punchlines, one is probably a tag or setup. 
+- **Tags require an immediately preceding punchline or tag.** A line cannot tag a fluff or setup.
 
 ---
 
-## Joke types
+## Bit and Beat Structure
 
-Every beat gets assigned one of nine joke types based on the underlying comedic mechanism — the reason the joke is funny, not what it's about. We also write a one-sentence **premise** for each beat that captures the abstract logic using a type-specific formula.
+### Hierarchy
 
-### misdirect
+- **Bit**: one or more beats that share a chain of setup. Every bit has at least one beat.
+- **Beat**: one setup/punchline/tags unit with its own specific comedic logic. Every beat must contain at least one `punchline` line.
 
-An assumption is planted, then subverted. The audience follows one logical path and is suddenly rerouted.
+### Bit vs. multiple bits
 
+**Shared subject matter does not equal shared premise.** Don't group beats just because they're about the same subject. Group them only when removing one would orphan the others.
+
+The test: **can you extract a beat alone and still have it make sense?**
+- If yes → it's its own bit
+- If no (it depends on a premise established earlier) → same bit
+
+
+
+
+### Joke types and premise formulas
+Writing the premise is the art of concretizing what is funny about a joke, it is not a summary. For every specific token in the setup, ask: swap it for another member of a broader class — does the joke still land via the identical mechanism? If yes, replace the token with the class. Repeat until the next swap up would break the joke. Duck→cow→horse all survive → animal. For example: "Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."` Likewise, avoid words like: "he", "she", "they", "the comic". It is almost always unnessary specification. Why is this important? If two jokes share the same generalized premise, they are the same joke, even if they length, style and wording of the jokes may be completely different. 
+
+
+**misdirect** - an assumption is planted, then subverted.
 Formula: *[bait] implies [implication], but reveals [reveal].*
 
-> **Setup:** "My son just came out as trans. Well, shouldn't call him my son anymore."
-> **Punchline:** "Now that he's dead to me,"
->
-> **Premise:** "Refusing to call a transitioning child your son implies a new title, but reveals disownment."
+Example:
+- setup: `"My son just came out as trans."`
+- setup: `"Well, shouldn't call him my son anymore."`
+- punchline: `"Now that he's dead to me,"`
 
-### reframe
+Premise: `"Refusing to call a transitioning child your son implies a new title, but reveals disownment."`
 
-A known thing is given a newly visible interpretation. No false assumption is planted — the joke surfaces an alternate perspective on the same fact, object, behaviour, or situation.
 
+**reframe** - a known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required; the joke surfaces an alternate perspective to understand the same fact, object, behavior, or situation.
 Formula: *[subject] could be [reframe].*
 
-> **Setup:** "They got him on puberty blockers"
-> **Punchline:** "or as pedophiles call them, preservatives."
->
-> **Premise:** "Puberty blockers could be beneficial to pedophiles."
+Example:
+- setup: `"they got him on puberty blockers"`
+- punchline: `"or as pedophiles call them preservatives."`
 
-### phonetic-match
+Premise: `"Puberty blockers could be beneficial to pedophiles."`
 
-Two different words sound alike. The resemblance itself — or the fact that both words fit the context — is the joke.
+**phonetic-match** - two *different* words sound alike. Often both fit the context, but sometimes the resemblance alone is the joke.
+Formula without reason: *"[heard]" sounds like "[reheard]".*
+Formula with reason: *"[heard]" sounds like "[reheard]", and "[reheard]" fits because [reason].*
 
-Formula: *"[heard]" sounds like "[reheard]", and "[reheard]" fits because [reason].*
+Example:
+- setup: `"what do you call a little person with ADHD?"`
+- punchline: `"That's right, a fidget."`
 
-> **Setup:** "What do you call a little person with ADHD?"
-> **Punchline:** "That's right, a fidget."
->
-> **Premise:** "'Midget' sounds like 'fidget', and 'fidget' fits because ADHD."
+Premise: `"'Midget' sounds like 'fidget', and 'fidget' fits because ADHD."`
 
-### double-meaning
 
-The same word or phrase admits two or more readings. The joke hinges on semantic ambiguity, not phonetic similarity.
-
+**double-meaning** - the *same* word or phrase admits two or more readings. Hinges on semantic ambiguity, not phonetic similarity. The ambiguous word or phrase must be preserved exactly from the transcript. Do not generalize, paraphrase, shorten, or clean it up unless removing surrounding non-ambiguous words leaves the same complete ambiguity intact.
 Formula: *"[phrase]" can mean [expected] or [comic].*
 
-> **Setup:** "'In case of fire, use stairs.'"
-> **Punchline:** "Fuck that, let's use water."
->
-> **Premise:** "'In case of fire, use stairs' can mean use stairs during a fire or use stairs to fight a fire."
+Example:
+- setup: `"'In case of fire, use stairs.'"`
+- punchline: `"Fuck that, let's use water."`
 
-### contradiction
+Premise: `"'In case of fire, use stairs' can mean use stairs during a fire or use stairs to fight a fire."`
 
-One subject holds two positions that cannot both be true. The joke is the hypocrisy or exposed inconsistency.
-
+**contradiction** - one subject holds two positions that cannot both be true; the joke is the hypocrisy or exposed inconsistency.
 Formula: *[subject] both [a] and yet [b].*
 
-> **Setup:** "My girlfriend thinks The Godfather is too long, but her story about when her coworker was bitchy to her two years ago is..."
-> **Punchline:** "the perfect length."
->
-> **Premise:** "Women both find good movies too long and yet tell long stories."
+Example:
+- setup: `"My girlfriend thinks the godfather is too long,"`
+- setup: `"But her story about when her coworker was bitchy to her two years ago is..."`
+- punchline: `"the perfect length."`
 
-### analogy
+Premise: `"Women both find good movies too long and yet tell long stories."`
 
-Two different things are made funny by showing they share the same unexpected structure.
-
+**analogy**  - two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
 Formula: *[X] is like [Y] because both [shared structure].*
 
-> **Setup:** "Golfing prepared me for marriage, cause both involved me spending a lot of money"
-> **Punchline:** "at something I'm not really good at."
->
-> **Premise:** "Golf is like marriage because both involve expensive repeated failure."
+Example:
+- setup: `"But golfing prepared me for marriage,"`
+- setup: `"cause both involved me spending a lot of money"`
+- punchline: `"at something I'm not really good at."`
+- tag: `"And then waking up the next morning"`
+- tag: `"and deciding to try again, 'cause I like the challenge."`
 
-### hyperbole
+Premise: `"Golf is like marriage because both involve expensive repeated failure."`
 
-One dimension of a subject is stretched past plausibility. The laugh comes from excess degree, scale, or intensity.
 
+**hyperbole** - one dimension of a subject is stretched past plausibility. The laugh comes from excess degree, scale, or intensity.
 Formula: *[subject] becomes so extreme that [extreme].*
 
-> **Setup:** "So I've already seen a third of this collection and I don't have enough bodily fluids"
-> **Punchline:** "for the other two thirds of this collection."
->
-> **Premise:** "A porn collection becomes so extreme that you run out of sperm."
+Example:
+- setup: `"So I've already seen a third of this collection"`
+- setup: `"and I don't have enough bodily fluids"`
+- punchline: `"for the other two thirds of this collection."`
 
-### elephant-in-the-room
+Premise: `"A porn collection becomes so extreme that you run out of sperm."`
 
-A taboo or socially avoided observation is said aloud. The audience already recognises the conclusion; the laugh comes from breaking the silence.
 
+**elephant-in-the-room** - a taboo or socially avoided observation is said aloud. The audience already recognizes the conclusion; the laugh comes from breaking the silence.
 Formula: *[elephant] is widely understood but rarely said aloud.*
 
-> **Setup:** "You know, these shootings are often done by the same race."
-> **Punchline:** "I'm looking at you, honkies."
->
-> **Premise:** "White men dominate mass shootings is widely understood but rarely said aloud."
+Example:
+- setup: `"You know, these shootings are often done by the same race."`
+- punchline: `"I'm looking at you, honkies."`
 
-### anti-humor
+Premise: `"White men dominate mass shootings is widely understood but rarely said aloud."`
 
-A joke form promises a payoff, then delivers the banal truth. The joke is that there is no joke.
 
+**anti-humor** - a joke form promises a payoff, then delivers the banal truth; the joke is that there is no joke.
 Formula: *[frame] implies a punchline, but reveals only [answer].*
 
-> **Setup:** "A duck walks into a pharmacy with a rash on his beak. He asks the pharmacist for some ointment."
-> **Punchline:** "Sorry, we don't have medicine for ducks here."
->
-> **Premise:** "An animal asking a business for service implies a punchline, but reveals only that the business does not serve animals."
+Example:
+- setup: `"A duck walks into a pharmacy with a rash on his beak."`
+- setup: `"He asks the pharmacist for some ointment."`
+- punchline: `"Sorry, we don't have medicine for ducks here."`
+
+Premise: `"An animal asking a business for service implies a punchline, but reveals only that the business does not serve animals."`
+
+### Boundary rules
+
+- A bit is the smallest standalone segment of material that can be lifted out of the set and still make sense as its own joke sequence. 
+- A new beat starts at the first setup line following a punchline.
+- Multi-beat bits typically have a shared setup at the start that establishes the umbrella premise, then each beat is a different application of that premise.
+- Do not merge separate bits just because they share broad subject matter.
+
+---
+
+## How to annotate
+
+1. Read the whole set first. Get the joke structure in your head.
+2. Identify each punchline — that's the anchor for each beat.
+3. Walk backwards from each punchline labeling setup; walk forwards labeling tags.
+4. Mark everything else fluff.
+5. For each beat, identify the joke type and write a premise.
+6. Group beats into bits by shared topic. Apply the extraction test: if a beat would survive standalone, it's its own bit.
+
+---
+
+
