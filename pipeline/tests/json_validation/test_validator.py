@@ -102,6 +102,43 @@ def test_multi_beat_bit_is_valid():
     validate_bit_meta(meta)
 
 
+def test_consecutive_split_punchline_lines_in_same_beat_are_valid():
+    meta = {
+        "bit_meta": {"1": {"beats": {"1": {
+            "premise": "A thing could be an unexpected thing.",
+            "joke_type": "reframe",
+            "subject": "a thing",
+            "reframe": "an unexpected thing",
+        }}}},
+        "lines": [
+            {"line_number": 1, "text": "Setup.", "label": "setup", "bit": None, "beat": None},
+            {"line_number": 2, "text": "Split payoff part one.", "label": "punchline", "bit": 1, "beat": 1},
+            {"line_number": 3, "text": "Split payoff part two.", "label": "punchline", "bit": 1, "beat": 1},
+        ],
+    }
+    validate_bit_meta(meta)
+
+
+def test_repeated_punchline_anchor_after_setup_is_rejected():
+    meta = {
+        "bit_meta": {"1": {"beats": {"1": {
+            "premise": "'Pussy' can mean a cat or a sexual reference.",
+            "joke_type": "double-meaning",
+            "phrase": "pussy",
+            "expected": "a cat",
+            "comic": "a sexual reference",
+        }}}},
+        "lines": [
+            {"line_number": 1371, "text": "I'm a cat guy.", "label": "setup", "bit": None, "beat": None},
+            {"line_number": 1378, "text": "When I say I love pussy, that's what I'm talking about.", "label": "punchline", "bit": 1, "beat": 1},
+            {"line_number": 1380, "text": 'People are like, "I want to crush it."', "label": "setup", "bit": None, "beat": None},
+            {"line_number": 1381, "text": 'I\'m like, "Really? I want to snuggle it."', "label": "punchline", "bit": 1, "beat": 1},
+        ],
+    }
+    with pytest.raises(ValueError, match="bit 1 beat 1: multiple punchline lines"):
+        validate_bit_meta(meta)
+
+
 def test_bit_level_premise_is_rejected():
     meta = _meta_with_line(_punchline())
     meta["bit_meta"]["1"]["premise"] = "Old bit-level field."

@@ -28,6 +28,7 @@ class LineValidation:
 
             self._validate_line(i, line, previous_label)
             previous_label = line.get("label")
+        self._validate_single_punchline_per_beat()
         return self
 
     def _validate_line(self, index: int, line: dict, previous_label: str | None) -> None:
@@ -84,3 +85,24 @@ class LineValidation:
         self.punchline_lines[(bit_num, beat_num)].append(line_num)
         self.anchor_bits.add(bit_num)
         self.anchor_beats_by_bit[bit_num].add(beat_num)
+
+    def _validate_single_punchline_per_beat(self) -> None:
+        line_index_by_number = {
+            int(line.get("line_number", i + 1)): i
+            for i, line in enumerate(self.lines)
+            if isinstance(line, dict)
+        }
+
+        for (bit_num, beat_num), line_numbers in sorted(self.punchline_lines.items()):
+            if len(line_numbers) <= 1:
+                continue
+
+            indexes = [line_index_by_number[line_number] for line_number in line_numbers]
+            if indexes == list(range(min(indexes), max(indexes) + 1)):
+                continue
+
+            line_list = ", ".join(str(line_number) for line_number in line_numbers)
+            self.errors.append(
+                f"bit {bit_num} beat {beat_num}: multiple punchline lines ({line_list}) "
+                "are only allowed when they are consecutive transcript-split lines"
+            )
