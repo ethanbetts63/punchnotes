@@ -20,7 +20,10 @@ class PipelineView(APIView):
 def _annotated_set_filename(data):
     video_id = data.get("video_id", "unknown")
     comedian = data.get("comedian_name", "unknown").replace(" ", "_").lower()
-    return f"{video_id}_{comedian}.json"
+    start_seconds = data.get("start_seconds")
+    if start_seconds is None:
+        return f"{video_id}_{comedian}.json"
+    return f"{video_id}_{comedian}_{start_seconds}s.json"
 
 
 def _write_annotated_set(data, inbox_dir):

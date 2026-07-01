@@ -1,6 +1,6 @@
-# How We Classify Jokes
+# How to Annotate Jokes
 
-Every joke in the Kill Tony database is annotated at the line level and assigned a structural type. Here's exactly how that works.
+Every joke in the our database is annotated at the line level and assigned a structural type. Here's exactly how that works.
 
 ---
 

@@ -5,8 +5,8 @@ interface ArticlePageMeta {
 }
 
 const metaBySlug: Record<string, ArticlePageMeta> = {
-  'how-we-classify-jokes': {
-    title: 'How We Classify Jokes',
+  'how-to-annotate-jokes': {
+    title: 'How to Annotate Jokes',
     description:
       "Every joke in the Kill Tony database is annotated at the line level and assigned one of nine structural types. Here's exactly how that works.",
     publishedDate: '2026-07-01',

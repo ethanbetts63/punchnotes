@@ -52,7 +52,7 @@ export default function Footer() {
           </ul>
           <p className={LABEL_CLASS}>Articles</p>
           <ul className="space-y-2">
-            <li><Link href="/articles/how-we-classify-jokes" className={LINK_CLASS}>How We Classify Jokes</Link></li>
+            <li><Link href="/articles/how-to-annotate-jokes" className={LINK_CLASS}>How to Annotate Jokes</Link></li>
           </ul>
         </div>
 

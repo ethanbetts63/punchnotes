@@ -30,6 +30,7 @@ def test_annotated_set_batch_upload_writes_inbox_files(api_client, tmp_path):
         "set_id": "set-1",
         "video_id": "abc123",
         "comedian_name": "Test Comic",
+        "start_seconds": 42,
         "lines": [],
     }
     archive = _zip_json_files({"source.json": data})
@@ -42,8 +43,39 @@ def test_annotated_set_batch_upload_writes_inbox_files(api_client, tmp_path):
 
     assert resp.status_code == 202
     assert resp.json()["received"] == 1
-    written = tmp_path / "annotated_set_inbox" / "abc123_test_comic.json"
+    written = tmp_path / "annotated_set_inbox" / "abc123_test_comic_42s.json"
     assert json.loads(written.read_text(encoding="utf-8"))["comedian_name"] == "Test Comic"
+
+
+def test_annotated_set_batch_upload_keeps_repeat_comedian_sets_distinct(api_client, tmp_path):
+    first = {
+        "video_id": "abc123",
+        "comedian_name": "Test Comic",
+        "start_seconds": 42,
+        "lines": [],
+    }
+    second = {
+        "video_id": "abc123",
+        "comedian_name": "Test Comic",
+        "start_seconds": 84,
+        "lines": [],
+    }
+    archive = _zip_json_files({"first.json": first, "second.json": second})
+
+    with override_settings(PIPELINE_DATA_DIR=tmp_path):
+        resp = api_client.post(
+            "/api/pipeline/annotated-set-batch/",
+            {"archive": archive},
+        )
+
+    assert resp.status_code == 202
+    assert sorted(resp.json()["files"]) == [
+        "abc123_test_comic_42s.json",
+        "abc123_test_comic_84s.json",
+    ]
+    inbox = tmp_path / "annotated_set_inbox"
+    assert (inbox / "abc123_test_comic_42s.json").exists()
+    assert (inbox / "abc123_test_comic_84s.json").exists()
 
 
 def test_annotated_set_batch_upload_rejects_invalid_annotation(api_client, tmp_path):

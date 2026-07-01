@@ -53,8 +53,8 @@ export default async function JokesPage() {
           Every joke is broken into beats — each with a setup, punchline, and any tags — and assigned one of nine structural types:{" "}
           <span className="font-medium text-stone-700">misdirect, reframe, phonetic-match, double-meaning, contradiction, analogy, hyperbole, elephant-in-the-room,</span>{" "}
           and <span className="font-medium text-stone-700">anti-humor</span>.{" "}
-          <Link href="/articles/how-we-classify-jokes" className="text-primary underline underline-offset-2 hover:text-primary/80">
-            How we classify jokes &rarr;
+          <Link href="/articles/how-to-annotate-jokes" className="text-primary underline underline-offset-2 hover:text-primary/80">
+            How to Annotate Jokes &rarr;
           </Link>
         </p>
       </div>
