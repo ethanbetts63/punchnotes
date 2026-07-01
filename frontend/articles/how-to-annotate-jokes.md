@@ -1,4 +1,28 @@
 
+Why the hell would I bother to annotate a joke? It will make your writing better and it's interesting. 
+
+Comedy, unlike most art forms is incredibly structured. Every joke must have at least a setup and punchline in that order. 
+
+
+
+
+Having a lot of setup for a single punchline is not necesarily bad. Think Norm MacDonald. But it's usually unnessary. 4 times out of 5 if it takes the comic more than 5 lines to get to the punch, the preceeding lines could have been condensed. These lines come in two flavors. Fluff and setup. Fluff is a line that has absolutely no comedic bearing on the joke. They are not necessarily worthless lines, for example, Pat O'Niell will start a set with "Folks!", it has no value to the joke that follows, but it does give the audience a moment to settle and tune into his personality. 
+
+Economy of words: 
+
+There's good fluff and bad fluff. Good fluff looks like the way Pat O'Niell starts a set: "Folks!". It has no comedic bearing on the jokes that follow but it gives the crowd a moment to settle and tune into his rythm. Bad fluff is much more common, here are some examples: `"You know what I'm saying?"`, `"Uh..."`, repeating lines, etc. Lines that have no usefulness at all. 
+
+Setups are where the majority of wasted words exist. Every word in a good setup is load bearing. To remove a word or words would be to destroy the meaning or make the joke hard to understand. It's one of the most noticible differences in writing styles between comics. Some comics will always have a long string of setups, think norm macdonald. Some are the opposite, think Jimmy Carr. 
+
+
+## How to annotate
+
+1. Read the whole set first. Get the joke structure in your head.
+2. Identify each punchline — that's the anchor for each beat.
+3. Walk backwards from each punchline labeling setup; walk forwards labeling tags.
+4. Mark everything else fluff.
+5. For each beat, identify the joke type and write a premise using the formaula.
+6. Group beats into bits by shared topic. Apply the extraction test: if a beat would survive standalone, it's its own bit.
 
 ## Line Labels
 
@@ -37,9 +61,6 @@ Everything that is not setup, punchline, or tag: greetings, sign-offs, name intr
 The test: **can you extract a beat alone and still have it make sense?**
 - If yes → it's its own bit
 - If no (it depends on a premise established earlier) → same bit
-
-
-
 
 ### Joke types and premise formulas
 Writing the premise is the art of concretizing what is funny about a joke, it is not a summary. For every specific token in the setup, ask: swap it for another member of a broader class — does the joke still land via the identical mechanism? If yes, replace the token with the class. Repeat until the next swap up would break the joke. Duck→cow→horse all survive → animal. For example: "Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."` Likewise, avoid words like: "he", "she", "they", "the comic". It is almost always unnessary specification. Why is this important? If two jokes share the same generalized premise, they are the same joke, even if they length, style and wording of the jokes may be completely different. 
@@ -147,15 +168,6 @@ Premise: `"An animal asking a business for service implies a punchline, but reve
 - Do not merge separate bits just because they share broad subject matter.
 
 ---
-
-## How to annotate
-
-1. Read the whole set first. Get the joke structure in your head.
-2. Identify each punchline — that's the anchor for each beat.
-3. Walk backwards from each punchline labeling setup; walk forwards labeling tags.
-4. Mark everything else fluff.
-5. For each beat, identify the joke type and write a premise.
-6. Group beats into bits by shared topic. Apply the extraction test: if a beat would survive standalone, it's its own bit.
 
 ---
 

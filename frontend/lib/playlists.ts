@@ -68,7 +68,7 @@ export const COMEDIAN_LISTS: ListDef[] = [
     slugs: [
       "ari-matti", "casey-rocket", "david-lucas", "dedrick-flynn", "hans-kim",
       "kam-patterson", "kimberly-congdon", "malcolm-hatchett", "michael-lehrer",
-      "sara-weinshenk", "vanessa-johnston", "william-montgomery",
+      "pat-o-neill", "sara-weinshenk", "vanessa-johnston", "william-montgomery",
     ],
   },
   {
