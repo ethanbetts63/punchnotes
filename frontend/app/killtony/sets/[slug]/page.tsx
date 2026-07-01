@@ -4,6 +4,7 @@ import { getServerSet } from "@/lib/serverApi";
 import SetTranscript from "@/components/SetTranscript";
 import SetImage from "@/components/SetImage";
 import VideoEmbed from "@/components/VideoEmbed";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { fmt2, fmtSeconds, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 import { SITE_URL } from "@/lib/seo";
@@ -73,6 +74,15 @@ export default async function SetDetailPage({ params }: Props) {
 
       <div className="bg-stone-900 text-white">
         <div className="mx-auto max-w-5xl px-6 py-10">
+          <Breadcrumbs
+            tone="dark"
+            className="mb-6"
+            items={[
+              { label: "Kill Tony", href: "/killtony" },
+              { label: "Sets", href: "/killtony/sets" },
+              { label: comedian.name },
+            ]}
+          />
           <div className="flex items-start gap-8">
             {(set.image_url || set.video.youtube_id) && (
               <div className="hidden w-36 shrink-0 sm:block md:w-48">

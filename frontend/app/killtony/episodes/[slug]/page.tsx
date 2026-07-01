@@ -5,6 +5,7 @@ import { fmt2, fmtSeconds, fmtDuration, fmtCompact, fmtDate, getEpisodeGuests, g
 import { formatAttributeLabels } from "@/lib/attributes";
 import SetImage from "@/components/SetImage";
 import SearchResultTile from "@/components/SearchResultTile";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { SITE_URL, buildBreadcrumbSchema } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -178,6 +179,15 @@ export default async function EpisodeDetailPage({ params }: Props) {
       {/* Dark hero */}
       <div className="bg-stone-900 text-white">
         <div className="mx-auto max-w-5xl px-6 py-10">
+          <Breadcrumbs
+            tone="dark"
+            className="mb-6"
+            items={[
+              { label: "Kill Tony", href: "/killtony" },
+              { label: "Episodes", href: "/killtony/episodes" },
+              { label: `#${episode.number}` },
+            ]}
+          />
           <div className="flex gap-8 items-start">
 
             {/* YouTube thumbnail */}

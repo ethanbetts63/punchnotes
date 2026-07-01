@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import Link from "next/link";
 import FilterControls from "@/components/FilterControls";
 import { JOKES_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import ListPageHeader from "@/components/ListPageHeader";
@@ -38,6 +39,17 @@ export default async function JokesPage() {
             controls={<FilterControls config={JOKES_SEARCH_CONFIG} />}
           />
         </Suspense>
+      </div>
+
+      <div className="mx-auto max-w-6xl px-6 pb-8">
+        <p className="text-stone-500">
+          Every joke is broken into beats — each with a setup, punchline, and any tags — and assigned one of nine structural types:{" "}
+          <span className="font-medium text-stone-700">misdirect, reframe, phonetic-match, double-meaning, contradiction, analogy, hyperbole, elephant-in-the-room,</span>{" "}
+          and <span className="font-medium text-stone-700">anti-humor</span>.{" "}
+          <Link href="/killtony/jokes/methodology" className="text-primary underline underline-offset-2 hover:text-primary/80">
+            How we classify jokes &rarr;
+          </Link>
+        </p>
       </div>
 
       <div className="mx-auto max-w-6xl pb-12">

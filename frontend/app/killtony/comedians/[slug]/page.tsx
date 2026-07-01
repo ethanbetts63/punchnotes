@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getServerComedian } from "@/lib/serverApi";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import ComedianImage from "@/components/ComedianImage";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 import { fmt2 } from "@/lib/killTonyDisplay";
@@ -34,6 +35,15 @@ export default async function ComedianDetailPage({ params }: Props) {
       {/* Dark hero */}
       <div className="bg-stone-900 text-white">
         <div className="mx-auto max-w-5xl px-6 py-10">
+          <Breadcrumbs
+            tone="dark"
+            className="mb-6"
+            items={[
+              { label: "Kill Tony", href: "/killtony" },
+              { label: "Comedians", href: "/killtony/comedians" },
+              { label: comedian.name },
+            ]}
+          />
           <div className="flex gap-8 items-start">
 
             <ComedianImage
