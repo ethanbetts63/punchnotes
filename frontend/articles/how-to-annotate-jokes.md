@@ -1,19 +1,14 @@
+Why the hell would you bother to annotate a joke? Two reasons: it makes your writing better, and it's genuinely interesting to see what's under the hood. This article will be a breif overview of our thoughts on the subject of joke annotaion followed by a condensed human readable version of what we give to AI to do annotations at scale.
 
-Why the hell would I bother to annotate a joke? It will make your writing better and it's interesting. 
+Comedy, unlike most art forms, is incredibly structured. Every joke must have at least a setup and a punchline, in that order. Once you start pulling jokes apart line by line, you can't stop seeing the machinery — and you start noticing exactly where words are being wasted.
 
-Comedy, unlike most art forms is incredibly structured. Every joke must have at least a setup and punchline in that order. 
+Because that's what annotation really teaches you: economy. Four times out of five, if it takes the comic more than five lines to get to the punch, the preceding lines could have been condensed. Those lines come in two flavors: fluff and setup.
 
+**Fluff** is a line with no comedic bearing on the joke — but that doesn't automatically make it worthless. There's good fluff and bad fluff. Good fluff is the way Pat O'Neill opens a set with "Folks!": it does nothing for the joke that follows, but it gives the crowd a moment to settle and tune into his rhythm. Bad fluff is far more common — `"You know what I'm saying?"`, `"Uh..."`, repeated lines, etc. — words that do nothing at all.
 
+**Setups** are where the majority of wasted words hide. Every word in a good setup is load-bearing; remove one and you either destroy the meaning or make the joke hard to follow. It's one of the most noticeable differences in writing styles between comics. Some always run a long string of setups (Norm Macdonald); some are the opposite (Jimmy Carr). Annotation is how you learn to tell which words are carrying weight and which are just along for the ride.
 
-
-Having a lot of setup for a single punchline is not necesarily bad. Think Norm MacDonald. But it's usually unnessary. 4 times out of 5 if it takes the comic more than 5 lines to get to the punch, the preceeding lines could have been condensed. These lines come in two flavors. Fluff and setup. Fluff is a line that has absolutely no comedic bearing on the joke. They are not necessarily worthless lines, for example, Pat O'Niell will start a set with "Folks!", it has no value to the joke that follows, but it does give the audience a moment to settle and tune into his personality. 
-
-Economy of words: 
-
-There's good fluff and bad fluff. Good fluff looks like the way Pat O'Niell starts a set: "Folks!". It has no comedic bearing on the jokes that follow but it gives the crowd a moment to settle and tune into his rythm. Bad fluff is much more common, here are some examples: `"You know what I'm saying?"`, `"Uh..."`, repeating lines, etc. Lines that have no usefulness at all. 
-
-Setups are where the majority of wasted words exist. Every word in a good setup is load bearing. To remove a word or words would be to destroy the meaning or make the joke hard to understand. It's one of the most noticible differences in writing styles between comics. Some comics will always have a long string of setups, think norm macdonald. Some are the opposite, think Jimmy Carr. 
-
+That's the *why*. Here's the exact system we use.
 
 ## How to annotate
 
@@ -169,6 +164,31 @@ Premise: `"An animal asking a business for service implies a punchline, but reve
 
 ---
 
+## Methodology
+
+Annotating jokes by hand is time consuming. The joke types above are, almost exactly, what we hand to an AI — the only difference is a few extra specifications about output format.
+
+It turns out LLMs are surprisingly good at this kind of structured joke annotation. And because the premises are structured and we have hard rules about how a joke *must* be built, we can catch the majority of the model's mistakes automatically and direct it to fix them on the spot. A tag with no preceding punchline, a beat with no punchline, a premise that still names "he" or a specific brand — these all trip validation and get bounced back immediately.
+
+Almost every mistake that survives that process comes down to one of two things: bad transcription, or a lack of context. Visual humor is the clearest example — an act-out or a prop gag simply doesn't survive the trip to a text transcript. So the single best thing we can do to improve our annotations isn't to write more rules — it's to improve our transcriptions and the quality of the model doing the annotating. 
+
+### Known caveats
+
+There's a real trade-off in prompting an AI in depth. The more edge cases you make it aware of, the more edge cases it will correctly catch — but also the more false positives it will invent. So a lot of thought has gone into telling the model the *least* it needs to know to do the job to a standard we're happy with. Perfect is not the goal, because perfect isn't possible.
+
+One concrete example: a beat with a punchline and one or more tags might genuinely have one joke type for the punch and different types for each tag. We could extend the prompt and validation to capture that — but it's a layer of complexity that adds minimal value, so every beat gets a single type. On its own that sounds like a compromise worth fixing. But there are many such small complexities, and we've deliberately accepted them as not worth the cost at this stage.
+
+## A note on visual humor
+
+Visual humor doesn't get its own category, because it doesn't need one. An act-out is not a joke type. The visual — a face, a gesture, a prop — is always playing the role of a setup, a punchline, or both, and whatever laugh it gets still runs through one of the mechanisms above.
+
+A prop with an obvious expected use, suddenly used for the opposite, is a **misdirect**. The physical layer changes how the joke is *delivered*, not what makes it funny. When a visual bit fails to annotate cleanly, it's almost never because the joke types don't cover it — it's because the transcript couldn't see it.
+
 ---
 
+## Conclusion
 
+If you read this far, I appreciate your time and I hope this has been interesting to you. This isn't a perfect system and I would love input on how you think it could be improved, especially if you think I'm missing a joketype or mis defining one. I would love to hear it. 
+
+Ethan Betts. 
+ethanbetts63@gmail.com
