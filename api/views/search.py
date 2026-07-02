@@ -1,5 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import AllowAny
 
 from api.beat_utils import describe_beat_lines
 from api.serializers.fields import absolute_media_url
@@ -59,6 +60,9 @@ def compact_ordinal_id(value: str) -> str:
 
 
 class NavSearchView(APIView):
+    permission_classes = [AllowAny]
+    throttle_scope = "search"
+
     def get(self, request):
         query = (request.query_params.get("q") or "").strip()
         if not query:

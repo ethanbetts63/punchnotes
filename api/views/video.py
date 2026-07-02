@@ -1,6 +1,7 @@
 from django.db.models import Prefetch
 from django.shortcuts import get_object_or_404
 from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.permissions import AllowAny
 
 from pipeline.models import Set
 from api.serializers import VideoDetailSerializer, VideoListSerializer
@@ -10,6 +11,8 @@ from .querysets import build_video_list_queryset
 
 class VideoListView(ListAPIView):
     serializer_class = VideoListSerializer
+    permission_classes = [AllowAny]
+    throttle_scope = "catalogue"
 
     def get_queryset(self):
         return build_video_list_queryset(self.request.query_params)
@@ -17,6 +20,8 @@ class VideoListView(ListAPIView):
 
 class VideoDetailView(RetrieveAPIView):
     serializer_class = VideoDetailSerializer
+    permission_classes = [AllowAny]
+    throttle_scope = "catalogue"
     lookup_url_kwarg = "slug"
 
     def get_object(self):

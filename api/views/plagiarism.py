@@ -1,5 +1,8 @@
+from hashlib import sha256
+
 from django.core.cache import cache
 from rest_framework import status
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -9,13 +12,34 @@ from api.set_slugs import set_public_slug
 from api.similarity import find_similar_beats
 
 
+MAX_PLAGIARISM_TEXT_LENGTH = 2000
+PLAGIARISM_CACHE_TIMEOUT = 60 * 60 * 24 * 7
+
+
+def plagiarism_cache_key(text):
+    return f"plagiarism:{sha256(text.encode('utf-8')).hexdigest()}"
+
+
 class PlagiarismCheckView(APIView):
+    permission_classes = [AllowAny]
+    throttle_scope = "plagiarism"
+
     def post(self, request):
-        text = (request.data.get("text") or "").strip()
+        raw_text = request.data.get("text")
+        if raw_text is not None and not isinstance(raw_text, str):
+            return Response({"error": "text must be a string"}, status=status.HTTP_400_BAD_REQUEST)
+
+        text = (raw_text or "").strip()
         if not text:
             return Response({"error": "text is required"}, status=status.HTTP_400_BAD_REQUEST)
+        if len(text) > MAX_PLAGIARISM_TEXT_LENGTH:
+            return Response(
+                {"error": f"text must be {MAX_PLAGIARISM_TEXT_LENGTH} characters or fewer"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
-        cached = cache.get(f"plagiarism:{text}")
+        cache_key = plagiarism_cache_key(text)
+        cached = cache.get(cache_key)
         if cached is not None:
             return Response({"query": text, "results": cached})
 
@@ -45,5 +69,5 @@ class PlagiarismCheckView(APIView):
                 "punchline": beat_data["punchline"],
             })
 
-        cache.set(f"plagiarism:{text}", results, timeout=None)
+        cache.set(cache_key, results, timeout=PLAGIARISM_CACHE_TIMEOUT)
         return Response({"query": text, "results": results})

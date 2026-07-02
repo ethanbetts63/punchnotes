@@ -1,3 +1,4 @@
+from hashlib import sha256
 import time
 
 import numpy as np
@@ -7,10 +8,16 @@ from django.conf import settings
 
 _HF_URL = "https://router.huggingface.co/hf-inference/models/sentence-transformers/all-mpnet-base-v2/pipeline/feature-extraction"
 _MAX_WAIT_SECONDS = 120
+_EMBEDDING_CACHE_TIMEOUT = 60 * 60 * 24 * 7
+
+
+def embedding_cache_key(text: str) -> str:
+    return f"embed:{sha256(text.encode('utf-8')).hexdigest()}"
 
 
 def embed_text(text: str) -> np.ndarray:
-    cached = cache.get(f"embed:{text}")
+    cache_key = embedding_cache_key(text)
+    cached = cache.get(cache_key)
     if cached is not None:
         return cached
 
@@ -41,5 +48,5 @@ def embed_text(text: str) -> np.ndarray:
         norm = np.linalg.norm(vector)
         if norm > 0:
             vector = vector / norm
-        cache.set(f"embed:{text}", vector, timeout=None)
+        cache.set(cache_key, vector, timeout=_EMBEDDING_CACHE_TIMEOUT)
         return vector

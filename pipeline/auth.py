@@ -1,3 +1,5 @@
+from secrets import compare_digest
+
 from django.conf import settings
 from rest_framework.permissions import BasePermission
 
@@ -9,4 +11,4 @@ class PipelineKeyPermission(BasePermission):
             return False
         token = auth[7:]
         expected = getattr(settings, "PIPELINE_API_KEY", None)
-        return bool(expected) and token == expected
+        return bool(expected) and compare_digest(token, expected)

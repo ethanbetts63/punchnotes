@@ -15,6 +15,7 @@ from pipeline.json_validation import validate_bit_meta
 class PipelineView(APIView):
     authentication_classes = []
     permission_classes = [PipelineKeyPermission]
+    throttle_scope = "pipeline"
 
 
 def _annotated_set_filename(data):
