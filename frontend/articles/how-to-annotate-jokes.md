@@ -81,62 +81,55 @@ Writing the premise is the art of concretizing what is funny about a joke; it is
 
 An assumption is planted, then subverted. The setup steers you toward a specific conclusion; the punchline reveals it was wrong, and you *replace* your first reading with the real one — you were meant to be fooled. Test: if your first reading of the setup is still true after the punchline and you've merely gained a new angle, it's a reframe, not a misdirect.
 
-Formula: *[bait] implies [implication], but reveals [reveal].*
-
 Example:
 
 - setup: `"My son just came out as trans."`
 - setup: `"Well, shouldn't call him my son anymore."`
 - punchline: `"Now that he's dead to me,"`
 
+Formula: *[bait] implies [implication], but reveals [reveal].*
 Premise: `"Refusing to call a transitioning child your son implies a new title, but reveals disownment."`
 
 ### reframe
 
 A known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required: the setup is a plain, true statement, and the punchline overlays a second, equally-true way to see the same fact, object, behavior, or situation. Your first reading stays true — the joke *adds* an angle rather than replacing one. Test: if the punchline instead makes your first reading wrong, it's a misdirect.
 
-Formula: *[subject] could be [reframe].*
-
 Example:
 
 - setup: `"they got him on puberty blockers"`
 - punchline: `"or as pedophiles call them preservatives."`
 
+Formula: *[subject] could be [reframe].*
 Premise: `"Puberty blockers could be beneficial to pedophiles."`
 
 ### phonetic-match
 
 Two *different* words sound alike. Often both fit the context, but sometimes the resemblance alone is the joke.
 
-Formula without reason: *"[heard]" sounds like "[reheard]".*
-
-Formula with reason: *"[heard]" sounds like "[reheard]", and "[reheard]" fits because [reason].*
-
 Example:
 
 - setup: `"what do you call a little person with ADHD?"`
 - punchline: `"That's right, a fidget."`
 
+Formula without reason: *"[heard]" sounds like "[reheard]".*
+Formula with reason: *"[heard]" sounds like "[reheard]", and "[reheard]" fits because [reason].*
 Premise: `"'Midget' sounds like 'fidget', and 'fidget' fits because ADHD."`
 
 ### double-meaning
 
 The *same* word or phrase admits two or more readings. Hinges on semantic ambiguity, not phonetic similarity. The ambiguous word or phrase must be preserved exactly from the transcript. Do not generalize, paraphrase, shorten, or clean it up unless removing surrounding non-ambiguous words leaves the same complete ambiguity intact.
 
-Formula: *"[phrase]" can mean [expected] or [comic].*
-
 Example:
 
 - setup: `"'In case of fire, use stairs.'"`
 - punchline: `"Fuck that, let's use water."`
 
+Formula: *"[phrase]" can mean [expected] or [comic].*
 Premise: `"'In case of fire, use stairs' can mean use stairs during a fire or use stairs to fight a fire."`
 
 ### contradiction
 
 One subject holds two positions that cannot both be true; the joke is the hypocrisy or exposed inconsistency.
-
-Formula: *[subject] both [a] and yet [b].*
 
 Example:
 
@@ -144,13 +137,12 @@ Example:
 - setup: `"But her story about when her coworker was bitchy to her two years ago is..."`
 - punchline: `"the perfect length."`
 
+Formula: *[subject] both [a] and yet [b].*
 Premise: `"Women both find good movies too long and yet tell long stories."`
 
 ### analogy
 
 Two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
-
-Formula: *[X] is like [Y] because both [shared structure].*
 
 Example:
 
@@ -160,13 +152,12 @@ Example:
 - setup: `"And then waking up the next morning"`
 - tag: `"and deciding to try again, 'cause I like the challenge."`
 
+Formula: *[X] is like [Y] because both [shared structure].*
 Premise: `"Golf is like marriage because both involve expensive repeated failure."`
 
 ### hyperbole
 
 One dimension of a subject is stretched past plausibility. The laugh comes from excess degree, scale, or intensity.
-
-Formula: *[subject] becomes so extreme that [extreme].*
 
 Example:
 
@@ -174,26 +165,24 @@ Example:
 - setup: `"and I don't have enough bodily fluids"`
 - punchline: `"for the other two thirds of this collection."`
 
+Formula: *[subject] becomes so extreme that [extreme].*
 Premise: `"A porn collection becomes so extreme that you run out of sperm."`
 
 ### elephant-in-the-room
 
 A taboo or socially avoided observation is said aloud. The audience already recognizes the conclusion; the laugh comes from breaking the silence.
 
-Formula: *[elephant] is widely understood but rarely said aloud.*
-
 Example:
 
 - setup: `"You know, these shootings are often done by the same race."`
 - punchline: `"I'm looking at you, honkies."`
 
+Formula: *[elephant] is widely understood but rarely said aloud.*
 Premise: `"White men dominate mass shootings is widely understood but rarely said aloud."`
 
 ### anti-humor
 
 A joke form promises a payoff, then delivers the banal truth; the joke is that there is no joke.
-
-Formula: *[frame] implies a punchline, but reveals only [answer].*
 
 Example:
 
@@ -201,6 +190,7 @@ Example:
 - setup: `"He asks the pharmacist for some ointment."`
 - punchline: `"Sorry, we don't have medicine for ducks here."`
 
+Formula: *[frame] implies a punchline, but reveals only [answer].*
 Premise: `"An animal asking a business for service implies a punchline, but reveals only that the business does not serve animals."`
 
 ---
