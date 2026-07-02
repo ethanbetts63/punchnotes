@@ -27,8 +27,7 @@ export default function Footer() {
             </a>
           </p>
           <p className="mt-4 text-xs text-stone-600 leading-relaxed">
-            Fan-made archive. Not affiliated with Kill Tony, Tony Hinchcliffe, or any
-            official channel.
+            Fan-made archive. Not affiliated with Kill Tony. If your content is on this site and you would like it removed, please contact me.
           </p>
         </div>
 

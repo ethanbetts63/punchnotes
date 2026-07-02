@@ -1,18 +1,16 @@
-Why the hell would you bother to annotate a joke? Two reasons: it makes your writing better, and it's genuinely interesting to see what's under the hood. This article is a brief overview of our thoughts on joke annotation, followed by a condensed, human-readable version of what we give the AI to do annotations at scale.
+Why bother annotating a joke? Becuase it's incredibly interesting. 
 
-Comedy, unlike most art forms, is incredibly structured. Every joke must have at least a setup and a punchline, in that order. Once you start pulling jokes apart line by line, you can't stop seeing the machinery — and you start noticing exactly where words are being wasted.
+If you disagree with that statement this article is not for you. This article is a human readable version of the documentation we use to annotate comedy at scale using LLMs. They're actually suprisingly good at it but with your big human brain, you'll be even better. 
 
-Because that's what annotation really teaches you: economy. Four times out of five, if it takes the comic more than five lines to get to the punch, the preceding lines could have been condensed. Those lines come in two flavors: fluff and setup.
+Comedy, unlike most art forms, is incredibly structured. Every joke must have at least a setup and a punchline, in that order. Once you start pulling jokes apart line by line, you can't stop seeing the machinery. Economy of words, joke types, joke structure, etc. It's something you can normally get an ear for watching comedy but it's so much clearer when written down. 
 
-**Fluff** is a line with no comedic bearing on the joke — but that doesn't automatically make it worthless. There's good fluff and bad fluff. Good fluff is the way Pat O'Neill opens a set with "Folks!": it does nothing for the joke that follows, but it gives the crowd a moment to settle and tune into his rhythm. Bad fluff is far more common — `"You know what I'm saying?"`, a repeated line, a nervous throat-clear — words that do nothing at all.
+If we only achieve one thing with this website, we would want it to the refinement of this ruleset. A fixed set of rules and definitions for understanding, writing and improving comedy. Comedy is like a sport without sport scientists. Comedians give each other pointers, the equivalent of a coach, but theres no way to measure and analyse performance in a structured and repeatable way. This ruleset is our attempt at the analysis part. We will tackle the measure part down the track.
 
-**Setups** are where the majority of wasted words hide. Every word in a good setup is load-bearing; remove one and you either destroy the meaning or make the joke hard to follow. It's one of the most noticeable differences in writing styles between comics. Some always run a long string of setups (Norm Macdonald); some are the opposite (Jimmy Carr). Both styles can be valid but a long string of setups is normally a red flag. 
-
-That's the *why*. Here's the exact system we use — and hand, almost verbatim, to the AI.
+That's the *why*. Here's the exact system we use, condensed and refined for your human eyes: 
 
 ---
 
-## How to annotate
+## Overview - How to annotate
 
 1. Read the whole set first. Get the joke structure in your head.
 2. Identify each punchline — that's the anchor for each beat.
@@ -27,7 +25,8 @@ That's the *why*. Here's the exact system we use — and hand, almost verbatim, 
 
 ### `setup`
 
-A line that establishes premise, scenario, observation, or context for a joke — building toward the laugh without delivering it.
+Where the majority of wasted words hide. Every word in a good setup is load-bearing; remove one and you either destroy the meaning or make the joke hard to follow. It's one of the most noticeable differences in writing styles between comics. Some always run a long string of setups (Norm Macdonald); some are the opposite (Jimmy Carr). Both styles can be valid but a long string of setups is normally a red flag. 
+
 
 ### `punchline`
 
@@ -39,7 +38,7 @@ An additional payoff in the same beat, riding on the laugh already in the room r
 
 ### `fluff`
 
-Everything that is not setup, punchline, or tag: greetings, sign-offs, name introductions, verbal stumbles (`"Uh..."`), audio events (`"[squeals]"`), and crowd-acknowledgement filler (`"Hell yeah."`) that isn't doing comedic work.
+A line with no comedic bearing on the joke — but that doesn't automatically make it worthless. There's good fluff and bad fluff. Good fluff is the way Pat O'Neill opens a set with "Folks!": it does nothing for the joke that follows, but it gives the crowd a moment to settle and tune into his rhythm. Bad fluff is far more common — `"You know what I'm saying?"`, a repeated line, a nervous throat-clear — words that do nothing at all.
 
 ---
 
@@ -70,13 +69,13 @@ The test: **can you extract a beat alone and still have it make sense?**
 ### Boundary rules
 
 - A bit is the smallest standalone segment of material that can be lifted out of the set and still make sense as its own joke sequence.
-- Multi-beat bits typically have a shared setup at the start that establishes the umbrella premise, then each beat is a different application of that premise.
+- Multi-beat bits typically have a shared setup or topic but more importantly each beat relies on the context of the previous beat for the punchline to make sense. 
 
 ---
 
 ## Joke types and premise formulas
 
-Writing the premise is the art of concretizing what is funny about a joke; it is not a summary. For every specific token in the setup, ask: swap it for another member of a broader class — does the joke still land via the identical mechanism? If yes, replace the token with the class. Repeat until the next swap up would break the joke. Duck→cow→horse all survive → animal. For example: `"Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."` Likewise, avoid words like "he", "she", "they", "the comic". It is almost always unnecessary specification. Why is this important? If two jokes share the same generalized premise, they are the same joke, even if their length, style, and wording may be completely different.
+Writing the premise is the art of concretizing what is funny about a joke; it is not a summary. For every specific token in the setup, ask: if I swapped this word for a member of a broader class — does the joke still land via the identical mechanism? If yes, replace the token with the class. Repeat until the next swap up would break the joke. Duck→cow→horse all survive → animal. For example: `"Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."` Likewise, avoid words like "he", "she", "they", or "the comic". It is almost always unnecessary specification. Why is this important? If two jokes share the same generalized premise, they are the same joke, even if their length, style, and wording may be completely different. By structuing and generalizing the premise consistantly, joke similarity becomes incredibly clear. 
 
 ### misdirect
 

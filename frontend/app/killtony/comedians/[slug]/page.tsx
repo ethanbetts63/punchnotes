@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import ComedianImage from "@/components/ComedianImage";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 import { fmt2 } from "@/lib/killTonyDisplay";
+import { getComedianIntroSummary } from "@/lib/killTonySummaries";
 import { SITE_URL } from "@/lib/seo";
 import ComedianSetList from "./ComedianSetList";
 
@@ -13,11 +14,11 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const comedian = await getServerComedian(slug);
   if (!comedian) return { title: "Comedian Not Found | PunchNotes" };
+  const introSummary = getComedianIntroSummary(comedian);
   return {
     title: `${comedian.name} — Kill Tony | PunchNotes`,
-    description: `${comedian.name}'s Kill Tony set history, with ${comedian.set_count} indexed set${comedian.set_count !== 1 ? "s" : ""}, average bits per set, punch density, tag density, and joke book flags.`,
+    description: introSummary,
     alternates: { canonical: `${SITE_URL}/killtony/comedians/${comedian.slug}` },
-    robots: { index: false, follow: true },
   };
 }
 
@@ -29,6 +30,7 @@ export default async function ComedianDetailPage({ params }: Props) {
   const sets =[...(comedian.sets ?? [])].sort(
     (a, b) => b.video.number - a.video.number
   );
+  const introSummary = getComedianIntroSummary(comedian);
 
   return (
     <div className="bg-white min-h-screen">
@@ -82,6 +84,10 @@ export default async function ComedianDetailPage({ params }: Props) {
                   </span>
                 )}
               </div>
+
+              <p className="mb-5 max-w-3xl text-sm leading-6 text-stone-300">
+                {introSummary}
+              </p>
 
               {/* Stats */}
               <p className="text-sm text-stone-400">

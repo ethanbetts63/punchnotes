@@ -149,14 +149,14 @@ export default function SetTranscript({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const activeBeatRef = useRef<HTMLDivElement | null>(null);
+  const rawBit = searchParams.get("bit");
+  const rawBeat = searchParams.get("beat");
+  const urlSelected = rawBit
+    ? selectedFromStableIds(bits, rawBit, rawBeat)
+    : null;
+  const shouldScrollToSelected = Boolean(urlSelected);
   const selected = (() => {
-    const rawBit = searchParams.get("bit");
-    const rawBeat = searchParams.get("beat");
-
-    if (rawBit) {
-      const fromUrl = selectedFromStableIds(bits, rawBit, rawBeat);
-      if (fromUrl) return fromUrl;
-    }
+    if (urlSelected) return urlSelected;
 
     return firstAnnotatedBeat(bits);
   })();
@@ -166,6 +166,8 @@ export default function SetTranscript({
   const activeFirstLineNumber = selected?.beat.lines.find((line) => line.label !== "fluff")?.line_number;
 
   useEffect(() => {
+    if (!shouldScrollToSelected) return;
+
     const activeElement = activeBeatRef.current;
     if (!activeElement) return;
 
@@ -175,7 +177,7 @@ export default function SetTranscript({
     });
 
     return () => window.cancelAnimationFrame(frame);
-  }, [selected?.beat.beat_id]);
+  }, [selected?.beat.beat_id, shouldScrollToSelected]);
 
   function updateUrl(bit: Bit, beat: Beat) {
     const params = new URLSearchParams(searchParams.toString());
