@@ -80,7 +80,7 @@ Writing the premise is the art of concretizing what is funny about a joke; it is
 
 ### misdirect
 
-An assumption is planted, then subverted.
+An assumption is planted, then subverted. The setup steers you toward a specific conclusion; the punchline reveals it was wrong, and you *replace* your first reading with the real one — you were meant to be fooled. Test: if your first reading of the setup is still true after the punchline and you've merely gained a new angle, it's a reframe, not a misdirect.
 
 Formula: *[bait] implies [implication], but reveals [reveal].*
 
@@ -94,7 +94,7 @@ Premise: `"Refusing to call a transitioning child your son implies a new title, 
 
 ### reframe
 
-A known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required; the joke surfaces an alternate perspective to understand the same fact, object, behavior, or situation.
+A known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required: the setup is a plain, true statement, and the punchline overlays a second, equally-true way to see the same fact, object, behavior, or situation. Your first reading stays true — the joke *adds* an angle rather than replacing one. Test: if the punchline instead makes your first reading wrong, it's a misdirect.
 
 Formula: *[subject] could be [reframe].*
 

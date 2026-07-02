@@ -95,7 +95,7 @@ For every specific token in the setup, ask: swap it for another member of a broa
 
 All jokes must be assigned one of these types. **The way you write each beat premise must exactly match the formula given for its joke type. VERY IMPORTANT**
 
-**misdirect** - an assumption is planted, then subverted.
+**misdirect** - an assumption is planted, then subverted. The setup steers you toward a specific conclusion; the punchline reveals it was wrong, and you *replace* your first reading with the real one — you were meant to be fooled. If your first reading of the setup is still true after the punchline and you've merely gained a new angle, it is a `reframe`, not a misdirect.
 Formula: *[bait] implies [implication], but reveals [reveal].*
 Required phrase markers: `implies`, `but reveals`.
 
@@ -107,7 +107,7 @@ Example:
 Premise: `"Refusing to call a transitioning child your son implies a new title, but reveals disownment."`
 JSON fields: `{ "premise": "Refusing to call a transitioning child your son implies a new title, but reveals disownment.", "joke_type": "misdirect" }`
 
-**reframe** - a known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required; the joke surfaces an alternate perspective to understand the same fact, object, behavior, or situation.
+**reframe** - a known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required: the setup is a plain, true statement, and the punchline overlays a second, equally-true way to see the same fact, object, behavior, or situation. Your first reading stays true — the joke *adds* an angle rather than replacing one. If the punchline instead makes your first reading wrong, it is a `misdirect`.
 Formula: *[subject] could be [reframe].*
 Required phrase marker: `could be`.
 
