@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import type { SetInComedian } from "@/lib/serverApi";
-import { fmt2, fmtSeconds, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
+import { fmt2, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import Paginator from "@/components/Paginator";
 import SetImage from "@/components/SetImage";
 import SearchResultTile from "@/components/SearchResultTile";
@@ -43,9 +43,7 @@ export default function ComedianSetList({ sets }: Props) {
                   className="absolute inset-0 h-full w-full"
                 />
               }
-              meta={<>Set {set.set_number} / {fmtSeconds(set.start_seconds)}</>}
               stats={[
-                { label: "Bits", value: set.bit_count },
                 { label: "Punch density", value: fmt2(set.punch_density) },
                 { label: "Tag density", value: fmt2(set.tag_density) },
               ]}

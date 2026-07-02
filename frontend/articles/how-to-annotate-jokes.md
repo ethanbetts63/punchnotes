@@ -4,11 +4,11 @@ Comedy, unlike most art forms, is incredibly structured. Every joke must have at
 
 Because that's what annotation really teaches you: economy. Four times out of five, if it takes the comic more than five lines to get to the punch, the preceding lines could have been condensed. Those lines come in two flavors: fluff and setup.
 
-**Fluff** is a line with no comedic bearing on the joke — but that doesn't automatically make it worthless. There's good fluff and bad fluff. Good fluff is the way Pat O'Neill opens a set with "Folks!": it does nothing for the joke that follows, but it gives the crowd a moment to settle and tune into his rhythm. Bad fluff is far more common — `"You know what I'm saying?"`, `"Uh..."`, repeated lines, etc. — words that do nothing at all.
+**Fluff** is a line with no comedic bearing on the joke — but that doesn't automatically make it worthless. There's good fluff and bad fluff. Good fluff is the way Pat O'Neill opens a set with "Folks!": it does nothing for the joke that follows, but it gives the crowd a moment to settle and tune into his rhythm. Bad fluff is far more common — `"You know what I'm saying?"`, a repeated line, a nervous throat-clear — words that do nothing at all.
 
 **Setups** are where the majority of wasted words hide. Every word in a good setup is load-bearing; remove one and you either destroy the meaning or make the joke hard to follow. It's one of the most noticeable differences in writing styles between comics. Some always run a long string of setups (Norm Macdonald); some are the opposite (Jimmy Carr). Annotation is how you learn to tell which words are carrying weight and which are just along for the ride.
 
-That's the *why*. Here's the exact system we use.
+That's the *why*. Here's the exact system we use — and hand, almost verbatim, to the AI.
 
 ---
 
@@ -66,11 +66,21 @@ The test: **can you extract a beat alone and still have it make sense?**
 - If yes → it's its own bit
 - If no (it depends on a premise established earlier) → same bit
 
-### Joke types and premise formulas
+### Boundary rules
+
+- A bit is the smallest standalone segment of material that can be lifted out of the set and still make sense as its own joke sequence.
+- A new beat starts at the first setup line following a punchline.
+- Multi-beat bits typically have a shared setup at the start that establishes the umbrella premise, then each beat is a different application of that premise.
+
+---
+
+## Joke types and premise formulas
 
 Writing the premise is the art of concretizing what is funny about a joke; it is not a summary. For every specific token in the setup, ask: swap it for another member of a broader class — does the joke still land via the identical mechanism? If yes, replace the token with the class. Repeat until the next swap up would break the joke. Duck→cow→horse all survive → animal. For example: `"Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."` Likewise, avoid words like "he", "she", "they", "the comic". It is almost always unnecessary specification. Why is this important? If two jokes share the same generalized premise, they are the same joke, even if their length, style, and wording may be completely different.
 
-**misdirect** — an assumption is planted, then subverted.
+### misdirect
+
+An assumption is planted, then subverted.
 
 Formula: *[bait] implies [implication], but reveals [reveal].*
 
@@ -82,7 +92,9 @@ Example:
 
 Premise: `"Refusing to call a transitioning child your son implies a new title, but reveals disownment."`
 
-**reframe** — a known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required; the joke surfaces an alternate perspective to understand the same fact, object, behavior, or situation.
+### reframe
+
+A known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required; the joke surfaces an alternate perspective to understand the same fact, object, behavior, or situation.
 
 Formula: *[subject] could be [reframe].*
 
@@ -93,7 +105,9 @@ Example:
 
 Premise: `"Puberty blockers could be beneficial to pedophiles."`
 
-**phonetic-match** — two *different* words sound alike. Often both fit the context, but sometimes the resemblance alone is the joke.
+### phonetic-match
+
+Two *different* words sound alike. Often both fit the context, but sometimes the resemblance alone is the joke.
 
 Formula without reason: *"[heard]" sounds like "[reheard]".*
 
@@ -106,7 +120,9 @@ Example:
 
 Premise: `"'Midget' sounds like 'fidget', and 'fidget' fits because ADHD."`
 
-**double-meaning** — the *same* word or phrase admits two or more readings. Hinges on semantic ambiguity, not phonetic similarity. The ambiguous word or phrase must be preserved exactly from the transcript. Do not generalize, paraphrase, shorten, or clean it up unless removing surrounding non-ambiguous words leaves the same complete ambiguity intact.
+### double-meaning
+
+The *same* word or phrase admits two or more readings. Hinges on semantic ambiguity, not phonetic similarity. The ambiguous word or phrase must be preserved exactly from the transcript. Do not generalize, paraphrase, shorten, or clean it up unless removing surrounding non-ambiguous words leaves the same complete ambiguity intact.
 
 Formula: *"[phrase]" can mean [expected] or [comic].*
 
@@ -117,7 +133,9 @@ Example:
 
 Premise: `"'In case of fire, use stairs' can mean use stairs during a fire or use stairs to fight a fire."`
 
-**contradiction** — one subject holds two positions that cannot both be true; the joke is the hypocrisy or exposed inconsistency.
+### contradiction
+
+One subject holds two positions that cannot both be true; the joke is the hypocrisy or exposed inconsistency.
 
 Formula: *[subject] both [a] and yet [b].*
 
@@ -129,7 +147,9 @@ Example:
 
 Premise: `"Women both find good movies too long and yet tell long stories."`
 
-**analogy** — two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
+### analogy
+
+Two different things are made funny by showing they share the same unexpected structure. The joke often uses "like," "as," "same as," "basically," or "prepared me for," but the comparison word is not required.
 
 Formula: *[X] is like [Y] because both [shared structure].*
 
@@ -143,7 +163,9 @@ Example:
 
 Premise: `"Golf is like marriage because both involve expensive repeated failure."`
 
-**hyperbole** — one dimension of a subject is stretched past plausibility. The laugh comes from excess degree, scale, or intensity.
+### hyperbole
+
+One dimension of a subject is stretched past plausibility. The laugh comes from excess degree, scale, or intensity.
 
 Formula: *[subject] becomes so extreme that [extreme].*
 
@@ -155,7 +177,9 @@ Example:
 
 Premise: `"A porn collection becomes so extreme that you run out of sperm."`
 
-**elephant-in-the-room** — a taboo or socially avoided observation is said aloud. The audience already recognizes the conclusion; the laugh comes from breaking the silence.
+### elephant-in-the-room
+
+A taboo or socially avoided observation is said aloud. The audience already recognizes the conclusion; the laugh comes from breaking the silence.
 
 Formula: *[elephant] is widely understood but rarely said aloud.*
 
@@ -166,7 +190,9 @@ Example:
 
 Premise: `"White men dominate mass shootings is widely understood but rarely said aloud."`
 
-**anti-humor** — a joke form promises a payoff, then delivers the banal truth; the joke is that there is no joke.
+### anti-humor
+
+A joke form promises a payoff, then delivers the banal truth; the joke is that there is no joke.
 
 Formula: *[frame] implies a punchline, but reveals only [answer].*
 
@@ -178,13 +204,6 @@ Example:
 
 Premise: `"An animal asking a business for service implies a punchline, but reveals only that the business does not serve animals."`
 
-### Boundary rules
-
-- A bit is the smallest standalone segment of material that can be lifted out of the set and still make sense as its own joke sequence.
-- A new beat starts at the first setup line following a punchline.
-- Multi-beat bits typically have a shared setup at the start that establishes the umbrella premise, then each beat is a different application of that premise.
-- Do not merge separate bits just because they share broad subject matter.
-
 ---
 
 ## Methodology
@@ -193,7 +212,7 @@ Annotating jokes by hand is time consuming. The joke types above are, almost exa
 
 It turns out LLMs are surprisingly good at this kind of structured joke annotation. And because the premises are structured and we have hard rules about how a joke *must* be built, we can catch the majority of the model's mistakes automatically and direct it to fix them on the spot. A tag with no preceding punchline, a beat with no punchline, a premise that still names "he" or a specific brand — these all trip validation and get bounced back immediately.
 
-Almost every mistake that survives that process comes down to one of two things: bad transcription, or a lack of context. Visual humor is the clearest example — an act-out or a prop gag simply doesn't survive the trip to a text transcript. So the single best thing we can do to improve our annotations isn't to write more rules — it's to improve our transcriptions and the quality of the model doing the annotating.
+Almost every mistake that survives that process comes down to one of two things: bad transcription, or a lack of context — visual humor being the clearest case (more on that below). So the single best thing we can do to improve our annotations isn't to write more rules — it's to improve our transcriptions and the quality of the model doing the annotating.
 
 ### Known caveats
 
