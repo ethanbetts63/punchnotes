@@ -20,21 +20,19 @@ class LineValidation:
         self.anchor_beats_by_bit: dict[int, set[int]] = defaultdict(set)
 
     def run(self) -> "LineValidation":
-        previous_label = None
         seen_punchline = False
         for i, line in enumerate(self.lines):
             if not isinstance(line, dict):
                 self.errors.append(f"line {i + 1}: line must be a JSON object")
                 continue
 
-            self._validate_line(i, line, previous_label, seen_punchline)
-            previous_label = line.get("label")
-            if previous_label == "punchline":
+            self._validate_line(i, line, seen_punchline)
+            if line.get("label") == "punchline":
                 seen_punchline = True
         self._validate_single_punchline_per_beat()
         return self
 
-    def _validate_line(self, index: int, line: dict, previous_label: str | None, seen_punchline: bool) -> None:
+    def _validate_line(self, index: int, line: dict, seen_punchline: bool) -> None:
         text = line.get("text", "")
         match = ENCODED_PATTERN.search(text)
         if match:
@@ -58,17 +56,11 @@ class LineValidation:
                 "the importer infers ownership from punchline anchors"
             )
 
-        if label == "tag":
-            if not seen_punchline:
-                self.errors.append(
-                    f"line {line_ref}: tag must ride a preceding punchline; "
-                    "no punchline appears before this line"
-                )
-            elif previous_label not in {"punchline", "tag", "setup"}:
-                self.errors.append(
-                    f"line {line_ref}: tag must follow a punchline, tag, or its own setup; "
-                    f"previous label is {previous_label!r}"
-                )
+        if label == "tag" and not seen_punchline:
+            self.errors.append(
+                f"line {line_ref}: tag must ride a preceding punchline; "
+                "no punchline appears before this line"
+            )
 
     def _validate_punchline_anchor(self, line_ref, bit, beat) -> None:
         if bit is None or beat is None:

@@ -46,7 +46,7 @@ Everything that is not setup, punchline, or tag: greetings, sign-offs, name intr
 ## Labeling rules
 
 - **One punchline per beat.** If two adjacent lines both look like punchlines, one is probably a tag or setup.
-- **A tag only exists after a punchline.** The beat's first payoff is the `punchline`; every later payoff is a `tag`. A tag can follow a `punchline`, another `tag`, or a `setup` that belongs to the same beat.
+- **A tag only exists after a punchline.** The beat's first payoff is the `punchline`; every later payoff is a `tag`. All a tag requires is a punchline earlier in the beat — a `setup` it rides, or crowd `fluff`, may sit between them.
 - **A setup's beat is decided by what follows it.** A `setup` followed by a `tag` joins the current beat; a `setup` followed by a `punchline` starts a new one.
 
 ---

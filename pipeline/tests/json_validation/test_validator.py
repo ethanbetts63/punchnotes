@@ -104,17 +104,21 @@ def test_tag_after_its_own_setup_is_valid():
     validate_bit_meta(meta)
 
 
-def test_tag_after_fluff_is_rejected():
+def test_tag_after_fluff_is_valid():
+    # Crowd filler can sit between a punchline and a later tag; the tag still
+    # rides the punchline.
     meta = {
-        "bit_meta": {"1": {"beats": {"1": {"premise": "p", "joke_type": "reframe", "subject": "x", "reframe": "y"}}}},
+        "bit_meta": {"1": {"beats": {"1": {
+            "premise": "A thing could be an unexpected thing.",
+            "joke_type": "reframe", "subject": "a thing", "reframe": "an unexpected thing",
+        }}}},
         "lines": [
             {"line_number": 1, "text": "Payoff.", "label": "punchline", "bit": 1, "beat": 1},
             {"line_number": 2, "text": "[laughs]", "label": "fluff", "bit": None, "beat": None},
             {"line_number": 3, "text": "Tag.", "label": "tag", "bit": None, "beat": None},
         ],
     }
-    with pytest.raises(ValueError, match="line 3: tag must follow a punchline, tag, or its own setup"):
-        validate_bit_meta(meta)
+    validate_bit_meta(meta)
 
 
 def test_multi_beat_bit_is_valid():
