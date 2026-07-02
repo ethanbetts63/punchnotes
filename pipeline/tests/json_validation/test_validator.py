@@ -75,7 +75,7 @@ def test_setup_line_rejects_bit_and_beat_values():
         validate_bit_meta(meta)
 
 
-def test_tag_must_follow_punchline_or_tag():
+def test_tag_before_any_punchline_is_rejected():
     meta = {
         "bit_meta": {"1": {"beats": {"1": {"premise": "p", "joke_type": "reframe", "subject": "x", "reframe": "y"}}}},
         "lines": [
@@ -84,7 +84,36 @@ def test_tag_must_follow_punchline_or_tag():
             {"line_number": 3, "text": "Payoff.", "label": "punchline", "bit": 1, "beat": 1},
         ],
     }
-    with pytest.raises(ValueError, match="line 2: tag must immediately follow a punchline or tag"):
+    with pytest.raises(ValueError, match="line 2: tag must ride a preceding punchline"):
+        validate_bit_meta(meta)
+
+
+def test_tag_after_its_own_setup_is_valid():
+    # punchline -> setup -> tag: the tag carries its own setup and stays in the beat.
+    meta = {
+        "bit_meta": {"1": {"beats": {"1": {
+            "premise": "A thing could be an unexpected thing.",
+            "joke_type": "reframe", "subject": "a thing", "reframe": "an unexpected thing",
+        }}}},
+        "lines": [
+            {"line_number": 1, "text": "Payoff.", "label": "punchline", "bit": 1, "beat": 1},
+            {"line_number": 2, "text": "New orienting line.", "label": "setup", "bit": None, "beat": None},
+            {"line_number": 3, "text": "Second payoff.", "label": "tag", "bit": None, "beat": None},
+        ],
+    }
+    validate_bit_meta(meta)
+
+
+def test_tag_after_fluff_is_rejected():
+    meta = {
+        "bit_meta": {"1": {"beats": {"1": {"premise": "p", "joke_type": "reframe", "subject": "x", "reframe": "y"}}}},
+        "lines": [
+            {"line_number": 1, "text": "Payoff.", "label": "punchline", "bit": 1, "beat": 1},
+            {"line_number": 2, "text": "[laughs]", "label": "fluff", "bit": None, "beat": None},
+            {"line_number": 3, "text": "Tag.", "label": "tag", "bit": None, "beat": None},
+        ],
+    }
+    with pytest.raises(ValueError, match="line 3: tag must follow a punchline, tag, or its own setup"):
         validate_bit_meta(meta)
 
 

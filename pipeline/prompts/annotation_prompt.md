@@ -27,7 +27,7 @@ A line that establishes premise, scenario, observation, or context for a joke �
 The line where the laugh lands. The reveal, twist, or payoff the setup was building toward.
 
 ### `tag`
-An additional punchline that builds off the previous punchline without needing new setup. A tag rides on the laugh already in the room — if it introduces fresh material, it is a new `setup`, not a tag.
+An additional payoff in the same beat, riding on the laugh already in the room rather than a premise of its own. A tag can carry its own `setup`: a setup line followed by a tag belongs to the current beat, while a setup line followed by a punchline starts a new beat. So `punchline → setup → tag → setup → tag` is a single valid beat.
 
 ### `fluff`
 Everything that is not setup, punchline, or tag: greetings, sign-offs, name introductions, verbal stumbles (`"Uh..."`), audio events (`"[squeals]"`), and crowd-acknowledgement filler (`"Hell yeah."`) that isn't doing comedic work.
@@ -37,7 +37,8 @@ Everything that is not setup, punchline, or tag: greetings, sign-offs, name intr
 ## Labeling Rules
 
 - **One punchline per beat.** If two adjacent lines both look like punchlines, one is probably a tag or setup. Exception: a transcription split across two lines can have two consecutive punchline labels.
-- **Tags require an immediately preceding punchline or tag.** A line cannot tag a fluff or setup.
+- **A tag only exists after a punchline.** The beat's first payoff is the `punchline`; every later payoff is a `tag`. A tag can follow a `punchline`, another `tag`, or a `setup` that belongs to the same beat — but never before the beat has a punchline.
+- **A setup's beat is decided by what follows it.** A `setup` followed by a `tag` joins the current beat; a `setup` followed by a `punchline` starts a new one.
 - **Sound effects are fluff.** `[squeals]`, `[music]`, etc.
 - **Self-introductions are fluff** unless the name itself is the punchline.
 - **Closers are fluff.** `"That's my time."`, `"Thank you guys."`
@@ -59,7 +60,7 @@ Use sequential integers starting from 1. Assign `"bit": N` and `"beat": N` on ev
 Set every `setup`, `tag`, and `fluff` line to `"bit": null, "beat": null`.
 
 The import pipeline infers non-punchline ownership:
-- A `setup` belongs to the next `punchline`.
+- A `setup` belongs to the next payoff line: if that payoff is a `tag`, the setup joins the current beat; if it is a `punchline`, the setup opens the new beat.
 - A `tag` belongs to the most recent `punchline` or `tag`.
 - A `fluff` line stays null unless it falls inside a bit or beat span created by setup/punchline/tag lines.
 
@@ -160,7 +161,7 @@ Example:
 - setup: `"But golfing prepared me for marriage,"`
 - setup: `"cause both involved me spending a lot of money"`
 - punchline: `"at something I'm not really good at."`
-- tag: `"And then waking up the next morning"`
+- setup: `"And then waking up the next morning"`
 - tag: `"and deciding to try again, 'cause I like the challenge."`
 
 Premise: `"Golf is like marriage because both involve expensive repeated failure."`
@@ -204,7 +205,7 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
 ### Boundary rules
 
 - A bit is the smallest standalone segment of material that can be lifted out of the set and still make sense as its own joke sequence. 
-- A new beat starts at the first setup line following a punchline.
+- A `setup` following a punchline joins the current beat if the next payoff is a `tag`, and starts a new beat if the next payoff is a `punchline`.
 - Multi-beat bits typically have a shared setup at the start that establishes the umbrella premise, then each beat is a different application of that premise.
 - Do not merge separate bits just because they share broad subject matter.
 - Set all setup, tag, and fluff lines to `"bit": null, "beat": null`.
@@ -215,7 +216,7 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
 
 1. Read the whole set first. Get the joke structure in your head.
 2. Identify each punchline — that's the anchor for each beat.
-3. Walk backwards from each punchline labeling setup; walk forwards labeling tags.
+3. Walk backwards from each punchline labeling setup; walk forwards labeling tags (and any setup that feeds a later tag).
 4. Mark everything else fluff.
 5. For each beat, identify the joke type and write a premise using its formula. Record the type in the beat's `joke_type` field.
 6. Group beats into bits by shared premise. Apply the extraction test: if a beat would survive standalone, it's its own bit.

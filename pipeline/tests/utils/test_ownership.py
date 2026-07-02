@@ -16,6 +16,35 @@ def test_tag_gets_previous_punchline_bit_and_beat():
     assert infer_line_ownership(lines)[2] == (1, 1)
 
 
+def test_setup_before_tag_joins_current_beat():
+    # punchline -> setup -> tag: the setup feeds the tag, so it stays in beat 1.
+    lines = _lines(("punchline", 1, 1), ("setup", None, None), ("tag", None, None))
+    ownership = infer_line_ownership(lines)
+    assert ownership[2] == (1, 1)
+    assert ownership[3] == (1, 1)
+
+
+def test_setup_before_punchline_starts_new_beat():
+    lines = _lines(("punchline", 1, 1), ("setup", None, None), ("punchline", 1, 2))
+    assert infer_line_ownership(lines)[2] == (1, 2)
+
+
+def test_mixed_run_splits_setups_by_following_payoff():
+    # beat 1 = punch, setup, tag; beat 2 = setup, punch.
+    lines = _lines(
+        ("punchline", 1, 1),
+        ("setup", None, None),
+        ("tag", None, None),
+        ("setup", None, None),
+        ("punchline", 1, 2),
+    )
+    ownership = infer_line_ownership(lines)
+    assert ownership[2] == (1, 1)
+    assert ownership[3] == (1, 1)
+    assert ownership[4] == (1, 2)
+    assert ownership[5] == (1, 2)
+
+
 def test_fluff_inside_beat_inferred_from_punchline_anchor():
     lines = _lines(("setup", None, None), ("fluff", None, None), ("punchline", 1, 1))
     assert infer_line_ownership(lines)[2] == (1, 1)

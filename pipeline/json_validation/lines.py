@@ -21,17 +21,20 @@ class LineValidation:
 
     def run(self) -> "LineValidation":
         previous_label = None
+        seen_punchline = False
         for i, line in enumerate(self.lines):
             if not isinstance(line, dict):
                 self.errors.append(f"line {i + 1}: line must be a JSON object")
                 continue
 
-            self._validate_line(i, line, previous_label)
+            self._validate_line(i, line, previous_label, seen_punchline)
             previous_label = line.get("label")
+            if previous_label == "punchline":
+                seen_punchline = True
         self._validate_single_punchline_per_beat()
         return self
 
-    def _validate_line(self, index: int, line: dict, previous_label: str | None) -> None:
+    def _validate_line(self, index: int, line: dict, previous_label: str | None, seen_punchline: bool) -> None:
         text = line.get("text", "")
         match = ENCODED_PATTERN.search(text)
         if match:
@@ -55,15 +58,15 @@ class LineValidation:
                 "the importer infers ownership from punchline anchors"
             )
 
-        if label == "tag" and previous_label not in {"punchline", "tag"}:
-            if previous_label is None:
+        if label == "tag":
+            if not seen_punchline:
                 self.errors.append(
-                    f"line {line_ref}: tag must immediately follow a punchline or tag; "
-                    "this is the first line"
+                    f"line {line_ref}: tag must ride a preceding punchline; "
+                    "no punchline appears before this line"
                 )
-            else:
+            elif previous_label not in {"punchline", "tag", "setup"}:
                 self.errors.append(
-                    f"line {line_ref}: tag must immediately follow a punchline or tag; "
+                    f"line {line_ref}: tag must follow a punchline, tag, or its own setup; "
                     f"previous label is {previous_label!r}"
                 )
 

@@ -6,7 +6,7 @@ Because that's what annotation really teaches you: economy. Four times out of fi
 
 **Fluff** is a line with no comedic bearing on the joke — but that doesn't automatically make it worthless. There's good fluff and bad fluff. Good fluff is the way Pat O'Neill opens a set with "Folks!": it does nothing for the joke that follows, but it gives the crowd a moment to settle and tune into his rhythm. Bad fluff is far more common — `"You know what I'm saying?"`, a repeated line, a nervous throat-clear — words that do nothing at all.
 
-**Setups** are where the majority of wasted words hide. Every word in a good setup is load-bearing; remove one and you either destroy the meaning or make the joke hard to follow. It's one of the most noticeable differences in writing styles between comics. Some always run a long string of setups (Norm Macdonald); some are the opposite (Jimmy Carr). Annotation is how you learn to tell which words are carrying weight and which are just along for the ride.
+**Setups** are where the majority of wasted words hide. Every word in a good setup is load-bearing; remove one and you either destroy the meaning or make the joke hard to follow. It's one of the most noticeable differences in writing styles between comics. Some always run a long string of setups (Norm Macdonald); some are the opposite (Jimmy Carr). Both styles can be valid but a long string of setups is normally a red flag. 
 
 That's the *why*. Here's the exact system we use — and hand, almost verbatim, to the AI.
 
@@ -16,7 +16,7 @@ That's the *why*. Here's the exact system we use — and hand, almost verbatim, 
 
 1. Read the whole set first. Get the joke structure in your head.
 2. Identify each punchline — that's the anchor for each beat.
-3. Walk backwards from each punchline labeling setup; walk forwards labeling tags.
+3. Walk backwards from each punchline labeling setup; walk forwards labeling tags and setups for tags.
 4. Mark everything else fluff.
 5. For each beat, identify the joke type and write a premise using the formula.
 6. Group beats into bits by shared topic. Apply the extraction test: if a beat would survive standalone, it's its own bit.
@@ -35,7 +35,7 @@ The line where the laugh lands. The reveal, twist, or payoff the setup was build
 
 ### `tag`
 
-An additional punchline that builds off the previous punchline without needing new setup. A tag rides on the laugh already in the room — if it introduces fresh material, it is a new `setup`, not a tag.
+An additional payoff in the same beat, riding on the laugh already in the room rather than a premise of its own. A tag can carry its own `setup`: a setup line followed by a tag belongs to the current beat. So `setup → punchline → setup → tag → setup → tag` is a single valid beat just as `setup → punchline → tag → tag` is valid. 
 
 ### `fluff`
 
@@ -46,7 +46,8 @@ Everything that is not setup, punchline, or tag: greetings, sign-offs, name intr
 ## Labeling rules
 
 - **One punchline per beat.** If two adjacent lines both look like punchlines, one is probably a tag or setup.
-- **Tags require an immediately preceding punchline or tag.** A line cannot tag a fluff or setup.
+- **A tag only exists after a punchline.** The beat's first payoff is the `punchline`; every later payoff is a `tag`. A tag can follow a `punchline`, another `tag`, or a `setup` that belongs to the same beat.
+- **A setup's beat is decided by what follows it.** A `setup` followed by a `tag` joins the current beat; a `setup` followed by a `punchline` starts a new one.
 
 ---
 
@@ -69,7 +70,6 @@ The test: **can you extract a beat alone and still have it make sense?**
 ### Boundary rules
 
 - A bit is the smallest standalone segment of material that can be lifted out of the set and still make sense as its own joke sequence.
-- A new beat starts at the first setup line following a punchline.
 - Multi-beat bits typically have a shared setup at the start that establishes the umbrella premise, then each beat is a different application of that premise.
 
 ---
@@ -158,7 +158,7 @@ Example:
 - setup: `"But golfing prepared me for marriage,"`
 - setup: `"cause both involved me spending a lot of money"`
 - punchline: `"at something I'm not really good at."`
-- tag: `"And then waking up the next morning"`
+- setup: `"And then waking up the next morning"`
 - tag: `"and deciding to try again, 'cause I like the challenge."`
 
 Premise: `"Golf is like marriage because both involve expensive repeated failure."`

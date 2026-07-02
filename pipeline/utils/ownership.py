@@ -2,34 +2,44 @@ from collections import defaultdict
 
 
 def infer_line_ownership(lines_data: list) -> dict[int, tuple[int | None, int | None]]:
-    """Infer DB line ownership from punchline anchors without mutating raw data."""
-    ownership: dict[int, tuple[int | None, int | None]] = {}
-    next_punchline = None
+    """Infer DB line ownership from punchline anchors without mutating raw data.
 
-    for line in reversed(lines_data):
+    Payoff lines carry beat identity: a punchline owns its explicit (bit, beat)
+    anchor, and a tag inherits the most recent payoff's beat. A setup joins the
+    beat of the *next* payoff line — so a setup followed by a tag stays in the
+    current beat, while a setup followed by a punchline opens the new one.
+    """
+    ownership: dict[int, tuple[int | None, int | None]] = {}
+
+    # Punchlines own themselves from their explicit anchors.
+    for line in lines_data:
         line_number = int(line["line_number"])
         if line.get("label") == "punchline" and line.get("bit") is not None and line.get("beat") is not None:
-            next_punchline = (int(line["bit"]), int(line["beat"]))
-            ownership[line_number] = next_punchline
-            continue
+            ownership[line_number] = (int(line["bit"]), int(line["beat"]))
 
-        if line.get("label") == "setup" and next_punchline is not None:
-            ownership[line_number] = next_punchline
-        else:
-            ownership[line_number] = (None, None)
-
+    # Tags inherit the most recent payoff's beat (walking forward).
     previous_payoff = None
     for line in lines_data:
         line_number = int(line["line_number"])
         label = line.get("label")
-        bit, beat = ownership[line_number]
-
-        if label == "punchline" and bit is not None and beat is not None:
-            previous_payoff = (bit, beat)
-            continue
-
-        if label == "tag" and previous_payoff is not None:
+        if label == "punchline" and line_number in ownership:
+            previous_payoff = ownership[line_number]
+        elif label == "tag" and previous_payoff is not None:
             ownership[line_number] = previous_payoff
+
+    # Setups join the next payoff's beat (walking backward past other setups).
+    next_payoff = None
+    for line in reversed(lines_data):
+        line_number = int(line["line_number"])
+        label = line.get("label")
+        if label in {"punchline", "tag"} and line_number in ownership:
+            next_payoff = ownership[line_number]
+        elif label == "setup":
+            ownership[line_number] = next_payoff if next_payoff is not None else (None, None)
+
+    # Orphan tags/setups and every fluff line default to null before span fill.
+    for line in lines_data:
+        ownership.setdefault(int(line["line_number"]), (None, None))
 
     bit_spans: dict[int, list[int]] = defaultdict(list)
     beat_spans: dict[tuple[int, int], list[int]] = defaultdict(list)
