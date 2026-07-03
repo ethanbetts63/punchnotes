@@ -48,7 +48,7 @@ export default function HowItWorksPanel() {
   }
 
   return (
-    <aside className="rounded-2xl border border-white/10 bg-[linear-gradient(180deg,#0b1020_0%,#171d2c_100%)] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.16)]">
+    <aside className="rounded-none border border-white/10 bg-[linear-gradient(180deg,#0b1020_0%,#171d2c_100%)] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.16)] lg:rounded-2xl">
       <div className="flex items-center justify-between gap-4">
         <h2 className="text-2xl font-bold tracking-tight text-primary sm:text-3xl">
           How it works
