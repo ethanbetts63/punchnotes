@@ -2,21 +2,15 @@
 
 You are annotating stand-up **sets** from *Kill Tony*
 
----
-
 ## Input
 
 Each input file is a set JSON from `pipeline/data/set_inbox/`. Unannotated lines may omit `label`, `bit`, and `beat`; treat missing fields as blank annotation fields.
-
----
 
 ## Output
 
 Write the annotated file back to `pipeline/data/set_inbox/<same-filename>.json`, overwriting the unannotated source. The output adds `bit_meta` before `lines`, and each line gets `label`, `bit`, and `beat` fields.
 
 Every beat has its own `premise` and `joke_type`.
-
----
 
 ## Line Labels
 
@@ -32,8 +26,6 @@ An additional payoff in the same beat, riding on the laugh already in the room r
 ### `fluff`
 Everything that is not setup, punchline, or tag: greetings, sign-offs, name introductions, verbal stumbles (`"Uh..."`), audio events (`"[squeals]"`), and crowd-acknowledgement filler (`"Hell yeah."`) that isn't doing comedic work.
 
----
-
 ## Labeling Rules
 
 - **One punchline per beat.** If two adjacent lines both look like punchlines, one is probably a tag or setup. Exception: a transcription split across two lines can have two consecutive punchline labels.
@@ -43,8 +35,6 @@ Everything that is not setup, punchline, or tag: greetings, sign-offs, name intr
 - **Self-introductions are fluff** unless the name itself is the punchline.
 - **Closers are fluff.** `"That's my time."`, `"Thank you guys."`
 - **Misdirects turn on the frame-flip line.** Label the line where the audience realizes its assumption was wrong as the punchline.
-
----
 
 ## Bit and Beat Structure
 
@@ -210,8 +200,6 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
 - Do not merge separate bits just because they share broad subject matter.
 - Set all setup, tag, and fluff lines to `"bit": null, "beat": null`.
 
----
-
 ## How to annotate
 
 1. Read the whole set first. Get the joke structure in your head.
@@ -221,8 +209,6 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
 5. For each beat, identify the joke type and write a premise using its formula. Record the type in the beat's `joke_type` field.
 6. Group beats into bits by shared premise. Apply the extraction test: if a beat would survive standalone, it's its own bit.
 7. Write the output JSON with `bit_meta`, fully labeled lines, and bit/beat numbers only on punchlines.
-
----
 
 ## Process checklist
 
@@ -241,10 +227,7 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
 
 - If a file is already annotated when you find it try and upload it and see what happens. 
 - Never spin up any agents. 
-
----
-
- At completion, return only:
+- At completion, return only:
      DONE: <count> files processed
      FAILED: <filenames or none>
      Do not summarize in more detail even if your delagating agent has asked you to.
