@@ -1,4 +1,4 @@
-SEARCHABLE_BEAT_LINE_LABELS = ("setup", "punchline", "tag")
+from pipeline.utils.beat_search import SEARCHABLE_BEAT_LINE_LABELS
 
 
 def beat_lines(beat, set_lines=None):

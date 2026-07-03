@@ -92,6 +92,8 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
     picks: [
       { set_slug: "ezuyuoP5OI8-set06-kansei-yasuda",       bit_id: "bit_002", beat_id: "bit_002_beat_001" },
       { set_slug: "GeByotNr20c-set07-colt",                bit_id: "bit_003", beat_id: "bit_003_beat_001" },
+      { set_slug: "cqXwoGrebXs-set02-brandon-lacaruba",    bit_id: "bit_001", beat_id: "bit_001_beat_003" },
+      { set_slug: "7AgDQxUvq6w-set02-tony-pepperoni",      bit_id: "bit_001", beat_id: "bit_001_beat_001" },
     ],
   },
   {
@@ -115,6 +117,13 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
     description: "An unexpected comparison that makes the bit land harder.",
     picks: [
       { set_slug: "0DvjvaMG8RQ-set01-collin-sledge",       bit_id: "bit_002", beat_id: "bit_002_beat_001" },
+      { set_slug: "xwoTIaxgeWA-set11-william-montgomery",  bit_id: "bit_004", beat_id: "bit_004_beat_001" },
+      { set_slug: "oLAxMa7JVfA-set09-william-montgomery",  bit_id: "bit_003", beat_id: "bit_003_beat_002" },
+      { set_slug: "6GvGjp0nYFs-set08-michael-lehrer",      bit_id: "bit_004", beat_id: "bit_004_beat_002" },
+      { set_slug: "QePXRkrAEoE-set06-andrew-wolfe",        bit_id: "bit_006", beat_id: "bit_006_beat_001" },
+      { set_slug: "lwLnqeBKa-0-set08-chase-standen",       bit_id: "bit_002", beat_id: "bit_002_beat_002" },
+      { set_slug: "zS-4IMtyjPw-set02-duncan-stone-street", bit_id: "bit_002", beat_id: "bit_002_beat_001" },
+      { set_slug: "a9Le0VGXZDU-set03-michael-hines",       bit_id: "bit_004", beat_id: "bit_004_beat_001" },
     ],
   },
   {

@@ -4,6 +4,7 @@ from django.db.models import Avg, Count, Q
 
 from pipeline.json_validation.constants import JOKE_TYPE_FIELDS, OPTIONAL_JOKE_TYPE_FIELDS
 from pipeline.utils.ownership import infer_line_ownership
+from pipeline.utils.beat_search import build_beat_search_text
 from pipeline.utils.known_comedians import normalize_known_appearance_attributes
 from pipeline.utils.set_images import rename_set_image
 from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
@@ -237,6 +238,7 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
                 premise=beat_data.get("premise"),
                 joke_type=beat_data.get("joke_type"),
                 joke_fields=_extract_joke_fields(beat_data),
+                search_text=build_beat_search_text(lines_data, set(blns)),
             ))
 
     Beat.objects.bulk_create(beats_to_create)

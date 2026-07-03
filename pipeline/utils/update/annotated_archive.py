@@ -39,8 +39,11 @@ def run_update_annotated(log: Log, archive: bool = False) -> None:
             log.error(f"  {path.name}: FAILED — {e}")
             if failed_dir:
                 failed_dir.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(str(path), failed_dir / path.name)
-                log(f"  {path.name}: copied to set_inbox/ for re-annotation")
+                dest = failed_dir / path.name
+                if dest.exists():
+                    dest.unlink()
+                shutil.move(str(path), dest)
+                log(f"  {path.name}: moved to set_inbox/ for re-annotation")
             failed += 1
 
     if succeeded:

@@ -101,6 +101,8 @@ export const SET_LISTS: ListDef[] = [
       "GZuIpWgRzgo-set07-collin-sledge",
       "7AgDQxUvq6w-set07-chris-silio",
       "M7RsTBpU5xM-set04-gary-falcon",
+      "7AgDQxUvq6w-set02-tony-pepperoni",
+      "QePXRkrAEoE-set04-dex",
     ],
   },
   {

@@ -1,8 +1,7 @@
 from django.db.models import Exists, F, OuterRef, Prefetch, Q
 
-from api.beat_utils import SEARCHABLE_BEAT_LINE_LABELS
 from api.set_slugs import filter_sets_by_public_slugs
-from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
+from pipeline.models import Beat, Bit, Comedian, Video, Set
 
 
 COMEDIAN_SORT_FIELDS = {
@@ -177,14 +176,7 @@ def build_beat_search_queryset(params):
 
     q = (params.get("q") or "").strip()
     if q:
-        matching_lines = Line.objects.filter(
-            set_id=OuterRef("bit__set_id"),
-            line_number__gte=OuterRef("line_start"),
-            line_number__lte=OuterRef("line_end"),
-            label__in=SEARCHABLE_BEAT_LINE_LABELS,
-            text__icontains=q,
-        )
-        beats = beats.annotate(has_matching_line=Exists(matching_lines)).filter(has_matching_line=True)
+        beats = beats.filter(search_text__icontains=q)
 
     return beats
 

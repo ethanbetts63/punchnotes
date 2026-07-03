@@ -1,6 +1,7 @@
 import pytest
 
 from pipeline.models import Beat, Bit, Comedian, Line, Set, Video
+from pipeline.utils.beat_search import build_beat_search_text
 
 
 pytestmark = pytest.mark.django_db
@@ -13,7 +14,15 @@ def search_data(db):
     video = Video.objects.create(video_id="abc123xyz01", number=700, title="Kill Tony #700", url="https://example.com/kt-700", set_count=1)
     set_obj = Set.objects.create(video=video, comedian=comedian, set_number=1, start_seconds=0, bit_count=1)
     bit = Bit.objects.create(set=set_obj, bit_id="b1", line_start=1, line_end=2)
-    beat = Beat.objects.create(bit=bit, beat_id="beat-1", line_start=1, line_end=3, premise="A clean premise", joke_type="misdirect")
+    lines_data = [
+        {"line_number": 1, "label": "setup", "text": "hello there"},
+        {"line_number": 2, "label": "fluff", "text": "this fluff line should stay ignored"},
+        {"line_number": 3, "label": "punchline", "text": "this line should not make the comedian searchable globally"},
+    ]
+    beat = Beat.objects.create(
+        bit=bit, beat_id="beat-1", line_start=1, line_end=3, premise="A clean premise", joke_type="misdirect",
+        search_text=build_beat_search_text(lines_data, {1, 2, 3}),
+    )
     Line.objects.bulk_create([
         Line(set=set_obj, line_number=1, label="setup", text="hello there", start_seconds=0),
         Line(set=set_obj, line_number=2, label="fluff", text="this fluff line should stay ignored", start_seconds=1),
