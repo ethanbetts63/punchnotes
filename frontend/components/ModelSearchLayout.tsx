@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { Loader2 } from "lucide-react";
 import ListPageHeader from "@/components/ListPageHeader";
 
 type Props = {
@@ -6,10 +7,7 @@ type Props = {
   backHref?: string;
   backLabel?: string;
   searchPlaceholder: string;
-  subtitle: string;
   controls: React.ReactNode;
-  emptyMessage: string;
-  isEmpty: boolean;
   children: React.ReactNode;
 };
 
@@ -17,15 +15,20 @@ export function buildSearchSubtitle(count: number, singular: string, plural: str
   return `${count} ${count === 1 ? singular : plural}${query ? ` matching "${query}"` : ""}`;
 }
 
+function ResultsLoading() {
+  return (
+    <div className="flex items-center justify-center py-24">
+      <Loader2 className="h-8 w-8 animate-spin text-stone-400" />
+    </div>
+  );
+}
+
 export default function ModelSearchLayout({
   title,
   backHref,
   backLabel,
   searchPlaceholder,
-  subtitle,
   controls,
-  emptyMessage,
-  isEmpty,
   children,
 }: Props) {
   return (
@@ -36,19 +39,12 @@ export default function ModelSearchLayout({
             backHref={backHref}
             backLabel={backLabel}
             title={title}
-            subtitle={subtitle}
             searchPlaceholder={searchPlaceholder}
             controls={controls}
           />
         </Suspense>
 
-        {isEmpty ? (
-          <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
-            <p className="text-stone-500">{emptyMessage}</p>
-          </div>
-        ) : (
-          <Suspense>{children}</Suspense>
-        )}
+        <Suspense fallback={<ResultsLoading />}>{children}</Suspense>
       </div>
     </div>
   );

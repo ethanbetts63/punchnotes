@@ -12,8 +12,7 @@ export const metadata = {
 
 type Props = { searchParams: Promise<Record<string, string>> };
 
-export default async function EpisodeSearchPage({ searchParams }: Props) {
-  const sp = await searchParams;
+async function EpisodeResults({ sp }: { sp: Record<string, string> }) {
   const { query, page, queryString } = parseSearchPageParams(sp);
 
   const data = await getServerVideosPaginated(
@@ -22,6 +21,30 @@ export default async function EpisodeSearchPage({ searchParams }: Props) {
   );
 
   const totalPages = Math.max(1, Math.ceil(data.count / EPISODE_SEARCH_CONFIG.pageSize));
+  const subtitle = buildSearchSubtitle(data.count, "episode", "episodes", query);
+
+  if (data.results.length === 0) {
+    return (
+      <>
+        <p className="mb-6 text-stone-500">{subtitle}</p>
+        <div className="rounded-xl border border-stone-200 bg-stone-50 p-12 text-center">
+          <p className="text-stone-500">No episodes found.</p>
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <p className="mb-6 text-stone-500">{subtitle}</p>
+      <EpisodeSearchResults episodes={data.results} />
+      <Paginator page={page} totalPages={totalPages} />
+    </>
+  );
+}
+
+export default async function EpisodeSearchPage({ searchParams }: Props) {
+  const sp = await searchParams;
 
   return (
     <ModelSearchLayout
@@ -29,17 +52,9 @@ export default async function EpisodeSearchPage({ searchParams }: Props) {
       backHref="/killtony/episodes"
       backLabel="Episodes"
       searchPlaceholder="Search episodes..."
-      subtitle={buildSearchSubtitle(data.count, "episode", "episodes", query)}
       controls={<FilterControls config={EPISODE_SEARCH_CONFIG} />}
-      isEmpty={data.results.length === 0}
-      emptyMessage="No episodes found."
     >
-      {data.results.length > 0 && (
-        <>
-          <EpisodeSearchResults episodes={data.results} />
-          <Paginator page={page} totalPages={totalPages} />
-        </>
-      )}
+      <EpisodeResults sp={sp} />
     </ModelSearchLayout>
   );
 }
