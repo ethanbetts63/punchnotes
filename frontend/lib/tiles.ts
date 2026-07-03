@@ -39,27 +39,33 @@ export function formatJokeTileText({
   setup: string;
   limit?: number;
 }): { prefix?: string; highlight: string } {
-  if (punchline.length > limit) {
-    return {
-      highlight: `${punchline.slice(0, limit - 3).trimEnd()}...`,
-    };
+  const setupText = setup.trim();
+  const punchlineText = punchline.trim();
+  const separator = setupText && punchlineText ? " " : "";
+  const full = `${setupText}${separator}${punchlineText}`;
+
+  // Whole joke fits — show the setup plain and bold only the punchline.
+  if (full.length <= limit) {
+    return { prefix: setupText ? `${setupText}${separator}` : undefined, highlight: punchlineText };
   }
 
-  const remaining = limit - punchline.length - 1;
-  if (setup && remaining > 4) {
-    const tailBudget = remaining - 3;
-    const rawTail = setup.slice(-tailBudget);
-    const wordBoundary = rawTail.length < setup.length ? rawTail.indexOf(" ") : -1;
-    const setupTail = (wordBoundary === -1 ? rawTail : rawTail.slice(wordBoundary)).trimStart();
-    if (setupTail) {
-      return {
-        prefix: `...${setupTail} `,
-        highlight: punchline,
-      };
-    }
+  // Read from the start of the setup as far as there's room, cutting at a
+  // word boundary rather than mid-word.
+  let cut = limit - 3;
+  const boundary = full.lastIndexOf(" ", cut);
+  if (boundary > 0) cut = boundary;
+  const truncated = full.slice(0, cut).trimEnd();
+
+  const setupSpan = setupText.length + separator.length;
+  if (cut <= setupText.length) {
+    // Truncated before ever reaching the punchline.
+    return { prefix: `${truncated}...`, highlight: "" };
   }
 
-  return { highlight: punchline };
+  return {
+    prefix: full.slice(0, setupSpan) || undefined,
+    highlight: `${truncated.slice(setupSpan)}...`,
+  };
 }
 
 function fmtCount(count: number, singular: string, plural = `${singular}s`): string {
