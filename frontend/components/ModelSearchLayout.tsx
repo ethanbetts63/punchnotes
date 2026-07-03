@@ -1,6 +1,7 @@
 import { Suspense } from "react";
-import { Loader2 } from "lucide-react";
 import ListPageHeader from "@/components/ListPageHeader";
+import { SearchTransitionProvider } from "@/components/SearchTransition";
+import SearchResults, { ResultsLoading } from "@/components/SearchResults";
 
 type Props = {
   title: string;
@@ -15,14 +16,6 @@ export function buildSearchSubtitle(count: number, singular: string, plural: str
   return `${count} ${count === 1 ? singular : plural}${query ? ` matching "${query}"` : ""}`;
 }
 
-function ResultsLoading() {
-  return (
-    <div className="flex items-center justify-center py-24">
-      <Loader2 className="h-8 w-8 animate-spin text-stone-400" />
-    </div>
-  );
-}
-
 export default function ModelSearchLayout({
   title,
   backHref,
@@ -34,17 +27,21 @@ export default function ModelSearchLayout({
   return (
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-        <Suspense>
-          <ListPageHeader
-            backHref={backHref}
-            backLabel={backLabel}
-            title={title}
-            searchPlaceholder={searchPlaceholder}
-            controls={controls}
-          />
-        </Suspense>
+        <SearchTransitionProvider>
+          <Suspense>
+            <ListPageHeader
+              backHref={backHref}
+              backLabel={backLabel}
+              title={title}
+              searchPlaceholder={searchPlaceholder}
+              controls={controls}
+            />
+          </Suspense>
 
-        <Suspense fallback={<ResultsLoading />}>{children}</Suspense>
+          <Suspense fallback={<ResultsLoading />}>
+            <SearchResults>{children}</SearchResults>
+          </Suspense>
+        </SearchTransitionProvider>
       </div>
     </div>
   );

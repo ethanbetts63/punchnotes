@@ -20,19 +20,21 @@ export default function KillTonyOverview({
               Kill Tony is the world&rsquo;s biggest live comedy podcast, hosted by
               Tony Hinchcliffe alongside co-host and producer Brian Redban. The
               format is simple and brutal: aspiring comedians drop their name in a
-              bucket, get pulled at random, and perform exactly one minute of
-              stand-up before the red light hits. Then they face the panel &mdash;
-              Tony, Redban, the house band, and a rotating cast of guest comics
+              bucket, get pulled at random, and perform roughly one minute of
+              stand-up comedy. Then they face the panel &mdash;
+              Tony, Redban and a rotating cast of guest comics
               &mdash; for an interview that&rsquo;s often funnier than the set
               itself. Since its 2013 debut as a Deathsquad pilot at the Comedy
               Store in Los Angeles, the show has turned open-mic unknowns into
-              breakout regulars.
+              breakout regulars. The highs are incredibly high, the lows are devastatingly 
+              low, and we wouldn't want it any other way.
             </p>
             <p>
-              The show moved to Austin in 2021 and now tapes weekly out of the
+              The show began in 2013 at the Comedy Store in Los Angeles its since 
+              moved to Austin in 2021 and now tapes weekly out of the
               Comedy Mothership, but it&rsquo;s the live spectacle that made it a
-              phenomenon &mdash; selling out Madison Square Garden in 2024 (24,000+
-              tickets), landing a run of Netflix specials, and building a devoted
+              phenomenon &mdash; selling out Madison Square Garden in 2024, 
+              landing a run of Netflix specials, and building a devoted
               community around its regulars, running bits, and golden-ticket
               moments. PunchNotes is a fan-made archive that breaks it all down:
               every set, comedian, and joke, searchable and annotated.

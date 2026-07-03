@@ -2,12 +2,14 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { useSearchTransition } from "@/components/SearchTransition";
 
 type Props = { placeholder: string; searchPath?: string };
 
 export default function ListPageSearchBar({ placeholder, searchPath }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { navigate: startNavigate } = useSearchTransition();
   const urlQuery = searchParams.get("q") ?? "";
   const [value, setValue] = useState(urlQuery);
 
@@ -16,7 +18,7 @@ export default function ListPageSearchBar({ placeholder, searchPath }: Props) {
       const params = new URLSearchParams();
       if (query.trim()) params.set("q", query.trim());
       const qs = params.toString();
-      router.push(`${searchPath}${qs ? `?${qs}` : ""}`);
+      startNavigate(() => router.push(`${searchPath}${qs ? `?${qs}` : ""}`));
       return;
     }
 
@@ -24,7 +26,7 @@ export default function ListPageSearchBar({ placeholder, searchPath }: Props) {
     if (query.trim()) params.set("q", query.trim());
     else params.delete("q");
     const qs = params.toString();
-    router.push(`${window.location.pathname}${qs ? `?${qs}` : ""}`);
+    startNavigate(() => router.push(`${window.location.pathname}${qs ? `?${qs}` : ""}`));
   }
 
   return (

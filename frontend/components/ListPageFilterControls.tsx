@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchTransition } from "@/components/SearchTransition";
 
 type FilterParams = Record<string, string>;
 
@@ -17,6 +18,7 @@ type UseListPageFilterRouterOptions = {
 export function useListPageFilterRouter({ searchPath, trackedParams }: UseListPageFilterRouterOptions) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { navigate } = useSearchTransition();
 
   function getParam(name: string, fallback = ""): string {
     return searchParams.get(name) ?? fallback;
@@ -38,7 +40,7 @@ export function useListPageFilterRouter({ searchPath, trackedParams }: UseListPa
     }
 
     const qs = params.toString();
-    router.push(`${searchPath}${qs ? `?${qs}` : ""}`);
+    navigate(() => router.push(`${searchPath}${qs ? `?${qs}` : ""}`));
   }
 
   return { getParam, push };
