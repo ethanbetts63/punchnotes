@@ -29,9 +29,8 @@ export default function KillTonyOverview({
               breakout regulars. The highs are incredibly high, the lows are devastatingly 
               low, and we wouldn't want it any other way.
             </p>
-            <p>
-              The show began in 2013 at the Comedy Store in Los Angeles its since 
-              moved to Austin in 2021 and now tapes weekly out of the
+            <p>   
+              In 2021 the show moved to Austin and now tapes weekly out of the
               Comedy Mothership, but it&rsquo;s the live spectacle that made it a
               phenomenon &mdash; selling out Madison Square Garden in 2024, 
               landing a run of Netflix specials, and building a devoted
