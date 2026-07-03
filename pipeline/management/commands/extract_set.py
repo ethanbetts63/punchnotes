@@ -166,7 +166,6 @@ class Command(BaseCommand):
                     "line_number": line_number,
                     "text": text,
                     "start": line["start"],
-                    "label": "",
                 }
             )
 
