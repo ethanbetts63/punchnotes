@@ -1,6 +1,7 @@
 from django.db.models import Exists, F, OuterRef, Prefetch, Q
 
 from api.beat_utils import SEARCHABLE_BEAT_LINE_LABELS
+from api.set_slugs import filter_sets_by_public_slugs
 from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
 
 
@@ -104,7 +105,7 @@ def build_set_list_queryset(params):
     slugs_raw = (params.get("slugs") or "").strip()
     if slugs_raw:
         slugs = [s.strip() for s in slugs_raw.split(",") if s.strip()]
-        sets = sets.filter(slug__in=slugs)
+        sets = filter_sets_by_public_slugs(sets, slugs)
 
     q = (params.get("q") or "").strip()
     if q:
