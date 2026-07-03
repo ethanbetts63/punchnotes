@@ -34,7 +34,6 @@ export async function generateMetadata({ params }: Props) {
     title: `Kill Tony #${episode.number}${guests.length > 0 ? ` with ${guestLabel}` : ""} | PunchNotes`,
     description: `${descriptionParts.join(", ")}. Browse PunchNotes set metrics, comedians, timestamps, and joke book flags for this episode.`,
     alternates: { canonical: `${SITE_URL}/killtony/episodes/${episode.slug}` },
-    robots: { index: false, follow: true },
   };
 }
 
