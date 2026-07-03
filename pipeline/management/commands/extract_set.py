@@ -21,6 +21,11 @@ def set_filename(episode_title: str, comedian_name: str, start_seconds: int | No
 
 JOKE_BOOK_MAP = {"small": "small_joke_book", "medium": "medium_joke_book", "large": "large_joke_book"}
 
+# Comedians confirmed (manually) to legitimately appear more than once in the same
+# episode. Everyone else colliding on the same episode+comedian filename is treated
+# as a duplicate extraction, not a second real appearance.
+MULTI_SET_ALLOWED_COMEDIANS = {"Drew Nickens"}
+
 
 def dump_set(doc):
     """Pretty-print set metadata with one compact JSON object per line."""
@@ -213,6 +218,12 @@ class Command(BaseCommand):
         output_name = set_filename(transcript["episode_title"], comedian_name)
         output_path = output_dir / output_name
         if output_path.exists():
+            if comedian_name not in MULTI_SET_ALLOWED_COMEDIANS:
+                raise CommandError(
+                    f"{output_name} already exists in set_inbox — this set has already been "
+                    "extracted (likely by another agent or an earlier pass over this transcript). "
+                    "Skip it and move on to the next set."
+                )
             output_name = set_filename(transcript["episode_title"], comedian_name, selected_lines[0]["start"])
             output_path = output_dir / output_name
 

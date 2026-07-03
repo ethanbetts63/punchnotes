@@ -32,7 +32,7 @@ export default function MediaTile({ item }: { item: TileData }) {
             </span>
           )}
         </div>
-        {(item.bodyHighlight || item.body) && (
+        {(item.bodyPrefix || item.bodyHighlight || item.body) && (
           <p className="mt-5 text-base leading-snug text-stone-700">
             &ldquo;
             {item.bodyQuery ? (
