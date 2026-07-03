@@ -4,8 +4,7 @@ import FilterControls from "@/components/FilterControls";
 import Paginator from "@/components/Paginator";
 import { JOKES_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import { parseSearchPageParams } from "@/lib/searchParams";
-import { jokeToTile } from "@/lib/tiles";
-import MediaTile from "@/components/MediaTile";
+import JokeSearchResultCard from "@/components/JokeSearchResultCard";
 
 export const metadata = {
   title: "Search Jokes - Kill Tony | PunchNotes",
@@ -39,9 +38,9 @@ export default async function JokeSearchPage({ searchParams }: Props) {
     >
       {data.results.length > 0 && (
         <>
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
+          <div className="flex flex-col gap-3">
             {data.results.map((beat) => (
-              <MediaTile key={beat.id} item={jokeToTile(beat, query)} />
+              <JokeSearchResultCard key={beat.id} item={beat} query={query} />
             ))}
           </div>
           <Paginator page={page} totalPages={totalPages} />

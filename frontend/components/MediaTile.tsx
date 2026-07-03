@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { TileData } from "@/lib/tiles";
 
-function HighlightBody({ text, query }: { text: string; query: string }) {
+export function HighlightBody({ text, query }: { text: string; query: string }) {
   const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const parts = text.split(new RegExp(`(${escaped})`, "ig"));
   return (
