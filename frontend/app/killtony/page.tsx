@@ -60,11 +60,11 @@ export default async function KillTonyPage() {
       <KillTonyHero />
 
       <section className="border-b border-stone-200 bg-white px-4 py-8">
-        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
-          <div className="lg:col-span-1">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 lg:grid-cols-3">
+          <div className="min-w-0 lg:col-span-1">
             <HowItWorksPanel />
           </div>
-          <div className="lg:col-span-2">
+          <div className="min-w-0 lg:col-span-2">
             {featuredBeatEntries.length > 0 && (
               <BeatOfTheWeek
                 set={featuredBeatEntries[0].set}
