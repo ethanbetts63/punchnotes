@@ -90,6 +90,20 @@ export const COMEDIAN_LISTS: ListDef[] = [
 
 export const SET_LISTS: ListDef[] = [
   {
+    id: "must-watch-sets",
+    title: "Must Watch Sets",
+    description: "Sets you can't afford to skip.",
+    slugs: [
+      "mAaNTFHDovs-set09-ari-matti",
+      "11FD8eVzsfk-set01-casey-rocket",
+      "1upKa86_uKU-set06-pat-o-neill",
+      "ezuyuoP5OI8-set06-kansei-yasuda",
+      "GZuIpWgRzgo-set07-collin-sledge",
+      "7AgDQxUvq6w-set07-chris-silio",
+      "M7RsTBpU5xM-set04-gary-falcon",
+    ],
+  },
+  {
     id: "stand-out-regular-sets",
     title: "Stand Out Regular Sets",
     description: "Standout sets from Kill Tony regulars.",
