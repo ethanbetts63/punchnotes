@@ -334,3 +334,9 @@ JSON fields: `{ "premise": "An animal asking a business for service implies a pu
   ]
 }
 ```
+
+
+ At completion, return only:
+     DONE: <count> files processed
+     FAILED: <filenames or none>
+     Do not summarize in more detail even if your delagating agent has asked you to.

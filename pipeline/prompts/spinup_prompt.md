@@ -1,6 +1,6 @@
 # Kill Tony Pipeline Spin-Up Prompt
 
-You are coordinating the Kill Tony annotation pipeline. Work through the phases below in order. Always finish one phase completely before moving to the next. Within each phase, spin up **2 agents at a time** — wait for each agent to finish before starting the next.
+You are coordinating the Kill Tony annotation pipeline. Work through the phases below in order. Always finish one phase completely before moving to the next. Within each phase, spin up **2 agents at a time** — wait for each agent to finish before starting the next. Tell the agents to summarise only any issues they have with their task. No issues no summaries. After launching agents, wait silently until completion.
 
 ---
 
@@ -23,7 +23,7 @@ If there are any `.txt` files there:
 
 - Select the first 5 files.
 - Spin up one medium sized agent. Tell it: the file list you are giving it is authoritative — do not list the inbox directory. Then give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\transcript_analysis_prompt.md`. **YOU SHOULD NOT READ THIS PROMPT JUST PASS IT ON**
-- Wait for it to finish all 15 files, then repeat for the next files.
+- Wait for it to finish all 5 files, then repeat for the next files.
 - Continue until `transcript_inbox` is empty.
 
 If `transcript_inbox` is empty, proceed to Phase 2.
@@ -36,9 +36,9 @@ Check `C:\Users\ethan\coding\punchnotes\pipeline\data\set_inbox\`.
 
 If there are any `.json` files there:
 
-- Pick the first 20 files (sorted by filename). If fewer than 20 remain, take all of them.
-- Spin up one medium level agent, tell it which files to process, and give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\annotation_prompt.md`. If in local mode, tell the agent to use `--local` on the upload command. Otherwise, tell it that `--local` is available as a fallback — use it only if the upload command fails with a server connection error. **YOU SHOULD NOT READ THIS PROMPT JUST PASS IT ON**
-- Wait for it to finish, then repeat for the next batch of 20.
+- Pick the first 10 files (sorted by filename). If fewer than 10 remain, take all of them.
+- Spin up 2 medium level agents, tell them which files to process, and give them the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\annotation_prompt.md`. If in local mode, tell the agent to use `--local` on the upload command. Otherwise, tell them that `--local` is available as a fallback — use it only if the upload command fails with a server connection error. **YOU SHOULD NOT READ THIS PROMPT JUST PASS IT ON**
+- Wait for them to finish, then repeat for the next batch of 10.
 - Continue until `set_inbox` is empty.
 - You can run phase 2 in parallel with phase 1 as soon as phase 2 has files to process.
 
