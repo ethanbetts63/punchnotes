@@ -42,8 +42,8 @@ function BrowseButton({
 
 export default function KillTonyHero() {
   const content = (
-    <div className="max-w-[520px] text-center md:text-left">
-      <div className="mb-4 flex items-center justify-center gap-3 md:justify-start">
+    <div className="max-w-[520px] text-center lg:text-left">
+      <div className="mb-4 flex items-center justify-center gap-3 lg:justify-start">
         <span className="inline-block h-px w-8 bg-primary/60" />
         <span className="text-xs font-bold uppercase tracking-[0.24em] text-primary">
           Made by fans. Free to use.
@@ -91,7 +91,7 @@ export default function KillTonyHero() {
 
   return (
     <section className="w-full border-b border-white/10 bg-black">
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <div className="relative h-[320px] overflow-hidden">
           <Image
             src="/killtony/home-hosts-image.jpg"
@@ -109,7 +109,7 @@ export default function KillTonyHero() {
         </div>
       </div>
 
-      <div className="relative hidden overflow-hidden md:flex" style={{ minHeight: "clamp(580px, 86vh, 840px)" }}>
+      <div className="relative hidden overflow-hidden lg:flex" style={{ minHeight: "clamp(580px, 86vh, 840px)" }}>
         <div className="relative flex w-1/2 items-center justify-center overflow-hidden px-10 py-16 lg:px-20">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(200,30,30,0.20),transparent_45%),linear-gradient(180deg,#080b13_0%,#0d1018_100%)]" />
           <div className="absolute inset-y-10 right-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent" />

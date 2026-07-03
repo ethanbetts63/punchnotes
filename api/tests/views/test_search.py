@@ -66,10 +66,12 @@ def test_beat_endpoint_returns_matched_line(client, search_data):
     resp = client.get("/api/killtony/jokes/", {"q": "hello"})
     assert resp.status_code == 200
     payload = resp.json()
-    assert len(payload) == 1
-    assert payload[0]["id"] == search_data["beat"].id
-    assert payload[0]["matched_line"] == "hello there"
-    assert payload[0]["matched_line_label"] == "setup"
+    assert payload["count"] == 1
+    results = payload["results"]
+    assert len(results) == 1
+    assert results[0]["id"] == search_data["beat"].id
+    assert results[0]["matched_line"] == "hello there"
+    assert results[0]["matched_line_label"] == "setup"
 
 
 # --- NavSearchView ---

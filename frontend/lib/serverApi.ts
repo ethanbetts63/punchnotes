@@ -91,9 +91,8 @@ export async function getServerComediansPaginated(params: string, pageSize: numb
   return paginate(payload, params, pageSize);
 }
 
-export async function getServerBeatsPaginated(params: string, pageSize: number) {
-  const payload = await serverFetch<BeatSearchItem[]>(`/api/killtony/jokes/?${params}`);
-  return paginate(payload, params, pageSize);
+export async function getServerBeatsPaginated(params: string) {
+  return serverFetch<PaginatedResponse<BeatSearchItem>>(`/api/killtony/jokes/?${params}`);
 }
 
 // --- types (minimal, expand as backend solidifies) ---

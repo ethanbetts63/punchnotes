@@ -15,10 +15,7 @@ type Props = { searchParams: Promise<Record<string, string>> };
 async function JokeResults({ sp }: { sp: Record<string, string> }) {
   const { query, page, queryString } = parseSearchPageParams(sp);
 
-  const data = await getServerBeatsPaginated(
-    queryString,
-    JOKES_SEARCH_CONFIG.pageSize,
-  );
+  const data = await getServerBeatsPaginated(queryString);
 
   const totalPages = Math.max(1, Math.ceil(data.count / JOKES_SEARCH_CONFIG.pageSize));
   const baseSubtitle = buildSearchSubtitle(data.count, "joke", "jokes", query);

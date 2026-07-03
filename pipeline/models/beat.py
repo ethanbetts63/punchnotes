@@ -19,7 +19,7 @@ class Beat(models.Model):
     line_start = models.PositiveSmallIntegerField()
     line_end = models.PositiveSmallIntegerField()
     premise = models.TextField(null=True, blank=True)
-    joke_type = models.CharField(max_length=30, choices=JOKE_TYPE_CHOICES, null=True, blank=True)
+    joke_type = models.CharField(max_length=30, choices=JOKE_TYPE_CHOICES, null=True, blank=True, db_index=True)
     joke_fields = models.JSONField(default=dict)
     # Denormalised join of this beat's setup/punchline/tag line text (fluff excluded),
     # kept in sync by import_bits. Search matches against this instead of individual
