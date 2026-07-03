@@ -47,7 +47,10 @@ export function formatJokeTileText({
 
   const remaining = limit - punchline.length - 1;
   if (setup && remaining > 4) {
-    const setupTail = setup.slice(-(remaining - 3)).trimStart();
+    const tailBudget = remaining - 3;
+    const rawTail = setup.slice(-tailBudget);
+    const wordBoundary = rawTail.length < setup.length ? rawTail.indexOf(" ") : -1;
+    const setupTail = (wordBoundary === -1 ? rawTail : rawTail.slice(wordBoundary)).trimStart();
     if (setupTail) {
       return {
         prefix: `...${setupTail} `,
@@ -134,7 +137,7 @@ export function jokeToTile(joke: BeatSearchItem, query?: string): TileData {
   }
 
   const punchline = joke.punchline || joke.matched_line || joke.premise;
-  const setup = joke.setup_lines.slice(0, 2).join(" ");
+  const setup = joke.setup_lines.join(" ");
   const text = formatJokeTileText({ punchline, setup, limit: 115 });
   return { ...base, bodyHighlight: text.highlight, bodyPrefix: text.prefix };
 }

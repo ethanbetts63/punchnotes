@@ -3,29 +3,39 @@ import Link from "next/link";
 import { Mic2, Search, Tv } from "lucide-react";
 import type { ReactNode } from "react";
 
-function FeaturePill({
+function BrowseButton({
   icon,
   title,
   detail,
   href,
+  variant = "outline",
 }: {
   icon: ReactNode;
   title: string;
   detail: string;
   href: string;
+  variant?: "solid" | "outline";
 }) {
+  const variantClass =
+    variant === "solid"
+      ? "bg-primary hover:bg-primary/90"
+      : "border border-white/10 bg-white/5 hover:bg-white/10";
+  const iconWrapClass = variant === "solid" ? "bg-black/20" : "bg-white/10";
+
   return (
     <Link
       href={href}
-      className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-sm transition-transform hover:scale-[1.02] hover:bg-white/10"
+      className={`flex items-center gap-3 rounded-2xl px-5 py-4 font-semibold text-white backdrop-blur-sm transition-transform hover:scale-[1.02] ${variantClass}`}
     >
-      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/20 text-primary">
+      <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${iconWrapClass}`}>
         {icon}
-      </div>
-      <div>
-        <p className="text-sm font-semibold text-white">{title}</p>
-        <p className="text-xs text-stone-300">{detail}</p>
-      </div>
+      </span>
+      <span className="text-left">
+        <span className="block text-base leading-tight sm:text-sm">{title}</span>
+        <span className="hidden text-xs font-normal text-white/80 sm:block">
+          {detail}
+        </span>
+      </span>
     </Link>
   );
 }
@@ -49,48 +59,29 @@ export default function KillTonyHero() {
         Browse curated Kill Tony playlists or deepdive the archive to search your favorite sets, comedians, and jokes.
       </p>
 
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
-        <Link
+      <div className="mt-8 grid grid-cols-2 gap-3">
+        <BrowseButton
+          icon={<Tv className="h-5 w-5" />}
+          title="Browse Episodes"
+          detail="Fan made playlists and search."
           href="/killtony/episodes"
-          className="flex items-center gap-3 rounded-2xl bg-primary px-5 py-4 font-semibold text-white transition-transform hover:scale-[1.02] hover:bg-primary/90"
-        >
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-black/20">
-            <Tv className="h-5 w-5" />
-          </span>
-          <span className="text-left">
-            <span className="block text-sm leading-tight">Browse Episodes</span>
-            <span className="block text-xs font-normal text-white/80">
-              Fan made playlists and search.
-            </span>
-          </span>
-        </Link>
-
-        <Link
+          variant="solid"
+        />
+        <BrowseButton
+          icon={<Search className="h-5 w-5" />}
+          title="Browse Jokes"
+          detail="Set transcripts, seachable and annotated."
           href="/killtony/jokes"
-          className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-semibold text-white backdrop-blur-sm transition-transform hover:scale-[1.02] hover:bg-white/10"
-        >
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">
-            <Search className="h-5 w-5" />
-          </span>
-          <span className="text-left">
-            <span className="block text-sm leading-tight">Browse Jokes</span>
-            <span className="block text-xs font-normal text-stone-300">
-              Set transcripts, seachable and annotated.
-            </span>
-          </span>
-        </Link>
-      </div>
-
-      <div className="mt-8 grid gap-3 sm:grid-cols-2">
-        <FeaturePill
+        />
+        <BrowseButton
           icon={<Mic2 className="h-5 w-5" />}
-          title="Browse comedians"
+          title="Browse Comedians"
           detail="Track regulars, bucket pulls, and standout appearances."
           href="/killtony/comedians"
         />
-        <FeaturePill
+        <BrowseButton
           icon={<Search className="h-5 w-5" />}
-          title="Browse sets"
+          title="Browse Sets"
           detail="Jump straight into individual performances."
           href="/killtony/sets"
         />
