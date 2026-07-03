@@ -4,8 +4,12 @@ import HowItWorksPanel from "@/components/HowItWorksPanel";
 import KillTonyHero from "@/components/KillTonyHero";
 import ComedianPlaylists from "@/components/ComedianPlaylists";
 import VideoPlaylists from "@/components/VideoPlaylists";
+import KillTonyOverview from "@/components/KillTonyOverview";
 import { getFeaturedBeatEntries } from "@/lib/featuredBeats";
-import { getServerComedians, getServerVideos } from "@/lib/serverApi";
+import { getServerComedians, getServerVideo, getServerVideos } from "@/lib/serverApi";
+
+const FEATURED_EPISODE_SLUG =
+  "kill-tony-578-dave-attell-greg-fitzsimmons-ian-fidance--M7RsTBpU5xM";
 import { buildWebSiteSchema } from "@/lib/seo";
 
 function SectionHeader({
@@ -44,11 +48,13 @@ export const metadata = {
 };
 
 export default async function KillTonyPage() {
-  const [episodes, comedians, featuredBeatEntries] = await Promise.all([
-    getServerVideos(),
-    getServerComedians(),
-    getFeaturedBeatEntries(),
-  ]);
+  const [episodes, comedians, featuredBeatEntries, featuredEpisode] =
+    await Promise.all([
+      getServerVideos(),
+      getServerComedians(),
+      getFeaturedBeatEntries(),
+      getServerVideo(FEATURED_EPISODE_SLUG),
+    ]);
 
   return (
     <>
@@ -104,6 +110,8 @@ export default async function KillTonyPage() {
           </div>
         </section>
       )}
+
+      <KillTonyOverview featuredEpisode={featuredEpisode} />
     </div>
     </>
   );
