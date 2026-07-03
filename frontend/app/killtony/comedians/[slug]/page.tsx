@@ -31,6 +31,8 @@ export default async function ComedianDetailPage({ params }: Props) {
     (a, b) => b.video.number - a.video.number
   );
   const introSummary = getComedianIntroSummary(comedian);
+  const hideJokeBookAttributes =
+    comedian.attributes.includes("golden_ticket") || comedian.attributes.includes("regular");
 
   return (
     <div className="bg-white min-h-screen">
@@ -68,17 +70,17 @@ export default async function ComedianDetailPage({ params }: Props) {
                       {ATTRIBUTE_LABELS[attr]}
                     </span>
                   ))}
-                {comedian.has_small_joke_book && (
+                {!hideJokeBookAttributes && comedian.has_small_joke_book && (
                   <span className="rounded-full px-2.5 py-0.5 text-xs font-medium bg-stone-100 text-stone-500">
                     Small Joke Book
                   </span>
                 )}
-                {comedian.has_medium_joke_book && (
+                {!hideJokeBookAttributes && comedian.has_medium_joke_book && (
                   <span className="rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100 text-amber-700">
                     Medium Joke Book
                   </span>
                 )}
-                {comedian.has_large_joke_book && (
+                {!hideJokeBookAttributes && comedian.has_large_joke_book && (
                   <span className="rounded-full px-2.5 py-0.5 text-xs font-medium bg-red-100 text-primary">
                     Big Joke Book
                   </span>
