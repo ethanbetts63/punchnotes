@@ -1,5 +1,6 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
-import { getServerComedian } from "@/lib/serverApi";
+import { getServerComedian, getServerComedians } from "@/lib/serverApi";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ComedianImage from "@/components/ComedianImage";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
@@ -9,6 +10,11 @@ import { SITE_URL } from "@/lib/seo";
 import ComedianSetList from "./ComedianSetList";
 
 type Props = { params: Promise<{ slug: string }> };
+
+export async function generateStaticParams() {
+  const comedians = await getServerComedians();
+  return (comedians ?? []).map((comedian) => ({ slug: comedian.slug }));
+}
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
@@ -117,7 +123,9 @@ export default async function ComedianDetailPage({ params }: Props) {
             <p className="text-stone-500">No sets indexed yet.</p>
           </div>
         ) : (
-          <ComedianSetList sets={sets} />
+          <Suspense>
+            <ComedianSetList sets={sets} />
+          </Suspense>
         )}
       </div>
     </div>

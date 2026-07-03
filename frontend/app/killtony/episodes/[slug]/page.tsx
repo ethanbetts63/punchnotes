@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getServerVideo } from "@/lib/serverApi";
+import { getServerVideo, getServerVideos } from "@/lib/serverApi";
 import type { SetInVideo } from "@/lib/serverApi";
 import { fmt2, fmtSeconds, fmtDuration, fmtCompact, fmtDate, getEpisodeGuests, getEpisodeGuestLabel, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import { formatAttributeLabels } from "@/lib/attributes";
@@ -9,6 +9,11 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { SITE_URL, buildBreadcrumbSchema } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
+
+export async function generateStaticParams() {
+  const episodes = await getServerVideos();
+  return (episodes ?? []).map((episode) => ({ slug: episode.slug }));
+}
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
