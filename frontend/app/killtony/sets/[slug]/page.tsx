@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getServerSet, getServerSets } from "@/lib/serverApi";
+import { getServerSet } from "@/lib/serverApi";
 import SetTranscript from "@/components/SetTranscript";
 import SetImage from "@/components/SetImage";
 import VideoEmbed from "@/components/VideoEmbed";
@@ -14,11 +14,6 @@ import { SITE_URL } from "@/lib/seo";
 type Props = {
   params: Promise<{ slug: string }>;
 };
-
-export async function generateStaticParams() {
-  const sets = await getServerSets();
-  return (sets ?? []).map((set) => ({ slug: set.slug }));
-}
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
