@@ -99,6 +99,7 @@ export default function KillTonyHero() {
             fill
             sizes="100vw"
             priority
+            fetchPriority="high"
             className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,11,24,0.08),rgba(7,11,24,0.82)_70%,rgba(0,0,0,0.95))]" />
@@ -123,6 +124,7 @@ export default function KillTonyHero() {
             fill
             sizes="(min-width: 1280px) 58vw, 50vw"
             priority
+            fetchPriority="high"
             className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,11,19,0.08),rgba(8,11,19,0.24)_40%,rgba(8,11,19,0.54)_100%)]" />
