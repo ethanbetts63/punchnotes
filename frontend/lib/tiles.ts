@@ -74,10 +74,11 @@ function fmtCount(count: number, singular: string, plural = `${singular}s`): str
 
 function fmtCompactDate(date: string | null): string {
   if (!date) return "";
-  const d = new Date(date);
-  const day = String(d.getDate()).padStart(2, "0");
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  const year = String(d.getFullYear()).slice(-2);
+  const [yearRaw, monthRaw, dayRaw] = date.split("-");
+  if (!yearRaw || !monthRaw || !dayRaw) return "";
+  const day = dayRaw.padStart(2, "0");
+  const month = monthRaw.padStart(2, "0");
+  const year = yearRaw.slice(-2);
   return `${day}/${month}/${year}`;
 }
 

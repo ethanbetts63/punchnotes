@@ -81,7 +81,7 @@ export default function HowItWorksPanel() {
           <span className="text-sm font-bold tracking-[0.24em] text-white/45">{step.level}</span>
         </div>
 
-        <h4 className="mt-5 text-xl font-bold tracking-tight text-white">{step.title}</h4>
+        <h3 className="mt-5 text-xl font-bold tracking-tight text-white">{step.title}</h3>
         <p className="mt-3 text-sm leading-relaxed text-stone-300">{step.description}</p>
 
         <div className="mt-6 flex items-center justify-end">

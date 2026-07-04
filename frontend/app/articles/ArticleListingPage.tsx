@@ -10,6 +10,7 @@ export default function ArticleListingPage({ articles }: Props) {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
+    timeZone: 'UTC',
   });
 
   return (

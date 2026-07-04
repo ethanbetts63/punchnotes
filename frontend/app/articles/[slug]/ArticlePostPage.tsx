@@ -13,6 +13,7 @@ export default function ArticlePostPage({ article, faqs }: Props) {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
+    timeZone: 'UTC',
   }).format(new Date(`${article.publishedDate}T00:00:00+00:00`));
 
   return (
