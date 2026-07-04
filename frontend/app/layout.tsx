@@ -15,6 +15,16 @@ const barlow = Barlow_Condensed({
 export const metadata: Metadata = {
   title: "PunchNotes — Comedy Analytics",
   description: "Structured analysis of stand-up comedy. Explore Kill Tony sets, comedians, and jokes broken down by premise, mechanism, and audience response.",
+  icons: {
+    icon: [
+      { url: '/punchnotes_logo_48x48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/punchnotes_logo_96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/punchnotes_logo_192x192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/punchnotes_logo_180x180.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -10,7 +10,7 @@ import { getServerComedians, getServerVideo, getServerVideos } from "@/lib/serve
 
 const FEATURED_EPISODE_SLUG =
   "kill-tony-578-dave-attell-greg-fitzsimmons-ian-fidance--M7RsTBpU5xM";
-import { buildWebSiteSchema } from "@/lib/seo";
+import { buildOrganizationSchema, buildWebSiteSchema } from "@/lib/seo";
 
 function SectionHeader({
   title,
@@ -60,7 +60,9 @@ export default async function KillTonyPage() {
     <>
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(buildWebSiteSchema()) }}
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify([buildOrganizationSchema(), buildWebSiteSchema()]),
+      }}
     />
     <div className="bg-white">
       <KillTonyHero />

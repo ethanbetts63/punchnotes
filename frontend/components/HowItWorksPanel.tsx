@@ -42,13 +42,14 @@ const slideShow = [
 export default function HowItWorksPanel() {
   return (
     <aside className="rounded-none border border-white/10 bg-[linear-gradient(180deg,#0b1020_0%,#171d2c_100%)] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.16)] lg:rounded-2xl">
-      {steps.map((_, i) => (
+      {steps.map((step, i) => (
         <input
           key={i}
           type="radio"
           name="how-it-works-step"
           id={`how-it-works-${i}`}
           defaultChecked={i === 0}
+          aria-label={`Show step ${i + 1}: ${step.title}`}
           className={`hidden ${peerName[i]}`}
         />
       ))}

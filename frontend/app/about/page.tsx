@@ -79,9 +79,7 @@ const aboutSchema = {
     { name: 'About', item: `${SITE_URL}/about` },
   ]),
   publisher: {
-    '@type': 'Organization',
-    name: SITE_NAME,
-    url: SITE_URL,
+    '@id': `${SITE_URL}/#organization`,
   },
 };
 

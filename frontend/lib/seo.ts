@@ -3,6 +3,14 @@ import type { FaqItem } from '@/types/FaqItem';
 
 export const SITE_URL = 'https://www.punchnotes.app';
 export const SITE_NAME = 'PunchNotes';
+export const SITE_LOGO_URL = `${SITE_URL}/punchnotes_logo_512x512.png`;
+
+const SITE_LOGO_IMAGE_OBJECT = {
+  '@type': 'ImageObject',
+  url: SITE_LOGO_URL,
+  width: 512,
+  height: 512,
+};
 
 interface MetadataOptions {
   title: string;
@@ -63,9 +71,7 @@ export function buildArticleSchema(options: {
       url: SITE_URL,
     },
     publisher: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: SITE_URL,
+      '@id': `${SITE_URL}/#organization`,
     },
     isPartOf: {
       '@type': 'Blog',
@@ -83,6 +89,18 @@ export function buildArticleSchema(options: {
   };
 }
 
+export function buildOrganizationSchema(): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    image: SITE_LOGO_IMAGE_OBJECT,
+    logo: SITE_LOGO_IMAGE_OBJECT,
+  };
+}
+
 export function buildWebSiteSchema(): object {
   return {
     '@context': 'https://schema.org',
@@ -91,6 +109,9 @@ export function buildWebSiteSchema(): object {
     url: SITE_URL,
     description:
       'Structured analysis of stand-up comedy. Explore Kill Tony sets, comedians, and jokes broken down by premise, mechanism, and audience response.',
+    publisher: {
+      '@id': `${SITE_URL}/#organization`,
+    },
     potentialAction: {
       '@type': 'SearchAction',
       target: {
