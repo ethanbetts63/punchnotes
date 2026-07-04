@@ -27,12 +27,13 @@ type Props = {
   title: string;
   description?: string;
   href?: string;
+  linkText?: string;
   items: TileData[];
   accentClass?: string;
   tileClass?: string;
 };
 
-export default function MediaCarousel({ title, description, href, items, accentClass, tileClass }: Props) {
+export default function MediaCarousel({ title, description, href, linkText, items, accentClass, tileClass }: Props) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -77,7 +78,7 @@ export default function MediaCarousel({ title, description, href, items, accentC
             href={href}
             className="shrink-0 text-xs font-bold text-stone-400 transition-colors hover:text-stone-950"
           >
-            See all
+            {linkText ?? "See all"}
           </Link>
         )}
       </div>

@@ -75,7 +75,7 @@ export default function KillTonyHero() {
         />
         <BrowseButton
           icon={<Mic2 className="h-5 w-5" />}
-          title="Browse Comedians"
+          title="Browse Comics"
           detail="Track regulars, bucket pulls, and standout appearances."
           href="/killtony/comedians"
         />

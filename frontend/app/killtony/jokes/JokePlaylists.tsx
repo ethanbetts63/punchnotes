@@ -7,6 +7,7 @@ type JokeList = {
   type: string;
   title: string;
   description: string;
+  seeMoreText: string;
 };
 
 type BeatKey = { set_slug: string; bit_id: string; beat_id: string };
@@ -47,6 +48,7 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
     type: "misdirect",
     title: "Top Tier Misdirects",
     description: "The setup goes one way. The punch goes somewhere else entirely.",
+    seeMoreText: "See all misdirects",
     picks: [
       { set_slug: "xINfBBZBa3U-set07-timmy-no-brakes",     bit_id: "bit_001", beat_id: "bit_001_beat_001" },
       { set_slug: "Z6sSORy6Xag-set01-casey-rocket",        bit_id: "bit_002", beat_id: "bit_002_beat_001" },
@@ -70,6 +72,7 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
     type: "reframe",
     title: "Amazing Reframes",
     description: "Same words, completely different meaning by the end.",
+    seeMoreText: "See all reframes",
     picks: [
       { set_slug: "z3lYdMfNDmc-set10-casey-rocket",        bit_id: "bit_002", beat_id: "bit_002_beat_001" },
       { set_slug: "6jytsJ8JIDk-set08-pat-o-neill",         bit_id: "bit_005", beat_id: "bit_005_beat_001" },
@@ -89,6 +92,7 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
     type: "phonetic-match",
     title: "Best Phonetic Matches",
     description: "The punchline sounds like the setup. That's the whole trick.",
+    seeMoreText: "See all phonetic matches",
     picks: [
       { set_slug: "ezuyuoP5OI8-set06-kansei-yasuda",       bit_id: "bit_002", beat_id: "bit_002_beat_001" },
       { set_slug: "GeByotNr20c-set07-colt",                bit_id: "bit_003", beat_id: "bit_003_beat_001" },
@@ -100,6 +104,7 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
     type: "double-meaning",
     title: "Sneaky Double Meanings",
     description: "One word doing two jobs at the same time.",
+    seeMoreText: "See all double meanings",
     picks: [
       { set_slug: "A0JWnKvtCAI-set05-hans-kim",            bit_id: "bit_001", beat_id: "bit_001_beat_001" },
       { set_slug: "3R3csSEA_JY-set05-hans-kim",            bit_id: "bit_002", beat_id: "bit_002_beat_001" },
@@ -109,12 +114,14 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
     type: "contradiction",
     title: "Sharp Contradictions",
     description: "The punchline says the opposite of what the setup implied.",
+    seeMoreText: "See all contradictions",
     picks: [],
   },
   {
     type: "analogy",
     title: "Killer Analogies",
     description: "An unexpected comparison that makes the bit land harder.",
+    seeMoreText: "See all analogies",
     picks: [
       { set_slug: "0DvjvaMG8RQ-set01-collin-sledge",       bit_id: "bit_002", beat_id: "bit_002_beat_001" },
       { set_slug: "xwoTIaxgeWA-set11-william-montgomery",  bit_id: "bit_004", beat_id: "bit_004_beat_001" },
@@ -130,6 +137,7 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
     type: "hyperbole",
     title: "Wild Hyperboles",
     description: "Cranked way past reality for effect.",
+    seeMoreText: "See all hyperboles",
     picks: [
       { set_slug: "avLgvLtO10w-set04-steve-lee",           bit_id: "bit_001", beat_id: "bit_001_beat_002" },
       { set_slug: "M7RsTBpU5xM-set04-gary-falcon",         bit_id: "bit_003", beat_id: "bit_003_beat_001" },
@@ -139,6 +147,7 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
     type: "elephant-in-the-room",
     title: "Elephant in the Room",
     description: "The thing nobody's supposed to say — said.",
+    seeMoreText: "See all elephant-in-the-room jokes",
     picks: [
       { set_slug: "KSGu1gbKP2Q-set13-martin-phillips",     bit_id: "bit_002", beat_id: "bit_002_beat_001" },
     ],
@@ -182,8 +191,10 @@ export default async function JokePlaylists() {
           title={list.title}
           description={list.description}
           accentClass={list.accentClass}
-          tileClass="w-1/2 shrink-0 px-1.5 first:pl-6 last:pr-6 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
+          tileClass="w-full shrink-0 px-1.5 first:pl-6 last:pr-6 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
           items={list.items.map((j) => jokeToTile(j))}
+          href={`/killtony/jokes/search?joke_type=${list.type}`}
+          linkText={list.seeMoreText}
         />
       ))}
     </div>
