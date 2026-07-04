@@ -103,6 +103,7 @@ export default function BeatOfTheWeek({ set, bitIndex, beatIndex, entries, sideb
                 alt={`${activeEntry.set.comedian.name} set image`}
                 className="h-20 w-28 shrink-0 rounded-md bg-stone-950"
                 fit="contain"
+                loading="lazy"
               />
 
               <div className="min-w-0 flex-1">

@@ -67,6 +67,7 @@ export default function MediaTile({ item }: { item: TileData }) {
             src={item.imageUrl}
             alt={item.title}
             loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-contain"
           />
         ) : item.videoId ? (
@@ -75,6 +76,7 @@ export default function MediaTile({ item }: { item: TileData }) {
             src={`https://img.youtube.com/vi/${item.videoId}/mqdefault.jpg`}
             alt={item.title}
             loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-contain"
           />
         ) : (

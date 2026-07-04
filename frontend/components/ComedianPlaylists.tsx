@@ -6,14 +6,15 @@ import MediaCarousel from "@/components/MediaCarousel";
 type Props = {
   comedians: Comedian[];
   limit?: number;
+  itemLimit?: number;
 };
 
-export default function ComedianPlaylists({ comedians, limit }: Props) {
+export default function ComedianPlaylists({ comedians, limit, itemLimit }: Props) {
   const bySlug = new Map(comedians.map((c) => [c.slug, c]));
 
   const lists = COMEDIAN_LISTS.map((list) => ({
     ...list,
-    items: list.slugs.map((slug) => bySlug.get(slug)).filter(Boolean) as Comedian[],
+    items: (list.slugs.map((slug) => bySlug.get(slug)).filter(Boolean) as Comedian[]).slice(0, itemLimit),
   }))
     .filter((list) => list.items.length > 0)
     .slice(0, limit);

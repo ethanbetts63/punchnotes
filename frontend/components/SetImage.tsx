@@ -6,11 +6,12 @@ type Props = {
   alt: string;
   className?: string;
   fit?: "cover" | "contain";
+  loading?: "eager" | "lazy";
 };
 
-export default function SetImage({ imageUrl, fallbackVideoId, alt, className = "", fit = "contain" }: Props) {
+export default function SetImage({ imageUrl, fallbackVideoId, alt, className = "", fit = "contain", loading }: Props) {
   if (!imageUrl) {
-    return <YoutubeThumbnail videoId={fallbackVideoId} alt={alt} className={className} fit={fit} />;
+    return <YoutubeThumbnail videoId={fallbackVideoId} alt={alt} className={className} fit={fit} loading={loading} />;
   }
 
   return (
@@ -19,6 +20,8 @@ export default function SetImage({ imageUrl, fallbackVideoId, alt, className = "
       <img
         src={imageUrl}
         alt={alt}
+        loading={loading}
+        decoding="async"
         className={`absolute inset-0 h-full w-full ${fit === "contain" ? "object-contain" : "object-cover"}`}
       />
     </div>
