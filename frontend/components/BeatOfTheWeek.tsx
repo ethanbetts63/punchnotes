@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Beat, Bit, Set } from "@/lib/serverApi";
@@ -25,20 +25,11 @@ function selectedBeat(set: Set, bitIndex: number, beatIndex: number): SelectedBe
 
 type Props = FeaturedBeatEntry & {
   entries?: FeaturedBeatEntry[];
-  sidebar?: React.ReactNode;
+  sidebar?: ReactNode;
 };
 
 export default function BeatOfTheWeek({ set, bitIndex, beatIndex, entries, sidebar }: Props) {
-  const uniqueEntries = React.useMemo(() => {
-    const initial = [{ set, bitIndex, beatIndex }, ...(entries ?? [])];
-    const seen = new Set<string>();
-    return initial.filter((entry) => {
-      const key = `${entry.set.id}:${entry.bitIndex}:${entry.beatIndex}`;
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    });
-  }, [set, bitIndex, beatIndex, entries]);
+  const uniqueEntries = [{ set, bitIndex, beatIndex }, ...(entries ?? [])];
   const [activeIndex, setActiveIndex] = useState(0);
   const activeEntry = uniqueEntries[activeIndex];
   const selected = activeEntry

@@ -68,20 +68,26 @@ export default function MediaCarousel({ title, description, href, linkText, item
 
   return (
     <section>
-      <div className="mb-3 flex flex-col gap-1 px-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-2">
-        <div className={accentClass ? `border-l-4 pl-3 ${accentClass}` : undefined}>
-          <h2 className="text-lg font-bold text-stone-950">{title}</h2>
-          {description && <p className="mt-0.5 text-sm text-stone-500">{description}</p>}
+      <div className="mb-3 px-6">
+        <div
+          className={`flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-2 ${
+            accentClass ? `border-l-4 pl-3 ${accentClass}` : ""
+          }`}
+        >
+          <div>
+            <h2 className="text-lg font-bold text-stone-950">{title}</h2>
+            {description && <p className="mt-0.5 text-sm text-stone-500">{description}</p>}
+          </div>
+          {href && (
+            <Link
+              href={href}
+              className="inline-flex shrink-0 items-center gap-1 text-xs font-bold text-stone-400 transition-colors hover:text-stone-950"
+            >
+              {linkText ?? "See all"}
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          )}
         </div>
-        {href && (
-          <Link
-            href={href}
-            className="inline-flex shrink-0 items-center gap-1 text-xs font-bold text-stone-400 transition-colors hover:text-stone-950"
-          >
-            {linkText ?? "See all"}
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-        )}
       </div>
 
       <div className="relative">

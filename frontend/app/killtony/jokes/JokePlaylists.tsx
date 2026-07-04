@@ -150,6 +150,9 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
     seeMoreText: "See all elephant-in-the-room jokes",
     picks: [
       { set_slug: "KSGu1gbKP2Q-set13-martin-phillips",     bit_id: "bit_002", beat_id: "bit_002_beat_001" },
+      { set_slug: "ezuyuoP5OI8-set10-lisa-smith",          bit_id: "bit_004", beat_id: "bit_004_beat_001" },
+      { set_slug: "PG_8dq4YtSQ-set03-mario-zapata",         bit_id: "bit_003", beat_id: "bit_003_beat_001" },
+      { set_slug: "NV6fKrnafRc-set08-jack-mcwilliams",      bit_id: "bit_002", beat_id: "bit_002_beat_002" },
     ],
   },
 ];
