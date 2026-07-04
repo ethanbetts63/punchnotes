@@ -9,6 +9,7 @@ type Props = {
   subtitle?: string;
   searchPlaceholder: string;
   searchPath?: string;
+  urlState?: boolean;
   controls?: ReactNode;
 };
 
@@ -19,6 +20,7 @@ export default function ListPageHeader({
   subtitle,
   searchPlaceholder,
   searchPath,
+  urlState = true,
   controls,
 }: Props) {
   return (
@@ -37,7 +39,7 @@ export default function ListPageHeader({
         {subtitle && <p className="mt-2 text-stone-500">{subtitle}</p>}
       </div>
 
-      <ListPageSearchBar placeholder={searchPlaceholder} searchPath={searchPath} />
+      <ListPageSearchBar placeholder={searchPlaceholder} searchPath={searchPath} urlState={urlState} />
 
       {controls}
     </>

@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { getServerVideos } from "@/lib/serverApi";
 import VideoPlaylists from "@/components/VideoPlaylists";
 import FilterControls from "@/components/FilterControls";
@@ -48,14 +47,13 @@ export default async function EpisodesBrowsePage() {
     />
     <div className="bg-white min-h-screen">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <Suspense>
-          <ListPageHeader
-            title="Episodes"
-            searchPlaceholder="Search episodes..."
-            searchPath="/killtony/episodes/search"
-            controls={<FilterControls config={EPISODE_SEARCH_CONFIG} />}
-          />
-        </Suspense>
+        <ListPageHeader
+          title="Episodes"
+          searchPlaceholder="Search episodes..."
+          searchPath="/killtony/episodes/search"
+          urlState={false}
+          controls={<FilterControls config={EPISODE_SEARCH_CONFIG} urlState={false} />}
+        />
       </div>
 
       {episodes && (

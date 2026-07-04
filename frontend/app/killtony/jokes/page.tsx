@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import Link from "next/link";
 import FilterControls from "@/components/FilterControls";
 import { JOKES_SEARCH_CONFIG } from "@/lib/searchConfigs";
@@ -31,14 +30,13 @@ export default async function JokesPage() {
     />
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <Suspense>
-          <ListPageHeader
-            title="Jokes"
-            searchPlaceholder="Search jokes..."
-            searchPath="/killtony/jokes/search"
-            controls={<FilterControls config={JOKES_SEARCH_CONFIG} />}
-          />
-        </Suspense>
+        <ListPageHeader
+          title="Jokes"
+          searchPlaceholder="Search jokes..."
+          searchPath="/killtony/jokes/search"
+          urlState={false}
+          controls={<FilterControls config={JOKES_SEARCH_CONFIG} urlState={false} />}
+        />
       </div>
 
       <div className="mx-auto max-w-6xl pb-12">

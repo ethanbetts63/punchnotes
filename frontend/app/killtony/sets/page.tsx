@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import SetPlaylists from "./SetPlaylists";
 import FilterControls from "@/components/FilterControls";
 import { SET_SEARCH_CONFIG } from "@/lib/searchConfigs";
@@ -30,14 +29,13 @@ export default async function SetsBrowsePage() {
     />
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <Suspense>
-          <ListPageHeader
-            title="Sets"
-            searchPlaceholder="Search sets..."
-            searchPath="/killtony/sets/search"
-            controls={<FilterControls config={SET_SEARCH_CONFIG} />}
-          />
-        </Suspense>
+        <ListPageHeader
+          title="Sets"
+          searchPlaceholder="Search sets..."
+          searchPath="/killtony/sets/search"
+          urlState={false}
+          controls={<FilterControls config={SET_SEARCH_CONFIG} urlState={false} />}
+        />
       </div>
 
       <div className="mx-auto max-w-6xl pb-12">

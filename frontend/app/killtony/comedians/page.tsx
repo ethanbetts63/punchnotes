@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { getServerComedians } from "@/lib/serverApi";
 import ComedianPlaylists from "@/components/ComedianPlaylists";
 import FilterControls from "@/components/FilterControls";
@@ -48,14 +47,13 @@ export default async function ComediansBrowsePage() {
     />
     <div className="bg-white min-h-screen">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <Suspense>
-          <ListPageHeader
-            title="Comedians"
-            searchPlaceholder="Search all comedians..."
-            searchPath="/killtony/comedians/search"
-            controls={<FilterControls config={COMEDIAN_SEARCH_CONFIG} />}
-          />
-        </Suspense>
+        <ListPageHeader
+          title="Comedians"
+          searchPlaceholder="Search all comedians..."
+          searchPath="/killtony/comedians/search"
+          urlState={false}
+          controls={<FilterControls config={COMEDIAN_SEARCH_CONFIG} urlState={false} />}
+        />
       </div>
 
       {comedians && (

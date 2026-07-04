@@ -4,9 +4,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useSearchTransition } from "@/components/SearchTransition";
 
-type Props = { placeholder: string; searchPath?: string };
+type Props = { placeholder: string; searchPath?: string; urlState?: boolean };
 
-export default function ListPageSearchBar({ placeholder, searchPath }: Props) {
+function UrlStateSearchBar({ placeholder, searchPath }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { navigate: startNavigate } = useSearchTransition();
@@ -54,4 +54,48 @@ export default function ListPageSearchBar({ placeholder, searchPath }: Props) {
       />
     </form>
   );
+}
+
+function BrowseSearchBar({ placeholder, searchPath }: Props) {
+  const router = useRouter();
+  const { navigate: startNavigate } = useSearchTransition();
+  const [value, setValue] = useState("");
+
+  function navigate(query: string) {
+    const params = new URLSearchParams();
+    if (query.trim()) params.set("q", query.trim());
+    const qs = params.toString();
+    startNavigate(() => router.push(`${searchPath}${qs ? `?${qs}` : ""}`));
+  }
+
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        navigate(value);
+      }}
+      className="mb-6 flex items-center gap-2 rounded-xl border border-stone-200 px-3 py-2.5 transition-colors focus-within:border-stone-400"
+    >
+      <svg className="h-3.5 w-3.5 shrink-0 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"
+        />
+      </svg>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder={placeholder}
+        className="flex-1 bg-transparent text-sm text-stone-900 placeholder-stone-400 focus:outline-none"
+      />
+    </form>
+  );
+}
+
+export default function ListPageSearchBar({ urlState = true, ...props }: Props) {
+  if (urlState) return <UrlStateSearchBar {...props} />;
+  return <BrowseSearchBar {...props} />;
 }
