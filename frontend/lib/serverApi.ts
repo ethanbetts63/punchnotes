@@ -1,5 +1,6 @@
 const API_BASE_URL = process.env.DJANGO_API_URL ?? "http://localhost:8000";
 const REVALIDATE_SECONDS = 300;
+const BUILD_API_KEY = process.env.PUNCHNOTES_BUILD_API_KEY;
 
 type ServerFetchOptions = {
   allowNotFound?: boolean;
@@ -9,7 +10,8 @@ async function serverFetch<T>(path: string): Promise<T>;
 async function serverFetch<T>(path: string, options: { allowNotFound: true }): Promise<T | null>;
 async function serverFetch<T>(path: string, options: ServerFetchOptions = {}): Promise<T | null> {
   const url = `${API_BASE_URL}${path}`;
-  const res = await fetch(url, { next: { revalidate: REVALIDATE_SECONDS } });
+  const headers = BUILD_API_KEY ? { "X-PunchNotes-Build-Key": BUILD_API_KEY } : undefined;
+  const res = await fetch(url, { headers, next: { revalidate: REVALIDATE_SECONDS } });
   if (options.allowNotFound && res.status === 404) {
     return null;
   }
@@ -352,4 +354,3 @@ export type NavSearchResponse = {
   sets: NavSearchResult[];
   beats: NavSearchResult[];
 };
-

@@ -91,6 +91,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 PIPELINE_API_KEY = os.environ["PIPELINE_API_KEY"]
+VERCEL_BUILD_API_KEY = os.environ.get("VERCEL_BUILD_API_KEY", "")
 SERVER_BASE_URL = os.environ["SERVER_BASE_URL"]
 LOCAL_SERVER_URL = os.environ["LOCAL_SERVER_URL"]
 HF_API_KEY = os.environ["punchnotes_embedding_token"]
@@ -106,9 +107,9 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ],
     "DEFAULT_THROTTLE_CLASSES": [
-        "rest_framework.throttling.AnonRateThrottle",
+        "api.throttling.BuildAwareAnonRateThrottle",
         "rest_framework.throttling.UserRateThrottle",
-        "rest_framework.throttling.ScopedRateThrottle",
+        "api.throttling.BuildAwareScopedRateThrottle",
     ],
     "DEFAULT_THROTTLE_RATES": {
         "anon": os.environ.get("DRF_ANON_THROTTLE_RATE", "300/hour"),
