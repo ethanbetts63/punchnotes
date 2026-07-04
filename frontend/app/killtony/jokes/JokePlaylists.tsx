@@ -191,7 +191,7 @@ export default async function JokePlaylists() {
           title={list.title}
           description={list.description}
           accentClass={list.accentClass}
-          tileClass="w-full shrink-0 px-1.5 first:pl-6 last:pr-6 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
+          tileClass="w-64 shrink-0 px-1.5 first:pl-6 last:pr-6"
           items={list.items.map((j) => jokeToTile(j))}
           href={`/killtony/jokes/search?joke_type=${list.type}`}
           linkText={list.seeMoreText}

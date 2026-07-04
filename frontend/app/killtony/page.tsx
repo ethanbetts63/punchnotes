@@ -93,7 +93,7 @@ export default async function KillTonyPage() {
               href="/killtony/episodes"
               cta="See all episodes"
             />
-            <VideoPlaylists episodes={episodes} limit={2} itemLimit={8} />
+            <VideoPlaylists episodes={episodes} limit={2} />
           </div>
         </section>
       )}
@@ -106,7 +106,7 @@ export default async function KillTonyPage() {
               href="/killtony/comedians"
               cta="See all comedians"
             />
-            <ComedianPlaylists comedians={comedians} limit={2} itemLimit={8} />
+            <ComedianPlaylists comedians={comedians} limit={2} />
           </div>
         </section>
       )}

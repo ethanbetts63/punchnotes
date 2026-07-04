@@ -21,8 +21,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://api.punchnotes.app" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://img.youtube.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://api.punchnotes.app" />
+        <link rel="dns-prefetch" href="https://api.punchnotes.app" />
+        <link rel="preconnect" href="https://img.youtube.com" />
+        <link rel="dns-prefetch" href="https://img.youtube.com" />
       </head>
       <body suppressHydrationWarning className={barlow.variable}>
         <div className="min-h-screen flex flex-col">
