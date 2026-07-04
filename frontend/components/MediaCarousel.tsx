@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import type { TileData } from "@/lib/tiles";
 import MediaTile from "@/components/MediaTile";
@@ -68,7 +68,7 @@ export default function MediaCarousel({ title, description, href, linkText, item
 
   return (
     <section>
-      <div className="mb-3 flex items-baseline justify-between px-6">
+      <div className="mb-3 flex flex-col gap-1 px-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-2">
         <div className={accentClass ? `border-l-4 pl-3 ${accentClass}` : undefined}>
           <h2 className="text-lg font-bold text-stone-950">{title}</h2>
           {description && <p className="mt-0.5 text-sm text-stone-500">{description}</p>}
@@ -76,9 +76,10 @@ export default function MediaCarousel({ title, description, href, linkText, item
         {href && (
           <Link
             href={href}
-            className="shrink-0 text-xs font-bold text-stone-400 transition-colors hover:text-stone-950"
+            className="inline-flex shrink-0 items-center gap-1 text-xs font-bold text-stone-400 transition-colors hover:text-stone-950"
           >
             {linkText ?? "See all"}
+            <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         )}
       </div>
