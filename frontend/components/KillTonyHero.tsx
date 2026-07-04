@@ -42,7 +42,7 @@ function BrowseButton({
 
 export default function KillTonyHero() {
   const content = (
-    <div className="max-w-[520px] text-center lg:text-left">
+    <div className="mx-auto max-w-[520px] text-center lg:mx-0 lg:text-left">
       <div className="mb-4 flex items-center justify-center gap-3 lg:justify-start">
         <span className="inline-block h-px w-8 bg-primary/60" />
         <span className="text-xs font-bold uppercase tracking-[0.24em] text-primary">

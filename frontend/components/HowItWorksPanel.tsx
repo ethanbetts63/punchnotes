@@ -49,7 +49,7 @@ export default function HowItWorksPanel() {
           name="how-it-works-step"
           id={`how-it-works-${i}`}
           defaultChecked={i === 0}
-          className={`sr-only ${peerName[i]}`}
+          className={`hidden ${peerName[i]}`}
         />
       ))}
 
