@@ -1,5 +1,5 @@
 import { ArrowRight, BookOpen, Mic2, Search, Sparkles } from "lucide-react";
-import { SITE_URL, SITE_NAME, buildBreadcrumbSchema } from "@/lib/seo";
+import { SITE_URL, buildBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata = {
   title: "About - PunchNotes",
