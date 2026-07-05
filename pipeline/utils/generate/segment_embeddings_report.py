@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from itertools import combinations
 
 import numpy as np
 from django.conf import settings
@@ -12,6 +11,7 @@ from pipeline.utils.report_format import format_report_json
 
 OUTPUT_FILENAME = "segment_embedding_similarity_report.json"
 DEFAULT_THRESHOLD = 0.70
+COMPARE_BLOCK_SIZE = 512
 
 
 @dataclass(frozen=True)
@@ -59,6 +59,59 @@ def _build_segment_records(qs) -> list[SegmentRecord]:
     return records
 
 
+def _update_best_match(best_by_beat_pair: dict[tuple[int, int], dict], sim: float, a: SegmentRecord, b: SegmentRecord) -> bool:
+    beat_pair_key = tuple(sorted((a.beat_id, b.beat_id)))
+    existing = best_by_beat_pair.get(beat_pair_key)
+    if existing is None or sim > existing["similarity"]:
+        best_by_beat_pair[beat_pair_key] = {"similarity": sim, "a": a, "b": b}
+        return existing is None
+    return False
+
+
+def _compare_group(label: str, group: list[SegmentRecord], threshold: float, best_by_beat_pair: dict[tuple[int, int], dict], log: Log) -> None:
+    n_pairs = len(group) * (len(group) - 1) // 2
+    if n_pairs == 0:
+        return
+
+    log(f"\n  {label}: {len(group)} segments, {n_pairs:,} segment pairs")
+
+    vectors = np.vstack([record.vector for record in group]).astype(np.float32, copy=False)
+    comedian_ids = np.asarray([record.comedian_id for record in group])
+
+    checked_pairs = 0
+    same_comedian_skipped = 0
+    retained_matches = 0
+
+    all_indices = np.arange(len(group))
+    for block_start in range(0, len(group), COMPARE_BLOCK_SIZE):
+        block_end = min(block_start + COMPARE_BLOCK_SIZE, len(group))
+        block = vectors[block_start:block_end]
+        similarities = block @ vectors.T
+
+        row_indices = np.arange(block_start, block_end)[:, None]
+        upper_triangle_mask = all_indices[None, :] > row_indices
+        cross_comedian_mask = comedian_ids[block_start:block_end, None] != comedian_ids[None, :]
+        candidate_mask = upper_triangle_mask & cross_comedian_mask
+
+        checked_pairs += int(upper_triangle_mask.sum())
+        same_comedian_skipped += int((upper_triangle_mask & ~cross_comedian_mask).sum())
+
+        match_rows, match_cols = np.where(candidate_mask & (similarities >= threshold))
+        for local_row, col in zip(match_rows, match_cols):
+            sim = round(float(similarities[local_row, col]), 4)
+            if _update_best_match(best_by_beat_pair, sim, group[block_start + local_row], group[col]):
+                retained_matches += 1
+
+        percent = 100 * checked_pairs / n_pairs
+        log(
+            f"    {checked_pairs:,}/{n_pairs:,} ({percent:.1f}%) | "
+            f"{retained_matches} retained matches | "
+            f"{same_comedian_skipped:,} same-comedian skipped"
+        )
+
+    log(f"  Done: {retained_matches} retained beat-pair match(es)")
+
+
 def generate_segment_embeddings_report(log: Log) -> None:
     threshold = DEFAULT_THRESHOLD
     output_path = settings.PIPELINE_PRIVATE_DATA_DIR / OUTPUT_FILENAME
@@ -79,20 +132,7 @@ def generate_segment_embeddings_report(log: Log) -> None:
 
     best_by_beat_pair: dict[tuple[int, int], dict] = {}
     for label, group in groups.items():
-        n_pairs = len(group) * (len(group) - 1) // 2
-        if n_pairs == 0:
-            continue
-        log(f"\n  {label}: {len(group)} segments, {n_pairs:,} segment pairs")
-        for a, b in combinations(group, 2):
-            if a.comedian_id == b.comedian_id:
-                continue
-            sim = round(_cosine_sim(a.vector, b.vector), 4)
-            if sim < threshold:
-                continue
-            beat_pair_key = tuple(sorted((a.beat_id, b.beat_id)))
-            existing = best_by_beat_pair.get(beat_pair_key)
-            if existing is None or sim > existing["similarity"]:
-                best_by_beat_pair[beat_pair_key] = {"similarity": sim, "a": a, "b": b}
+        _compare_group(label, group, threshold, best_by_beat_pair, log)
 
     pairs = []
     for match in best_by_beat_pair.values():
