@@ -174,7 +174,13 @@ def unembedded_beat_segments_batch(after_id: int = 0, limit: int = 500, build_be
 
 def ingest_segment_embeddings(pairs: list[dict]) -> dict:
     stored = not_found = invalid_key = 0
-    updates = []
+    parsed_pairs = []
+    episode_numbers = set()
+    set_numbers = set()
+    bit_ids = set()
+    beat_ids = set()
+    segment_ordinals = set()
+
     for pair in pairs:
         parsed = _parse_segment_key(pair.get("key", ""))
         if parsed is None:
@@ -182,20 +188,61 @@ def ingest_segment_embeddings(pairs: list[dict]) -> dict:
             continue
         bit_id = f"bit_{parsed['bit_number']:03d}"
         beat_id = f"bit_{parsed['bit_number']:03d}_beat_{parsed['beat_number']:03d}"
-        try:
-            segment = BeatSegment.objects.get(
-                ordinal=parsed["segment_ordinal"],
-                beat__beat_id=beat_id,
-                beat__bit__bit_id=bit_id,
-                beat__bit__set__set_number=parsed["set_number"],
-                beat__bit__set__video__number=parsed["episode_number"],
-            )
-            segment.embedding = pair.get("embedding", [])
-            updates.append(segment)
-        except BeatSegment.DoesNotExist:
+        lookup_key = (
+            parsed["episode_number"],
+            parsed["set_number"],
+            bit_id,
+            beat_id,
+            parsed["segment_ordinal"],
+        )
+        parsed_pairs.append((lookup_key, pair.get("embedding", [])))
+        episode_numbers.add(parsed["episode_number"])
+        set_numbers.add(parsed["set_number"])
+        bit_ids.add(bit_id)
+        beat_ids.add(beat_id)
+        segment_ordinals.add(parsed["segment_ordinal"])
+
+    if not parsed_pairs:
+        return {"stored": stored, "not_found": not_found, "invalid_key": invalid_key}
+
+    candidate_segments = (
+        BeatSegment.objects
+        .filter(
+            ordinal__in=segment_ordinals,
+            beat__beat_id__in=beat_ids,
+            beat__bit__bit_id__in=bit_ids,
+            beat__bit__set__set_number__in=set_numbers,
+            beat__bit__set__video__number__in=episode_numbers,
+        )
+        .select_related("beat__bit__set__video")
+    )
+    segments_by_key = {}
+    for segment in candidate_segments:
+        beat = segment.beat
+        lookup_key = (
+            beat.bit.set.video.number,
+            beat.bit.set.set_number,
+            beat.bit.bit_id,
+            beat.beat_id,
+            segment.ordinal,
+        )
+        segments_by_key[lookup_key] = segment
+
+    updates = []
+    seen_segment_ids = set()
+    for lookup_key, embedding in parsed_pairs:
+        segment = segments_by_key.get(lookup_key)
+        if segment is None:
             not_found += 1
+            continue
+        if segment.id in seen_segment_ids:
+            continue
+        segment.embedding = embedding
+        updates.append(segment)
+        seen_segment_ids.add(segment.id)
+
     if updates:
-        BeatSegment.objects.bulk_update(updates, ["embedding"], batch_size=500)
+        BeatSegment.objects.bulk_update(updates, ["embedding"], batch_size=1000)
         stored = len(updates)
     return {"stored": stored, "not_found": not_found, "invalid_key": invalid_key}
 

@@ -115,3 +115,24 @@ def test_ingest_segment_embeddings_reports_not_found_and_invalid_key():
     ])
 
     assert result == {"stored": 0, "not_found": 1, "invalid_key": 1}
+
+
+def test_ingest_segment_embeddings_uses_bulk_lookup(django_assert_num_queries):
+    from pipeline.utils.update.segment_embeddings import ingest_segment_embeddings
+
+    standup_set = _make_set("Comic One", "comic-one-7", 2, 106)
+    beat = _make_beat(standup_set, 3, 4, 1, 2)
+    first = BeatSegment.objects.create(beat=beat, ordinal=1, text="first", line_start=1, line_end=1)
+    second = BeatSegment.objects.create(beat=beat, ordinal=2, text="second", line_start=2, line_end=2)
+
+    with django_assert_num_queries(2):
+        result = ingest_segment_embeddings([
+            {"key": "ep106.set02.bit003.beat004.seg001", "embedding": [1.0]},
+            {"key": "ep106.set02.bit003.beat004.seg002", "embedding": [2.0]},
+        ])
+
+    first.refresh_from_db()
+    second.refresh_from_db()
+    assert result == {"stored": 2, "not_found": 0, "invalid_key": 0}
+    assert first.embedding == [1.0]
+    assert second.embedding == [2.0]
