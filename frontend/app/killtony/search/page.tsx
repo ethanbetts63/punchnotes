@@ -41,6 +41,7 @@ const SIDEBAR_GROUPS: { key: NavSearchGroupKey; title: string }[] = [
 ];
 
 const ALWAYS_VISIBLE_GROUPS = new Set<NavSearchGroupKey>(["comedians", "episodes"]);
+const JOKE_PREVIEW_LIMIT = 8;
 
 function typeStyle(type: NavSearchResult["type"]): string {
   switch (type) {
@@ -349,7 +350,8 @@ async function NavSearchResultsGrid({ query }: { query: string }) {
         getServerBeatsPaginated(new URLSearchParams({ q: query }).toString()),
       ])
     : [null, null];
-  const jokeSetSlugs = jokeResults ? [...new Set(jokeResults.results.map((beat) => beat.set_slug))] : [];
+  const previewJokeResults = jokeResults?.results.slice(0, JOKE_PREVIEW_LIMIT) ?? [];
+  const jokeSetSlugs = [...new Set(previewJokeResults.map((beat) => beat.set_slug))];
   const jokeSets = await Promise.all(jokeSetSlugs.map((slug) => getServerSet(slug)));
   const jokeSetsBySlug = new Map<string, Set>(
     jokeSets.filter((set): set is Set => set !== null).map((set) => [set.slug, set])
@@ -375,7 +377,7 @@ async function NavSearchResultsGrid({ query }: { query: string }) {
               key === "beats" && jokeResults ? (
                 <JokeResultSection
                   key={key}
-                  items={jokeResults.results}
+                  items={previewJokeResults}
                   totalCount={jokeResults.count}
                   query={query}
                   setsBySlug={jokeSetsBySlug}
