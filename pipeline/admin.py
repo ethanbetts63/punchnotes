@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from pipeline.models import Comedian, Video, Set, Line, Bit, Beat
+from pipeline.models import Comedian, Video, Set, Line, Bit, Beat, BeatSegment
 
 
 @admin.register(Comedian)
@@ -49,3 +49,10 @@ class BeatAdmin(admin.ModelAdmin):
     list_filter = ('joke_type',)
     search_fields = ('beat_id', 'premise')
     raw_id_fields = ('bit',)
+
+
+@admin.register(BeatSegment)
+class BeatSegmentAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'beat', 'ordinal', 'line_start', 'line_end')
+    search_fields = ('text',)
+    raw_id_fields = ('beat',)

@@ -83,4 +83,11 @@ class Command(BaseCommand):
         else:
             self.stdout.write("\nNo archived embeddings to restore.")
 
+        segment_embeddings_archive = private_dir / "segment_embeddings_archive"
+        if segment_embeddings_archive.exists() and any(segment_embeddings_archive.glob("*.jsonl")):
+            self.stdout.write("\nRestoring segment embeddings from archive...")
+            call_command("update", segment_embeddings=True, archive=True)
+        else:
+            self.stdout.write("\nNo archived segment embeddings to restore.")
+
         self.stdout.write(self.style.SUCCESS("\nDatabase reset complete."))

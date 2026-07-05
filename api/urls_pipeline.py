@@ -8,8 +8,10 @@ from api.views.pipeline import (
     ComedianCandidatesView,
     EmbeddingsView,
     MissingSetImagesView,
+    SegmentEmbeddingsView,
     SetImageBatchView,
     UnembeddedBeatsView,
+    UnsegmentedBeatSegmentsView,
     VideoScrapeQueueView,
     VideoScrapeResultView,
 )
@@ -24,6 +26,8 @@ urlpatterns = [
     path("set-images-batch/", SetImageBatchView.as_view()),
     path("unembedded-beats/", UnembeddedBeatsView.as_view()),
     path("embeddings/", EmbeddingsView.as_view()),
+    path("unsegmented-beat-segments/", UnsegmentedBeatSegmentsView.as_view()),
+    path("segment-embeddings/", SegmentEmbeddingsView.as_view()),
     path("videos-to-scrape/", VideoScrapeQueueView.as_view()),
     path("video-scrape-result/", VideoScrapeResultView.as_view()),
 ]

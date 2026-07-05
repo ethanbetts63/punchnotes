@@ -12,6 +12,7 @@ class Command(BaseCommand):
         group.add_argument("--comedian_aliases", action="store_true", help="Upload comedian_name_relationships.json to server")
         group.add_argument("--set_images", action="store_true", help="Upload set images from set_images_outbox/")
         group.add_argument("--embeddings", action="store_true", help="Upload embedding JSONL from embeddings_outbox/")
+        group.add_argument("--segment_embeddings", action="store_true", help="Upload segment embedding JSONL from segment_embeddings_outbox/")
 
         source = parser.add_mutually_exclusive_group()
         source.add_argument("--file", help="(--annotated) Upload a single JSON file from any path")
@@ -40,3 +41,7 @@ class Command(BaseCommand):
         elif options["embeddings"]:
             from pipeline.utils.upload.embeddings import upload_embeddings
             upload_embeddings(options, log)
+
+        elif options["segment_embeddings"]:
+            from pipeline.utils.upload.segment_embeddings import upload_segment_embeddings
+            upload_segment_embeddings(options, log)

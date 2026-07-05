@@ -10,6 +10,7 @@ from django.utils import timezone
 
 from pipeline.log import Log
 from pipeline.models import Beat, Line
+from pipeline.utils.report_format import format_report_json
 
 OUTPUT_FILENAME = "embedding_similarity_report.json"
 DEFAULT_THRESHOLD = 0.70
@@ -27,22 +28,6 @@ class BeatRecord:
     comedian_id: int
     comedian_name: str
     vector: np.ndarray
-
-
-def _fmt(obj, level=0):
-    pad = "  " * level
-    inner = "  " * (level + 1)
-    if isinstance(obj, dict):
-        if set(obj.keys()) <= {"label", "text"}:
-            return json.dumps(obj, ensure_ascii=False)
-        items = [f'{inner}{json.dumps(k)}: {_fmt(v, level + 1)}' for k, v in obj.items()]
-        return "{\n" + ",\n".join(items) + "\n" + pad + "}"
-    if isinstance(obj, list):
-        if all(isinstance(x, str) for x in obj):
-            return json.dumps(obj, ensure_ascii=False)
-        items = [f'{inner}{_fmt(v, level + 1)}' for v in obj]
-        return "[\n" + ",\n".join(items) + "\n" + pad + "]"
-    return json.dumps(obj, ensure_ascii=False)
 
 
 def _cosine_sim(a, b):
@@ -160,7 +145,7 @@ def generate_embeddings_report(log: Log) -> None:
         new_beats = [beat for beat in beats if beat.created_at > last_generated_at]
         if not new_beats:
             report = {"generated_at": generated_at.isoformat(), "threshold": threshold, "pairs": existing_pairs}
-            output_path.write_text(_fmt(report), encoding="utf-8")
+            output_path.write_text(format_report_json(report), encoding="utf-8")
             log.success(f"\nNo new beats since {last_generated_at}. Report timestamp refreshed at {output_path}")
             return
         log(f"Found {len(new_beats)} new beats since {last_generated_at}. Running incremental comparison.")
@@ -258,7 +243,7 @@ def generate_embeddings_report(log: Log) -> None:
     merged_pairs.sort(key=lambda p: p["similarity"], reverse=True)
 
     report = {"generated_at": generated_at.isoformat(), "threshold": threshold, "pairs": merged_pairs}
-    output_path.write_text(_fmt(report), encoding="utf-8")
+    output_path.write_text(format_report_json(report), encoding="utf-8")
 
     log.success(
         f"\nFound {len(new_pairs)} new pairs above threshold {threshold}. "

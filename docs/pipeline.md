@@ -37,6 +37,9 @@ pipeline/
 | `embeddings_outbox/` | Computed embeddings JSONL awaiting upload |
 | `embeddings_inbox/` | (server) Received JSONL awaiting `update --embeddings` |
 | `embeddings_archive/` | Archived embedding vectors (private git) |
+| `segment_embeddings_outbox/` | Computed segment embeddings JSONL awaiting upload |
+| `segment_embeddings_inbox/` | (server) Received JSONL awaiting `update --segment_embeddings` |
+| `segment_embeddings_archive/` | Archived segment embedding vectors (private git) |
 | `comedian_aliases_inbox/` | (server) Received relationships file awaiting `update --comedian_aliases` |
 | `kt_ep_archive.jsonl` | Episode metadata archive — appended by `generate --ep_meta`, committed to git, read directly by `update --ep_meta` |
 | `videos_to_scrape.jsonl` | (server) Queue of video IDs to fetch metadata for |
@@ -45,6 +48,7 @@ pipeline/
 | `similar_comedian_candidates.json` | Fuzzy-matched comedian name pairs for review (private git) |
 | `comedian_name_relationships.json` | Reviewed alias/not-alias decisions (private git) |
 | `embedding_similarity_report.json` | Joke similarity report (private git) |
+| `segment_embedding_similarity_report.json` | Segment-level joke similarity report, experimental parallel to `embedding_similarity_report.json` (private git) |
 
 ## Conventions
 
@@ -133,7 +137,16 @@ python manage.py generate --embeddings_report
 ```
 Purpose: fetches unembedded beats from server, computes embeddings locally, uploads to DB, then generates similarity report
 
-**6. Optional maintenance/reset:**
+**6. Segment-based joke similarity scoring (experimental):**
+```
+python manage.py generate --segment_embeddings
+python manage.py upload --segment_embeddings
+python manage.py update --segment_embeddings
+python manage.py generate --segment_embeddings_report
+```
+Purpose: parallel to step 5, but embeds beats at the level of packed sentence-groups ("segments") instead of one vector per whole beat, so a reused punchline surrounded by a different setup can still surface as a match. Segments are built once per beat, ignoring `setup`/`punchline`/`tag`/`fluff` labels entirely, and persisted to the `BeatSegment` table. Uses the same embedding model as step 5 so the two reports (`embedding_similarity_report.json` vs `segment_embedding_similarity_report.json`) are comparable on everything except text granularity.
+
+**7. Optional maintenance/reset:**
 ```
 python manage.py reset_db
 ```
