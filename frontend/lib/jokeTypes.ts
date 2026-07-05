@@ -109,7 +109,7 @@ export const JOKE_TYPE_FILTER_OPTIONS = [
   ...JOKE_TYPES.map(({ id, label }) => ({ value: id, label })),
 ];
 
-export const JOKE_TYPE_STYLES = Object.fromEntries(
+const JOKE_TYPE_STYLES = Object.fromEntries(
   JOKE_TYPES.map(({ id, badgeClass, accentClass }) => [id, { badge: badgeClass, accent: accentClass }])
 ) as Record<string, { badge: string; accent: string }>;
 

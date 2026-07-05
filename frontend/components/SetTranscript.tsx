@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { Bit, Beat, Line } from "@/lib/serverApi";
+import { compactOrdinalId } from "@/lib/bitLinks";
 import { lineLabelBadge } from "@/lib/killTonyDisplay";
 
 type Selected = { beat: Beat; bit: Bit; bitIdx: number; beatIdx: number };
@@ -84,11 +85,6 @@ function selectedFromIndices(bits: Bit[], bitIdx: number, beatIdx: number): Sele
   const beat = bit?.beats[beatIdx];
   if (!bit || !beat || !beat.lines.some((line) => line.label !== "fluff")) return null;
   return { beat, bit, bitIdx, beatIdx };
-}
-
-function compactOrdinalId(value: string): string {
-  const match = value.match(/(\d+)$/);
-  return match ? match[1].padStart(3, "0") : value;
 }
 
 function selectedFromStableIds(bits: Bit[], bitParam: string, beatParam: string | null): Selected | null {

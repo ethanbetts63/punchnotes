@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
+import { compactOrdinalId } from "@/lib/bitLinks";
 
 type PlagiarismMatch = {
   similarity: number;
@@ -18,11 +19,6 @@ type PlagiarismMatch = {
   setup_lines: string[];
   punchline: string;
 };
-
-function compactOrdinalId(value: string): string {
-  const match = value.match(/(\d+)$/);
-  return match ? match[1].padStart(3, "0") : value;
-}
 
 function buildBeatHref(match: PlagiarismMatch): string {
   const params = new URLSearchParams({

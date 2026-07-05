@@ -1,10 +1,10 @@
 # Kill Tony Set Annotation Prompt
 
-You are annotating stand-up **sets** from *Kill Tony*
+You are annotating stand-up **sets** from *Kill Tony*. Many jokes you will see will be funny. Many will not be funny at all. It is not our job as annotators to judge. It's our job to try and figure out the intented funny of the joke as honestly as possible.
 
 ## Input
 
-Each input file is a set JSON from `pipeline/data/set_inbox/`. Unannotated lines may omit `label`, `bit`, and `beat`; treat missing fields as blank annotation fields.
+Each input file is a set JSON from `pipeline/data/set_inbox/`. 
 
 ## Output
 

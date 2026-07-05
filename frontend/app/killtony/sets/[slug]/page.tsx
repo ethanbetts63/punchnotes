@@ -10,6 +10,7 @@ import { fmt2, fmtSeconds, getJokeBookSize, jokeBookLabel } from "@/lib/killTony
 import { getSetIntroSummary } from "@/lib/killTonySummaries";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 import { SITE_URL } from "@/lib/seo";
+import { JOKE_TYPES } from "@/lib/jokeTypes";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -40,6 +41,9 @@ export default async function SetDetailPage({ params }: Props) {
   const youtubeTimestampUrl = set.video.youtube_id
     ? `https://www.youtube.com/watch?v=${set.video.youtube_id}&t=${Math.floor(videoStartSeconds)}s`
     : null;
+  const jokeTypeLabels = JOKE_TYPES.map((type) => type.label);
+  const leadingJokeTypeLabels = jokeTypeLabels.slice(0, -1).join(", ");
+  const finalJokeTypeLabel = jokeTypeLabels.at(-1);
 
   return (
     <div className="min-h-screen bg-white">
@@ -192,6 +196,22 @@ export default async function SetDetailPage({ params }: Props) {
       <Suspense>
         <SetTranscript bits={set.bits} lines={set.lines} />
       </Suspense>
+
+      <div className="border-t border-stone-100 bg-white">
+        <div className="mx-auto max-w-5xl px-6 py-10">
+          <p className="text-sm leading-6 text-stone-500">
+            Every joke is broken into beats — each with a setup, punchline, and any tags — and assigned one of {JOKE_TYPES.length} structural types:{" "}
+            <span className="font-medium text-stone-700">{leadingJokeTypeLabels},</span>{" "}
+            and <span className="font-medium text-stone-700">{finalJokeTypeLabel}</span>.{" "}
+            <a
+              href="https://www.punchnotes.app/articles/how-to-annotate-jokes"
+              className="text-primary underline underline-offset-2 transition-colors hover:text-primary/80"
+            >
+              How to Annotate Jokes →
+            </a>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

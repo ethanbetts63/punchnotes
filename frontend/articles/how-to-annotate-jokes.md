@@ -213,7 +213,7 @@ Annotating jokes by hand is time consuming. The joke types above are, almost exa
 
 It turns out LLMs are surprisingly good at this kind of structured joke annotation. And because the premises are structured and we have hard rules about how a joke *must* be built, we can catch the majority of the model's mistakes automatically and direct it to fix them on the spot. A tag with no preceding punchline, a beat with no punchline, a premise that still names "he" or a specific brand — these all trip validation and get bounced back immediately.
 
-Almost every mistake that survives that process comes down to one of two things: bad transcription, or a lack of context — visual humor being the clearest case (more on that below). So the single best thing we can do to improve our annotations isn't to write more rules — it's to improve our transcriptions and the quality of the model doing the annotating.
+Almost every mistake that survives that process comes down to one of two things: bad transcription, or a lack of context — visual humor being the clearest case (more on that below). So the single best thing we can do to improve our annotations isn't to write more rules — it's to improve our transcriptions and the quality of the model doing the annotating. LLM's are generally very good at doing the line type labeling and beat/bit division but they can struggle to figure out what the essense of the joke truely is. So the joke type and premise writing can be hit or miss. They are also inconsistantly PC about what language they use to write the premise or what they are willing to admit is funny. 
 
 ### Known caveats
 

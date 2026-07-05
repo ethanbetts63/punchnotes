@@ -4,9 +4,8 @@ import { JOKES_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import ListPageHeader from "@/components/ListPageHeader";
 import { SITE_URL, buildBreadcrumbSchema } from "@/lib/seo";
 import { FaqSection } from "@/components/FaqSection";
-import { JOKE_TYPE_FAQ } from "@/lib/jokeTypeFaq";
 import JokePlaylists from "./JokePlaylists";
-import { JOKE_TYPES } from "@/lib/jokeTypes";
+import { JOKE_TYPE_FAQ, JOKE_TYPES } from "@/lib/jokeTypes";
 
 export const metadata = {
   title: "Jokes - Kill Tony | PunchNotes",
