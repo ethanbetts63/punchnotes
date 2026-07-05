@@ -1,8 +1,19 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { getServerNavSearch, type NavSearchResponse, type NavSearchResult } from "@/lib/serverApi";
+import {
+  getServerBeatsPaginated,
+  getServerNavSearch,
+  getServerSet,
+  type BeatSearchItem,
+  type NavSearchResponse,
+  type NavSearchResult,
+  type Set,
+} from "@/lib/serverApi";
 import YoutubeThumbnail from "@/components/YoutubeThumbnail";
 import ComedianImage from "@/components/ComedianImage";
+import JokeSearchResultCard from "@/components/JokeSearchResultCard";
+import { ResultsLoading } from "@/components/SearchResults";
 
 export const metadata = {
   title: "Search - Kill Tony | PunchNotes",
@@ -102,36 +113,14 @@ function NavSearchResultMark({ item }: { item: NavSearchResult }) {
   );
 }
 
-function HighlightedText({ text, query }: { text: string; query: string }) {
-  if (!query.trim()) return <>{text}</>;
-
-  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const pattern = new RegExp(`(${escaped})`, "ig");
-  const parts = text.split(pattern);
-
-  return (
-    <>
-      {parts.map((part, index) => (
-        part.toLowerCase() === query.toLowerCase() ? <strong key={`${part}-${index}`}>{part}</strong> : part
-      ))}
-    </>
-  );
-}
-
 function NavSearchResultCard({
   item,
-  query,
   compact = false,
-  textOnly = false,
 }: {
   item: NavSearchResult;
-  query: string;
   compact?: boolean;
-  textOnly?: boolean;
 }) {
   const subtitle = item.subtitle === typeLabel(item.type) ? "" : item.subtitle;
-  const hideMark = compact || textOnly;
-  const showHighlightedTitle = item.type === "beat" && Boolean(query.trim());
 
   return (
     <Link
@@ -140,7 +129,7 @@ function NavSearchResultCard({
         compact ? "min-h-0" : "min-h-[75px]"
       }`}
     >
-      {!hideMark && <NavSearchResultMark item={item} />}
+      {!compact && <NavSearchResultMark item={item} />}
       <div
         className={`flex min-w-0 flex-1 flex-col justify-between overflow-hidden ${
           compact ? "px-3 py-2" : "px-2.5 py-2"
@@ -153,7 +142,7 @@ function NavSearchResultCard({
                 compact ? "text-sm" : "text-base"
               }`}
             >
-              {showHighlightedTitle ? <HighlightedText text={item.title} query={query} /> : item.title}
+              {item.title}
             </p>
             <ArrowUpRight className="mt-0.5 h-3.5 w-3.5 shrink-0 text-stone-400 opacity-0 transition-opacity group-hover:opacity-100" />
           </div>
@@ -186,7 +175,6 @@ function NavSearchResultSection({
   query: string;
 }) {
   if (items.length === 0 && !ALWAYS_VISIBLE_GROUPS.has(groupKey)) return null;
-  const isBeats = groupKey === "beats";
 
   return (
     <section className="scroll-mt-24" id={groupKey}>
@@ -204,16 +192,57 @@ function NavSearchResultSection({
           )}
         </div>
       </div>
-      <div className={`grid gap-2 ${isBeats ? "" : "min-[850px]:grid-cols-2"}`}>
+      <div className="grid gap-2 min-[850px]:grid-cols-2">
         {items.length > 0 ? (
           items.map((item) => (
-            <NavSearchResultCard key={`${item.type}-${item.href}-${item.title}`} item={item} query={query} textOnly={isBeats} />
+            <NavSearchResultCard key={`${item.type}-${item.href}-${item.title}`} item={item} />
           ))
         ) : (
           <div className="bg-white px-4 py-5 text-sm text-stone-500">
             No {title.toLowerCase()} matched this search.
           </div>
         )}
+      </div>
+    </section>
+  );
+}
+
+function JokeResultSection({
+  items,
+  totalCount,
+  query,
+  setsBySlug,
+}: {
+  items: BeatSearchItem[];
+  totalCount: number;
+  query: string;
+  setsBySlug: Map<string, Set>;
+}) {
+  if (items.length === 0) return null;
+
+  return (
+    <section className="scroll-mt-24" id="beats">
+      <div className="mb-2 mt-5 flex items-end justify-between gap-4 px-4 sm:px-0">
+        <h2 className="text-xs font-bold uppercase text-stone-500">Jokes</h2>
+        <div className="flex items-center gap-3">
+          <span className="text-xs text-stone-400">{totalCount}</span>
+          <Link
+            href={refinedHref("beats", query)}
+            className="text-xs font-bold text-stone-500 transition-colors hover:text-[#ff1464]"
+          >
+            Show more jokes
+          </Link>
+        </div>
+      </div>
+      <div className="flex flex-col gap-3">
+        {items.map((beat) => (
+          <JokeSearchResultCard
+            key={beat.id}
+            item={beat}
+            query={query}
+            set={setsBySlug.get(beat.set_slug)}
+          />
+        ))}
       </div>
     </section>
   );
@@ -248,7 +277,7 @@ function NavSearchSidebarSection({
       </div>
       <div className="grid gap-1.5">
         {items.map((item) => (
-          <NavSearchResultCard key={`${item.type}-${item.href}-${item.title}`} item={item} query={query} compact />
+          <NavSearchResultCard key={`${item.type}-${item.href}-${item.title}`} item={item} compact />
         ))}
       </div>
     </section>
@@ -313,13 +342,78 @@ function NavSearchSidebar({ results, query }: { results: NavSearchResponse | nul
   );
 }
 
+async function NavSearchResultsGrid({ query }: { query: string }) {
+  const [results, jokeResults] = query
+    ? await Promise.all([
+        getServerNavSearch(query),
+        getServerBeatsPaginated(new URLSearchParams({ q: query }).toString()),
+      ])
+    : [null, null];
+  const jokeSetSlugs = jokeResults ? [...new Set(jokeResults.results.map((beat) => beat.set_slug))] : [];
+  const jokeSets = await Promise.all(jokeSetSlugs.map((slug) => getServerSet(slug)));
+  const jokeSetsBySlug = new Map<string, Set>(
+    jokeSets.filter((set): set is Set => set !== null).map((set) => [set.slug, set])
+  );
+  const hasResults = Boolean(
+    (results && GROUPS.some(({ key }) => results[key].length > 0)) ||
+    (jokeResults && jokeResults.results.length > 0)
+  );
+
+  return (
+    <div className="mx-auto grid max-w-6xl gap-6 px-0 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_300px]">
+      <main className="min-w-0">
+        {!query && <NavSearchEmptyState query="" />}
+        {query && !results && (
+          <div className="bg-white px-4 py-12 text-center">
+            <p className="text-lg font-bold">Search is unavailable right now.</p>
+          </div>
+        )}
+        {results && !hasResults && <NavSearchEmptyState query={query} />}
+        {results && hasResults && (
+          <>
+            {MAIN_GROUPS.map(({ key, title }) => (
+              key === "beats" && jokeResults ? (
+                <JokeResultSection
+                  key={key}
+                  items={jokeResults.results}
+                  totalCount={jokeResults.count}
+                  query={query}
+                  setsBySlug={jokeSetsBySlug}
+                />
+              ) : (
+                <NavSearchResultSection
+                  key={key}
+                  groupKey={key}
+                  title={title}
+                  items={results[key]}
+                  query={query}
+                />
+              )
+            ))}
+          </>
+        )}
+      </main>
+      <aside className="px-4 sm:px-0">
+        <NavSearchSidebar results={results} query={query} />
+        {results && hasResults && SIDEBAR_GROUPS.map(({ key, title }) => (
+          <NavSearchSidebarSection
+            key={key}
+            groupKey={key}
+            title={title}
+            items={results[key]}
+            query={query}
+          />
+        ))}
+      </aside>
+    </div>
+  );
+}
+
 export default async function NavSearchPage({ searchParams }: Props) {
   const searchParamsValue = await searchParams;
   const rawQuery = searchParamsValue.q;
   const query = Array.isArray(rawQuery) ? rawQuery[0] ?? "" : rawQuery ?? "";
   const trimmedQuery = query.trim();
-  const results = trimmedQuery ? await getServerNavSearch(trimmedQuery) : null;
-  const hasResults = results ? GROUPS.some(({ key }) => results[key].length > 0) : false;
 
   return (
     <div className="min-h-screen bg-[#f7f7f7] text-black">
@@ -332,42 +426,9 @@ export default async function NavSearchPage({ searchParams }: Props) {
         </div>
       </section>
 
-      <div className="mx-auto grid max-w-6xl gap-6 px-0 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_300px]">
-        <main className="min-w-0">
-          {!trimmedQuery && <NavSearchEmptyState query="" />}
-          {trimmedQuery && !results && (
-            <div className="bg-white px-4 py-12 text-center">
-              <p className="text-lg font-bold">Search is unavailable right now.</p>
-            </div>
-          )}
-          {results && !hasResults && <NavSearchEmptyState query={trimmedQuery} />}
-          {results && hasResults && (
-            <>
-              {MAIN_GROUPS.map(({ key, title }) => (
-                <NavSearchResultSection
-                  key={key}
-                  groupKey={key}
-                  title={title}
-                  items={results[key]}
-                  query={trimmedQuery}
-                />
-              ))}
-            </>
-          )}
-        </main>
-        <aside className="px-4 sm:px-0">
-          <NavSearchSidebar results={results} query={trimmedQuery} />
-          {results && hasResults && SIDEBAR_GROUPS.map(({ key, title }) => (
-            <NavSearchSidebarSection
-              key={key}
-              groupKey={key}
-              title={title}
-              items={results[key]}
-              query={trimmedQuery}
-            />
-          ))}
-        </aside>
-      </div>
+      <Suspense key={trimmedQuery} fallback={<ResultsLoading />}>
+        <NavSearchResultsGrid query={trimmedQuery} />
+      </Suspense>
     </div>
   );
 }
