@@ -22,8 +22,8 @@ Check `C:\Users\ethan\coding\punchnotes\pipeline\data\transcript_inbox\`.
 If there are any `.txt` files there:
 
 - Select the first 5 files.
-- Spin up one medium sized agent. Tell it: the file list you are giving it is authoritative — do not list the inbox directory. Then give it the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\transcript_analysis_prompt.md`. **YOU SHOULD NOT READ THIS PROMPT JUST PASS IT ON**
-- Wait for it to finish all 5 files, then repeat for the next files.
+- Spin up medium sized agents. Tell them: the file list you are giving them is authoritative — do not list the inbox directory. Then give them the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\transcript_analysis_prompt.md`. **YOU SHOULD NOT READ THIS PROMPT JUST PASS IT ON**
+- Each time an agent finishes its allocated set of files. Spin up a new agent with a new set.
 - Continue until `transcript_inbox` is empty.
 
 If `transcript_inbox` is empty, proceed to Phase 2.

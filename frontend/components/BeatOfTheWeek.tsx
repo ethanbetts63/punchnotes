@@ -18,6 +18,8 @@ export default function BeatOfTheWeek({ set, bitIndex, beatIndex, entries, sideb
             title="Featured Jokes"
             description="Every set is annotated line by line, from setup to punchline to tag, with the joke type called out on each beat."
             entries={beatEntries}
+            href="/killtony/jokes"
+            linkText="More curated jokes"
             headingClassName="text-3xl font-bold tracking-tight sm:text-4xl"
           />
         </div>
