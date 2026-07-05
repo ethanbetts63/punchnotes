@@ -22,9 +22,8 @@ def generate_segment_embeddings(options: dict, log: Log) -> None:
 
     log(f"Fetching beat segments from {segments_url} in batches of {SEGMENT_FETCH_BATCH_SIZE}...")
     session = pipeline_session()
-    outbox_dir = settings.PIPELINE_DATA_DIR / "segment_embeddings_outbox"
-    outbox_dir.mkdir(parents=True, exist_ok=True)
     ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    outbox_dir = settings.PIPELINE_DATA_DIR / "segment_embeddings_outbox"
     out_path = outbox_dir / f"segment_embeddings_{ts}.jsonl"
 
     model = None
@@ -71,6 +70,7 @@ def generate_segment_embeddings(options: dict, log: Log) -> None:
         total_batches = (len(segments) + batch_size - 1) // batch_size
         log(f"Encoding batch {batch_number}: {len(segments)} text(s) with batch size {batch_size} ({total_batches} encoder batch(es))...")
         embeddings = model.encode([s["text"] for s in segments], batch_size=batch_size, show_progress_bar=True).tolist()
+        outbox_dir.mkdir(parents=True, exist_ok=True)
         with out_path.open("a", encoding="utf-8") as f:
             for segment, embedding in zip(segments, embeddings):
                 f.write(json.dumps({"key": segment["key"], "embedding": embedding}, separators=(",", ":")) + "\n")
