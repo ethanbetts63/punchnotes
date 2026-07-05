@@ -23,6 +23,19 @@ function selectedBeat(set: Set, bitIndex: number, beatIndex: number): SelectedBe
   return { bit, beat, bitIdx: bitIndex, beatIdx: beatIndex };
 }
 
+function compactOrdinalId(value: string): string {
+  const match = value.match(/(\d+)$/);
+  return match ? match[1].padStart(3, "0") : value;
+}
+
+function selectedBeatHref(set: Set, bit: Bit, beat: Beat): string {
+  const params = new URLSearchParams({
+    bit: compactOrdinalId(bit.bit_id),
+    beat: compactOrdinalId(beat.beat_id),
+  });
+  return `/killtony/sets/${set.slug}?${params.toString()}`;
+}
+
 type Props = FeaturedBeatEntry & {
   entries?: FeaturedBeatEntry[];
   sidebar?: ReactNode;
@@ -84,7 +97,7 @@ export default function BeatOfTheWeek({ set, bitIndex, beatIndex, entries, sideb
           </div>
 
           <Link
-            href={`/killtony/sets/${activeEntry.set.slug}`}
+            href={selectedBeatHref(activeEntry.set, selected.bit, selected.beat)}
             className="group block max-w-3xl rounded-lg border border-stone-200 bg-white p-4 shadow-sm transition-colors hover:border-primary/40 hover:shadow-md"
           >
             <div className="flex items-start gap-4">

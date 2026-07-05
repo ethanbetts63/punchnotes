@@ -159,12 +159,9 @@ export type FeaturedBeatSource = {
 };
 
 export const FEATURED_BEATS: FeaturedBeatSource[] = [
-  { setSlug: "NoUJl5eZOzw-set07-jonah-campos", bitIndex: 0, beatIndex: 0 },
-  { setSlug: "8LUSZuuQano-set05-nick-gianni", bitIndex: 0, beatIndex: 0 },
-  { setSlug: "VopdOOBFE_M-set08-david-lucas", bitIndex: 0, beatIndex: 0 },
-  { setSlug: "_IWBzZHL0xw-set11-steve-lardner", bitIndex: 0, beatIndex: 0 },
-  { setSlug: "31Q9QvOCwdk-set01-alex-frank-encenia", bitIndex: 0, beatIndex: 0 },
-  { setSlug: "6txwU9YLXio-set04-cody-sylvia", bitIndex: 0, beatIndex: 0 },
-  { setSlug: "FVR-v_WUYJk-set09-aldo-caldo", bitIndex: 0, beatIndex: 0 },
-  { setSlug: "9jb4OkKRADo-set01-reuben-aiken-till", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "1upKa86_uKU-set06-pat-o-neill", bitIndex: 1, beatIndex: 0 },
+  { setSlug: "A0JWnKvtCAI-set05-hans-kim", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "a9Le0VGXZDU-set03-michael-hines", bitIndex: 3, beatIndex: 0 },
+  { setSlug: "RQ7Uk4vTPtk-set04-todd-royce", bitIndex: 2, beatIndex: 0 },
+  { setSlug: "lakXB1OP6Jg-set01-william-montgomery", bitIndex: 4, beatIndex: 0 },
 ];
