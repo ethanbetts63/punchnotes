@@ -5,6 +5,8 @@ import Paginator from "@/components/Paginator";
 import { JOKES_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import { parseSearchPageParams } from "@/lib/searchParams";
 import JokeSearchResultCard from "@/components/JokeSearchResultCard";
+import { FaqSection } from "@/components/FaqSection";
+import { JOKE_TYPE_FAQ } from "@/lib/jokeTypeFaq";
 
 export const metadata = {
   title: "Search Jokes - Kill Tony | PunchNotes",
@@ -49,14 +51,18 @@ export default async function JokeSearchPage({ searchParams }: Props) {
   const sp = await searchParams;
 
   return (
-    <ModelSearchLayout
-      title="Search Jokes"
-      backHref="/killtony/jokes"
-      backLabel="Jokes"
-      searchPlaceholder="Search jokes..."
-      controls={<FilterControls config={JOKES_SEARCH_CONFIG} />}
-    >
-      <JokeResults sp={sp} />
-    </ModelSearchLayout>
+    <>
+      <ModelSearchLayout
+        title="Search Jokes"
+        backHref="/killtony/jokes"
+        backLabel="Jokes"
+        searchPlaceholder="Search jokes..."
+        controls={<FilterControls config={JOKES_SEARCH_CONFIG} />}
+      >
+        <JokeResults sp={sp} />
+      </ModelSearchLayout>
+
+      <FaqSection title="Joke types explained" faqData={JOKE_TYPE_FAQ} />
+    </>
   );
 }

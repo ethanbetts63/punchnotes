@@ -3,6 +3,8 @@ import FilterControls from "@/components/FilterControls";
 import { JOKES_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import ListPageHeader from "@/components/ListPageHeader";
 import { SITE_URL, buildBreadcrumbSchema } from "@/lib/seo";
+import { FaqSection } from "@/components/FaqSection";
+import { JOKE_TYPE_FAQ } from "@/lib/jokeTypeFaq";
 import JokePlaylists from "./JokePlaylists";
 
 export const metadata = {
@@ -56,6 +58,8 @@ export default async function JokesPage() {
           </Link>
         </p>
       </div>
+
+      <FaqSection title="Joke types explained" faqData={JOKE_TYPE_FAQ} />
     </div>
     </>
   );
