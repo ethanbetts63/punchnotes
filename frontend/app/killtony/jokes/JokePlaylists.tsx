@@ -108,6 +108,11 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
     picks: [
       { set_slug: "A0JWnKvtCAI-set05-hans-kim",            bit_id: "bit_001", beat_id: "bit_001_beat_001" },
       { set_slug: "3R3csSEA_JY-set05-hans-kim",            bit_id: "bit_002", beat_id: "bit_002_beat_001" },
+      { set_slug: "2LGShfsvnTM-set08-mike-holder",         bit_id: "bit_001", beat_id: "bit_001_beat_001" },
+      { set_slug: "2aB2fB1Ylao-set13-ari-matti",           bit_id: "bit_001", beat_id: "bit_001_beat_001" },
+      { set_slug: "g9OdSD0GkIc-set10-william-montgomery",  bit_id: "bit_003", beat_id: "bit_003_beat_001" },
+      { set_slug: "lakXB1OP6Jg-set01-william-montgomery",  bit_id: "bit_005", beat_id: "bit_005_beat_001" },
+      { set_slug: "R0y_PxhMdQ4-set06-collin-sledge",       bit_id: "bit_002", beat_id: "bit_002_beat_001" },
     ],
   },
   {
@@ -141,6 +146,12 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
     picks: [
       { set_slug: "avLgvLtO10w-set04-steve-lee",           bit_id: "bit_001", beat_id: "bit_001_beat_002" },
       { set_slug: "M7RsTBpU5xM-set04-gary-falcon",         bit_id: "bit_003", beat_id: "bit_003_beat_001" },
+      { set_slug: "3tzdqyIPcrM-set02-gabriel-kerr",        bit_id: "bit_001", beat_id: "bit_001_beat_004" },
+      { set_slug: "ETk1fMPvekY-set01-casey-rocket",        bit_id: "bit_001", beat_id: "bit_001_beat_001" },
+      { set_slug: "lakXB1OP6Jg-set12-ari-matti",           bit_id: "bit_004", beat_id: "bit_004_beat_001" },
+      { set_slug: "A0JWnKvtCAI-set07-david-lucas",         bit_id: "bit_001", beat_id: "bit_001_beat_003" },
+      { set_slug: "r2zQT6MvMXI-set01-hans-kim",            bit_id: "bit_003", beat_id: "bit_003_beat_001" },
+      { set_slug: "bZ2mFX900FI-set10-martin-phillips",     bit_id: "bit_001", beat_id: "bit_001_beat_001" },
     ],
   },
   {
