@@ -21,6 +21,24 @@ def test_unsegmented_beat_segments_view_returns_segments(api_client, full_set):
     assert segments[0]["key"].endswith(".seg001")
 
 
+def test_unsegmented_beat_segments_view_supports_batches(api_client, full_set):
+    full_set["bit"].bit_id = "bit_001"
+    full_set["bit"].save(update_fields=["bit_id"])
+    full_set["beat"].beat_id = "bit_001_beat_001"
+    full_set["beat"].save(update_fields=["beat_id"])
+
+    resp = api_client.get("/api/pipeline/unsegmented-beat-segments/?limit=1&after_id=0&build_beats=1")
+
+    assert resp.status_code == 200
+    payload = resp.json()
+    assert len(payload["segments"]) == 1
+    assert payload["segments"][0]["id"] > 0
+    assert payload["segments"][0]["key"].endswith(".seg001")
+    assert payload["next_cursor"] == payload["segments"][0]["id"]
+    assert payload["built_beats"] == 1
+    assert payload["has_more"] is False
+
+
 def test_segment_embeddings_view_writes_inbox_file(api_client, tmp_path):
     payload = json.dumps({"key": "ep700.set01.bit001.beat001.seg001", "embedding": [1.0, 2.0]}) + "\n"
 

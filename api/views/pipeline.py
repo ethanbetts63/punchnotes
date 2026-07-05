@@ -270,7 +270,22 @@ class EmbeddingsView(PipelineView):
 
 class UnsegmentedBeatSegmentsView(PipelineView):
     def get(self, request):
-        from pipeline.utils.update.segment_embeddings import unembedded_beat_segments
+        from pipeline.utils.update.segment_embeddings import unembedded_beat_segments, unembedded_beat_segments_batch
+        if "limit" in request.GET or "after_id" in request.GET:
+            try:
+                after_id = int(request.GET.get("after_id", "0"))
+                limit = int(request.GET.get("limit", "500"))
+                build_beats = int(request.GET.get("build_beats", "200"))
+            except ValueError:
+                return Response({"error": "after_id, limit, and build_beats must be integers."}, status=400)
+            try:
+                return Response(unembedded_beat_segments_batch(
+                    after_id=after_id,
+                    limit=limit,
+                    build_beats=build_beats,
+                ))
+            except ValueError as exc:
+                return Response({"error": str(exc)}, status=400)
         return Response({"segments": unembedded_beat_segments()})
 
 

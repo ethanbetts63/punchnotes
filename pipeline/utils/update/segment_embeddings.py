@@ -3,6 +3,7 @@ import re
 from pathlib import Path
 
 from django.conf import settings
+from django.db.models import Count
 
 from pipeline.log import Log
 from pipeline.models import Beat, BeatSegment, Line
@@ -75,8 +76,8 @@ def _parse_segment_key(key: str) -> dict | None:
     }
 
 
-def unembedded_beat_segments() -> list[dict]:
-    beats = list(
+def _candidate_beats():
+    return (
         Beat.objects
         .exclude(joke_type=None)
         .exclude(joke_type="")
@@ -88,6 +89,26 @@ def unembedded_beat_segments() -> list[dict]:
         )
         .order_by("bit__set__video__number", "bit__set__set_number")
     )
+
+
+def _segment_payload(segment: BeatSegment) -> dict | None:
+    beat = segment.beat
+    set_obj = beat.bit.set
+    ep_num = set_obj.video.number
+    set_num = set_obj.set_number
+    bit_m = re.search(r"(\d+)$", beat.bit.bit_id)
+    beat_m = re.search(r"(\d+)$", beat.beat_id)
+    if not bit_m or not beat_m:
+        return None
+    key = (
+        f"ep{ep_num}.set{set_num:02d}.bit{int(bit_m.group(1)):03d}"
+        f".beat{int(beat_m.group(1)):03d}.seg{segment.ordinal:03d}"
+    )
+    return {"id": segment.id, "key": key, "text": segment.text}
+
+
+def unembedded_beat_segments() -> list[dict]:
+    beats = list(_candidate_beats())
     if not beats:
         return []
 
@@ -101,20 +122,54 @@ def unembedded_beat_segments() -> list[dict]:
         .order_by("beat__bit__set__video__number", "beat__bit__set__set_number", "beat_id", "ordinal")
     )
     for segment in segments:
-        beat = segment.beat
-        set_obj = beat.bit.set
-        ep_num = set_obj.video.number
-        set_num = set_obj.set_number
-        bit_m = re.search(r"(\d+)$", beat.bit.bit_id)
-        beat_m = re.search(r"(\d+)$", beat.beat_id)
-        if not bit_m or not beat_m:
-            continue
-        key = (
-            f"ep{ep_num}.set{set_num:02d}.bit{int(bit_m.group(1)):03d}"
-            f".beat{int(beat_m.group(1)):03d}.seg{segment.ordinal:03d}"
-        )
-        result.append({"key": key, "text": segment.text})
+        payload = _segment_payload(segment)
+        if payload is not None:
+            result.append({"key": payload["key"], "text": payload["text"]})
     return result
+
+
+def unembedded_beat_segments_batch(after_id: int = 0, limit: int = 500, build_beats: int = 200) -> dict:
+    if limit < 1:
+        raise ValueError("limit must be at least 1")
+    if build_beats < 0:
+        raise ValueError("build_beats cannot be negative")
+
+    beats_to_segment = list(
+        _candidate_beats()
+        .annotate(segment_count=Count("segments"))
+        .filter(segment_count=0)[:build_beats]
+    )
+    ensure_beat_segments(beats_to_segment)
+
+    segments_qs = (
+        BeatSegment.objects
+        .filter(embedding=[], id__gt=after_id)
+        .exclude(beat__joke_type=None)
+        .exclude(beat__joke_type="")
+        .select_related("beat__bit__set__video")
+        .order_by("id")[:limit]
+    )
+    segments = []
+    next_cursor = after_id
+    for segment in segments_qs:
+        next_cursor = max(next_cursor, segment.id)
+        payload = _segment_payload(segment)
+        if payload is not None:
+            segments.append(payload)
+
+    has_more_segments = BeatSegment.objects.filter(embedding=[], id__gt=next_cursor).exists()
+    has_more_unsegmented_beats = (
+        _candidate_beats()
+        .annotate(segment_count=Count("segments"))
+        .filter(segment_count=0)
+        .exists()
+    )
+    return {
+        "segments": segments,
+        "next_cursor": next_cursor,
+        "built_beats": len(beats_to_segment),
+        "has_more": has_more_segments or has_more_unsegmented_beats,
+    }
 
 
 def ingest_segment_embeddings(pairs: list[dict]) -> dict:
