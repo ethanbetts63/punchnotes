@@ -116,7 +116,7 @@ export default function AnnotatedBeatCarousel({
         {canScrollLeft && <ScrollButton dir="left" onClick={() => scroll(-1)} />}
         <div
           ref={scrollRef}
-          className="carousel-scrollbar flex snap-x snap-mandatory overflow-x-scroll pb-3"
+          className="carousel-scrollbar flex snap-x snap-mandatory overflow-x-scroll px-4 pb-3 lg:px-0"
         >
           {cards.map((card) => (
             <div

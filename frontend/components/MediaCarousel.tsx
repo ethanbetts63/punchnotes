@@ -95,7 +95,7 @@ export default function MediaCarousel({ title, description, href, linkText, item
 
         <div
           ref={scrollRef}
-          className="carousel-scrollbar flex overflow-x-scroll pb-3"
+          className="carousel-scrollbar flex overflow-x-scroll px-4 pb-3 sm:px-6"
         >
           {items.map((item) => (
             <div

@@ -143,6 +143,7 @@
   .carousel-scrollbar::-webkit-scrollbar-track {
     background: var(--color-stone-100);
     border-radius: 999px;
+    margin-inline: 1.5rem;
   }
 
   .carousel-scrollbar::-webkit-scrollbar-thumb {
