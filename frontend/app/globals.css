@@ -131,6 +131,29 @@
 }
 
 @layer utilities {
+  .carousel-scrollbar {
+    scrollbar-color: var(--color-stone-400) var(--color-stone-100);
+    scrollbar-width: thin;
+  }
+
+  .carousel-scrollbar::-webkit-scrollbar {
+    height: 0.625rem;
+  }
+
+  .carousel-scrollbar::-webkit-scrollbar-track {
+    background: var(--color-stone-100);
+    border-radius: 999px;
+  }
+
+  .carousel-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--color-stone-400);
+    border-radius: 999px;
+  }
+
+  .carousel-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+  }
+
   .defer-section {
     content-visibility: auto;
     contain-intrinsic-size: auto 640px;

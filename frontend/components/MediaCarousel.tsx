@@ -13,11 +13,11 @@ function ScrollButton({ dir, onClick }: { dir: "left" | "right"; onClick: () => 
       type="button"
       onClick={onClick}
       aria-label={`Scroll ${dir}`}
-      className="absolute bottom-0 top-0 z-10 flex w-10 items-center justify-center"
+      className="group absolute bottom-3 top-0 z-10 flex w-12 items-center justify-center"
       style={{ [dir]: "1rem" }}
     >
-      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 bg-white shadow-md text-stone-600 transition-colors hover:text-stone-950">
-        <Icon className="h-5 w-5" />
+      <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/90 bg-primary text-white shadow-xl shadow-stone-950/20 ring-1 ring-stone-950/10 transition-colors group-hover:bg-stone-950 group-focus-visible:outline-none group-focus-visible:ring-2 group-focus-visible:ring-primary/50">
+        <Icon className="h-6 w-6" />
       </span>
     </button>
   );
@@ -95,7 +95,7 @@ export default function MediaCarousel({ title, description, href, linkText, item
 
         <div
           ref={scrollRef}
-          className="flex overflow-x-scroll [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="carousel-scrollbar flex overflow-x-scroll pb-3"
         >
           {items.map((item) => (
             <div
