@@ -27,6 +27,8 @@ export const JOKE_TYPE_STYLES: Record<string, { badge: string; accent: string }>
   analogy:                { badge: "bg-emerald-500 text-white",   accent: "border-l-emerald-500" },
   hyperbole:              { badge: "bg-pink-500 text-white",      accent: "border-l-pink-500" },
   "elephant-in-the-room": { badge: "bg-cyan-500 text-white",      accent: "border-l-cyan-500" },
+  "anti-humor":           { badge: "bg-stone-700 text-white",     accent: "border-l-stone-700" },
+  absurdism:              { badge: "bg-lime-500 text-stone-950",  accent: "border-l-lime-500" },
 };
 const DEFAULT_JOKE_STYLE = { badge: "bg-stone-950 text-white", accent: "border-l-stone-300" };
 

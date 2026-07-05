@@ -1,4 +1,4 @@
-import { getServerBeatsPaginated } from "@/lib/serverApi";
+import { getServerBeatsPaginated, getServerSet, type Set } from "@/lib/serverApi";
 import ModelSearchLayout, { buildSearchSubtitle } from "@/components/ModelSearchLayout";
 import FilterControls from "@/components/FilterControls";
 import Paginator from "@/components/Paginator";
@@ -18,6 +18,11 @@ async function JokeResults({ sp }: { sp: Record<string, string> }) {
   const { query, page, queryString } = parseSearchPageParams(sp);
 
   const data = await getServerBeatsPaginated(queryString);
+  const setSlugs = [...new Set(data.results.map((beat) => beat.set_slug))];
+  const sets = await Promise.all(setSlugs.map((slug) => getServerSet(slug)));
+  const setsBySlug = new Map<string, Set>(
+    sets.filter((set): set is Set => set !== null).map((set) => [set.slug, set])
+  );
 
   const totalPages = Math.max(1, Math.ceil(data.count / JOKES_SEARCH_CONFIG.pageSize));
   const baseSubtitle = buildSearchSubtitle(data.count, "joke", "jokes", query);
@@ -39,7 +44,12 @@ async function JokeResults({ sp }: { sp: Record<string, string> }) {
       <p className="mb-6 text-stone-500">{subtitle}</p>
       <div className="flex flex-col gap-3">
         {data.results.map((beat) => (
-          <JokeSearchResultCard key={beat.id} item={beat} query={query} />
+          <JokeSearchResultCard
+            key={beat.id}
+            item={beat}
+            query={query}
+            set={setsBySlug.get(beat.set_slug)}
+          />
         ))}
       </div>
       <Paginator page={page} totalPages={totalPages} />

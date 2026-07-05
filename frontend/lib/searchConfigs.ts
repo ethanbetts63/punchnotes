@@ -109,6 +109,8 @@ export const JOKES_SEARCH_CONFIG: SearchConfig = {
         { value: "analogy",             label: "analogy" },
         { value: "hyperbole",           label: "hyperbole" },
         { value: "elephant-in-the-room", label: "elephant-in-the-room" },
+        { value: "anti-humor",          label: "anti-humor" },
+        { value: "absurdism",           label: "absurdism" },
       ],
     },
   ],

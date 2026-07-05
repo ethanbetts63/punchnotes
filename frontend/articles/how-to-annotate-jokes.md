@@ -193,6 +193,18 @@ Example:
 Formula: *[frame] implies a punchline, but reveals only [answer].*
 Premise: `"An animal asking a business for service implies a punchline, but reveals only that the business does not serve animals."`
 
+### absurdism
+
+The payoff is random given the setup. No assumption is subverted and no second true reading is added.
+
+Example:
+
+- setup: `"If I was a millionaire and I could live wherever I wanted, I'd probably live at the North Pole with Santa Claus."`
+- punchline: `"Say what you will about Santa Claus, but he's not Muslim."`
+
+Formula: *[frame] is met with [non sequitur], with no connecting logic.*
+Premise: `"Choosing where to live is met with Santa's arbitrary religion status, with no connecting logic."`
+
 ---
 
 ## Methodology

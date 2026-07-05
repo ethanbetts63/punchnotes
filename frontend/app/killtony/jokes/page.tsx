@@ -50,9 +50,9 @@ export default async function JokesPage() {
 
       <div className="mx-auto max-w-6xl px-6 pb-16 border-t border-stone-100 pt-10">
         <p className="text-stone-500">
-          Every joke is broken into beats — each with a setup, punchline, and any tags — and assigned one of nine structural types:{" "}
-          <span className="font-medium text-stone-700">misdirect, reframe, phonetic-match, double-meaning, contradiction, analogy, hyperbole, elephant-in-the-room,</span>{" "}
-          and <span className="font-medium text-stone-700">anti-humor</span>.{" "}
+          Every joke is broken into beats — each with a setup, punchline, and any tags — and assigned one of ten structural types:{" "}
+          <span className="font-medium text-stone-700">misdirect, reframe, phonetic-match, double-meaning, contradiction, analogy, hyperbole, elephant-in-the-room, anti-humor,</span>{" "}
+          and <span className="font-medium text-stone-700">absurdism</span>.{" "}
           <Link href="/articles/how-to-annotate-jokes" className="text-primary underline underline-offset-2 hover:text-primary/80">
             How to Annotate Jokes &rarr;
           </Link>

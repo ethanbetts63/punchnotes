@@ -48,4 +48,9 @@ export const JOKE_TYPE_FAQ: FaqItem[] = [
     answer:
       "A joke form promises a payoff, then delivers the banal truth; the joke is that there is no joke.",
   },
+  {
+    question: "What is an absurdism joke?",
+    answer:
+      "The payoff is random given the setup. No assumption is subverted and no second true reading is added; the joke comes from a frame being met with a non sequitur with no connecting logic.",
+  },
 ];

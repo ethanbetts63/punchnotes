@@ -1,7 +1,7 @@
 import { getServerSet } from "@/lib/serverApi";
-import type { BeatSearchItem, Set } from "@/lib/serverApi";
-import { jokeToTile, JOKE_TYPE_STYLES } from "@/lib/tiles";
-import MediaCarousel from "@/components/MediaCarousel";
+import type { Set } from "@/lib/serverApi";
+import AnnotatedBeatCarousel, { type AnnotatedBeatEntry } from "@/components/AnnotatedBeatCarousel";
+import { JOKE_TYPE_STYLES } from "@/lib/tiles";
 
 type JokeList = {
   type: string;
@@ -16,31 +16,13 @@ function beatKey({ set_slug, bit_id, beat_id }: BeatKey) {
   return `${set_slug}:${bit_id}:${beat_id}`;
 }
 
-function beatToSearchItem(set: Set, pick: BeatKey): BeatSearchItem | null {
-  const bit = set.bits.find((candidate) => candidate.bit_id === pick.bit_id);
-  const beat = bit?.beats.find((candidate) => candidate.beat_id === pick.beat_id);
-  if (!bit || !beat) return null;
-
-  const setupLines = beat.lines
-    .filter((line) => line.label === "setup")
-    .map((line) => line.text);
-  const punchline = beat.lines.find((line) => line.label === "punchline")?.text ?? "";
-
-  return {
-    id: beat.id,
-    beat_id: beat.beat_id,
-    bit_id: bit.bit_id,
-    comedian: set.comedian.name,
-    comedian_slug: set.comedian.slug,
-    episode_number: set.video.number,
-    set_slug: set.slug,
-    premise: beat.premise,
-    joke_type: beat.joke_type,
-    setup_lines: setupLines,
-    punchline,
-    matched_line: "",
-    matched_line_label: "",
-  };
+function beatToEntry(set: Set, pick: BeatKey): AnnotatedBeatEntry | null {
+  const bitIndex = set.bits.findIndex((candidate) => candidate.bit_id === pick.bit_id);
+  const beatIndex = bitIndex >= 0
+    ? set.bits[bitIndex].beats.findIndex((candidate) => candidate.beat_id === pick.beat_id)
+    : -1;
+  if (bitIndex < 0 || beatIndex < 0) return null;
+  return { set, bitIndex, beatIndex };
 }
 
 const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
@@ -50,7 +32,6 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
     description: "The setup goes one way. The punch goes somewhere else entirely.",
     seeMoreText: "See all misdirects",
     picks: [
-      { set_slug: "xINfBBZBa3U-set07-timmy-no-brakes",     bit_id: "bit_001", beat_id: "bit_001_beat_001" },
       { set_slug: "Z6sSORy6Xag-set01-casey-rocket",        bit_id: "bit_002", beat_id: "bit_002_beat_001" },
       { set_slug: "11FD8eVzsfk-set01-casey-rocket",        bit_id: "bit_002", beat_id: "bit_002_beat_001" },
       { set_slug: "lwLnqeBKa-0-set01-pat-o-neill",         bit_id: "bit_005", beat_id: "bit_005_beat_001" },
@@ -109,7 +90,6 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
       { set_slug: "A0JWnKvtCAI-set05-hans-kim",            bit_id: "bit_001", beat_id: "bit_001_beat_001" },
       { set_slug: "3R3csSEA_JY-set05-hans-kim",            bit_id: "bit_002", beat_id: "bit_002_beat_001" },
       { set_slug: "2LGShfsvnTM-set08-mike-holder",         bit_id: "bit_001", beat_id: "bit_001_beat_001" },
-      { set_slug: "2aB2fB1Ylao-set13-ari-matti",           bit_id: "bit_001", beat_id: "bit_001_beat_001" },
       { set_slug: "g9OdSD0GkIc-set10-william-montgomery",  bit_id: "bit_003", beat_id: "bit_003_beat_001" },
       { set_slug: "lakXB1OP6Jg-set01-william-montgomery",  bit_id: "bit_005", beat_id: "bit_005_beat_001" },
       { set_slug: "R0y_PxhMdQ4-set06-collin-sledge",       bit_id: "bit_002", beat_id: "bit_002_beat_001" },
@@ -171,22 +151,22 @@ const JOKE_TYPE_PLAYLISTS: (JokeList & { picks: BeatKey[] })[] = [
 export default async function JokePlaylists() {
   const setSlugs = [...new Set(JOKE_TYPE_PLAYLISTS.flatMap((p) => p.picks.map((k) => k.set_slug)))];
   const sets = await Promise.all(setSlugs.map((slug) => getServerSet(slug)));
-  const jokeByKey = new Map<string, BeatSearchItem>();
+  const entryByKey = new Map<string, AnnotatedBeatEntry>();
 
   sets.filter((set): set is Set => set !== null).forEach((set) => {
     JOKE_TYPE_PLAYLISTS.flatMap((playlist) => playlist.picks)
       .filter((pick) => pick.set_slug === set.slug)
       .forEach((pick) => {
-        const joke = beatToSearchItem(set, pick);
-        if (joke) jokeByKey.set(beatKey(pick), joke);
+        const entry = beatToEntry(set, pick);
+        if (entry) entryByKey.set(beatKey(pick), entry);
       });
   });
 
   const lists = JOKE_TYPE_PLAYLISTS
     .map((playlist) => {
       const items = playlist.picks
-        .map((pick) => jokeByKey.get(beatKey(pick)))
-        .filter((j): j is BeatSearchItem => j !== undefined);
+        .map((pick) => entryByKey.get(beatKey(pick)))
+        .filter((entry): entry is AnnotatedBeatEntry => entry !== undefined);
       return {
         ...playlist,
         items,
@@ -200,13 +180,13 @@ export default async function JokePlaylists() {
   return (
     <div className="space-y-10">
       {lists.map((list) => (
-        <MediaCarousel
+        <AnnotatedBeatCarousel
           key={list.type}
           title={list.title}
           description={list.description}
           accentClass={list.accentClass}
-          tileClass="w-64 shrink-0 px-1.5 first:pl-6 last:pr-6"
-          items={list.items.map((j) => jokeToTile(j))}
+          tileClassName="w-[88%] shrink-0 snap-start px-2 first:pl-6 last:pr-6 sm:w-[70%] md:w-[58%] lg:w-[48%] xl:w-[42%]"
+          entries={list.items}
           href={`/killtony/jokes/search?joke_type=${list.type}`}
           linkText={list.seeMoreText}
         />
