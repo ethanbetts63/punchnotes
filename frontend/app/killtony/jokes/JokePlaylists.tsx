@@ -1,7 +1,7 @@
 import { getServerSet } from "@/lib/serverApi";
 import type { Set } from "@/lib/serverApi";
 import AnnotatedBeatCarousel, { type AnnotatedBeatEntry } from "@/components/AnnotatedBeatCarousel";
-import { JOKE_TYPE_STYLES } from "@/lib/tiles";
+import { getJokeTypeStyle } from "@/lib/jokeTypes";
 
 type JokeList = {
   type: string;
@@ -170,7 +170,7 @@ export default async function JokePlaylists() {
       return {
         ...playlist,
         items,
-        accentClass: JOKE_TYPE_STYLES[playlist.type]?.accent ?? "border-l-stone-300",
+        accentClass: getJokeTypeStyle(playlist.type)?.accent ?? "border-l-stone-300",
       };
     })
     .filter((list) => list.items.length > 0);

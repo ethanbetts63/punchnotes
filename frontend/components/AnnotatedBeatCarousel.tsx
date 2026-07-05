@@ -3,40 +3,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import type { Beat, Bit, Set } from "@/lib/serverApi";
-import AnnotatedBeatCard, { combineConsecutiveSetupLines, type AnnotatedBeatCardLine } from "@/components/AnnotatedBeatCard";
-import { fmtDate } from "@/lib/killTonyDisplay";
+import type { Set } from "@/lib/serverApi";
+import AnnotatedBeatCard from "@/components/AnnotatedBeatCard";
+import { setBeatToCardData } from "@/lib/annotatedBeatCards";
 
 export type AnnotatedBeatEntry = {
   set: Set;
   bitIndex: number;
   beatIndex: number;
 };
-
-type SelectedBeat = {
-  bit: Bit;
-  beat: Beat;
-};
-
-function selectedBeat(set: Set, bitIndex: number, beatIndex: number): SelectedBeat | null {
-  const bit = set.bits[bitIndex];
-  const beat = bit?.beats[beatIndex];
-  if (!bit || !beat) return null;
-  return { bit, beat };
-}
-
-function compactOrdinalId(value: string): string {
-  const match = value.match(/(\d+)$/);
-  return match ? match[1].padStart(3, "0") : value;
-}
-
-function selectedBeatHref(set: Set, bit: Bit, beat: Beat): string {
-  const params = new URLSearchParams({
-    bit: compactOrdinalId(bit.bit_id),
-    beat: compactOrdinalId(beat.beat_id),
-  });
-  return `/killtony/sets/${set.slug}?${params.toString()}`;
-}
 
 function ScrollButton({ dir, onClick }: { dir: "left" | "right"; onClick: () => void }) {
   const Icon = dir === "left" ? ChevronLeft : ChevronRight;
@@ -52,14 +27,6 @@ function ScrollButton({ dir, onClick }: { dir: "left" | "right"; onClick: () => 
         <Icon className="h-5 w-5" />
       </span>
     </button>
-  );
-}
-
-function displayedLines(beat: Beat): AnnotatedBeatCardLine[] {
-  return combineConsecutiveSetupLines(
-    beat.lines
-      .filter((line) => line.label !== "fluff")
-      .map((line) => ({ id: line.id, label: line.label, text: line.text }))
   );
 }
 
@@ -84,9 +51,9 @@ export default function AnnotatedBeatCarousel({
   headingClassName = "text-lg font-bold text-stone-950",
   tileClassName = "w-[88%] shrink-0 snap-start px-2 first:pl-4 last:pr-4 sm:w-[78%] md:w-[68%] lg:w-[72%] lg:first:pl-0 lg:last:pr-0 xl:w-[62%]",
 }: Props) {
-  const beatEntries = entries
-    .map((entry) => ({ entry, selected: selectedBeat(entry.set, entry.bitIndex, entry.beatIndex) }))
-    .filter((item): item is { entry: AnnotatedBeatEntry; selected: SelectedBeat } => Boolean(item.selected));
+  const cards = entries
+    .map((entry) => setBeatToCardData(entry.set, entry.bitIndex, entry.beatIndex))
+    .filter((card): card is NonNullable<typeof card> => card !== null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -117,7 +84,7 @@ export default function AnnotatedBeatCarousel({
     el.scrollBy({ left: dir * el.clientWidth, behavior: "smooth" });
   }
 
-  if (beatEntries.length === 0) return null;
+  if (cards.length === 0) return null;
 
   return (
     <section>
@@ -151,22 +118,12 @@ export default function AnnotatedBeatCarousel({
           ref={scrollRef}
           className="flex snap-x snap-mandatory overflow-x-scroll [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {beatEntries.map(({ entry, selected }) => (
+          {cards.map((card) => (
             <div
-              key={`${entry.set.slug}:${selected.bit.bit_id}:${selected.beat.beat_id}`}
+              key={card.href}
               className={tileClassName}
             >
-              <AnnotatedBeatCard
-                href={selectedBeatHref(entry.set, selected.bit, selected.beat)}
-                jokeType={selected.beat.joke_type}
-                comedianName={entry.set.comedian.name}
-                comedianAttributes={entry.set.comedian.attributes}
-                meta={`${entry.set.video.title}${entry.set.video.date ? ` / ${fmtDate(entry.set.video.date)}` : ""}`}
-                lines={displayedLines(selected.beat)}
-                imageUrl={entry.set.image_url}
-                fallbackVideoId={entry.set.video.youtube_id}
-                imageAlt={`${entry.set.comedian.name} set image`}
-              />
+              <AnnotatedBeatCard {...card} />
             </div>
           ))}
         </div>

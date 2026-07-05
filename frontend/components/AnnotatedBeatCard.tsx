@@ -2,31 +2,10 @@
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import type { ComedianAttribute, Line } from "@/lib/serverApi";
 import SetImage from "@/components/SetImage";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 import { lineLabelBadge } from "@/lib/killTonyDisplay";
-
-export type AnnotatedBeatCardLine = {
-  id: string | number;
-  label: Line["label"];
-  text: string;
-};
-
-export function combineConsecutiveSetupLines(lines: AnnotatedBeatCardLine[]): AnnotatedBeatCardLine[] {
-  return lines.reduce<AnnotatedBeatCardLine[]>((combined, line) => {
-    const previous = combined.at(-1);
-    if (previous?.label === "setup" && line.label === "setup") {
-      combined[combined.length - 1] = {
-        ...previous,
-        text: `${previous.text} ${line.text}`,
-      };
-      return combined;
-    }
-    combined.push(line);
-    return combined;
-  }, []);
-}
+import type { AnnotatedBeatCardData } from "@/lib/annotatedBeatCards";
 
 function HighlightedText({ text, query }: { text: string; query?: string }) {
   const trimmed = query?.trim();
@@ -46,16 +25,7 @@ function HighlightedText({ text, query }: { text: string; query?: string }) {
   );
 }
 
-type Props = {
-  href: string;
-  jokeType?: string | null;
-  comedianName: string;
-  comedianAttributes?: ComedianAttribute[];
-  meta: string;
-  lines: AnnotatedBeatCardLine[];
-  imageUrl?: string | null;
-  fallbackVideoId?: string | null;
-  imageAlt?: string;
+type Props = AnnotatedBeatCardData & {
   query?: string;
 };
 

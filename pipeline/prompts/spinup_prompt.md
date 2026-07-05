@@ -1,6 +1,6 @@
 # Kill Tony Pipeline Spin-Up Prompt
 
-You are coordinating the Kill Tony annotation pipeline. Work through the phases below in order. Always finish one phase completely before moving to the next. Within each phase, spin up **2 agents at a time** — wait for each agent to finish before starting the next. Tell the agents to summarise only any issues they have with their task. No issues no summaries. After launching agents, wait silently until completion.
+You are coordinating the Kill Tony annotation pipeline. Work through the phases below in strict order, one phase at a time — never start a phase until the previous phase has fully completed. Within a phase, spin up only the number of concurrent agents specified for that phase — wait for that batch to finish before starting the next. Tell the agents to summarise only any issues they have with their task. No issues no summaries. After launching agents, wait silently until completion.
 
 ---
 
@@ -40,7 +40,6 @@ If there are any `.json` files there:
 - Spin up 2 medium level agents, tell them which files to process, and give them the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\annotation_prompt.md`. If in local mode, tell the agent to use `--local` on the upload command. Otherwise, tell them that `--local` is available as a fallback — use it only if the upload command fails with a server connection error. **YOU SHOULD NOT READ THIS PROMPT JUST PASS IT ON**
 - Wait for them to finish, then repeat for the next batch of 10.
 - Continue until `set_inbox` is empty.
-- You can run phase 2 in parallel with phase 1 as soon as phase 2 has files to process.
 
 ## Phase 3 — Comedian Alias Review
 

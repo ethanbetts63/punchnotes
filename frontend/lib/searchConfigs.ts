@@ -1,4 +1,5 @@
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
+import { JOKE_TYPE_FILTER_OPTIONS } from "@/lib/jokeTypes";
 
 export type FilterOption = {
   value: string;
@@ -99,19 +100,7 @@ export const JOKES_SEARCH_CONFIG: SearchConfig = {
     {
       title: "Filter",
       param: "joke_type",
-      options: [
-        { value: "",                    label: "All types" },
-        { value: "misdirect",           label: "misdirect" },
-        { value: "reframe",             label: "reframe" },
-        { value: "phonetic-match",      label: "phonetic-match" },
-        { value: "double-meaning",      label: "double-meaning" },
-        { value: "contradiction",       label: "contradiction" },
-        { value: "analogy",             label: "analogy" },
-        { value: "hyperbole",           label: "hyperbole" },
-        { value: "elephant-in-the-room", label: "elephant-in-the-room" },
-        { value: "anti-humor",          label: "anti-humor" },
-        { value: "absurdism",           label: "absurdism" },
-      ],
+      options: JOKE_TYPE_FILTER_OPTIONS,
     },
   ],
 };

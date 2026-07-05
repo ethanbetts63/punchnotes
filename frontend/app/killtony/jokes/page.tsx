@@ -6,6 +6,7 @@ import { SITE_URL, buildBreadcrumbSchema } from "@/lib/seo";
 import { FaqSection } from "@/components/FaqSection";
 import { JOKE_TYPE_FAQ } from "@/lib/jokeTypeFaq";
 import JokePlaylists from "./JokePlaylists";
+import { JOKE_TYPES } from "@/lib/jokeTypes";
 
 export const metadata = {
   title: "Jokes - Kill Tony | PunchNotes",
@@ -24,6 +25,10 @@ const schema = {
 };
 
 export default async function JokesPage() {
+  const typeLabels = JOKE_TYPES.map((type) => type.label);
+  const leadingTypeLabels = typeLabels.slice(0, -1).join(", ");
+  const finalTypeLabel = typeLabels.at(-1);
+
   return (
     <>
     <script
@@ -50,9 +55,9 @@ export default async function JokesPage() {
 
       <div className="mx-auto max-w-6xl px-6 pb-16 border-t border-stone-100 pt-10">
         <p className="text-stone-500">
-          Every joke is broken into beats — each with a setup, punchline, and any tags — and assigned one of ten structural types:{" "}
-          <span className="font-medium text-stone-700">misdirect, reframe, phonetic-match, double-meaning, contradiction, analogy, hyperbole, elephant-in-the-room, anti-humor,</span>{" "}
-          and <span className="font-medium text-stone-700">absurdism</span>.{" "}
+          Every joke is broken into beats — each with a setup, punchline, and any tags — and assigned one of {JOKE_TYPES.length} structural types:{" "}
+          <span className="font-medium text-stone-700">{leadingTypeLabels},</span>{" "}
+          and <span className="font-medium text-stone-700">{finalTypeLabel}</span>.{" "}
           <Link href="/articles/how-to-annotate-jokes" className="text-primary underline underline-offset-2 hover:text-primary/80">
             How to Annotate Jokes &rarr;
           </Link>
