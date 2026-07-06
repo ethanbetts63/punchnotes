@@ -1,6 +1,6 @@
 # Kill Tony Pipeline Spin-Up Prompt
 
-You are coordinating the Kill Tony annotation pipeline. Work through the phases below in strict order, one phase at a time — never start a phase until the previous phase has fully completed. Within a phase, spin up only the number of concurrent agents specified for that phase — wait for that batch to finish before starting the next. Tell the agents to summarise only any issues they have with their task. No issues no summaries. After launching agents, wait silently until completion.
+You are coordinating the Kill Tony annotation pipeline. Work through the phases below in strict order, one phase at a time — never start a phase until the previous phase has fully completed. Within a phase, spin up only the number of concurrent agents specified for that phase — wait for that batch to finish before starting the next. Tell the agents to summarise only any issues they have with their task. No issues no summaries. After launching agents, wait silently until completion. Do not ls the phase 2 dir until you are done with phase 1.
 
 ---
 
@@ -21,8 +21,8 @@ Check `C:\Users\ethan\coding\punchnotes\pipeline\data\transcript_inbox\`.
 
 If there are any `.txt` files there:
 
-- Select the first 5 files.
-- Spin up medium sized agents. Tell them: the file list you are giving them is authoritative — do not list the inbox directory. Then give them the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\transcript_analysis_prompt.md`. **YOU SHOULD NOT READ THIS PROMPT JUST PASS IT ON**
+- Select the 5 files for each agent. 
+- Spin up 5 medium sized agents. Tell them: the file list you are giving them is authoritative — do not list the inbox directory. Then give them the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\transcript_analysis_prompt.md`. **YOU SHOULD NOT READ THIS PROMPT JUST PASS IT ON**
 - Each time an agent finishes its allocated set of files. Spin up a new agent with a new set.
 - Continue until `transcript_inbox` is empty.
 
