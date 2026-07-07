@@ -30,8 +30,7 @@ def run_update_annotated(log: Log, archive: bool = False) -> None:
     for path in paths:
         try:
             data = json.loads(path.read_text(encoding="utf-8-sig"))
-            result = ingest_annotated_set(data, relationships, defer_refresh=True)
-            log.success(f"  {path.name}: {result['comedian']} — {result['lines']} lines, {result['bits']} bits")
+            ingest_annotated_set(data, relationships, defer_refresh=True)
             if dest_dir:
                 shutil.move(str(path), dest_dir / path.name)
             succeeded += 1

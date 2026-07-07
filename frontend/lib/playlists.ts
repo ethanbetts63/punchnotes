@@ -46,7 +46,7 @@ export const VIDEO_PLAYLISTS: ListDef[] = [
     id: "golden-ticket-episodes",
     title: "Golden Ticket Episodes",
     description: "Episodes where Tony handed out a golden ticket.",
-    slugs: ["55", "42", "35", "28", "18", "12", "7", "2"],
+    slugs: [],
   },
   {
     id: "adam-ray-totally-not-adam-ray",
