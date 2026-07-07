@@ -12,6 +12,7 @@ KNOWN_GOLDEN_TICKET_SLUGS = frozenset(
         "aloe-mean",
         "ryan-middendorf",
         "colt",
+        "martin-malloy",
         "nicole-tran",
         "liam-o-brian",
         "martin-phillips",
