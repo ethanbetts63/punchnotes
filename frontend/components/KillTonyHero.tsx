@@ -94,8 +94,8 @@ export default function KillTonyHero() {
       <div className="lg:hidden">
         <div className="relative h-[320px] overflow-hidden">
           <Image
-            src="/killtony/home-hosts-image.jpg"
-            alt="Tony Hinchcliffe and Brian Redban on the Kill Tony stage"
+            src="/killtony/kt-anime.png"
+            alt="Anime-style Kill Tony cast illustration"
             fill
             sizes="100vw"
             priority
@@ -119,8 +119,8 @@ export default function KillTonyHero() {
 
         <div className="relative flex-1">
           <Image
-            src="/killtony/home-hosts-image.jpg"
-            alt="Tony Hinchcliffe and Brian Redban on the Kill Tony stage"
+            src="/killtony/kt-anime.png"
+            alt="Anime-style Kill Tony cast illustration"
             fill
             sizes="(min-width: 1280px) 58vw, 50vw"
             priority
