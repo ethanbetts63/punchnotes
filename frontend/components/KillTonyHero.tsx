@@ -102,7 +102,6 @@ export default function KillTonyHero() {
             fetchPriority="high"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,11,24,0.08),rgba(7,11,24,0.82)_70%,rgba(0,0,0,0.95))]" />
         </div>
 
         <div className="bg-[radial-gradient(ellipse_at_top,rgba(180,20,20,0.18),transparent_55%),linear-gradient(180deg,#080b13_0%,#0d1018_100%)] px-6 py-10">
@@ -127,7 +126,6 @@ export default function KillTonyHero() {
             fetchPriority="high"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,11,19,0.08),rgba(8,11,19,0.24)_40%,rgba(8,11,19,0.54)_100%)]" />
 
           <div className="absolute bottom-10 left-10 rounded-3xl border border-white/10 bg-black/60 p-5 shadow-2xl backdrop-blur-md">
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-primary">
