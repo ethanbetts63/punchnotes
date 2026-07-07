@@ -105,7 +105,7 @@ def test_episode_detail_returns_200_by_slug(client, two_videos):
 def test_episode_detail_includes_sets(client, db):
     comedian = Comedian.objects.create(name="Test Comic", slug="test-comic")
     video = Video.objects.create(video_id="ccc0000003", number=702, title="Kill Tony #702", url="https://example.com/702")
-    Set.objects.create(video=video, comedian=comedian, set_number=1, start_seconds=0)
+    Set.objects.create(video=video, comedian=comedian, start_seconds=0)
 
     resp = client.get("/api/killtony/episodes/kill-tony-702--ccc0000003/")
     assert resp.status_code == 200

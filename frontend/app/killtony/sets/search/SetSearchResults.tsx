@@ -28,7 +28,7 @@ export default function SetSearchResults({ sets }: { sets: SetListItem[] }) {
             }
             meta={
               <>
-                Set {set.set_number} / {fmtSeconds(set.start_seconds)}
+                {fmtSeconds(set.start_seconds)}
                 {attributes ? ` / ${attributes}` : ""}
               </>
             }

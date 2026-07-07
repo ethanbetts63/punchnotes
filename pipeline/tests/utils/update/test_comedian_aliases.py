@@ -37,8 +37,8 @@ def _make_video(number):
     )
 
 
-def _make_set(video, comedian, set_number, image_url=None):
-    s = Set.objects.create(video=video, comedian=comedian, set_number=set_number, start_seconds=0)
+def _make_set(video, comedian, start_seconds, image_url=None):
+    s = Set.objects.create(video=video, comedian=comedian, start_seconds=start_seconds)
     if image_url:
         s.image_url = image_url
         s.save(update_fields=["image_url"])
@@ -61,9 +61,9 @@ def test_rename_path_renames_image_files(tmp_path):
 
     video = _make_video(1)
     alias_comic = _make_comedian("dedric-flynn", "Dedric Flynn")
-    _make_set(video, alias_comic, set_number=1, image_url="set-images/KT1_set01_dedric-flynn.jpg")
-    (public_dir / "KT1_set01_dedric-flynn.jpg").write_bytes(b"img")
-    (archive_dir / "KT1_set01_dedric-flynn.jpg").write_bytes(b"img")
+    _make_set(video, alias_comic, start_seconds=100, image_url="set-images/KT1_100_dedric-flynn.jpg")
+    (public_dir / "KT1_100_dedric-flynn.jpg").write_bytes(b"img")
+    (archive_dir / "KT1_100_dedric-flynn.jpg").write_bytes(b"img")
 
     relationships = _alias("dedric-flynn", "dedrick-flynn", "Dedrick Flynn")
     with override_settings(MEDIA_ROOT=tmp_path / "media", PIPELINE_DATA_DIR=tmp_path / "pipeline"):
@@ -71,11 +71,11 @@ def test_rename_path_renames_image_files(tmp_path):
 
     comedian = Comedian.objects.get(slug="dedrick-flynn")
     s = Set.objects.get(comedian=comedian)
-    assert s.image_url == "set-images/KT1_set01_dedrick-flynn.jpg"
-    assert (public_dir / "KT1_set01_dedrick-flynn.jpg").exists()
-    assert not (public_dir / "KT1_set01_dedric-flynn.jpg").exists()
-    assert (archive_dir / "KT1_set01_dedrick-flynn.jpg").exists()
-    assert not (archive_dir / "KT1_set01_dedric-flynn.jpg").exists()
+    assert s.image_url == "set-images/KT1_100_dedrick-flynn.jpg"
+    assert (public_dir / "KT1_100_dedrick-flynn.jpg").exists()
+    assert not (public_dir / "KT1_100_dedric-flynn.jpg").exists()
+    assert (archive_dir / "KT1_100_dedrick-flynn.jpg").exists()
+    assert not (archive_dir / "KT1_100_dedric-flynn.jpg").exists()
 
 
 def test_rename_path_handles_set_with_no_image(tmp_path):
@@ -85,7 +85,7 @@ def test_rename_path_handles_set_with_no_image(tmp_path):
 
     video = _make_video(1)
     alias_comic = _make_comedian("dedric-flynn", "Dedric Flynn")
-    _make_set(video, alias_comic, set_number=1)
+    _make_set(video, alias_comic, start_seconds=100)
 
     relationships = _alias("dedric-flynn", "dedrick-flynn", "Dedrick Flynn")
     with override_settings(MEDIA_ROOT=tmp_path / "media", PIPELINE_DATA_DIR=tmp_path / "pipeline"):
@@ -107,20 +107,20 @@ def test_merge_path_renames_image_files(tmp_path):
     video = _make_video(1)
     alias_comic = _make_comedian("dedric-flynn", "Dedric Flynn")
     canonical_comic = _make_comedian("dedrick-flynn", "Dedrick Flynn")
-    _make_set(video, alias_comic, set_number=1, image_url="set-images/KT1_set01_dedric-flynn.jpg")
-    (public_dir / "KT1_set01_dedric-flynn.jpg").write_bytes(b"img")
-    (archive_dir / "KT1_set01_dedric-flynn.jpg").write_bytes(b"img")
+    _make_set(video, alias_comic, start_seconds=100, image_url="set-images/KT1_100_dedric-flynn.jpg")
+    (public_dir / "KT1_100_dedric-flynn.jpg").write_bytes(b"img")
+    (archive_dir / "KT1_100_dedric-flynn.jpg").write_bytes(b"img")
 
     relationships = _alias("dedric-flynn", "dedrick-flynn", "Dedrick Flynn")
     with override_settings(MEDIA_ROOT=tmp_path / "media", PIPELINE_DATA_DIR=tmp_path / "pipeline"):
         dedup_comedians(relationships, SilentLog())
 
     s = Set.objects.get(comedian=canonical_comic)
-    assert s.image_url == "set-images/KT1_set01_dedrick-flynn.jpg"
-    assert (public_dir / "KT1_set01_dedrick-flynn.jpg").exists()
-    assert not (public_dir / "KT1_set01_dedric-flynn.jpg").exists()
-    assert (archive_dir / "KT1_set01_dedrick-flynn.jpg").exists()
-    assert not (archive_dir / "KT1_set01_dedric-flynn.jpg").exists()
+    assert s.image_url == "set-images/KT1_100_dedrick-flynn.jpg"
+    assert (public_dir / "KT1_100_dedrick-flynn.jpg").exists()
+    assert not (public_dir / "KT1_100_dedric-flynn.jpg").exists()
+    assert (archive_dir / "KT1_100_dedrick-flynn.jpg").exists()
+    assert not (archive_dir / "KT1_100_dedric-flynn.jpg").exists()
     assert not Comedian.objects.filter(slug="dedric-flynn").exists()
 
 
@@ -135,10 +135,10 @@ def test_merge_path_renames_multiple_sets(tmp_path):
     alias_comic = _make_comedian("dedric-flynn", "Dedric Flynn")
     canonical_comic = _make_comedian("dedrick-flynn", "Dedrick Flynn")
 
-    _make_set(video1, alias_comic, set_number=1, image_url="set-images/KT1_set01_dedric-flynn.jpg")
-    _make_set(video2, alias_comic, set_number=3, image_url="set-images/KT2_set03_dedric-flynn.jpg")
-    (public_dir / "KT1_set01_dedric-flynn.jpg").write_bytes(b"img")
-    (public_dir / "KT2_set03_dedric-flynn.jpg").write_bytes(b"img")
+    _make_set(video1, alias_comic, start_seconds=100, image_url="set-images/KT1_100_dedric-flynn.jpg")
+    _make_set(video2, alias_comic, start_seconds=300, image_url="set-images/KT2_300_dedric-flynn.jpg")
+    (public_dir / "KT1_100_dedric-flynn.jpg").write_bytes(b"img")
+    (public_dir / "KT2_300_dedric-flynn.jpg").write_bytes(b"img")
 
     relationships = _alias("dedric-flynn", "dedrick-flynn", "Dedrick Flynn")
     with override_settings(MEDIA_ROOT=tmp_path / "media", PIPELINE_DATA_DIR=tmp_path / "pipeline"):
@@ -146,8 +146,8 @@ def test_merge_path_renames_multiple_sets(tmp_path):
 
     urls = set(Set.objects.filter(comedian=canonical_comic).values_list("image_url", flat=True))
     assert urls == {
-        "set-images/KT1_set01_dedrick-flynn.jpg",
-        "set-images/KT2_set03_dedrick-flynn.jpg",
+        "set-images/KT1_100_dedrick-flynn.jpg",
+        "set-images/KT2_300_dedrick-flynn.jpg",
     }
-    assert (public_dir / "KT1_set01_dedrick-flynn.jpg").exists()
-    assert (public_dir / "KT2_set03_dedrick-flynn.jpg").exists()
+    assert (public_dir / "KT1_100_dedrick-flynn.jpg").exists()
+    assert (public_dir / "KT2_300_dedrick-flynn.jpg").exists()

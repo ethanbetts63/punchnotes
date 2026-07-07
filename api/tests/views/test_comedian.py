@@ -12,8 +12,8 @@ def comedian_data(db):
     c1 = Comedian.objects.create(name="Casey Rocket", slug="casey-rocket", attributes=["man", "regular"], set_count=1, has_large_joke_book=True)
     c2 = Comedian.objects.create(name="Dana Blue", slug="dana-blue", attributes=["woman"], set_count=1)
     no_set = Comedian.objects.create(name="Nobody", slug="nobody")
-    Set.objects.create(video=video, comedian=c1, set_number=1, start_seconds=0, attributes=["large_joke_book"])
-    Set.objects.create(video=video, comedian=c2, set_number=2, start_seconds=100)
+    Set.objects.create(video=video, comedian=c1, start_seconds=0, attributes=["large_joke_book"])
+    Set.objects.create(video=video, comedian=c2, start_seconds=100)
     return c1, c2, no_set
 
 
@@ -71,7 +71,7 @@ def test_comedian_detail_includes_sets(client, comedian_data):
     resp = client.get(f"/api/killtony/comedians/{c1.slug}/")
     sets = resp.json()["sets"]
     assert len(sets) == 1
-    assert sets[0]["slug"] == "aaa0000001-set01-casey-rocket"
+    assert sets[0]["slug"] == "aaa0000001-0-casey-rocket"
     assert sets[0]["start_seconds"] == 0
     assert sets[0]["bit_count"] == 0
 

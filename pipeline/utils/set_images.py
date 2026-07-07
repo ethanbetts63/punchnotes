@@ -5,7 +5,7 @@ from django.conf import settings
 
 
 IMAGE_NAME_RE = re.compile(
-    r"^KT(?P<episode_number>\d+)_set(?P<set_number>\d+)_"
+    r"^KT(?P<episode_number>\d+)_(?P<start_seconds>\d+)_"
     r"(?P<comic_slug>[a-z0-9][a-z0-9_-]*)\.(?P<ext>jpe?g|png|webp)$",
     re.IGNORECASE,
 )
@@ -16,22 +16,41 @@ def parse_image_name(path: Path) -> dict:
     if not match:
         raise ValueError(
             f"Invalid image filename: {path.name}. Expected "
-            "KT{episode}_set{number}_{slug}.jpg."
+            "KT{episode}_{start_seconds}_{slug}.jpg."
         )
     return {
         "episode_number": int(match.group("episode_number")),
-        "set_number": int(match.group("set_number")),
+        "start_seconds": int(match.group("start_seconds")),
         "comic_slug": match.group("comic_slug").lower().replace("_", "-"),
     }
 
 
 def set_image_media_path(filename: str) -> str:
-    """Path stored in Set.image_url, relative to MEDIA_ROOT (e.g. set-images/KT1_set01_x.jpg)."""
+    """Path stored in Set.image_url, relative to MEDIA_ROOT (e.g. set-images/KT1_100_x.jpg)."""
     return f"set-images/{filename}"
 
 
-def rename_set_image(set_obj, new_set_number: int | None = None, *, new_comedian_slug: str | None = None) -> str | None:
-    """Rename image files when a set's number or comedian slug changes.
+def image_filename(episode_number: int, start_seconds: float, comic_slug: str, ext: str) -> str:
+    return f"KT{episode_number}_{int(start_seconds)}_{comic_slug}{ext}"
+
+
+def find_set_for_image(video_number: int, start_seconds: int):
+    """Look up the Set a parsed image filename refers to.
+
+    `start_seconds` from a filename is truncated to whole seconds, so match
+    against the bucket it falls in rather than requiring exact equality.
+    """
+    from pipeline.models import Set
+
+    return Set.objects.select_related("video", "comedian").get(
+        video__number=video_number,
+        start_seconds__gte=start_seconds,
+        start_seconds__lt=start_seconds + 1,
+    )
+
+
+def rename_set_image(set_obj, *, new_comedian_slug: str | None = None) -> str | None:
+    """Rename image files when a set's comedian slug changes.
 
     Renames in both the public media dir and the archive if the file exists
     in each. Updates nothing in the DB — callers must save the returned path.
@@ -51,10 +70,8 @@ def rename_set_image(set_obj, new_set_number: int | None = None, *, new_comedian
         return None
 
     ext = Path(current_filename).suffix
-    episode = parsed["episode_number"]
-    set_num = new_set_number if new_set_number is not None else parsed["set_number"]
     slug = new_comedian_slug if new_comedian_slug is not None else parsed["comic_slug"]
-    new_filename = f"KT{episode}_set{set_num:02d}_{slug}{ext}"
+    new_filename = image_filename(parsed["episode_number"], set_obj.start_seconds, slug, ext)
 
     if new_filename == current_filename:
         return set_obj.image_url

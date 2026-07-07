@@ -58,7 +58,7 @@ class SetDetailSerializer(PublicSetSlugMixin, serializers.ModelSerializer):
     class Meta:
         model = Set
         fields = [
-            "id", "slug", "set_number", "comedian", "video",
+            "id", "slug", "comedian", "video",
             "attributes", "start_seconds",
             "image_url", "image_capture_seconds",
             "punch_density", "tag_density",
@@ -79,7 +79,7 @@ class SetListSerializer(PublicSetSlugMixin, serializers.ModelSerializer):
     class Meta:
         model = Set
         fields = [
-            "id", "slug", "set_number", "comedian", "video",
+            "id", "slug", "comedian", "video",
             "attributes", "start_seconds", "interview_end_seconds",
             "image_url", "image_capture_seconds",
             "punch_density", "tag_density", "bit_count",

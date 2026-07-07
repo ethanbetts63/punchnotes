@@ -53,7 +53,7 @@ def _ordinal(value: str) -> str:
 def build_beat_slug(beat: Beat) -> str:
     set_obj = beat.bit.set
     return (
-        f"{set_obj.video.video_id}-set{set_obj.set_number:02d}-{set_obj.comedian.slug}"
+        f"{set_obj.video.video_id}-{int(set_obj.start_seconds)}-{set_obj.comedian.slug}"
         f"?bit={_ordinal(beat.bit.bit_id)}&beat={_ordinal(beat.beat_id)}"
     )
 
@@ -66,7 +66,7 @@ def fetch_beats(joke_type: str, comedian: Comedian | None = None, joke_book: str
         beats = beats.filter(bit__set__attributes__contains=[f"{joke_book}_joke_book"])
     return (
         beats.select_related("bit__set__video", "bit__set__comedian")
-        .order_by("bit__set__comedian__slug", "bit__set__video__number", "bit__set__set_number", "bit__bit_id", "beat_id")
+        .order_by("bit__set__comedian__slug", "bit__set__video__number", "bit__set__start_seconds", "bit__bit_id", "beat_id")
     )
 
 

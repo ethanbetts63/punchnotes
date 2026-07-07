@@ -6,7 +6,6 @@ from pipeline.json_validation.constants import JOKE_TYPE_FIELDS, OPTIONAL_JOKE_T
 from pipeline.utils.ownership import infer_line_ownership
 from pipeline.utils.beat_search import build_beat_search_text
 from pipeline.utils.known_comedians import normalize_known_appearance_attributes
-from pipeline.utils.set_images import rename_set_image
 from pipeline.models import Beat, Bit, Comedian, Video, Line, Set
 
 
@@ -46,33 +45,6 @@ def upsert_comedian(slug: str, meta: dict) -> Comedian:
     return comedian
 
 
-def _apply_set_number(set_obj, new_number: int) -> None:
-    if set_obj.set_number == new_number:
-        return
-    update_fields = ["set_number"]
-    new_image_url = rename_set_image(set_obj, new_number)
-    if new_image_url is not None and new_image_url != set_obj.image_url:
-        set_obj.image_url = new_image_url
-        update_fields.append("image_url")
-    set_obj.set_number = new_number
-    set_obj.save(update_fields=update_fields)
-
-
-def resequence_video_sets(video: Video) -> None:
-    """Assign 1-indexed set numbers by source start time."""
-    sets = list(video.sets.order_by("start_seconds", "id"))
-    if not sets:
-        return
-
-    max_set_number = max(set_obj.set_number for set_obj in sets)
-    offset = max_set_number + len(sets) + 1
-    for i, set_obj in enumerate(sets, start=1):
-        _apply_set_number(set_obj, offset + i)
-
-    for i, set_obj in enumerate(sets, start=1):
-        _apply_set_number(set_obj, i)
-
-
 def upsert_set(video: Video, comedian: Comedian, meta: dict) -> Set:
     start_seconds = meta["start_seconds"]
     set_attributes = list(meta.get("set_attributes", []))
@@ -86,15 +58,12 @@ def upsert_set(video: Video, comedian: Comedian, meta: dict) -> Set:
 
     set_obj = video.sets.filter(start_seconds=start_seconds).first()
     if set_obj is None:
-        last_set_number = video.sets.order_by("-set_number").values_list("set_number", flat=True).first()
-        set_obj = Set.objects.create(video=video, set_number=(last_set_number or 0) + 1, **fields)
+        set_obj = Set.objects.create(video=video, **fields)
     else:
         for k, v in fields.items():
             setattr(set_obj, k, v)
         set_obj.save(update_fields=list(fields.keys()))
 
-    resequence_video_sets(video)
-    set_obj.refresh_from_db()
     return set_obj
 
 

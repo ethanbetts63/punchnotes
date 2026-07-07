@@ -119,7 +119,7 @@ export default async function ComedianDetailPage({ params }: Props) {
           </div>
         ) : (
           <Suspense>
-            <ComedianSetList sets={sets} />
+            <ComedianSetList sets={sets} comedianName={comedian.name} />
           </Suspense>
         )}
       </div>

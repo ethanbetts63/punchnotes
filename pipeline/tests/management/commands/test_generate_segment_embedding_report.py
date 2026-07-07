@@ -13,7 +13,7 @@ pytestmark = pytest.mark.django_db
 def _make_set(name, slug, set_number):
     comedian = Comedian.objects.create(name=name, slug=slug)
     video = Video.objects.create(video_id=f"vid-{slug}", title=f"Episode {slug}", url=f"https://example.com/{slug}")
-    return Set.objects.create(video=video, comedian=comedian, set_number=set_number, start_seconds=float(set_number * 10))
+    return Set.objects.create(video=video, comedian=comedian, start_seconds=float(set_number * 10))
 
 
 def _make_beat(standup_set, beat_id, premise, joke_type="misdirect"):

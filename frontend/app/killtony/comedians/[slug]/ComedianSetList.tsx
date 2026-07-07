@@ -9,13 +9,13 @@ import SearchResultTile from "@/components/SearchResultTile";
 
 const PAGE_SIZE = 12;
 
-type Props = { sets: SetInComedian[] };
+type Props = { sets: SetInComedian[]; comedianName: string };
 
 function formatEpisodeTitle(title: string | null | undefined, fallback: string): string {
   return title?.replace(/^KT\s*#\d+\s*[-–]\s*/i, "") || fallback;
 }
 
-export default function ComedianSetList({ sets }: Props) {
+export default function ComedianSetList({ sets, comedianName }: Props) {
   const searchParams = useSearchParams();
   const totalPages = Math.max(1, Math.ceil(sets.length / PAGE_SIZE));
   const rawPage = parseInt(searchParams.get("page") ?? "1", 10) || 1;
@@ -33,13 +33,13 @@ export default function ComedianSetList({ sets }: Props) {
               key={set.id}
               href={`/killtony/sets/${set.slug}`}
               eyebrow={`KT #${set.video.number}`}
-              title={formatEpisodeTitle(set.video.title, `Set ${set.set_number}`)}
+              title={formatEpisodeTitle(set.video.title, `KT #${set.video.number}`)}
               subtitle={set.video.date ?? undefined}
               image={
                 <SetImage
                   imageUrl={set.image_url}
                   fallbackVideoId={set.video.youtube_id}
-                  alt={`Set ${set.set_number} image`}
+                  alt={`${comedianName} set image`}
                   className="absolute inset-0 h-full w-full"
                 />
               }

@@ -12,7 +12,7 @@ class SetInVideoSerializer(PublicSetSlugMixin, serializers.ModelSerializer):
     class Meta:
         model = Set
         fields = [
-            "id", "slug", "set_number", "comedian", "attributes", "bit_count",
+            "id", "slug", "comedian", "attributes", "bit_count",
             "start_seconds", "interview_end_seconds",
             "image_url", "image_capture_seconds",
             "punch_density", "tag_density",

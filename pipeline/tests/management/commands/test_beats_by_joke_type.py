@@ -21,7 +21,7 @@ def _make_set(video_number, set_number, comedian):
         url=f"https://example.com/{video_number}",
     )
     return Set.objects.create(
-        video=video, comedian=comedian, set_number=set_number, start_seconds=float(set_number * 10)
+        video=video, comedian=comedian, start_seconds=float(set_number * 10)
     )
 
 
@@ -70,7 +70,7 @@ def test_build_beat_slug_format():
     comedian = Comedian.objects.create(name="Casey Rocket", slug="casey-rocket")
     standup_set = _make_set(15, 15, comedian)
     beat = _make_beat(standup_set, 1, 1, "analogy", "premise", 1, 3)
-    assert build_beat_slug(beat) == "vid15-set15-casey-rocket?bit=001&beat=001"
+    assert build_beat_slug(beat) == "vid15-150-casey-rocket?bit=001&beat=001"
 
 
 def test_build_report_filters_by_comedian_and_joke_type():
@@ -145,7 +145,7 @@ def test_command_writes_txt_file(tmp_path, settings):
 
     output_path = tmp_path / "beat_reports" / "analogy_comic-a.txt"
     content = output_path.read_text(encoding="utf-8")
-    assert content == "vid1-set01-comic-a?bit=001&beat=001\nsetup line\npunch line\n"
+    assert content == "vid1-10-comic-a?bit=001&beat=001\nsetup line\npunch line\n"
 
 
 def test_command_writes_json_file(tmp_path, settings):

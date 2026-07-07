@@ -45,7 +45,7 @@ def ingest_annotated_set(data: dict, relationships: dict | None = None, defer_re
     return {
         "status": "ok",
         "video_id": video_id,
-        "set_number": set_obj.set_number,
+        "start_seconds": set_obj.start_seconds,
         "comedian": canonical_comedian.name,
         "lines": len(lines),
         "bits": len(data.get("bit_meta", {})),

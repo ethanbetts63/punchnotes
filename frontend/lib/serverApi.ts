@@ -146,7 +146,6 @@ export type ComedianAttribute =
 export type SetInVideo = {
   id: number;
   slug: string;
-  set_number: number;
   comedian: { id: number; name: string; slug: string; attributes: ComedianAttribute[]; image_url: string | null };
   attributes: string[];
   bit_count: number;
@@ -198,7 +197,6 @@ export type Comedian = {
 export type SetInComedian = {
   id: number;
   slug: string;
-  set_number: number;
   video: { id: number; slug: string; number: number; title: string; youtube_id: string; date: string | null };
   attributes: string[];
   start_seconds: number;
@@ -234,7 +232,6 @@ export type Line = {
 export type SetListItem = {
   id: number;
   slug: string;
-  set_number: number;
   comedian: SetListComedian;
   video: { id: number; slug: string; number: number; title: string; youtube_id: string; date: string | null };
   attributes: string[];
@@ -281,7 +278,6 @@ export type SetComedian = {
 export type Set = {
   id: number;
   slug: string;
-  set_number: number;
   comedian: SetComedian;
   video: { id: number; slug: string; number: number; title: string; youtube_id: string; date: string | null };
   attributes: string[];

@@ -120,7 +120,7 @@ export default async function SetDetailPage({ params }: Props) {
 
             <div className="min-w-0 flex-1">
               <p className="mb-1 text-xs font-medium uppercase tracking-wide text-stone-400">
-                Set {set.set_number} · <Link href={`/killtony/episodes/${set.video.slug}`} className="transition-colors hover:text-stone-200">Episode {set.video.number}</Link>
+                <Link href={`/killtony/episodes/${set.video.slug}`} className="transition-colors hover:text-stone-200">Episode {set.video.number}</Link>
               </p>
 
               <h1 className="mb-1 text-3xl font-bold text-white md:text-4xl">

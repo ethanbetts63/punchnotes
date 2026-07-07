@@ -12,7 +12,7 @@ def search_data(db):
     comedian = Comedian.objects.create(name="Casey Rocket", slug="casey-rocket", set_count=1)
     Comedian.objects.create(name="Casey No Sets", slug="casey-no-sets")
     video = Video.objects.create(video_id="abc123xyz01", number=700, title="Kill Tony #700", url="https://example.com/kt-700", set_count=1)
-    set_obj = Set.objects.create(video=video, comedian=comedian, set_number=1, start_seconds=0, bit_count=1)
+    set_obj = Set.objects.create(video=video, comedian=comedian, start_seconds=0, bit_count=1)
     bit = Bit.objects.create(set=set_obj, bit_id="b1", line_start=1, line_end=2)
     lines_data = [
         {"line_number": 1, "label": "setup", "text": "hello there"},
@@ -106,10 +106,10 @@ def test_nav_search_episode_links_use_stable_slug(client, search_data):
 def test_nav_search_set_links_use_stable_slug(client, search_data):
     resp = client.get("/api/killtony/search/", {"q": "casey"})
     data = resp.json()
-    assert data["sets"][0]["href"] == "/killtony/sets/abc123xyz01-set01-casey-rocket"
+    assert data["sets"][0]["href"] == "/killtony/sets/abc123xyz01-0-casey-rocket"
 
 
 def test_nav_search_beat_links_use_stable_set_slug(client, search_data):
     resp = client.get("/api/killtony/search/", {"q": "hello"})
     data = resp.json()
-    assert data["beats"][0]["href"] == "/killtony/sets/abc123xyz01-set01-casey-rocket?bit=001&beat=001"
+    assert data["beats"][0]["href"] == "/killtony/sets/abc123xyz01-0-casey-rocket?bit=001&beat=001"

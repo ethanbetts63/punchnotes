@@ -5,7 +5,7 @@ from django.conf import settings
 from django.db import transaction
 
 from pipeline.utils.update.records import refresh_comedian_image
-from pipeline.utils.set_images import parse_image_name, set_image_media_path
+from pipeline.utils.set_images import find_set_for_image, parse_image_name, set_image_media_path
 from pipeline.log import Log
 from pipeline.models import Set
 
@@ -17,14 +17,13 @@ def missing_image_sets() -> list[dict]:
         .select_related("video", "comedian")
         .filter(Q(image_url__isnull=True) | Q(image_url=""))
         .exclude(video__number__isnull=True)
-        .order_by("-video__number", "set_number")
+        .order_by("-video__number", "start_seconds")
     )
     return [
         {
             "set_id": s.id,
             "video_id": s.video.video_id,
             "episode_number": s.video.number,
-            "set_number": s.set_number,
             "comedian_slug": s.comedian.slug,
             "comedian_name": s.comedian.name,
             "start_seconds": s.start_seconds,
@@ -40,15 +39,12 @@ def ingest_set_image(image_path: Path, replace: bool = False, move_to_archive: b
     archive_dir.mkdir(parents=True, exist_ok=True)
 
     parsed = parse_image_name(image_path)
-    set_obj = Set.objects.select_related("video", "comedian").get(
-        video__number=parsed["episode_number"],
-        set_number=parsed["set_number"],
-    )
+    set_obj = find_set_for_image(parsed["episode_number"], parsed["start_seconds"])
 
     if parsed["comic_slug"] != set_obj.comedian.slug:
         raise ValueError(
             f"Comedian slug mismatch: filename says {parsed['comic_slug']!r} "
-            f"but set {parsed['set_number']} of episode {parsed['episode_number']} "
+            f"but the set at {parsed['start_seconds']}s of episode {parsed['episode_number']} "
             f"belongs to {set_obj.comedian.slug!r}."
         )
 

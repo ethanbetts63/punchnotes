@@ -20,7 +20,7 @@ def full_set(db):
         video_id="abc123xyz01", number=700, title="Kill Tony #700",
         url="https://example.com/kt-700", set_count=1,
     )
-    set_obj = Set.objects.create(video=video, comedian=comedian, set_number=1, start_seconds=60, bit_count=1)
+    set_obj = Set.objects.create(video=video, comedian=comedian, start_seconds=60, bit_count=1)
     bit = Bit.objects.create(set=set_obj, bit_id="b1", line_start=1, line_end=3)
     beat = Beat.objects.create(
         bit=bit, beat_id="beat-1", line_start=1, line_end=3,

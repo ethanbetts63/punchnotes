@@ -5,7 +5,7 @@ from django.db.models import ObjectDoesNotExist
 
 from pipeline.log import Log
 from pipeline.models import Set
-from pipeline.utils.set_images import parse_image_name, set_image_media_path
+from pipeline.utils.set_images import find_set_for_image, parse_image_name, set_image_media_path
 from pipeline.utils.update.records import refresh_comedian_image
 
 
@@ -36,12 +36,12 @@ def fix_set_image_archive(log: Log, dry_run: bool = False) -> None:
             continue
 
         try:
-            set_obj = Set.objects.select_related("comedian").get(
-                video__number=parsed["episode_number"],
-                set_number=parsed["set_number"],
-            )
+            set_obj = find_set_for_image(parsed["episode_number"], parsed["start_seconds"])
         except Set.DoesNotExist:
-            log.warning(f"  {path.name}: no set found for ep {parsed['episode_number']} set {parsed['set_number']}")
+            log.warning(
+                f"  {path.name}: no set found for ep {parsed['episode_number']} "
+                f"at {parsed['start_seconds']}s"
+            )
             not_found += 1
             continue
 

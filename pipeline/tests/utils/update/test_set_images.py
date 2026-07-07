@@ -17,18 +17,18 @@ def _make_episode(tmp_path, number=1):
     )
 
 
-def _make_set(video, slug, name, set_number=1):
+def _make_set(video, slug, name, start_seconds=0):
     comedian, _ = Comedian.objects.get_or_create(slug=slug, defaults={"name": name})
-    return Set.objects.create(video=video, comedian=comedian, set_number=set_number, start_seconds=0)
+    return Set.objects.create(video=video, comedian=comedian, start_seconds=start_seconds)
 
 
 def test_ingest_set_image_rejects_mismatched_comedian_slug(tmp_path):
     episode = _make_episode(tmp_path, number=1)
-    _make_set(episode, "real-comic", "Real Comic", set_number=1)
+    _make_set(episode, "real-comic", "Real Comic", start_seconds=100)
 
     inbox = tmp_path / "set_images_inbox"
     inbox.mkdir()
-    image = inbox / "KT1_set01_wrong-comic.jpg"
+    image = inbox / "KT1_100_wrong-comic.jpg"
     image.write_bytes(b"img")
 
     with override_settings(MEDIA_ROOT=tmp_path / "media", PIPELINE_DATA_DIR=tmp_path):
@@ -38,11 +38,26 @@ def test_ingest_set_image_rejects_mismatched_comedian_slug(tmp_path):
 
 def test_ingest_set_image_accepts_matching_comedian_slug(tmp_path):
     episode = _make_episode(tmp_path, number=1)
-    _make_set(episode, "real-comic", "Real Comic", set_number=1)
+    _make_set(episode, "real-comic", "Real Comic", start_seconds=100)
 
     inbox = tmp_path / "set_images_inbox"
     inbox.mkdir()
-    image = inbox / "KT1_set01_real-comic.jpg"
+    image = inbox / "KT1_100_real-comic.jpg"
+    image.write_bytes(b"img")
+
+    with override_settings(MEDIA_ROOT=tmp_path / "media", PIPELINE_DATA_DIR=tmp_path):
+        result = ingest_set_image(image)
+
+    assert result == "imported"
+
+
+def test_ingest_set_image_matches_by_truncated_start_seconds(tmp_path):
+    episode = _make_episode(tmp_path, number=1)
+    _make_set(episode, "real-comic", "Real Comic", start_seconds=100.7)
+
+    inbox = tmp_path / "set_images_inbox"
+    inbox.mkdir()
+    image = inbox / "KT1_100_real-comic.jpg"
     image.write_bytes(b"img")
 
     with override_settings(MEDIA_ROOT=tmp_path / "media", PIPELINE_DATA_DIR=tmp_path):
@@ -53,13 +68,13 @@ def test_ingest_set_image_accepts_matching_comedian_slug(tmp_path):
 
 def test_ingest_set_image_skips_when_image_already_exists(tmp_path):
     episode = _make_episode(tmp_path, number=1)
-    s = _make_set(episode, "real-comic", "Real Comic", set_number=1)
-    s.image_url = "set-images/KT1_set01_real-comic.jpg"
+    s = _make_set(episode, "real-comic", "Real Comic", start_seconds=100)
+    s.image_url = "set-images/KT1_100_real-comic.jpg"
     s.save(update_fields=["image_url"])
 
     inbox = tmp_path / "set_images_inbox"
     inbox.mkdir()
-    image = inbox / "KT1_set01_real-comic.jpg"
+    image = inbox / "KT1_100_real-comic.jpg"
     image.write_bytes(b"img")
 
     with override_settings(MEDIA_ROOT=tmp_path / "media", PIPELINE_DATA_DIR=tmp_path):

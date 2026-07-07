@@ -16,4 +16,4 @@ def video(db):
 @pytest.fixture
 def standup_set(db, comedian, video):
     from pipeline.models import Set
-    return Set.objects.create(video=video, comedian=comedian, set_number=1, start_seconds=0)
+    return Set.objects.create(video=video, comedian=comedian, start_seconds=0)

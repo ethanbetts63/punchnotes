@@ -139,7 +139,6 @@ class NavSearchView(APIView):
         for set_obj in rows[:GROUP_LIMIT]:
             title = f"{set_obj.comedian.name} - KT #{set_obj.video.number}"
             meta = [
-                f"Set {set_obj.set_number}",
                 fmt_count(set_obj.bit_count, "bit"),
             ]
             attrs = set_obj.attributes or []

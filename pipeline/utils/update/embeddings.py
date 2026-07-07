@@ -11,12 +11,12 @@ from pipeline.utils.inbox import run_inbox_update
 
 
 def _parse_key(key: str) -> dict | None:
-    m = re.fullmatch(r"ep(\d+)\.set(\d+)\.bit(\d+)\.beat(\d+)", key)
+    m = re.fullmatch(r"ep(\d+)\.ts(\d+)\.bit(\d+)\.beat(\d+)", key)
     if not m:
         return None
     return {
         "episode_number": int(m.group(1)),
-        "set_number": int(m.group(2)),
+        "start_seconds": int(m.group(2)),
         "bit_number": int(m.group(3)),
         "beat_number": int(m.group(4)),
     }
@@ -32,9 +32,9 @@ def unembedded_beats() -> list[dict]:
         .only(
             "id", "beat_id", "line_start", "line_end", "joke_type", "embedding",
             "bit__bit_id", "bit__set_id",
-            "bit__set__set_number", "bit__set__video__number",
+            "bit__set__start_seconds", "bit__set__video__number",
         )
-        .order_by("bit__set__video__number", "bit__set__set_number")
+        .order_by("bit__set__video__number", "bit__set__start_seconds")
     )
     if not beats:
         return []
@@ -47,13 +47,13 @@ def unembedded_beats() -> list[dict]:
             continue
         set_obj = beat.bit.set
         ep_num = set_obj.video.number
-        set_num = set_obj.set_number
+        start_secs = int(set_obj.start_seconds)
         bit_m = re.search(r"(\d+)$", beat.bit.bit_id)
         beat_m = re.search(r"(\d+)$", beat.beat_id)
         if not bit_m or not beat_m:
             continue
         result.append({
-            "key": f"ep{ep_num}.set{set_num:02d}.bit{int(bit_m.group(1)):03d}.beat{int(beat_m.group(1)):03d}",
+            "key": f"ep{ep_num}.ts{start_secs}.bit{int(bit_m.group(1)):03d}.beat{int(beat_m.group(1)):03d}",
             "text": text,
         })
     return result
@@ -73,7 +73,8 @@ def ingest_embeddings(pairs: list[dict]) -> dict:
             beat = Beat.objects.get(
                 beat_id=beat_id,
                 bit__bit_id=bit_id,
-                bit__set__set_number=parsed["set_number"],
+                bit__set__start_seconds__gte=parsed["start_seconds"],
+                bit__set__start_seconds__lt=parsed["start_seconds"] + 1,
                 bit__set__video__number=parsed["episode_number"],
             )
             beat.embedding = pair.get("embedding", [])

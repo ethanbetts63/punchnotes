@@ -22,7 +22,7 @@ class VideoAdmin(admin.ModelAdmin):
 
 @admin.register(Set)
 class SetAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'video', 'comedian', 'set_number', 'attributes', 'punch_density', 'tag_density')
+    list_display = ('__str__', 'video', 'comedian', 'start_seconds', 'attributes', 'punch_density', 'tag_density')
     search_fields = ('comedian__name', 'video__title')
     readonly_fields = ('punch_density', 'tag_density')
     raw_id_fields = ('video', 'comedian')
