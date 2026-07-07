@@ -10,7 +10,7 @@ import { getServerComedians, getServerVideo, getServerVideos } from "@/lib/serve
 
 const FEATURED_EPISODE_SLUG =
   "kill-tony-578-dave-attell-greg-fitzsimmons-ian-fidance--M7RsTBpU5xM";
-import { buildOrganizationSchema, buildWebSiteSchema } from "@/lib/seo";
+import { buildMetadata, buildOrganizationSchema, buildWebSiteSchema } from "@/lib/seo";
 
 function SectionHeader({
   title,
@@ -39,9 +39,12 @@ function SectionHeader({
 }
 
 export const metadata = {
-  title: "Kill Tony - PunchNotes",
-  description:
-    "Structured comedy analytics for Kill Tony. Browse episodes, comedians, and jokes broken down by premise, mechanism, and audience response.",
+  ...buildMetadata({
+    title: "Kill Tony - PunchNotes",
+    description:
+      "Structured comedy analytics for Kill Tony. Browse episodes, comedians, and jokes broken down by premise, mechanism, and audience response.",
+    canonicalPath: "/killtony",
+  }),
   verification: {
     google: "HLJ7Gj_HgQqq9tVk6emNp1EbT5W2yoYCAIwMbHYEf3E",
   },

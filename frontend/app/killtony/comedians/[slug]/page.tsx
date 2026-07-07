@@ -6,7 +6,7 @@ import ComedianImage from "@/components/ComedianImage";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
 import { fmt2 } from "@/lib/killTonyDisplay";
 import { getComedianIntroSummary } from "@/lib/killTonySummaries";
-import { SITE_URL } from "@/lib/seo";
+import { buildMetadata } from "@/lib/seo";
 import ComedianSetList from "./ComedianSetList";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -16,11 +16,11 @@ export async function generateMetadata({ params }: Props) {
   const comedian = await getServerComedian(slug);
   if (!comedian) return { title: "Comedian Not Found | PunchNotes" };
   const introSummary = getComedianIntroSummary(comedian);
-  return {
+  return buildMetadata({
     title: `${comedian.name} — Kill Tony | PunchNotes`,
     description: introSummary,
-    alternates: { canonical: `${SITE_URL}/killtony/comedians/${comedian.slug}` },
-  };
+    canonicalPath: `/killtony/comedians/${comedian.slug}`,
+  });
 }
 
 export default async function ComedianDetailPage({ params }: Props) {

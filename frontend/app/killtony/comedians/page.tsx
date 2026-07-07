@@ -3,11 +3,14 @@ import ComedianPlaylists from "@/components/ComedianPlaylists";
 import FilterControls from "@/components/FilterControls";
 import { COMEDIAN_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import ListPageHeader from "@/components/ListPageHeader";
-import { SITE_URL, buildBreadcrumbSchema } from "@/lib/seo";
+import { SITE_URL, buildBreadcrumbSchema, buildMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: "Comedians - Kill Tony | PunchNotes",
-};
+  description:
+    "Browse all comedians who have performed on Kill Tony, with sets, jokes, and analytics.",
+  canonicalPath: "/killtony/comedians",
+});
 
 export default async function ComediansBrowsePage() {
   const comedians = await getServerComedians();

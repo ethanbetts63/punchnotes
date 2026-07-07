@@ -6,7 +6,7 @@ import { formatAttributeLabels } from "@/lib/attributes";
 import SetImage from "@/components/SetImage";
 import SearchResultTile from "@/components/SearchResultTile";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { SITE_URL, buildBreadcrumbSchema } from "@/lib/seo";
+import { SITE_URL, buildBreadcrumbSchema, buildMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -25,11 +25,11 @@ export async function generateMetadata({ params }: Props) {
     `${episode.regular_count} regular${episode.regular_count !== 1 ? "s" : ""}`,
   ].filter(Boolean);
 
-  return {
+  return buildMetadata({
     title: `Kill Tony #${episode.number}${guests.length > 0 ? ` with ${guestLabel}` : ""} | PunchNotes`,
     description: `${descriptionParts.join(", ")}. Browse PunchNotes set metrics, comedians, timestamps, and joke book flags for this episode.`,
-    alternates: { canonical: `${SITE_URL}/killtony/episodes/${episode.slug}` },
-  };
+    canonicalPath: `/killtony/episodes/${episode.slug}`,
+  });
 }
 
 type EpisodeDetail = NonNullable<Awaited<ReturnType<typeof getServerVideo>>>;

@@ -2,14 +2,17 @@ import Link from "next/link";
 import FilterControls from "@/components/FilterControls";
 import { JOKES_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import ListPageHeader from "@/components/ListPageHeader";
-import { SITE_URL, buildBreadcrumbSchema } from "@/lib/seo";
+import { SITE_URL, buildBreadcrumbSchema, buildMetadata } from "@/lib/seo";
 import { FaqSection } from "@/components/FaqSection";
 import JokePlaylists from "./JokePlaylists";
 import { JOKE_TYPE_FAQ, JOKE_TYPES } from "@/lib/jokeTypes";
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: "Jokes - Kill Tony | PunchNotes",
-};
+  description:
+    "Browse and search individual joke beats from Kill Tony, labelled by type, setup, punchline, and tags.",
+  canonicalPath: "/killtony/jokes",
+});
 
 const schema = {
   '@context': 'https://schema.org',

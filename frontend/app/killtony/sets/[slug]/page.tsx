@@ -9,7 +9,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { fmt2, fmtSeconds, getJokeBookSize, jokeBookLabel } from "@/lib/killTonyDisplay";
 import { getSetIntroSummary } from "@/lib/killTonySummaries";
 import { ATTRIBUTE_LABELS } from "@/lib/attributes";
-import { SITE_URL } from "@/lib/seo";
+import { buildMetadata } from "@/lib/seo";
 import { JOKE_TYPES } from "@/lib/jokeTypes";
 
 type Props = {
@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: Props) {
   const set = await getServerSet(slug);
   if (!set) return { title: "Set Not Found | PunchNotes" };
   const introSummary = getSetIntroSummary(set);
-  return {
+  return buildMetadata({
     title: `${set.comedian.name} - Ep ${set.video.number} | PunchNotes`,
     description: introSummary,
-    alternates: { canonical: `${SITE_URL}/killtony/sets/${set.slug}` },
-  };
+    canonicalPath: `/killtony/sets/${set.slug}`,
+  });
 }
 
 export default async function SetDetailPage({ params }: Props) {

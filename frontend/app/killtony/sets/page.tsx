@@ -2,11 +2,14 @@ import SetPlaylists from "./SetPlaylists";
 import FilterControls from "@/components/FilterControls";
 import { SET_SEARCH_CONFIG } from "@/lib/searchConfigs";
 import ListPageHeader from "@/components/ListPageHeader";
-import { SITE_URL, buildBreadcrumbSchema } from "@/lib/seo";
+import { SITE_URL, buildBreadcrumbSchema, buildMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: "Sets - Kill Tony | PunchNotes",
-};
+  description:
+    "Browse all Kill Tony stand-up sets with joke breakdowns, transcripts, and comedian analytics.",
+  canonicalPath: "/killtony/sets",
+});
 
 const schema = {
   '@context': 'https://schema.org',
