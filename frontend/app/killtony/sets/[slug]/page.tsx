@@ -25,6 +25,11 @@ export async function generateMetadata({ params }: Props) {
     title: `${set.comedian.name} - Ep ${set.video.number} | PunchNotes`,
     description: introSummary,
     canonicalPath: `/killtony/sets/${set.slug}`,
+    image:
+      set.image_url ??
+      (set.video.youtube_id
+        ? `https://img.youtube.com/vi/${set.video.youtube_id}/hqdefault.jpg`
+        : null),
   });
 }
 

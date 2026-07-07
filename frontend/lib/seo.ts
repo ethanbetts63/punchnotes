@@ -4,6 +4,7 @@ import type { FaqItem } from '@/types/FaqItem';
 export const SITE_URL = 'https://www.punchnotes.app';
 export const SITE_NAME = 'PunchNotes';
 export const SITE_LOGO_URL = `${SITE_URL}/punchnotes_logo_512x512.png`;
+export const DEFAULT_OG_IMAGE_URL = `${SITE_URL}/killtony/kt-anime.png`;
 
 const SITE_LOGO_IMAGE_OBJECT = {
   '@type': 'ImageObject',
@@ -16,6 +17,7 @@ interface MetadataOptions {
   title: string;
   description?: string;
   canonicalPath?: string;
+  image?: string | null;
   noindex?: boolean;
 }
 
@@ -23,9 +25,11 @@ export function buildMetadata({
   title,
   description,
   canonicalPath,
+  image,
   noindex,
 }: MetadataOptions): Metadata {
   const url = canonicalPath ? new URL(canonicalPath, SITE_URL).toString() : undefined;
+  const imageUrl = image ?? DEFAULT_OG_IMAGE_URL;
 
   return {
     title,
@@ -37,11 +41,13 @@ export function buildMetadata({
       url,
       siteName: SITE_NAME,
       type: 'website',
+      images: [{ url: imageUrl }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: [imageUrl],
     },
     robots: noindex ? { index: false, follow: false } : undefined,
   };

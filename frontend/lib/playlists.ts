@@ -78,15 +78,15 @@ export const SET_LISTS: ListDef[] = [
     title: "Must Watch Sets",
     description: "Sets you can't afford to skip.",
     slugs: [
-      "mAaNTFHDovs-set09-ari-matti",
-      "11FD8eVzsfk-set01-casey-rocket",
-      "1upKa86_uKU-set06-pat-o-neill",
-      "ezuyuoP5OI8-set06-kansei-yasuda",
-      "GZuIpWgRzgo-set07-collin-sledge",
-      "7AgDQxUvq6w-set07-chris-silio",
-      "M7RsTBpU5xM-set04-gary-falcon",
-      "7AgDQxUvq6w-set02-tony-pepperoni",
-      "QePXRkrAEoE-set04-dex",
+      "mAaNTFHDovs-5134-ari-matti",
+      "11FD8eVzsfk-456-casey-rocket",
+      "1upKa86_uKU-3595-pat-o-neill",
+      "ezuyuoP5OI8-3382-kansei-yasuda",
+      "GZuIpWgRzgo-4118-collin-sledge",
+      "7AgDQxUvq6w-4531-chris-silio",
+      "M7RsTBpU5xM-1685-gary-falcon",
+      "7AgDQxUvq6w-1296-tony-pepperoni",
+      "QePXRkrAEoE-2058-dex",
     ],
   },
   {
@@ -109,9 +109,9 @@ export const BIT_LISTS: ListDef[] = [
     title: "Golden Ticket Bits",
     description: "Standout bits from golden ticket winners.",
     slugs: [
-      "NoUJl5eZOzw-set07-jonah-campos?bit=001&beat=001",
-      "8LUSZuuQano-set05-nick-gianni?bit=001&beat=001",
-      "VopdOOBFE_M-set08-david-lucas?bit=001&beat=001",
+      "NoUJl5eZOzw-3819-jonah-campos?bit=001&beat=001",
+      "8LUSZuuQano-3027-nick-gianni?bit=001&beat=001",
+      "VopdOOBFE_M-5066-david-lucas?bit=001&beat=001",
     ],
   },
   {
@@ -119,9 +119,9 @@ export const BIT_LISTS: ListDef[] = [
     title: "Regular Bits",
     description: "Favourite bits from the show's regulars.",
     slugs: [
-      "0MpZF1HsZSc-set06-tristan-bowling?bit=001&beat=001",
-      "-8Qw-1aa1WM-set05-trey-pack?bit=001&beat=001",
-      "6GvGjp0nYFs-set02-afrodidy?bit=001&beat=001",
+      "0MpZF1HsZSc-3548-tristan-bowling?bit=001&beat=001",
+      "-8Qw-1aa1WM-2389-trey-pack?bit=001&beat=001",
+      "6GvGjp0nYFs-1265-aphrodite?bit=001&beat=001",
     ],
   },
   {
@@ -129,9 +129,9 @@ export const BIT_LISTS: ListDef[] = [
     title: "Crowd Favourites",
     description: "Bits that got a big reaction.",
     slugs: [
-      "_IWBzZHL0xw-set11-steve-lardner?bit=001&beat=001",
-      "FVR-v_WUYJk-set09-aldo-caldo?bit=001&beat=001",
-      "9jb4OkKRADo-set08-michael-lehrer?bit=001&beat=001",
+      "_IWBzZHL0xw-7144-steve-lardner?bit=001&beat=001",
+      "FVR-v_WUYJk-5315-aldo-caldo?bit=001&beat=001",
+      "9jb4OkKRADo-5549-michael-lehrer?bit=001&beat=001",
     ],
   },
 ];

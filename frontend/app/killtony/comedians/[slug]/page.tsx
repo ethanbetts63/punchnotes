@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props) {
     title: `${comedian.name} — Kill Tony | PunchNotes`,
     description: introSummary,
     canonicalPath: `/killtony/comedians/${comedian.slug}`,
+    image: comedian.image_url,
   });
 }
 
