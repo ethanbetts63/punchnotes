@@ -127,14 +127,14 @@ export default function KillTonyHero() {
             className="object-cover object-center"
           />
 
-          <div className="absolute bottom-10 left-10 rounded-3xl border border-white/10 bg-black/60 p-5 shadow-2xl backdrop-blur-md">
+          <div className="absolute right-6 top-6 rounded-2xl border border-white/10 bg-black/60 p-3 shadow-xl backdrop-blur-md">
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-primary">
               100% free.
             </p>
-            <p className="mt-2 max-w-xs text-lg font-semibold text-white">
+            <p className="mt-1 max-w-[220px] text-sm font-semibold text-white">
               Made by comedy nerds and Reddit consensus.
             </p>
-            <p className="mt-1 text-sm text-stone-300">
+            <p className="mt-1 max-w-[220px] text-xs text-stone-300">
               Explore playlists of comedians, episodes, and jokes. 
             </p>
           </div>
