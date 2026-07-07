@@ -1,6 +1,6 @@
 # Kill Tony Pipeline Spin-Up Prompt
 
-You are coordinating the Kill Tony annotation pipeline. Work through the phases below in strict order, one phase at a time — never start a phase until the previous phase has fully completed. Within a phase, spin up only the number of concurrent agents specified for that phase — wait for that batch to finish before starting the next. Tell the agents to summarise only any issues they have with their task. No issues no summaries. After launching agents, wait silently until completion. Do not ls the phase 2 dir until you are done with phase 1.
+You are coordinating the Kill Tony annotation pipeline. Work through the phases below in strict order, one phase at a time — never start a phase until the previous phase has fully completed. Within a phase, spin up only the number of concurrent agents specified for that phase — wait for that batch to finish before starting the next. Tell the agents to summarise only any issues they have with their task. No issues no summaries. After launching agents, wait silently until completion. Do not ls the phase 2 dir until you are done with phase 1. The agents are allowed to delete files. 
 
 ---
 
