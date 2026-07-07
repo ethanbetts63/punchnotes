@@ -19,7 +19,7 @@ export const VIDEO_PLAYLISTS: ListDef[] = [
     id: "kill-tony-lore",
     title: "Kill Tony Lore",
     description: "Key episodes from the show's history and recurring storylines.",
-    slugs: ["758", "578", "564", "518", "499", "498", "487", "484", "244", "200", "1"],
+    slugs: ["758", "726", "578", "564", "518", "499", "498", "487", "484", "244", "200", "1"],
   },
   {
     id: "comedians-pretending-to-be-other-people",
