@@ -143,9 +143,9 @@ export type FeaturedBeatSource = {
 };
 
 export const FEATURED_BEATS: FeaturedBeatSource[] = [
-  { setSlug: "1upKa86_uKU-set06-pat-o-neill", bitIndex: 1, beatIndex: 0 },
-  { setSlug: "A0JWnKvtCAI-set05-hans-kim", bitIndex: 0, beatIndex: 0 },
-  { setSlug: "a9Le0VGXZDU-set03-michael-hines", bitIndex: 3, beatIndex: 0 },
-  { setSlug: "RQ7Uk4vTPtk-set04-todd-royce", bitIndex: 2, beatIndex: 0 },
-  { setSlug: "lakXB1OP6Jg-set01-william-montgomery", bitIndex: 4, beatIndex: 0 },
+  { setSlug: "1upKa86_uKU-3595-pat-o-neill", bitIndex: 1, beatIndex: 0 },
+  { setSlug: "A0JWnKvtCAI-2997-hans-kim", bitIndex: 0, beatIndex: 0 },
+  { setSlug: "a9Le0VGXZDU-1693-michael-hines", bitIndex: 3, beatIndex: 0 },
+  { setSlug: "RQ7Uk4vTPtk-1970-todd-royce", bitIndex: 2, beatIndex: 0 },
+  { setSlug: "lakXB1OP6Jg-1082-william-montgomery", bitIndex: 4, beatIndex: 0 },
 ];
