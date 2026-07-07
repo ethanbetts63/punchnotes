@@ -41,23 +41,7 @@ export const VIDEO_PLAYLISTS: ListDef[] = [
       "394", "387", "386", "372", "371", "338", "335", "314", "288", "280",
       "277", "218", "215", "190", "186", "161", "152", "88", "42",
     ],
-  },
-  {
-    id: "golden-ticket-episodes",
-    title: "Golden Ticket Episodes",
-    description: "Episodes where Tony handed out a golden ticket.",
-    slugs: [],
-  },
-  {
-    id: "adam-ray-totally-not-adam-ray",
-    title: "Adam Ray + Totally Not Adam Ray",
-    description: "Adam Ray appearances and character episodes.",
-    slugs: [
-      "761", "758", "755", "746", "739", "725", "712", "689", "684", "682",
-      "672", "666", "663", "660", "647", "630", "620", "608", "594", "502",
-      "417", "210", "141", "18",
-    ],
-  },
+  }
 ];
 
 export const COMEDIAN_LISTS: ListDef[] = [
