@@ -1,3 +1,24 @@
+# This command is local-dev-only (see docs/pipeline.md). The equivalent server-side
+# process, run manually after this has squashed migrations and rebuilt the local DB:
+#
+#   git pull                            # pull latest app code (main punchnotes repo)
+#   python manage.py migrate
+#   python manage.py archive --pull     # sync pipeline/data_private from the private archive repo
+#   python manage.py update --ep_meta
+#   python manage.py update --annotated --archive
+#   python manage.py update --comedian_aliases
+#   python manage.py update --set_images --archive   # normally: re-link images from the archive
+#
+# To force a fresh scrape instead of re-linking archived images, skip the
+# `--set_images --archive` step above and instead:
+#   1. Wipe the public media dir: rm -rf <MEDIA_ROOT>/set-images/*
+#   2. Null out Set.image_url (and Comedian.image_url/image_set) in the DB —
+#      missing_image_sets() (pipeline/utils/update/set_images.py) only returns
+#      sets whose image_url is already empty, so clearing files alone won't
+#      trigger a re-scrape.
+#   3. Run the normal scrape flow locally: generate --set_images / upload
+#      --set_images / update --set_images (no --archive)
+
 import shutil
 
 from django.conf import settings
