@@ -68,12 +68,11 @@ def slugify(value):
 def default_output_path(
     video_id,
     capture_seconds,
-    episode_number=None,
     start_seconds=None,
     comic_name=None,
 ):
-    if episode_number is not None and start_seconds is not None and comic_name:
-        return DEFAULT_OUTPUT_DIR / f"KT{episode_number}_{int(start_seconds)}_{slugify(comic_name)}.jpg"
+    if start_seconds is not None and comic_name:
+        return DEFAULT_OUTPUT_DIR / f"{video_id}_{int(start_seconds)}_{slugify(comic_name)}.jpg"
 
     timestamp = str(int(round(capture_seconds))).zfill(5)
     return DEFAULT_OUTPUT_DIR / f"{video_id}_{timestamp}.jpg"
@@ -176,7 +175,6 @@ def build_parser():
         type=Path,
         help="Output image path. Defaults to pipeline/data/4_set_images_inbox/{name}.jpg",
     )
-    parser.add_argument("--episode-number", type=int, help="KT episode number for deterministic filename.")
     parser.add_argument("--start-seconds", type=float, help="Set's start_seconds for deterministic filename.")
     parser.add_argument("--comic-name", help="Comic name for deterministic filename.")
     parser.add_argument("--width", type=int, default=480, help="Output width in pixels.")
@@ -208,15 +206,14 @@ def main():
         parser.error("--quality must be positive")
     if args.clip_duration <= 0:
         parser.error("--clip-duration must be positive")
-    filename_parts = [args.episode_number is not None, args.start_seconds is not None, bool(args.comic_name)]
+    filename_parts = [args.start_seconds is not None, bool(args.comic_name)]
     if any(filename_parts) and not all(filename_parts):
-        parser.error("--episode-number, --start-seconds, and --comic-name must be supplied together")
+        parser.error("--start-seconds and --comic-name must be supplied together")
 
     source_url = youtube_url(video_id=args.video_id, url=args.url)
     output_path = args.output or default_output_path(
         args.video_id or "youtube",
         capture_seconds,
-        args.episode_number,
         args.start_seconds,
         args.comic_name,
     )

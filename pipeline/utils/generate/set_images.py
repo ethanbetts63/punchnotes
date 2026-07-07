@@ -35,11 +35,11 @@ def generate_set_images(options: dict, log: Log) -> None:
         capture_seconds = entry["start_seconds"] + offset
         output_path = default_output_path(
             entry["video_id"], capture_seconds,
-            entry["episode_number"], entry["start_seconds"], entry["comedian_name"],
+            entry["start_seconds"], entry["comedian_name"],
         )
         args = SimpleNamespace(
             video_id=entry["video_id"], url=None,
-            episode_number=entry["episode_number"], start_seconds=entry["start_seconds"],
+            start_seconds=entry["start_seconds"],
             comic_name=entry["comedian_name"], timestamp=entry["start_seconds"],
             offset=offset, clip_duration=options.get("clip_duration", 0.05),
             width=options.get("width", 480), quality=options.get("quality", 4),

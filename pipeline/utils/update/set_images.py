@@ -39,12 +39,12 @@ def ingest_set_image(image_path: Path, replace: bool = False, move_to_archive: b
     archive_dir.mkdir(parents=True, exist_ok=True)
 
     parsed = parse_image_name(image_path)
-    set_obj = find_set_for_image(parsed["episode_number"], parsed["start_seconds"])
+    set_obj = find_set_for_image(parsed["video_id"], parsed["start_seconds"])
 
     if parsed["comic_slug"] != set_obj.comedian.slug:
         raise ValueError(
             f"Comedian slug mismatch: filename says {parsed['comic_slug']!r} "
-            f"but the set at {parsed['start_seconds']}s of episode {parsed['episode_number']} "
+            f"but the set at {parsed['start_seconds']}s of video {parsed['video_id']} "
             f"belongs to {set_obj.comedian.slug!r}."
         )
 

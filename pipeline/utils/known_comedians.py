@@ -68,6 +68,7 @@ KNOWN_SPECIAL_SLUGS = frozenset(
         "uncle-lazer",
         "ari-shaffir",
         "iron-patriot",
+        "karen-feehan",
         "joe-derosa", 
         "james-mccann",
         "rob-schneider",

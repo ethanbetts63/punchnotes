@@ -36,10 +36,10 @@ def fix_set_image_archive(log: Log, dry_run: bool = False) -> None:
             continue
 
         try:
-            set_obj = find_set_for_image(parsed["episode_number"], parsed["start_seconds"])
+            set_obj = find_set_for_image(parsed["video_id"], parsed["start_seconds"])
         except Set.DoesNotExist:
             log.warning(
-                f"  {path.name}: no set found for ep {parsed['episode_number']} "
+                f"  {path.name}: no set found for video {parsed['video_id']} "
                 f"at {parsed['start_seconds']}s"
             )
             not_found += 1

@@ -23,7 +23,7 @@ class Command(BaseCommand):
                 raise CommandError(result.stderr.strip() or f"Command failed: {' '.join(cmd)}")
 
         if options["pull"]:
-            run(["git", "pull"])
+            run(["git", "pull", "origin", "main"])
             self.stdout.write(self.style.SUCCESS("Archive pulled."))
             return
 
@@ -38,5 +38,5 @@ class Command(BaseCommand):
             return
 
         run(["git", "commit", "-m", "update archive"])
-        run(["git", "push"])
+        run(["git", "push", "origin", "main"])
         self.stdout.write(self.style.SUCCESS("Archive pushed."))
