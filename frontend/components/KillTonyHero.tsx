@@ -134,9 +134,6 @@ export default function KillTonyHero() {
             <p className="mt-1 max-w-[220px] text-sm font-semibold text-white">
               Made by comedy nerds and Reddit consensus.
             </p>
-            <p className="mt-1 max-w-[220px] text-xs text-stone-300">
-              Explore playlists of comedians, episodes, and jokes. 
-            </p>
           </div>
         </div>
       </div>
