@@ -16,7 +16,6 @@ class Command(BaseCommand):
         group.add_argument("--ep_meta", action="store_true", help="Import episode metadata from kt_ep_archive.jsonl")
         group.add_argument("--comedian_aliases", action="store_true", help="Apply comedian alias relationships and dedup DB")
         group.add_argument("--set_images", action="store_true", help="Import set images from set_images_inbox/ (or set_images_archive/ with --archive)")
-        group.add_argument("--embeddings", action="store_true", help="Write embeddings from embeddings_inbox/ to DB")
         group.add_argument("--segment_embeddings", action="store_true", help="Write segment embeddings from segment_embeddings_inbox/ to DB")
 
         parser.add_argument(
@@ -43,10 +42,6 @@ class Command(BaseCommand):
         elif options["set_images"]:
             from pipeline.utils.update.set_images import run_update_set_images
             run_update_set_images(log, archive=options["archive"])
-
-        elif options["embeddings"]:
-            from pipeline.utils.update.embeddings import run_update_embeddings
-            run_update_embeddings(log, archive=options["archive"])
 
         elif options["segment_embeddings"]:
             from pipeline.utils.update.segment_embeddings import run_update_segment_embeddings

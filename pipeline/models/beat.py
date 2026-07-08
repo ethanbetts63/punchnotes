@@ -25,7 +25,6 @@ class Beat(models.Model):
     # kept in sync by import_bits. Search matches against this instead of individual
     # Line rows so a phrase split across adjacent transcript lines can still be found.
     search_text = models.TextField(blank=True, default="")
-    embedding = models.JSONField(default=list)
     created_at = models.DateTimeField(default=timezone.now, db_index=True)
 
     class Meta:

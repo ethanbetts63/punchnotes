@@ -50,3 +50,9 @@ def embed_text(text: str) -> np.ndarray:
             vector = vector / norm
         cache.set(cache_key, vector, timeout=_EMBEDDING_CACHE_TIMEOUT)
         return vector
+
+
+def embed_texts(texts: list[str]) -> list[np.ndarray]:
+    # A pasted joke yields only a handful of segments, so embedding them one at a
+    # time (each cached individually) keeps the response-shape handling simple.
+    return [embed_text(text) for text in texts]

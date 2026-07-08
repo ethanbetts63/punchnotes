@@ -114,13 +114,6 @@ class Command(BaseCommand):
             else:
                 self.stdout.write("\nNo archived set images to re-link.")
 
-        embeddings_archive = private_dir / "embeddings_archive"
-        if embeddings_archive.exists() and any(embeddings_archive.glob("*.jsonl")):
-            self.stdout.write("\nRestoring embeddings from archive...")
-            call_command("update", embeddings=True, archive=True)
-        else:
-            self.stdout.write("\nNo archived embeddings to restore.")
-
         if not server:
             segment_embeddings_archive = private_dir / "segment_embeddings_archive"
             if segment_embeddings_archive.exists() and any(segment_embeddings_archive.glob("*.jsonl")):

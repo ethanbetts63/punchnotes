@@ -11,7 +11,6 @@ class Command(BaseCommand):
         group.add_argument("--annotated", action="store_true", help="Upload annotated set JSON(s) to server (ingests immediately)")
         group.add_argument("--comedian_aliases", action="store_true", help="Upload comedian_name_relationships.json to server")
         group.add_argument("--set_images", action="store_true", help="Upload set images from set_images_outbox/")
-        group.add_argument("--embeddings", action="store_true", help="Upload embedding JSONL from embeddings_outbox/")
         group.add_argument("--segment_embeddings", action="store_true", help="Upload segment embedding JSONL from segment_embeddings_outbox/")
 
         source = parser.add_mutually_exclusive_group()
@@ -37,10 +36,6 @@ class Command(BaseCommand):
         elif options["set_images"]:
             from pipeline.utils.upload.set_images import upload_set_images
             upload_set_images(options, log)
-
-        elif options["embeddings"]:
-            from pipeline.utils.upload.embeddings import upload_embeddings
-            upload_embeddings(options, log)
 
         elif options["segment_embeddings"]:
             from pipeline.utils.upload.segment_embeddings import upload_segment_embeddings

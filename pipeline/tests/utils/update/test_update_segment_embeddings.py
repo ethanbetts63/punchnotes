@@ -43,6 +43,25 @@ def test_ensure_beat_segments_creates_rows_for_new_beats():
     assert segments[0].text == "This is the punchline right here today."
 
 
+def test_ensure_beat_segments_excludes_fluff_lines():
+    from pipeline.utils.update.segment_embeddings import ensure_beat_segments
+
+    standup_set = _make_set("Comic One", "comic-one-fluff", 10, 150)
+    beat = _make_beat(standup_set, 1, 1, 1, 3)
+    Line.objects.create(set=standup_set, line_number=1, label="fluff", text="Uh, anyway, so, you know how it is.", start_seconds=1.0)
+    Line.objects.create(set=standup_set, line_number=2, label="setup", text="I went to the doctor the other day about my knee.", start_seconds=2.0)
+    Line.objects.create(set=standup_set, line_number=3, label="punchline", text="He said it was just old age, which is rude.", start_seconds=3.0)
+
+    ensure_beat_segments([beat])
+
+    segment_texts = list(beat.segments.order_by("ordinal").values_list("text", flat=True))
+    assert len(segment_texts) == 1
+    joined = segment_texts[0]
+    assert "old age" in joined
+    assert "anyway" not in joined
+    assert beat.segments.first().line_start == 2
+
+
 def test_ensure_beat_segments_skips_beats_that_already_have_segments():
     from pipeline.utils.update.segment_embeddings import ensure_beat_segments
 

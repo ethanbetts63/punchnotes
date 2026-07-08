@@ -1,6 +1,6 @@
 import pytest
 
-from api.beat_utils import beat_lines, describe_beat_lines
+from api.beat_utils import beat_display_lines, beat_lines, describe_beat_lines
 from api.views.search import text_score
 
 
@@ -42,6 +42,13 @@ def test_beat_lines_excludes_lines_outside_range(full_set):
     Line.objects.create(set=full_set["set"], line_number=4, label="fluff", text="Outside.", start_seconds=63)
     lines = beat_lines(beat)
     assert all(l.line_number <= 3 for l in lines)
+
+
+def test_beat_display_lines_excludes_fluff_and_keeps_order(full_set):
+    lines = beat_display_lines(full_set["beat"])
+    assert [l["line_number"] for l in lines] == [1, 3]
+    assert [l["label"] for l in lines] == ["setup", "punchline"]
+    assert all(l["label"] != "fluff" for l in lines)
 
 
 def test_describe_beat_lines_finds_punchline(full_set):

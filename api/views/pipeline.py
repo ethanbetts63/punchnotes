@@ -251,23 +251,6 @@ class SetImageBatchView(PipelineView):
         return Response({"status": "queued", "received": len(files), "files": files}, status=202)
 
 
-class UnembeddedBeatsView(PipelineView):
-    def get(self, request):
-        from pipeline.utils.update.embeddings import unembedded_beats
-        return Response({"beats": unembedded_beats()})
-
-
-class EmbeddingsView(PipelineView):
-    def post(self, request):
-        inbox_dir = settings.PIPELINE_DATA_DIR / "embeddings_inbox"
-        inbox_dir.mkdir(parents=True, exist_ok=True)
-        ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
-        dest = inbox_dir / f"embeddings_{ts}_{uuid.uuid4().hex[:8]}.jsonl"
-        content = request.body
-        dest.write_bytes(content if isinstance(content, bytes) else content.encode("utf-8"))
-        return Response({"status": "queued", "file": dest.name}, status=202)
-
-
 class UnsegmentedBeatSegmentsView(PipelineView):
     def get(self, request):
         from pipeline.utils.update.segment_embeddings import unembedded_beat_segments, unembedded_beat_segments_batch

@@ -20,10 +20,10 @@ def _load_all_lines_by_set(beats: list) -> dict:
         Line.objects
         .filter(set_id__in=set_ids)
         .order_by("set_id", "line_number")
-        .values_list("set_id", "line_number", "text")
+        .values_list("set_id", "line_number", "text", "label")
     )
-    for set_id, line_number, text in lines:
-        lines_by_set.setdefault(set_id, []).append((line_number, text))
+    for set_id, line_number, text, label in lines:
+        lines_by_set.setdefault(set_id, []).append((line_number, text, label))
     return lines_by_set
 
 
@@ -48,8 +48,8 @@ def ensure_beat_segments(beats: list) -> None:
         set_id = beat.bit.set_id
         beat_lines = [
             (line_number, text)
-            for line_number, text in lines_by_set.get(set_id, [])
-            if beat.line_start <= line_number <= beat.line_end
+            for line_number, text, label in lines_by_set.get(set_id, [])
+            if beat.line_start <= line_number <= beat.line_end and label != "fluff"
         ]
         for ordinal, segment in enumerate(segment_beat_lines(beat_lines), start=1):
             segments_to_create.append(BeatSegment(

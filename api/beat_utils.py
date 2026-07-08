@@ -10,6 +10,15 @@ def beat_lines(beat, set_lines=None):
     ]
 
 
+def beat_display_lines(beat, set_lines=None):
+    # Non-fluff lines only, matching what the segment embeddings are built from.
+    return [
+        {"line_number": line.line_number, "label": line.label, "text": line.text}
+        for line in beat_lines(beat, set_lines=set_lines)
+        if line.label != "fluff"
+    ]
+
+
 def describe_beat_lines(beat, query="", set_lines=None):
     lines = beat_lines(beat, set_lines=set_lines)
     setup_lines = []

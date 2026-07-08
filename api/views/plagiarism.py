@@ -6,10 +6,11 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from api.beat_utils import describe_beat_lines
-from api.hf_embeddings import embed_text
+from api.beat_utils import beat_display_lines
+from api.hf_embeddings import embed_texts
+from api.segment_similarity import find_similar_beats_by_segments
 from api.set_slugs import set_public_slug
-from api.similarity import find_similar_beats
+from pipeline.utils.segmenting import segment_beat_lines
 
 
 MAX_PLAGIARISM_TEXT_LENGTH = 2000
@@ -18,6 +19,17 @@ PLAGIARISM_CACHE_TIMEOUT = 60 * 60 * 24 * 7
 
 def plagiarism_cache_key(text):
     return f"plagiarism:{sha256(text.encode('utf-8')).hexdigest()}"
+
+
+def segment_query_text(text):
+    numbered_lines = [
+        (number, stripped)
+        for number, line in enumerate(text.splitlines(), start=1)
+        if (stripped := line.strip())
+    ]
+    if not numbered_lines:
+        numbered_lines = [(1, text.strip())]
+    return [segment.text for segment in segment_beat_lines(numbered_lines)]
 
 
 class PlagiarismCheckView(APIView):
@@ -43,20 +55,31 @@ class PlagiarismCheckView(APIView):
         if cached is not None:
             return Response({"query": text, "results": cached})
 
+        query_segments = segment_query_text(text)
+
         try:
-            query_vector = embed_text(text)
+            query_vectors = embed_texts(query_segments)
         except TimeoutError as e:
             return Response({"error": str(e)}, status=status.HTTP_504_GATEWAY_TIMEOUT)
         except Exception as e:
             return Response({"error": f"Embedding failed: {e}"}, status=status.HTTP_502_BAD_GATEWAY)
 
-        matches = find_similar_beats(query_vector)
+        matches = find_similar_beats_by_segments(query_vectors)
 
         results = []
-        for sim, beat in matches:
-            beat_data = describe_beat_lines(beat)
+        for match in matches:
+            beat = match["beat"]
+            matched_segments = [
+                {
+                    "text": segment.text,
+                    "line_start": segment.line_start,
+                    "line_end": segment.line_end,
+                    "similarity": round(score, 4),
+                }
+                for segment, score in match["segments"]
+            ]
             results.append({
-                "similarity": round(sim, 4),
+                "similarity": round(match["best"], 4),
                 "beat_id": beat.beat_id,
                 "bit_id": beat.bit.bit_id,
                 "joke_type": beat.joke_type,
@@ -65,8 +88,8 @@ class PlagiarismCheckView(APIView):
                 "episode_number": beat.bit.set.video.number,
                 "set_slug": set_public_slug(beat.bit.set),
                 "premise": beat.premise,
-                "setup_lines": beat_data["setup_lines"],
-                "punchline": beat_data["punchline"],
+                "lines": beat_display_lines(beat),
+                "matched_segments": matched_segments,
             })
 
         cache.set(cache_key, results, timeout=PLAGIARISM_CACHE_TIMEOUT)
