@@ -6,6 +6,19 @@ import Link from "next/link";
 import { Loader2 } from "lucide-react";
 import { compactOrdinalId } from "@/lib/bitLinks";
 
+type BeatLine = {
+  line_number: number;
+  label: string;
+  text: string;
+};
+
+type MatchedSegment = {
+  text: string;
+  line_start: number;
+  line_end: number;
+  similarity: number;
+};
+
 type PlagiarismMatch = {
   similarity: number;
   beat_id: string;
@@ -16,9 +29,23 @@ type PlagiarismMatch = {
   episode_number: number;
   set_slug: string;
   premise: string;
-  setup_lines: string[];
-  punchline: string;
+  lines: BeatLine[];
+  matched_segments: MatchedSegment[];
 };
+
+// For each line, the highest score of any matched segment covering it (null if none).
+function scoreByLine(match: PlagiarismMatch): Map<number, number> {
+  const scores = new Map<number, number>();
+  for (const segment of match.matched_segments) {
+    for (let n = segment.line_start; n <= segment.line_end; n++) {
+      const existing = scores.get(n);
+      if (existing === undefined || segment.similarity > existing) {
+        scores.set(n, segment.similarity);
+      }
+    }
+  }
+  return scores;
+}
 
 function buildBeatHref(match: PlagiarismMatch): string {
   const params = new URLSearchParams({
@@ -41,7 +68,29 @@ function SimilarityBadge({ score }: { score: number }) {
   );
 }
 
+function LineRow({ line, score }: { line: BeatLine; score: number | undefined }) {
+  const matched = score !== undefined;
+  const isPunchline = line.label === "punchline";
+  return (
+    <div
+      className={`flex items-start gap-2 rounded-md px-2 py-1 ${
+        matched ? "bg-amber-50 ring-1 ring-amber-200" : ""
+      }`}
+    >
+      <p className={`flex-1 text-sm ${isPunchline ? "font-semibold text-stone-900" : "text-stone-600"}`}>
+        {line.text}
+      </p>
+      {matched && (
+        <span className="mt-0.5 shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-700">
+          {Math.round(score * 100)}%
+        </span>
+      )}
+    </div>
+  );
+}
+
 function MatchTile({ match }: { match: PlagiarismMatch }) {
+  const lineScores = scoreByLine(match);
   return (
     <Link
       href={buildBeatHref(match)}
@@ -63,13 +112,10 @@ function MatchTile({ match }: { match: PlagiarismMatch }) {
       {match.premise && (
         <p className="mb-3 text-sm italic text-stone-500">&ldquo;{match.premise}&rdquo;</p>
       )}
-      <div className="space-y-1">
-        {match.setup_lines.map((line, i) => (
-          <p key={i} className="text-sm text-stone-600">{line}</p>
+      <div className="space-y-0.5">
+        {match.lines.map((line) => (
+          <LineRow key={line.line_number} line={line} score={lineScores.get(line.line_number)} />
         ))}
-        {match.punchline && (
-          <p className="font-semibold text-stone-900">{match.punchline}</p>
-        )}
       </div>
     </Link>
   );
