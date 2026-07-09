@@ -9,6 +9,7 @@ from pipeline.log import Log
 from pipeline.models import Beat, BeatSegment, Line
 from pipeline.utils.inbox import run_inbox_update
 from pipeline.utils.segmenting import segment_beat_lines
+from pipeline.utils.vectors import EMPTY_EMBEDDING, pack_embedding
 
 
 def _load_all_lines_by_set(beats: list) -> dict:
@@ -117,7 +118,7 @@ def unembedded_beat_segments() -> list[dict]:
     result = []
     segments = (
         BeatSegment.objects
-        .filter(beat__in=beats, embedding=[])
+        .filter(beat__in=beats, embedding=EMPTY_EMBEDDING)
         .select_related("beat__bit__set__video")
         .order_by("beat__bit__set__video__number", "beat__bit__set__start_seconds", "beat_id", "ordinal")
     )
@@ -143,7 +144,7 @@ def unembedded_beat_segments_batch(after_id: int = 0, limit: int = 500, build_be
 
     segments_qs = (
         BeatSegment.objects
-        .filter(embedding=[], id__gt=after_id)
+        .filter(embedding=EMPTY_EMBEDDING, id__gt=after_id)
         .exclude(beat__joke_type=None)
         .exclude(beat__joke_type="")
         .select_related("beat__bit__set__video")
@@ -157,7 +158,7 @@ def unembedded_beat_segments_batch(after_id: int = 0, limit: int = 500, build_be
         if payload is not None:
             segments.append(payload)
 
-    has_more_segments = BeatSegment.objects.filter(embedding=[], id__gt=next_cursor).exists()
+    has_more_segments = BeatSegment.objects.filter(embedding=EMPTY_EMBEDDING, id__gt=next_cursor).exists()
     has_more_unsegmented_beats = (
         _candidate_beats()
         .annotate(segment_count=Count("segments"))
@@ -234,7 +235,7 @@ def ingest_segment_embeddings(pairs: list[dict]) -> dict:
             continue
         if segment.id in seen_segment_ids:
             continue
-        segment.embedding = embedding
+        segment.embedding = pack_embedding(embedding)
         updates.append(segment)
         seen_segment_ids.add(segment.id)
 

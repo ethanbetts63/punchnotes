@@ -1,6 +1,7 @@
 import pytest
 
 from pipeline.models import Beat, BeatSegment, Bit, Comedian, Line, Set, Video
+from pipeline.utils.vectors import pack_embedding, unpack_embedding
 
 
 pytestmark = pytest.mark.django_db
@@ -104,7 +105,7 @@ def test_unembedded_beat_segments_excludes_already_embedded_segments():
     standup_set = _make_set("Comic One", "comic-one-5", 10, 104)
     beat = _make_beat(standup_set, 1, 1, 1, 1)
     Line.objects.create(set=standup_set, line_number=1, label="punchline", text="Already embedded text.", start_seconds=1.0)
-    BeatSegment.objects.create(beat=beat, ordinal=1, text="Already embedded text.", line_start=1, line_end=1, embedding=[1.0, 0.0])
+    BeatSegment.objects.create(beat=beat, ordinal=1, text="Already embedded text.", line_start=1, line_end=1, embedding=pack_embedding([1.0, 0.0]))
 
     assert unembedded_beat_segments() == []
 
@@ -122,7 +123,7 @@ def test_ingest_segment_embeddings_stores_by_key():
 
     segment.refresh_from_db()
     assert result == {"stored": 1, "not_found": 0, "invalid_key": 0}
-    assert segment.embedding == [1.0, 2.0]
+    assert unpack_embedding(segment.embedding).tolist() == [1.0, 2.0]
 
 
 def test_ingest_segment_embeddings_matches_by_truncated_start_seconds():
@@ -138,7 +139,7 @@ def test_ingest_segment_embeddings_matches_by_truncated_start_seconds():
 
     segment.refresh_from_db()
     assert result == {"stored": 1, "not_found": 0, "invalid_key": 0}
-    assert segment.embedding == [1.0, 2.0]
+    assert unpack_embedding(segment.embedding).tolist() == [1.0, 2.0]
 
 
 def test_ingest_segment_embeddings_reports_not_found_and_invalid_key():
@@ -169,5 +170,5 @@ def test_ingest_segment_embeddings_uses_bulk_lookup(django_assert_num_queries):
     first.refresh_from_db()
     second.refresh_from_db()
     assert result == {"stored": 2, "not_found": 0, "invalid_key": 0}
-    assert first.embedding == [1.0]
-    assert second.embedding == [2.0]
+    assert unpack_embedding(first.embedding).tolist() == [1.0]
+    assert unpack_embedding(second.embedding).tolist() == [2.0]

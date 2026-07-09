@@ -3,6 +3,8 @@ import json
 import numpy as np
 import pytest
 
+from pipeline.utils.vectors import pack_embedding
+
 
 pytestmark = pytest.mark.django_db
 
@@ -34,7 +36,7 @@ def test_plagiarism_returns_beat_with_matched_segments(client, full_set, monkeyp
     beat = full_set["beat"]
     BeatSegment.objects.create(
         beat=beat, ordinal=1, text="I used to be an astronaut.",
-        line_start=1, line_end=1, embedding=_unit(1, 0).tolist(),
+        line_start=1, line_end=1, embedding=pack_embedding(_unit(1, 0)),
     )
 
     monkeypatch.setattr(
@@ -64,7 +66,7 @@ def test_plagiarism_omits_beats_below_threshold(client, full_set, monkeypatch):
 
     BeatSegment.objects.create(
         beat=full_set["beat"], ordinal=1, text="unrelated",
-        line_start=1, line_end=1, embedding=_unit(0, 1).tolist(),
+        line_start=1, line_end=1, embedding=pack_embedding(_unit(0, 1)),
     )
     monkeypatch.setattr(
         "api.views.plagiarism.embed_texts",

@@ -2,6 +2,7 @@ import pytest
 from django.core.management import call_command
 
 from pipeline.models import Beat, BeatSegment, Bit, Comedian, Set, Video
+from pipeline.utils.vectors import pack_embedding
 
 
 pytestmark = pytest.mark.django_db
@@ -17,7 +18,7 @@ def _make_beat():
 
 def test_clear_beat_segments_deletes_all_rows():
     beat = _make_beat()
-    BeatSegment.objects.create(beat=beat, ordinal=1, text="a", line_start=1, line_end=1, embedding=[1.0])
+    BeatSegment.objects.create(beat=beat, ordinal=1, text="a", line_start=1, line_end=1, embedding=pack_embedding([1.0]))
     BeatSegment.objects.create(beat=beat, ordinal=2, text="b", line_start=1, line_end=1)
 
     call_command("clear_beat_segments")

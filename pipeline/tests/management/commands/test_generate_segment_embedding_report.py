@@ -5,6 +5,7 @@ from django.core.management import call_command
 from django.test import override_settings
 
 from pipeline.models import Beat, BeatSegment, Bit, Comedian, Set, Video
+from pipeline.utils.vectors import pack_embedding
 
 
 pytestmark = pytest.mark.django_db
@@ -26,8 +27,8 @@ def test_report_matches_segments_across_different_comedians(tmp_path):
     set_b = _make_set("Comic Two", "comic-two", 1)
     beat_a = _make_beat(set_a, "a", "premise a")
     beat_b = _make_beat(set_b, "b", "premise b")
-    BeatSegment.objects.create(beat=beat_a, ordinal=1, text="the punchline text", line_start=1, line_end=1, embedding=[1.0, 0.0])
-    BeatSegment.objects.create(beat=beat_b, ordinal=1, text="the punchline text", line_start=1, line_end=1, embedding=[1.0, 0.0])
+    BeatSegment.objects.create(beat=beat_a, ordinal=1, text="the punchline text", line_start=1, line_end=1, embedding=pack_embedding([1.0, 0.0]))
+    BeatSegment.objects.create(beat=beat_b, ordinal=1, text="the punchline text", line_start=1, line_end=1, embedding=pack_embedding([1.0, 0.0]))
 
     with override_settings(PIPELINE_PRIVATE_DATA_DIR=tmp_path):
         call_command("generate", segment_embeddings_report=True)
@@ -46,8 +47,8 @@ def test_report_matches_segments_across_different_joke_types(tmp_path):
     set_b = _make_set("Comic Two", "comic-two-xtype", 1)
     beat_a = _make_beat(set_a, "a", "premise a", joke_type="misdirect")
     beat_b = _make_beat(set_b, "b", "premise b", joke_type="reframe")
-    BeatSegment.objects.create(beat=beat_a, ordinal=1, text="reused joke", line_start=1, line_end=1, embedding=[1.0, 0.0])
-    BeatSegment.objects.create(beat=beat_b, ordinal=1, text="reused joke", line_start=1, line_end=1, embedding=[1.0, 0.0])
+    BeatSegment.objects.create(beat=beat_a, ordinal=1, text="reused joke", line_start=1, line_end=1, embedding=pack_embedding([1.0, 0.0]))
+    BeatSegment.objects.create(beat=beat_b, ordinal=1, text="reused joke", line_start=1, line_end=1, embedding=pack_embedding([1.0, 0.0]))
 
     with override_settings(PIPELINE_PRIVATE_DATA_DIR=tmp_path):
         call_command("generate", segment_embeddings_report=True)
@@ -61,8 +62,8 @@ def test_report_does_not_match_segments_from_same_comedian(tmp_path):
     set_a = _make_set("Comic One", "comic-one-2", 1)
     beat_a = _make_beat(set_a, "a", "premise a")
     beat_b = _make_beat(set_a, "b", "premise b")
-    BeatSegment.objects.create(beat=beat_a, ordinal=1, text="text", line_start=1, line_end=1, embedding=[1.0, 0.0])
-    BeatSegment.objects.create(beat=beat_b, ordinal=1, text="text", line_start=1, line_end=1, embedding=[1.0, 0.0])
+    BeatSegment.objects.create(beat=beat_a, ordinal=1, text="text", line_start=1, line_end=1, embedding=pack_embedding([1.0, 0.0]))
+    BeatSegment.objects.create(beat=beat_b, ordinal=1, text="text", line_start=1, line_end=1, embedding=pack_embedding([1.0, 0.0]))
 
     with override_settings(PIPELINE_PRIVATE_DATA_DIR=tmp_path):
         call_command("generate", segment_embeddings_report=True)
@@ -76,10 +77,10 @@ def test_report_takes_best_segment_pair_per_beat_pair(tmp_path):
     set_b = _make_set("Comic Two", "comic-two-3", 1)
     beat_a = _make_beat(set_a, "a", "premise a")
     beat_b = _make_beat(set_b, "b", "premise b")
-    BeatSegment.objects.create(beat=beat_a, ordinal=1, text="unrelated setup", line_start=1, line_end=1, embedding=[0.0, 1.0])
-    BeatSegment.objects.create(beat=beat_a, ordinal=2, text="matching punchline", line_start=2, line_end=2, embedding=[1.0, 0.0])
-    BeatSegment.objects.create(beat=beat_b, ordinal=1, text="different setup", line_start=1, line_end=1, embedding=[0.0, -1.0])
-    BeatSegment.objects.create(beat=beat_b, ordinal=2, text="matching punchline", line_start=2, line_end=2, embedding=[1.0, 0.0])
+    BeatSegment.objects.create(beat=beat_a, ordinal=1, text="unrelated setup", line_start=1, line_end=1, embedding=pack_embedding([0.0, 1.0]))
+    BeatSegment.objects.create(beat=beat_a, ordinal=2, text="matching punchline", line_start=2, line_end=2, embedding=pack_embedding([1.0, 0.0]))
+    BeatSegment.objects.create(beat=beat_b, ordinal=1, text="different setup", line_start=1, line_end=1, embedding=pack_embedding([0.0, -1.0]))
+    BeatSegment.objects.create(beat=beat_b, ordinal=2, text="matching punchline", line_start=2, line_end=2, embedding=pack_embedding([1.0, 0.0]))
 
     with override_settings(PIPELINE_PRIVATE_DATA_DIR=tmp_path):
         call_command("generate", segment_embeddings_report=True)

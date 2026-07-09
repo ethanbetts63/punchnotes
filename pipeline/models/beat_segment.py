@@ -7,7 +7,10 @@ class BeatSegment(models.Model):
     text = models.TextField()
     line_start = models.PositiveSmallIntegerField()
     line_end = models.PositiveSmallIntegerField()
-    embedding = models.JSONField(default=list)
+    # Dense little-endian float32 bytes; see pipeline.utils.vectors. Stored as a blob
+    # rather than JSON because the text encoding is 5x the bytes and needs decoding
+    # into millions of Python floats on every read.
+    embedding = models.BinaryField(default=b"")
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

@@ -7,6 +7,7 @@ from django.utils import timezone
 from pipeline.log import Log
 from pipeline.models import BeatSegment
 from pipeline.utils.report_format import format_report_json
+from pipeline.utils.vectors import EMPTY_EMBEDDING, unpack_matrix
 
 
 OUTPUT_FILENAME = "segment_embedding_similarity_report.json"
@@ -40,10 +41,10 @@ def _load_segments(log: Log):
     comedian names are fetched later, only for the segments that win a beat pair.
 
     Fetched in id-ordered chunks rather than one query so the load can report
-    progress -- it is by far the slowest phase, since each 768-float vector crosses
-    the wire as JSON text.
+    progress, and so peak memory stays proportional to a chunk rather than to the
+    whole table.
     """
-    base = BeatSegment.objects.exclude(embedding=[])
+    base = BeatSegment.objects.exclude(embedding=EMPTY_EMBEDDING)
     total = base.count()
     if total == 0:
         return None
@@ -70,7 +71,7 @@ def _load_segments(log: Log):
         segment_ids.extend(row[0] for row in rows)
         beat_ids.extend(row[1] for row in rows)
         comedian_ids.extend(row[2] for row in rows)
-        blocks.append(np.array([row[3] for row in rows], dtype=np.float32))
+        blocks.append(unpack_matrix(row[3] for row in rows))
         after_id = rows[-1][0]
 
         log(f"  {_progress(len(segment_ids), total, started)}")

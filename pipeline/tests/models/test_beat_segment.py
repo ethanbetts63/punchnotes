@@ -1,6 +1,8 @@
 import pytest
 from django.db import IntegrityError
 
+from pipeline.utils.vectors import EMPTY_EMBEDDING
+
 
 pytestmark = pytest.mark.django_db
 
@@ -16,7 +18,7 @@ def test_beat_segment_defaults_and_str(full_set):
         line_end=1,
     )
 
-    assert segment.embedding == []
+    assert segment.embedding == EMPTY_EMBEDDING
     assert str(segment) == f"{full_set['beat']} â€“ segment 1"
     assert full_set["beat"].segments.count() == 1
 

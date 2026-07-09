@@ -1,6 +1,7 @@
 import numpy as np
 
 from pipeline.models import BeatSegment
+from pipeline.utils.vectors import EMPTY_EMBEDDING, unpack_embedding
 
 DEFAULT_THRESHOLD = 0.70
 DEFAULT_TOP_N = 10
@@ -24,7 +25,7 @@ def find_similar_beats_by_segments(
 
     segments = (
         BeatSegment.objects
-        .exclude(embedding=[])
+        .exclude(embedding=EMPTY_EMBEDDING)
         .select_related("beat__bit__set__comedian", "beat__bit__set__video")
         .prefetch_related("beat__bit__set__lines")
     )
@@ -32,7 +33,7 @@ def find_similar_beats_by_segments(
     seg_list = []
     vectors = []
     for segment in segments:
-        vector = np.asarray(segment.embedding, dtype=np.float32)
+        vector = unpack_embedding(segment.embedding)
         norm = np.linalg.norm(vector)
         if norm == 0:
             continue
