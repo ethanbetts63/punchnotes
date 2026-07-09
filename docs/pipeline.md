@@ -34,12 +34,8 @@ pipeline/
 | `set_images_outbox/` | Scraped images awaiting upload |
 | `set_images_inbox/` | (server) Received images awaiting `update --set_images` |
 | `set_images_archive/` | Archived set images (untracked) |
-| `embeddings_outbox/` | Computed embeddings JSONL awaiting upload |
-| `embeddings_inbox/` | (server) Received JSONL awaiting `update --embeddings` |
-| `embeddings_archive/` | Archived embedding vectors (private git) |
 | `segment_embeddings_outbox/` | Computed segment embeddings JSONL awaiting upload |
 | `segment_embeddings_inbox/` | (server) Received JSONL awaiting `update --segment_embeddings` |
-| `segment_embeddings_archive/` | Archived segment embedding vectors (private git) |
 | `comedian_aliases_inbox/` | (server) Received relationships file awaiting `update --comedian_aliases` |
 | `kt_ep_archive.jsonl` | Episode metadata archive — appended by `generate --ep_meta`, committed to git, read directly by `update --ep_meta` |
 | `videos_to_scrape.jsonl` | (server) Queue of video IDs to fetch metadata for |
@@ -47,8 +43,7 @@ pipeline/
 | `audio_fetch_history.jsonl` | (server) Record of audio download attempts |
 | `similar_comedian_candidates.json` | Fuzzy-matched comedian name pairs for review (private git) |
 | `comedian_name_relationships.json` | Reviewed alias/not-alias decisions (private git) |
-| `embedding_similarity_report.json` | Joke similarity report (private git) |
-| `segment_embedding_similarity_report.json` | Segment-level joke similarity report, experimental parallel to `embedding_similarity_report.json` (private git) |
+| `segment_embedding_similarity_report.json` | Segment-level joke similarity report (private git) |
 
 ## Conventions
 
@@ -56,7 +51,9 @@ pipeline/
 
 **Outbox / inbox / archive pattern** — `generate` writes files to an `*_outbox/` dir. `upload` POSTs them to the server, which writes them to an `*_inbox/` dir. `update` reads the inbox, ingests to DB, and archives. Upload does nothing except send files to the server inbox.
 
-**`--archive` flag** — `update --annotated`, `--ep_meta`, `--set_images`, and `--embeddings` all support `--archive`, which reads from the local archive dir instead of the inbox. Used by `reset_db` to rebuild the DB from scratch without re-uploading anything.
+Segment embeddings are the exception: they are **not archived**. `upload --segment_embeddings` deletes the outbox file once every chunk has been accepted, and `update --segment_embeddings` deletes the inbox file once it has been ingested. The DB is the only store of the vectors — after `reset_db` they must be recomputed with `generate --segment_embeddings`.
+
+**`--archive` flag** — `update --annotated`, `--ep_meta`, and `--set_images` support `--archive`, which reads from the local archive dir instead of the inbox. Used by `reset_db` to rebuild the DB from scratch without re-uploading anything.
 
 **Annotated sets** — `upload --annotated` writes to `annotated_set_inbox/`. Run `update --annotated` to ingest from inbox (moves files to `bit_annotated_set_archive/`). Run `update --annotated --archive` to re-import from archive.
 
@@ -130,24 +127,19 @@ Purpose: checks server for missing comedian images, scrapes locally, uploads, im
 
 **5. Joke similarity scoring:**
 ```
-python manage.py generate --embeddings
-python manage.py upload --embeddings
-python manage.py update --embeddings
-python manage.py generate --embeddings_report
-```
-Purpose: fetches unembedded beats from server, computes embeddings locally, uploads to DB, then generates similarity report
-
-**6. Segment-based joke similarity scoring (experimental):**
-```
 python manage.py generate --segment_embeddings
 python manage.py upload --segment_embeddings
 python manage.py update --segment_embeddings
 python manage.py generate --segment_embeddings_report
 ```
-Purpose: parallel to step 5, but embeds beats at the level of packed sentence-groups ("segments") instead of one vector per whole beat, so a reused punchline surrounded by a different setup can still surface as a match. Segments are built once per beat, ignoring `setup`/`punchline`/`tag`/`fluff` labels entirely, and persisted to the `BeatSegment` table. Uses the same embedding model as step 5 so the two reports (`embedding_similarity_report.json` vs `segment_embedding_similarity_report.json`) are comparable on everything except text granularity.
+Purpose: fetches unembedded segments from the server, computes embeddings locally with `all-mpnet-base-v2`, uploads to DB, then generates the similarity report.
 
-**7. Optional maintenance/reset:**
+Beats are embedded at the level of packed sentence-groups ("segments") rather than one vector per whole beat, so a reused punchline surrounded by a different setup still surfaces as a match. Segments are built once per beat and persisted to the `BeatSegment` table. `fluff` lines are excluded at segmentation time, so no segment text or embedding ever contains them; `setup`/`punchline`/`tag` labels are ignored.
+
+The report compares every embedded segment against every other, skipping pairs from the same comedian, and keeps pairs at or above cosine 0.70. Joke type is not used to restrict comparisons — a beat labelled `misdirect` can match one labelled `reframe`. Segment pairs are collapsed to one row per beat pair, keeping the highest-scoring segment pair between those two beats.
+
+**6. Optional maintenance/reset:**
 ```
 python manage.py reset_db
 ```
-Purpose: local dev only — wipes DB, clears caches and migration history, reimports everything from local archives (`bit_annotated_set_archive/`, `set_images_archive/`, `embeddings_archive/`, `kt_ep_archive.jsonl`). Requires no server connection.
+Purpose: local dev only — wipes DB, clears caches and migration history, reimports everything from local archives (`bit_annotated_set_archive/`, `set_images_archive/`, `kt_ep_archive.jsonl`). Requires no server connection. Segment embeddings are not archived, so a reset DB has none until you re-run step 5.

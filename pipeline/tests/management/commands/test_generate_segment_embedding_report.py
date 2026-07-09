@@ -41,6 +41,22 @@ def test_report_matches_segments_across_different_comedians(tmp_path):
     assert pair["beat_a"]["matched_segment"] == "the punchline text"
 
 
+def test_report_matches_segments_across_different_joke_types(tmp_path):
+    set_a = _make_set("Comic One", "comic-one-xtype", 1)
+    set_b = _make_set("Comic Two", "comic-two-xtype", 1)
+    beat_a = _make_beat(set_a, "a", "premise a", joke_type="misdirect")
+    beat_b = _make_beat(set_b, "b", "premise b", joke_type="reframe")
+    BeatSegment.objects.create(beat=beat_a, ordinal=1, text="reused joke", line_start=1, line_end=1, embedding=[1.0, 0.0])
+    BeatSegment.objects.create(beat=beat_b, ordinal=1, text="reused joke", line_start=1, line_end=1, embedding=[1.0, 0.0])
+
+    with override_settings(PIPELINE_PRIVATE_DATA_DIR=tmp_path):
+        call_command("generate", segment_embeddings_report=True)
+
+    payload = json.loads((tmp_path / "segment_embedding_similarity_report.json").read_text(encoding="utf-8"))
+    assert len(payload["pairs"]) == 1
+    assert payload["pairs"][0]["similarity"] == 1.0
+
+
 def test_report_does_not_match_segments_from_same_comedian(tmp_path):
     set_a = _make_set("Comic One", "comic-one-2", 1)
     beat_a = _make_beat(set_a, "a", "premise a")

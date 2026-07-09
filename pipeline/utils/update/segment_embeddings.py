@@ -259,24 +259,9 @@ def _process_segment_embeddings_file(path: Path) -> dict:
     return result
 
 
-def run_update_segment_embeddings(log: Log, archive: bool = False) -> None:
-    if archive:
-        source_dir = settings.PIPELINE_PRIVATE_DATA_DIR / "segment_embeddings_archive"
-        if not source_dir.exists():
-            log("No segment_embeddings_archive/ dir.")
-            return
-        files = sorted(source_dir.glob("*.jsonl"))
-        if not files:
-            log("No files in segment_embeddings_archive/")
-            return
-        for path in files:
-            result = _process_segment_embeddings_file(path)
-            log(f"  {path.name}: {result['stored']} stored, {result['not_found']} not found")
-        log.success(f"Done. {len(files)} file(s) processed.")
-    else:
-        run_inbox_update(
-            inbox_dir=settings.PIPELINE_DATA_DIR / "segment_embeddings_inbox",
-            archive_dir=settings.PIPELINE_PRIVATE_DATA_DIR / "segment_embeddings_archive",
-            process_fn=_process_segment_embeddings_file,
-            log=log,
-        )
+def run_update_segment_embeddings(log: Log) -> None:
+    run_inbox_update(
+        inbox_dir=settings.PIPELINE_DATA_DIR / "segment_embeddings_inbox",
+        process_fn=_process_segment_embeddings_file,
+        log=log,
+    )

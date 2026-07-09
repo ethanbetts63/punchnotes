@@ -5,11 +5,7 @@ from django.core.management import call_command
 pytestmark = pytest.mark.django_db
 
 
-def test_reset_db_restores_segment_embeddings_from_archive(tmp_path, settings, monkeypatch):
-    archive_dir = tmp_path / "private" / "segment_embeddings_archive"
-    archive_dir.mkdir(parents=True)
-    (archive_dir / "segment_embeddings.jsonl").write_text('{"key": "x", "embedding": [1.0]}\n', encoding="utf-8")
-
+def test_reset_db_does_not_restore_segment_embeddings(tmp_path, settings, monkeypatch):
     settings.BASE_DIR = tmp_path
     settings.PIPELINE_DATA_DIR = tmp_path / "data"
     settings.PIPELINE_PRIVATE_DATA_DIR = tmp_path / "private"
@@ -32,4 +28,5 @@ def test_reset_db_restores_segment_embeddings_from_archive(tmp_path, settings, m
 
     call_command("reset_db")
 
-    assert ("update", {"segment_embeddings": True, "archive": True}) in calls
+    # Segment embeddings have no archive to restore from; they must be recomputed.
+    assert not any(kwargs.get("segment_embeddings") for _, kwargs in calls)

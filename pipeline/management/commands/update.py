@@ -45,4 +45,4 @@ class Command(BaseCommand):
 
         elif options["segment_embeddings"]:
             from pipeline.utils.update.segment_embeddings import run_update_segment_embeddings
-            run_update_segment_embeddings(log, archive=options["archive"])
+            run_update_segment_embeddings(log)

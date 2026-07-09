@@ -1,5 +1,3 @@
-from dataclasses import dataclass
-
 import numpy as np
 from django.conf import settings
 from django.utils import timezone
@@ -14,127 +12,137 @@ DEFAULT_THRESHOLD = 0.70
 COMPARE_BLOCK_SIZE = 512
 
 
-@dataclass(frozen=True)
-class SegmentRecord:
-    beat_id: int
-    joke_type: str | None
-    text: str
-    comedian_id: int
-    comedian_name: str
-    vector: np.ndarray
+def _load_segments():
+    """Load every embedded segment as parallel numpy arrays.
+
+    Deliberately avoids model instantiation: at ~20k segments a select_related
+    queryset builds ~100k throwaway objects to read four fields off each.
+    Text and comedian names are fetched later, only for the segments that win a
+    beat pair.
+    """
+    rows = list(
+        BeatSegment.objects
+        .exclude(embedding=[])
+        .values_list("id", "beat_id", "beat__bit__set__comedian_id", "embedding")
+    )
+    if not rows:
+        return None
+
+    count = len(rows)
+    segment_ids = np.fromiter((row[0] for row in rows), dtype=np.int64, count=count)
+    beat_ids = np.fromiter((row[1] for row in rows), dtype=np.int64, count=count)
+    comedian_ids = np.fromiter((row[2] for row in rows), dtype=np.int64, count=count)
+
+    matrix = np.array([row[3] for row in rows], dtype=np.float32)
+    norms = np.linalg.norm(matrix, axis=1, keepdims=True)
+    norms[norms == 0] = 1.0
+    matrix /= norms
+
+    return segment_ids, beat_ids, comedian_ids, matrix
 
 
-def _cosine_sim(a, b):
-    return float(np.dot(a, b))
+def _find_matches(matrix, comedian_ids, threshold: float, log: Log):
+    """Every cross-comedian segment pair scoring at or above `threshold`.
+
+    Compares all segments against each other regardless of joke type. Each block
+    is multiplied only against the columns at or after it, so the lower triangle
+    is never computed.
+    """
+    n = len(matrix)
+    total_pairs = n * (n - 1) // 2
+    empty = (np.empty(0, dtype=np.int64), np.empty(0, dtype=np.int64), np.empty(0, dtype=np.float32))
+    if total_pairs == 0:
+        return empty
+
+    log(f"Comparing {n:,} segments ({total_pairs:,} segment pairs)...")
+
+    left, right, scores = [], [], []
+    found = 0
+    for start in range(0, n, COMPARE_BLOCK_SIZE):
+        end = min(start + COMPARE_BLOCK_SIZE, n)
+        similarities = matrix[start:end] @ matrix[start:].T
+
+        row_indices = np.arange(start, end)[:, None]
+        col_indices = np.arange(start, n)[None, :]
+        upper_triangle = col_indices > row_indices
+        cross_comedian = comedian_ids[start:end, None] != comedian_ids[None, start:]
+
+        hit_rows, hit_cols = np.where(upper_triangle & cross_comedian & (similarities >= threshold))
+        if hit_rows.size:
+            left.append(start + hit_rows)
+            right.append(start + hit_cols)
+            scores.append(similarities[hit_rows, hit_cols])
+            found += hit_rows.size
+
+        remaining = (n - end) * (n - end - 1) // 2
+        done = total_pairs - remaining
+        log(f"  {done:,}/{total_pairs:,} ({100 * done / total_pairs:.1f}%) | {found:,} segment pair(s) above {threshold}")
+
+    if not left:
+        return empty
+    return np.concatenate(left), np.concatenate(right), np.concatenate(scores)
 
 
-def _normalized_vector(embedding):
-    vector = np.asarray(embedding, dtype=np.float32)
-    norm = np.linalg.norm(vector)
-    if norm == 0:
-        return vector
-    return vector / norm
+def _best_per_beat_pair(left, right, scores, beat_ids) -> dict[tuple[int, int], tuple[float, int, int]]:
+    """Collapse segment pairs to one row per beat pair: the highest-scoring segment pair.
+
+    Returns beat_pair -> (similarity, segment index for beat_a, segment index for beat_b).
+    """
+    best: dict[tuple[int, int], tuple[float, int, int]] = {}
+    for i, j, score in zip(left, right, scores):
+        beat_a, beat_b = int(beat_ids[i]), int(beat_ids[j])
+        if beat_a > beat_b:
+            beat_a, beat_b, i, j = beat_b, beat_a, j, i
+        key = (beat_a, beat_b)
+        score = round(float(score), 4)
+        existing = best.get(key)
+        if existing is None or score > existing[0]:
+            best[key] = (score, int(i), int(j))
+    return best
 
 
-def _build_segment_records(qs) -> list[SegmentRecord]:
-    records = []
-    for segment in qs:
-        beat = segment.beat
-        records.append(SegmentRecord(
-            beat_id=beat.id,
-            joke_type=beat.joke_type,
-            text=segment.text,
-            comedian_id=beat.bit.set.comedian_id,
-            comedian_name=beat.bit.set.comedian.name,
-            vector=_normalized_vector(segment.embedding),
-        ))
-    return records
-
-
-def _update_best_match(best_by_beat_pair: dict[tuple[int, int], dict], sim: float, a: SegmentRecord, b: SegmentRecord) -> bool:
-    beat_pair_key = tuple(sorted((a.beat_id, b.beat_id)))
-    existing = best_by_beat_pair.get(beat_pair_key)
-    if existing is None or sim > existing["similarity"]:
-        best_by_beat_pair[beat_pair_key] = {"similarity": sim, "a": a, "b": b}
-        return existing is None
-    return False
-
-
-def _compare_group(label: str, group: list[SegmentRecord], threshold: float, best_by_beat_pair: dict[tuple[int, int], dict], log: Log) -> None:
-    n_pairs = len(group) * (len(group) - 1) // 2
-    if n_pairs == 0:
-        return
-
-    log(f"\n  {label}: {len(group)} segments, {n_pairs:,} segment pairs")
-
-    vectors = np.vstack([record.vector for record in group]).astype(np.float32, copy=False)
-    comedian_ids = np.asarray([record.comedian_id for record in group])
-
-    checked_pairs = 0
-    same_comedian_skipped = 0
-    retained_matches = 0
-
-    all_indices = np.arange(len(group))
-    for block_start in range(0, len(group), COMPARE_BLOCK_SIZE):
-        block_end = min(block_start + COMPARE_BLOCK_SIZE, len(group))
-        block = vectors[block_start:block_end]
-        similarities = block @ vectors.T
-
-        row_indices = np.arange(block_start, block_end)[:, None]
-        upper_triangle_mask = all_indices[None, :] > row_indices
-        cross_comedian_mask = comedian_ids[block_start:block_end, None] != comedian_ids[None, :]
-        candidate_mask = upper_triangle_mask & cross_comedian_mask
-
-        checked_pairs += int(upper_triangle_mask.sum())
-        same_comedian_skipped += int((upper_triangle_mask & ~cross_comedian_mask).sum())
-
-        match_rows, match_cols = np.where(candidate_mask & (similarities >= threshold))
-        for local_row, col in zip(match_rows, match_cols):
-            sim = round(float(similarities[local_row, col]), 4)
-            if _update_best_match(best_by_beat_pair, sim, group[block_start + local_row], group[col]):
-                retained_matches += 1
-
-        percent = 100 * checked_pairs / n_pairs
-        log(
-            f"    {checked_pairs:,}/{n_pairs:,} ({percent:.1f}%) | "
-            f"{retained_matches} retained matches | "
-            f"{same_comedian_skipped:,} same-comedian skipped"
-        )
-
-    log(f"  Done: {retained_matches} retained beat-pair match(es)")
+def _segment_details(segment_ids, needed_indices) -> dict[int, tuple[str, str]]:
+    """Fetch text and comedian name for just the segments that appear in the report."""
+    wanted = [int(segment_ids[index]) for index in needed_indices]
+    rows = (
+        BeatSegment.objects
+        .filter(id__in=wanted)
+        .values_list("id", "text", "beat__bit__set__comedian__name")
+    )
+    return {row[0]: (row[1], row[2]) for row in rows}
 
 
 def generate_segment_embeddings_report(log: Log) -> None:
     threshold = DEFAULT_THRESHOLD
     output_path = settings.PIPELINE_PRIVATE_DATA_DIR / OUTPUT_FILENAME
 
-    qs = BeatSegment.objects.exclude(embedding=[]).select_related("beat__bit__set__comedian")
-    segments = _build_segment_records(qs)
-    log(f"Loaded {len(segments)} beat segments with embeddings.")
-    if not segments:
+    loaded = _load_segments()
+    if loaded is None:
+        log("Loaded 0 beat segments with embeddings.")
         log.warning(
             "No segment embeddings are stored in this database. "
             "Run `python manage.py generate --segment_embeddings` and ingest them before generating a report."
         )
         return
 
-    groups: dict[str, list[SegmentRecord]] = {}
-    for segment in segments:
-        groups.setdefault(segment.joke_type or "unknown", []).append(segment)
+    segment_ids, beat_ids, comedian_ids, matrix = loaded
+    log(f"Loaded {len(segment_ids)} beat segments with embeddings.")
 
-    best_by_beat_pair: dict[tuple[int, int], dict] = {}
-    for label, group in groups.items():
-        _compare_group(label, group, threshold, best_by_beat_pair, log)
+    left, right, scores = _find_matches(matrix, comedian_ids, threshold, log)
+    best = _best_per_beat_pair(left, right, scores, beat_ids)
+
+    ordered = sorted(best.items(), key=lambda item: (-item[1][0], item[0]))
+    details = _segment_details(segment_ids, [index for _, (_, i, j) in ordered for index in (i, j)])
 
     pairs = []
-    for match in best_by_beat_pair.values():
-        a, b = match["a"], match["b"]
+    for _, (similarity, index_a, index_b) in ordered:
+        text_a, comedian_a = details[int(segment_ids[index_a])]
+        text_b, comedian_b = details[int(segment_ids[index_b])]
         pairs.append({
-            "similarity": match["similarity"],
-            "beat_a": {"comedian": a.comedian_name, "matched_segment": a.text},
-            "beat_b": {"comedian": b.comedian_name, "matched_segment": b.text},
+            "similarity": similarity,
+            "beat_a": {"comedian": comedian_a, "matched_segment": text_a},
+            "beat_b": {"comedian": comedian_b, "matched_segment": text_b},
         })
-    pairs.sort(key=lambda p: p["similarity"], reverse=True)
 
     report = {"generated_at": timezone.now().isoformat(), "threshold": threshold, "pairs": pairs}
     output_path.write_text(format_report_json(report), encoding="utf-8")
