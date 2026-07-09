@@ -23,11 +23,13 @@ def find_similar_beats_by_segments(
     if not query_vectors:
         return []
 
+    # No prefetch of set lines here: that pulls the entire Line table on every
+    # request. Callers render lines for only the few beats that survive ranking,
+    # so those lazy-load per winning set instead.
     segments = (
         BeatSegment.objects
         .exclude(embedding=EMPTY_EMBEDDING)
         .select_related("beat__bit__set__comedian", "beat__bit__set__video")
-        .prefetch_related("beat__bit__set__lines")
     )
 
     seg_list = []

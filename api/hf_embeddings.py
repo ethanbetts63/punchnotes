@@ -15,14 +15,39 @@ def embedding_cache_key(text: str) -> str:
     return f"embed:{sha256(text.encode('utf-8')).hexdigest()}"
 
 
-def embed_text(text: str) -> np.ndarray:
-    cache_key = embedding_cache_key(text)
-    cached = cache.get(cache_key)
-    if cached is not None:
-        return cached
+def embed_texts(texts: list[str]) -> list[np.ndarray]:
+    """Embed texts, making one HTTP request for every cache miss combined.
 
+    A long paste segments into ~25 texts; sending them as a single batch avoids
+    that many sequential round trips to the inference API.
+    """
+    vectors: dict[int, np.ndarray] = {}
+    missing: list[int] = []
+    for index, text in enumerate(texts):
+        cached = cache.get(embedding_cache_key(text))
+        if cached is not None:
+            vectors[index] = cached
+        else:
+            missing.append(index)
+
+    if missing:
+        rows = _request_embeddings([texts[index] for index in missing])
+        for index, row in zip(missing, rows):
+            vector = _normalized(row)
+            cache.set(embedding_cache_key(texts[index]), vector, timeout=_EMBEDDING_CACHE_TIMEOUT)
+            vectors[index] = vector
+
+    return [vectors[index] for index in range(len(texts))]
+
+
+def embed_text(text: str) -> np.ndarray:
+    return embed_texts([text])[0]
+
+
+def _request_embeddings(texts: list[str]) -> list:
+    """POST one batch to the feature-extraction endpoint, waiting out model cold starts."""
     headers = {"Authorization": f"Bearer {settings.HF_API_KEY}"}
-    payload = {"inputs": text, "options": {"wait_for_model": True}}
+    payload = {"inputs": texts, "options": {"wait_for_model": True}}
 
     deadline = time.time() + _MAX_WAIT_SECONDS
     while True:
@@ -39,20 +64,18 @@ def embed_text(text: str) -> np.ndarray:
 
         resp.raise_for_status()
 
-        raw = resp.json()
-        # HF feature-extraction returns shape [tokens x dims] or [1 x dims]; take first row
-        if isinstance(raw[0], list):
-            raw = raw[0]
-
-        vector = np.array(raw, dtype=np.float32)
-        norm = np.linalg.norm(vector)
-        if norm > 0:
-            vector = vector / norm
-        cache.set(cache_key, vector, timeout=_EMBEDDING_CACHE_TIMEOUT)
-        return vector
+        rows = resp.json()
+        if len(rows) != len(texts):
+            raise ValueError(f"Expected {len(texts)} embeddings from HuggingFace, got {len(rows)}.")
+        return rows
 
 
-def embed_texts(texts: list[str]) -> list[np.ndarray]:
-    # A pasted joke yields only a handful of segments, so embedding them one at a
-    # time (each cached individually) keeps the response-shape handling simple.
-    return [embed_text(text) for text in texts]
+def _normalized(row) -> np.ndarray:
+    vector = np.asarray(row, dtype=np.float32)
+    # Guard against token-level output shape [tokens x dims]; the pooled vector is row 0.
+    if vector.ndim > 1:
+        vector = vector[0]
+    norm = np.linalg.norm(vector)
+    if norm > 0:
+        vector = vector / norm
+    return vector
