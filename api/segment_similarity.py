@@ -1,10 +1,61 @@
+import time
+
 import numpy as np
+from django.db.models import Count, Max
 
 from pipeline.models import BeatSegment
-from pipeline.utils.vectors import EMPTY_EMBEDDING, unpack_embedding
+from pipeline.utils.vectors import EMPTY_EMBEDDING, unpack_matrix
 
 DEFAULT_THRESHOLD = 0.70
 DEFAULT_TOP_N = 10
+
+# How long a cached corpus may serve before being reloaded. The fingerprint below
+# catches added/removed segment rows cheaply, but embedding ingest bulk-updates
+# EXISTING rows, which (count, max id) cannot see -- the TTL bounds that staleness.
+CORPUS_MAX_AGE_SECONDS = 600
+
+_corpus = {"fingerprint": None, "loaded_at": 0.0, "segment_ids": None, "beat_ids": None, "matrix": None}
+
+
+def _fingerprint():
+    agg = BeatSegment.objects.aggregate(n=Count("id"), latest=Max("id"))
+    return (agg["n"], agg["latest"])
+
+
+def _corpus_arrays():
+    """The full corpus as (segment_ids, beat_ids, normalized matrix), cached in process memory.
+
+    Loading ~63 MB of vectors from the database is the dominant cost of a similarity
+    check, and the corpus only changes when the pipeline ingests new embeddings, so
+    it is loaded once per process and revalidated with one indexed aggregate query.
+    """
+    now = time.monotonic()
+    fingerprint = _fingerprint()
+    if (
+        _corpus["matrix"] is not None
+        and _corpus["fingerprint"] == fingerprint
+        and now - _corpus["loaded_at"] < CORPUS_MAX_AGE_SECONDS
+    ):
+        return _corpus["segment_ids"], _corpus["beat_ids"], _corpus["matrix"]
+
+    rows = list(
+        BeatSegment.objects
+        .exclude(embedding=EMPTY_EMBEDDING)
+        .order_by("id")
+        .values_list("id", "beat_id", "embedding")
+    )
+    if rows:
+        segment_ids = np.asarray([row[0] for row in rows], dtype=np.int64)
+        beat_ids = np.asarray([row[1] for row in rows], dtype=np.int64)
+        matrix = unpack_matrix(row[2] for row in rows)
+        norms = np.linalg.norm(matrix, axis=1, keepdims=True)
+        norms[norms == 0] = 1.0  # zero vectors stay zero and can never clear the threshold
+        matrix /= norms
+    else:
+        segment_ids = beat_ids = matrix = None
+
+    _corpus.update(fingerprint=fingerprint, loaded_at=now, segment_ids=segment_ids, beat_ids=beat_ids, matrix=matrix)
+    return segment_ids, beat_ids, matrix
 
 
 def find_similar_beats_by_segments(
@@ -23,41 +74,35 @@ def find_similar_beats_by_segments(
     if not query_vectors:
         return []
 
-    # No prefetch of set lines here: that pulls the entire Line table on every
-    # request. Callers render lines for only the few beats that survive ranking,
-    # so those lazy-load per winning set instead.
-    segments = (
-        BeatSegment.objects
-        .exclude(embedding=EMPTY_EMBEDDING)
-        .select_related("beat__bit__set__comedian", "beat__bit__set__video")
-    )
-
-    seg_list = []
-    vectors = []
-    for segment in segments:
-        vector = unpack_embedding(segment.embedding)
-        norm = np.linalg.norm(vector)
-        if norm == 0:
-            continue
-        vectors.append(vector / norm)
-        seg_list.append(segment)
-
-    if not seg_list:
+    segment_ids, beat_ids, matrix = _corpus_arrays()
+    if matrix is None:
         return []
 
-    corpus = np.vstack(vectors).astype(np.float32, copy=False)
     query = np.vstack([np.asarray(q, dtype=np.float32) for q in query_vectors])
-    similarities = query @ corpus.T
+    similarities = query @ matrix.T
     best_per_segment = similarities.max(axis=0)
 
+    hits = np.where(best_per_segment >= threshold)[0]
+    if hits.size == 0:
+        return []
+
+    # Only the matching segments are hydrated from the database. Set lines are not
+    # prefetched either: callers render lines for the few beats returned, and those
+    # lazy-load per winning set.
+    matched = (
+        BeatSegment.objects
+        .filter(id__in=[int(segment_ids[i]) for i in hits])
+        .select_related("beat__bit__set__comedian", "beat__bit__set__video")
+    )
+    segments_by_id = {segment.id: segment for segment in matched}
+
     by_beat: dict[int, dict] = {}
-    for index, score in enumerate(best_per_segment):
-        score = float(score)
-        if score < threshold:
+    for index in hits:
+        segment = segments_by_id.get(int(segment_ids[index]))
+        if segment is None:  # deleted since the corpus was cached
             continue
-        segment = seg_list[index]
-        beat = segment.beat
-        entry = by_beat.setdefault(beat.id, {"beat": beat, "segments": [], "best": 0.0})
+        score = float(best_per_segment[index])
+        entry = by_beat.setdefault(int(beat_ids[index]), {"beat": segment.beat, "segments": [], "best": 0.0})
         entry["segments"].append((segment, score))
         if score > entry["best"]:
             entry["best"] = score

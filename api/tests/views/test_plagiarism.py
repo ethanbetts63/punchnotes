@@ -9,6 +9,13 @@ from pipeline.utils.vectors import pack_embedding
 pytestmark = pytest.mark.django_db
 
 
+@pytest.fixture(autouse=True)
+def _reset_corpus():
+    from api import segment_similarity
+    segment_similarity._corpus.update(fingerprint=None, loaded_at=0.0, segment_ids=None, beat_ids=None, matrix=None)
+    yield
+
+
 def _unit(*values):
     vector = np.asarray(values, dtype=np.float32)
     return vector / np.linalg.norm(vector)

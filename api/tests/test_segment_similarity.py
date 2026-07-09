@@ -8,6 +8,13 @@ from pipeline.utils.vectors import pack_embedding
 pytestmark = pytest.mark.django_db
 
 
+@pytest.fixture(autouse=True)
+def _reset_corpus():
+    from api import segment_similarity
+    segment_similarity._corpus.update(fingerprint=None, loaded_at=0.0, segment_ids=None, beat_ids=None, matrix=None)
+    yield
+
+
 def _unit(*values):
     vector = np.asarray(values, dtype=np.float32)
     return vector / np.linalg.norm(vector)
@@ -70,3 +77,31 @@ def test_takes_max_similarity_across_query_segments():
 def test_empty_query_returns_nothing():
     _make_beat("none", 5)
     assert find_similar_beats_by_segments([]) == []
+
+
+def test_corpus_is_cached_between_calls(django_assert_num_queries):
+    from pipeline.models import BeatSegment
+
+    beat = _make_beat("cached", 6)
+    BeatSegment.objects.create(beat=beat, ordinal=1, text="seg", line_start=1, line_end=1, embedding=pack_embedding(_unit(1, 0)))
+
+    find_similar_beats_by_segments([_unit(1, 0)], threshold=0.5)
+
+    # Warm corpus: one fingerprint aggregate + one fetch of the matching segments.
+    with django_assert_num_queries(2):
+        results = find_similar_beats_by_segments([_unit(1, 0)], threshold=0.5)
+    assert results[0]["best"] == pytest.approx(1.0)
+
+
+def test_new_segments_invalidate_the_cached_corpus():
+    from pipeline.models import BeatSegment
+
+    first = _make_beat("stale-a", 7)
+    BeatSegment.objects.create(beat=first, ordinal=1, text="a", line_start=1, line_end=1, embedding=pack_embedding(_unit(1, 0)))
+    find_similar_beats_by_segments([_unit(1, 0)], threshold=0.5)  # cache warmed without the new beat
+
+    second = _make_beat("stale-b", 8)
+    BeatSegment.objects.create(beat=second, ordinal=1, text="b", line_start=1, line_end=1, embedding=pack_embedding(_unit(0, 1)))
+
+    results = find_similar_beats_by_segments([_unit(0, 1)], threshold=0.5)
+    assert [entry["beat"].id for entry in results] == [second.id]

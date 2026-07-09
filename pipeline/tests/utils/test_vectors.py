@@ -54,3 +54,13 @@ def test_unpack_matrix_of_nothing_is_empty():
 def test_float32_precision_is_preserved_exactly():
     original = np.random.default_rng(0).random(768).astype(np.float32)
     assert np.array_equal(unpack_embedding(pack_embedding(original)), original)
+
+
+def test_unpacked_arrays_are_writable():
+    vector = unpack_embedding(pack_embedding([1.0, 2.0]))
+    vector /= 2  # callers normalize in place
+    assert vector.tolist() == [0.5, 1.0]
+
+    matrix = unpack_matrix([pack_embedding([2.0, 0.0])])
+    matrix /= 2
+    assert matrix.tolist() == [[1.0, 0.0]]

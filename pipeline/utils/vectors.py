@@ -57,6 +57,7 @@ def _frombuffer(blob) -> np.ndarray:
             f"embedding blob is {len(blob)} bytes, not a whole number of "
             f"{EMBEDDING_DTYPE.itemsize}-byte floats"
         )
-    # bytes() copies, which np.frombuffer needs anyway to own a writeable array;
-    # it also normalises the memoryview some backends hand back.
-    return np.frombuffer(bytes(blob), dtype=EMBEDDING_DTYPE)
+    # bytearray copies the blob (normalising the memoryview some backends hand
+    # back) and, being mutable, makes the resulting array writable -- callers
+    # normalise these vectors in place.
+    return np.frombuffer(bytearray(blob), dtype=EMBEDDING_DTYPE)
