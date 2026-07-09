@@ -15,7 +15,11 @@ from pipeline.json_validation import validate_bit_meta
 class PipelineView(APIView):
     authentication_classes = []
     permission_classes = [PipelineKeyPermission]
-    throttle_scope = "pipeline"
+    # Not throttled: every request is gated on PIPELINE_API_KEY, and bulk uploads
+    # legitimately run to hundreds of chunked requests. Clearing the list (rather
+    # than just dropping throttle_scope) also opts out of the global AnonRateThrottle,
+    # which applies here because these views authenticate via permission, not auth.
+    throttle_classes = []
 
 
 def _annotated_set_filename(data):

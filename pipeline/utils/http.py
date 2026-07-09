@@ -66,7 +66,7 @@ def upload_jsonl_files_chunked(
             if resp.status_code not in (200, 202):
                 log.error(
                     f"  {path.name}: chunk {chunk_number}/{total_chunks} failed: "
-                    f"{result.get('error') or resp.text}"
+                    f"{result.get('error') or result.get('detail') or resp.text}"
                 )
                 failed = True
                 break

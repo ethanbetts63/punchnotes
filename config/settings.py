@@ -116,7 +116,6 @@ REST_FRAMEWORK = {
         "catalogue": os.environ.get("DRF_CATALOGUE_THROTTLE_RATE", "120/min"),
         "search": os.environ.get("DRF_SEARCH_THROTTLE_RATE", "60/min"),
         "plagiarism": os.environ.get("DRF_PLAGIARISM_THROTTLE_RATE", "10/hour"),
-        "pipeline": os.environ.get("DRF_PIPELINE_THROTTLE_RATE", "120/min"),
     },
 }
 
