@@ -1,3 +1,5 @@
+import time
+
 import numpy as np
 from django.conf import settings
 from django.utils import timezone
@@ -10,43 +12,89 @@ from pipeline.utils.report_format import format_report_json
 OUTPUT_FILENAME = "segment_embedding_similarity_report.json"
 DEFAULT_THRESHOLD = 0.70
 COMPARE_BLOCK_SIZE = 512
+LOAD_CHUNK_SIZE = 2000
 
 
-def _load_segments():
+def _format_duration(seconds: float) -> str:
+    if seconds < 60:
+        return f"{seconds:.0f}s"
+    minutes, seconds = divmod(int(seconds), 60)
+    return f"{minutes}m{seconds:02d}s"
+
+
+def _progress(done: int, total: int, started: float) -> str:
+    elapsed = time.monotonic() - started
+    rate = done / elapsed if elapsed > 0 else 0
+    remaining = (total - done) / rate if rate > 0 else 0
+    return (
+        f"{done:,}/{total:,} ({100 * done / total:.1f}%) | "
+        f"elapsed {_format_duration(elapsed)} | eta {_format_duration(remaining)}"
+    )
+
+
+def _load_segments(log: Log):
     """Load every embedded segment as parallel numpy arrays.
 
     Deliberately avoids model instantiation: at ~20k segments a select_related
-    queryset builds ~100k throwaway objects to read four fields off each.
-    Text and comedian names are fetched later, only for the segments that win a
-    beat pair.
+    queryset builds ~100k throwaway objects to read four fields off each. Text and
+    comedian names are fetched later, only for the segments that win a beat pair.
+
+    Fetched in id-ordered chunks rather than one query so the load can report
+    progress -- it is by far the slowest phase, since each 768-float vector crosses
+    the wire as JSON text.
     """
-    rows = list(
-        BeatSegment.objects
-        .exclude(embedding=[])
-        .values_list("id", "beat_id", "beat__bit__set__comedian_id", "embedding")
-    )
-    if not rows:
+    base = BeatSegment.objects.exclude(embedding=[])
+    total = base.count()
+    if total == 0:
         return None
 
-    count = len(rows)
-    segment_ids = np.fromiter((row[0] for row in rows), dtype=np.int64, count=count)
-    beat_ids = np.fromiter((row[1] for row in rows), dtype=np.int64, count=count)
-    comedian_ids = np.fromiter((row[2] for row in rows), dtype=np.int64, count=count)
+    log(f"Loading {total:,} embedded segments from the database...")
+    started = time.monotonic()
 
-    matrix = np.array([row[3] for row in rows], dtype=np.float32)
+    segment_ids: list[int] = []
+    beat_ids: list[int] = []
+    comedian_ids: list[int] = []
+    blocks: list[np.ndarray] = []
+    after_id = 0
+
+    while True:
+        rows = list(
+            base
+            .filter(id__gt=after_id)
+            .order_by("id")
+            .values_list("id", "beat_id", "beat__bit__set__comedian_id", "embedding")[:LOAD_CHUNK_SIZE]
+        )
+        if not rows:
+            break
+
+        segment_ids.extend(row[0] for row in rows)
+        beat_ids.extend(row[1] for row in rows)
+        comedian_ids.extend(row[2] for row in rows)
+        blocks.append(np.array([row[3] for row in rows], dtype=np.float32))
+        after_id = rows[-1][0]
+
+        log(f"  {_progress(len(segment_ids), total, started)}")
+
+    log(f"  Loaded in {_format_duration(time.monotonic() - started)}. Normalizing vectors...")
+    matrix = np.vstack(blocks)
     norms = np.linalg.norm(matrix, axis=1, keepdims=True)
     norms[norms == 0] = 1.0
     matrix /= norms
 
-    return segment_ids, beat_ids, comedian_ids, matrix
+    return (
+        np.asarray(segment_ids, dtype=np.int64),
+        np.asarray(beat_ids, dtype=np.int64),
+        np.asarray(comedian_ids, dtype=np.int64),
+        matrix,
+    )
 
 
 def _find_matches(matrix, comedian_ids, threshold: float, log: Log):
     """Every cross-comedian segment pair scoring at or above `threshold`.
 
-    Compares all segments against each other regardless of joke type. Each block
-    is multiplied only against the columns at or after it, so the lower triangle
-    is never computed.
+    Compares all segments against each other regardless of joke type. Each block is
+    multiplied only against the columns at or after it, so the lower triangle is
+    never computed.
     """
     n = len(matrix)
     total_pairs = n * (n - 1) // 2
@@ -54,7 +102,8 @@ def _find_matches(matrix, comedian_ids, threshold: float, log: Log):
     if total_pairs == 0:
         return empty
 
-    log(f"Comparing {n:,} segments ({total_pairs:,} segment pairs)...")
+    log(f"\nComparing {n:,} segments ({total_pairs:,} segment pairs) at threshold {threshold}...")
+    started = time.monotonic()
 
     left, right, scores = [], [], []
     found = 0
@@ -75,9 +124,9 @@ def _find_matches(matrix, comedian_ids, threshold: float, log: Log):
             found += hit_rows.size
 
         remaining = (n - end) * (n - end - 1) // 2
-        done = total_pairs - remaining
-        log(f"  {done:,}/{total_pairs:,} ({100 * done / total_pairs:.1f}%) | {found:,} segment pair(s) above {threshold}")
+        log(f"  {_progress(total_pairs - remaining, total_pairs, started)} | {found:,} matching segment pair(s)")
 
+    log(f"  Compared in {_format_duration(time.monotonic() - started)}.")
     if not left:
         return empty
     return np.concatenate(left), np.concatenate(right), np.concatenate(scores)
@@ -115,10 +164,10 @@ def _segment_details(segment_ids, needed_indices) -> dict[int, tuple[str, str]]:
 def generate_segment_embeddings_report(log: Log) -> None:
     threshold = DEFAULT_THRESHOLD
     output_path = settings.PIPELINE_PRIVATE_DATA_DIR / OUTPUT_FILENAME
+    started = time.monotonic()
 
-    loaded = _load_segments()
+    loaded = _load_segments(log)
     if loaded is None:
-        log("Loaded 0 beat segments with embeddings.")
         log.warning(
             "No segment embeddings are stored in this database. "
             "Run `python manage.py generate --segment_embeddings` and ingest them before generating a report."
@@ -126,13 +175,15 @@ def generate_segment_embeddings_report(log: Log) -> None:
         return
 
     segment_ids, beat_ids, comedian_ids, matrix = loaded
-    log(f"Loaded {len(segment_ids)} beat segments with embeddings.")
 
     left, right, scores = _find_matches(matrix, comedian_ids, threshold, log)
     best = _best_per_beat_pair(left, right, scores, beat_ids)
+    log(f"\nReduced {len(scores):,} segment pair(s) to {len(best):,} beat pair(s).")
 
     ordered = sorted(best.items(), key=lambda item: (-item[1][0], item[0]))
-    details = _segment_details(segment_ids, [index for _, (_, i, j) in ordered for index in (i, j)])
+    needed = [index for _, (_, i, j) in ordered for index in (i, j)]
+    log(f"Fetching text and comedian names for {len(needed):,} matched segment(s)...")
+    details = _segment_details(segment_ids, needed)
 
     pairs = []
     for _, (similarity, index_a, index_b) in ordered:
@@ -144,10 +195,11 @@ def generate_segment_embeddings_report(log: Log) -> None:
             "beat_b": {"comedian": comedian_b, "matched_segment": text_b},
         })
 
+    log(f"Writing {output_path.name}...")
     report = {"generated_at": timezone.now().isoformat(), "threshold": threshold, "pairs": pairs}
     output_path.write_text(format_report_json(report), encoding="utf-8")
 
     log.success(
-        f"\nFound {len(pairs)} beat pair(s) with a matching segment above threshold {threshold}. "
-        f"Written to {output_path}"
+        f"\nFound {len(pairs)} beat pair(s) with a matching segment above threshold {threshold} "
+        f"in {_format_duration(time.monotonic() - started)}. Written to {output_path}"
     )
