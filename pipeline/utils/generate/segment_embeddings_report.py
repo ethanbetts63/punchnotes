@@ -16,13 +16,9 @@ COMPARE_BLOCK_SIZE = 512
 
 @dataclass(frozen=True)
 class SegmentRecord:
-    id: int
     beat_id: int
     joke_type: str | None
-    premise: str | None
     text: str
-    line_start: int
-    line_end: int
     comedian_id: int
     comedian_name: str
     vector: np.ndarray
@@ -45,13 +41,9 @@ def _build_segment_records(qs) -> list[SegmentRecord]:
     for segment in qs:
         beat = segment.beat
         records.append(SegmentRecord(
-            id=segment.id,
             beat_id=beat.id,
             joke_type=beat.joke_type,
-            premise=beat.premise,
             text=segment.text,
-            line_start=segment.line_start,
-            line_end=segment.line_end,
             comedian_id=beat.bit.set.comedian_id,
             comedian_name=beat.bit.set.comedian.name,
             vector=_normalized_vector(segment.embedding),
@@ -139,20 +131,8 @@ def generate_segment_embeddings_report(log: Log) -> None:
         a, b = match["a"], match["b"]
         pairs.append({
             "similarity": match["similarity"],
-            "beat_a": {
-                "id": a.beat_id,
-                "joke_type": a.joke_type,
-                "comedian": a.comedian_name,
-                "premise": a.premise,
-                "matched_segment": {"text": a.text, "line_start": a.line_start, "line_end": a.line_end},
-            },
-            "beat_b": {
-                "id": b.beat_id,
-                "joke_type": b.joke_type,
-                "comedian": b.comedian_name,
-                "premise": b.premise,
-                "matched_segment": {"text": b.text, "line_start": b.line_start, "line_end": b.line_end},
-            },
+            "beat_a": {"comedian": a.comedian_name, "matched_segment": a.text},
+            "beat_b": {"comedian": b.comedian_name, "matched_segment": b.text},
         })
     pairs.sort(key=lambda p: p["similarity"], reverse=True)
 

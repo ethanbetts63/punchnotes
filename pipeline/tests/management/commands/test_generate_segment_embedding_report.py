@@ -37,8 +37,8 @@ def test_report_matches_segments_across_different_comedians(tmp_path):
     assert len(payload["pairs"]) == 1
     pair = payload["pairs"][0]
     assert pair["similarity"] == 1.0
-    assert {pair["beat_a"]["id"], pair["beat_b"]["id"]} == {beat_a.id, beat_b.id}
-    assert pair["beat_a"]["matched_segment"]["text"] == "the punchline text"
+    assert {pair["beat_a"]["comedian"], pair["beat_b"]["comedian"]} == {"Comic One", "Comic Two"}
+    assert pair["beat_a"]["matched_segment"] == "the punchline text"
 
 
 def test_report_does_not_match_segments_from_same_comedian(tmp_path):
@@ -71,7 +71,7 @@ def test_report_takes_best_segment_pair_per_beat_pair(tmp_path):
     payload = json.loads((tmp_path / "segment_embedding_similarity_report.json").read_text(encoding="utf-8"))
     assert len(payload["pairs"]) == 1
     assert payload["pairs"][0]["similarity"] == 1.0
-    assert payload["pairs"][0]["beat_a"]["matched_segment"]["text"] == "matching punchline"
+    assert payload["pairs"][0]["beat_a"]["matched_segment"] == "matching punchline"
 
 
 def test_report_warns_when_no_embedded_segments_exist(tmp_path):
