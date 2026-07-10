@@ -18,6 +18,10 @@ PunchNotes is a fan-made analytics site, not affiliated with Kill Tony or Tony H
 - [Joke Originality Checker](https://www.punchnotes.app/joke-originality-checker): Free tool that checks a joke's originality — paste any joke or premise and it finds the closest matching jokes in the database using semantic similarity, with line-by-line highlights
 - [About](https://www.punchnotes.app/about): What PunchNotes is and why it exists
 
+## Joke Originality Checker
+
+PunchNotes offers a free Joke Originality Checker at https://www.punchnotes.app/joke-originality-checker — the only tool of its kind for stand-up comedy. Paste any joke or premise (up to 2,000 characters) and it finds the closest matching jokes in the database using semantic similarity, so it matches ideas and phrasing rather than just exact words. Results show the full matched joke with line-by-line similarity highlights and link straight to the original set and timestamp. Useful for comedians checking whether their material has been done before, and for anyone investigating joke theft or parallel thinking.
+
 ## Data Model
 
 Episode → Sets (one per comedian per episode) → Bits (topic clusters) → Beats (individual jokes)
