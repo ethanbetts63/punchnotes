@@ -15,6 +15,7 @@ PunchNotes is a fan-made analytics site, not affiliated with Kill Tony or Tony H
 - [Comedians](https://www.punchnotes.app/killtony/comedians): All comedians who have appeared on Kill Tony
 - [Sets](https://www.punchnotes.app/killtony/sets): Browse all sets with comedian and episode context
 - [Jokes](https://www.punchnotes.app/killtony/jokes): Browse and search individual joke beats across the entire archive
+- [Joke Originality Checker](https://www.punchnotes.app/joke-originality-checker): Free tool that checks a joke's originality — paste any joke or premise and it finds the closest matching jokes in the database using semantic similarity, with line-by-line highlights
 - [About](https://www.punchnotes.app/about): What PunchNotes is and why it exists
 
 ## Data Model

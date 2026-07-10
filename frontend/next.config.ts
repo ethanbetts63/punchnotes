@@ -41,6 +41,16 @@ const nextConfig: NextConfig = {
     ];
   },
 
+  async redirects() {
+    return [
+      {
+        source: "/killtony/plagiarism",
+        destination: "/joke-originality-checker",
+        permanent: true,
+      },
+    ];
+  },
+
   async rewrites() {
     return [
       {

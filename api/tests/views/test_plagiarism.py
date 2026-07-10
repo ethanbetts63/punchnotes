@@ -59,6 +59,9 @@ def test_plagiarism_returns_beat_with_matched_segments(client, full_set, monkeyp
     match = results[0]
     assert match["comedian"] == "Casey Rocket"
     assert match["similarity"] == pytest.approx(1.0)
+    # Set image data for the result tile thumbnail
+    assert match["youtube_id"] == "abc123xyz01"
+    assert match["image_url"] is None
     # Full non-fluff beat rendered for line-by-line display
     assert [l["line_number"] for l in match["lines"]] == [1, 3]
     assert all(l["label"] != "fluff" for l in match["lines"])

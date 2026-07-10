@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
 import { compactOrdinalId } from "@/lib/bitLinks";
+import SetImage from "@/components/SetImage";
 
 type BeatLine = {
   line_number: number;
@@ -28,6 +29,8 @@ type PlagiarismMatch = {
   comedian_slug: string;
   episode_number: number;
   set_slug: string;
+  image_url?: string | null;
+  youtube_id?: string | null;
   premise: string;
   lines: BeatLine[];
   matched_segments: MatchedSegment[];
@@ -96,26 +99,39 @@ function MatchTile({ match }: { match: PlagiarismMatch }) {
       href={buildBeatHref(match)}
       className="group block rounded-xl border border-stone-200 bg-white p-5 transition-all hover:border-primary/40 hover:shadow-sm"
     >
-      <div className="mb-3 flex flex-wrap items-center gap-2">
-        <span className="text-sm font-semibold text-stone-900 transition-colors group-hover:text-primary">
-          {match.comedian}
-        </span>
-        <span className="text-stone-300">·</span>
-        <span className="text-xs text-stone-400">Ep {match.episode_number}</span>
-        {match.joke_type && (
-          <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-            {match.joke_type}
-          </span>
-        )}
-        <SimilarityBadge score={match.similarity} />
-      </div>
-      {match.premise && (
-        <p className="mb-3 text-sm italic text-stone-500">&ldquo;{match.premise}&rdquo;</p>
-      )}
-      <div className="space-y-0.5">
-        {match.lines.map((line) => (
-          <LineRow key={line.line_number} line={line} score={lineScores.get(line.line_number)} />
-        ))}
+      <div className="flex items-start gap-4">
+        <div className="relative aspect-video w-24 shrink-0 overflow-hidden rounded-lg sm:w-32">
+          <SetImage
+            imageUrl={match.image_url}
+            fallbackVideoId={match.youtube_id}
+            alt={`${match.comedian} set image`}
+            className="absolute inset-0 h-full w-full"
+            fit="cover"
+          />
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="mb-3 flex flex-wrap items-center gap-2">
+            <span className="text-sm font-semibold text-stone-900 transition-colors group-hover:text-primary">
+              {match.comedian}
+            </span>
+            <span className="text-stone-300">·</span>
+            <span className="text-xs text-stone-400">Ep {match.episode_number}</span>
+            {match.joke_type && (
+              <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                {match.joke_type}
+              </span>
+            )}
+            <SimilarityBadge score={match.similarity} />
+          </div>
+          {match.premise && (
+            <p className="mb-3 text-sm italic text-stone-500">&ldquo;{match.premise}&rdquo;</p>
+          )}
+          <div className="space-y-0.5">
+            {match.lines.map((line) => (
+              <LineRow key={line.line_number} line={line} score={lineScores.get(line.line_number)} />
+            ))}
+          </div>
+        </div>
       </div>
     </Link>
   );
@@ -175,21 +191,23 @@ export default function PlagiarismChecker() {
 
   return (
     <div className="space-y-4">
-      <textarea
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Paste a joke or premise here..."
-        rows={5}
-        className="w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm text-stone-900 placeholder:text-stone-400 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20 resize-none"
-      />
-      <button
-        onClick={handleCheck}
-        disabled={loading || !text.trim()}
-        className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        {loading && <Loader2 className="h-4 w-4 animate-spin" />}
-        {loading ? "Checking…" : "Check"}
-      </button>
+      <div className="relative rounded-xl border border-stone-200 bg-white transition-colors focus-within:border-stone-400">
+        <textarea
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Paste a joke or premise here..."
+          rows={5}
+          className="w-full resize-none bg-transparent px-4 pb-14 pt-3 text-sm text-stone-900 placeholder-stone-400 focus:outline-none"
+        />
+        <button
+          onClick={handleCheck}
+          disabled={loading || !text.trim()}
+          className="absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {loading && <Loader2 className="h-4 w-4 animate-spin" />}
+          {loading ? "Checking…" : "Check"}
+        </button>
+      </div>
 
       {loading && (
         <p className="mt-2 text-sm text-stone-400">

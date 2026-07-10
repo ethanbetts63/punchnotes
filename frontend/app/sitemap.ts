@@ -29,6 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/killtony/comedians`, lastModified: '2026-06-29' },
     { url: `${SITE_URL}/killtony/sets`, lastModified: '2026-06-29' },
     { url: `${SITE_URL}/killtony/jokes`, lastModified: '2026-06-29' },
+    { url: `${SITE_URL}/joke-originality-checker`, lastModified: '2026-07-10' },
     { url: `${SITE_URL}/about`, lastModified: '2026-06-29' },
     { url: `${SITE_URL}/articles`, lastModified: '2026-07-01' },
     { url: `${SITE_URL}/articles/how-to-annotate-jokes`, lastModified: '2026-07-01' },
