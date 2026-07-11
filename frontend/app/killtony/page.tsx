@@ -5,8 +5,18 @@ import KillTonyHero from "@/components/KillTonyHero";
 import ComedianPlaylists from "@/components/ComedianPlaylists";
 import VideoPlaylists from "@/components/VideoPlaylists";
 import KillTonyOverview from "@/components/KillTonyOverview";
+import MediaCarousel from "@/components/MediaCarousel";
 import { getFeaturedBeatEntries } from "@/lib/featuredBeats";
-import { getServerComedians, getServerVideo, getServerVideos } from "@/lib/serverApi";
+import {
+  getServerComedians,
+  getServerSets,
+  getServerVideo,
+  getServerVideos,
+} from "@/lib/serverApi";
+import { SET_LISTS } from "@/lib/playlists";
+import { setToTile } from "@/lib/tiles";
+
+const MUST_WATCH_SETS = SET_LISTS.find((list) => list.id === "must-watch-sets")!;
 
 const FEATURED_EPISODE_SLUG =
   "kill-tony-578-dave-attell-greg-fitzsimmons-ian-fidance--M7RsTBpU5xM";
@@ -51,12 +61,13 @@ export const metadata = {
 };
 
 export default async function KillTonyPage() {
-  const [episodes, comedians, featuredBeatEntries, featuredEpisode] =
+  const [episodes, comedians, featuredBeatEntries, featuredEpisode, mustWatchSets] =
     await Promise.all([
       getServerVideos(),
       getServerComedians(),
       getFeaturedBeatEntries(),
       getServerVideo(FEATURED_EPISODE_SLUG),
+      getServerSets(`slugs=${MUST_WATCH_SETS.slugs.join(",")}`),
     ]);
 
   return (
@@ -89,6 +100,23 @@ export default async function KillTonyPage() {
           </div>
         </div>
       </section>
+
+      {mustWatchSets && mustWatchSets.length > 0 && (
+        <section className="border-b border-stone-200 bg-white py-12">
+          <div className="mx-auto max-w-6xl">
+            <SectionHeader
+              title="Sets"
+              href="/killtony/sets"
+              cta="See all sets"
+            />
+            <MediaCarousel
+              title={MUST_WATCH_SETS.title}
+              description={MUST_WATCH_SETS.description}
+              items={mustWatchSets.map(setToTile)}
+            />
+          </div>
+        </section>
+      )}
 
       {episodes && (
         <section className="border-b border-stone-200 bg-white py-12">
