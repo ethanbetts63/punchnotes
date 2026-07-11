@@ -35,7 +35,7 @@ export default function MediaTile({ item }: { item: TileData }) {
         )}
 
         {item.badges && item.badges.length > 0 && (
-          <div className="absolute left-2 top-2 flex flex-wrap gap-1">
+          <div className="absolute bottom-2 right-2 flex flex-wrap justify-end gap-1">
             {item.badges.map((badge) => (
               <span key={badge.label} className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${badge.className}`}>
                 {badge.label}
