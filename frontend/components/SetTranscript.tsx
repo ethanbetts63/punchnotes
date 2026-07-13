@@ -33,13 +33,6 @@ function BeatPanel({
       </div>
 
       <div className="space-y-4 p-4">
-        {beat.premise && (
-          <div>
-            <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-stone-400">Beat Premise</p>
-            <p className="text-sm italic text-stone-600">&ldquo;{beat.premise}&rdquo;</p>
-          </div>
-        )}
-
         {beat.joke_type && (
           <div>
             <p className="mb-1.5 text-xs font-semibold uppercase tracking-wider text-stone-400">Joke Type</p>

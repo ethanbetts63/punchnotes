@@ -16,7 +16,7 @@ That's the *why*. Here's the exact system we use, condensed and refined for your
 2. Identify each punchline — that's the anchor for each beat.
 3. Walk backwards from each punchline labeling setup; walk forwards labeling tags and setups for tags.
 4. Mark everything else fluff.
-5. For each beat, identify the joke type and write a premise using the formula.
+5. For each beat, identify the joke type.
 6. Group beats into bits by shared topic. Apply the extraction test: if a beat would survive standalone, it's its own bit.
 
 ---
@@ -34,7 +34,7 @@ The line where the laugh lands. The reveal, twist, or payoff the setup was build
 
 ### `tag`
 
-An additional payoff in the same beat, riding on the laugh already in the room rather than a premise of its own. A tag can carry its own `setup`: a setup line followed by a tag belongs to the current beat. So `setup → punchline → setup → tag → setup → tag` is a single valid beat just as `setup → punchline → tag → tag` is valid. 
+An additional payoff in the same beat, riding on the laugh already in the room rather than starting a new beat of its own. A tag can carry its own `setup`: a setup line followed by a tag belongs to the current beat. So `setup → punchline → setup → tag → setup → tag` is a single valid beat just as `setup → punchline → tag → tag` is valid. 
 
 ### `fluff`
 
@@ -59,12 +59,12 @@ A line with no comedic bearing on the joke — but that doesn't automatically ma
 
 ### Bit vs. multiple bits
 
-**Shared subject matter does not equal shared premise.** Don't group beats just because they're about the same subject. Group them only when removing one would orphan the others.
+**Shared subject matter does not equal shared bit.** Don't group beats just because they're about the same subject. Group them only when removing one would orphan the others.
 
 The test: **can you extract a beat alone and still have it make sense?**
 
 - If yes → it's its own bit
-- If no (it depends on a premise established earlier) → same bit
+- If no (it depends on setup established earlier) → same bit
 
 ### Boundary rules
 
@@ -73,9 +73,9 @@ The test: **can you extract a beat alone and still have it make sense?**
 
 ---
 
-## Joke types and premise formulas
+## Joke types
 
-Writing the premise is the art of concretizing what is funny about a joke; it is not a summary. For every specific token in the setup, ask: if I swapped this word for a member of a broader class — does the joke still land via the identical mechanism? If yes, replace the token with the class. Repeat until the next swap up would break the joke. Duck→cow→horse all survive → animal. For example: `"Living in a car technically counts as homeownership."` not `"Living in a RAV4 technically counts as homeownership."` Likewise, avoid words like "he", "she", "they", or "the comic". It is almost always unnecessary specification. Why is this important? If two jokes share the same generalized premise, they are the same joke, even if their length, style, and wording may be completely different. By structuing and generalizing the premise consistantly, joke similarity becomes incredibly clear. 
+Joke types are a compact label for the mechanism of a beat. They are not meant to capture every detail of the joke; the transcript lines remain the source of truth. The label is useful for browsing and comparing broad joke shapes without adding a second layer of written analysis for every beat.
 
 ### misdirect
 
@@ -87,9 +87,6 @@ Example:
 - setup: `"Well, shouldn't call him my son anymore."`
 - punchline: `"Now that he's dead to me,"`
 
-Formula: *[bait] implies [implication], but reveals [reveal].*
-Premise: `"Refusing to call a transitioning child your son implies a new title, but reveals disownment."`
-
 ### reframe
 
 A known thing is given a newly visible interpretation. No false assumption is planted and no wording ambiguity is required: the setup is a plain, true statement, and the punchline overlays a second, equally-true way to see the same fact, object, behavior, or situation. Your first reading stays true — the joke *adds* an angle rather than replacing one. Test: if the punchline instead makes your first reading wrong, it's a misdirect.
@@ -98,9 +95,6 @@ Example:
 
 - setup: `"they got him on puberty blockers"`
 - punchline: `"or as pedophiles call them preservatives."`
-
-Formula: *[subject] could be [reframe].*
-Premise: `"Puberty blockers could be beneficial to pedophiles."`
 
 ### phonetic-match
 
@@ -111,10 +105,6 @@ Example:
 - setup: `"what do you call a little person with ADHD?"`
 - punchline: `"That's right, a fidget."`
 
-Formula without reason: *"[heard]" sounds like "[reheard]".*
-Formula with reason: *"[heard]" sounds like "[reheard]", and "[reheard]" fits because [reason].*
-Premise: `"'Midget' sounds like 'fidget', and 'fidget' fits because ADHD."`
-
 ### double-meaning
 
 The *same* word or phrase admits two or more readings. Hinges on semantic ambiguity, not phonetic similarity. The ambiguous word or phrase must be preserved exactly from the transcript. Do not generalize, paraphrase, shorten, or clean it up unless removing surrounding non-ambiguous words leaves the same complete ambiguity intact.
@@ -123,9 +113,6 @@ Example:
 
 - setup: `"'In case of fire, use stairs.'"`
 - punchline: `"Fuck that, let's use water."`
-
-Formula: *"[phrase]" can mean [expected] or [comic].*
-Premise: `"'In case of fire, use stairs' can mean use stairs during a fire or use stairs to fight a fire."`
 
 ### contradiction
 
@@ -136,9 +123,6 @@ Example:
 - setup: `"My girlfriend thinks the godfather is too long,"`
 - setup: `"But her story about when her coworker was bitchy to her two years ago is..."`
 - punchline: `"the perfect length."`
-
-Formula: *[subject] both [a] and yet [b].*
-Premise: `"Women both find good movies too long and yet tell long stories."`
 
 ### analogy
 
@@ -152,9 +136,6 @@ Example:
 - setup: `"And then waking up the next morning"`
 - tag: `"and deciding to try again, 'cause I like the challenge."`
 
-Formula: *[X] is like [Y] because both [shared structure].*
-Premise: `"Golf is like marriage because both involve expensive repeated failure."`
-
 ### hyperbole
 
 One dimension of a subject is stretched past plausibility. The laugh comes from excess degree, scale, or intensity.
@@ -165,9 +146,6 @@ Example:
 - setup: `"and I don't have enough bodily fluids"`
 - punchline: `"for the other two thirds of this collection."`
 
-Formula: *[subject] becomes so extreme that [extreme].*
-Premise: `"A porn collection becomes so extreme that you run out of sperm."`
-
 ### elephant-in-the-room
 
 A taboo or socially avoided observation is said aloud. The audience already recognizes the conclusion; the laugh comes from breaking the silence.
@@ -176,9 +154,6 @@ Example:
 
 - setup: `"You know, these shootings are often done by the same race."`
 - punchline: `"I'm looking at you, honkies."`
-
-Formula: *[elephant] is widely understood but rarely said aloud.*
-Premise: `"White men dominate mass shootings is widely understood but rarely said aloud."`
 
 ### anti-humor
 
@@ -190,9 +165,6 @@ Example:
 - setup: `"He asks the pharmacist for some ointment."`
 - punchline: `"Sorry, we don't have medicine for ducks here."`
 
-Formula: *[frame] implies a punchline, but reveals only [answer].*
-Premise: `"An animal asking a business for service implies a punchline, but reveals only that the business does not serve animals."`
-
 ### absurdism
 
 The payoff is random given the setup. No assumption is subverted and no second true reading is added.
@@ -202,18 +174,15 @@ Example:
 - setup: `"If I was a millionaire and I could live wherever I wanted, I'd probably live at the North Pole with Santa Claus."`
 - punchline: `"Say what you will about Santa Claus, but he's not Muslim."`
 
-Formula: *[frame] is met with [non sequitur], with no connecting logic.*
-Premise: `"Choosing where to live is met with Santa's arbitrary religion status, with no connecting logic."`
-
 ---
 
 ## Methodology
 
 Annotating jokes by hand is time consuming. The joke types above are, almost exactly, what we hand to an AI — the only difference is a few extra specifications about output format.
 
-It turns out LLMs are surprisingly good at this kind of structured joke annotation. And because the premises are structured and we have hard rules about how a joke *must* be built, we can catch the majority of the model's mistakes automatically and direct it to fix them on the spot. A tag with no preceding punchline, a beat with no punchline, a premise that still names "he" or a specific brand — these all trip validation and get bounced back immediately.
+It turns out LLMs are surprisingly good at this kind of structured joke annotation. And because the structure has hard rules, we can catch the majority of the model's mistakes automatically and direct it to fix them on the spot. A tag with no preceding punchline, a beat with no punchline, or a missing joke type will trip validation and get bounced back immediately.
 
-Almost every mistake that survives that process comes down to one of two things: bad transcription, or a lack of context — visual humor being the clearest case (more on that below). So the single best thing we can do to improve our annotations isn't to write more rules — it's to improve our transcriptions and the quality of the model doing the annotating. LLM's are generally very good at doing the line type labeling and beat/bit division but they can struggle to figure out what the essense of the joke truely is. So the joke type and premise writing can be hit or miss. They are also inconsistantly PC about what language they use to write the premise or what they are willing to admit is funny. 
+Almost every mistake that survives that process comes down to one of two things: bad transcription, or a lack of context — visual humor being the clearest case (more on that below). So the single best thing we can do to improve our annotations isn't to write more rules — it's to improve our transcriptions and the quality of the model doing the annotating. LLM's are generally very good at doing the line type labeling and beat/bit division, while joke type classification is still the part most likely to need human review.
 
 ### Known caveats
 

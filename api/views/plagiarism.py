@@ -19,8 +19,8 @@ PLAGIARISM_CACHE_TIMEOUT = 60 * 60 * 24 * 7
 
 
 def plagiarism_cache_key(text):
-    # v2: results now include set image_url / youtube_id
-    return f"plagiarism:v2:{sha256(text.encode('utf-8')).hexdigest()}"
+    # v3: premise was removed from result payloads.
+    return f"plagiarism:v3:{sha256(text.encode('utf-8')).hexdigest()}"
 
 
 def segment_query_text(text):
@@ -91,7 +91,6 @@ class PlagiarismCheckView(APIView):
                 "set_slug": set_public_slug(beat.bit.set),
                 "image_url": absolute_media_url(beat.bit.set.image_url, request),
                 "youtube_id": beat.bit.set.video.video_id,
-                "premise": beat.premise,
                 "lines": beat_display_lines(beat),
                 "matched_segments": matched_segments,
             })

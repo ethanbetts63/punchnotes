@@ -20,7 +20,7 @@ def search_data(db):
         {"line_number": 3, "label": "punchline", "text": "this line should not make the comedian searchable globally"},
     ]
     beat = Beat.objects.create(
-        bit=bit, beat_id="beat-1", line_start=1, line_end=3, premise="A clean premise", joke_type="misdirect",
+        bit=bit, beat_id="beat-1", line_start=1, line_end=3, joke_type="misdirect",
         search_text=build_beat_search_text(lines_data, {1, 2, 3}),
     )
     Line.objects.bulk_create([

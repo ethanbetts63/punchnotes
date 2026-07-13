@@ -114,7 +114,7 @@ export function buildWebSiteSchema(): object {
     name: SITE_NAME,
     url: SITE_URL,
     description:
-      'Structured analysis of stand-up comedy. Explore Kill Tony sets, comedians, and jokes broken down by premise, mechanism, and audience response.',
+      'Structured analysis of stand-up comedy. Explore Kill Tony sets, comedians, and jokes broken down by mechanism, line structure, and audience response.',
     publisher: {
       '@id': `${SITE_URL}/#organization`,
     },

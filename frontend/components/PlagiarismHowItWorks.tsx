@@ -5,7 +5,7 @@ const steps = [
     level: "01",
     title: "Paste your joke.",
     description:
-      "A premise, a bit, or a full chunk of material — up to 2,000 characters.",
+      "A bit, a line, or a full chunk of material — up to 2,000 characters.",
     icon: ClipboardPaste,
   },
   {

@@ -88,7 +88,6 @@ def build_report(joke_type: str, comedian: Comedian | None = None, joke_book: st
         report.append({
             "slug": build_beat_slug(beat),
             "comedian": beat.bit.set.comedian.name,
-            "premise": beat.premise,
             "lines": fetch_lines_for_beat(beat),
         })
     return report

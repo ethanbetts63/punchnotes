@@ -31,7 +31,6 @@ type PlagiarismMatch = {
   set_slug: string;
   image_url?: string | null;
   youtube_id?: string | null;
-  premise: string;
   lines: BeatLine[];
   matched_segments: MatchedSegment[];
 };
@@ -123,9 +122,6 @@ function MatchTile({ match }: { match: PlagiarismMatch }) {
             )}
             <SimilarityBadge score={match.similarity} />
           </div>
-          {match.premise && (
-            <p className="mb-3 text-sm italic text-stone-500">&ldquo;{match.premise}&rdquo;</p>
-          )}
           <div className="space-y-0.5">
             {match.lines.map((line) => (
               <LineRow key={line.line_number} line={line} score={lineScores.get(line.line_number)} />
@@ -173,10 +169,13 @@ export default function PlagiarismChecker() {
   }, []);
 
   useEffect(() => {
-    if (qParam) {
-      setText(qParam);
+    if (!qParam) return;
+
+    const timeout = window.setTimeout(() => {
       runCheck(qParam);
-    }
+    }, 0);
+
+    return () => window.clearTimeout(timeout);
   }, [qParam, runCheck]);
 
   function handleCheck() {
@@ -195,7 +194,7 @@ export default function PlagiarismChecker() {
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="Paste a joke or premise here..."
+          placeholder="Paste a joke here..."
           rows={5}
           className="w-full resize-none bg-transparent px-4 pb-14 pt-3 text-sm text-stone-900 placeholder-stone-400 focus:outline-none"
         />

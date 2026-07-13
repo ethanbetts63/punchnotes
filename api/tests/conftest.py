@@ -24,7 +24,7 @@ def full_set(db):
     bit = Bit.objects.create(set=set_obj, bit_id="b1", line_start=1, line_end=3)
     beat = Beat.objects.create(
         bit=bit, beat_id="beat-1", line_start=1, line_end=3,
-        premise="Rockets could be dreams.", joke_type="reframe",
+        joke_type="reframe",
     )
     Line.objects.bulk_create([
         Line(set=set_obj, line_number=1, label="setup", text="I used to be an astronaut.", start_seconds=60),

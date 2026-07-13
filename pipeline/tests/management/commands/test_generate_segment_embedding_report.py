@@ -17,16 +17,16 @@ def _make_set(name, slug, set_number):
     return Set.objects.create(video=video, comedian=comedian, start_seconds=float(set_number * 10))
 
 
-def _make_beat(standup_set, beat_id, premise, joke_type="misdirect"):
+def _make_beat(standup_set, beat_id, joke_type="misdirect"):
     bit = Bit.objects.create(set=standup_set, bit_id=f"bit-{beat_id}", line_start=1, line_end=1)
-    return Beat.objects.create(bit=bit, beat_id=beat_id, line_start=1, line_end=1, premise=premise, joke_type=joke_type)
+    return Beat.objects.create(bit=bit, beat_id=beat_id, line_start=1, line_end=1, joke_type=joke_type)
 
 
 def test_report_matches_segments_across_different_comedians(tmp_path):
     set_a = _make_set("Comic One", "comic-one", 1)
     set_b = _make_set("Comic Two", "comic-two", 1)
-    beat_a = _make_beat(set_a, "a", "premise a")
-    beat_b = _make_beat(set_b, "b", "premise b")
+    beat_a = _make_beat(set_a, "a")
+    beat_b = _make_beat(set_b, "b")
     BeatSegment.objects.create(beat=beat_a, ordinal=1, text="the punchline text", line_start=1, line_end=1, embedding=pack_embedding([1.0, 0.0]))
     BeatSegment.objects.create(beat=beat_b, ordinal=1, text="the punchline text", line_start=1, line_end=1, embedding=pack_embedding([1.0, 0.0]))
 
@@ -45,8 +45,8 @@ def test_report_matches_segments_across_different_comedians(tmp_path):
 def test_report_matches_segments_across_different_joke_types(tmp_path):
     set_a = _make_set("Comic One", "comic-one-xtype", 1)
     set_b = _make_set("Comic Two", "comic-two-xtype", 1)
-    beat_a = _make_beat(set_a, "a", "premise a", joke_type="misdirect")
-    beat_b = _make_beat(set_b, "b", "premise b", joke_type="reframe")
+    beat_a = _make_beat(set_a, "a", joke_type="misdirect")
+    beat_b = _make_beat(set_b, "b", joke_type="reframe")
     BeatSegment.objects.create(beat=beat_a, ordinal=1, text="reused joke", line_start=1, line_end=1, embedding=pack_embedding([1.0, 0.0]))
     BeatSegment.objects.create(beat=beat_b, ordinal=1, text="reused joke", line_start=1, line_end=1, embedding=pack_embedding([1.0, 0.0]))
 
@@ -60,8 +60,8 @@ def test_report_matches_segments_across_different_joke_types(tmp_path):
 
 def test_report_does_not_match_segments_from_same_comedian(tmp_path):
     set_a = _make_set("Comic One", "comic-one-2", 1)
-    beat_a = _make_beat(set_a, "a", "premise a")
-    beat_b = _make_beat(set_a, "b", "premise b")
+    beat_a = _make_beat(set_a, "a")
+    beat_b = _make_beat(set_a, "b")
     BeatSegment.objects.create(beat=beat_a, ordinal=1, text="text", line_start=1, line_end=1, embedding=pack_embedding([1.0, 0.0]))
     BeatSegment.objects.create(beat=beat_b, ordinal=1, text="text", line_start=1, line_end=1, embedding=pack_embedding([1.0, 0.0]))
 
@@ -75,8 +75,8 @@ def test_report_does_not_match_segments_from_same_comedian(tmp_path):
 def test_report_takes_best_segment_pair_per_beat_pair(tmp_path):
     set_a = _make_set("Comic One", "comic-one-3", 1)
     set_b = _make_set("Comic Two", "comic-two-3", 1)
-    beat_a = _make_beat(set_a, "a", "premise a")
-    beat_b = _make_beat(set_b, "b", "premise b")
+    beat_a = _make_beat(set_a, "a")
+    beat_b = _make_beat(set_b, "b")
     BeatSegment.objects.create(beat=beat_a, ordinal=1, text="unrelated setup", line_start=1, line_end=1, embedding=pack_embedding([0.0, 1.0]))
     BeatSegment.objects.create(beat=beat_a, ordinal=2, text="matching punchline", line_start=2, line_end=2, embedding=pack_embedding([1.0, 0.0]))
     BeatSegment.objects.create(beat=beat_b, ordinal=1, text="different setup", line_start=1, line_end=1, embedding=pack_embedding([0.0, -1.0]))

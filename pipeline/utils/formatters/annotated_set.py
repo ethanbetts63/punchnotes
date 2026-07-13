@@ -12,7 +12,7 @@ SET_FIELD_ORDER = [
 LINE_FIELD_ORDER = ["text", "label", "bit", "beat", "line_number", "start"]
 
 BEAT_FIELD_ORDER = [
-    "premise", "joke_type",
+    "joke_type",
     "bait", "implication", "reveal",
     "subject", "reframe", "extreme",
     "heard", "reheard", "reason",

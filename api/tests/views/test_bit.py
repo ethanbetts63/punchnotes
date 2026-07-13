@@ -13,8 +13,8 @@ def bit_data(db):
     set_obj = Set.objects.create(video=video, comedian=comedian, start_seconds=0)
     bit1 = Bit.objects.create(set=set_obj, bit_id="b1", line_start=1, line_end=2)
     bit2 = Bit.objects.create(set=set_obj, bit_id="b2", line_start=3, line_end=4)
-    Beat.objects.create(bit=bit1, beat_id="beat-1", line_start=1, line_end=2, premise="Misdirect premise.", joke_type="misdirect")
-    Beat.objects.create(bit=bit2, beat_id="beat-2", line_start=3, line_end=4, premise="Analogy premise.", joke_type="analogy")
+    Beat.objects.create(bit=bit1, beat_id="beat-1", line_start=1, line_end=2, search_text="Misdirect line.", joke_type="misdirect")
+    Beat.objects.create(bit=bit2, beat_id="beat-2", line_start=3, line_end=4, search_text="Analogy line.", joke_type="analogy")
     return set_obj, bit1, bit2
 
 
@@ -30,7 +30,7 @@ def test_bit_list_filter_by_joke_type(client, bit_data):
     assert resp.json()[0]["joke_types"] == ["misdirect"]
 
 
-def test_bit_list_search_by_premise(client, bit_data):
+def test_bit_list_search_by_beat_text(client, bit_data):
     resp = client.get("/api/killtony/bits/", {"q": "Analogy"})
     assert len(resp.json()) == 1
     assert resp.json()[0]["joke_types"] == ["analogy"]

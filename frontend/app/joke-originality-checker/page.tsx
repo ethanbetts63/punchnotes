@@ -18,7 +18,7 @@ const faqData: FaqItem[] = [
   {
     question: "How do I check if my joke has already been done?",
     answer:
-      "Paste your joke or premise into the checker above. It searches a database of annotated stand-up jokes using semantic similarity — matching ideas and phrasing, not just exact words — and shows the closest matches with line-by-line highlights.",
+      "Paste your joke into the checker above. It searches a database of annotated stand-up jokes using semantic similarity — matching ideas and phrasing, not just exact words — and shows the closest matches with line-by-line highlights.",
   },
   {
     question: "What does the similarity percentage mean?",
@@ -28,7 +28,7 @@ const faqData: FaqItem[] = [
   {
     question: "Does a high match mean a joke was stolen?",
     answer:
-      "Not necessarily. Comedians independently arrive at similar premises all the time — this is known as parallel thinking. A high match is a signal worth reviewing, not an accusation of joke theft. Click through to the original set and judge the context yourself.",
+      "Not necessarily. Comedians independently arrive at similar ideas all the time — this is known as parallel thinking. A high match is a signal worth reviewing, not an accusation of joke theft. Click through to the original set and judge the context yourself.",
   },
   {
     question: "What jokes does it check against?",

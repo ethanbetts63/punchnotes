@@ -52,7 +52,7 @@ export const metadata = {
   ...buildMetadata({
     title: "Kill Tony - PunchNotes",
     description:
-      "Structured comedy analytics for Kill Tony. Browse episodes, comedians, and jokes broken down by premise, mechanism, and audience response.",
+      "Structured comedy analytics for Kill Tony. Browse episodes, comedians, and jokes broken down by mechanism, line structure, and audience response.",
     canonicalPath: "/killtony",
   }),
   verification: {

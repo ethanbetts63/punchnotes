@@ -47,7 +47,7 @@ class BitAdmin(admin.ModelAdmin):
 class BeatAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'bit', 'beat_id', 'joke_type', 'line_start', 'line_end')
     list_filter = ('joke_type',)
-    search_fields = ('beat_id', 'premise')
+    search_fields = ('beat_id', 'search_text')
     raw_id_fields = ('bit',)
 
 

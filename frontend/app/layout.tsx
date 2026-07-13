@@ -14,7 +14,7 @@ const barlow = Barlow_Condensed({
 
 export const metadata: Metadata = {
   title: "PunchNotes — Comedy Analytics",
-  description: "Structured analysis of stand-up comedy. Explore Kill Tony sets, comedians, and jokes broken down by premise, mechanism, and audience response.",
+  description: "Structured analysis of stand-up comedy. Explore Kill Tony sets, comedians, and jokes broken down by mechanism, line structure, and audience response.",
   icons: {
     icon: [
       { url: '/punchnotes_logo_48x48.png', sizes: '48x48', type: 'image/png' },

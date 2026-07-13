@@ -32,7 +32,7 @@ class BeatSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Beat
-        fields = ["id", "beat_id", "premise", "joke_type", "line_start", "line_end", "lines"]
+        fields = ["id", "beat_id", "joke_type", "line_start", "line_end", "lines"]
 
     def get_lines(self, beat):
         set_lines = self.context.get("set_lines", [])

@@ -25,7 +25,7 @@ def _make_set(video_number, set_number, comedian):
     )
 
 
-def _make_beat(standup_set, bit_num, beat_num, joke_type, premise, line_start, line_end):
+def _make_beat(standup_set, bit_num, beat_num, joke_type, line_start, line_end):
     bit = Bit.objects.create(
         set=standup_set, bit_id=f"bit_{bit_num:03d}", line_start=line_start, line_end=line_end
     )
@@ -34,7 +34,6 @@ def _make_beat(standup_set, bit_num, beat_num, joke_type, premise, line_start, l
         beat_id=f"bit_{bit_num:03d}_beat_{beat_num:03d}",
         line_start=line_start,
         line_end=line_end,
-        premise=premise,
         joke_type=joke_type,
     )
 
@@ -69,7 +68,7 @@ def test_normalize_joke_type_rejects_unknown():
 def test_build_beat_slug_format():
     comedian = Comedian.objects.create(name="Casey Rocket", slug="casey-rocket")
     standup_set = _make_set(15, 15, comedian)
-    beat = _make_beat(standup_set, 1, 1, "analogy", "premise", 1, 3)
+    beat = _make_beat(standup_set, 1, 1, "analogy", 1, 3)
     assert build_beat_slug(beat) == "vid15-150-casey-rocket?bit=001&beat=001"
 
 
@@ -79,9 +78,9 @@ def test_build_report_filters_by_comedian_and_joke_type():
     set_a = _make_set(1, 1, comedian_a)
     set_b = _make_set(2, 1, comedian_b)
 
-    target = _make_beat(set_a, 1, 1, "analogy", "target premise", 1, 2)
-    _make_beat(set_a, 2, 1, "misdirect", "wrong joke type", 3, 4)
-    _make_beat(set_b, 1, 1, "analogy", "wrong comedian", 1, 2)
+    target = _make_beat(set_a, 1, 1, "analogy", 1, 2)
+    _make_beat(set_a, 2, 1, "misdirect", 3, 4)
+    _make_beat(set_b, 1, 1, "analogy", 1, 2)
 
     Line.objects.bulk_create([
         Line(set=set_a, line_number=1, label="setup", text="setup line", start_seconds=1.0),
@@ -94,7 +93,6 @@ def test_build_report_filters_by_comedian_and_joke_type():
 
     assert len(report) == 1
     assert report[0]["slug"] == build_beat_slug(target)
-    assert report[0]["premise"] == "target premise"
     assert report[0]["lines"] == ["setup line", "punch line"]
 
 
@@ -105,8 +103,8 @@ def test_build_report_filters_by_joke_book():
     small_set = _make_set(2, 1, comedian)
     _give_joke_book(small_set, "small")
 
-    target = _make_beat(big_set, 1, 1, "analogy", "big book premise", 1, 1)
-    _make_beat(small_set, 1, 1, "analogy", "small book premise", 1, 1)
+    target = _make_beat(big_set, 1, 1, "analogy", 1, 1)
+    _make_beat(small_set, 1, 1, "analogy", 1, 1)
     Line.objects.create(set=big_set, line_number=1, label="punchline", text="big book line", start_seconds=1.0)
     Line.objects.create(set=small_set, line_number=1, label="punchline", text="small book line", start_seconds=1.0)
 
@@ -121,8 +119,8 @@ def test_build_report_without_comedian_covers_everyone():
     comedian_b = Comedian.objects.create(name="Comic B", slug="comic-b")
     set_a = _make_set(1, 1, comedian_a)
     set_b = _make_set(2, 1, comedian_b)
-    _make_beat(set_a, 1, 1, "analogy", "premise a", 1, 1)
-    _make_beat(set_b, 1, 1, "analogy", "premise b", 1, 1)
+    _make_beat(set_a, 1, 1, "analogy", 1, 1)
+    _make_beat(set_b, 1, 1, "analogy", 1, 1)
     Line.objects.create(set=set_a, line_number=1, label="punchline", text="line a", start_seconds=1.0)
     Line.objects.create(set=set_b, line_number=1, label="punchline", text="line b", start_seconds=1.0)
 
@@ -135,7 +133,7 @@ def test_command_writes_txt_file(tmp_path, settings):
     settings.PIPELINE_PRIVATE_DATA_DIR = tmp_path
     comedian = Comedian.objects.create(name="Comic A", slug="comic-a")
     standup_set = _make_set(1, 1, comedian)
-    _make_beat(standup_set, 1, 1, "analogy", "premise", 1, 2)
+    _make_beat(standup_set, 1, 1, "analogy", 1, 2)
     Line.objects.bulk_create([
         Line(set=standup_set, line_number=1, label="setup", text="setup line", start_seconds=1.0),
         Line(set=standup_set, line_number=2, label="punchline", text="punch line", start_seconds=2.0),
@@ -152,7 +150,7 @@ def test_command_writes_json_file(tmp_path, settings):
     settings.PIPELINE_PRIVATE_DATA_DIR = tmp_path
     comedian = Comedian.objects.create(name="Comic A", slug="comic-a")
     standup_set = _make_set(1, 1, comedian)
-    _make_beat(standup_set, 1, 1, "analogy", "premise", 1, 1)
+    _make_beat(standup_set, 1, 1, "analogy", 1, 1)
     Line.objects.create(set=standup_set, line_number=1, label="punchline", text="only line", start_seconds=1.0)
 
     call_command("beats_by_joke_type", comedian="comic-a", joke_type="analogy", format="json")
@@ -173,8 +171,8 @@ def test_command_without_comedian_scopes_to_joke_book(tmp_path, settings):
     _give_joke_book(big_set, "large")
     small_set = _make_set(2, 1, comedian)
     _give_joke_book(small_set, "small")
-    _make_beat(big_set, 1, 1, "analogy", "big premise", 1, 1)
-    _make_beat(small_set, 1, 1, "analogy", "small premise", 1, 1)
+    _make_beat(big_set, 1, 1, "analogy", 1, 1)
+    _make_beat(small_set, 1, 1, "analogy", 1, 1)
     Line.objects.create(set=big_set, line_number=1, label="punchline", text="big line", start_seconds=1.0)
     Line.objects.create(set=small_set, line_number=1, label="punchline", text="small line", start_seconds=1.0)
 

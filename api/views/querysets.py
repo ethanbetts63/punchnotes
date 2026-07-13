@@ -143,7 +143,7 @@ def build_bit_list_queryset(params):
     q = (params.get("q") or "").strip()
     if q:
         bits = bits.filter(
-            Q(beats__premise__icontains=q)
+            Q(beats__search_text__icontains=q)
             | Q(beats__joke_type__icontains=q)
             | Q(set__comedian__name__icontains=q)
             | Q(set__video__title__icontains=q)

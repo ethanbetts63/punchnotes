@@ -27,7 +27,7 @@ export default function KillTonyOverview({
               itself. Since its 2013 debut as a Deathsquad pilot at the Comedy
               Store in Los Angeles, the show has turned open-mic unknowns into
               breakout regulars. The highs are incredibly high, the lows are devastatingly 
-              low, and we wouldn't want it any other way.
+              low, and we wouldn&rsquo;t want it any other way.
             </p>
             <p>   
               In 2021 the show moved to Austin and now tapes weekly out of the

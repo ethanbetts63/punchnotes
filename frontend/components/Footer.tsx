@@ -19,7 +19,7 @@ export default function Footer() {
           </div>
           <p className="text-sm text-stone-400 leading-relaxed">
             Structured comedy analytics for Kill Tony. Sets, comedians, and jokes broken
-            down by premise, mechanism, and audience response.
+            down by joke mechanism, line structure, and audience response.
           </p>
           <p className="mt-4 text-sm text-stone-400">
             <a href="mailto:ethanbetts63@gmail.com" className="hover:text-stone-200 transition-colors duration-200">

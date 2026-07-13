@@ -2,7 +2,6 @@ from collections import defaultdict
 
 from django.db.models import Avg, Count, Q
 
-from pipeline.json_validation.constants import JOKE_TYPE_FIELDS, OPTIONAL_JOKE_TYPE_FIELDS
 from pipeline.utils.ownership import infer_line_ownership
 from pipeline.utils.beat_search import build_beat_search_text
 from pipeline.utils.known_comedians import normalize_known_appearance_attributes
@@ -157,12 +156,6 @@ def _bit_ratios(label_by_line: dict, line_numbers: set) -> tuple[float | None, f
     return (p + t) / denominator if denominator > 0 else None, t / p if p > 0 else None
 
 
-def _extract_joke_fields(beat_data: dict) -> dict:
-    joke_type = beat_data.get("joke_type") or ""
-    fields = (*JOKE_TYPE_FIELDS.get(joke_type, ()), *OPTIONAL_JOKE_TYPE_FIELDS.get(joke_type, ()))
-    return {f: beat_data[f] for f in fields if f in beat_data}
-
-
 def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
     set_obj.bits.all().delete()
 
@@ -204,9 +197,7 @@ def import_bits(set_obj: Set, lines_data: list, bit_meta: dict) -> None:
                 beat_id=f"bit_{bit_num:03d}_beat_{beat_num:03d}",
                 line_start=min(blns),
                 line_end=max(blns),
-                premise=beat_data.get("premise"),
                 joke_type=beat_data.get("joke_type"),
-                joke_fields=_extract_joke_fields(beat_data),
                 search_text=build_beat_search_text(lines_data, set(blns)),
             ))
 

@@ -38,7 +38,7 @@ const useCases = [
   {
     title: "For comics",
     description:
-      "Study how short sets are built, where premises turn, and how crowds respond to different joke shapes.",
+      "Study how short sets are built, where jokes turn, and how crowds respond to different joke shapes.",
     icon: <Mic2 className="h-5 w-5" />,
   },
   {

@@ -32,7 +32,6 @@ class BitListSerializer(serializers.ModelSerializer):
 
     def get_beats(self, bit):
         return [
-            {"beat_id": beat.beat_id, "premise": beat.premise, "joke_type": beat.joke_type or ""}
+            {"beat_id": beat.beat_id, "joke_type": beat.joke_type or ""}
             for beat in bit.beats.all()
-            if beat.premise
         ]

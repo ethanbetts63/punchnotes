@@ -214,7 +214,6 @@ export type ComedianDetail = Comedian & {
 export type Beat = {
   id: number;
   beat_id: string;
-  premise: string;
   joke_type: string;
   line_start: number;
   line_end: number;
@@ -306,7 +305,7 @@ export type BitListItem = {
   set_slug: string;
   bit_id: string;
   joke_types: string[];
-  beats: { beat_id: string; premise: string; joke_type: string }[];
+  beats: { beat_id: string; joke_type: string }[];
   punch_density: number | null;
   tag_density: number | null;
 };
@@ -319,7 +318,6 @@ export type BeatSearchItem = {
   comedian_slug: string;
   episode_number: number;
   set_slug: string;
-  premise: string;
   joke_type: string;
   setup_lines: string[];
   punchline: string;

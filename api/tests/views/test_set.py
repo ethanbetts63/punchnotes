@@ -66,7 +66,7 @@ def test_set_detail_returns_200_by_slug(client, set_data):
 def test_set_detail_includes_bits_and_lines(client, set_data):
     _, s1, _ = set_data
     bit = Bit.objects.create(set=s1, bit_id="b1", line_start=2, line_end=3)
-    Beat.objects.create(bit=bit, beat_id="beat-1", line_start=2, line_end=3, premise="A premise.", joke_type="reframe")
+    Beat.objects.create(bit=bit, beat_id="beat-1", line_start=2, line_end=3, joke_type="reframe")
     Line.objects.bulk_create([
         Line(set=s1, line_number=1, label="fluff", text="Intro fluff.", start_seconds=0),
         Line(set=s1, line_number=2, label="setup", text="Setup.", start_seconds=0),

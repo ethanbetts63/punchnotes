@@ -20,7 +20,7 @@ class BeatSearchSerializer(serializers.ModelSerializer):
         model = Beat
         fields = [
             "id", "beat_id", "bit_id", "comedian", "comedian_slug", "episode_number", "set_slug",
-            "premise", "joke_type", "setup_lines", "punchline",
+            "joke_type", "setup_lines", "punchline",
             "matched_line", "matched_line_label",
         ]
 

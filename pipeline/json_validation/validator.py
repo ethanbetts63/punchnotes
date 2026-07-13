@@ -6,7 +6,6 @@ It raises one ValueError containing all discovered issues so annotators get
 precise feedback in a single import attempt.
 """
 
-from pipeline.json_validation.premises import populate_single_line_punchline_premises
 from pipeline.json_validation.beats import BeatMetaValidation
 from pipeline.json_validation.lines import LineValidation
 from pipeline.json_validation.utils import sequential_error
@@ -23,8 +22,6 @@ def validate_bit_meta(meta: dict) -> None:
     line_validation = LineValidation(lines).run()
     errors.extend(line_validation.errors)
 
-    single_line_premises = populate_single_line_punchline_premises(meta)
-
     bit_meta = meta.get("bit_meta", {})
     if not isinstance(bit_meta, dict):
         errors.append("bit_meta must be a JSON object keyed by bit number strings, not an array")
@@ -33,7 +30,6 @@ def validate_bit_meta(meta: dict) -> None:
     beat_validation = BeatMetaValidation(
         bit_meta,
         line_validation.punchline_lines,
-        single_line_premises=single_line_premises,
     ).run()
     errors.extend(beat_validation.errors)
 

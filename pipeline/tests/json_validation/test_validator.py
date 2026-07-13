@@ -4,13 +4,10 @@ from pipeline.json_validation import validate_bit_meta
 
 
 def _meta_with_line(line, beat_meta=None):
+    if beat_meta is None:
+        beat_meta = {"joke_type": "reframe"}
     return {
-        "bit_meta": {"1": {"beats": {"1": beat_meta or {
-            "premise": "A thing could be an unexpected thing.",
-            "joke_type": "reframe",
-            "subject": "a thing",
-            "reframe": "an unexpected thing",
-        }}}},
+        "bit_meta": {"1": {"beats": {"1": beat_meta}}},
         "lines": [line],
     }
 
@@ -19,37 +16,32 @@ def _punchline(line_number=10):
     return {"line_number": line_number, "text": "Payoff.", "label": "punchline", "bit": 1, "beat": 1}
 
 
-def test_valid_reframe_is_accepted():
+def test_valid_flat_joke_type_is_accepted():
     validate_bit_meta(_meta_with_line(_punchline()))
 
 
-def test_contradiction_is_valid():
-    meta = _meta_with_line(_punchline())
-    meta["bit_meta"]["1"]["beats"]["1"] = {
-        "premise": "Financial responsibility both means avoiding debt and yet includes payday loans.",
-        "joke_type": "contradiction", "subject": "financial responsibility",
-        "a": "means avoiding debt", "b": "includes payday loans",
-    }
+def test_legacy_premise_and_joke_specific_fields_are_ignored():
+    meta = _meta_with_line(_punchline(), {
+        "premise": "A thing could be an unexpected thing.",
+        "joke_type": "reframe",
+        "subject": "a thing",
+        "reframe": "an unexpected thing",
+        "unexpected_legacy_field": "also ignored",
+    })
+
     validate_bit_meta(meta)
 
 
-def test_double_meaning_is_valid():
-    meta = _meta_with_line(_punchline())
-    meta["bit_meta"]["1"]["beats"]["1"] = {
-        "premise": "'In case of fire use stairs' can mean escape or extinguish.",
-        "joke_type": "double-meaning", "phrase": "in case of fire use stairs",
-        "expected": "escape", "comic": "extinguish",
-    }
-    validate_bit_meta(meta)
+def test_invalid_joke_type_is_rejected():
+    meta = _meta_with_line(_punchline(), {"joke_type": "not-a-type"})
+    with pytest.raises(ValueError, match="joke_type must be one of"):
+        validate_bit_meta(meta)
 
 
-def test_phonetic_match_with_reason_is_valid():
-    meta = _meta_with_line(_punchline())
-    meta["bit_meta"]["1"]["beats"]["1"] = {
-        "premise": "'Midget' sounds like 'fidget'.", "joke_type": "phonetic-match",
-        "heard": "midget", "reheard": "fidget", "reason": "ADHD",
-    }
-    validate_bit_meta(meta)
+def test_missing_joke_type_is_rejected():
+    meta = _meta_with_line(_punchline(), {})
+    with pytest.raises(ValueError, match="joke_type must be one of"):
+        validate_bit_meta(meta)
 
 
 def test_non_fluff_line_requires_bit_and_beat():
@@ -65,7 +57,7 @@ def test_fluff_line_can_have_null_bit_and_beat():
 
 def test_setup_line_rejects_bit_and_beat_values():
     meta = {
-        "bit_meta": {"1": {"beats": {"1": {"premise": "p", "joke_type": "reframe", "subject": "x", "reframe": "y"}}}},
+        "bit_meta": {"1": {"beats": {"1": {"joke_type": "reframe"}}}},
         "lines": [
             {"line_number": 1, "text": "Setup.", "label": "setup", "bit": 1, "beat": 1},
             {"line_number": 2, "text": "Payoff.", "label": "punchline", "bit": 1, "beat": 1},
@@ -77,7 +69,7 @@ def test_setup_line_rejects_bit_and_beat_values():
 
 def test_tag_before_any_punchline_is_rejected():
     meta = {
-        "bit_meta": {"1": {"beats": {"1": {"premise": "p", "joke_type": "reframe", "subject": "x", "reframe": "y"}}}},
+        "bit_meta": {"1": {"beats": {"1": {"joke_type": "reframe"}}}},
         "lines": [
             {"line_number": 1, "text": "Setup.", "label": "setup", "bit": None, "beat": None},
             {"line_number": 2, "text": "Tag.", "label": "tag", "bit": None, "beat": None},
@@ -89,12 +81,8 @@ def test_tag_before_any_punchline_is_rejected():
 
 
 def test_tag_after_its_own_setup_is_valid():
-    # punchline -> setup -> tag: the tag carries its own setup and stays in the beat.
     meta = {
-        "bit_meta": {"1": {"beats": {"1": {
-            "premise": "A thing could be an unexpected thing.",
-            "joke_type": "reframe", "subject": "a thing", "reframe": "an unexpected thing",
-        }}}},
+        "bit_meta": {"1": {"beats": {"1": {"joke_type": "reframe"}}}},
         "lines": [
             {"line_number": 1, "text": "Payoff.", "label": "punchline", "bit": 1, "beat": 1},
             {"line_number": 2, "text": "New orienting line.", "label": "setup", "bit": None, "beat": None},
@@ -105,13 +93,8 @@ def test_tag_after_its_own_setup_is_valid():
 
 
 def test_tag_after_fluff_is_valid():
-    # Crowd filler can sit between a punchline and a later tag; the tag still
-    # rides the punchline.
     meta = {
-        "bit_meta": {"1": {"beats": {"1": {
-            "premise": "A thing could be an unexpected thing.",
-            "joke_type": "reframe", "subject": "a thing", "reframe": "an unexpected thing",
-        }}}},
+        "bit_meta": {"1": {"beats": {"1": {"joke_type": "reframe"}}}},
         "lines": [
             {"line_number": 1, "text": "Payoff.", "label": "punchline", "bit": 1, "beat": 1},
             {"line_number": 2, "text": "[laughs]", "label": "fluff", "bit": None, "beat": None},
@@ -124,8 +107,8 @@ def test_tag_after_fluff_is_valid():
 def test_multi_beat_bit_is_valid():
     meta = {
         "bit_meta": {"1": {"beats": {
-            "1": {"premise": "p1", "joke_type": "reframe", "subject": "x", "reframe": "y"},
-            "2": {"premise": "p2", "joke_type": "reframe", "subject": "a", "reframe": "b"},
+            "1": {"joke_type": "reframe"},
+            "2": {"joke_type": "misdirect"},
         }}},
         "lines": [
             {"line_number": 1, "text": "A", "label": "punchline", "bit": 1, "beat": 1},
@@ -137,12 +120,7 @@ def test_multi_beat_bit_is_valid():
 
 def test_consecutive_split_punchline_lines_in_same_beat_are_valid():
     meta = {
-        "bit_meta": {"1": {"beats": {"1": {
-            "premise": "A thing could be an unexpected thing.",
-            "joke_type": "reframe",
-            "subject": "a thing",
-            "reframe": "an unexpected thing",
-        }}}},
+        "bit_meta": {"1": {"beats": {"1": {"joke_type": "reframe"}}}},
         "lines": [
             {"line_number": 1, "text": "Setup.", "label": "setup", "bit": None, "beat": None},
             {"line_number": 2, "text": "Split payoff part one.", "label": "punchline", "bit": 1, "beat": 1},
@@ -154,13 +132,7 @@ def test_consecutive_split_punchline_lines_in_same_beat_are_valid():
 
 def test_repeated_punchline_anchor_after_setup_is_rejected():
     meta = {
-        "bit_meta": {"1": {"beats": {"1": {
-            "premise": "'Pussy' can mean a cat or a sexual reference.",
-            "joke_type": "double-meaning",
-            "phrase": "pussy",
-            "expected": "a cat",
-            "comic": "a sexual reference",
-        }}}},
+        "bit_meta": {"1": {"beats": {"1": {"joke_type": "double-meaning"}}}},
         "lines": [
             {"line_number": 1371, "text": "I'm a cat guy.", "label": "setup", "bit": None, "beat": None},
             {"line_number": 1378, "text": "When I say I love pussy, that's what I'm talking about.", "label": "punchline", "bit": 1, "beat": 1},
@@ -172,11 +144,10 @@ def test_repeated_punchline_anchor_after_setup_is_rejected():
         validate_bit_meta(meta)
 
 
-def test_bit_level_premise_is_rejected():
+def test_bit_level_legacy_premise_is_ignored():
     meta = _meta_with_line(_punchline())
     meta["bit_meta"]["1"]["premise"] = "Old bit-level field."
-    with pytest.raises(ValueError, match="bit 1: premise belongs on each beat, not on the bit"):
-        validate_bit_meta(meta)
+    validate_bit_meta(meta)
 
 
 def test_bit_meta_must_be_object_not_array():
@@ -193,29 +164,17 @@ def test_beats_must_be_object_not_array():
 
 def test_punchline_referencing_missing_beat_is_rejected():
     meta = {
-        "bit_meta": {"1": {"beats": {"1": {"premise": "p", "joke_type": "reframe", "subject": "x", "reframe": "y"}}}},
+        "bit_meta": {"1": {"beats": {"1": {"joke_type": "reframe"}}}},
         "lines": [{"line_number": 1, "text": "P.", "label": "punchline", "bit": 2, "beat": 1}],
     }
     with pytest.raises(ValueError, match=r"line\(s\) 1: punchline references bit 2 beat 1"):
         validate_bit_meta(meta)
 
 
-def test_single_line_punchline_uses_line_text_as_premise():
+def test_single_line_punchline_does_not_create_premise():
     meta = {
-        "bit_meta": {"1": {"beats": {"1": {"joke_type": "reframe", "subject": "seatbelts", "reframe": "wanting a hug"}}}},
+        "bit_meta": {"1": {"beats": {"1": {"joke_type": "reframe"}}}},
         "lines": [{"line_number": 10, "text": "I just wanna be held, please.", "label": "punchline", "bit": 1, "beat": 1}],
     }
     validate_bit_meta(meta)
-    assert meta["bit_meta"]["1"]["beats"]["1"]["premise"] == "I just wanna be held, please."
-
-
-def test_setup_backed_beat_requires_written_premise():
-    meta = {
-        "bit_meta": {"1": {"beats": {"1": {"joke_type": "reframe", "subject": "seatbelts", "reframe": "wanting a hug"}}}},
-        "lines": [
-            {"line_number": 9, "text": "I started wearing my seatbelt.", "label": "setup", "bit": None, "beat": None},
-            {"line_number": 10, "text": "I just wanna be held, please.", "label": "punchline", "bit": 1, "beat": 1},
-        ],
-    }
-    with pytest.raises(ValueError, match="bit 1 beat 1: premise is required"):
-        validate_bit_meta(meta)
+    assert "premise" not in meta["bit_meta"]["1"]["beats"]["1"]
