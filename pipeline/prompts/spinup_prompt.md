@@ -36,7 +36,7 @@ Check `C:\Users\ethan\coding\punchnotes\pipeline\data\set_inbox\`.
 
 If there are any `.json` files there:
 
-- Pick the first 10 files (sorted by filename). If fewer than 10 remain, take all of them.
+- For each agent pick the first 10 files (sorted by filename). If fewer than 10 remain, take all of them.
 - Spin up 2 medium level agents, tell them which files to process, and give them the prompt at `C:\Users\ethan\coding\punchnotes\pipeline\prompts\annotation_prompt.md`. If in local mode, tell the agent to use `--local` on the upload command. Otherwise, tell them that `--local` is available as a fallback — use it only if the upload command fails with a server connection error. **YOU SHOULD NOT READ THIS PROMPT JUST PASS IT ON**
 - Wait for them to finish, then repeat for the next batch of 10.
 - Continue until `set_inbox` is empty.
