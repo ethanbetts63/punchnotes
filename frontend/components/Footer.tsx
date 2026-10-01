@@ -60,6 +60,20 @@ export default function Footer() {
       <div className="border-t border-stone-800">
         <div className="mx-auto max-w-6xl px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-stone-600">&copy; {new Date().getFullYear()} PunchNotes. All rights reserved.</p>
+          <a
+            href="https://www.freethedesk.com.au/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-xs text-stone-600 transition-opacity hover:opacity-70"
+            aria-label="Developed by freethedesk"
+          >
+            <span>Developed by</span>
+            <Image src="/freethedesk_logo_512x512.png" alt="" width={22} height={22} className="h-[22px] w-[22px]" />
+            <span className="font-black leading-none tracking-[-0.085em] text-stone-200">
+              free<span className="text-[#1a5fa8]">the</span>desk
+              <span className="text-[#0b64d6]">.</span>
+            </span>
+          </a>
         </div>
       </div>
     </footer>
