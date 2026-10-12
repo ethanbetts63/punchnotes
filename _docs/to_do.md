@@ -30,3 +30,15 @@
   - BIT_LISTS in frontend/lib/playlists.ts:128 may be unused based on the searches I saw. Worth confirming with rg "BIT_LISTS".
 
   
+
+## Deploy the search fixes (committed 2026-10-13, not pushed)
+
+`883a902` (API) and `f3fa62e` (frontend). Deploy the API too: until it is, old `-setNN-` set URLs and the nine
+episodes whose YouTube id starts with a hyphen still 404. Then resubmit `sitemap.xml` in Search Console.
+
+## Playlist comedians with no page
+
+`lib/playlists.ts` names 11 regulars and golden-ticket winners the API has no comedian for (kimberly-congdon,
+malcolm-hatchett, sara-weinshenk, aloe-mean, aya-amarir, jj-alexander, john-callaghan, liam-o-brian, orhun-timur,
+ric-diez, ryan-middendorf). `charlie-mac` is probably `charlie-mack`, which exists. The sitemap now skips them; the
+comedians hub still links to them.
