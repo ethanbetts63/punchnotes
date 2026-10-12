@@ -5,7 +5,8 @@ from django.utils.text import slugify
 from pipeline.models import Video
 
 
-VIDEO_SLUG_RE = re.compile(r"^.+--(?P<video_id>[A-Za-z0-9_-]+)$")
+# Lazy, because a YouTube id may itself start with a hyphen ("steveo---exshTWEHRQ"); slugify never leaves "--" in the title.
+VIDEO_SLUG_RE = re.compile(r"^.+?--(?P<video_id>[A-Za-z0-9_-]+)$")
 
 
 def video_public_slug(video: Video) -> str:

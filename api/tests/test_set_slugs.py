@@ -57,3 +57,24 @@ def test_filter_sets_by_public_slugs_matches_multiple():
         ["aaa0000001-100-casey-rocket", "aaa0000002-200-dana-blue"],
     )
     assert set(result) == {s1, s2}
+
+
+def test_lookup_set_by_legacy_ordinal_slug_finds_the_set():
+    _make_set("aaa0000001", 100.0, "early-comic")
+    s = _make_set("aaa0000001", 300.0, "pat-o-neill")
+    assert list(lookup_set_by_public_slug("aaa0000001-set02-pat-o-neill")) == [s]
+
+
+def test_lookup_set_by_legacy_slug_uses_the_ordinal_when_a_comic_appears_twice():
+    _make_set("aaa0000001", 100.0, "pat-o-neill")
+    second = Set.objects.create(
+        video=Video.objects.get(video_id="aaa0000001"),
+        comedian=Comedian.objects.get(slug="pat-o-neill"),
+        start_seconds=300.0,
+    )
+    assert list(lookup_set_by_public_slug("aaa0000001-set02-pat-o-neill")) == [second]
+
+
+def test_lookup_set_by_legacy_slug_returns_none_for_an_unknown_comic():
+    _make_set("aaa0000001", 100.0, "casey-rocket")
+    assert list(lookup_set_by_public_slug("aaa0000001-set01-someone-else")) == []
