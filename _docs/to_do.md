@@ -40,5 +40,5 @@ episodes whose YouTube id starts with a hyphen still 404. Then resubmit `sitemap
 
 `lib/playlists.ts` names 11 regulars and golden-ticket winners the API has no comedian for (kimberly-congdon,
 malcolm-hatchett, sara-weinshenk, aloe-mean, aya-amarir, jj-alexander, john-callaghan, liam-o-brian, orhun-timur,
-ric-diez, ryan-middendorf). `charlie-mac` is probably `charlie-mack`, which exists. The sitemap now skips them; the
-comedians hub still links to them.
+ric-diez, ryan-middendorf). `charlie-mac` is probably `charlie-mack`, which exists. The sitemap and the comedians hub
+both skip them, so they appear nowhere until imported.
