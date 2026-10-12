@@ -49,7 +49,7 @@ export function buildMetadata({
       description,
       images: [imageUrl],
     },
-    robots: noindex ? { index: false, follow: false } : undefined,
+    robots: noindex ? { index: false, follow: true } : undefined,
   };
 }
 

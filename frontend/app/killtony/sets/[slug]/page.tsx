@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
 import { getServerSet } from "@/lib/serverApi";
 import SetTranscript from "@/components/SetTranscript";
@@ -37,6 +37,7 @@ export default async function SetDetailPage({ params }: Props) {
   const { slug } = await params;
   const set = await getServerSet(slug);
   if (!set) notFound();
+  if (set.slug !== slug) permanentRedirect(`/killtony/sets/${set.slug}`);
 
   const { comedian } = set;
   const bitCount = set.bits.length;

@@ -44,6 +44,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/",
+        destination: "/killtony",
+        permanent: true,
+      },
+      {
         source: "/killtony/plagiarism",
         destination: "/joke-originality-checker",
         permanent: true,
