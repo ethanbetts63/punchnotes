@@ -30,9 +30,3 @@
   - BIT_LISTS in frontend/lib/playlists.ts:128 may be unused based on the searches I saw. Worth confirming with rg "BIT_LISTS".
 
   
-## Check Lumen for copyright notices against punchnotes.app
-
-Search visibility fell 95% on 15–16 Aug 2026. Manual Actions was clean, nothing was deployed then, and Google's
-August spam update began on 18 Aug, after the fall. A site-wide demotion for valid DMCA notices is silent and fits.
-Google's copyright transparency report has no record for punchnotes.app (checked 2026-10-13). Lumen
-(lumendatabase.org/notices/search?term=punchnotes) sits behind a CAPTCHA, so it needs searching by hand.
