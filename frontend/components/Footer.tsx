@@ -63,7 +63,7 @@ export default function Footer() {
           <a
             href="https://www.freethedesk.com.au/"
             target="_blank"
-            rel="nofollow noopener noreferrer"
+            rel="noopener"
             className="flex items-center gap-1.5 text-xs text-stone-600 transition-opacity hover:opacity-70"
             aria-label="Developed by freethedesk"
           >

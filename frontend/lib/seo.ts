@@ -6,6 +6,16 @@ export const SITE_NAME = 'PunchNotes';
 export const SITE_LOGO_URL = `${SITE_URL}/punchnotes_logo_512x512.png`;
 export const DEFAULT_OG_IMAGE_URL = `${SITE_URL}/killtony/kt-anime.png`;
 
+/**
+ * Search indexes comedian pages, not sets or episodes: one page per comic carrying their jokes and stats across every
+ * appearance. A comic with a single set would only repeat that set, so a page is indexed from the second set on.
+ */
+export const INDEXED_COMEDIAN_MIN_SETS = 2;
+
+export function isIndexedComedian(comedian: { set_count: number }): boolean {
+  return comedian.set_count >= INDEXED_COMEDIAN_MIN_SETS;
+}
+
 const SITE_LOGO_IMAGE_OBJECT = {
   '@type': 'ImageObject',
   url: SITE_LOGO_URL,

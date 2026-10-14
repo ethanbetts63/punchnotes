@@ -25,6 +25,8 @@ export async function generateMetadata({ params }: Props) {
     title: `${set.comedian.name} - Ep ${set.video.number} | PunchNotes`,
     description: introSummary,
     canonicalPath: `/killtony/sets/${set.slug}`,
+    // Sets feed their comedian's page, which is the one search indexes.
+    noindex: true,
     image:
       set.image_url ??
       (set.video.youtube_id
@@ -90,8 +92,9 @@ export default async function SetDetailPage({ params }: Props) {
             className="mb-6"
             items={[
               { label: "Kill Tony", href: "/killtony" },
-              { label: "Sets", href: "/killtony/sets" },
-              { label: comedian.name },
+              { label: "Comedians", href: "/killtony/comedians" },
+              { label: comedian.name, href: `/killtony/comedians/${comedian.slug}` },
+              { label: `KT #${set.video.number}` },
             ]}
           />
           <div className="flex items-start gap-8">

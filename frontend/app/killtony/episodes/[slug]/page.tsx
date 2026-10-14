@@ -29,7 +29,8 @@ export async function generateMetadata({ params }: Props) {
     title: `Kill Tony #${episode.number}${guests.length > 0 ? ` with ${guestLabel}` : ""} | PunchNotes`,
     description: `${descriptionParts.join(", ")}. Browse PunchNotes set metrics, comedians, timestamps, and joke book flags for this episode.`,
     canonicalPath: `/killtony/episodes/${episode.slug}`,
-    noindex: setCount === 0,
+    // Search indexes comedian pages; episodes stay crawlable for the links to them.
+    noindex: true,
     image: episode.youtube_id
       ? `https://img.youtube.com/vi/${episode.youtube_id}/hqdefault.jpg`
       : null,

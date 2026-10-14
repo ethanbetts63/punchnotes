@@ -31,10 +31,21 @@
 
   
 
-## Deploy the search fixes (committed 2026-10-13, not pushed)
+## Deploy the API, then resubmit the sitemap
 
-`883a902` (API) and `f3fa62e` (frontend). Deploy the API too: until it is, old `-setNN-` set URLs and the nine
-episodes whose YouTube id starts with a hyphen still 404. Then resubmit `sitemap.xml` in Search Console.
+The frontend deploys on push; the API at api.punchnotes.app does not. Until the API is deployed:
+- old `-setNN-` set URLs and the nine episodes whose YouTube id starts with a hyphen still 404 (`883a902`);
+- comedian pages show no jokes and no joke-type sentence, because `sample_jokes` and `joke_type_counts` come from
+  the new comedian endpoint (2026-10-14).
+
+Then, in Search Console: resubmit `sitemap.xml` (about 340 URLs now: hubs plus comedians with two or more sets), and
+request indexing for the comedian pages people searched before the fall: eddie-lursa, vanessa-johnston,
+richie-gaines, casey-rocket, timmy-no-brakes, gary-falcon, pat-o-neill, mario-zapata.
+
+## Ask comics to link their page
+
+Comedian pages are the indexed pages now. A link from a comic's Instagram bio or link-in-bio page is the outside
+trust the site lacks. Start with the regulars and golden-ticket winners.
 
 ## Playlist comedians with no page
 

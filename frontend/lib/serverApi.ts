@@ -194,10 +194,24 @@ export type Comedian = {
   avg_beats_per_set: number | null;
 };
 
+export type SampleJoke = {
+  beat_id: string;
+  joke_type: string;
+  lines: { label: Line["label"]; text: string }[];
+};
+
 export type SetInComedian = {
   id: number;
   slug: string;
-  video: { id: number; slug: string; number: number; title: string; youtube_id: string; date: string | null };
+  video: {
+    id: number;
+    slug: string;
+    number: number;
+    title: string;
+    youtube_id: string;
+    date: string | null;
+    guests?: string[];
+  };
   attributes: string[];
   start_seconds: number;
   punch_density: number | null;
@@ -205,10 +219,13 @@ export type SetInComedian = {
   bit_count: number;
   image_url: string | null;
   image_capture_seconds: number | null;
+  // Optional until the API that returns it is deployed.
+  sample_jokes?: SampleJoke[];
 };
 
 export type ComedianDetail = Comedian & {
   sets: SetInComedian[];
+  joke_type_counts?: Record<string, number>;
 };
 
 export type Beat = {
