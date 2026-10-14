@@ -186,5 +186,7 @@ def build_comedian_detail_queryset():
         Prefetch(
             "sets",
             queryset=Set.objects.select_related("video", "comedian").order_by("-video__number"),
-        )
+        ),
+        "sets__lines",
+        "sets__bits__beats",
     )
